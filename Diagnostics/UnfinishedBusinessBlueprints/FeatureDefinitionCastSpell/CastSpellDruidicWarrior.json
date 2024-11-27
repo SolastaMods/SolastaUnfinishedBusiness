@@ -5,10 +5,10 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
+  "spellListDefinition": "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
-  "fixedSpellTag": "",
+  "fixedSpellTag": null,
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
@@ -57,7 +57,6 @@
     0,
     0,
     0,
-    0,
     0
   ],
   "scribedSpells": [
@@ -80,11 +79,9 @@
     0,
     0,
     0,
-    0,
     0
   ],
   "replacedSpells": [
-    0,
     0,
     0,
     0,
@@ -248,7 +245,7 @@
       ]
     }
   ],
-  "focusType": "Divine",
+  "focusType": "Arcane",
   "hasAccessToInvocations": false,
   "cannotUpcast": false,
   "guiPresentation": {

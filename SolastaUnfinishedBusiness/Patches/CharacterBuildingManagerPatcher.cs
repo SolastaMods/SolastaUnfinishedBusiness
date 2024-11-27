@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -237,6 +238,20 @@ public static class CharacterBuildingManagerPatcher
 
                 //PATCH: grants the power spell points to any created hero including pre-gen ones (SPELL_POINTS)
                 SpellPointsContext.GrantPowerSpellPoints(hero);
+            }
+
+            //PATCH: grants repertoire and selected cantrips from Blessed Warrior if not there yet
+            if (hero.TrainedFightingStyles.Any(x => x.Name == BlessedWarrior.Name) &&
+                hero.SpellRepertoires.All(x => x.spellCastingFeature != BlessedWarrior.CastSpellBlessedWarrior))
+            {
+                hero.GrantSpellRepertoire(BlessedWarrior.CastSpellBlessedWarrior, null, null, null);
+            }
+
+            //PATCH: grants repertoire and selected cantrips from Blessed Warrior if not there yet
+            if (hero.TrainedFightingStyles.Any(x => x.Name == DruidicWarrior.Name) &&
+                hero.SpellRepertoires.All(x => x.spellCastingFeature != DruidicWarrior.CastSpellDruidicWarrior))
+            {
+                hero.GrantSpellRepertoire(DruidicWarrior.CastSpellDruidicWarrior, null, null, null);
             }
 
             //PATCH: grants custom features
@@ -587,8 +602,6 @@ public static class CharacterBuildingManagerPatcher
                 }
             }
 
-            LevelUpHelper.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
-
             return true;
         }
     }
@@ -636,6 +649,25 @@ public static class CharacterBuildingManagerPatcher
                 __result = featureDefinitionCastSpell;
 
                 return false;
+            }
+
+            //PATCH: support cast spell granted from fighting style
+            if (tag.EndsWith(BlessedWarrior.Name) || tag.EndsWith(DruidicWarrior.Name))
+            {
+                var castSpell = hero.TrainedFightingStyles[hero.TrainedFightingStyles.Count - 1].Features
+                    .OfType<FeatureDefinitionCastSpell>().First();
+
+                if (castSpell)
+                {
+                    var spellTag = castSpell.GetFirstSubFeatureOfType<FeatHelpers.SpellTag>();
+
+                    if (spellTag != null && tag.EndsWith(spellTag.Name))
+                    {
+                        __result = castSpell;
+
+                        return false;
+                    }
+                }
             }
 
             var isMulticlass = LevelUpHelper.IsMulticlass(hero);

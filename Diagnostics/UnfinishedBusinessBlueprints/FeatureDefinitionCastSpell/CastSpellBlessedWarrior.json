@@ -8,7 +8,7 @@
   "spellListDefinition": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
-  "fixedSpellTag": "",
+  "fixedSpellTag": null,
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
@@ -16,7 +16,7 @@
   "spellCastingLevel": -1,
   "cantripsOnly": false,
   "knownCantrips": [
-    2,
+    0,
     2,
     2,
     2,
@@ -38,7 +38,6 @@
     2
   ],
   "knownSpells": [
-    0,
     0,
     0,
     0,
@@ -80,11 +79,9 @@
     0,
     0,
     0,
-    0,
     0
   ],
   "replacedSpells": [
-    0,
     0,
     0,
     0,
@@ -248,7 +245,7 @@
       ]
     }
   ],
-  "focusType": "Divine",
+  "focusType": "Arcane",
   "hasAccessToInvocations": false,
   "cannotUpcast": false,
   "guiPresentation": {
