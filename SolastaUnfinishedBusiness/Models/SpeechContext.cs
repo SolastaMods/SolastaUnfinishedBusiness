@@ -196,13 +196,12 @@ internal static class SpeechContext
 
         for (var i = 0; i <= MaxHeroes; i++)
         {
-            Main.Settings.SpeechVoices.TryAdd(i, (NoVoice, 1f));
-        }
+            Main.Settings.SpeechVoices.TryAdd(i, (NoVoice, 0.8f));
 
-        foreach (var kvp in Main.Settings.SpeechVoices.Where(kvp => !VoiceNames.Contains(kvp.Value.Item1))
-                     .ToDictionary(kvp => kvp.Key))
-        {
-            Main.Settings.SpeechVoices[kvp.Key] = (NoVoice, 1f);
+            if (!VoiceNames.Contains(Main.Settings.SpeechVoices[i].Item1))
+            {
+                Main.Settings.SpeechVoices[i] = (NoVoice, 0.8f);
+            }
         }
     }
 
