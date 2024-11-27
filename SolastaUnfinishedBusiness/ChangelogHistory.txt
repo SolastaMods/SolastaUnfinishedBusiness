@@ -2,7 +2,7 @@
 
 - added Ray of Sickening spell
 - added Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite 5e 2024 spells version
-- added General > Campaigns > 'Enable Speech on custom campaigns' setting
+- added General > Campaigns > 'Enable Speech on custom campaigns' setting with 14 ready voices for narration and heroes
 - added General > Rules > 'Enable an unlimited number of inventory actions per turn' setting [by SilverGriffon]
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
