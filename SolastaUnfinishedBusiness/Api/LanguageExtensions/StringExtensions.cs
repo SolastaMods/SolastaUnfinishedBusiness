@@ -10,19 +10,18 @@ internal static class StringExtensions
         return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
     }
 
-    internal static string LazyManStripXml(this string str)
+    private static readonly Regex RemoveXmlTags = new(@"<[bci/].*?>", RegexOptions.Compiled);
+
+    private static readonly Regex RemoveNpcSpeechTags = new(@"<[bci/].*?>|\*.+?\*|\(.+?\)", RegexOptions.Compiled);
+
+    internal static string StripXmlTags(this string str)
     {
-        return str
-            .Replace("<color=#D89555>", string.Empty)
-            .Replace("<color=#F0DAA0>", string.Empty)
-            .Replace("<color=#ADD8E6>", string.Empty)
-            .Replace("<#57BCF4>", "\r\n\t")
-            .Replace("<#B5D3DE>", string.Empty)
-            .Replace("</color>", string.Empty)
-            .Replace("<b>", string.Empty)
-            .Replace("<i>", string.Empty)
-            .Replace("</b>", string.Empty)
-            .Replace("</i>", string.Empty);
+        return RemoveXmlTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
+    }
+
+    internal static string StripXmlTagsAndNarration(this string str)
+    {
+        return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
     }
 
     internal static bool Matches(this string source, string other)
