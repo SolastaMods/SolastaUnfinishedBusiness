@@ -102,7 +102,7 @@ internal static class ToolsDisplay
         UI.Label();
 
 #if DEBUG
-         var size = IsUnityExplorerEnabled ? 195f : 145f;
+        var size = IsUnityExplorerEnabled ? 195f : 145f;
 #else
         // ReSharper disable once ConvertToConstant.Local
         var size = 195f;
