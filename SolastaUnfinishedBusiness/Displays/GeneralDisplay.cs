@@ -818,6 +818,15 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
+            Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
         if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
                 UI.AutoWidth()))

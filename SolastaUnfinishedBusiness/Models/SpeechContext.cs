@@ -318,11 +318,6 @@ internal static class SpeechContext
 
             using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
 
-            while (WaveOutEvent.PlaybackState == PlaybackState.Playing)
-            {
-                await Task.Delay(100);
-            }
-
             WaveOutEvent.Stop();
             WaveOutEvent.Init(waveStream);
             WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
