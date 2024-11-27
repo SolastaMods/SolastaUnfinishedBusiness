@@ -6,20 +6,18 @@ using SolastaUnfinishedBusiness.Models;
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
-public static class GuiBehaviourPatcher
+public static class GameLocationScreenNarrationPatcher
 {
-    [HarmonyPatch(typeof(GuiBehaviour), nameof(GuiBehaviour.StartAllModifiers))]
+    //PATCH: supports speech feature
+    [HarmonyPatch(typeof(GameLocationScreenNarration), nameof(GameLocationScreenNarration.SpeechConcluded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class StartAllModifiers_Patch
+    public static class SpeechConcluded_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(bool forward)
+        public static void Prefix()
         {
-            if (Main.Settings.EnableSpeech && !forward)
-            {
-                SpeechContext.WaveOutEvent.Stop();
-            }
+            SpeechContext.ShutUp();
         }
     }
 }

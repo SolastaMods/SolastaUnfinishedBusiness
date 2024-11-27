@@ -54,6 +54,8 @@ internal static class SpeechContext
 
     private static readonly string VoicesFolder = Path.Combine(Main.ModFolder, Path.Combine("..", "Voices"));
 
+    private static readonly WaveOutEvent WaveOutEvent = new();
+
     private static readonly (string, Gender)[] SuggestedVoicesUrls =
     [
         ($"{OfficialVoicesURLPrefix}en/en_GB/alan/medium/en_GB-alan-medium", Gender.Male),
@@ -80,8 +82,6 @@ internal static class SpeechContext
         ($"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium", Gender.Male),
         ($"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male)
     ];
-
-    internal static readonly WaveOutEvent WaveOutEvent = new();
 
     private static readonly string[] Quotes =
     [
@@ -254,7 +254,7 @@ internal static class SpeechContext
     internal static void RefreshAvailableVoices()
     {
         var directoryInfo = new DirectoryInfo(VoicesFolder);
-        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty)).ToList();
+        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty));
 
         VoiceNames = new List<string> { NoVoice }.Union(voices).ToArray();
     }
@@ -263,8 +263,7 @@ internal static class SpeechContext
     {
         // remove any invalid key
         Main.Settings.SpeechVoices.Keys
-            .Where(x => x is <= 0 or > MaxHeroes)
-            .ToList()
+            .Where(x => x is < 0 or > MaxHeroes)
             .Do(x => Main.Settings.SpeechVoices.Remove(x));
 
         for (var i = 0; i <= MaxHeroes; i++)
@@ -304,8 +303,33 @@ internal static class SpeechContext
 
         foreach (var kvp in lootPacks)
         {
-            CampaignVoices.Add(kvp.Key, kvp.Value);
+            var npc = kvp.Key;
+            var voice = kvp.Value;
+
+            if (!VoiceNames.Contains(voice))
+            {
+                continue;
+            }
+
+            if (userCampaign.UserNpcs.Any(x => x.InternalName == npc))
+            {
+                CampaignVoices.Add(npc, voice);
+            }
+            else
+            {
+                var userNpc = userCampaign.UserNpcs.FirstOrDefault(x => x.DisplayTitle == npc);
+
+                if (userNpc != null)
+                {
+                    CampaignVoices.Add(userNpc.InternalName, voice);
+                }
+            }
         }
+    }
+
+    internal static void ShutUp()
+    {
+        WaveOutEvent.Stop();
     }
 
     internal static void SpeakQuote()
@@ -318,11 +342,26 @@ internal static class SpeechContext
         Speak(quote, Main.Settings.SpeechChoice, false);
     }
 
-    // heroId zero is the Narrator and 1-6 map to possible heroes in party
+    internal static void Speak(string inputText, GameLocationCharacter character)
+    {
+        var index = Gui.Game.GameCampaign.Party.CharactersList
+            .FindIndex(x => x.RulesetCharacter == character.RulesetCharacter);
+
+        if (index < 0)
+        {
+            return;
+        }
+
+        Speak(inputText, index + 1);
+    }
+
+    // heroId zero is the Narrator and 1-6 map to heroes in party
     internal static async void Speak(string inputText, int heroId, bool forceUseCampaign = true)
     {
         try
         {
+            WaveOutEvent.Stop();
+
             // only if audio enabled
             var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
 
@@ -379,10 +418,12 @@ internal static class SpeechContext
         }
     }
 
-    internal static async void SpeakNpc(string inputText, string npcName)
+    internal static async void SpeakNpc(string inputText, GameLocationCharacter character)
     {
         try
         {
+            ShutUp();
+
             // only if audio enabled
             var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
 
@@ -403,6 +444,13 @@ internal static class SpeechContext
             {
                 return;
             }
+
+            if (character.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+            {
+                return;
+            }
+
+            var npcName = rulesetCharacterMonster.MonsterDefinition.Name;
 
             if (!CampaignVoices.TryGetValue(npcName, out var voiceName))
             {
@@ -442,7 +490,7 @@ internal static class SpeechContext
     private static void PlaySpeech(IAudioSettingsService audioSettingsService, WaveStream waveStream)
     {
         waveStream.Position = 0;
-        WaveOutEvent.Stop();
+
         WaveOutEvent.Init(waveStream);
         WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
         WaveOutEvent.Play();
@@ -468,7 +516,7 @@ internal static class SpeechContext
 
         using var writer = piper.StandardInput;
 
-        await writer.WriteAsync(inputText);
+        await writer.WriteAsync(inputText.StripXmlTagsAndNarration());
         writer.Close();
 
         while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)

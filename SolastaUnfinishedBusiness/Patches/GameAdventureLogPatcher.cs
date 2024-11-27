@@ -6,18 +6,18 @@ using SolastaUnfinishedBusiness.Models;
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
-public static class PosterScreenPatcher
+public static class GameAdventureLogPatcher
 {
     //PATCH: supports speech feature
-    [HarmonyPatch(typeof(PosterScreen), nameof(PosterScreen.ProceedAndHide))]
+    [HarmonyPatch(typeof(GameAdventureLog), nameof(GameAdventureLog.RecordLoreTextEntry))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class ProceedAndHide_Patch
+    public static class RecordLoreTextEntry_Patch
     {
         [UsedImplicitly]
-        public static void Prefix()
+        public static void Prefix(string loreText)
         {
-            SpeechContext.ShutUp();
+            SpeechContext.Speak(loreText, 0);
         }
     }
 }
