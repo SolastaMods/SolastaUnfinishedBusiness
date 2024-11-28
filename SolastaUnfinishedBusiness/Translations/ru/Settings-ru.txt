@@ -174,7 +174,7 @@ ModUi/&EnableRangerSpellCastingAtLevel1=Включить возможность 
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
 ModUi/&EnableRitualOnAllCasters=Включить <color=#D89555>Ритуальное колдовство</color> для всех заклинателей
-ModUi/&EnableRogueCunningStrike=Включить умения <color=#D89555>Хитрого удара</color> и <color=#D89555>Коварного удара</color> на уровнях 5 и 14 соответственно <i><color=#F0DAA0>[вы отказываетесь от 1 кости скрытой атаки для применения дополнительных эффектов]</color></i>
+ModUi/&EnableRogueCunningStrike=Включите <color=#D89555>Хитрый удар</color>, <color=#D89555>Улучшенный хитрый удар</color> и <color=#D89555>Коварный удар</color> на уровнях 5, 11 и 14 <i><color=#F0DAA0>[вы позволяете отказаться от 1 кубика скрытой атаки ради дополнительных эффектов попадания]</color></i>
 ModUi/&EnableRogueFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
 ModUi/&EnableRogueSlipperyMind=Заменить <color=#D89555>Скользкий ум</color> на версию 5e 2024 <i><color=#F0DAA0>[вы также получаете владение спасбросками Харизмы в дополнение к Мудрости]</color></i>
 ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Точное прицеливание</color> на уровне 3 <i><color=#F0DAA0>[бонусным действием даёт преимущество на следующий бросок атаки в текущем ходу, если вы ещё не перемещались]</color></i>

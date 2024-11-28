@@ -2401,10 +2401,12 @@ internal static class Tabletop2024Context
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetConditionType(ConditionType.Detrimental)
         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .AllowMultipleInstances()
         .SetSpecialInterruptions(ConditionInterruption.Attacks)
         .AddToDB();
 
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
+    private static FeatureDefinition _featureRogueImprovedCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
 
     private static void BuildRogueCunningStrike()
@@ -2667,13 +2669,18 @@ internal static class Tabletop2024Context
         _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Cunning}")
             .SetGuiPresentation($"Power{Cunning}", Category.Feature)
-            .AddFeatureSet(powerPool, actionAffinityToggle, powerDisarm, powerPoison, powerTrip, powerWithdraw)
+            .SetFeatureSet(powerPool, actionAffinityToggle, powerDisarm, powerPoison, powerTrip, powerWithdraw)
             .AddToDB();
 
+        _featureRogueImprovedCunningStrike= FeatureDefinitionBuilder
+            .Create($"FeatureImproved{Cunning}")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+            
         _featureSetRogueDeviousStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Devious}")
             .SetGuiPresentation($"Power{Devious}", Category.Feature)
-            .AddFeatureSet(powerDaze, powerKnockOut, powerObscure)
+            .SetFeatureSet(powerDaze, powerKnockOut, powerObscure)
             .AddToDB();
     }
 
@@ -2778,15 +2785,26 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
+            var aborted = false;
+            var attempts = rulesetAttacker.GetClassLevel(Rogue) >= 11 ? 2 : 1;
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
 
-            yield return attacker.MyReactToSpendPowerBundle(
-                usablePower,
-                [defender],
-                attacker,
-                powerRogueCunningStrike.Name,
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+            for (var i = 0; i < attempts; i++)
+            {
+                yield return attacker.MyReactToSpendPowerBundle(
+                    usablePower,
+                    [defender],
+                    attacker,
+                    powerRogueCunningStrike.Name,
+                    reactionValidated: ReactionValidated,
+                    reactionNotValidated: ReactionNotValidated,
+                    battleManager: battleManager);
+
+                if (aborted)
+                {
+                    break;
+                }
+            }
 
             yield break;
 
@@ -2817,6 +2835,11 @@ internal static class Tabletop2024Context
                     _selectedPower.CostPerUse,
                     0,
                     0);
+            }
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                aborted = true;
             }
         }
 
@@ -2962,12 +2985,14 @@ internal static class Tabletop2024Context
     {
         Rogue.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == _featureSetRogueCunningStrike ||
+            x.FeatureDefinition == _featureRogueImprovedCunningStrike ||
             x.FeatureDefinition == _featureSetRogueDeviousStrike);
 
         if (Main.Settings.EnableRogueCunningStrike)
         {
             Rogue.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5),
+                new FeatureUnlockByLevel(_featureRogueImprovedCunningStrike, 11),
                 new FeatureUnlockByLevel(_featureSetRogueDeviousStrike, 14));
         }
 
