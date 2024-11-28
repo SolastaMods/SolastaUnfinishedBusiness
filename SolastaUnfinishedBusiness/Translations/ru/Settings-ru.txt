@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Включить <color=#D89555>Чар
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableSpeech=Включить речь в пользовательских кампаниях <i><color=#F0DAA0>[только повествование и герои]</color></i>
 ModUi/&EnableSpeechActorHelp=• Выберите актера
-ModUi/&EnableSpeechOnNpcs=<i>+ Также включить голоса для NPC <color=#F0DAA0>[голоса автоматически назначаются в кампаниях без данных дубляжа]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Включить речь для NPC <color=#F0DAA0>[либо из карты кампании, либо из автоматического назначения]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Выберите голос и скорость повествования
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=Исправить перенос текста 
 ModUi/&FixEldritchBlastRange=Использовать дальность в 24 клетки для <color=#D89555>Мистического заряда</color> <i><color=#F0DAA0>[вместо 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Установить скорость лечения от <color=#D89555>Кольца регенерации</color> на 1 ОЗ в 3 минуты
 ModUi/&FlightSuspendWingedBoots=<i>+ Использовать официальные правила Крылатых сапог <color=#F0DAA0>[оставшееся время использования не учитывается при приостановке полёта]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Принудительное автоматическое назначение голоса всем NPC вместо сопоставления кампаний</i>
 ModUi/&Formation=<color=#F0DAA0>Боевой порядок:</color>
 ModUi/&FormationError=<color=#C04040E0>Вы не можете изменить свой боевой порядок во время многопользовательской игры...</color>
 ModUi/&FormationHelp1=• Используйте клавиши цифр, чтобы изменить заданные условия <i><color=#F0DAA0>[удобнее будет включить и использовать нампад]</color></i>

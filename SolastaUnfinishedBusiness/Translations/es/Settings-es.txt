@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableSpeech=Habilitar el habla en campañas personalizadas <i><color=#F0DAA0>[solo narración y héroes]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleccione un actor
-ModUi/&EnableSpeechOnNpcs=<i>+ También habilitar voces en los NPC <color=#F0DAA0>[voces asignadas automáticamente en campañas sin datos de doblaje]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Habilitar el habla en los NPC <color=#F0DAA0>[ya sea desde el mapeo de campaña o la asignación automática]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Seleccione una voz y velocidad de narración
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=Corregir el error de ajuste de texto de la inte
 ModUi/&FixEldritchBlastRange=Utilice un rango de 24 celdas con <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[en lugar de 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Establece la tasa de curación del <color=#D89555>Anillo de regeneración</color> en 1 HP cada 3 minutos.
 ModUi/&FlightSuspendWingedBoots=<i>+ Usa las reglas oficiales de Winged Boots <color=#F0DAA0>[la duración restante no se cuenta cuando el vuelo está suspendido]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Forzar la asignación automática de voz a todos los NPC en lugar del mapeo de campañas</i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante un juego multijugador...</color>
 ModUi/&FormationHelp1=• Utilice los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar teclas de acceso rápido en la entrada]</color></i>

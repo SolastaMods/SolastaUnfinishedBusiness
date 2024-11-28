@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法に�
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
-ModUi/&EnableSpeechOnNpcs=<i>+ NPC の音声も有効にします <color=#F0DAA0>[吹き替えデータがないキャンペーンでは音声が自動的に割り当てられます]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ NPC のスピーチを有効にする <color=#F0DAA0>[キャンペーン マッピングまたは自動割り当てから]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの�
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチ ブラスト</color>で24セルの範囲を使用します <i><color=#F0DAA0>[12の代わりに]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>再生の指輪</color>の回復速度を3分ごとに1HPに設定
 ModUi/&FlightSuspendWingedBoots=<i>+ ウィングドブーツの公式ルールを使用 <color=#F0DAA0>[飛行が中断されると残り時間はカウントされません]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+キャンペーンマッピングの代わりに、すべての NPC に音声の自動割り当てを強制する</i>
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤーゲーム中はフォーメーションを変更できません...</color>
 ModUi/&FormationHelp1=• 数字ボタンを使用して、特定のセットを編集します <i><color=#F0DAA0>[入力時にホットキーを有効にすることを検討してください]</color></i>

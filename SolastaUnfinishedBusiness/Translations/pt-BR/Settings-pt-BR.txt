@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0>[somente narração e heróis]</color></i>
 ModUi/&EnableSpeechActorHelp=• Selecione um ator
-ModUi/&EnableSpeechOnNpcs=<i>+ Também habilitar vozes em NPCs <color=#F0DAA0>[vozes atribuídas automaticamente em campanhas sem dados de dublagem]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Habilitar fala em NPCs <color=#F0DAA0>[por mapeamento de campanha ou atribuição automática]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Selecione uma voz e velocidade de narração
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=Corrigir quebra de texto da interface do usuár
 ModUi/&FixEldritchBlastRange=Use o intervalo de 24 células com <color=#D89555>Explosão Eldritch</color> <i><color=#F0DAA0>[em vez de 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Defina a taxa de cura do <color=#D89555>Anel de Regeneração</color> para 1 HP a cada 3 minutos
 ModUi/&FlightSuspendWingedBoots=<i>+ Use as regras oficiais das Botas Aladas <color=#F0DAA0>[duração restante não contada quando o voo é suspenso]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Forçar atribuição automática de voz em todos os NPCs em vez de mapeamento de campanha</i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador...</color>
 ModUi/&FormationHelp1=• Use os botões numéricos para editar um determinado conjunto <i><color=#F0DAA0>[considere habilitar teclas de atalho na entrada]</color></i>

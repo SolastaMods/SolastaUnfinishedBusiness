@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -39,6 +40,10 @@ internal static class SpeechContext
     // should consider translating these
     internal static readonly string[] Choices = new List<string> { "Narrator" }
         .Union(Enumerable.Range(1, MaxHeroes).Select(n => $"Hero {n}")).ToArray();
+
+
+    private static readonly Regex RemoveNpcSpeechTags =
+        new(@"<[bci/].*?>|\*.+?\*|\(.+?\)|\[.+?\]|\{.+?\}", RegexOptions.Compiled);
 
     private static readonly string PiperFolder =
         Path.Combine(
@@ -80,7 +85,113 @@ internal static class SpeechContext
         ($"{OfficialVoicesURLPrefix}en/en_US/libritts_r/medium/en_US-libritts_r-medium", Gender.Female),
         ($"{OfficialVoicesURLPrefix}en/en_US/ljspeech/medium/en_US-ljspeech-medium", Gender.Female),
         ($"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium", Gender.Male),
-        ($"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male)
+        ($"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male),
+        ("https://huggingface.co/poisson-fish/piper-vasco/resolve/main/onnx/vasco", Gender.Male),
+        ("https://huggingface.co/quarterturn/kuroki_tomoko_en_piper/resolve/main/kuroki_tomoko", Gender.Female)
+    ];
+
+    private static readonly string[] FemaleNpcs =
+    [
+        "Aristocrat_Adria",
+        "Aristocrat_Lyria",
+        "Atima_Bladeburn",
+        "Beryl_Stonebeard",
+        "Bitterroot",
+        "Caer_Cyflen_Guard",
+        "CaerCyflenCityGuard_NewEmpire_Female",
+        "Captain_Verissa_Ironshell",
+        "Ceiwad_Silverflower",
+        "Circe",
+        "Council_Trooper",
+        "CultistGuard",
+        "Daliat_Sunbird",
+        "DLC1_Complex_NPC_Guard_Recruit",
+        "DLC1_Complex_NPC_Guard_Watcher",
+        "DLC1_Complex_NPC_Trainer_01",
+        "DLC1_NPC_2_Marches_Helia_Fairblade",
+        "DLC1_NPC_3_Marches_Rogue_Leyrin_Catpaw",
+        "DLC1_NPC_Armorer_Gail_Hunt",
+        "DLC1_NPC_CityGuard_Captain_ThePeople04",
+        "DLC1_NPC_Finaliel",
+        "DLC1_NPC_Forge_Ravener",
+        "DLC1_NPC_Malariel",
+        "DLC1_NPC_Mask_CafrainShadow",
+        "DLC1_NPC_Merchant_Mask_Yasmin",
+        "DLC1_NPC_Rebelion_Ellaria_Anfarel",
+        "DLC1_NPC_Rebellion_Blue",
+        "DLC1_NPC_Rebellion_Red",
+        "DLC1_NPC_Rebellion_Sima_Temple",
+        "DLC1_NPC_ThePeople_Karelia",
+        "DLC1_NPC_ThePeople_Reya",
+        "DLC1_NPC_ThePeople_Rose",
+        "DLC1_NPC_ThePeople_Tortured",
+        "DLC1_NPC_Witch_Neutral",
+        "DLC1_Orc_Shaman_Leader",
+        "DLC1_Valley_NPC_Samko_Flint",
+        "DLC3_Berghild_StrongSpine",
+        "DLC3_Beryl_Stonebeard",
+        "DLC3_Council_Trooper_1",
+        "DLC3_ElvenClans_DragonbornIntermediate",
+        "DLC3_ElvenClans_ElfAdvisor2",
+        "DLC3_ElvenClans_Leralyn",
+        "DLC3_Gallivan_Royals_TheCousin",
+        "DLC3_Gallivan_Royals_TheQueen",
+        "DLC3_Gallivan_Suspect01",
+        "DLC3_Gallivan_Suspect02",
+        "DLC3_GarradSoldier02",
+        "DLC3_GarradSoldier03",
+        "DLC3_GarradSoldier0C",
+        "DLC3_Grimhild_DarkHead",
+        "DLC3_Kara_WiseHead",
+        "DLC3_Lena_Switfhand",
+        "DLC3_Lisbath_Townsend",
+        "DLC3_Misouk",
+        "DLC3_NPC_Crowd8_DLC3_Ending",
+        "DLC3_NPC_Einareum_Merchant_General",
+        "DLC3_NPC_Einareum_Merchant_Weapons",
+        "DLC3_NPC_ElvenClans_Greybear_Hunter",
+        "DLC3_NPC_ElvenClans_Guard",
+        "DLC3_NPC_ElvenClans_GuardCaptain",
+        "DLC3_NPC_GenericScavengerScout",
+        "DLC3_NPC_Helia_Fairblade",
+        "DLC3_NPC_HumanClans_Guard",
+        "DLC3_NPC_HumanClans1_DLC3_Ending",
+        "DLC3_NPC_HumanClansLeader",
+        "DLC3_NPC_Narrator_DLC3_Ending",
+        "DLC3_NPC_NorthernClans_Merchant_Ingredients",
+        "DLC3_NPC_SouthernClans_Caretaker",
+        "DLC3_NPC_SouthernClans_Cousin_Kaikonnen",
+        "DLC3_NPC_SouthernClans_Innkeeper",
+        "DLC3_NPC_SouthernClans_Merchant_Clan",
+        "DLC3_NPC_SouthernClans_Merchant_General",
+        "DLC3_NPC_SouthernClans_Merchant_Ingredients",
+        "DLC3_NPC_SouthernClans_Merchant_Scavenger",
+        "DLC3_NPC_WhiteCity_Guard_Captain",
+        "DLC3_NPC_WhiteCity_Trapper_Family_01",
+        "DLC3_Undermountain_EttivenGuard",
+        "DLC3_Undermountain_Investigation_Informant",
+        "DLC3_Undermountain_PerlevinnGuard_Banter",
+        "DLC3_Vigdis_Kaikonnen",
+        "DLC3_Violet_Goodcheer",
+        "DLC3_WhiteCity_MotherYoungDwarf",
+        "DLC3_WhiteCity_YoungDwarf",
+        "Heather_Merran",
+        "Hertha_Gormsdottir",
+        "Joriel_Foxeye",
+        "Kebra",
+        "Kythaela",
+        "Leira_Kean",
+        "Lena",
+        "Lisbath_Townsend",
+        "Maddy_Greenisle",
+        "Maid_Coparann",
+        "Mayor_Kiaradth_Bright-Spark",
+        "Merchant_Annie_Bagmordah",
+        "Merchant_Gorim_Ironsoot",
+        "Milan",
+        "Mildred_Warmhearth",
+        "Philosopher_Illoreth",
+        "Priestess_Of_Pakri_Elaine_Velasco"
     ];
 
     private static readonly string[] Quotes =
@@ -189,11 +300,18 @@ internal static class SpeechContext
 
     private static readonly Random Quoteziner = new();
 
-    private static readonly List<string> AvailableVoices = [];
+    private static readonly List<string> AvailableFemaleVoices = [];
+
+    private static readonly List<string> AvailableMaleVoices = [];
 
     private static readonly Dictionary<string, string> CampaignVoices = [];
 
     internal static string[] VoiceNames { get; private set; }
+
+    internal static string StripXmlTagsAndNarration(string str)
+    {
+        return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
+    }
 
     internal static void Load()
     {
@@ -228,7 +346,7 @@ internal static class SpeechContext
         var message = "Piper successfully downloaded.";
         var filename = Path.GetFileName(url);
         var fullZipFile = Path.Combine(Main.ModFolder, filename);
-        var wc = new WebClient();
+        using var wc = new WebClient();
 
         try
         {
@@ -281,7 +399,21 @@ internal static class SpeechContext
     {
         var assignedVoices = Main.Settings.SpeechVoices.Values.Select(x => x.Item1).Distinct().ToArray();
 
-        AvailableVoices.SetRange(VoiceNames.Where(x => !assignedVoices.Contains(x) && x != NoVoice));
+        AvailableFemaleVoices.SetRange(
+            VoiceNames
+                .Where(x =>
+                    x != NoVoice &&
+                    !assignedVoices.Contains(x) &&
+                    SuggestedVoicesUrls
+                        .Any(y => y.Item1.Contains(x) && y.Item2 == Gender.Female)));
+
+        AvailableMaleVoices.SetRange(
+            VoiceNames
+                .Where(x =>
+                    x != NoVoice &&
+                    !assignedVoices.Contains(x) &&
+                    SuggestedVoicesUrls
+                        .Any(y => y.Item1.Contains(x) && y.Item2 == Gender.Male)));
     }
 
     internal static void CollectCurrentCampaignNpcsVoiceTips()
@@ -452,25 +584,45 @@ internal static class SpeechContext
 
             var npcName = rulesetCharacterMonster.MonsterDefinition.Name;
 
-            if (!CampaignVoices.TryGetValue(npcName, out var voiceName))
+            if (Main.Settings.ForceModSpeechOnNpcs ||
+                !CampaignVoices.TryGetValue(npcName, out var voiceName))
             {
                 // don't auto assign voices on campaigns that have dub data
-                if (CampaignVoices.Count > 0)
+                if (!Main.Settings.ForceModSpeechOnNpcs && CampaignVoices.Count > 0)
                 {
                     return;
                 }
 
                 // assign dub data on a round-robin basis for campaigns without it
-                var npcId = Gui.Session.UserCampaign?.UserNpcs?.FindIndex(x => x.DisplayTitle == npcName) ?? -1;
+                var userNpc = Gui.Session.UserCampaign?.UserNpcs?.FirstOrDefault(x => x.InternalName == npcName);
+
+                if (userNpc == null)
+                {
+                    return;
+                }
+
+                var npcId = Gui.Session.UserCampaign.UserNpcs.IndexOf(userNpc);
 
                 if (npcId < 0)
                 {
                     return;
                 }
 
-                var voiceId = npcId % AvailableVoices.Count;
-
-                voiceName = AvailableVoices[voiceId];
+                switch (FemaleNpcs.Contains(userNpc.ReferenceMonsterDefinition.Name))
+                {
+                    case true when AvailableFemaleVoices.Count > 0:
+                    {
+                        voiceName = AvailableFemaleVoices[npcId % AvailableFemaleVoices.Count];
+                        break;
+                    }
+                    case false when AvailableMaleVoices.Count > 0:
+                    {
+                        voiceName = AvailableMaleVoices[npcId % AvailableMaleVoices.Count];
+                        break;
+                    }
+                    default:
+                        return;
+                }
             }
 
             var scale = Main.Settings.SpeechVoices[0].Item2;
@@ -503,7 +655,6 @@ internal static class SpeechContext
         var buffer = new byte[16384];
         var modelFileName = Path.Combine(VoicesFolder, voiceName + ".onnx");
         var piper = new Process();
-
         int bytesRead;
 
         piper.StartInfo.FileName = executablePath;
@@ -516,7 +667,7 @@ internal static class SpeechContext
 
         using var writer = piper.StandardInput;
 
-        await writer.WriteAsync(inputText.StripXmlTagsAndNarration());
+        await writer.WriteAsync(StripXmlTagsAndNarration(inputText));
         writer.Close();
 
         while ((bytesRead = await piper.StandardOutput.BaseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
@@ -575,7 +726,7 @@ internal static class SpeechContext
 
         private IEnumerator DownloadVoicesImpl()
         {
-            var wc = new WebClient();
+            using var wc = new WebClient();
 
             if (!Directory.Exists(VoicesFolder))
             {

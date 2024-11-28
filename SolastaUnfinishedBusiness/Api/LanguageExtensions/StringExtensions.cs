@@ -12,16 +12,9 @@ internal static class StringExtensions
 
     private static readonly Regex RemoveXmlTags = new(@"<[bci/].*?>", RegexOptions.Compiled);
 
-    private static readonly Regex RemoveNpcSpeechTags = new(@"<[bci/].*?>|\*.+?\*|\(.+?\)", RegexOptions.Compiled);
-
     internal static string StripXmlTags(this string str)
     {
         return RemoveXmlTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
-    }
-
-    internal static string StripXmlTagsAndNarration(this string str)
-    {
-        return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
     }
 
     internal static bool Matches(this string source, string other)

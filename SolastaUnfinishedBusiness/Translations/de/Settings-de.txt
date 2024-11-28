@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte W
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kampagnen <i><color=#F0DAA0>[nur Erzählung und Helden]</color></i>
 ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
-ModUi/&EnableSpeechOnNpcs=<i>+ Stimmen auch für NPCs aktivieren <color=#F0DAA0>[Stimmen werden bei Kampagnen ohne Synchronisationsdaten automatisch zugewiesen]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Sprache für NPCs aktivieren <color=#F0DAA0>[entweder über Kampagnenzuordnung oder automatische Zuweisung]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Wählen Sie eine Stimme und Erzählgeschwindigkeit
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=Textumbruch der Spiel-UI in asiatischen Sprache
 ModUi/&FixEldritchBlastRange=Nutze 24 Zellen Reichweite mit <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[anstelle von 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Setzt die Heilrate des <color=#D89555>Rings der Regeneration</color> auf 1 HP alle 3 Minuten.
 ModUi/&FlightSuspendWingedBoots=<i>+ Offizielle Regeln für geflügelte Stiefel verwenden <color=#F0DAA0>[verbleibende Dauer wird bei Flugunterbrechung nicht gezählt]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Automatische Stimmzuweisung für alle NPCs erzwingen, statt Kampagnenzuordnung</i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Aufstellung während eines Mehrspielerspiels nicht ändern...</color>
 ModUi/&FormationHelp1=• Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>

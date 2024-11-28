@@ -188,7 +188,7 @@ ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Strego
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
-ModUi/&EnableSpeechOnNpcs=<i>+ Abilita anche le voci sui PNG <color=#F0DAA0>[voci assegnate automaticamente nelle campagne senza dati di doppiaggio]</color></i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Abilita la parola sui PNG <color=#F0DAA0>[sia dalla mappatura della campagna che dall'assegnazione automatica]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Seleziona una voce e una velocità di narrazione
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>
@@ -222,6 +222,7 @@ ModUi/&FixAsianLanguagesTextWrap=Correggi l'interruzione di testo dell'interfacc
 ModUi/&FixEldritchBlastRange=Usa un raggio di 24 celle con <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[invece di 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Imposta la velocità di cura dell'<color=#D89555>Anello di Rigenerazione</color> a 1 HP ogni 3 minuti
 ModUi/&FlightSuspendWingedBoots=<i>+ Usa le regole ufficiali degli Stivali Alati <color=#F0DAA0>[durata rimanente non conteggiata quando il volo è sospeso]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Forza l'assegnazione automatica della voce a tutti i PNG invece della mappatura della campagna</i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multigiocatore...</color>
 ModUi/&FormationHelp1=• Utilizzare i pulsanti numerici per modificare un set dato <i><color=#F0DAA0>[considerare l'abilitazione dei tasti di scelta rapida in input]</color></i>
