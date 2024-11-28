@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
+ModUi/&EnableFighterStudiedAttacks=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
+ModUi/&EnableFighterTacticalProgression=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトではなく能力値ポイントを割り当てる]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> �
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 で <color=#D89555>生来の魔術</color> を有効にする
+ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする

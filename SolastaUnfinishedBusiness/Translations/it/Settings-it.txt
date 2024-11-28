@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Colpi arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni ridotte durante l'ispezione del personaggio. Usa a tuo rischio e pericolo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 6 e 14
+ModUi/&EnableFighterStudiedAttacks=Abilita <color=#D89555>Attacchi studiati</color> al livello 13 <i><color=#F0DAA0>[vantaggio se l'attacco precedente nel round contro una creatura è fallito]</color></i>
+ModUi/&EnableFighterTacticalProgression=Abilita <color=#D89555>Mente tattica</color> e <color=#D89555>Cambio tattico</color> ai livelli 2 e 5 <i><color=#F0DAA0>[aumenta gli scenari di seconda ventata]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona le competenze di abilità e strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti abilità invece dei valori razziali predefiniti]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Mira Fissa</color> al livello
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Abilita <color=#D89555>Second Wind</color> per usare la progressione di utilizzo 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Abilita <color=#D89555>Stregoneria Innata</color> al livello 1
+ModUi/&EnableSorcererInnateSorceryAt1=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5

@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Habilitar um sistema épico de compra de 35 pont
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar exibição do painel de proficiências estendidas <i><color=#F0DAA0>[Tiros Arcanos, Infusões, Manobras e Versatilidades]</color></i>\n<b><i><color=#C04040E0>[queda de desempenho na inspeção de personagem. use por sua conta e risco]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar seleção de <color=#D89555>talentos</color> nos níveis 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar seleção de <color=#D89555>talentos</color> nos níveis 6 e 14
+ModUi/&EnableFighterStudiedAttacks=Habilitar <color=#D89555>Ataques Estudados</color> no nível 13 <i><color=#F0DAA0>[vantagem se o ataque anterior na rodada contra a criatura falhou]</color></i>
+ModUi/&EnableFighterTacticalProgression=Habilitar <color=#D89555>Mente Tática</color> e <color=#D89555>Mudança Tática</color> nos níveis 2 e 5 <i><color=#F0DAA0>[aumentar cenários de segundo fôlego]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Especialização em Armas</color> nos níveis 8 e 16 <i><color=#F0DAA0>[receba +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fundos flexíveis <i><color=#F0DAA0>[selecione habilidades e proficiências em ferramentas dos fundos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar raças flexíveis <i><color=#F0DAA0>[atribuir pontos de habilidade em vez dos padrões raciais]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no n
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar a progressão de usos do 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assinatura</color> para serem preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> no nível 1
+ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> e <color=#D89555>Feitiçaria Encarnada</color> nos níveis 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
 ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5

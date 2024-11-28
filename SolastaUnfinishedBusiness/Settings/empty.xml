@@ -292,6 +292,7 @@
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <EnableSpeech>false</EnableSpeech>
     <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
+    <ForceModSpeechOnNpcs>false</ForceModSpeechOnNpcs>
     <SpeechChoice>0</SpeechChoice>
     <SpeechVoices>
         <item>
@@ -648,6 +649,8 @@
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
     <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
+    <EnableFighterStudiedAttacks>false</EnableFighterStudiedAttacks>
+    <EnableFighterTacticalProgression>false</EnableFighterTacticalProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>

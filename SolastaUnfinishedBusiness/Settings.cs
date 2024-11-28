@@ -285,6 +285,8 @@ public class Settings : UnityModManager.ModSettings
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool AddPersuasionToFighterSkillOptions { get; set; }
     public bool EnableSecondWindToUseOneDndUsagesProgression { get; set; }
+    public bool EnableFighterStudiedAttacks { get; set; }
+    public bool EnableFighterTacticalProgression { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt14 { get; set; }

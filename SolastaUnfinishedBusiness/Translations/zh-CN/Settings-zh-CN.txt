@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><col
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>\n<b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在 2、10 和 18 级启用<color=#D89555>专长</color>选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>专长</color>选择
+ModUi/&EnableFighterStudiedAttacks=在 13 级时启用<color=#D89555>学习攻击</color> <i><color=#F0DAA0>[如果本轮中对生物的上一次攻击失败则获得优势]</color></i>
+ModUi/&EnableFighterTacticalProgression=在 2 级和 5 级时启用<color=#D89555>战术思维</color>和<color=#D89555>战术转变</color><i><color=#F0DAA0>[增强第二风场景]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害力 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=#F0DAA0>[分配能力得分点而不是种族默认值]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=在第 1 级启用<color=#D89555>天生巫术</color>
+ModUi/&EnableSorcererInnateSorceryAt1=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
 ModUi/&EnableSorcerousRestorationAtLevel5=在第 5 级启用<color=#D89555>魔法恢复</color>

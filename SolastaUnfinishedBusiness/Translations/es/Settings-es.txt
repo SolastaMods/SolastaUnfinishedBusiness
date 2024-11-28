@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Habilitar un sistema de compra épico de 35 punt
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar la visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[reducción del rendimiento en la inspección del personaje. úsalo bajo tu propio riesgo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 6 y 14
+ModUi/&EnableFighterStudiedAttacks=Habilita <color=#D89555>Ataques estudiados</color> en el nivel 13 <i><color=#F0DAA0>[ventaja si el ataque anterior en la ronda contra la criatura falló]</color></i>
+ModUi/&EnableFighterTacticalProgression=Habilita <color=#D89555>Mente táctica</color> y <color=#D89555>Cambio táctico</color> en los niveles 2 y 5 <i><color=#F0DAA0>[escenarios de aumento de segundo aliento]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 8 y 16 <i><color=#F0DAA0>[obtienes +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fondos flexibles <i><color=#F0DAA0>[seleccionar habilidades y competencias de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de habilidad en lugar de los valores raciales predeterminados]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el n
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Hechicería innata</color> en el nivel 1
+ModUi/&EnableSorcererInnateSorceryAt1=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
 ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5

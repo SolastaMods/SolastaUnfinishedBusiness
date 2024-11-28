@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
+ModUi/&EnableFighterStudiedAttacks=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
+ModUi/&EnableFighterTacticalProgression=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1
+ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at level 1 and 7
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5

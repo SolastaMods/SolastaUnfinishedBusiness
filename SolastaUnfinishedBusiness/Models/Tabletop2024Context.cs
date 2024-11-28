@@ -162,7 +162,7 @@ internal static class Tabletop2024Context
                 .AddToDB())
         .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
         .AddToDB();
-    
+
     private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
         .Create("PowerSorcererInnateSorcery")
         .SetGuiPresentation(Category.Feature, PowerTraditionShockArcanistGreaterArcaneShock)
@@ -185,14 +185,14 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
             c.GetClassLevel(Sorcerer) >= 7 && c.GetRemainingPowerUses(PowerSorcererInnateSorcery) == 0))
         .AddToDB();
-    
+
     private static readonly FeatureDefinitionFeatureSet FeatureSetSorcererSorceryIncarnate =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererSorceryIncarnate")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(PowerSorcererSorceryIncarnate)
             .AddToDB();
-    
+
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")
         .SetGuiPresentation(Category.Feature, Invisibility)
@@ -308,6 +308,21 @@ internal static class Tabletop2024Context
             ConditionForm.ConditionOperation.Add)
         .Build();
 
+    private static readonly FeatureDefinition FeatureFighterTacticalMind = FeatureDefinitionBuilder
+        .Create("FeatureFighterTacticalMind")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFighterTacticalShift = FeatureDefinitionBuilder
+        .Create("FeatureFighterTacticalShift")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFighterStudiedAttacks = FeatureDefinitionBuilder
+        .Create("FeatureFighterStudiedAttacks")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -327,6 +342,8 @@ internal static class Tabletop2024Context
         SwitchDruidWeaponProficiencyToUseOneDnd();
         SwitchSpellRitualOnAllCasters();
         SwitchFighterLevelToIndomitableSavingReroll();
+        SwitchFighterStudiedAttacks();
+        SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMindToReplacePerfectSelf();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkDoNotRequireAttackActionForFlurry();
@@ -394,6 +411,30 @@ internal static class Tabletop2024Context
             Main.Settings.AddFighterLevelToIndomitableSavingReroll
                 ? "Feature/&EnhancedIndomitableResistanceDescription"
                 : "Feature/&IndomitableResistanceDescription";
+    }
+
+    internal static void SwitchFighterStudiedAttacks()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureFighterStudiedAttacks);
+
+        if (Main.Settings.EnableFighterStudiedAttacks)
+        {
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
+        }
+    }
+
+    internal static void SwitchFighterTacticalProgression()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureFighterTacticalMind ||
+            x.FeatureDefinition == FeatureFighterTacticalShift);
+
+        if (Main.Settings.EnableFighterTacticalProgression)
+        {
+            Fighter.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureFighterTacticalMind, 2),
+                new FeatureUnlockByLevel(FeatureFighterTacticalShift, 5));
+        }
     }
 
     internal static void SwitchSecondWindToUseOneDndUsagesProgression()
@@ -2693,11 +2734,11 @@ internal static class Tabletop2024Context
             .SetFeatureSet(powerPool, actionAffinityToggle, powerDisarm, powerPoison, powerTrip, powerWithdraw)
             .AddToDB();
 
-        _featureRogueImprovedCunningStrike= FeatureDefinitionBuilder
+        _featureRogueImprovedCunningStrike = FeatureDefinitionBuilder
             .Create($"FeatureImproved{Cunning}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-            
+
         _featureSetRogueDeviousStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Devious}")
             .SetGuiPresentation($"Power{Devious}", Category.Feature)

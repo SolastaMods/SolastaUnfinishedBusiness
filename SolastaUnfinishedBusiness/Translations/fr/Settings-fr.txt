@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau des compétences étendues <i><color=#F0DAA0>[Tirs des arcanes, Infusions, Manœuvres et Polyvalence]</color></i>\n<b><i><color=#C04040E0>[baisse des performances lors de l'inspection des personnages. À utiliser à vos risques et périls]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 6 et 14
+ModUi/&EnableFighterStudiedAttacks=Activer les <color=#D89555>attaques étudiées</color> au niveau 13 <i><color=#F0DAA0>[avantage si l'attaque précédente du tour contre la créature a été manquée]</color></i>
+ModUi/&EnableFighterTacticalProgression=Activez <color=#D89555>Tactical Mind</color> et <color=#D89555>Tactical Shift</color> aux niveaux 2 et 5 <i><color=#F0DAA0>[augmentez les scénarios de second souffle]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et pour endommager mais désavantagez-vous avec tout autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionnez les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs par défaut raciales]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> a
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Activer la <color=#D89555>Sorcellerie innée</color> au niveau 1
+ModUi/&EnableSorcererInnateSorceryAt1=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
 ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5

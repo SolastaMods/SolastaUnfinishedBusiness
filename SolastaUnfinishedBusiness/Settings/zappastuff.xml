@@ -291,7 +291,8 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <EnableSpeech>true</EnableSpeech>
-    <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
+    <EnableSpeechOnNpcs>true</EnableSpeechOnNpcs>
+    <ForceModSpeechOnNpcs>false</ForceModSpeechOnNpcs>
     <SpeechChoice>0</SpeechChoice>
     <SpeechVoices>
         <item>
@@ -300,7 +301,7 @@
             </key>
             <value>
                 <ValueTupleOfStringSingle>
-                    <Item1>en_GB-alan-medium</Item1>
+                    <Item1>No Voice</Item1>
                     <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
@@ -690,6 +691,8 @@
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>true</AddPersuasionToFighterSkillOptions>
     <EnableSecondWindToUseOneDndUsagesProgression>true</EnableSecondWindToUseOneDndUsagesProgression>
+    <EnableFighterStudiedAttacks>true</EnableFighterStudiedAttacks>
+    <EnableFighterTacticalProgression>true</EnableFighterTacticalProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>

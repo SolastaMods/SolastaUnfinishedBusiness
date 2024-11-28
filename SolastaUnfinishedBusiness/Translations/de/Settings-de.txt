@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und 
 ModUi/&EnableExtendedProficienciesPanelDisplay=Anzeige des erweiterten Kompetenzfelds aktivieren <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeit]</color></i>\n<b><i><color=#C04040E0>[Leistungseinbußen bei der Charakterüberprüfung. Verwendung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 6 und 14.
+ModUi/&EnableFighterStudiedAttacks=Aktivieren Sie <color=#D89555>Durchdachte Angriffe</color> auf Stufe 13 <i><color=#F0DAA0>[Vorteil, wenn vorheriger Angriff in Runde gegen Kreatur fehlgeschlagen ist]</color></i>
+ModUi/&EnableFighterTacticalProgression=Aktivieren Sie <color=#D89555>Tactical Mind</color> und <color=#D89555>Tactical Shift</color> auf den Stufen 2 und 5 <i><color=#F0DAA0>[erweitern Sie Szenarien für den zweiten Wind]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
 ModUi/&EnableFlexibleRaces=Flexible Rassen aktivieren <i><color=#F0DAA0>[Fähigkeitspunkte statt der Rassenstandards zuweisen]</color></i>
@@ -181,7 +183,7 @@ ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrech
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
+ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.

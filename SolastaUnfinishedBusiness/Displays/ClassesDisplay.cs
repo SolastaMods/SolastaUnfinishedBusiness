@@ -177,6 +177,20 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchSecondWindToUseOneDndUsagesProgression();
         }
 
+        toggle = Main.Settings.EnableFighterStudiedAttacks;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterStudiedAttacks"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterStudiedAttacks = toggle;
+            Tabletop2024Context.SwitchFighterStudiedAttacks();
+        }
+
+        toggle = Main.Settings.EnableFighterTacticalProgression;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalProgression"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterTacticalProgression = toggle;
+            Tabletop2024Context.SwitchFighterTacticalProgression();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&MonkTitle") + ":</color>");
         UI.Label();
