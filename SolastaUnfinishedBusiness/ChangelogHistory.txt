@@ -7,6 +7,8 @@
 - added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
+- added 'Enable Rogue Improved Cunning Strike at 11th' under existing Cunning/Devious strike setting
+- added 'Enable Sorcerer Sorcery Incarnate at 7th' under existing Innate Sorcery setting
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
 - added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
