@@ -321,6 +321,21 @@ internal static class Tabletop2024Context
     private static readonly FeatureDefinition FeatureFighterStudiedAttacks = FeatureDefinitionBuilder
         .Create("FeatureFighterStudiedAttacks")
         .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeStudiedAttacks(
+                ConditionDefinitionBuilder
+                    .Create("ConditionStudiedAttacks")
+                    .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+                    .SetPossessive()
+                    .SetFeatures(
+                        FeatureDefinitionCombatAffinityBuilder
+                            .Create("CombatAffinityStudiedAttacks")
+                            .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
+                            .SetSituationalContext(ExtraSituationalContext.IsConditionSource)
+                            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                            .AddToDB())
+                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                    .AddToDB()))
         .AddToDB();
 
     internal static void LateLoad()
@@ -328,6 +343,7 @@ internal static class Tabletop2024Context
         BuildBarbarianBrutalStrike();
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();
+        LoadFighterTacticalShiftCustomBehavior();
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
@@ -403,6 +419,24 @@ internal static class Tabletop2024Context
                 Type = PowerPoolBonusCalculationType.SecondWind2024,
                 Attribute = FighterClass
             });
+    }
+
+    private static void LoadFighterTacticalShiftCustomBehavior()
+    {
+        var powerFighterSecondWindTargeting = FeatureDefinitionPowerBuilder
+            .Create(PowerFighterSecondWind, "PowerFighterSecondWindTargeting")
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorWithdraw())
+            .AddToDB();
+
+        PowerFighterSecondWind.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeSecondWind(powerFighterSecondWindTargeting));
     }
 
     internal static void SwitchFighterLevelToIndomitableSavingReroll()
@@ -1363,6 +1397,82 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class PowerOrSpellFinishedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var position = action.ActionParams.Positions[0];
+            var distance = int3.Distance(attacker.LocationPosition, position);
+
+            attacker.UsedTacticalMoves -= (int)distance;
+
+            if (attacker.UsedTacticalMoves < 0)
+            {
+                attacker.UsedTacticalMoves = 0;
+            }
+
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+
+            rulesetAttacker.InflictCondition(
+                RuleDefinitions.ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                RuleDefinitions.ConditionDisengaging,
+                0,
+                0,
+                0);
+
+            attacker.MyExecuteActionTacticalMove(position);
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeStudiedAttacks(ConditionDefinition conditionStudiedAttacks)
+        : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
+
+            rulesetDefender.InflictCondition(
+                conditionStudiedAttacks.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionStudiedAttacks.Name,
+                0,
+                0,
+                0);
+        }
     }
 
     private sealed class ModifyEffectDescriptionSpareTheDying : IModifyEffectDescription
@@ -2823,7 +2933,7 @@ internal static class Tabletop2024Context
         FeatureDefinitionPower powerWithdraw)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private FeatureDefinitionPower _selectedPower;
+        private readonly List<FeatureDefinitionPower> _selectedPowers = [];
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -2837,7 +2947,7 @@ internal static class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
-            _selectedPower = null;
+            _selectedPowers.Clear();
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -2881,7 +2991,9 @@ internal static class Tabletop2024Context
                     return;
                 }
 
-                _selectedPower = subPowers[option];
+                var selectedPower = subPowers[option];
+
+                _selectedPowers.Add(selectedPower);
 
                 // inflict condition passing power cost on amount to be deducted later on from sneak dice
                 rulesetAttacker.InflictCondition(
@@ -2894,7 +3006,7 @@ internal static class Tabletop2024Context
                     rulesetAttacker.CurrentFaction.Name,
                     1,
                     ConditionReduceSneakDice.Name,
-                    _selectedPower.CostPerUse,
+                    selectedPower.CostPerUse,
                     0,
                     0);
             }
@@ -2915,16 +3027,19 @@ internal static class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (_selectedPower == powerKnockOut)
+            foreach (var selectedPower in _selectedPowers)
             {
-                yield return HandleKnockOut(attacker, defender);
-            }
-            else if (_selectedPower == powerWithdraw)
-            {
-                yield return HandleWithdraw(action, attacker);
+                if (selectedPower == powerKnockOut)
+                {
+                    yield return HandleKnockOut(attacker, defender);
+                }
+                else if (selectedPower == powerWithdraw)
+                {
+                    yield return HandleWithdraw(action, attacker);
+                }
             }
 
-            _selectedPower = null;
+            _selectedPowers.Clear();
         }
 
         private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
