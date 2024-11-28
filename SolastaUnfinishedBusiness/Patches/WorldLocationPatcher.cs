@@ -31,7 +31,7 @@ public static class WorldLocationPatcher
         public static void Postfix(WorldLocation __instance)
         {
             DungeonMakerCustomRooms.FixFlatRoomReflectionProbe(__instance);
-            SpeechContext.CollectCurrentCampaignNpcsVoiceTips();
+            SpeechContext.CollectCustomCampaignVoiceData();
         }
 
         [NotNull]

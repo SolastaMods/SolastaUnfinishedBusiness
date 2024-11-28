@@ -35,8 +35,6 @@ internal static class SpeechContext
 
     private const string NoVoice = "No Voice";
 
-    private const string CampaignVoiceLootpackPrefix = "VOICE";
-
     // should consider translating these
     internal static readonly string[] Choices = new List<string> { "Narrator" }
         .Union(Enumerable.Range(1, MaxHeroes).Select(n => $"Hero {n}")).ToArray();
@@ -305,7 +303,7 @@ internal static class SpeechContext
 
     private static readonly List<string> AvailableMaleVoices = [];
 
-    private static readonly Dictionary<string, string> CampaignVoices = [];
+    private static readonly Dictionary<string, (string, float)> CampaignVoices = [];
 
     internal static string[] VoiceNames { get; private set; }
 
@@ -412,45 +410,74 @@ internal static class SpeechContext
                         .Any(y => y.Item1.Contains(x) && y.Item2 == Gender.Male)));
     }
 
-    internal static void CollectCurrentCampaignNpcsVoiceTips()
+    internal static void CollectCustomCampaignVoiceData()
     {
-        CampaignVoices.Clear();
+        const string NARRATOR = "NARRATOR";
+        const string UB_VOICE_DATA = "UB_VOICE_DATA";
 
-        var userCampaign = Gui.Session.UserCampaign;
-
-        if (userCampaign == null)
+        if (!Gui.Game.CampaignDefinition.IsUserCampaign)
         {
             return;
         }
 
-        var lootPacks = userCampaign.UserLootPacks
-            .Where(x =>
-                x.InternalName.StartsWith(CampaignVoiceLootpackPrefix, StringComparison.OrdinalIgnoreCase))
-            .ToDictionary(x => x.InternalName.Replace(CampaignVoiceLootpackPrefix + "_", string.Empty),
-                x => x.DisplayTitle);
+        CampaignVoices.Clear();
 
-        foreach (var kvp in lootPacks)
+        var userCampaign = Gui.Session.UserCampaign;
+        var voiceData = userCampaign.UserItems.FirstOrDefault(x =>
+            x.ReferenceItemDefinition.IsDocument &&
+            x.DocumentFragments is { Count: > 0 } &&
+            x.InternalName == UB_VOICE_DATA);
+
+        if (voiceData == null)
         {
-            var npc = kvp.Key;
-            var voice = kvp.Value;
+            Main.Info($"Campaign {userCampaign.DisplayTitle} has no voice data.");
 
-            if (!VoiceNames.Contains(voice))
+            return;
+        }
+
+        foreach (var fragment in voiceData.DocumentFragments)
+        {
+            var arr = fragment.Split(',');
+
+            if (arr.Length is < 2 or > 3)
             {
+                Main.Info($"Failed to parse voice data: [{fragment}]");
                 continue;
             }
 
-            if (userCampaign.UserNpcs.Any(x => x.InternalName == npc))
+            var npc = arr[0];
+            var voice = arr[1];
+            var scale = 1f;
+
+            if (arr.Length == 3)
             {
-                CampaignVoices.Add(npc, voice);
+                try
+                {
+                    scale = float.Parse(arr[2]);
+                }
+                catch (FormatException ex)
+                {
+                    Main.Info($"Failed to parse voice scale data: [{fragment}] {ex.Message}");
+                }
+            }
+
+            if (!VoiceNames.Contains(voice))
+            {
+                Main.Info(
+                    $"voice definition on campaign {userCampaign.DisplayTitle}, fragment [{fragment}], was not found");
+
+                continue;
+            }
+
+            if (npc == NARRATOR ||
+                userCampaign.UserNpcs.Any(x => x.InternalName == npc))
+            {
+                CampaignVoices.AddOrReplace(npc, (voice, scale));
             }
             else
             {
-                var userNpc = userCampaign.UserNpcs.FirstOrDefault(x => x.DisplayTitle == npc);
-
-                if (userNpc != null)
-                {
-                    CampaignVoices.Add(userNpc.InternalName, voice);
-                }
+                Main.Info(
+                    $"NPC definition on campaign {userCampaign.DisplayTitle}, fragment [{fragment}], was not found");
             }
         }
     }
@@ -459,12 +486,12 @@ internal static class SpeechContext
     {
         WaveOutEvent.Stop();
     }
-    
+
     private static string StripXmlTagsAndNarration(string str)
     {
         return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
     }
-    
+
     internal static void SpeakQuote()
     {
         var quoteNumber = Quoteziner.Next(0, Quotes.Length);
@@ -493,7 +520,7 @@ internal static class SpeechContext
     {
         try
         {
-            WaveOutEvent.Stop();
+            ShutUp();
 
             // only if audio enabled
             var audioSettingsService = ServiceRepository.GetService<IAudioSettingsService>();
@@ -504,22 +531,6 @@ internal static class SpeechContext
             }
 
             if (!Main.Settings.EnableSpeech || heroId < 0 || heroId > MaxHeroes)
-            {
-                return;
-            }
-
-            var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
-            var executablePath = Path.Combine(PiperFolder, executable);
-
-            if (!File.Exists(executablePath))
-            {
-                return;
-            }
-
-            var (voice, scale) = Main.Settings.SpeechVoices[heroId];
-            var voiceId = Array.IndexOf(VoiceNames, voice);
-
-            if (voiceId <= 0)
             {
                 return;
             }
@@ -535,6 +546,34 @@ internal static class SpeechContext
                         return;
                     }
                 }
+            }
+
+            var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
+            var executablePath = Path.Combine(PiperFolder, executable);
+
+            if (!File.Exists(executablePath))
+            {
+                return;
+            }
+
+            string voice;
+            float scale;
+
+            if (!Main.Settings.ForceModSpeechOnNpcs &&
+                CampaignVoices.TryGetValue("NARRATOR", out var voiceData))
+            {
+                (voice, scale) = voiceData;
+            }
+            else
+            {
+                (voice, scale) = Main.Settings.SpeechVoices[heroId];
+            }
+
+            var voiceId = Array.IndexOf(VoiceNames, voice);
+
+            if (voiceId <= 0)
+            {
+                return;
             }
 
             var voiceName = VoiceNames[voiceId];
@@ -570,6 +609,17 @@ internal static class SpeechContext
                 return;
             }
 
+
+            // only custom campaigns
+            // unity life check...
+            if (Gui.GameCampaign)
+            {
+                if (!Gui.GameCampaign.campaignDefinition.IsUserCampaign)
+                {
+                    return;
+                }
+            }
+
             var executable = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "piper.exe" : "piper";
             var executablePath = Path.Combine(PiperFolder, executable);
 
@@ -583,19 +633,21 @@ internal static class SpeechContext
                 return;
             }
 
-            var npcName = rulesetCharacterMonster.MonsterDefinition.Name;
+            var internalName = rulesetCharacterMonster.MonsterDefinition.Name;
+            var scale = 1f;
+            var voiceName = string.Empty;
+
+            if (!Main.Settings.ForceModSpeechOnNpcs &&
+                CampaignVoices.TryGetValue(internalName, out var voiceData))
+            {
+                (voiceName, scale) = voiceData;
+            }
 
             if (Main.Settings.ForceModSpeechOnNpcs ||
-                !CampaignVoices.TryGetValue(npcName, out var voiceName))
+                CampaignVoices.Count == 0)
             {
-                // don't auto assign voices on campaigns that have dub data
-                if (!Main.Settings.ForceModSpeechOnNpcs && CampaignVoices.Count > 0)
-                {
-                    return;
-                }
-
                 // assign dub data on a round-robin basis for campaigns without it
-                var userNpc = Gui.Session.UserCampaign?.UserNpcs?.FirstOrDefault(x => x.InternalName == npcName);
+                var userNpc = Gui.Session.UserCampaign.UserNpcs.FirstOrDefault(x => x.InternalName == internalName);
 
                 if (userNpc == null)
                 {
@@ -609,7 +661,7 @@ internal static class SpeechContext
                     return;
                 }
 
-                switch (FemaleNpcs.Contains(userNpc.ReferenceMonsterDefinition.Name))
+                switch (FemaleNpcs.Contains(internalName))
                 {
                     case true when AvailableFemaleVoices.Count > 0:
                     {
@@ -624,9 +676,15 @@ internal static class SpeechContext
                     default:
                         return;
                 }
+
+                scale = Main.Settings.SpeechVoices[0].Item2;
             }
 
-            var scale = Main.Settings.SpeechVoices[0].Item2;
+            if (voiceName == string.Empty)
+            {
+                return;
+            }
+
             var task = Task.Run(async () => await GetPiperTask(executablePath, voiceName, scale, inputText));
             var audioStream = await task;
 
