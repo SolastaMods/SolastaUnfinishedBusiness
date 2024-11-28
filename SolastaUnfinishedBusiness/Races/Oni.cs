@@ -95,7 +95,7 @@ internal static class RaceOniBuilder
 
         availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
 
-        racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
+        racePresentation.availableMorphotypeCategories = [.. availableMorphotypeCategories];
         racePresentation.maleHornsOptions = [];
         racePresentation.hornsTailAssetPrefix = Tiefling.RacePresentation.hornsTailAssetPrefix;
         racePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);

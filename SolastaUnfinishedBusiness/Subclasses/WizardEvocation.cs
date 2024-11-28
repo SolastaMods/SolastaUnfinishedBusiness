@@ -187,7 +187,7 @@ public sealed class WizardEvocation : AbstractSubclass
                 .Select(spellByLevel => new SpellListDefinition.SpellsByLevelDuplet
                 {
                     Level = spellByLevel.Level,
-                    spells = spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolEvocation).ToList()
+                    Spells = [.. spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolEvocation)]
                 }));
     }
 
