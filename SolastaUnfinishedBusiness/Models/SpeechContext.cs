@@ -86,7 +86,8 @@ internal static class SpeechContext
         ($"{OfficialVoicesURLPrefix}en/en_US/ljspeech/medium/en_US-ljspeech-medium", Gender.Female),
         ($"{OfficialVoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium", Gender.Male),
         ($"{OfficialVoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male),
-        ("https://huggingface.co/poisson-fish/piper-vasco/resolve/main/onnx/vasco", Gender.Male),
+        // alternate voices
+        //("https://huggingface.co/poisson-fish/piper-vasco/resolve/main/onnx/vasco", Gender.Male),
         ("https://huggingface.co/quarterturn/kuroki_tomoko_en_piper/resolve/main/kuroki_tomoko", Gender.Female)
     ];
 
@@ -308,11 +309,6 @@ internal static class SpeechContext
 
     internal static string[] VoiceNames { get; private set; }
 
-    internal static string StripXmlTagsAndNarration(string str)
-    {
-        return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
-    }
-
     internal static void Load()
     {
         InitPiper();
@@ -463,7 +459,12 @@ internal static class SpeechContext
     {
         WaveOutEvent.Stop();
     }
-
+    
+    private static string StripXmlTagsAndNarration(string str)
+    {
+        return RemoveNpcSpeechTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
+    }
+    
     internal static void SpeakQuote()
     {
         var quoteNumber = Quoteziner.Next(0, Quotes.Length);
