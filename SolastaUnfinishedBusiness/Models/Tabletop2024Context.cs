@@ -311,6 +311,7 @@ internal static class Tabletop2024Context
     private static readonly FeatureDefinition FeatureFighterTacticalMind = FeatureDefinitionBuilder
         .Create("FeatureFighterTacticalMind")
         .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckTacticalMind())
         .AddToDB();
 
     private static readonly FeatureDefinition FeatureFighterTacticalShift = FeatureDefinitionBuilder
@@ -1399,11 +1400,69 @@ internal static class Tabletop2024Context
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private sealed class TryAlterOutcomeAttributeCheckTacticalMind : ITryAlterOutcomeAttributeCheck
+    {
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerFighterSecondWind, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                defender,
+                "TacticalMindCheck",
+                "CustomReactionTacticalMindCheckDescription",
+                ReactionValidated,
+                battleManager: battleManager,
+                resource: ReactionResourceSorceryPoints.Instance);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var dieRoll = rulesetHelper.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _,
+                    out _);
+
+                abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
+
+                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                    ? RollOutcome.Success
+                    : RollOutcome.Failure;
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feature/&FeatureFighterTacticalMindTitle",
+                    "Feedback/&MagicalGuidanceCheckToHitRoll",
+                    extra:
+                    [
+                        (abilityCheckData.AbilityCheckRollOutcome == RollOutcome.Success ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            dieRoll.ToString())
+                    ]);
+            }
+        }
+    }
+
     private sealed class PowerOrSpellFinishedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
         : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (!Main.Settings.EnableFighterTacticalProgression)
+            {
+                yield break;
+            }
+
             yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
 
             var attacker = action.ActingCharacter;
