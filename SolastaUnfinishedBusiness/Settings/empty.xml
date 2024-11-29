@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>2</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>0</SelectedTab>
+    <SelectedTab>3</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
     <DisplayOneDndToggle>false</DisplayOneDndToggle>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
@@ -677,11 +677,12 @@
     <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
+    <EnableSorcererArcaneApotheosis>false</EnableSorcererArcaneApotheosis>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate>false</EnableSorcererInnateSorceryAndSorceryIncarnate>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcerousRestorationAtLevel5>false</EnableSorcerousRestorationAtLevel5>
+    <EnableSorcererSorcerousRestoration>false</EnableSorcererSorcerousRestoration>
     <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
@@ -1150,4 +1151,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

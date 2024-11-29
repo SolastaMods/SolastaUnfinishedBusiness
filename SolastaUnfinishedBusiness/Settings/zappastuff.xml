@@ -719,11 +719,12 @@
     <EnableRogueSlipperyMind>true</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>true</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorceryAt1>true</EnableSorcererInnateSorceryAt1>
+    <EnableSorcererArcaneApotheosis>true</EnableSorcererArcaneApotheosis>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate>true</EnableSorcererInnateSorceryAndSorceryIncarnate>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcerousRestorationAtLevel5>true</EnableSorcerousRestorationAtLevel5>
+    <EnableSorcererSorcerousRestoration>true</EnableSorcererSorcerousRestoration>
     <EnableWarlockToUseOneDndInvocationProgression>true</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>true
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
@@ -1864,4 +1865,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
+ModUi/&EnableSorcererArcaneApotheosis=Enable <color=#D89555>Arcane Apotheosis</color> at 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
-ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
+ModUi/&EnableSorcererSorcerousRestoration=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
 ModUi/&EnableSpeechActorHelp=• Select an actor

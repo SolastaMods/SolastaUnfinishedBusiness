@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
+ModUi/&EnableSorcererArcaneApotheosis=在 20 级时启用<color=#D89555>奥术神化</color>
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
-ModUi/&EnableSorcerousRestorationAtLevel5=在第 5 级启用<color=#D89555>魔法恢复</color>
+ModUi/&EnableSorcererSorcerousRestoration=在第 5 级启用<color=#D89555>魔法恢复</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员

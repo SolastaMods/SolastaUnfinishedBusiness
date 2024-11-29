@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrech
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
+ModUi/&EnableSorcererArcaneApotheosis=Aktiviere <color=#D89555>Arkane Apotheose</color> bei 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
-ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
+ModUi/&EnableSorcererSorcerousRestoration=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kampagnen <i><color=#F0DAA0>[nur Erzählung und Helden]</color></i>
 ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler

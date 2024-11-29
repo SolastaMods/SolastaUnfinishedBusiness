@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no n
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar a progressão de usos do 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assinatura</color> para serem preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Feitiçaria Inata</color> e <color=#D89555>Feitiçaria Encarnada</color> nos níveis 1 e 7
+ModUi/&EnableSorcererArcaneApotheosis=Habilitar <color=#D89555>Apoteose Arcana</color> em 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Habilitar <color=#D89555>Feitiçaria Inata</color> e <color=#D89555>Feitiçaria Encarnada</color> nos níveis 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
-ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
+ModUi/&EnableSorcererSorcerousRestoration=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0>[somente narração e heróis]</color></i>
 ModUi/&EnableSpeechActorHelp=• Selecione um ator

@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> a
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
+ModUi/&EnableSorcererArcaneApotheosis=Activer <color=#D89555>Apothéose des arcanes</color> à 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
-ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
+ModUi/&EnableSorcererSorcerousRestoration=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration et héros uniquement]</color></i>
 ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur

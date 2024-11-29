@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> �
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
+ModUi/&EnableSorcererArcaneApotheosis=20で<color=#D89555>アーケイン・アポセオシス</color>を有効にする
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
-ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
+ModUi/&EnableSorcererSorcerousRestoration=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択

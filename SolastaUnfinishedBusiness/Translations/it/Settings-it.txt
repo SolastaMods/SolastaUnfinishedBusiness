@@ -183,10 +183,11 @@ ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Mira Fissa</color> al livello
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Abilita <color=#D89555>Second Wind</color> per usare la progressione di utilizzo 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
+ModUi/&EnableSorcererArcaneApotheosis=Abilita <color=#D89555>Apoteosi Arcana</color> a 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
-ModUi/&EnableSorcerousRestorationAtLevel5=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
+ModUi/&EnableSorcererSorcerousRestoration=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
