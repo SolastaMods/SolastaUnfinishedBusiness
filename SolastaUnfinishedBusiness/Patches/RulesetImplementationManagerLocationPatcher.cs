@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -44,18 +45,142 @@ public static class RulesetImplementationManagerLocationPatcher
     public static class IsMetamagicOptionAvailable_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(
+        public static bool Prefix(
             ref bool __result,
             RulesetEffectSpell rulesetEffectSpell,
             RulesetCharacter caster,
             MetamagicOptionDefinition metamagicOption,
-            ref string failure)
+            out string failure,
+            out int sorceryCost)
         {
+            __result = IsMetamagicOptionAvailable(
+                rulesetEffectSpell, caster, metamagicOption, out failure, out sorceryCost);
+
             //PATCH: support for custom metamagic
             foreach (var validator in metamagicOption.GetAllSubFeaturesOfType<ValidateMetamagicApplication>())
             {
                 validator.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
             }
+
+            return false;
+        }
+
+        private static bool IsMetamagicOptionAvailable(
+            RulesetEffectSpell rulesetEffectSpell,
+            RulesetCharacter caster,
+            MetamagicOptionDefinition metamagicOption,
+            out string failure,
+            out int sorceryCost)
+        {
+            var effectDescription = rulesetEffectSpell.SpellDefinition.EffectDescription;
+
+            failure = string.Empty;
+
+            sorceryCost = metamagicOption.CostMethod == MetamagicCostMethod.SpellLevel
+                ? Mathf.Max(1, rulesetEffectSpell.EffectLevel)
+                : metamagicOption.SorceryPointsCost;
+
+            if (sorceryCost > caster.RemainingSorceryPoints)
+            {
+                failure = "Failure/&FailureFlagInsufficientSorceryPoints";
+                return false;
+            }
+
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (metamagicOption.Type)
+            {
+                case MetamagicType.QuickenedSpell
+                    when !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress:
+                    failure = "Failure/&FailureFlagOnlyInBattle";
+                    return false;
+                case MetamagicType.QuickenedSpell
+                    when rulesetEffectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
+                    failure = "Failure/&FailureFlagInvalidSpellActionType";
+                    return false;
+                case MetamagicType.QuickenedSpell:
+                {
+                    var fromActor = GameLocationCharacter.GetFromActor(caster);
+
+                    if (fromActor != null &&
+                        fromActor.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) !=
+                        ActionDefinitions.ActionStatus.Available)
+                    {
+                        failure = "Failure/&FailureFlagUnavailableBonusAction";
+                        return false;
+                    }
+
+                    break;
+                }
+                case MetamagicType.TwinnedSpell:
+                {
+                    var targets = 0;
+
+                    if (effectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique)
+                    {
+                        targets = effectDescription.TargetParameter;
+
+                        if (effectDescription.HasAdditionalSlotAdvancement)
+                        {
+                            var deltaSlotLevel =
+                                rulesetEffectSpell.SlotLevel - rulesetEffectSpell.SpellDefinition.SpellLevel;
+
+                            targets +=
+                                effectDescription.EffectAdvancement.ComputeAdditionalTargetsBySlotDelta(deltaSlotLevel);
+                        }
+                    }
+
+                    if (targets != 1)
+                    {
+                        failure = "Failure/&FailureFlagInvalidSingleTarget";
+                        return false;
+                    }
+
+                    break;
+                }
+                case MetamagicType.DistantSpell when effectDescription.RangeType == RangeType.Self:
+                    failure = "Failure/&FailureFlagSpellRangeCannotBeSelf";
+                    return false;
+                case MetamagicType.DistantSpell:
+                {
+                    if (effectDescription.RangeType == RangeType.Distance &&
+                        effectDescription.TargetType == TargetType.Position)
+                    {
+                        if (effectDescription.EffectForms.Any(effectForm =>
+                                effectForm.FormType == EffectForm.EffectFormType.Motion &&
+                                effectForm.MotionForm.Type == MotionForm.MotionType.TeleportToDestination))
+                        {
+                            failure = "Failure/&FailureFlagSpellRangeCannotBeSelf";
+                            return false;
+                        }
+                    }
+
+                    break;
+                }
+                case MetamagicType.EmpoweredSpell when effectDescription.FindFirstDamageForm() == null:
+                    failure = "Failure/&FailureFlagSpellWithoutDamage";
+                    return false;
+                case MetamagicType.CarefulSpell when !effectDescription.HasSavingThrow:
+                    failure = "Failure/&FailureFlagNoSavingThrowAvailable";
+                    return false;
+                case MetamagicType.CarefulSpell when effectDescription.TargetSide == Side.Enemy:
+                    failure = "Failure/&FailureFlagCanOnlyTargetEnemies";
+                    return false;
+                case MetamagicType.CarefulSpell when !effectDescription.IsAoE:
+                    failure = "Failure/&FailureFlagNotAreaOfEffect";
+                    return false;
+                case MetamagicType.HeightenedSpell when !effectDescription.HasSavingThrow:
+                    failure = "Failure/&FailureFlagNoSavingThrowAvailable";
+                    return false;
+            }
+
+            if (metamagicOption.Type != MetamagicType.ExtendedSpell ||
+                ComputeRoundsDuration(effectDescription.DurationType, effectDescription.DurationParameter) >= 10)
+            {
+                return true;
+            }
+
+            failure = "Failure/&FailureFlagDurationInferiorTo1Min";
+            return false;
         }
     }
 

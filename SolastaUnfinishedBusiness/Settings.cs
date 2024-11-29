@@ -312,11 +312,12 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueSlipperyMind { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }
-    public bool EnableSorcererInnateSorceryAt1 { get; set; }
+    public bool EnableSorcererArcaneApotheosis { get; set; }
+    public bool EnableSorcererInnateSorceryAndSorceryIncarnate { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableSorcerousRestorationAtLevel5 { get; set; }
+    public bool EnableSorcererSorcerousRestoration { get; set; }
     public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
     public bool EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }

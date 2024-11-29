@@ -382,10 +382,18 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&SorcererTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableSorcererInnateSorceryAt1;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorceryAt1"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSorcererArcaneApotheosis;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererArcaneApotheosis"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcererInnateSorceryAt1 = toggle;
+            Main.Settings.EnableSorcererArcaneApotheosis = toggle;
+            Tabletop2024Context.SwitchSorcererArcaneApotheosis();
+        }
+
+        toggle = Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate = toggle;
             Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
@@ -411,10 +419,10 @@ internal static class ClassesDisplay
             }
         }
 
-        toggle = Main.Settings.EnableSorcerousRestorationAtLevel5;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcerousRestorationAtLevel5"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSorcererSorcerousRestoration;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererSorcerousRestoration"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcerousRestorationAtLevel5 = toggle;
+            Main.Settings.EnableSorcererSorcerousRestoration = toggle;
             Tabletop2024Context.SwitchSorcerousRestorationAtLevel5();
         }
 

@@ -193,6 +193,12 @@ internal static class Tabletop2024Context
             .SetFeatureSet(PowerSorcererSorceryIncarnate)
             .AddToDB();
 
+    private static readonly FeatureDefinition FeatureSorcererArcaneApotheosis =
+        FeatureDefinitionBuilder
+            .Create("FeatureSorcererArcaneApotheosis")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")
         .SetGuiPresentation(Category.Feature, Invisibility)
@@ -456,6 +462,8 @@ internal static class Tabletop2024Context
         {
             Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
         }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchFighterTacticalProgression()
@@ -470,6 +478,8 @@ internal static class Tabletop2024Context
                 new FeatureUnlockByLevel(FeatureFighterTacticalMind, 2),
                 new FeatureUnlockByLevel(FeatureFighterTacticalShift, 5));
         }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchSecondWindToUseOneDndUsagesProgression()
@@ -1284,13 +1294,25 @@ internal static class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchSorcererArcaneApotheosis()
+    {
+        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSorcererArcaneApotheosis);
+
+        if (Main.Settings.EnableSorcererArcaneApotheosis)
+        {
+            Sorcerer.FeatureUnlocks.AddRange(new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20));
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchSorcererInnateSorcery()
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == PowerSorcererInnateSorcery ||
             x.FeatureDefinition == FeatureSetSorcererSorceryIncarnate);
 
-        if (Main.Settings.EnableSorcererInnateSorceryAt1)
+        if (Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate)
         {
             Sorcerer.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1),
@@ -1318,7 +1340,7 @@ internal static class Tabletop2024Context
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
 
-        if (Main.Settings.EnableSorcerousRestorationAtLevel5)
+        if (Main.Settings.EnableSorcererSorcerousRestoration)
         {
             Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcerousRestoration, 5));
         }
@@ -1432,23 +1454,21 @@ internal static class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var dieRoll = rulesetHelper.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _,
-                    out _);
+                var dieRoll =
+                    rulesetHelper.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
 
                 abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
-                abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
-                    ? RollOutcome.Success
-                    : RollOutcome.Failure;
+                if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+                {
+                    abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                    usablePower.Consume();
+                }
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feature/&FeatureFighterTacticalMindTitle",
                     "Feedback/&MagicalGuidanceCheckToHitRoll",
-                    extra:
-                    [
-                        (abilityCheckData.AbilityCheckRollOutcome == RollOutcome.Success ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            dieRoll.ToString())
-                    ]);
+                    extra: [(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())]);
             }
         }
     }
@@ -1466,8 +1486,14 @@ internal static class Tabletop2024Context
             yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
 
             var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
             var position = action.ActionParams.Positions[0];
+
+            if (attacker.LocationPosition == position)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
             var distance = int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= (int)distance;
@@ -1494,6 +1520,7 @@ internal static class Tabletop2024Context
                 0,
                 0);
 
+            attacker.SpendActionType(ActionType.Bonus);
             attacker.MyExecuteActionTacticalMove(position);
         }
     }
@@ -3019,6 +3046,7 @@ internal static class Tabletop2024Context
             var aborted = false;
             var attempts = rulesetAttacker.GetClassLevel(Rogue) >= 11 ? 2 : 1;
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
+            RulesetUsablePower savedUsablePower = null;
 
             for (var i = 0; i < attempts; i++)
             {
@@ -3035,6 +3063,21 @@ internal static class Tabletop2024Context
                 {
                     break;
                 }
+
+                if (_selectedPowers.Count < 1)
+                {
+                    continue;
+                }
+
+                // don't offer 1st selected effect again
+                savedUsablePower = PowerProvider.Get(_selectedPowers[0], rulesetAttacker);
+                rulesetAttacker.UsablePowers.Remove(PowerProvider.Get(_selectedPowers[0], rulesetAttacker));
+            }
+
+            // recover first selected usable power
+            if (savedUsablePower != null)
+            {
+                rulesetAttacker.UsablePowers.Add(savedUsablePower);
             }
 
             yield break;
@@ -3133,6 +3176,7 @@ internal static class Tabletop2024Context
                 0,
                 0);
 
+            attacker.SpendActionType(ActionType.Main);
             attacker.MyExecuteActionTacticalMove(position);
         }
 
