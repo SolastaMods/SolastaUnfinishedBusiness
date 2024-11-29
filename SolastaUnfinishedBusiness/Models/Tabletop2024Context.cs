@@ -338,14 +338,15 @@ internal static class Tabletop2024Context
         .Create("ConditionStudiedAttacks")
         .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
         .SetPossessive()
+        .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedBySource)
         .AddToDB();
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityStudiedAttacks =
         FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityStudiedAttacks")
             .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
-            .SetSituationalContext((SituationalContext)ExtraSituationalContext.IsConditionSource,
-                ConditionStudiedAttacks)
+            .SetSituationalContext(
+                (SituationalContext)ExtraSituationalContext.IsConditionSource, ConditionStudiedAttacks)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
@@ -1330,10 +1331,11 @@ internal static class Tabletop2024Context
     {
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        return IsArcaneApotheosisValid(character, rulesetEffect);
+        return IsArcaneApotheosisValid(character, rulesetEffect, false);
     }
 
-    private static bool IsArcaneApotheosisValid(GameLocationCharacter character, RulesetEffect rulesetEffect)
+    private static bool IsArcaneApotheosisValid(
+        GameLocationCharacter character, RulesetEffect rulesetEffect, bool validateMetamagicOption = true)
     {
         if (!Main.Settings.EnableSorcererArcaneApotheosis)
         {
@@ -1346,7 +1348,7 @@ internal static class Tabletop2024Context
         }
 
         // ReSharper disable once ConvertIfStatementToReturnStatement
-        if (!rulesetEffectSpell.MetamagicOption)
+        if (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption)
         {
             return false;
         }
@@ -1519,7 +1521,7 @@ internal static class Tabletop2024Context
             var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
-                RuleDefinitions.ConditionDisengaging,
+                ConditionArcaneApotheosis.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -1527,7 +1529,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                RuleDefinitions.ConditionDisengaging,
+                ConditionArcaneApotheosis.Name,
                 rulesetAttacker.UsedSorceryPoints,
                 0,
                 0);
