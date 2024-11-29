@@ -1309,23 +1309,34 @@ internal static class Tabletop2024Context
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static bool ShouldArcaneApotheosisAllowFreeUsage(RulesetCharacter rulesetCharacter)
+    internal static bool IsArcaneApotheosisValid(RulesetCharacter rulesetCharacter, RulesetEffect rulesetEffect)
+    {
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        return IsArcaneApotheosisValid(character, rulesetEffect);
+    }
+
+    private static bool IsArcaneApotheosisValid(GameLocationCharacter character, RulesetEffect rulesetEffect)
     {
         if (!Main.Settings.EnableSorcererArcaneApotheosis)
         {
             return false;
         }
 
-        var sorcererLevel = rulesetCharacter.GetClassLevel(Sorcerer);
-
-        if (sorcererLevel < 20)
+        if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
         {
             return false;
         }
 
-        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+        // ReSharper disable once ConvertIfStatementToReturnStatement
+        if (!rulesetEffectSpell.MetamagicOption)
+        {
+            return false;
+        }
 
-        return character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
+        var sorcererLevel = character.RulesetCharacter.GetClassLevel(Sorcerer);
+
+        return sorcererLevel == 20 && character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
     }
 
     internal static void SwitchSorcererInnateSorcery()
@@ -1453,7 +1464,7 @@ internal static class Tabletop2024Context
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (!IsValid(attacker, action.ActionParams.RulesetEffect))
+            if (!IsArcaneApotheosisValid(attacker, action.ActionParams.RulesetEffect))
             {
                 yield break;
             }
@@ -1479,28 +1490,12 @@ internal static class Tabletop2024Context
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (!IsValid(attacker, action.ActionParams.RulesetEffect))
+            if (!IsArcaneApotheosisValid(attacker, action.ActionParams.RulesetEffect))
             {
                 yield break;
             }
 
             attacker.SetSpecialFeatureUses(UsedSorceryPoints, attacker.RulesetCharacter.UsedSorceryPoints);
-        }
-
-        private static bool IsValid(GameLocationCharacter attacker, RulesetEffect rulesetEffect)
-        {
-            if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
-            {
-                return false;
-            }
-
-            // ReSharper disable once ConvertIfStatementToReturnStatement
-            if (!rulesetEffectSpell.MetamagicOption)
-            {
-                return false;
-            }
-
-            return attacker.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
         }
     }
 
