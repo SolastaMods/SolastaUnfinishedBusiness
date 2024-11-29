@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Vous ne pouvez pas uti
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
 Feedback/&TacticalMindCheckToHitRoll={0} a utilisé {1} et ajoute {2} au jet de contrôle
+Feedback/&TacticalMindCheckToHitRollFailure={0} a utilisé {1}, ajoute {2} au jet de contrôle, mais pas suffisamment pour changer le résultat
+Feedback/&TacticalMindCheckToHitRollSuccess={0} a utilisé {1}, ajoute {2} au jet de test, change le résultat et consomme Second Wind
 Feedback/&TriggerFeatureLine={0} déclenche {1}
 Feedback/&TriggerRerollLine={0} active {1} pour relancer {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par ce sort

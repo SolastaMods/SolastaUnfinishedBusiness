@@ -334,24 +334,25 @@ internal static class Tabletop2024Context
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionStudiedAttacks = ConditionDefinitionBuilder
+        .Create("ConditionStudiedAttacks")
+        .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+        .SetPossessive()
+        .AddToDB();
+
+    private static readonly FeatureDefinitionCombatAffinity CombatAffinityStudiedAttacks =
+        FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityStudiedAttacks")
+            .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
+            .SetSituationalContext((SituationalContext)ExtraSituationalContext.IsConditionSource,
+                ConditionStudiedAttacks)
+            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
     private static readonly FeatureDefinition FeatureFighterStudiedAttacks = FeatureDefinitionBuilder
         .Create("FeatureFighterStudiedAttacks")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeStudiedAttacks(
-                ConditionDefinitionBuilder
-                    .Create("ConditionStudiedAttacks")
-                    .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
-                    .SetPossessive()
-                    .SetFeatures(
-                        FeatureDefinitionCombatAffinityBuilder
-                            .Create("CombatAffinityStudiedAttacks")
-                            .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
-                            .SetSituationalContext(ExtraSituationalContext.IsConditionSource)
-                            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                            .AddToDB())
-                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                    .AddToDB()))
+        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks(ConditionStudiedAttacks))
         .AddToDB();
 
     internal static void LateLoad()
@@ -360,6 +361,7 @@ internal static class Tabletop2024Context
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();
         LoadFighterTacticalShiftCustomBehavior();
+        LoadFighterStudiedAttacks();
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
@@ -409,6 +411,7 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchSorcererArcaneApotheosis();
         SwitchSorcererInnateSorcery();
         SwitchSorcerousRestorationAtLevel5();
         SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
@@ -454,6 +457,11 @@ internal static class Tabletop2024Context
 
         PowerFighterSecondWind.AddCustomSubFeatures(
             new PowerOrSpellFinishedByMeSecondWind(powerFighterSecondWindTargeting));
+    }
+
+    private static void LoadFighterStudiedAttacks()
+    {
+        ConditionStudiedAttacks.Features.SetRange(CombatAffinityStudiedAttacks);
     }
 
     internal static void SwitchFighterLevelToIndomitableSavingReroll()
@@ -1545,6 +1553,11 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
+            if (abilityCheckData.AbilityCheckSuccessDelta < -10)
+            {
+                yield break;
+            }
+
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingFree,
                 defender,
@@ -1560,6 +1573,13 @@ internal static class Tabletop2024Context
                 var dieRoll =
                     rulesetHelper.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
 
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
+
+                abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                    new TrendInfo(dieRoll, FeatureSourceType.CharacterFeature, FeatureFighterTacticalMind.Name,
+                        FeatureFighterTacticalMind));
+
+                abilityCheckModifier.AbilityCheckModifier += dieRoll;
                 abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
                 if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
@@ -1570,7 +1590,9 @@ internal static class Tabletop2024Context
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feature/&FeatureFighterTacticalMindTitle",
-                    "Feedback/&TacticalMindCheckToHitRoll",
+                    abilityCheckData.AbilityCheckSuccessDelta >= 0
+                        ? "Feedback/&TacticalMindCheckToHitRollSuccess"
+                        : "Feedback/&TacticalMindCheckToHitRollFailure",
                     extra: [(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())]);
             }
         }
@@ -1640,7 +1662,7 @@ internal static class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
@@ -1652,7 +1674,7 @@ internal static class Tabletop2024Context
                 conditionStudiedAttacks.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,

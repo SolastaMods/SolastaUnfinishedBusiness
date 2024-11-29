@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行中は休憩後�
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
 Feedback/&TacticalMindCheckToHitRoll={0}は{1}を使用し、チェックロールに{2}を追加しました
+Feedback/&TacticalMindCheckToHitRollFailure={0} は {1} を使用し、チェック ロールに {2} を追加しましたが、結果を変えるには不十分でした。
+Feedback/&TacticalMindCheckToHitRollSuccess={0}は{1}を使用し、チェックロールに{2}を追加し、結果を変更し、セカンドウィンドを消費します
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
 Feedback/&TriggerRerollLine={0} は {1} をアクティブにして、{2} = {3} を再ロールします
 Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、この呪文の影響を受けません

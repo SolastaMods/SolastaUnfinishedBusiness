@@ -247,7 +247,8 @@ Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result
 Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=You can't use after rest identify power while travelling
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&SmallRace=Small Race
-Feedback/&TacticalMindCheckToHitRoll={0} used {1} and adds {2} to the check roll
+Feedback/&TacticalMindCheckToHitRollFailure={0} used {1}, adds {2} to the check roll, but not enough to change the outcome
+Feedback/&TacticalMindCheckToHitRollSuccess={0} used {1}, adds {2} to the check roll, changes the outcome, and consumes Second Wind
 Feedback/&TriggerFeatureLine={0} triggers {1}
 Feedback/&TriggerRerollLine={0} activates {1} to reroll {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} has True Sight and is unaffected by this spell

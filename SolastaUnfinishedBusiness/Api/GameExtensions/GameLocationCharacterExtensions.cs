@@ -88,8 +88,7 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets],
-            SkipAnimationsAndVFX = true
+            targetCharacters = [.. targets]
         };
 
         actionService.ExecuteAction(actionParams, null, true);
@@ -106,8 +105,7 @@ public static class GameLocationCharacterExtensions
             StringParameter = usablePower.PowerDefinition.Name,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets],
-            SkipAnimationsAndVFX = true
+            targetCharacters = [.. targets]
         };
 
         actionService.ExecuteInstantSingleAction(actionParams);

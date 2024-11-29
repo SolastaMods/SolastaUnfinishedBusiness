@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=여행 중에는 휴�
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
 Feedback/&SmallRace=소규모 경주
 Feedback/&TacticalMindCheckToHitRoll={0}이 {1}을 사용하고 체크 롤에 {2}을 추가합니다.
+Feedback/&TacticalMindCheckToHitRollFailure={0}이 {1}을 사용하여 체크 롤에 {2}을 추가했지만 결과를 변경하기에 충분하지 않았습니다.
+Feedback/&TacticalMindCheckToHitRollSuccess={0}은 {1}을 사용하고, 체크 롤에 {2}을 추가하고, 결과를 변경하고, Second Wind를 소모합니다.
 Feedback/&TriggerFeatureLine={0}은 {1}을 트리거합니다.
 Feedback/&TriggerRerollLine={0}는 {1}을 활성화하여 {2} = {3}을(를) 다시 굴립니다.
 Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있으며 이 주문의 영향을 받지 않습니다.

@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Вы не можете
 Feedback/&ReturningWeaponActivates={1} возвращается к {0}!
 Feedback/&SmallRace=Раса маленького размера
 Feedback/&TacticalMindCheckToHitRoll={0} использовал {1} и добавляет {2} к контрольному списку
+Feedback/&TacticalMindCheckToHitRollFailure={0} использовал {1}, добавляет {2} к проверке, но недостаточно, чтобы изменить результат
+Feedback/&TacticalMindCheckToHitRollSuccess={0} использовал {1}, добавляет {2} к проверке, изменяет результат и потребляет Второе дыхание
 Feedback/&TriggerFeatureLine={0} вызывает срабатывание {1}
 Feedback/&TriggerRerollLine={0} активирует {1}, чтобы перебросить {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} обладает Истинным зрением, и на него не действует это заклинание

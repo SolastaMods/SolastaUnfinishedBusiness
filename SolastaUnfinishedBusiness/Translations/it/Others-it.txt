@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Non è possibile utili
 Feedback/&ReturningWeaponActivates={1} ritorna a {0}!
 Feedback/&SmallRace=Piccola razza
 Feedback/&TacticalMindCheckToHitRoll={0} ha utilizzato {1} e aggiunge {2} al controllo
+Feedback/&TacticalMindCheckToHitRollFailure={0} ha usato {1}, aggiunge {2} al tiro di controllo, ma non abbastanza per cambiare il risultato
+Feedback/&TacticalMindCheckToHitRollSuccess={0} ha usato {1}, aggiunge {2} al tiro di controllo, cambia il risultato e consuma Secondo Vento
 Feedback/&TriggerFeatureLine={0} innesca {1}
 Feedback/&TriggerRerollLine={0} attiva {1} per rilanciare {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} ha la Vista Vera e non è influenzato da questo incantesimo

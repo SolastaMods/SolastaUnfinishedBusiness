@@ -716,6 +716,7 @@
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueReliableTalentAt7>true</EnableRogueReliableTalentAt7>
     <EnableRogueSlipperyMind>true</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>true</RemoveRogueBlindSense>

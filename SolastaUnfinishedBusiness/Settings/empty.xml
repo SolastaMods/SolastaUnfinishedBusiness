@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>2</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>3</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -220,9 +220,9 @@
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <EnablePcgRandom>false</EnablePcgRandom>
-    <EnableCustomPortraits>false</EnableCustomPortraits>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
     <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
-    <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
+    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
     <EnableLevel20>false</EnableLevel20>
     <EnableMulticlass>false</EnableMulticlass>
@@ -674,6 +674,7 @@
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueReliableTalentAt7>false</EnableRogueReliableTalentAt7>
     <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
@@ -1151,8 +1152,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

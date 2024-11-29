@@ -3,12 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:CombatAffinityStudiedAttacks:3601aeb6-a4b3-5679-b19c-4a5c78aafc00"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -87,8 +85,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
-  "amountOrigin": "None",
+  "possessive": false,
+  "amountOrigin": "Fixed",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -129,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionStudiedAttacksTitle",
-    "description": "Condition/&ConditionStudiedAttacksDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
-      "m_SubObjectName": "ConditionTargeted",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3d1dc3d0-5552-532c-9926-a0d5a16827e1",
+  "guid": "a08f66d8-ed86-51e9-9b8b-b17560ad1304",
   "contentPack": 9999,
-  "name": "ConditionStudiedAttacks"
+  "name": "ConditionArcaneApotheosis"
 }

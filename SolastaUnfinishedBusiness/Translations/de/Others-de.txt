@@ -248,6 +248,8 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Sie können nach der R
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&SmallRace=Kleines Rennen
 Feedback/&TacticalMindCheckToHitRoll={0} hat {1} verwendet und fügt {2} zur Kontrollliste hinzu
+Feedback/&TacticalMindCheckToHitRollFailure={0} hat {1} verwendet und fügt {2} zum Wurf hinzu, aber nicht genug, um das Ergebnis zu ändern.
+Feedback/&TacticalMindCheckToHitRollSuccess={0} hat {1} verwendet, fügt {2} zum Wurf hinzu, ändert das Ergebnis und verbraucht Zweiter Wind
 Feedback/&TriggerFeatureLine={0} löst {1} aus
 Feedback/&TriggerRerollLine={0} aktiviert {1}, um {2} = {3} neu zu würfeln
 Feedback/&TrueSightAndIllusionSpells={0} hat Wahre Sicht und ist von diesem Zauber nicht betroffen

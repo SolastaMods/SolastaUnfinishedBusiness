@@ -22,7 +22,7 @@
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
   "situationalContext": 9018,
-  "requiredCondition": null,
+  "requiredCondition": "Definition:ConditionStudiedAttacks:3d1dc3d0-5552-532c-9926-a0d5a16827e1",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
