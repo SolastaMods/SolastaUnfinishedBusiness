@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.GameExtensions.GameLocationBattleExtensions;
 using Coroutine = TA.Coroutine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -1242,37 +1243,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
             {
-                //PATCH: allow condition interruption after target was attacked not by source
-                if (!rulesetTarget.matchingInterruption)
-                {
-                    rulesetTarget.matchingInterruption = true;
-                    rulesetTarget.matchingInterruptionConditions.Clear();
-
-                    foreach (var rulesetCondition in rulesetTarget.ConditionsByCategory
-                                 .SelectMany(x => x.Value)
-                                 .Where(rulesetCondition =>
-                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                         (ConditionInterruption)ExtraConditionInterruption
-                                             .AfterWasAttackedNotBySource) &&
-                                     rulesetCondition.SourceGuid != actingCharacter.Guid))
-                    {
-                        rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
-                    }
-
-                    for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
-                         index >= 0;
-                         --index)
-                    {
-                        rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
-                    }
-
-                    rulesetTarget.matchingInterruptionConditions.Clear();
-                    rulesetTarget.matchingInterruption = false;
-                }
-
-                //PATCH: Allows condition interruption after target was attacked
-                rulesetTarget.ProcessConditionsMatchingInterruption(
-                    (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+                ProcessExtraAfterAttackConditionsMatchingInterruption(actingCharacter, rulesetTarget);
             }
 
             //PATCH: allows ITryAlterOutcomeAttributeCheck to interact with context checks
