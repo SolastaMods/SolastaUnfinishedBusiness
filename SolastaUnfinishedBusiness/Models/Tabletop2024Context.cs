@@ -197,6 +197,7 @@ internal static class Tabletop2024Context
         FeatureDefinitionBuilder
             .Create("FeatureSorcererArcaneApotheosis")
             .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorArcaneApotheosis())
             .AddToDB();
 
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
@@ -1296,14 +1297,35 @@ internal static class Tabletop2024Context
 
     internal static void SwitchSorcererArcaneApotheosis()
     {
-        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSorcererArcaneApotheosis);
+        Sorcerer.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSorcererArcaneApotheosis ||
+            x.FeatureDefinition == Level20Context.PowerSorcerousRestoration);
 
-        if (Main.Settings.EnableSorcererArcaneApotheosis)
-        {
-            Sorcerer.FeatureUnlocks.AddRange(new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20));
-        }
+        Sorcerer.FeatureUnlocks.Add(
+            Main.Settings.EnableSorcererArcaneApotheosis
+                ? new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20)
+                : new FeatureUnlockByLevel(Level20Context.PowerSorcerousRestoration, 20));
 
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static bool ShouldArcaneApotheosisAllowFreeUsage(RulesetCharacter rulesetCharacter)
+    {
+        if (!Main.Settings.EnableSorcererArcaneApotheosis)
+        {
+            return false;
+        }
+
+        var sorcererLevel = rulesetCharacter.GetClassLevel(Sorcerer);
+
+        if (sorcererLevel < 20)
+        {
+            return false;
+        }
+
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        return character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
     }
 
     internal static void SwitchSorcererInnateSorcery()
@@ -1420,6 +1442,66 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class CustomBehaviorArcaneApotheosis : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    {
+        private const string UsedSorceryPoints = "UsedSorceryPoints";
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (!IsValid(attacker, action.ActionParams.RulesetEffect))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses(FeatureSorcererArcaneApotheosis.Name, 0);
+
+            var usedSorceryPoints = attacker.GetSpecialFeatureUses(UsedSorceryPoints);
+
+            if (usedSorceryPoints < 0)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.usedSorceryPoints = usedSorceryPoints;
+            rulesetCharacter.SorceryPointsAltered?.Invoke(rulesetCharacter, usedSorceryPoints);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterAction action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (!IsValid(attacker, action.ActionParams.RulesetEffect))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses(UsedSorceryPoints, attacker.RulesetCharacter.UsedSorceryPoints);
+        }
+
+        private static bool IsValid(GameLocationCharacter attacker, RulesetEffect rulesetEffect)
+        {
+            if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+            {
+                return false;
+            }
+
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (!rulesetEffectSpell.MetamagicOption)
+            {
+                return false;
+            }
+
+            return attacker.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
+        }
     }
 
     private sealed class TryAlterOutcomeAttributeCheckTacticalMind : ITryAlterOutcomeAttributeCheck

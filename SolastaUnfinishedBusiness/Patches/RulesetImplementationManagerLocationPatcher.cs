@@ -80,7 +80,10 @@ public static class RulesetImplementationManagerLocationPatcher
                 ? Mathf.Max(1, rulesetEffectSpell.EffectLevel)
                 : metamagicOption.SorceryPointsCost;
 
-            if (sorceryCost > caster.RemainingSorceryPoints)
+            // BEGIN PATCH
+            if (!Tabletop2024Context.ShouldArcaneApotheosisAllowFreeUsage(caster) &&
+                // END PATCH
+                sorceryCost > caster.RemainingSorceryPoints)
             {
                 failure = "Failure/&FailureFlagInsufficientSorceryPoints";
                 return false;
