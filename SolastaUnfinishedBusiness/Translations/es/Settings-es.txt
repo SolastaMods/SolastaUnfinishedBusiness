@@ -178,6 +178,7 @@ ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> de
 ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color>, <color=#D89555>Golpe astuto mejorado</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5, 11 y 14. <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
+ModUi/&EnableRogueReliableTalentAt7=Habilitar <color=#D89555>Talento confiable</color> en el nivel 7 en lugar del 11
 ModUi/&EnableRogueSlipperyMind=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>

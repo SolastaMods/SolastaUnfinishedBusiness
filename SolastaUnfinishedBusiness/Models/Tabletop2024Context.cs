@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDieRollModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRestHealingModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -192,6 +193,13 @@ internal static class Tabletop2024Context
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(PowerSorcererSorceryIncarnate)
             .AddToDB();
+
+    private static readonly ConditionDefinition ConditionArcaneApotheosis = ConditionDefinitionBuilder
+        .Create("ConditionArcaneApotheosis")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(0)
+        .AddToDB();
 
     private static readonly FeatureDefinition FeatureSorcererArcaneApotheosis =
         FeatureDefinitionBuilder
@@ -412,6 +420,7 @@ internal static class Tabletop2024Context
         SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
+        SwitchRogueReliableTalent();
         SwitchRogueSlipperyMind();
         SwitchRogueSteadyAim();
         SwitchSecondWindToUseOneDndUsagesProgression();
@@ -1334,9 +1343,13 @@ internal static class Tabletop2024Context
             return false;
         }
 
-        var sorcererLevel = character.RulesetCharacter.GetClassLevel(Sorcerer);
+        var rulesetCharacter = character.RulesetCharacter;
+        var sorcererLevel = rulesetCharacter.GetClassLevel(Sorcerer);
 
-        return sorcererLevel == 20 && character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name);
+        return sorcererLevel == 20 &&
+               character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name) &&
+               rulesetCharacter.HasConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, ConditionSorcererInnateSorcery.Name);
     }
 
     internal static void SwitchSorcererInnateSorcery()
@@ -1457,8 +1470,6 @@ internal static class Tabletop2024Context
 
     private sealed class CustomBehaviorArcaneApotheosis : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        private const string UsedSorceryPoints = "UsedSorceryPoints";
-
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1471,14 +1482,16 @@ internal static class Tabletop2024Context
 
             attacker.SetSpecialFeatureUses(FeatureSorcererArcaneApotheosis.Name, 0);
 
-            var usedSorceryPoints = attacker.GetSpecialFeatureUses(UsedSorceryPoints);
 
-            if (usedSorceryPoints < 0)
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionArcaneApotheosis.Name, out var activeCondition))
             {
                 yield break;
             }
 
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var usedSorceryPoints = activeCondition.Amount;
 
             rulesetCharacter.usedSorceryPoints = usedSorceryPoints;
             rulesetCharacter.SorceryPointsAltered?.Invoke(rulesetCharacter, usedSorceryPoints);
@@ -1495,7 +1508,21 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
-            attacker.SetSpecialFeatureUses(UsedSorceryPoints, attacker.RulesetCharacter.UsedSorceryPoints);
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                RuleDefinitions.ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                RuleDefinitions.ConditionDisengaging,
+                rulesetAttacker.UsedSorceryPoints,
+                0,
+                0);
         }
     }
 
@@ -1522,10 +1549,9 @@ internal static class Tabletop2024Context
                 ExtraActionId.DoNothingFree,
                 defender,
                 "TacticalMindCheck",
-                "CustomReactionTacticalMindCheckDescription",
+                "CustomReactionTacticalMindCheckDescription".Formatted(Category.Reaction),
                 ReactionValidated,
-                battleManager: battleManager,
-                resource: ReactionResourceSorceryPoints.Instance);
+                battleManager: battleManager);
 
             yield break;
 
@@ -1544,7 +1570,7 @@ internal static class Tabletop2024Context
 
                 rulesetHelper.LogCharacterActivatesAbility(
                     "Feature/&FeatureFighterTacticalMindTitle",
-                    "Feedback/&MagicalGuidanceCheckToHitRoll",
+                    "Feedback/&TacticalMindCheckToHitRoll",
                     extra: [(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())]);
             }
         }
@@ -3017,6 +3043,17 @@ internal static class Tabletop2024Context
             .SetGuiPresentation($"Power{Devious}", Category.Feature)
             .SetFeatureSet(powerDaze, powerKnockOut, powerObscure)
             .AddToDB();
+    }
+
+    internal static void SwitchRogueReliableTalent()
+    {
+        Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == DieRollModifierRogueReliableTalent);
+
+        Rogue.FeatureUnlocks.Add(Main.Settings.EnableRogueReliableTalentAt7
+            ? new FeatureUnlockByLevel(DieRollModifierRogueReliableTalent, 7)
+            : new FeatureUnlockByLevel(DieRollModifierRogueReliableTalent, 11));
+
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchRogueSlipperyMind()

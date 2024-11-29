@@ -67,9 +67,9 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnablePcgRandom { get; set; }
-    public bool EnableCustomPortraits { get; set; }
+    public bool EnableCustomPortraits { get; set; } = true;
     public bool DisableMultilineSpellOffering { get; set; }
-    public bool DisableUnofficialTranslations { get; set; }
+    public bool DisableUnofficialTranslations { get; set; } = true;
 
     //
     // Gameplay - Rules
@@ -309,6 +309,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
+    public bool EnableRogueReliableTalentAt7 { get; set; }
     public bool EnableRogueSlipperyMind { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool RemoveRogueBlindSense { get; set; }

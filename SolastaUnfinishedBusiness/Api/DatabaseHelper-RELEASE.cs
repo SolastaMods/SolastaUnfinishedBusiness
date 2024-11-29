@@ -2423,6 +2423,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionDieRollModifier DieRollModifierHalfingLucky { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierHalfingLucky");
+
+        internal static FeatureDefinitionDieRollModifier DieRollModifierRogueReliableTalent { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierRogueReliableTalent");
     }
 
     internal static class FeatureDefinitionRegenerations

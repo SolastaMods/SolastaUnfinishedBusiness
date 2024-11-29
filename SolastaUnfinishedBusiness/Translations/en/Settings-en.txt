@@ -178,6 +178,7 @@ ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest ac
 ModUi/&EnableRitualOnAllCasters=Enable <color=#D89555>Ritual</color> casting on all casters
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color>, and <color=#D89555>Devious Strike</color> at levels 5, 11 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableRogueReliableTalentAt7=Enable <color=#D89555>Reliable Talent</color> at level 7 instead of 11
 ModUi/&EnableRogueSlipperyMind=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>

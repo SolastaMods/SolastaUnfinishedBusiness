@@ -371,6 +371,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchRogueBlindSense();
         }
 
+        toggle = Main.Settings.EnableRogueReliableTalentAt7;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueReliableTalentAt7"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueReliableTalentAt7 = toggle;
+            Tabletop2024Context.SwitchRogueReliableTalent();
+        }
+
         toggle = Main.Settings.EnableRogueSlipperyMind;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSlipperyMind"), ref toggle, UI.AutoWidth()))
         {

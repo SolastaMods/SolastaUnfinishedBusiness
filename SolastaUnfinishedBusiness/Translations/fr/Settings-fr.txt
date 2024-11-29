@@ -178,6 +178,7 @@ ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après 
 ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts
 ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5, 11 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
+ModUi/&EnableRogueReliableTalentAt7=Activer le <color=#D89555>talent fiable</color> au niveau 7 au lieu de 11
 ModUi/&EnableRogueSlipperyMind=Échangez <color=#D89555>Slippery Mind</color> avec la version 5e 2024 <i><color=#F0DAA0>[vous obtenez également la maîtrise des jets de sauvegarde de charisme en plus de la sagesse]</color></i>
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>

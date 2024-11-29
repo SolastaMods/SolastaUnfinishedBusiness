@@ -6,6 +6,7 @@
 - added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
 - added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
 - added 'Enable Rogue Improved Cunning Strike at 11' under existing Cunning/Devious strike setting
+- added 'Enable Rogue Reliable Talent at 7 instead of 11' setting
 - added 'Enable Sorcerer Arcane Apotheosis at 20' setting [free metamagic use once per round]
 - added 'Enable Sorcerer Sorcery Incarnate at 7' under existing Innate Sorcery setting
 - added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]

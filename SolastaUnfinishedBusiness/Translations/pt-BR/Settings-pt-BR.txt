@@ -178,6 +178,7 @@ ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação
 ModUi/&EnableRitualOnAllCasters=Habilitar a conjuração de <color=#D89555>Ritual</color> em todos os conjuradores
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Golpe Astuto</color>, <color=#D89555>Golpe Astuto Aprimorado</color> e <color=#D89555>Golpe Desonesto</color> nos níveis 5, 11 e 14 <i><color=#F0DAA0>[você deixa de lado 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
+ModUi/&EnableRogueReliableTalentAt7=Habilite <color=#D89555>Talento Confiável</color> no nível 7 em vez de 11
 ModUi/&EnableRogueSlipperyMind=Troque <color=#D89555>Mente Escorregadia</color> pela versão 5e 2024 <i><color=#F0DAA0>[você também ganha proficiência em testes de resistência de carisma, além de sabedoria]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
