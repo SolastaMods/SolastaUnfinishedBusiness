@@ -1409,17 +1409,9 @@ internal static class Tabletop2024Context
         RulesetEffect rulesetEffect,
         bool validateMetamagicOption = true)
     {
-        if (!Main.Settings.EnableSorcererArcaneApotheosis)
-        {
-            return false;
-        }
-
-        if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
-        {
-            return false;
-        }
-
-        if (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption)
+        if (!Main.Settings.EnableSorcererArcaneApotheosis ||
+            rulesetEffect is not RulesetEffectSpell rulesetEffectSpell ||
+            (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption))
         {
             return false;
         }
@@ -1621,7 +1613,6 @@ internal static class Tabletop2024Context
 
             attacker.SetSpecialFeatureUses(FeatureSorcererArcaneApotheosis.Name, 0);
 
-
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
@@ -1678,13 +1669,9 @@ internal static class Tabletop2024Context
 
             if (abilityCheckData.AbilityCheckRoll == 0 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckSuccessDelta < -10 ||
                 helper != defender ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
-            {
-                yield break;
-            }
-
-            if (abilityCheckData.AbilityCheckSuccessDelta < -10)
             {
                 yield break;
             }
@@ -1750,9 +1737,9 @@ internal static class Tabletop2024Context
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var distance = int3.Distance(attacker.LocationPosition, position);
+            var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
-            attacker.UsedTacticalMoves -= (int)distance;
+            attacker.UsedTacticalMoves -= distance;
 
             if (attacker.UsedTacticalMoves < 0)
             {
@@ -1772,7 +1759,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 ConditionWithdrawn.Name,
-                0,
+                distance,
                 0,
                 0);
 
@@ -3305,6 +3292,7 @@ internal static class Tabletop2024Context
 
     private static readonly ConditionDefinition ConditionWithdrawn = ConditionDefinitionBuilder
         .Create(ConditionDefinitions.ConditionDisengaging, "ConditionWithdrawn")
+        .SetSilent(Silent.None)
         .SetParentCondition(ConditionDefinitions.ConditionDisengaging)
         .SetFeatures()
         .SetFixedAmount(3)
@@ -3449,9 +3437,9 @@ internal static class Tabletop2024Context
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var position = action.ActionParams.Positions[0];
-            var distance = int3.Distance(attacker.LocationPosition, position);
+            var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
-            attacker.UsedTacticalMoves -= (int)distance;
+            attacker.UsedTacticalMoves -= distance;
 
             if (attacker.UsedTacticalMoves < 0)
             {
@@ -3471,7 +3459,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 ConditionWithdrawn.Name,
-                0,
+                distance,
                 0,
                 0);
 
@@ -3564,7 +3552,7 @@ internal static class Tabletop2024Context
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action is not (CharacterActionMove or CharacterActionDash))
+            if (action is not (CharacterActionMove or CharacterActionMoveStepWalk))
             {
                 yield break;
             }
