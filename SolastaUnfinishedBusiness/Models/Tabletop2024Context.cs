@@ -337,6 +337,7 @@ internal static class Tabletop2024Context
     private static readonly ConditionDefinition ConditionStudiedAttacks = ConditionDefinitionBuilder
         .Create("ConditionStudiedAttacks")
         .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+        .SetConditionType(ConditionType.Detrimental)
         .AddCustomSubFeatures(new PhysicalAttackFinishedOnMeStudiedAttacks())
         .SetPossessive()
         .AddToDB();
@@ -1393,7 +1394,9 @@ internal static class Tabletop2024Context
     }
 
     private static bool IsArcaneApotheosisValid(
-        GameLocationCharacter character, RulesetEffect rulesetEffect, bool validateMetamagicOption = true)
+        GameLocationCharacter character,
+        RulesetEffect rulesetEffect,
+        bool validateMetamagicOption = true)
     {
         if (!Main.Settings.EnableSorcererArcaneApotheosis)
         {
@@ -1405,7 +1408,6 @@ internal static class Tabletop2024Context
             return false;
         }
 
-        // ReSharper disable once ConvertIfStatementToReturnStatement
         if (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption)
         {
             return false;
@@ -1414,9 +1416,18 @@ internal static class Tabletop2024Context
         var rulesetCharacter = character.RulesetCharacter;
         var sorcererLevel = rulesetCharacter.GetClassLevel(Sorcerer);
 
-        return sorcererLevel == 20 &&
-               character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name) &&
-               rulesetCharacter.HasConditionOfCategoryAndType(
+        if (sorcererLevel < 20)
+        {
+            return false;
+        }
+
+        if (Gui.Battle != null &&
+            !character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name))
+        {
+            return false;
+        }
+
+        return rulesetCharacter.HasConditionOfCategoryAndType(
                    AttributeDefinitions.TagEffect, ConditionSorcererInnateSorcery.Name);
     }
 
@@ -1772,21 +1783,15 @@ internal static class Tabletop2024Context
         {
             var rulesetDefender = defender.RulesetActor;
 
-            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) ||
-                activeCondition.SourceGuid != attacker.Guid)
-            {
-                yield break;
-            }
-
-            if (activeCondition.Amount < 0)
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) &&
+                activeCondition.SourceGuid == attacker.Guid &&
+                rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetDefender.RemoveCondition(activeCondition);
             }
-            else
-            {
-                activeCondition.amount = -1;
-            }
+
+            yield break;
         }
     }
 
@@ -1812,7 +1817,7 @@ internal static class Tabletop2024Context
             rulesetDefender.InflictCondition(
                 ConditionStudiedAttacks.Name,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
@@ -3291,6 +3296,7 @@ internal static class Tabletop2024Context
         .Create(ConditionDefinitions.ConditionDisengaging, "ConditionWithdrawn")
         .SetParentCondition(ConditionDefinitions.ConditionDisengaging)
         .SetFeatures()
+        .SetFixedAmount(3)
         .AddCustomSubFeatures(new ActionFinishedByWithdraw())
         .AddToDB();
 
@@ -3554,8 +3560,15 @@ internal static class Tabletop2024Context
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagCombat, ConditionWithdrawn.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            activeCondition.Amount--;
+
+            if (activeCondition.Amount <= 0)
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
