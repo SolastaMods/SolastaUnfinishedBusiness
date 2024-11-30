@@ -942,18 +942,6 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                //PATCH: allow custom behavior when physical attack finished
-                foreach (var feature in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
-                {
-                    yield return feature.OnPhysicalAttackFinishedByMe(
-                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                        damageAmount);
-                }
-            }
-
             if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 //PATCH: allow custom behavior when physical attack finished on defender
@@ -961,6 +949,18 @@ public static class GameLocationBattleManagerPatcher
                              .GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
                 {
                     yield return feature.OnPhysicalAttackFinishedOnMe(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
+            }
+
+            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                //PATCH: allow custom behavior when physical attack finished
+                foreach (var feature in attacker.RulesetCharacter
+                             .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
+                {
+                    yield return feature.OnPhysicalAttackFinishedByMe(
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
                 }
