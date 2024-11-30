@@ -1339,12 +1339,23 @@ internal static class Tabletop2024Context
                (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
     }
 
-    internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
+    internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter)
     {
-        maxPreparedSpell = 1;
-
         return rulesetCharacter.HasConditionOfCategoryAndType(
             AttributeDefinitions.TagEffect, "ConditionMemorizeSpell");
+    }
+
+    internal static bool IsInvalidMemorizeSelectedSpell(
+        SpellRepertoirePanel spellRepertoirePanel, RulesetCharacter rulesetCharacter, SpellDefinition spell)
+    {
+        var maxPreparedSpells = spellRepertoirePanel.SpellRepertoire.MaxPreparedSpell;
+        var currentPreparedSpells = spellRepertoirePanel.preparedSpells.Count;
+
+        return
+            rulesetCharacter.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionMemorizeSpell") &&
+            maxPreparedSpells - currentPreparedSpells >= 1 &&
+            spellRepertoirePanel.preparedSpells.Contains(spell);
     }
 
     private static void LoadWizardMemorizeSpell()
@@ -1428,7 +1439,7 @@ internal static class Tabletop2024Context
         }
 
         return rulesetCharacter.HasConditionOfCategoryAndType(
-                   AttributeDefinitions.TagEffect, ConditionSorcererInnateSorcery.Name);
+            AttributeDefinitions.TagEffect, ConditionSorcererInnateSorcery.Name);
     }
 
     internal static void SwitchSorcererInnateSorcery()
