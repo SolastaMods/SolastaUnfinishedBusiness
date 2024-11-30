@@ -1338,12 +1338,24 @@ internal static class Tabletop2024Context
                (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
     }
 
-    internal static FeatureDefinition LoadWizardMemorizeSpell()
+    internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
     {
+        maxPreparedSpell = 1;
+
+        return rulesetCharacter.HasConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect, "ConditionMemorizeSpell");
+    }
+
+    private static void LoadWizardMemorizeSpell()
+    {
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionMemorizeSpell")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         ServiceRepository.GetService<IFunctorService>()
             .RegisterFunctor(nameof(FunctorMemorizeSpell), new FunctorMemorizeSpell());
-
-        return FeatureMemorizeSpell;
     }
 
     internal static void SwitchOneDndWizardMemorizeSpell()
@@ -1544,6 +1556,19 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
+            var activeCondition = hero.InflictCondition(
+                "ConditionMemorizeSpell",
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                hero.guid,
+                hero.CurrentFaction.Name,
+                1,
+                "ConditionMemorizeSpell",
+                0,
+                0,
+                0);
 
             partyStatusScreen.SetupDisplayPreferences(false, false, false);
 
@@ -1556,6 +1581,7 @@ internal static class Tabletop2024Context
             }
 
             partyStatusScreen.SetupDisplayPreferences(true, true, true);
+            hero.RemoveCondition(activeCondition);
         }
     }
 
