@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
+ModUi/&EnableFighterStudiedAttacks=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
+ModUi/&EnableFighterTacticalProgression=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトではなく能力値ポイントを割り当てる]</color></i>
@@ -174,21 +176,23 @@ ModUi/&EnableRangerSpellCastingAtLevel1=<color=#D89555>呪文発動</color>を�
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRitualOnAllCasters=すべてのキャスターに<color=#D89555>儀式</color>の詠唱を有効にする
-ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
+ModUi/&EnableRogueCunningStrike=レベル 5、11、14 で <color=#D89555>狡猾な一撃</color>、<color=#D89555>改良された狡猾な一撃</color>、<color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
+ModUi/&EnableRogueReliableTalentAt7=<color=#D89555>信頼できる才能</color>をレベル11ではなくレベル7で有効にします
 ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color> を 5e 2024 版と入れ替えます <i><color=#F0DAA0>[知恵に加えて、カリスマ セーヴィング スローの熟練度も得られます]</color></i>
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 で <color=#D89555>生来の魔術</color> を有効にする
+ModUi/&EnableSorcererArcaneApotheosis=20で<color=#D89555>アーケイン・アポセオシス</color>を有効にする
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
-ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
+ModUi/&EnableSorcererSorcerousRestoration=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
-ModUi/&EnableSpeechOnNpcs=<i>+ 以下の割り当てられていない音声を利用して NPC の音声も有効にします</i>
+ModUi/&EnableSpeechOnNpcs=<i>+ NPC のスピーチを有効にする <color=#F0DAA0>[キャンペーン マッピングまたは自動割り当てから]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
@@ -204,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=<color=#D89555>ポーション</color>と<colo
 ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にし、レベル20で<color=#D89555>エルドリッチマスター</color>を向上させる
 ModUi/&EnableWarlockToLearnPatronAtLevel3=<color=#D89555>パトロン</color>をレベル1ではなくレベル3で有効にする
+ModUi/&EnableWizardMemorizeSpell=レベル5で<color=#D89555>呪文記憶</color>を有効にする
 ModUi/&EnableWizardToLearnScholarAtLevel2=レベル2で<color=#D89555>学者</color>を有効にする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>魔法学校</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
@@ -222,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの�
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチ ブラスト</color>で24セルの範囲を使用します <i><color=#F0DAA0>[12の代わりに]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>再生の指輪</color>の回復速度を3分ごとに1HPに設定
 ModUi/&FlightSuspendWingedBoots=<i>+ ウィングドブーツの公式ルールを使用 <color=#F0DAA0>[飛行が中断されると残り時間はカウントされません]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+キャンペーンマッピングの代わりに、すべての NPC に音声の自動割り当てを強制する</i>
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤーゲーム中はフォーメーションを変更できません...</color>
 ModUi/&FormationHelp1=• 数字ボタンを使用して、特定のセットを編集します <i><color=#F0DAA0>[入力時にホットキーを有効にすることを検討してください]</color></i>

@@ -15,15 +15,10 @@ public static class NarrativeStateNpcSpeechPatcher
     public static class RecordSpeechLine_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(string speakerName, string textLine)
+        public static void Postfix(NarrativeStateNpcSpeech __instance, string speakerName, string textLine)
         {
-            //PATCH: EnableSpeech
-            if (Main.Settings.EnableSpeech)
-            {
-                var npcId = Gui.Session.UserCampaign?.UserNpcs?.FindIndex(x => x.DisplayTitle == speakerName) ?? -1;
-
-                SpeechContext.SpeakNpc(textLine, npcId);
-            }
+            //PATCH: supports speech feature
+            SpeechContext.SpeakNpc(textLine, __instance.speaker);
 
             //PATCH: EnableLogDialoguesToConsole
             if (Main.Settings.EnableLogDialoguesToConsole)

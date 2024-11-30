@@ -90,9 +90,10 @@ public static class InventoryShortcutsPanelPatcher
     [UsedImplicitly]
     public static class BindConfigurationsPatch
     {
+        [UsedImplicitly]
         public static bool Prefix(InventoryShortcutsPanel __instance)
         {
-            if (__instance.GuiCharacter == null || __instance.GuiCharacter.RulesetCharacterHero == null)
+            if (__instance.GuiCharacter?.RulesetCharacterHero == null)
             {
                 return false;
             }

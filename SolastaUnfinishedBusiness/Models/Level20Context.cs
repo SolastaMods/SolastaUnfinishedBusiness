@@ -39,6 +39,8 @@ internal static class Level20Context
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxLevel = 16;
 
+    private const string PowerSorcerousRestorationName = "PowerSorcererSorcerousRestoration";
+
     internal static readonly FeatureDefinitionPower PowerMonkEmptyBody = FeatureDefinitionPowerBuilder
         .Create("PowerMonkEmptyBody")
         .SetGuiPresentation(Category.Feature, Sprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64))
@@ -117,6 +119,19 @@ internal static class Level20Context
         .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
+        .Create(PowerSorcerousRestorationName)
+        .SetGuiPresentation("PowerSorcererSorcerousRestoration", Category.Feature)
+        .SetUsesFixed(ActivationTime.Rest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                .Build())
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     internal static void Load()
@@ -455,8 +470,6 @@ internal static class Level20Context
 
     private static void SorcererLoad()
     {
-        const string PowerSorcerousRestorationName = "PowerSorcererSorcerousRestoration";
-
         _ = RestActivityDefinitionBuilder
             .Create("RestActivitySorcererSorcerousRestoration")
             .SetGuiPresentation(PowerSorcerousRestorationName, Category.Feature)
@@ -476,28 +489,12 @@ internal static class Level20Context
         effectFormRestoration.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
         effectFormRestoration.SpellSlotsForm.sorceryPointsGain = 4;
 
-        var powerSorcerousRestoration = FeatureDefinitionPowerBuilder
-            .Create(PowerSorcerousRestorationName)
-            .SetGuiPresentation("PowerSorcererSorcerousRestoration", Category.Feature)
-            .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetEffectForms(effectFormRestoration)
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Self,
-                        1,
-                        TargetType.Self)
-                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
-                    .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .AddToDB();
+        PowerSorcerousRestoration.EffectDescription.EffectForms.Add(effectFormRestoration);
 
         Sorcerer.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(PointPoolSorcererAdditionalMetamagic, 17),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(powerSorcerousRestoration, 20)
+            new FeatureUnlockByLevel(PowerSorcerousRestoration, 20)
         );
 
         EnumerateSlotsPerLevel(

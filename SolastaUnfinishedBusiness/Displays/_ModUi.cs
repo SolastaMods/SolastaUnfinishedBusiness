@@ -249,7 +249,7 @@ internal static class ModUi
         "RangerFeyWanderer",
         "RangerGloomStalker",
         "RangerWildMaster",
-        "RayOfSickening",
+        "RayOfSickness",
         "RemarkableTechnique",
         "ResonatingStrike",
         "ReverseGravity",

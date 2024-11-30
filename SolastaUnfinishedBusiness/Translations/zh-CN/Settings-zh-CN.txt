@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><col
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>\n<b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在 2、10 和 18 级启用<color=#D89555>专长</color>选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>专长</color>选择
+ModUi/&EnableFighterStudiedAttacks=在 13 级时启用<color=#D89555>学习攻击</color> <i><color=#F0DAA0>[如果本轮中对生物的上一次攻击失败则获得优势]</color></i>
+ModUi/&EnableFighterTacticalProgression=在 2 级和 5 级时启用<color=#D89555>战术思维</color>和<color=#D89555>战术转变</color><i><color=#F0DAA0>[增强第二风场景]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害力 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活种族<i><color=#F0DAA0>[分配能力得分点而不是种族默认值]</color></i>
@@ -174,21 +176,23 @@ ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRitualOnAllCasters=对所有施法者启用<color=#D89555>仪式</color>施法
-ModUi/&EnableRogueCunningStrike=在 5 级和 14 级启用<color=#D89555>狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
+ModUi/&EnableRogueCunningStrike=在等级 5、11 和 14 时启用<color=#D89555>狡猾打击</color>、<color=#D89555>强化狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
+ModUi/&EnableRogueReliableTalentAt7=将<color=#D89555>可靠天赋</color>设置为 7 级（而非 11 级）
 ModUi/&EnableRogueSlipperyMind=将 <color=#D89555>Slippery Mind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[除了智慧之外，你还获得了魅力豁免的熟练程度]</color></i>
 ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=在第 1 级启用<color=#D89555>天生巫术</color>
+ModUi/&EnableSorcererArcaneApotheosis=在 20 级时启用<color=#D89555>奥术神化</color>
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
-ModUi/&EnableSorcerousRestorationAtLevel5=在第 5 级启用<color=#D89555>魔法恢复</color>
+ModUi/&EnableSorcererSorcerousRestoration=在第 5 级启用<color=#D89555>魔法恢复</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员
-ModUi/&EnableSpeechOnNpcs=<i>+ 还可以利用下方未指定的声音为 NPC 启用声音</i>
+ModUi/&EnableSpeechOnNpcs=<i>+ 启用 NPC 语音<color=#F0DAA0>[通过战役映射或自动分配]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 选择语音和叙述速度
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
@@ -204,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<c
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>
+ModUi/&EnableWizardMemorizeSpell=在第 5 级启用<color=#D89555>记忆法术</color>
 ModUi/&EnableWizardToLearnScholarAtLevel2=启用 2 级 <color=#D89555>Scholar</color>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=在 3 级（而非 2 级）启用<color=#D89555>魔法学校</color>
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
@@ -222,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><
 ModUi/&FixEldritchBlastRange=使用 24 个单元格范围与 <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[而不是 12 个]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=将<color=#D89555>再生之环</color>的治疗率设置为每 3 分钟 1 点生命值
 ModUi/&FlightSuspendWingedBoots=<i>+ 使用 Winged Boots 官方规则<color=#F0DAA0>[暂停飞行时不计算剩余时长]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+强制所有 NPC 自动分配语音，而不是进行战役映射</i>
 ModUi/&Formation=<color=#F0DAA0>阵型:</color>
 ModUi/&FormationError=<color=#C04040E0>您无法在多人游戏中改变阵型...</color>
 ModUi/&FormationHelp1=• 使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>

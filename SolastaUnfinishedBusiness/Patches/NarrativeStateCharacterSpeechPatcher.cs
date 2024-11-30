@@ -17,13 +17,8 @@ public static class NarrativeStateCharacterSpeechPatcher
         [UsedImplicitly]
         public static void Postfix(NarrativeStateCharacterSpeech __instance, string speakerName, string textLine)
         {
-            //PATCH: EnableSpeech
-            if (Main.Settings.EnableSpeech)
-            {
-                var heroId = Gui.Game.GameCampaign.Party.CharactersList.FindIndex(x => x.Name == speakerName) + 1;
-
-                SpeechContext.Speak(textLine, heroId);
-            }
+            //PATCH: supports speech feature
+            SpeechContext.Speak(textLine, __instance.speaker);
 
             //PATCH: EnableLogDialoguesToConsole
             if (Main.Settings.EnableLogDialoguesToConsole)

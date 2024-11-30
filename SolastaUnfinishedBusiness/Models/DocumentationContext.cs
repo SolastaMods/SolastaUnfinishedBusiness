@@ -116,7 +116,7 @@ internal static class DocumentationContext
             }
 
             var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-            var description = featureDefinition.FormatDescription().LazyManStripXml();
+            var description = featureDefinition.FormatDescription().StripXmlTags();
 
             outString.AppendLine($"* {featureDefinition.FormatTitle()}");
             outString.AppendLine();
@@ -136,7 +136,7 @@ internal static class DocumentationContext
         {
             outString.AppendLine($"# {counter++}. - {klass.FormatTitle()} {GetTag(klass)}");
             outString.AppendLine();
-            outString.AppendLine(klass.FormatDescription().LazyManStripXml());
+            outString.AppendLine(klass.FormatDescription().StripXmlTags());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, klass.FeatureUnlocks);
@@ -225,7 +225,7 @@ internal static class DocumentationContext
 
             outString.AppendLine($"## {counter++}. {title} {GetTag(subclass)}");
             outString.AppendLine();
-            outString.AppendLine(subclass.FormatDescription().LazyManStripXml());
+            outString.AppendLine(subclass.FormatDescription().StripXmlTags());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, subclass.FeatureUnlocks);
@@ -256,7 +256,7 @@ internal static class DocumentationContext
 
             outString.AppendLine($"# {counter++}. - {title} {GetTag(race)}");
             outString.AppendLine();
-            outString.AppendLine(race.FormatDescription().LazyManStripXml());
+            outString.AppendLine(race.FormatDescription().StripXmlTags());
             outString.AppendLine();
 
             DumpFeatureUnlockByLevel(outString, race.FeatureUnlocks);
@@ -319,7 +319,7 @@ internal static class DocumentationContext
                 title = $"*{title}* \u00a9";
             }
 
-            var description = definition.FormatDescription().LazyManStripXml();
+            var description = definition.FormatDescription().StripXmlTags();
 
             //TODO: refactor this out with a proper optional change description action
             if (definition is SpellDefinition spellDefinition)
@@ -389,7 +389,7 @@ internal static class DocumentationContext
 
             finalDetails = finalDetails.Substring(0, finalDetails.Length - 2);
 
-            outString.AppendLine(finalDetails.LazyManStripXml());
+            outString.AppendLine(finalDetails.StripXmlTags());
             outString.AppendLine();
         }
 
@@ -420,7 +420,7 @@ internal static class DocumentationContext
         outString.AppendLine($"# {counter++}. - {monsterDefinition.FormatTitle()}");
         outString.AppendLine();
 
-        var description = monsterDefinition.FormatDescription().LazyManStripXml();
+        var description = monsterDefinition.FormatDescription().StripXmlTags();
 
         if (!string.IsNullOrEmpty(description))
         {

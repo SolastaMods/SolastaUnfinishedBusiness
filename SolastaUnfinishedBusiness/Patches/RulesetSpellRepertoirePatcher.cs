@@ -45,6 +45,13 @@ public static class RulesetSpellRepertoirePatcher
                 return true;
             }
 
+            if (Tabletop2024Context.IsMemorizeSpellPreparation(character, out var maxMemorizeSpell))
+            {
+                __result = maxMemorizeSpell;
+
+                return false;
+            }
+
             if (Level20Context.WizardSpellMastery.IsPreparation(character, out var maxSpellMastery))
             {
                 __result = maxSpellMastery;

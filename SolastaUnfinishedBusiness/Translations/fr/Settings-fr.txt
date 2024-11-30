@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau des compétences étendues <i><color=#F0DAA0>[Tirs des arcanes, Infusions, Manœuvres et Polyvalence]</color></i>\n<b><i><color=#C04040E0>[baisse des performances lors de l'inspection des personnages. À utiliser à vos risques et périls]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 6 et 14
+ModUi/&EnableFighterStudiedAttacks=Activer les <color=#D89555>attaques étudiées</color> au niveau 13 <i><color=#F0DAA0>[avantage si l'attaque précédente du tour contre la créature a été manquée]</color></i>
+ModUi/&EnableFighterTacticalProgression=Activez <color=#D89555>Tactical Mind</color> et <color=#D89555>Tactical Shift</color> aux niveaux 2 et 5 <i><color=#F0DAA0>[augmentez les scénarios de second souffle]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et pour endommager mais désavantagez-vous avec tout autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionnez les compétences et les outils à partir des arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs par défaut raciales]</color></i>
@@ -174,21 +176,23 @@ ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de s
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRitualOnAllCasters=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts
-ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
+ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color> et <color=#D89555>Devious Strike</color> aux niveaux 5, 11 et 14 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
+ModUi/&EnableRogueReliableTalentAt7=Activer le <color=#D89555>talent fiable</color> au niveau 7 au lieu de 11
 ModUi/&EnableRogueSlipperyMind=Échangez <color=#D89555>Slippery Mind</color> avec la version 5e 2024 <i><color=#F0DAA0>[vous obtenez également la maîtrise des jets de sauvegarde de charisme en plus de la sagesse]</color></i>
 ModUi/&EnableRogueSteadyAim=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Activer la <color=#D89555>Sorcellerie innée</color> au niveau 1
+ModUi/&EnableSorcererArcaneApotheosis=Activer <color=#D89555>Apothéose des arcanes</color> à 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
-ModUi/&EnableSorcerousRestorationAtLevel5=Activer la <color=#D89555>Restauration magique</color> au niveau 5
+ModUi/&EnableSorcererSorcerousRestoration=Activer la <color=#D89555>Restauration magique</color> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration et héros uniquement]</color></i>
 ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur
-ModUi/&EnableSpeechOnNpcs=<i>+ Activez également les voix sur les PNJ en utilisant les voix non attribuées ci-dessous</i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Activer la parole sur les PNJ <color=#F0DAA0>[soit à partir de la cartographie de campagne, soit à partir de l'attribution automatique]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Sélectionnez une voix et une vitesse de narration
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
@@ -204,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Autoriser le transport et l'utilisation de <co
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Activez la <color=#D89555>ruse magique</color> au niveau 2 et améliorez le <color=#D89555>maître eldritch</color> à 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Activer <color=#D89555>Patron</color> au niveau 3 au lieu de 1
+ModUi/&EnableWizardMemorizeSpell=Activer <color=#D89555>Mémoriser le sort</color> au niveau 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Activer <color=#D89555>Scholar</color> au niveau 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'<color=#D89555>École de magie</color> au niveau 3 au lieu de 2
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
@@ -222,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=Correction du retour à la ligne du texte de l'
 ModUi/&FixEldritchBlastRange=Utilisez une plage de 24 cellules avec <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[au lieu de 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Réglez la fréquence de soin de l'<color=#D89555>Anneau de régénération</color> à 1 HP toutes les 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Règles officielles d'utilisation des bottes ailées <color=#F0DAA0>[la durée restante n'est pas comptabilisée lorsque le vol est suspendu]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+ Forcer l'attribution automatique de la voix sur tous les PNJ au lieu du mappage de campagne</i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
 ModUi/&FormationHelp1=• Utilisez les touches numériques pour modifier un ensemble donné <i><color=#F0DAA0>[pensez à activer les raccourcis clavier lors de la saisie]</color></i>

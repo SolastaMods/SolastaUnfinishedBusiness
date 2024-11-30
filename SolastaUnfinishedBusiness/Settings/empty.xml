@@ -220,9 +220,9 @@
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <EnablePcgRandom>false</EnablePcgRandom>
-    <EnableCustomPortraits>false</EnableCustomPortraits>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
     <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
-    <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
+    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
     <EnableLevel20>false</EnableLevel20>
     <EnableMulticlass>false</EnableMulticlass>
@@ -291,6 +291,8 @@
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <EnableSpeech>false</EnableSpeech>
+    <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
+    <ForceModSpeechOnNpcs>false</ForceModSpeechOnNpcs>
     <SpeechChoice>0</SpeechChoice>
     <SpeechVoices>
         <item>
@@ -300,7 +302,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -311,7 +313,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -322,7 +324,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -333,7 +335,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -344,7 +346,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -355,7 +357,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -366,7 +368,7 @@
             <value>
                 <ValueTupleOfStringSingle>
                     <Item1>No Voice</Item1>
-                    <Item2>1</Item2>
+                    <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
         </item>
@@ -647,6 +649,8 @@
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
     <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
+    <EnableFighterStudiedAttacks>false</EnableFighterStudiedAttacks>
+    <EnableFighterTacticalProgression>false</EnableFighterTacticalProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>
@@ -670,18 +674,21 @@
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueReliableTalentAt7>false</EnableRogueReliableTalentAt7>
     <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
+    <EnableSorcererArcaneApotheosis>false</EnableSorcererArcaneApotheosis>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate>false</EnableSorcererInnateSorceryAndSorceryIncarnate>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcerousRestorationAtLevel5>false</EnableSorcerousRestorationAtLevel5>
+    <EnableSorcererSorcerousRestoration>false</EnableSorcererSorcerousRestoration>
     <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
     <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardMemorizeSpell>false</EnableWizardMemorizeSpell>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>

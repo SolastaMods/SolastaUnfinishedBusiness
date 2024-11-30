@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDieRollModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRestHealingModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -151,6 +152,18 @@ internal static class Tabletop2024Context
 
     private static readonly List<SpellDefinition> GuidanceSubSpells = [];
 
+    private static readonly ConditionDefinition ConditionSorcererInnateSorcery = ConditionDefinitionBuilder
+        .Create("ConditionSorcererInnateSorcery")
+        .SetGuiPresentation(Category.Condition, ConditionAuraOfCourage)
+        .SetFeatures(
+            FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinitySorcererInnateSorcery")
+                .SetGuiPresentation("PowerSorcererInnateSorcery", Category.Feature)
+                .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
+                .AddToDB())
+        .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerSorcererInnateSorcery = FeatureDefinitionPowerBuilder
         .Create("PowerSorcererInnateSorcery")
         .SetGuiPresentation(Category.Feature, PowerTraditionShockArcanistGreaterArcaneShock)
@@ -160,21 +173,40 @@ internal static class Tabletop2024Context
                 .Create()
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create("ConditionSorcererInnateSorcery")
-                        .SetGuiPresentation(Category.Condition, ConditionAuraOfCourage)
-                        .SetFeatures(
-                            FeatureDefinitionMagicAffinityBuilder
-                                .Create("MagicAffinitySorcererInnateSorcery")
-                                .SetGuiPresentation("PowerSorcererInnateSorcery", Category.Feature)
-                                .SetCastingModifiers(0, SpellParamsModifierType.None, 1)
-                                .AddToDB())
-                        .AddCustomSubFeatures(new ModifyAttackActionModifierInnateSorcery())
-                        .AddToDB()))
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionSorcererInnateSorcery))
                 .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
                 .Build())
+        .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
+            c.GetClassLevel(Sorcerer) < 7 || c.GetRemainingPowerUses(PowerSorcererInnateSorcery) > 0))
         .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerSorcererSorceryIncarnate = FeatureDefinitionPowerBuilder
+        .Create(PowerSorcererInnateSorcery, "PowerSorcererSorceryIncarnate")
+        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
+        .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
+            c.GetClassLevel(Sorcerer) >= 7 && c.GetRemainingPowerUses(PowerSorcererInnateSorcery) == 0))
+        .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetSorcererSorceryIncarnate =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererSorceryIncarnate")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(PowerSorcererSorceryIncarnate)
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionArcaneApotheosis = ConditionDefinitionBuilder
+        .Create("ConditionArcaneApotheosis")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(0)
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureSorcererArcaneApotheosis =
+        FeatureDefinitionBuilder
+            .Create("FeatureSorcererArcaneApotheosis")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorArcaneApotheosis())
+            .AddToDB();
 
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")
@@ -291,17 +323,69 @@ internal static class Tabletop2024Context
             ConditionForm.ConditionOperation.Add)
         .Build();
 
+    private static readonly FeatureDefinition FeatureFighterTacticalMind = FeatureDefinitionBuilder
+        .Create("FeatureFighterTacticalMind")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckTacticalMind())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFighterTacticalShift = FeatureDefinitionBuilder
+        .Create("FeatureFighterTacticalShift")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionStudiedAttacks = ConditionDefinitionBuilder
+        .Create("ConditionStudiedAttacks")
+        .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+        .AddCustomSubFeatures(new PhysicalAttackFinishedOnMeStudiedAttacks())
+        .SetPossessive()
+        .AddToDB();
+
+    private static readonly FeatureDefinitionCombatAffinity CombatAffinityStudiedAttacks =
+        FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityStudiedAttacks")
+            .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
+            .SetSituationalContext(
+                (SituationalContext)ExtraSituationalContext.IsConditionSource, ConditionStudiedAttacks)
+            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFighterStudiedAttacks = FeatureDefinitionBuilder
+        .Create("FeatureFighterStudiedAttacks")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMemorizeSpell = FeatureDefinitionBuilder
+        .Create("FeatureWizardMemorizeSpell")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly RestActivityDefinition RestActivityMemorizeSpell = RestActivityDefinitionBuilder
+        .Create("RestActivityMemorizeSpell")
+        .SetGuiPresentation("FeatureWizardMemorizeSpell", Category.Feature)
+        .SetRestData(
+            RestDefinitions.RestStage.AfterRest,
+            RestType.ShortRest,
+            RestActivityDefinition.ActivityCondition.CanPrepareSpells,
+            nameof(FunctorMemorizeSpell),
+            string.Empty)
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();
+        LoadFighterTacticalShiftCustomBehavior();
+        LoadFighterStudiedAttacks();
         LoadMonkHeightenedMetabolism();
         LoadSecondWindToUseOneDndUsagesProgression();
         LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
+        LoadWizardMemorizeSpell();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
@@ -310,6 +394,8 @@ internal static class Tabletop2024Context
         SwitchDruidWeaponProficiencyToUseOneDnd();
         SwitchSpellRitualOnAllCasters();
         SwitchFighterLevelToIndomitableSavingReroll();
+        SwitchFighterStudiedAttacks();
+        SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMindToReplacePerfectSelf();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkDoNotRequireAttackActionForFlurry();
@@ -343,17 +429,20 @@ internal static class Tabletop2024Context
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
         SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchSorcererArcaneApotheosis();
         SwitchSorcererInnateSorcery();
         SwitchSorcerousRestorationAtLevel5();
         SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
         SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
+        SwitchOneDndWizardMemorizeSpell();
         SwitchOneDndWizardScholar();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
         SwitchPersuasionToFighterSkillOptions();
         SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
+        SwitchRogueReliableTalent();
         SwitchRogueSlipperyMind();
         SwitchRogueSteadyAim();
         SwitchSecondWindToUseOneDndUsagesProgression();
@@ -371,12 +460,63 @@ internal static class Tabletop2024Context
             });
     }
 
+    private static void LoadFighterTacticalShiftCustomBehavior()
+    {
+        var powerFighterSecondWindTargeting = FeatureDefinitionPowerBuilder
+            .Create(PowerFighterSecondWind, "PowerFighterSecondWindTargeting")
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorWithdraw())
+            .AddToDB();
+
+        PowerFighterSecondWind.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeSecondWind(powerFighterSecondWindTargeting));
+    }
+
+    private static void LoadFighterStudiedAttacks()
+    {
+        ConditionStudiedAttacks.Features.SetRange(CombatAffinityStudiedAttacks);
+    }
+
     internal static void SwitchFighterLevelToIndomitableSavingReroll()
     {
         UseIndomitableResistance.GuiPresentation.description =
             Main.Settings.AddFighterLevelToIndomitableSavingReroll
                 ? "Feature/&EnhancedIndomitableResistanceDescription"
                 : "Feature/&IndomitableResistanceDescription";
+    }
+
+    internal static void SwitchFighterStudiedAttacks()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureFighterStudiedAttacks);
+
+        if (Main.Settings.EnableFighterStudiedAttacks)
+        {
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
+        }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchFighterTacticalProgression()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureFighterTacticalMind ||
+            x.FeatureDefinition == FeatureFighterTacticalShift);
+
+        if (Main.Settings.EnableFighterTacticalProgression)
+        {
+            Fighter.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureFighterTacticalMind, 2),
+                new FeatureUnlockByLevel(FeatureFighterTacticalShift, 5));
+        }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchSecondWindToUseOneDndUsagesProgression()
@@ -1191,13 +1331,106 @@ internal static class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static bool IsRestActivityMemorizeSpellAvailable(
+        RestActivityDefinition activity, RulesetCharacterHero hero)
+    {
+        return activity != RestActivityMemorizeSpell ||
+               (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
+    }
+
+    internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
+    {
+        maxPreparedSpell = 1;
+
+        return rulesetCharacter.HasConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect, "ConditionMemorizeSpell");
+    }
+
+    private static void LoadWizardMemorizeSpell()
+    {
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionMemorizeSpell")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        ServiceRepository.GetService<IFunctorService>()
+            .RegisterFunctor(nameof(FunctorMemorizeSpell), new FunctorMemorizeSpell());
+    }
+
+    internal static void SwitchOneDndWizardMemorizeSpell()
+    {
+        Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMemorizeSpell);
+
+        if (Main.Settings.EnableWizardMemorizeSpell)
+        {
+            Wizard.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMemorizeSpell, 5));
+        }
+
+        Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+
+    internal static void SwitchSorcererArcaneApotheosis()
+    {
+        Sorcerer.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSorcererArcaneApotheosis ||
+            x.FeatureDefinition == Level20Context.PowerSorcerousRestoration);
+
+        Sorcerer.FeatureUnlocks.Add(
+            Main.Settings.EnableSorcererArcaneApotheosis
+                ? new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20)
+                : new FeatureUnlockByLevel(Level20Context.PowerSorcerousRestoration, 20));
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static bool IsArcaneApotheosisValid(RulesetCharacter rulesetCharacter, RulesetEffect rulesetEffect)
+    {
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        return IsArcaneApotheosisValid(character, rulesetEffect, false);
+    }
+
+    private static bool IsArcaneApotheosisValid(
+        GameLocationCharacter character, RulesetEffect rulesetEffect, bool validateMetamagicOption = true)
+    {
+        if (!Main.Settings.EnableSorcererArcaneApotheosis)
+        {
+            return false;
+        }
+
+        if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+        {
+            return false;
+        }
+
+        // ReSharper disable once ConvertIfStatementToReturnStatement
+        if (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption)
+        {
+            return false;
+        }
+
+        var rulesetCharacter = character.RulesetCharacter;
+        var sorcererLevel = rulesetCharacter.GetClassLevel(Sorcerer);
+
+        return sorcererLevel == 20 &&
+               character.OnceInMyTurnIsValid(FeatureSorcererArcaneApotheosis.Name) &&
+               rulesetCharacter.HasConditionOfCategoryAndType(
+                   AttributeDefinitions.TagEffect, ConditionSorcererInnateSorcery.Name);
+    }
+
     internal static void SwitchSorcererInnateSorcery()
     {
-        Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcererInnateSorcery);
+        Sorcerer.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == PowerSorcererInnateSorcery ||
+            x.FeatureDefinition == FeatureSetSorcererSorceryIncarnate);
 
-        if (Main.Settings.EnableSorcererInnateSorceryAt1)
+        if (Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate)
         {
-            Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1));
+            Sorcerer.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1),
+                new FeatureUnlockByLevel(FeatureSetSorcererSorceryIncarnate, 7));
         }
 
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -1221,7 +1454,7 @@ internal static class Tabletop2024Context
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
 
-        if (Main.Settings.EnableSorcerousRestorationAtLevel5)
+        if (Main.Settings.EnableSorcererSorcerousRestoration)
         {
             Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcerousRestoration, 5));
         }
@@ -1301,6 +1534,295 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private class FunctorMemorizeSpell : Functor
+    {
+        public override IEnumerator Execute(
+            FunctorParametersDescription functorParameters,
+            FunctorExecutionContext context)
+        {
+            var inspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+            var partyStatusScreen = Gui.GuiService.GetScreen<GamePartyStatusScreen>();
+            var hero = functorParameters.RestingHero;
+
+            Gui.GuiService.GetScreen<RestModal>().KeepCurrentState = true;
+
+            var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingFeature.SpellReadyness == SpellReadyness.Prepared);
+
+            if (spellRepertoire == null)
+            {
+                yield break;
+            }
+
+            var activeCondition = hero.InflictCondition(
+                "ConditionMemorizeSpell",
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                hero.guid,
+                hero.CurrentFaction.Name,
+                1,
+                "ConditionMemorizeSpell",
+                0,
+                0,
+                0);
+
+            partyStatusScreen.SetupDisplayPreferences(false, false, false);
+
+            inspectionScreen.ShowSpellPreparation(
+                functorParameters.RestingHero, Gui.GuiService.GetScreen<RestModal>(), spellRepertoire);
+
+            while (context.Async && inspectionScreen.Visible)
+            {
+                yield return null;
+            }
+
+            partyStatusScreen.SetupDisplayPreferences(true, true, true);
+            hero.RemoveCondition(activeCondition);
+        }
+    }
+
+    private sealed class CustomBehaviorArcaneApotheosis : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (!IsArcaneApotheosisValid(attacker, action.ActionParams.RulesetEffect))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses(FeatureSorcererArcaneApotheosis.Name, 0);
+
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionArcaneApotheosis.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var usedSorceryPoints = activeCondition.Amount;
+
+            rulesetCharacter.usedSorceryPoints = usedSorceryPoints;
+            rulesetCharacter.SorceryPointsAltered?.Invoke(rulesetCharacter, usedSorceryPoints);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterAction action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (!IsArcaneApotheosisValid(attacker, action.ActionParams.RulesetEffect))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                ConditionArcaneApotheosis.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionArcaneApotheosis.Name,
+                rulesetAttacker.UsedSorceryPoints,
+                0,
+                0);
+        }
+    }
+
+    private sealed class TryAlterOutcomeAttributeCheckTacticalMind : ITryAlterOutcomeAttributeCheck
+    {
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerFighterSecondWind, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            if (abilityCheckData.AbilityCheckSuccessDelta < -10)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                defender,
+                "TacticalMindCheck",
+                "CustomReactionTacticalMindCheckDescription".Formatted(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var dieRoll =
+                    rulesetHelper.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
+
+                abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                    new TrendInfo(dieRoll, FeatureSourceType.CharacterFeature, FeatureFighterTacticalMind.Name,
+                        FeatureFighterTacticalMind));
+
+                abilityCheckModifier.AbilityCheckModifier += dieRoll;
+                abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
+
+                if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+                {
+                    abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                    usablePower.Consume();
+                }
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feature/&FeatureFighterTacticalMindTitle",
+                    abilityCheckData.AbilityCheckSuccessDelta >= 0
+                        ? "Feedback/&TacticalMindCheckToHitRollSuccess"
+                        : "Feedback/&TacticalMindCheckToHitRollFailure",
+                    extra: [(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())]);
+            }
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!Main.Settings.EnableFighterTacticalProgression)
+            {
+                yield break;
+            }
+
+            yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
+
+            var attacker = action.ActingCharacter;
+            var position = action.ActionParams.Positions[0];
+
+            if (attacker.LocationPosition == position)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var distance = int3.Distance(attacker.LocationPosition, position);
+
+            attacker.UsedTacticalMoves -= (int)distance;
+
+            if (attacker.UsedTacticalMoves < 0)
+            {
+                attacker.UsedTacticalMoves = 0;
+            }
+
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+
+            rulesetAttacker.InflictCondition(
+                ConditionWithdrawn.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWithdrawn.Name,
+                0,
+                0,
+                0);
+
+            attacker.SpendActionType(ActionType.Bonus);
+            attacker.MyExecuteActionTacticalMove(position);
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedOnMeStudiedAttacks : IPhysicalAttackFinishedOnMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetActor;
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) ||
+                activeCondition.SourceGuid != attacker.Guid)
+            {
+                yield break;
+            }
+
+            if (activeCondition.Amount < 0)
+            {
+                rulesetDefender.RemoveCondition(activeCondition);
+            }
+            else
+            {
+                activeCondition.amount = -1;
+            }
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeStudiedAttacks : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
+
+            rulesetDefender.InflictCondition(
+                ConditionStudiedAttacks.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionStudiedAttacks.Name,
+                0,
+                0,
+                0);
+        }
     }
 
     private sealed class ModifyEffectDescriptionSpareTheDying : IModifyEffectDescription
@@ -2401,10 +2923,12 @@ internal static class Tabletop2024Context
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetConditionType(ConditionType.Detrimental)
         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .AllowMultipleInstances()
         .SetSpecialInterruptions(ConditionInterruption.Attacks)
         .AddToDB();
 
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
+    private static FeatureDefinition _featureRogueImprovedCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
 
     private static void BuildRogueCunningStrike()
@@ -2667,14 +3191,30 @@ internal static class Tabletop2024Context
         _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Cunning}")
             .SetGuiPresentation($"Power{Cunning}", Category.Feature)
-            .AddFeatureSet(powerPool, actionAffinityToggle, powerDisarm, powerPoison, powerTrip, powerWithdraw)
+            .SetFeatureSet(powerPool, actionAffinityToggle, powerDisarm, powerPoison, powerTrip, powerWithdraw)
+            .AddToDB();
+
+        _featureRogueImprovedCunningStrike = FeatureDefinitionBuilder
+            .Create($"FeatureImproved{Cunning}")
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         _featureSetRogueDeviousStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Devious}")
             .SetGuiPresentation($"Power{Devious}", Category.Feature)
-            .AddFeatureSet(powerDaze, powerKnockOut, powerObscure)
+            .SetFeatureSet(powerDaze, powerKnockOut, powerObscure)
             .AddToDB();
+    }
+
+    internal static void SwitchRogueReliableTalent()
+    {
+        Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == DieRollModifierRogueReliableTalent);
+
+        Rogue.FeatureUnlocks.Add(Main.Settings.EnableRogueReliableTalentAt7
+            ? new FeatureUnlockByLevel(DieRollModifierRogueReliableTalent, 7)
+            : new FeatureUnlockByLevel(DieRollModifierRogueReliableTalent, 11));
+
+        Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchRogueSlipperyMind()
@@ -2747,6 +3287,13 @@ internal static class Tabletop2024Context
         };
     }
 
+    private static readonly ConditionDefinition ConditionWithdrawn = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionDisengaging, "ConditionWithdrawn")
+        .SetParentCondition(ConditionDefinitions.ConditionDisengaging)
+        .SetFeatures()
+        .AddCustomSubFeatures(new ActionFinishedByWithdraw())
+        .AddToDB();
+
     private sealed class CustomBehaviorCunningStrike(
         FeatureDefinitionPower powerRogueCunningStrike,
         FeatureDefinitionPower powerKnockOut,
@@ -2754,7 +3301,7 @@ internal static class Tabletop2024Context
         FeatureDefinitionPower powerWithdraw)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private FeatureDefinitionPower _selectedPower;
+        private readonly List<FeatureDefinitionPower> _selectedPowers = [];
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -2768,7 +3315,7 @@ internal static class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
-            _selectedPower = null;
+            _selectedPowers.Clear();
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -2778,15 +3325,42 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
+            var aborted = false;
+            var attempts = rulesetAttacker.GetClassLevel(Rogue) >= 11 ? 2 : 1;
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
+            RulesetUsablePower savedUsablePower = null;
 
-            yield return attacker.MyReactToSpendPowerBundle(
-                usablePower,
-                [defender],
-                attacker,
-                powerRogueCunningStrike.Name,
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+            for (var i = 0; i < attempts; i++)
+            {
+                yield return attacker.MyReactToSpendPowerBundle(
+                    usablePower,
+                    [defender],
+                    attacker,
+                    powerRogueCunningStrike.Name,
+                    reactionValidated: ReactionValidated,
+                    reactionNotValidated: ReactionNotValidated,
+                    battleManager: battleManager);
+
+                if (aborted)
+                {
+                    break;
+                }
+
+                if (_selectedPowers.Count < 1)
+                {
+                    continue;
+                }
+
+                // don't offer 1st selected effect again
+                savedUsablePower = PowerProvider.Get(_selectedPowers[0], rulesetAttacker);
+                rulesetAttacker.UsablePowers.Remove(PowerProvider.Get(_selectedPowers[0], rulesetAttacker));
+            }
+
+            // recover first selected usable power
+            if (savedUsablePower != null)
+            {
+                rulesetAttacker.UsablePowers.Add(savedUsablePower);
+            }
 
             yield break;
 
@@ -2801,7 +3375,9 @@ internal static class Tabletop2024Context
                     return;
                 }
 
-                _selectedPower = subPowers[option];
+                var selectedPower = subPowers[option];
+
+                _selectedPowers.Add(selectedPower);
 
                 // inflict condition passing power cost on amount to be deducted later on from sneak dice
                 rulesetAttacker.InflictCondition(
@@ -2814,9 +3390,14 @@ internal static class Tabletop2024Context
                     rulesetAttacker.CurrentFaction.Name,
                     1,
                     ConditionReduceSneakDice.Name,
-                    _selectedPower.CostPerUse,
+                    selectedPower.CostPerUse,
                     0,
                     0);
+            }
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                aborted = true;
             }
         }
 
@@ -2830,16 +3411,19 @@ internal static class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (_selectedPower == powerKnockOut)
+            foreach (var selectedPower in _selectedPowers)
             {
-                yield return HandleKnockOut(attacker, defender);
-            }
-            else if (_selectedPower == powerWithdraw)
-            {
-                yield return HandleWithdraw(action, attacker);
+                if (selectedPower == powerKnockOut)
+                {
+                    HandleKnockOut(attacker, defender);
+                }
+                else if (selectedPower == powerWithdraw)
+                {
+                    yield return HandleWithdraw(action, attacker);
+                }
             }
 
-            _selectedPower = null;
+            _selectedPowers.Clear();
         }
 
         private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
@@ -2860,7 +3444,7 @@ internal static class Tabletop2024Context
             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             rulesetAttacker.InflictCondition(
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -2869,21 +3453,22 @@ internal static class Tabletop2024Context
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 0,
                 0,
                 0);
 
+            attacker.SpendActionType(ActionType.Main);
             attacker.MyExecuteActionTacticalMove(position);
         }
 
-        private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private void HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
+                return;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -2958,16 +3543,37 @@ internal static class Tabletop2024Context
         }
     }
 
+    private sealed class ActionFinishedByWithdraw : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not (CharacterActionMove or CharacterActionDash))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionWithdrawn.Name, out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
     internal static void SwitchRogueCunningStrike()
     {
         Rogue.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == _featureSetRogueCunningStrike ||
+            x.FeatureDefinition == _featureRogueImprovedCunningStrike ||
             x.FeatureDefinition == _featureSetRogueDeviousStrike);
 
         if (Main.Settings.EnableRogueCunningStrike)
         {
             Rogue.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5),
+                new FeatureUnlockByLevel(_featureRogueImprovedCunningStrike, 11),
                 new FeatureUnlockByLevel(_featureSetRogueDeviousStrike, 14));
         }
 

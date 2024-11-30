@@ -581,7 +581,7 @@ Touch an ally to give them protection from evil or good creatures for a limited 
 Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 
-# 97. - Ray of Sickness (V,S) level 1 Necromancy [UB]
+# 97. - *Ray of Sickness* © (V,S) level 1 Necromancy [UB]
 
 **[Sorcerer, Wizard]**
 

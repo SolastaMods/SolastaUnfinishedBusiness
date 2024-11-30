@@ -123,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Habilitar un sistema de compra épico de 35 punt
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar la visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[reducción del rendimiento en la inspección del personaje. úsalo bajo tu propio riesgo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 6 y 14
+ModUi/&EnableFighterStudiedAttacks=Habilita <color=#D89555>Ataques estudiados</color> en el nivel 13 <i><color=#F0DAA0>[ventaja si el ataque anterior en la ronda contra la criatura falló]</color></i>
+ModUi/&EnableFighterTacticalProgression=Habilita <color=#D89555>Mente táctica</color> y <color=#D89555>Cambio táctico</color> en los niveles 2 y 5 <i><color=#F0DAA0>[escenarios de aumento de segundo aliento]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 8 y 16 <i><color=#F0DAA0>[obtienes +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fondos flexibles <i><color=#F0DAA0>[seleccionar habilidades y competencias de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de habilidad en lugar de los valores raciales predeterminados]</color></i>
@@ -174,21 +176,23 @@ ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento 
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes
 ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> después del descanso <i><color=#F0DAA0>[no usar RESPECT durante una sesión multijugador]</color></i>
 ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
-ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5 y 14 <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
+ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color>, <color=#D89555>Golpe astuto mejorado</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5, 11 y 14. <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
+ModUi/&EnableRogueReliableTalentAt7=Habilitar <color=#D89555>Talento confiable</color> en el nivel 7 en lugar del 11
 ModUi/&EnableRogueSlipperyMind=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Habilitar <color=#D89555>Hechicería innata</color> en el nivel 1
+ModUi/&EnableSorcererArcaneApotheosis=Habilita <color=#D89555>Apoteosis arcana</color> en 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
-ModUi/&EnableSorcerousRestorationAtLevel5=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
+ModUi/&EnableSorcererSorcerousRestoration=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableSpeech=Habilitar el habla en campañas personalizadas <i><color=#F0DAA0>[solo narración y héroes]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleccione un actor
-ModUi/&EnableSpeechOnNpcs=<i>+ También habilita las voces de los NPC aprovechando las voces no asignadas a continuación</i>
+ModUi/&EnableSpeechOnNpcs=<i>+ Habilitar el habla en los NPC <color=#F0DAA0>[ya sea desde el mapeo de campaña o la asignación automática]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Seleccione una voz y velocidad de narración
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir: golpes críticos, fallos críticos, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Además, cada héroe suma un D20 en la tirada para darle un poco de aleatoriedad. <color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe + tirada del D20]</color></i>
@@ -204,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Pociones</color> y
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patron</color> en el nivel 3 en lugar del 1
+ModUi/&EnableWizardMemorizeSpell=Habilitar <color=#D89555>Memorizar hechizo</color> en el nivel 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> en el nivel 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escuela de Magia</color> en el nivel 3 en lugar de 2
 ModUi/&EnablesAsiAndFeat=Habilitar el aumento de las puntuaciones de atributos y la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
@@ -222,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=Corregir el error de ajuste de texto de la inte
 ModUi/&FixEldritchBlastRange=Utilice un rango de 24 celdas con <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[en lugar de 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Establece la tasa de curación del <color=#D89555>Anillo de regeneración</color> en 1 HP cada 3 minutos.
 ModUi/&FlightSuspendWingedBoots=<i>+ Usa las reglas oficiales de Winged Boots <color=#F0DAA0>[la duración restante no se cuenta cuando el vuelo está suspendido]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Forzar la asignación automática de voz a todos los NPC en lugar del mapeo de campañas</i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante un juego multijugador...</color>
 ModUi/&FormationHelp1=• Utilice los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar teclas de acceso rápido en la entrada]</color></i>

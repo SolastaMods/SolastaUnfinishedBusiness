@@ -154,6 +154,12 @@ internal static class CampaignsDisplay
                 Main.Settings.EnableSpeechOnNpcs = toggle;
             }
 
+            toggle = Main.Settings.ForceModSpeechOnNpcs;
+            if (UI.Toggle(Gui.Localize("ModUi/&ForceModSpeechOnNpcs"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ForceModSpeechOnNpcs = toggle;
+            }
+
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
             UI.Label();

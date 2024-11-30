@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -2030,7 +2031,12 @@ internal static class OtherFeats
                 .GetDatabase<FightingStyleDefinition>()
                 .Where(x =>
                     !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
-                    x.Name != FightingStyleContext.PugilistName)
+                    // backward compatibility
+                    x.Name != FightingStyleContext.PugilistName &&
+                    // these should only be offered to Paladins or Rangers as FS
+                    // was also lazy to implement cantrips learning under this scenario ;-)
+                    x.Name != BlessedWarrior.Name &&
+                    x.Name != DruidicWarrior.Name)
                 .Select(BuildFightingStyleFeat)
                 .OfType<FeatDefinition>()
                 .ToArray());
