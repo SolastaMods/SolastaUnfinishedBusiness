@@ -983,9 +983,9 @@ internal static class FixesContext
 
             // handle rogue cunning strike feature
             var conditions = new List<RulesetCondition>();
-            
+
             rulesetAttacker.GetAllConditionsOfType(conditions, Tabletop2024Context.ConditionReduceSneakDice.Name);
-            
+
             foreach (var activeCondition in conditions)
             {
                 var newDiceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);

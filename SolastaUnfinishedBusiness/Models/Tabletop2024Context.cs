@@ -1665,14 +1665,21 @@ internal static class Tabletop2024Context
         {
             var rulesetDefender = defender.RulesetActor;
 
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) &&
-                activeCondition.SourceGuid == attacker.Guid)
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) ||
+                activeCondition.SourceGuid != attacker.Guid)
+            {
+                yield break;
+            }
+
+            if (activeCondition.Amount < 0)
             {
                 rulesetDefender.RemoveCondition(activeCondition);
             }
-
-            yield break;
+            else
+            {
+                activeCondition.amount = -1;
+            }
         }
     }
 
