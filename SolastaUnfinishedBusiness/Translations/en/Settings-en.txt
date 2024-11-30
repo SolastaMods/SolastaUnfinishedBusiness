@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <colo
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
+ModUi/&EnableWizardMemorizeSpell=Enable <color=#D89555>Memorize Spell</color> at level 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Enable <color=#D89555>Scholar</color> at level 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <color=#D89555>School of Magic</color> at level 3 instead of 2
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>

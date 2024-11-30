@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=<color=#D89555>ポーション</color>と<colo
 ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にし、レベル20で<color=#D89555>エルドリッチマスター</color>を向上させる
 ModUi/&EnableWarlockToLearnPatronAtLevel3=<color=#D89555>パトロン</color>をレベル1ではなくレベル3で有効にする
+ModUi/&EnableWizardMemorizeSpell=レベル5で<color=#D89555>呪文記憶</color>を有効にする
 ModUi/&EnableWizardToLearnScholarAtLevel2=レベル2で<color=#D89555>学者</color>を有効にする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>魔法学校</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>

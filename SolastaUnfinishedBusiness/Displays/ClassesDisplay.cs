@@ -463,6 +463,13 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WizardTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableWizardMemorizeSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardMemorizeSpell"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWizardMemorizeSpell = toggle;
+            Tabletop2024Context.SwitchOneDndWizardMemorizeSpell();
+        }
+
         toggle = Main.Settings.EnableWizardToLearnScholarAtLevel2;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWizardToLearnScholarAtLevel2"), ref toggle, UI.AutoWidth()))
         {

@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=<color=#D89555>물약</color>과 <color=#D8955
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화
+ModUi/&EnableWizardMemorizeSpell=레벨 5에서 ​​<color=#D89555>주문 기억</color>을 활성화합니다.
 ModUi/&EnableWizardToLearnScholarAtLevel2=레벨 2에서 <color=#D89555>학자</color> 활성화
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>마법 학교</color>를 2레벨 대신 3레벨로 활성화합니다.
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>특기</color> 선택을 모두 활성화합니다. <i><color=#F0DAA0>[독점 선택 대신]</color></i>

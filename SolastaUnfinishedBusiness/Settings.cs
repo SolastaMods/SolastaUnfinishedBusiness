@@ -322,6 +322,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
     public bool EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
+    public bool EnableWizardMemorizeSpell { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }

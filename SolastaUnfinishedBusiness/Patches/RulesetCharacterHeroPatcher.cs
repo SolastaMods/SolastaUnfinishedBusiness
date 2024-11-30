@@ -1182,6 +1182,11 @@ public static class RulesetCharacterHeroPatcher
         {
             __instance.afterRestActions.RemoveAll(activity =>
             {
+                if (!Tabletop2024Context.IsRestActivityMemorizeSpellAvailable(activity, __instance))
+                {
+                    return true;
+                }
+
                 if (!Level20Context.WizardSpellMastery.IsRestActivityAvailable(activity, __instance))
                 {
                     return true;

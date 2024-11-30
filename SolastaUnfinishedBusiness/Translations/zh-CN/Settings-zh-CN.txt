@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<c
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>
+ModUi/&EnableWizardMemorizeSpell=在第 5 级启用<color=#D89555>记忆法术</color>
 ModUi/&EnableWizardToLearnScholarAtLevel2=启用 2 级 <color=#D89555>Scholar</color>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=在 3 级（而非 2 级）启用<color=#D89555>魔法学校</color>
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>

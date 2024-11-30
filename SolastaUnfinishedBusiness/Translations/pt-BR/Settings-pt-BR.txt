@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Poções</color> e
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilitar <color=#D89555>Astúcia Mágica</color> no nível 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilite <color=#D89555>Astúcia Mágica</color> no nível 2 e melhore <color=#D89555>Mestre Eldritch</color> no nível 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patrono</color> no nível 3 em vez de 1
+ModUi/&EnableWizardMemorizeSpell=Habilitar <color=#D89555>Memorizar Feitiço</color> no nível 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> no nível 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escola de Magia</color> no nível 3 em vez de 2
 ModUi/&EnablesAsiAndFeat=Habilitar aumento de pontuação de atributos e seleção de <color=#D89555>talentos</color> <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>

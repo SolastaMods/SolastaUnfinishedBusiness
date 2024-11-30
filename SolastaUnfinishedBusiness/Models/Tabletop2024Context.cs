@@ -356,6 +356,22 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
+    private static readonly FeatureDefinition FeatureMemorizeSpell = FeatureDefinitionBuilder
+        .Create("FeatureWizardMemorizeSpell")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly RestActivityDefinition RestActivityMemorizeSpell = RestActivityDefinitionBuilder
+        .Create("RestActivityMemorizeSpell")
+        .SetGuiPresentation("FeatureWizardMemorizeSpell", Category.Feature)
+        .SetRestData(
+            RestDefinitions.RestStage.AfterRest,
+            RestType.ShortRest,
+            RestActivityDefinition.ActivityCondition.CanPrepareSpells,
+            nameof(FunctorMemorizeSpell),
+            string.Empty)
+        .AddToDB();
+
     internal static void LateLoad()
     {
         BuildBarbarianBrutalStrike();
@@ -369,6 +385,7 @@ internal static class Tabletop2024Context
         LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
+        LoadWizardMemorizeSpell();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
@@ -418,6 +435,7 @@ internal static class Tabletop2024Context
         SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
         SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWarlockInvocationsProgression();
+        SwitchOneDndWizardMemorizeSpell();
         SwitchOneDndWizardScholar();
         SwitchOneDndWizardSchoolOfMagicLearningLevel();
         SwitchPersuasionToFighterSkillOptions();
@@ -1313,6 +1331,34 @@ internal static class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static bool IsRestActivityMemorizeSpellAvailable(
+        RestActivityDefinition activity, RulesetCharacterHero hero)
+    {
+        return activity != RestActivityMemorizeSpell ||
+               (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
+    }
+
+    internal static FeatureDefinition LoadWizardMemorizeSpell()
+    {
+        ServiceRepository.GetService<IFunctorService>()
+            .RegisterFunctor(nameof(FunctorMemorizeSpell), new FunctorMemorizeSpell());
+
+        return FeatureMemorizeSpell;
+    }
+
+    internal static void SwitchOneDndWizardMemorizeSpell()
+    {
+        Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMemorizeSpell);
+
+        if (Main.Settings.EnableWizardMemorizeSpell)
+        {
+            Wizard.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMemorizeSpell, 5));
+        }
+
+        Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+
     internal static void SwitchSorcererArcaneApotheosis()
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x =>
@@ -1476,6 +1522,41 @@ internal static class Tabletop2024Context
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private class FunctorMemorizeSpell : Functor
+    {
+        public override IEnumerator Execute(
+            FunctorParametersDescription functorParameters,
+            FunctorExecutionContext context)
+        {
+            var inspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+            var partyStatusScreen = Gui.GuiService.GetScreen<GamePartyStatusScreen>();
+            var hero = functorParameters.RestingHero;
+
+            Gui.GuiService.GetScreen<RestModal>().KeepCurrentState = true;
+
+            var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingFeature.SpellReadyness == SpellReadyness.Prepared);
+
+            if (spellRepertoire == null)
+            {
+                yield break;
+            }
+
+
+            partyStatusScreen.SetupDisplayPreferences(false, false, false);
+
+            inspectionScreen.ShowSpellPreparation(
+                functorParameters.RestingHero, Gui.GuiService.GetScreen<RestModal>(), spellRepertoire);
+
+            while (context.Async && inspectionScreen.Visible)
+            {
+                yield return null;
+            }
+
+            partyStatusScreen.SetupDisplayPreferences(true, true, true);
+        }
     }
 
     private sealed class CustomBehaviorArcaneApotheosis : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe

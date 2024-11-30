@@ -208,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Autoriser le transport et l'utilisation de <co
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Activez la <color=#D89555>ruse magique</color> au niveau 2 et améliorez le <color=#D89555>maître eldritch</color> à 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Activer <color=#D89555>Patron</color> au niveau 3 au lieu de 1
+ModUi/&EnableWizardMemorizeSpell=Activer <color=#D89555>Mémoriser le sort</color> au niveau 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Activer <color=#D89555>Scholar</color> au niveau 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Activer l'<color=#D89555>École de magie</color> au niveau 3 au lieu de 2
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des <color=#D89555>exploits</color> <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
