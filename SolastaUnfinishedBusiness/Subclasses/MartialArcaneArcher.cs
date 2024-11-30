@@ -95,12 +95,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot
 
-        var arcaneShotPowers =
-            BuildArcaneShotPowers(PowerArcaneShot, out var powerBurstingArrow, out var powerBurstingArrowDamage);
+        var arcaneShotPowers = BuildArcaneShotPowers(
+            PowerArcaneShot, out var powerBurstingArrow, out var powerBurstingArrowDamage, out var powerBeguilingArrow);
 
         PowerArcaneShot.AddCustomSubFeatures(
             HasModifiedUses.Marker,
-            new CustomBehaviorArcaneShot(powerBurstingArrow, powerBurstingArrowDamage));
+            new CustomBehaviorArcaneShot(powerBurstingArrow, powerBurstingArrowDamage, powerBeguilingArrow));
 
         PowerBundle.RegisterPowerBundle(PowerArcaneShot, false, arcaneShotPowers);
 
@@ -230,7 +230,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private static List<FeatureDefinitionPower> BuildArcaneShotPowers(
         FeatureDefinitionPower pool,
         out FeatureDefinitionPower powerBurstingArrow,
-        out FeatureDefinitionPower powerBurstingArrowDamage)
+        out FeatureDefinitionPower powerBurstingArrowDamage,
+        out FeatureDefinitionPower powerBeguilingArrow)
     {
         var powers = new List<FeatureDefinitionPower>();
 
@@ -273,7 +274,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Beguiling Arrow
 
-        var powerBeguilingArrow = FeatureDefinitionPowerSharedPoolBuilder
+        powerBeguilingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BeguilingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.CharmPerson, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
@@ -282,7 +283,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(SpellDefinitions.CharmPerson)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false,
@@ -293,12 +293,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionCharmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetImpactEffectParameters(
                         SpellDefinitions.CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
@@ -606,10 +600,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
     private sealed class CustomBehaviorArcaneShot(
         FeatureDefinitionPower powerBurstingArrow,
-        FeatureDefinitionPower powerBurstingArrowDamage)
+        FeatureDefinitionPower powerBurstingArrowDamage,
+        FeatureDefinitionPower powerBeguilingArrow)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const string ArcaneShotMarker = "ArcaneShot";
+
+        private readonly List<FeatureDefinitionPower> _selectedPowers = [];
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -623,6 +620,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            _selectedPowers.Clear();
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerArcaneShot, rulesetAttacker);
 
@@ -646,18 +645,19 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
-                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
-                attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
+                attacker.SetSpecialFeatureUses(ArcaneShotMarker, 0);
 
                 var option = reactionRequest.SelectedSubOption;
                 var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
 
-                if (subPowers != null &&
-                    subPowers[option] == powerBurstingArrow)
+                if (subPowers == null)
                 {
-                    attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
+                    return;
                 }
+
+                var selectedPower = subPowers[option];
+
+                _selectedPowers.Add(selectedPower);
             }
         }
 
@@ -670,13 +670,36 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (!attacker.UsedSpecialFeatures.TryGetValue(powerBurstingArrow.Name, out var value) || value < 0)
+            foreach (var selectedPower in _selectedPowers)
             {
-                yield break;
+                if (selectedPower == powerBurstingArrow)
+                {
+                    HandleBurstingArrow(attacker, defender);
+                }
+                else if (selectedPower == powerBeguilingArrow && action.SaveOutcome == RollOutcome.Failure)
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var rulesetDefender = defender.RulesetCharacter;
+
+                    rulesetDefender.InflictCondition(
+                        ConditionDefinitions.ConditionCharmed.Name,
+                        DurationType.Round,
+                        1,
+                        TurnOccurenceType.EndOfSourceTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.Guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        ConditionDefinitions.ConditionCharmed.Name,
+                        0,
+                        0,
+                        0);
+                }
             }
 
-            attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
-            HandleBurstingArrow(attacker, defender);
+            _selectedPowers.Clear();
+
+            yield break;
         }
 
         private void HandleBurstingArrow(GameLocationCharacter attacker, GameLocationCharacter defender)
