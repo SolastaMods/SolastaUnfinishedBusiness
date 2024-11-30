@@ -940,8 +940,7 @@ internal static class FixesContext
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.RolledSaveThrow &&
-                action.SaveOutcome == RollOutcome.Failure)
+            if (action.SaveOutcome == RollOutcome.Failure)
             {
                 action.ActingCharacter.RulesetCharacter.ToggledPowersOn
                     .Remove(PowerMonkStunningStrike.AutoActivationPowerTag);

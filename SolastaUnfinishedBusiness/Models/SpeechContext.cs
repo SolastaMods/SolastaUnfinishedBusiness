@@ -78,8 +78,8 @@ internal static class SpeechContext
         ($"{VoicesURLPrefix}en/en_US/libritts_r/medium/en_US-libritts_r-medium", Gender.Female),
         ($"{VoicesURLPrefix}en/en_US/ljspeech/medium/en_US-ljspeech-medium", Gender.Female),
         ($"{VoicesURLPrefix}en/en_US/norman/medium/en_US-norman-medium", Gender.Male),
-        ($"{VoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male),
-        ("https://huggingface.co/quarterturn/kuroki_tomoko_en_piper/resolve/main/kuroki_tomoko", Gender.Female)
+        ($"{VoicesURLPrefix}en/en_US/ryan/medium/en_US-ryan-medium", Gender.Male)
+        //("https://huggingface.co/quarterturn/kuroki_tomoko_en_piper/resolve/main/kuroki_tomoko", Gender.Female)
     ];
 
     private static readonly string[] FemaleNpcs =
@@ -788,8 +788,6 @@ internal static class SpeechContext
 
         private IEnumerator DownloadVoicesImpl()
         {
-            using var wc = new WebClient();
-
             if (!Directory.Exists(VoicesFolder))
             {
                 Directory.CreateDirectory(VoicesFolder);
@@ -800,54 +798,10 @@ internal static class SpeechContext
 
             foreach (var (voice, _) in SuggestedVoicesUrls)
             {
-                var message = $"Voice {voice} successfully downloaded";
-
                 yield return null;
 
                 UpdateProgress(ref current, total);
-
-                var model = $"{voice}.onnx";
-                var modelFilename = Path.GetFileName(model);
-                var fullModelFilename = Path.Combine(VoicesFolder, modelFilename);
-                var modelUrl = $"{model}?download=true";
-
-                try
-                {
-                    if (!File.Exists(fullModelFilename))
-                    {
-                        wc.DownloadFile(modelUrl, fullModelFilename);
-
-                        var json = $"{voice}.onnx.json";
-                        var jsonFilename = Path.GetFileName(json);
-                        var fullJsonFilename = Path.Combine(VoicesFolder, jsonFilename);
-                        var jsonUrl = $"{json}?download=true";
-
-                        var voiceNames = VoiceNames;
-
-                        Array.Resize(ref voiceNames, VoiceNames.Length + 1);
-                        VoiceNames = voiceNames;
-                        VoiceNames[VoiceNames.Length - 1] = Path.GetFileName(voice);
-
-                        if (!File.Exists(fullJsonFilename))
-                        {
-                            wc.DownloadFile(jsonUrl, fullJsonFilename);
-                        }
-                        else
-                        {
-                            message = $"Voice settings {voice} already exists.";
-                        }
-                    }
-                    else
-                    {
-                        message = $"Voice {voice} already exists.";
-                    }
-                }
-                catch
-                {
-                    message = $"Cannot download voice {voice}.";
-                }
-
-                Main.Info(message);
+                DownloadVoice(voice);
             }
 
             RefreshAvailableVoices();
@@ -866,6 +820,55 @@ internal static class SpeechContext
             _progress = 0f;
             _coroutine = DownloadVoicesImpl();
             StartCoroutine(_coroutine);
+        }
+
+        private static void DownloadVoice(string voice)
+        {
+            using var wc = new WebClient();
+
+            var message = $"Voice {voice} successfully downloaded";
+            var model = $"{voice}.onnx";
+            var modelFilename = Path.GetFileName(model);
+            var fullModelFilename = Path.Combine(VoicesFolder, modelFilename);
+            var modelUrl = $"{model}?download=true";
+
+            try
+            {
+                if (!File.Exists(fullModelFilename))
+                {
+                    wc.DownloadFile(modelUrl, fullModelFilename);
+
+                    var json = $"{voice}.onnx.json";
+                    var jsonFilename = Path.GetFileName(json);
+                    var fullJsonFilename = Path.Combine(VoicesFolder, jsonFilename);
+                    var jsonUrl = $"{json}?download=true";
+
+                    var voiceNames = VoiceNames;
+
+                    Array.Resize(ref voiceNames, VoiceNames.Length + 1);
+                    VoiceNames = voiceNames;
+                    VoiceNames[VoiceNames.Length - 1] = Path.GetFileName(voice);
+
+                    if (!File.Exists(fullJsonFilename))
+                    {
+                        wc.DownloadFile(jsonUrl, fullJsonFilename);
+                    }
+                    else
+                    {
+                        message = $"Voice settings {voice} already exists.";
+                    }
+                }
+                else
+                {
+                    message = $"Voice {voice} already exists.";
+                }
+            }
+            catch
+            {
+                message = $"Cannot download voice {voice}.";
+            }
+
+            Main.Info(message);
         }
     }
 }

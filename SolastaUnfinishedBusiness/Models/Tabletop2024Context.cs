@@ -3415,7 +3415,7 @@ internal static class Tabletop2024Context
             {
                 if (selectedPower == powerKnockOut)
                 {
-                    yield return HandleKnockOut(attacker, defender);
+                    HandleKnockOut(attacker, defender);
                 }
                 else if (selectedPower == powerWithdraw)
                 {
@@ -3462,13 +3462,13 @@ internal static class Tabletop2024Context
             attacker.MyExecuteActionTacticalMove(position);
         }
 
-        private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private void HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
+                return;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
