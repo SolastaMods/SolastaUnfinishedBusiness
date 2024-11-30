@@ -1961,7 +1961,7 @@ A wave of healing energy washes over the creature you touch. The target regains 
 
 **[Bard, Sorcerer, Warlock, Wizard]**
 
-You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
+You compel one creature you can see within range to die. If the target has 100 Hit Points or fewer, it dies. Otherwise, it takes 12d12 Psychic damage.
 
 # 325. - *Psychic Scream* © (S) level 9 Enchantment [UB]
 
