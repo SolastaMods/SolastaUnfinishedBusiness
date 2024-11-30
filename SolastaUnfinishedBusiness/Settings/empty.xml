@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>3</SelectedTab>
+    <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
     <DisplayOneDndToggle>false</DisplayOneDndToggle>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
@@ -688,6 +688,7 @@
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
     <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardMemorizeSpell>false</EnableWizardMemorizeSpell>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -1152,4 +1153,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

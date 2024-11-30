@@ -19,6 +19,7 @@
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
 - fixed Defensive Duelist triggering on any attack roll instead of melee attacks only
 - fixed Grapple interaction with teleporting enemies
+- fixed Martial Arcane Archer Beguiling Arrow charmed condition application time 
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation [by BradS]
 - fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
 - fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration
