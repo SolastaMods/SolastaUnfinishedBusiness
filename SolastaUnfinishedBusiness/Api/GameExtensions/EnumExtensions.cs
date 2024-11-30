@@ -142,7 +142,6 @@ public enum ExtraConditionInterruption
 {
     AfterWasAttacked = 9000,
     AfterWasAttackedNotBySource,
-    AfterWasAttackedBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
     UsesBonusAction,

@@ -337,8 +337,8 @@ internal static class Tabletop2024Context
     private static readonly ConditionDefinition ConditionStudiedAttacks = ConditionDefinitionBuilder
         .Create("ConditionStudiedAttacks")
         .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+        .AddCustomSubFeatures(new PhysicalAttackFinishedOnMeStudiedAttacks())
         .SetPossessive()
-        .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedBySource)
         .AddToDB();
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityStudiedAttacks =
@@ -353,7 +353,7 @@ internal static class Tabletop2024Context
     private static readonly FeatureDefinition FeatureFighterStudiedAttacks = FeatureDefinitionBuilder
         .Create("FeatureFighterStudiedAttacks")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks(ConditionStudiedAttacks))
+        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
     internal static void LateLoad()
@@ -1652,8 +1652,31 @@ internal static class Tabletop2024Context
         }
     }
 
-    private sealed class PhysicalAttackFinishedByMeStudiedAttacks(ConditionDefinition conditionStudiedAttacks)
-        : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedOnMeStudiedAttacks : IPhysicalAttackFinishedOnMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetActor;
+
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionStudiedAttacks.Name, out var activeCondition) &&
+                activeCondition.SourceGuid == attacker.Guid)
+            {
+                rulesetDefender.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeStudiedAttacks : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -1673,7 +1696,7 @@ internal static class Tabletop2024Context
             var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
-                conditionStudiedAttacks.Name,
+                ConditionStudiedAttacks.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -1681,7 +1704,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                conditionStudiedAttacks.Name,
+                ConditionStudiedAttacks.Name,
                 0,
                 0,
                 0);

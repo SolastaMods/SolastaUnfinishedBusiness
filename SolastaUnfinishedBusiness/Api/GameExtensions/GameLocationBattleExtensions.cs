@@ -34,32 +34,6 @@ internal static class GameLocationBattleExtensions
             rulesetDefender.matchingInterruption = false;
         }
 
-        //PATCH: allow condition interruption after target was attacked by source
-        if (!rulesetDefender.matchingInterruption)
-        {
-            rulesetDefender.matchingInterruption = true;
-            rulesetDefender.matchingInterruptionConditions.Clear();
-
-            foreach (var rulesetCondition in rulesetDefender.ConditionsByCategory
-                         .SelectMany(x => x.Value)
-                         .Where(rulesetCondition =>
-                             rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                 (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption
-                                     .AfterWasAttackedBySource) &&
-                             rulesetCondition.SourceGuid == actingCharacter.Guid))
-            {
-                rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
-            }
-
-            for (var index = rulesetDefender.matchingInterruptionConditions.Count - 1; index >= 0; --index)
-            {
-                rulesetDefender.RemoveCondition(rulesetDefender.matchingInterruptionConditions[index]);
-            }
-
-            rulesetDefender.matchingInterruptionConditions.Clear();
-            rulesetDefender.matchingInterruption = false;
-        }
-
         //PATCH: Allows condition interruption after target was attacked
         rulesetDefender.ProcessConditionsMatchingInterruption(
             (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
