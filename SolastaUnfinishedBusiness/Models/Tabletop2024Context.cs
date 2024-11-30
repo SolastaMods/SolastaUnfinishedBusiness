@@ -1633,7 +1633,7 @@ internal static class Tabletop2024Context
             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             rulesetAttacker.InflictCondition(
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -1642,7 +1642,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 0,
                 0,
                 0);
@@ -3173,6 +3173,13 @@ internal static class Tabletop2024Context
         };
     }
 
+    private static readonly ConditionDefinition ConditionWithdrawn = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionDisengaging, "ConditionWithdrawn")
+        .SetParentCondition(ConditionDefinitions.ConditionDisengaging)
+        .SetFeatures()
+        .AddCustomSubFeatures(new ActionFinishedByWithdraw())
+        .AddToDB();
+
     private sealed class CustomBehaviorCunningStrike(
         FeatureDefinitionPower powerRogueCunningStrike,
         FeatureDefinitionPower powerKnockOut,
@@ -3323,7 +3330,7 @@ internal static class Tabletop2024Context
             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             rulesetAttacker.InflictCondition(
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -3332,7 +3339,7 @@ internal static class Tabletop2024Context
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                RuleDefinitions.ConditionDisengaging,
+                ConditionWithdrawn.Name,
                 0,
                 0,
                 0);
@@ -3418,6 +3425,25 @@ internal static class Tabletop2024Context
                 {
                     yield return null;
                 }
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByWithdraw : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not (CharacterActionMove or CharacterActionDash))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionWithdrawn.Name, out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
             }
         }
     }
