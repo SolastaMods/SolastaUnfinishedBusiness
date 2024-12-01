@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = object;
- 
+
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CraftingContext

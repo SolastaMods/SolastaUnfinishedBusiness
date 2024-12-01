@@ -41,6 +41,8 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
             .SetParticleEffectParameters(ShockingGrasp)
+            .SetImpactEffectParameters(AcidSplash)
+            .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 12)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -378,6 +380,42 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Ray of Sickness
+
+    internal static SpellDefinition BuildRayOfSickness()
+    {
+        const string NAME = "RayOfSickness";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RayOfSickness, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePoison, 2, DieType.D8),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
+                    .SetParticleEffectParameters(PoisonSpray)
+                    .SetEffectEffectParameters(Disintegrate)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Searing Smite
 
     internal static SpellDefinition BuildSearingSmite()
@@ -449,16 +487,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WrathfulSmite";
 
-        var battlePackage = AiHelpers.BuildDecisionPackageBreakFree($"Condition{NAME}Enemy");
-
-        var conditionEnemy = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
-            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-            .SetFixedAmount((int)AiHelpers.BreakFreeType.DoWisdomCheckAgainstCasterDC)
-            .SetBrain(battlePackage, true)
-            .SetFeatures(ActionAffinityGrappled)
-            .AddToDB();
-
         var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -466,21 +494,26 @@ internal static partial class SpellBuilders
             .SetAttackModeOnly()
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypePsychic)
+            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
+                EffectSavingThrowType.Negates,
                 AttributeDefinitions.Wisdom)
             .AddConditionOperation(
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionEnemy,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Frightened")
+                        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+                        .SetSpecialDuration(DurationType.Minute, 1)
+                        .SetFeatures()
+                        .AddToDB(),
                     hasSavingThrow = true,
-                    canSaveToCancel = false,
+                    canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn
+                    saveOccurence = TurnOccurenceType.EndOfTurn
                 })
             .SetImpactParticleReference(Fear.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -496,7 +529,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WrathfulSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -508,7 +541,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWrathfulSmite))
                     .SetParticleEffectParameters(Fear)
                     .Build())
@@ -2873,7 +2906,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
-                    .SetParticleEffectParameters(LightningBolt)
+                    .SetParticleEffectParameters(ChainLightning)
+                    .SetImpactEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
@@ -2910,7 +2944,8 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(
                             conditionWitchBoltSelf,
                             ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(LightningBolt)
+                    .SetParticleEffectParameters(ChainLightning)
+                    .SetImpactEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 

@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.GameExtensions.GameLocationBattleExtensions;
 using Coroutine = TA.Coroutine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -504,7 +505,8 @@ public static class CharacterActionMagicEffectPatcher
                 var slot = actingCharacter.RulesetCharacter.CharacterInventory
                     .FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
 
-                if (slot != null && !slot.SlotTypeDefinition.BodySlot)
+                if (slot != null && !slot.SlotTypeDefinition.BodySlot &&
+                    !Main.Settings.EnableUnlimitedInventoryActions) //don't spend if unlimited enabled
                 {
                     actingCharacter.SpendActionType(ActionDefinitions.ActionType.FreeOnce);
                 }
@@ -881,6 +883,24 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
+            //PATCH: support for `IMagicEffectFinishedOnMe`
+            foreach (var target in targets)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                foreach (var magicEffectFinishedOnMe in rulesetTarget
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
+                {
+                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
+                        __instance, actingCharacter, target, targets);
+                }
+            }
+
             //PATCH: supports `IPowerOrSpellFinishedByMe`
             var powerOrSpellFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellFinishedByMe>();
 
@@ -909,24 +929,6 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            //PATCH: support for `IMagicEffectFinishedOnMe`
-            foreach (var target in targets)
-            {
-                var rulesetTarget = target.RulesetCharacter;
-
-                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    continue;
-                }
-
-                foreach (var magicEffectFinishedOnMe in rulesetTarget
-                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
-                {
-                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
-                        __instance, actingCharacter, target, targets);
-                }
-            }
-
             //PATCH: support for `IMagicEffectFinishedByMeOrAlly`
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
@@ -951,7 +953,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (attackAfterMagicEffect != null)
             {
-                foreach (var actionParam in AttackAfterMagicEffect.PerformAttackAfterUse(__instance))
+                foreach (var actionParam in attackAfterMagicEffect.PerformAttackAfterUse(__instance))
                 {
                     // don't use ExecuteAction here to ensure compatibility with War Caster feat
                     if (__instance.ActionType == ActionDefinitions.ActionType.Reaction)
@@ -1241,37 +1243,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
             {
-                //PATCH: allow condition interruption after target was attacked not by source
-                if (!rulesetTarget.matchingInterruption)
-                {
-                    rulesetTarget.matchingInterruption = true;
-                    rulesetTarget.matchingInterruptionConditions.Clear();
-
-                    foreach (var rulesetCondition in rulesetTarget.ConditionsByCategory
-                                 .SelectMany(x => x.Value)
-                                 .Where(rulesetCondition =>
-                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                         (ConditionInterruption)ExtraConditionInterruption
-                                             .AfterWasAttackedNotBySource) &&
-                                     rulesetCondition.SourceGuid != actingCharacter.Guid))
-                    {
-                        rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
-                    }
-
-                    for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
-                         index >= 0;
-                         --index)
-                    {
-                        rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
-                    }
-
-                    rulesetTarget.matchingInterruptionConditions.Clear();
-                    rulesetTarget.matchingInterruption = false;
-                }
-
-                //PATCH: Allows condition interruption after target was attacked
-                rulesetTarget.ProcessConditionsMatchingInterruption(
-                    (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+                ProcessExtraAfterAttackConditionsMatchingInterruption(actingCharacter, rulesetTarget);
             }
 
             //PATCH: allows ITryAlterOutcomeAttributeCheck to interact with context checks

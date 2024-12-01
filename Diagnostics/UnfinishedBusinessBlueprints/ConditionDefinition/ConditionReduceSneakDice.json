@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [],
-  "allowMultipleInstances": false,
+  "allowMultipleInstances": true,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,

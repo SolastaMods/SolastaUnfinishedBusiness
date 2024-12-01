@@ -44,8 +44,10 @@ internal static class FightingStyleContext
         KeepDemotedFightingStylesBackwardCompatibility();
 
         LoadStyle(new AstralReach());
+        LoadStyle(new BlessedWarrior());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
+        LoadStyle(new DruidicWarrior());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());
@@ -120,20 +122,33 @@ internal static class FightingStyleContext
         }
 
         var name = fightingStyleDefinition.Name;
-        var feat = DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"Feat{name}");
+        // Druidic and Paladin FS don't have a feat
+        var hasFeat = DatabaseRepository.GetDatabase<FeatDefinition>().TryGetElement($"Feat{name}", out var feat);
 
         if (active)
         {
             Main.Settings.FightingStyleEnabled.TryAdd(name);
-            GroupFeats.FeatGroupFightingStyle.AddFeats(feat);
+
+            if (hasFeat)
+            {
+                GroupFeats.FeatGroupFightingStyle.AddFeats(feat);
+            }
         }
         else
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
-            GroupFeats.FeatGroupFightingStyle.RemoveFeats(feat);
+
+            if (hasFeat)
+            {
+                GroupFeats.FeatGroupFightingStyle.RemoveFeats(feat);
+            }
         }
 
-        feat.GuiPresentation.hidden = !active;
+        if (hasFeat)
+        {
+            feat.GuiPresentation.hidden = !active;
+        }
+
         GuiWrapperContext.RecacheFeats();
         UpdateStyleVisibility(fightingStyleDefinition);
     }

@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Cantrip",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 0,
+  "extraSpellsTag": "BlessedWarrior",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d21b1e64-da60-5bc8-b90b-8de6874d11d2",
+  "contentPack": 9999,
+  "name": "PointPoolBlessedWarrior"
+}

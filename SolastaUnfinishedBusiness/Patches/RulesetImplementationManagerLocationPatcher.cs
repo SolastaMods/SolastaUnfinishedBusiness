@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -42,6 +43,26 @@ public static class RulesetImplementationManagerLocationPatcher
     [UsedImplicitly]
     public static class IsMetamagicOptionAvailable_Patch
     {
+        private static int RemainingSorceryPoints(RulesetCharacter caster, RulesetEffectSpell rulesetEffectSpell)
+        {
+            return Tabletop2024Context.IsArcaneApotheosisValid(caster, rulesetEffectSpell)
+                ? 9999
+                : caster.RemainingSorceryPoints;
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var remainingSorceryPointsMethod = typeof(RulesetCharacter).GetMethod("get_RemainingSorceryPoints");
+            var myRemainingSorceryPointsMethod =
+                new Func<RulesetCharacter, RulesetEffectSpell, int>(RemainingSorceryPoints).Method;
+
+            return instructions.ReplaceCalls(remainingSorceryPointsMethod,
+                "CharacterActionCastSpell.RemoveConcentrationAsNeeded",
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myRemainingSorceryPointsMethod));
+        }
+
         [UsedImplicitly]
         public static void Postfix(
             ref bool __result,
@@ -50,6 +71,11 @@ public static class RulesetImplementationManagerLocationPatcher
             MetamagicOptionDefinition metamagicOption,
             ref string failure)
         {
+            if (!__result)
+            {
+                return;
+            }
+
             //PATCH: support for custom metamagic
             foreach (var validator in metamagicOption.GetAllSubFeaturesOfType<ValidateMetamagicApplication>())
             {
@@ -159,6 +185,13 @@ public static class RulesetImplementationManagerLocationPatcher
             }
 
             return useDefaultLogic;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            GrappleContext.ValidateGrappleAfterMotion(GameLocationCharacter.GetFromActor(formsParams.sourceCharacter));
+            GrappleContext.ValidateGrappleAfterMotion(GameLocationCharacter.GetFromActor(formsParams.targetCharacter));
         }
 
         private static bool CustomSwap(

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -22,24 +22,15 @@ public static class UserCampaignEditorScreenPatcher
                 return;
             }
 
-            campaign.userLocations.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userDialogs.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userItems.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userMonsters.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userNpcs.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userQuests.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userVariables.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userLootPacks.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-            campaign.userMerchantInventories.Sort((a, b) =>
-                string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
+            campaign.userLocations.Sort(Sorting.CompareTitle);
+            campaign.userDialogs.Sort(Sorting.CompareTitle);
+            campaign.userItems.Sort(Sorting.CompareTitle);
+            campaign.userMonsters.Sort(Sorting.CompareTitle);
+            campaign.userNpcs.Sort(Sorting.CompareTitle);
+            campaign.userQuests.Sort(Sorting.CompareTitle);
+            campaign.userVariables.Sort(Sorting.CompareTitle);
+            campaign.userLootPacks.Sort(Sorting.CompareTitle);
+            campaign.userMerchantInventories.Sort(Sorting.CompareTitle);
         }
     }
 }

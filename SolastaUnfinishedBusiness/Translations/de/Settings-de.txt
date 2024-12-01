@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht nach der Aktion <color=#D89555>Bereit</color> <i><color=#F0DAA0>[erlaubt Bonusaktionen oder andere Hauptaktionen aus anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn die Figur bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Sofern der Held nicht ausgeschaltet ist oder sich innerhalb von % des Bildschirmrands befindet</color></i>
+ModUi/&DownloadVoice=Vorgeschlagene Stimmen herunterladen
+ModUi/&DownloadVoiceOngoing=Wird heruntergeladen unter {0}
 ModUi/&DungeonMaker=Dungeon-Ersteller
 ModUi/&DungeonMakerBasicHelp=• Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
 ModUi/&Effects=Auswirkungen
@@ -121,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und 
 ModUi/&EnableExtendedProficienciesPanelDisplay=Anzeige des erweiterten Kompetenzfelds aktivieren <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeit]</color></i>\n<b><i><color=#C04040E0>[Leistungseinbußen bei der Charakterüberprüfung. Verwendung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 6 und 14.
+ModUi/&EnableFighterStudiedAttacks=Aktivieren Sie <color=#D89555>Durchdachte Angriffe</color> auf Stufe 13 <i><color=#F0DAA0>[Vorteil, wenn vorheriger Angriff in Runde gegen Kreatur fehlgeschlagen ist]</color></i>
+ModUi/&EnableFighterTacticalProgression=Aktivieren Sie <color=#D89555>Tactical Mind</color> und <color=#D89555>Tactical Shift</color> auf den Stufen 2 und 5 <i><color=#F0DAA0>[erweitern Sie Szenarien für den zweiten Wind]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
 ModUi/&EnableFlexibleRaces=Flexible Rassen aktivieren <i><color=#F0DAA0>[Fähigkeitspunkte statt der Rassenstandards zuweisen]</color></i>
@@ -148,13 +152,17 @@ ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Waffenspezialisie
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Ermöglichen Sie allen <color=#D89555>Zauberern</color> die Verwendung neuer vorbereiteter Zaubertabellen <i><color=#F0DAA0>[Barde, Kleriker, Druide, Paladin, Waldläufer, Zauberer, Magier]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color> und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color>, <color=#D89555>Prismatischer Sprühnebel</color>. und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Aktivieren Sie die Zauberversion <color=#D89555>Göttliche Gunst</color> 5e 2024 <i><color=#F0DAA0>[keine Konzentration]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=Aktivieren Sie die Zauberversion <color=#D89555>Anleitung</color> 5e 2024 <i><color=#F0DAA0>[Wählen Sie beim Zaubern eine Fertigkeit aus und erhalten Sie bis zu 1 Minute lang einen Bonus.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Aktiviere <color=#D89555>Wunden heilen</color>, <color=#D89555>Falsches Leben</color>, <color=#D89555>Heilendes Wort</color>, <color=#D89555>Massenheilung von Wunden</color> und <color=#D89555>Massenheilungswort</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bessere Heilung]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Aktiviere <color=#D89555>Hideous Laughter</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[+1 Ziel pro Upcast]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=Aktiviere <color=#D89555>Hunter's Mark</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Kraftschaden]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Aktiviere die Zauberversion <color=#D89555>Geringere Wiederherstellung</color> 5e 2024 <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Aktiviere <color=#D89555>Magische Waffe</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, Verstärkungs-Upgrade auf der 3. und 6. Zauberstufe]</color></i>
-ModUi/&EnableOneDndPowerWordKillSpell=Aktiviere <color=#D89555>Machtwort: Töten</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[12d12 psychischer Schaden wenn über 100 PS]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=Aktiviere <color=#D89555>Machtwort Betäubung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Ziel wird für eine Runde angehalten, wenn es mehr als 150 PS hat]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Aktiviere die Zauberversion <color=#D89555>Spare the Dying</color> 5e 2024 <i><color=#F0DAA0>[Reichweite verdoppelt sich auf den Stufen 5, 11 und 17]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=Aktiviere <color=#D89555>Spider Climb</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[+1 Ziel pro Upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Aktiviere <color=#D89555>Steinhaut</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bietet auch Widerstand gegen magisches B/P/S]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Aktiviere <color=#D89555>True Strike</color> 5e 2024 Cantrip-Version <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Angriff nutzt deine Zauberfähigkeit für den Angriffswurf und Schadensbonus sowie zusätzlichen Strahlungsschaden ab Level 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
@@ -168,24 +176,31 @@ ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</c
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Zaubersprüchen oder Zaubersprüchen, die Sie bereits aus anderen Quellen gelernt haben.
 ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
 ModUi/&EnableRitualOnAllCasters=Aktivieren Sie das Wirken von <color=#D89555>Ritualen</color> für alle Zauberer.
-ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
+ModUi/&EnableRogueCunningStrike=Aktiviere <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color> und <color=#D89555>Devious Strike</color> auf den Leveln 5, 11 und 14 <i><color=#F0DAA0>[du lässt 1 Schleichangriffswürfel für zusätzliche Treffereffekte weg]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
+ModUi/&EnableRogueReliableTalentAt7=Aktiviere <color=#D89555>Zuverlässiges Talent</color> auf Stufe 7 statt 11.
 ModUi/&EnableRogueSlipperyMind=Tauschen Sie <color=#D89555>Slippery Mind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Sie erhalten neben Weisheit auch Kenntnisse in Charismarettungswürfen]</color></i>
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Aktiviere <color=#D89555>Angeborene Zauberei</color> auf Stufe 1.
+ModUi/&EnableSorcererArcaneApotheosis=Aktiviere <color=#D89555>Arkane Apotheose</color> bei 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
-ModUi/&EnableSorcerousRestorationAtLevel5=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
+ModUi/&EnableSorcererSorcerousRestoration=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
+ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kampagnen <i><color=#F0DAA0>[nur Erzählung und Helden]</color></i>
+ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
+ModUi/&EnableSpeechOnNpcs=<i>+ Sprache für NPCs aktivieren <color=#F0DAA0>[entweder über Kampagnenzuordnung oder automatische Zuweisung]</color></i>
+ModUi/&EnableSpeechVoiceHelp=• Wählen Sie eine Stimme und Erzählgeschwindigkeit
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Aktivieren Sie die Bedingung <color=#D89555>Überrascht</color>, um einen Initiativenachteil durchzusetzen, anstatt eine Runde zu überspringen.
 ModUi/&EnableTeleportToRemoveRestrained=Aktivieren Sie <color=#D89555>Teleportieren</color>, um alle <color=#D89555>eingeschränkten</color> Bedingungen vom Ziel zu entfernen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in den Tooltips, wenn Sie mit der Maus über einen Charakter im Kampf fahren.
 ModUi/&EnableUnarmedMainAttackAction=Aktiviere die Aktion <color=#D89555>Unbewaffneter Angriff</color> <i><color=#F0DAA0>[wenn der Akteur eine Waffe im Hauptkampf hat, ein <b>Mönch</b> ist oder <b>Handwickel</b> oder <b>Panzerhandschuhe</b> ausgerüstet hat]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Aktivieren Sie eine unbegrenzte Anzahl von <color=#D89555>Inventaraktionen</color> pro Runde.
 ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feenbeschwören</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Erlaubt das Tragen und Verwenden von <color=#D89555>Tränken</color> und <color=#D89555>Schriftrollen</color> in den Munitionsfächern
@@ -193,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Erlaubt das Tragen und Verwenden von <color=#D
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Aktiviere <color=#D89555>Magische List</color> auf Stufe 2.
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Aktiviere <color=#D89555>Magische List</color> auf Level 2 und verbessere <color=#D89555>Eldritch Master</color> auf 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Aktivieren Sie <color=#D89555>Patron</color> auf Stufe 3 statt auf Stufe 1.
+ModUi/&EnableWizardMemorizeSpell=Aktiviere <color=#D89555>Zauber merken</color> auf Stufe 5.
 ModUi/&EnableWizardToLearnScholarAtLevel2=Aktiviere <color=#D89555>Gelehrter</color> auf Stufe 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Aktiviere die <color=#D89555>Schule der Magie</color> auf Level 3 statt auf Level 2.
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Auswahl von <color=#D89555>Talenten</color> <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
@@ -211,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=Textumbruch der Spiel-UI in asiatischen Sprache
 ModUi/&FixEldritchBlastRange=Nutze 24 Zellen Reichweite mit <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[anstelle von 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Setzt die Heilrate des <color=#D89555>Rings der Regeneration</color> auf 1 HP alle 3 Minuten.
 ModUi/&FlightSuspendWingedBoots=<i>+ Offizielle Regeln für geflügelte Stiefel verwenden <color=#F0DAA0>[verbleibende Dauer wird bei Flugunterbrechung nicht gezählt]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Automatische Stimmzuweisung für alle NPCs erzwingen, statt Kampagnenzuordnung</i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Aufstellung während eines Mehrspielerspiels nicht ändern...</color>
 ModUi/&FormationHelp1=• Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
@@ -273,6 +290,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Aktivieren Sie den Schnellzauber <c
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauer Zwerg</color>, damit diese nur im Freien ausgelöst wird\n<i><color=#F0DAA0>[Innenbereiche an Außenbereichen, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als Außenbereiche betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
+ModUi/&RefreshVoice=Stimmenliste aktualisieren
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Entferne <color=#D89555>Magisches Geheimnis</color> auf den Ebenen 14 und 18
@@ -310,6 +328,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=Symbol für hergestellte Gegenstände neben R
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Herstellungsrezept in ausführlichen Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&ShowMotionFormPreview=Vorschau der <b>Push</b>- und <b>Pull</b>-Effekte anzeigen
+ModUi/&SpeechScale=<color=white>Erzählgeschwindigkeitsmodifikator</color> <i><color=#F0DAA0>[niedriger ist schneller]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie den Verlust der Tarnung, wenn ein Waffen- oder Zauberangriff trifft
@@ -340,6 +359,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Insgesamt die auf der ersten Stu
 ModUi/&Translate=Übersetzen
 ModUi/&TranslateCancel=Stornieren Sie {0} bei {1}
 ModUi/&Translations=<color=#F0DAA0>Übersetzungen:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Unity Explorer-Benutzeroberfläche</color></b>
 ModUi/&UnleashEnemyAsNpc=Erlaube die Auswahl von Monstern auf NPC-Geräten
 ModUi/&UnleashNpcAsEnemy=Monsterauswahl freischalten
 ModUi/&Update=<b><color=#D89555>Aktualisieren</color></b>

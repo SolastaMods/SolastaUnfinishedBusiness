@@ -98,6 +98,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .Create($"Power{Name}DeadlyFocus")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerDeadlyFocus.AddCustomSubFeatures(

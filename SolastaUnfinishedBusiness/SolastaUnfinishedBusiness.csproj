@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <LangVersion>12</LangVersion>
-    <TargetFramework>net48</TargetFramework>
-    <AssemblyVersion>1.5.97.39</AssemblyVersion>
+    <TargetFramework>net481</TargetFramework>
+    <AssemblyVersion>1.5.97.40</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -57,6 +57,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fody" Version="6.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
     <Reference Include="System.Collections"/>
     <Reference Include="System.IO.Compression"/>
@@ -100,6 +107,9 @@
     <Reference Include="Tomlet">
       <HintPath>../lib/Tomlet.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>../lib/NAudio.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -125,6 +135,10 @@
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.AudioModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">

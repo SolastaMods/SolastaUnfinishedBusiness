@@ -59,6 +59,19 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetHitPointsFilter(int effectFormId, int minHitPoints = 0, int maxHitPoints = 100)
+    {
+        _effect.EffectFormFilters.Add(
+            new EffectFormFilter
+            {
+                effectFormId = effectFormId,
+                criteria = EffectFormFilter.FilterCriteria.CurrentHitPoints,
+                minHitPoints = minHitPoints,
+                maxHitPoints = maxHitPoints
+            });
+        return this;
+    }
+
     internal EffectDescriptionBuilder RollSaveOnlyIfRelevantForms()
     {
         _effect.RollSaveOnlyIfRelevantForms = true;

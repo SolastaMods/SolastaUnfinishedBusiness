@@ -220,9 +220,9 @@
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <EnablePcgRandom>false</EnablePcgRandom>
-    <EnableCustomPortraits>false</EnableCustomPortraits>
+    <EnableCustomPortraits>true</EnableCustomPortraits>
     <DisableMultilineSpellOffering>false</DisableMultilineSpellOffering>
-    <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
+    <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
     <EnableLevel20>false</EnableLevel20>
     <EnableMulticlass>false</EnableMulticlass>
@@ -237,6 +237,7 @@
     <EnableHelpAction>false</EnableHelpAction>
     <EnableRespecAction>false</EnableRespecAction>
     <EnableUnarmedMainAttackAction>false</EnableUnarmedMainAttackAction>
+    <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
@@ -289,6 +290,89 @@
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
+    <EnableSpeech>false</EnableSpeech>
+    <EnableSpeechOnNpcs>false</EnableSpeechOnNpcs>
+    <ForceModSpeechOnNpcs>false</ForceModSpeechOnNpcs>
+    <SpeechChoice>0</SpeechChoice>
+    <SpeechVoices>
+        <item>
+            <key>
+                <int>0</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>1</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>2</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>3</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>4</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>5</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>6</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+    </SpeechVoices>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>
@@ -565,6 +649,8 @@
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
     <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
+    <EnableFighterStudiedAttacks>false</EnableFighterStudiedAttacks>
+    <EnableFighterTacticalProgression>false</EnableFighterTacticalProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>
@@ -588,18 +674,21 @@
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueReliableTalentAt7>false</EnableRogueReliableTalentAt7>
     <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorceryAt1>false</EnableSorcererInnateSorceryAt1>
+    <EnableSorcererArcaneApotheosis>false</EnableSorcererArcaneApotheosis>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate>false</EnableSorcererInnateSorceryAndSorceryIncarnate>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcerousRestorationAtLevel5>false</EnableSorcerousRestorationAtLevel5>
+    <EnableSorcererSorcerousRestoration>false</EnableSorcererSorcerousRestoration>
     <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
     <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardMemorizeSpell>false</EnableWizardMemorizeSpell>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -660,9 +749,13 @@
     <EnableOneDndHealingSpellsUpgrade>false</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndDivineFavorSpell>false</EnableOneDndDivineFavorSpell>
     <EnableOneDndGuidanceSpell>false</EnableOneDndGuidanceSpell>
+    <EnableOneDndHideousLaughterSpell>false</EnableOneDndHideousLaughterSpell>
+    <EnableOneDndHuntersMarkSpell>false</EnableOneDndHuntersMarkSpell>
     <EnableOneDndLesserRestorationSpell>false</EnableOneDndLesserRestorationSpell>
     <EnableOneDndMagicWeaponSpell>false</EnableOneDndMagicWeaponSpell>
-    <EnableOneDndPowerWordKillSpell>false</EnableOneDndPowerWordKillSpell>
+    <EnableOneDndPowerWordStunSpell>false</EnableOneDndPowerWordStunSpell>
+    <EnableOneDndSpareTheDyingSpell>false</EnableOneDndSpareTheDyingSpell>
+    <EnableOneDndSpiderClimbSpell>false</EnableOneDndSpiderClimbSpell>
     <EnableOneDndStoneSkinSpell>false</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>false</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>false</AllowHasteCasting>
@@ -1060,4 +1153,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

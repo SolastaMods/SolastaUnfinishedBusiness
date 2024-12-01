@@ -137,6 +137,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .Create($"Power{Name}OrganDonation")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerOrganDonation.AddCustomSubFeatures(

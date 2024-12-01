@@ -98,6 +98,7 @@ internal static class FixesContext
         ReportDashing();
         FixSpikeGrowthAffectingAir();
         NoTwinnedBladeCantrips();
+        FixStaffOfFireToGetFireResistance();
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
@@ -110,6 +111,19 @@ internal static class FixesContext
     private static void NoTwinnedBladeCantrips()
     {
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
+    }
+
+    private static void FixStaffOfFireToGetFireResistance()
+    {
+        ItemDefinitions.StaffOfFire.StaticProperties.Add(
+            new ItemPropertyDescription(ItemDefinitions.RingFeatherFalling.StaticProperties[0])
+            {
+                appliesOnItemOnly = false,
+                type = ItemPropertyDescription.PropertyType.Feature,
+                featureDefinition = DamageAffinityFireResistance,
+                conditionDefinition = null,
+                knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden
+            });
     }
 
     private static void InitMagicAffinitiesAndCastSpells()
@@ -926,8 +940,7 @@ internal static class FixesContext
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.RolledSaveThrow &&
-                action.SaveOutcome == RollOutcome.Failure)
+            if (action.SaveOutcome == RollOutcome.Failure)
             {
                 action.ActingCharacter.RulesetCharacter.ToggledPowersOn
                     .Remove(PowerMonkStunningStrike.AutoActivationPowerTag);
@@ -968,9 +981,11 @@ internal static class FixesContext
             ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
 
             // handle rogue cunning strike feature
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    TagEffect, Tabletop2024Context.ConditionReduceSneakDice.Name,
-                    out var activeCondition))
+            var conditions = new List<RulesetCondition>();
+
+            rulesetAttacker.GetAllConditionsOfType(conditions, Tabletop2024Context.ConditionReduceSneakDice.Name);
+
+            foreach (var activeCondition in conditions)
             {
                 var newDiceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);
 
@@ -1006,7 +1021,7 @@ internal static class FixesContext
 
                 if (rulesetAttacker.TryGetConditionOfCategoryAndType(
                         TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
-                        out activeCondition) &&
+                        out var activeCondition) &&
                     activeCondition.SourceGuid == rulesetAttacker.Guid)
                 {
                     var newDiceNumber = damageForm.DiceNumber + slayerLevels switch

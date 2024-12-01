@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=Versatilities
 ModUi/&DontEndTurnAfterReady=Don't end turn after <color=#D89555>Ready</color> action <i><color=#F0DAA0>[allows bonus action or any other main action from other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
+ModUi/&DownloadVoice=Download Suggested Voices
+ModUi/&DownloadVoiceOngoing=Downloading at {0}
 ModUi/&DungeonMaker=Dungeon Maker
 ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&Effects=Effects
@@ -121,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
+ModUi/&EnableFighterStudiedAttacks=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
+ModUi/&EnableFighterTacticalProgression=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
@@ -148,13 +152,17 @@ ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specializatio
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
+ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Enable <color=#D89555>Divine Favor</color> 5e 2024 spell version <i><color=#F0DAA0>[no concentration]</color></i>
-ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[Choose one skill at casting and get bonus for up to 1 minute]</color></i>
+ModUi/&EnableOneDndGuidanceSpell=Enable <color=#D89555>Guidance</color> 5e 2024 spell version <i><color=#F0DAA0>[choose one skill at casting and get bonus for up to 1 minute]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=Enable <color=#D89555>Cure Wounds</color>, <color=#D89555>False Life</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color>, and <color=#D89555>Mass Healing Word</color> 5e 2024 spells version <i><color=#F0DAA0>[better healing]</color></i>
+ModUi/&EnableOneDndHideousLaughterSpell=Enable <color=#D89555>Hideous Laughter</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=Enable <color=#D89555>Hunter's Mark</color> 5e 2024 spell version <i><color=#F0DAA0>[force damage]</color></i>
 ModUi/&EnableOneDndLesserRestorationSpell=Enable <color=#D89555>Lesser Restoration</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnableOneDndMagicWeaponSpell=Enable <color=#D89555>Magic Weapon</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, enhancement upgrade at 3rd and 6th spell level]</color></i>
-ModUi/&EnableOneDndPowerWordKillSpell=Enable <color=#D89555>Power Word: Kill</color> 5e 2024 spell version <i><color=#F0DAA0>[12d12 psychic damage if above 100 hp]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=Enable <color=#D89555>Power Word Stun</color> 5e 2024 spell version <i><color=#F0DAA0>[target stopped for one turn if has more than 150 hp]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=Enable <color=#D89555>Spare the Dying</color> 5e 2024 spell version <i><color=#F0DAA0>[range doubles on levels 5, 11, and 17]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action
@@ -168,24 +176,31 @@ ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</colo
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRitualOnAllCasters=Enable <color=#D89555>Ritual</color> casting on all casters
-ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color> and <color=#D89555>Devious Strike</color> at levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
+ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color>, and <color=#D89555>Devious Strike</color> at levels 5, 11 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableRogueReliableTalentAt7=Enable <color=#D89555>Reliable Talent</color> at level 7 instead of 11
 ModUi/&EnableRogueSlipperyMind=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=Enable <color=#D89555>Innate Sorcery</color> at level 1
+ModUi/&EnableSorcererArcaneApotheosis=Enable <color=#D89555>Arcane Apotheosis</color> at 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
-ModUi/&EnableSorcerousRestorationAtLevel5=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
+ModUi/&EnableSorcererSorcerousRestoration=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
+ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
+ModUi/&EnableSpeechActorHelp=• Select an actor
+ModUi/&EnableSpeechOnNpcs=<i>+ Enable speech on NPCs <color=#F0DAA0>[either from campaign mapping or auto assignment]</color></i>
+ModUi/&EnableSpeechVoiceHelp=• Select a voice and narration speed
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Enable <color=#D89555>Surprised</color> condition to enforce initiative disadvantage instead of skipping a round
 ModUi/&EnableTeleportToRemoveRestrained=Enable <color=#D89555>Teleport</color> to remove all <color=#D89555>restrained</color> conditions from target
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
 ModUi/&EnableUnarmedMainAttackAction=Enable the <color=#D89555>Unarmed Attack</color> action <i><color=#F0DAA0>[if actor has weapon in main, is a <b>Monk</b> or has <b>handwraps</b> or <b>gauntlet</b> equipped]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=Enable an unlimited number of <color=#D89555>inventory actions</color> per turn.
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammunition slots
@@ -193,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <colo
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
+ModUi/&EnableWizardMemorizeSpell=Enable <color=#D89555>Memorize Spell</color> at level 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Enable <color=#D89555>Scholar</color> at level 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <color=#D89555>School of Magic</color> at level 3 instead of 2
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
@@ -211,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><c
 ModUi/&FixEldritchBlastRange=Use 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1 HP per 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+Force voice auto assignment on all NPCs instead of campaign mapping</i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
 ModUi/&FormationHelp1=• Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
@@ -273,6 +290,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=Enable quick cast <color=#D89555>Li
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
+ModUi/&RefreshVoice=Refresh Voices List
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
@@ -310,6 +328,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in sh
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&ShowMotionFormPreview=Show preview of <b>Push</b> and <b>Pull</b> effects
+ModUi/&SpeechScale=<color=white>Narration speed modifier</color>  <i><color=#F0DAA0>[lower is faster]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
 ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when weapon or spell attack hits
@@ -340,6 +359,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</colo
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&Translations=<color=#F0DAA0>Translations:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Unity Explorer UI</color></b>
 ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
 ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
 ModUi/&Update=<b><color=#D89555>Update</color></b>

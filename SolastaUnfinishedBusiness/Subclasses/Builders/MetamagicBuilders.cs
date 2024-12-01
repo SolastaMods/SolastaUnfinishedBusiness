@@ -304,6 +304,7 @@ internal static class MetamagicBuilders
                     .Create($"Power{MetamagicTransmuted}{damageType}")
                     .SetGuiPresentation(title, description)
                     .SetSharedPool(ActivationTime.NoCost, powerPool)
+                    .SetShowCasting(false)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()

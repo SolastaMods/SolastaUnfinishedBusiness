@@ -77,6 +77,11 @@ internal static class Sorting
         return string.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCultureIgnoreCase);
     }
 
+    internal static int CompareTitle(UserContent x, UserContent y)
+    {
+        return string.Compare(x.Title, y.Title, StringComparison.CurrentCultureIgnoreCase);
+    }
+
     internal static int Compare(BaseDefinition x, BaseDefinition y)
     {
         return string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>2</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -237,6 +237,7 @@
     <EnableHelpAction>true</EnableHelpAction>
     <EnableRespecAction>true</EnableRespecAction>
     <EnableUnarmedMainAttackAction>true</EnableUnarmedMainAttackAction>
+    <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
@@ -289,6 +290,89 @@
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
+    <EnableSpeech>true</EnableSpeech>
+    <EnableSpeechOnNpcs>true</EnableSpeechOnNpcs>
+    <ForceModSpeechOnNpcs>false</ForceModSpeechOnNpcs>
+    <SpeechChoice>0</SpeechChoice>
+    <SpeechVoices>
+        <item>
+            <key>
+                <int>0</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>0.8</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>1</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>2</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>3</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>4</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>5</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+        <item>
+            <key>
+                <int>6</int>
+            </key>
+            <value>
+                <ValueTupleOfStringSingle>
+                    <Item1>No Voice</Item1>
+                    <Item2>1</Item2>
+                </ValueTupleOfStringSingle>
+            </value>
+        </item>
+    </SpeechVoices>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
@@ -607,6 +691,8 @@
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
     <AddPersuasionToFighterSkillOptions>true</AddPersuasionToFighterSkillOptions>
     <EnableSecondWindToUseOneDndUsagesProgression>true</EnableSecondWindToUseOneDndUsagesProgression>
+    <EnableFighterStudiedAttacks>true</EnableFighterStudiedAttacks>
+    <EnableFighterTacticalProgression>true</EnableFighterTacticalProgression>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>
@@ -630,18 +716,21 @@
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
+    <EnableRogueReliableTalentAt7>true</EnableRogueReliableTalentAt7>
     <EnableRogueSlipperyMind>true</EnableRogueSlipperyMind>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <RemoveRogueBlindSense>true</RemoveRogueBlindSense>
-    <EnableSorcererInnateSorceryAt1>true</EnableSorcererInnateSorceryAt1>
+    <EnableSorcererArcaneApotheosis>true</EnableSorcererArcaneApotheosis>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate>true</EnableSorcererInnateSorceryAndSorceryIncarnate>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcerousRestorationAtLevel5>true</EnableSorcerousRestorationAtLevel5>
+    <EnableSorcererSorcerousRestoration>true</EnableSorcererSorcerousRestoration>
     <EnableWarlockToUseOneDndInvocationProgression>true</EnableWarlockToUseOneDndInvocationProgression>
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>true
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
     <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardMemorizeSpell>true</EnableWizardMemorizeSpell>
     <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -924,10 +1013,14 @@
     <EnableOneDndDamagingSpellsUpgrade>true</EnableOneDndDamagingSpellsUpgrade>
     <EnableOneDndHealingSpellsUpgrade>true</EnableOneDndHealingSpellsUpgrade>
     <EnableOneDndDivineFavorSpell>true</EnableOneDndDivineFavorSpell>
-    <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndGuidanceSpell>true</EnableOneDndGuidanceSpell>
+    <EnableOneDndHideousLaughterSpell>true</EnableOneDndHideousLaughterSpell>
+    <EnableOneDndHuntersMarkSpell>true</EnableOneDndHuntersMarkSpell>
+    <EnableOneDndLesserRestorationSpell>true</EnableOneDndLesserRestorationSpell>
     <EnableOneDndMagicWeaponSpell>true</EnableOneDndMagicWeaponSpell>
-    <EnableOneDndPowerWordKillSpell>true</EnableOneDndPowerWordKillSpell>
+    <EnableOneDndPowerWordStunSpell>true</EnableOneDndPowerWordStunSpell>
+    <EnableOneDndSpareTheDyingSpell>true</EnableOneDndSpareTheDyingSpell>
+    <EnableOneDndSpiderClimbSpell>true</EnableOneDndSpiderClimbSpell>
     <EnableOneDndStoneSkinSpell>true</EnableOneDndStoneSkinSpell>
     <EnableOneDndTrueStrikeCantrip>true</EnableOneDndTrueStrikeCantrip>
     <AllowHasteCasting>true</AllowHasteCasting>

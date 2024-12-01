@@ -146,6 +146,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}WealCosmosOmen")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerWealCosmosOmen.AddCustomSubFeatures(
@@ -156,6 +157,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}WoeCosmosOmen")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerWoeCosmosOmen.AddCustomSubFeatures(
@@ -429,7 +431,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     {
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
-            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands, hidden: true)
+            .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
@@ -761,7 +763,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             rulesetAttacker.InflictCondition(
                 conditionChaliceHealing.Name,
-                DurationType.Permanent,
+                DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,

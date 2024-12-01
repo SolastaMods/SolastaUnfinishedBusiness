@@ -1,3 +1,37 @@
+1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:
+
+ATTENTION: Check "The Forsaken Isle" and "Morrows Deep" from Artyoan, updated with NPCs text-to-speech data
+
+- added 'Enable Fighter Studied Attacks at 13' setting [ADV if previous attack in turn against same target missed]
+- added 'Enable Fighter Tactical Mind, and Tactical Shift at 2 and 5' setting [augment second wind scenarios]
+- added 'Enable Hideous Laughter 5e 2024 spell version' setting [+1 target per upcast]
+- added 'Enable Hunter's Mark 5e 2024 spell version' setting [force damage]
+- added 'Enable Power Word Stun 5e 2024 spell version' setting [target stopped for one turn if has more than 150 hp]
+- added 'Enable Rogue Improved Cunning Strike at 11' under existing Cunning/Devious strike setting
+- added 'Enable Rogue Reliable Talent at 7 instead of 11' setting
+- added 'Enable Sorcerer Arcane Apotheosis at 20' setting [free metamagic use once per round]
+- added 'Enable Sorcerer Sorcery Incarnate at 7' under existing Innate Sorcery setting
+- added 'Enable Spare the Dying 5e 2024 spell version' setting [range double every cantrip level upgrade]
+- added 'Enable Spider Climb 5e 2024 spell version' setting [+1 target per upcast]
+- added 'Enable Wizard Memorize Spell at 5' setting [memorize 1 spell on short rests]
+- added Aura of Vitality, Banishing Smite, Crusader's Mantle, Mirror Image, Swift Quiver, Weird, and Wrathful Smite spells 5e 2024 version
+- added General > Campaigns > 'Enable Speech on custom campaigns' setting with 22 EN voices for narration, heroes, and NPCs
+- added General > Rules > 'Enable an unlimited number of inventory actions per turn' setting [by SilverGriffon]
+- added Ray of Sickening spell, Blessed Warrior, and Druidic Warrior fighting styles
+- fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
+- fixed Defensive Duelist triggering on any attack roll instead of melee attacks only
+- fixed Grapple interaction with teleporting enemies
+- fixed Martial Arcane Archer Beguiling Arrow charmed condition application time, and improved all arrows impact SFX
+- fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation [by BradS]
+- fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
+- fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration
+- fixed weapon attribute determination not enforcing the higher scored modifier [i.e.: Hexblade, precision feats, etc.]
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.39:
 
 - added 'Allow Potions and Scrolls to be carried and used in the ammunition slots' setting [by SilverGriffon]
@@ -19,11 +53,6 @@
 - fixed Martial Arcane Archer bursting arrow not damaging original target nor applying same dice rolls to all targets
 - fixed spend power action passing a null instance to mod custom behaviors leading to desyncs and soft locks
 - fixed Stealthy action from key bind not broadcasting status on multiplayer sessions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.38:
 

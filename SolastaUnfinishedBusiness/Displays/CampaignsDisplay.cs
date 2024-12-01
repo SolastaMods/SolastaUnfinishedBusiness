@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -123,6 +124,81 @@ internal static class CampaignsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableLogDialoguesToConsole = toggle;
+        }
+
+        toggle = Main.Settings.EnableSpeech;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeech"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSpeech = toggle;
+        }
+
+        if (Main.Settings.EnableSpeech)
+        {
+            UI.Label();
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(
+                    Gui.Localize("ModUi/&RefreshVoice"),
+                    SpeechContext.RefreshAvailableVoices, UI.Width(227f));
+                UI.ActionButton(
+                    SpeechContext.VoicesDownloader.Shared.GetButtonLabel(),
+                    SpeechContext.VoicesDownloader.Shared.DownloadVoices, UI.Width(227f));
+            }
+
+            UI.Label();
+
+            toggle = Main.Settings.EnableSpeechOnNpcs;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSpeechOnNpcs"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSpeechOnNpcs = toggle;
+            }
+
+            toggle = Main.Settings.ForceModSpeechOnNpcs;
+            if (UI.Toggle(Gui.Localize("ModUi/&ForceModSpeechOnNpcs"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ForceModSpeechOnNpcs = toggle;
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechActorHelp"));
+            UI.Label();
+
+            intValue = Main.Settings.SpeechChoice;
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.Choices, SpeechContext.Choices.Length, SpeechContext.MaxHeroes + 1,
+                    UI.Width(800f)))
+            {
+                Main.Settings.SpeechChoice = intValue;
+            }
+
+            UI.Label();
+            UI.Label(Gui.Localize("ModUi/&EnableSpeechVoiceHelp"));
+            UI.Label();
+
+            (var voice, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+
+            intValue = Array.IndexOf(SpeechContext.VoiceNames, voice);
+
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
+                    0.5f, 2f, 0.8f, 1, string.Empty, UI.AutoWidth()))
+            {
+                voice = SpeechContext.VoiceNames[intValue];
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
+            }
+
+            UI.Label();
+
+            if (UI.SelectionGrid(
+                    ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(800f)))
+            {
+                voice = SpeechContext.VoiceNames[intValue];
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
+                SpeechContext.SpeakQuote();
+                SpeechContext.UpdateAvailableVoices();
+            }
+
+            UI.Label();
         }
 
         toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;

@@ -561,6 +561,7 @@ internal static partial class SpellBuilders
                 .Create($"Power{NAME}{skill.Name}")
                 .SetGuiPresentation(skill.GuiPresentation.Title, skill.GuiPresentation.Description)
                 .SetSharedPool(ActivationTime.NoCost, powerPool)
+                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()

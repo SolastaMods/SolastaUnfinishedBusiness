@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageDivineFavor:1dff78f3c21bcea43a4a13fd1c35d89f"
+    "Definition:AdditionalDamageCrusadersMantle:7ca7052c-c8f9-538a-8e08-87176c4dd87c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

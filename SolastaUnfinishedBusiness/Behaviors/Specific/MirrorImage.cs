@@ -112,9 +112,7 @@ public class MirrorImage
         }
 
         foreach (var sense in attacker.SenseModes
-                     .Where(sense => sense.senseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight
-                         or SenseMode.Type.Tremorsense)
-                     .Where(sense => sense.senseType is not SenseMode.Type.Tremorsense || target.IsTouchingGround())
+                     .Where(sense => sense.senseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight)
                      .Where(sense => locA.IsWithinRange(locB, sense.SenseRange)))
         {
             ReportAttackerHasSense(attacker, sense.senseType);
@@ -123,19 +121,21 @@ public class MirrorImage
         }
 
         //TODO: Bonus points if we can manage to change attack `GameConsole.AttackRolled` to show duplicate, instead of the target
-        //TODO: add custom context and modify Halfling's Lucky to include it
-        var result = target.RollDie(RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.None, false,
-            RuleDefinitions.AdvantageType.None, out _, out _, skill: TargetMirrorImageTag);
-
         var hitImage = false;
+        var result = 0;
 
-        switch (conditions.Count)
+        for (var i = 0; i < conditions.Count; i++)
         {
-            case >= 3 when result >= 6:
-            case 2 when result >= 8:
-            case 1 when result >= 11:
-                hitImage = true;
-                break;
+            result = target.RollDie(RuleDefinitions.DieType.D6, RuleDefinitions.RollContext.None, false,
+                RuleDefinitions.AdvantageType.None, out _, out _, skill: TargetMirrorImageTag);
+
+            if (result < 3)
+            {
+                continue;
+            }
+
+            hitImage = true;
+            break;
         }
 
         ReportTargetingMirrorImage(attacker, target, result, hitImage);

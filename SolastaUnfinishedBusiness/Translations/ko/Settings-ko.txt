@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=다재다능함
 ModUi/&DontEndTurnAfterReady=<color=#D89555>준비</color> 액션 후에 턴을 끝내지 마세요 <i><color=#F0DAA0>[다른 출처에서 보너스 액션이나 다른 주요 액션을 허용합니다]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있는 경우 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 화면 가장자리 밖에 있거나 % 이내에 있지 않는 한</color></i>
+ModUi/&DownloadVoice=추천된 음성 다운로드
+ModUi/&DownloadVoiceOngoing={0}에서 다운로드 중
 ModUi/&DungeonMaker=던전메이커
 ModUi/&DungeonMakerBasicHelp=• 이러한 설정은 플레이어가 이 모드를 설치하도록 요구하지 않습니다.
 ModUi/&Effects=효과
@@ -121,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=35포인트의 장대한 구매 시스템과 배
 ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[비밀의 사격, 주입, 기동 및 다양성]</color></i>\n<b><i><color=#C04040E0>[캐릭터 검사 시 성능 저하. 사용 시 모든 위험을 감수해야 함]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=레벨 2, 10, 18에서 <color=#D89555>특기</color> 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>특기</color> 선택 활성화
+ModUi/&EnableFighterStudiedAttacks=레벨 13에서 <color=#D89555>공격 연구</color>를 활성화합니다. <i><color=#F0DAA0>[이번 라운드에 생물에 대한 이전 공격이 빗나갔을 경우 유리함]</color></i>
+ModUi/&EnableFighterTacticalProgression=레벨 2와 5에서 <color=#D89555>전술적 마인드</color>와 <color=#D89555>전술적 변화</color>를 활성화합니다. <i><color=#F0DAA0>[2차 바람 시나리오 증강]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 사용 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
@@ -148,13 +152,17 @@ ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=모든 <color=#D89555>주문자</color>가 새로 준비된 주문표 <i><color=#F0DAA0>[바드, 성직자, 드루이드, 성기사, 레인저, 마법사, 마법사]</color></i>를 사용할 수 있도록 합니다.
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 높은 데미지]</color></i>을 활성화합니다.
+ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>프리즘 스프레이</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 나은 데미지]</color></i>을 활성화합니다.
 ModUi/&EnableOneDndDivineFavorSpell=<color=#D89555>신성한 호의</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[집중 없음]</color></i>
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>지침</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[시전 시 스킬 하나를 선택하고 최대 1분 동안 보너스를 받습니다.]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>상처 치료</color>, <color=#D89555>거짓 생명</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>대량 상처 치료</color>, <color=#D89555>대량 치유의 말씀</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[치유력 향상]</color></i>을 활성화합니다.
+ModUi/&EnableOneDndHideousLaughterSpell=<color=#D89555>흉측한 웃음</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[업캐스트당 대상 1개 추가]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=<color=#D89555>사냥꾼의 표식</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[강제 피해]</color></i>을 활성화합니다.
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>하위 회복</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>을 활성화합니다.
 ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>마법 무기</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, 3, 6번째 주문 레벨에서 강화 업그레이드]</color></i>
-ModUi/&EnableOneDndPowerWordKillSpell=<color=#D89555>힘의 말씀: 살해</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[체력이 100 이상일 경우 12d12의 사이킥 데미지]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=<color=#D89555>파워워드 스턴</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[대상의 체력이 150을 넘으면 1턴 동안 멈춤]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>죽음을 막아라</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[5, 11, 17레벨에서 범위가 두 배가 됨]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>거미 등반</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[업캐스트당 대상 +1개]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
@@ -168,24 +176,31 @@ ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRitualOnAllCasters=모든 시전자에 <color=#D89555>의식</color> 시전 활성화
-ModUi/&EnableRogueCunningStrike=레벨 5와 14에서 <color=#D89555>교활한 일격</color>과 <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
+ModUi/&EnableRogueCunningStrike=레벨 5, 11, 14에서 <color=#D89555>교활한 일격</color>, <color=#D89555>개선된 교활한 일격</color>, <color=#D89555>사악한 일격</color>을 활성화합니다. <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
+ModUi/&EnableRogueReliableTalentAt7=레벨 11 대신 레벨 7에서 <color=#D89555>신뢰할 수 있는 재능</color>을 활성화합니다.
 ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[지혜 외에도 카리스마 세이빙 스로우에 능숙해짐]</color></i>
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>Second Wind</color>를 활성화하여 5e 2024 사용 진행을 사용하세요.
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주문</color>을 준비할 수 있게 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=1레벨에서 <color=#D89555>선천적 마법</color>을 활성화합니다.
+ModUi/&EnableSorcererArcaneApotheosis=20에서 <color=#D89555>비전적 신격화</color> 활성화
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=레벨 1과 7에서 <color=#D89555>선천적 마법</color>과 <color=#D89555>마법의 화신</color>을 활성화합니다.
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법의 안내</color>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
-ModUi/&EnableSorcerousRestorationAtLevel5=레벨 5에서 <color=#D89555>마법 회복</color>을 활성화합니다.
+ModUi/&EnableSorcererSorcerousRestoration=레벨 5에서 <color=#D89555>마법 회복</color>을 활성화합니다.
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
+ModUi/&EnableSpeech=사용자 정의 캠페인에서 음성 활성화 <i><color=#F0DAA0>[내레이션 및 영웅만]</color></i>
+ModUi/&EnableSpeechActorHelp=• 배우를 선택하세요
+ModUi/&EnableSpeechOnNpcs=<i>+ NPC의 음성 활성화 <color=#F0DAA0>[캠페인 매핑 또는 자동 할당에서]</color></i>
+ModUi/&EnableSpeechVoiceHelp=• 음성 및 내레이션 속도를 선택하세요
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다 <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정치 + D20 롤]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=라운드를 건너뛰는 대신 이니셔티브 불이익을 적용하려면 <color=#D89555>놀람</color> 조건을 활성화하세요.
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>순간이동</color>을 활성화하여 대상의 모든 <color=#D89555>제한된</color> 조건을 제거합니다.
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올려 놓으면 툴팁에 거리 표시가 활성화됩니다.
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>비무장 공격</color> 동작 활성화 <i><color=#F0DAA0>[액터가 기본 무기를 장착하고 있거나, <b>수도사</b>이거나, <b>핸드랩</b> 또는 <b>건틀릿</b>을 장착한 경우]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=턴당 <color=#D89555>인벤토리 액션</color>을 무제한으로 활성화합니다.
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>과 <color=#D89555>요정 소환</color>의 업캐스트를 활성화합니다.
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 탄약 슬롯에 넣고 운반하고 사용할 수 있습니다.
@@ -193,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=<color=#D89555>물약</color>과 <color=#D8955
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화
+ModUi/&EnableWizardMemorizeSpell=레벨 5에서 ​​<color=#D89555>주문 기억</color>을 활성화합니다.
 ModUi/&EnableWizardToLearnScholarAtLevel2=레벨 2에서 <color=#D89555>학자</color> 활성화
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>마법 학교</color>를 2레벨 대신 3레벨로 활성화합니다.
 ModUi/&EnablesAsiAndFeat=속성 점수 증가와 <color=#D89555>특기</color> 선택을 모두 활성화합니다. <i><color=#F0DAA0>[독점 선택 대신]</color></i>
@@ -211,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=아시아 언어 게임 UI 텍스트 줄바꿈 
 ModUi/&FixEldritchBlastRange=<color=#D89555>Eldritch Blast</color>에 24개 셀 범위를 사용하세요. <i><color=#F0DAA0>[12개 대신]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>재생의 반지</color> 회복 속도를 3분당 1HP로 설정합니다.
 ModUi/&FlightSuspendWingedBoots=<i>+ Winged Boots 공식 규칙 사용 <color=#F0DAA0>[비행 중단 시 남은 시간은 계산되지 않음]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+캠페인 매핑 대신 모든 NPC에 음성 자동 할당 강제 적용</i>
 ModUi/&Formation=<color=#F0DAA0>포메이션:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포메이션을 변경할 수 없습니다...</color>
 ModUi/&FormationHelp1=• 숫자 버튼을 사용하여 주어진 세트를 편집합니다. <i><color=#F0DAA0>[입력 아래에 단축키를 활성화하는 것을 고려하세요]</color></i>
@@ -273,6 +290,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=머리, 목 또는 몸통에 착용
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에 <color=#D89555>조명 감도</color>를 활성화하면 야외에서만 작동합니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근할 수 있는 야외 위치의 실내 공간은 게임 엔진에서 야외로 간주됨]</color></i>
 ModUi/&Races=<color=#F0DAA0>종족</color>
 ModUi/&RecipeCost=<color=white>레시피 비용</color>
+ModUi/&RefreshVoice=음성 목록 새로 고침
 ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=레벨 14와 18에서 <color=#D89555>마법의 비밀</color>을 제거하세요
@@ -310,6 +328,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=상점과 인벤토리의 레시피 아이템
 ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁으로 제작 레시피 표시
 ModUi/&ShowDescriptions=설명 보기
 ModUi/&ShowMotionFormPreview=<b>밀기</b> 및 <b>당기기</b> 효과의 미리보기 표시
+ModUi/&SpeechScale=<color=white>내레이션 속도 수정자</color> <i><color=#F0DAA0>[낮을수록 빠름]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>주문 레벨 필터</color> <color=#F0DAA0>[-1은 모두 표시]</color></i></b>
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기 또는 주문 공격이 적중하면 은신 해제를 활성화합니다.
@@ -340,6 +359,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>1레벨에서 부여된 총 <col
 ModUi/&Translate=번역하다
 ModUi/&TranslateCancel={1}에 {0} 취소
 ModUi/&Translations=<color=#F0DAA0>번역:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>유니티 익스플로러 UI</color></b>
 ModUi/&UnleashEnemyAsNpc=NPC 가젯에서 몬스터 선택 허용
 ModUi/&UnleashNpcAsEnemy=몬스터 선택 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>

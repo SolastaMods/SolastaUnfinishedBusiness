@@ -89,6 +89,8 @@ ModUi/&DocsVersatilities=汎用性
 ModUi/&DontEndTurnAfterReady=<color=#D89555>準備完了</color>アクションの後にターンを終了しない <i><color=#F0DAA0>[ボーナスアクションまたは他のソースからのその他のメインアクションを許可]</color></i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にいる場合、戦闘カメラは追従しません
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローが画面外にいるか、画面端の % 以内にいる場合を除く</color></i>
+ModUi/&DownloadVoice=提案された音声をダウンロード
+ModUi/&DownloadVoiceOngoing={0} でダウンロード中
 ModUi/&DungeonMaker=ダンジョンメーカー
 ModUi/&DungeonMakerBasicHelp=• これらの設定では、プレイヤーがこのMODをインストールする必要はありません
 ModUi/&Effects=効果
@@ -121,6 +123,8 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
+ModUi/&EnableFighterStudiedAttacks=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
+ModUi/&EnableFighterTacticalProgression=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトではなく能力値ポイントを割り当てる]</color></i>
@@ -148,13 +152,17 @@ ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武�
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDnDPreparedSpellsTables=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
-ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>Arcane Sword</color>、<color=#D89555>Circle of Death</color>、<color=#D89555>Flame Strike</color>、<color=#D89555>Ice Storm</color>、<color=#D89555>Vicious Mockery</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ダメージ増加]</color></i> を有効にします
+ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>アーケイン ソード</color>、<color=#D89555>サークル オブ デス</color>、<color=#D89555>フレイム ストライク</color>、<color=#D89555>アイス ストーム</color>、<color=#D89555>プリズマティック スプレー</color>、<color=#D89555>ヴィシャス モッカリー</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[ダメージ向上]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=<color=#D89555>神の恩寵</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[集中なし]</color></i> を有効にする
 ModUi/&EnableOneDndGuidanceSpell=<color=#D89555>ガイダンス</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[発動時にスキルを 1 つ選択し、最大 1 分間ボーナスを獲得します。]</color></i>
 ModUi/&EnableOneDndHealingSpellsUpgrade=<color=#D89555>Cure Wounds</color>、<color=#D89555>False Life</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[better healing]</color></i> を有効にします
+ModUi/&EnableOneDndHideousLaughterSpell=<color=#D89555>Hideous Laughter</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[+1 ターゲット/アップキャスト]</color></i>
+ModUi/&EnableOneDndHuntersMarkSpell=<color=#D89555>ハンターズマーク</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[フォースダメージ]</color></i> を有効にする
 ModUi/&EnableOneDndLesserRestorationSpell=<color=#D89555>Lesser Restoration</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナスアクション]</color></i> を有効にする
 ModUi/&EnableOneDndMagicWeaponSpell=<color=#D89555>魔法の武器</color> 5e 2024 呪文バージョン <i><color=#F0DAA0>[ボーナス アクション、集中力なし、呪文レベル 3 および 6 で強化アップグレード]</color></i> を有効にします
-ModUi/&EnableOneDndPowerWordKillSpell=<color=#D89555>パワーワード: キル</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[HP 100 以上の場合、12d12 の精神ダメージ]</color></i>
+ModUi/&EnableOneDndPowerWordStunSpell=<color=#D89555>パワーワードスタン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ターゲットの HP が 150 を超える場合、1 ターン停止します]</color></i>
+ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>Spare the Dying</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[レベル 5、11、17 で範囲が 2 倍になります]</color></i>
+ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>スパイダークライム</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[アップキャストごとにターゲット +1]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>
 ModUi/&EnablePaladinLayOnHandsAsBonusAction=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
@@ -168,24 +176,31 @@ ModUi/&EnableRangerSpellCastingAtLevel1=<color=#D89555>呪文発動</color>を�
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRitualOnAllCasters=すべてのキャスターに<color=#D89555>儀式</color>の詠唱を有効にする
-ModUi/&EnableRogueCunningStrike=レベル 5 と 14 で <color=#D89555>狡猾な一撃</color> と <color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
+ModUi/&EnableRogueCunningStrike=レベル 5、11、14 で <color=#D89555>狡猾な一撃</color>、<color=#D89555>改良された狡猾な一撃</color>、<color=#D89555>邪悪な一撃</color> を有効にします <i><color=#F0DAA0>[追加のヒット効果を得るために、スニーク アタック ダイスを 1 つ放棄します]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
+ModUi/&EnableRogueReliableTalentAt7=<color=#D89555>信頼できる才能</color>をレベル11ではなくレベル7で有効にします
 ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color> を 5e 2024 版と入れ替えます <i><color=#F0DAA0>[知恵に加えて、カリスマ セーヴィング スローの熟練度も得られます]</color></i>
 ModUi/&EnableRogueSteadyAim=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSecondWindToUseOneDndUsagesProgression=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererInnateSorceryAt1=レベル 1 で <color=#D89555>生来の魔術</color> を有効にする
+ModUi/&EnableSorcererArcaneApotheosis=20で<color=#D89555>アーケイン・アポセオシス</color>を有効にする
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
-ModUi/&EnableSorcerousRestorationAtLevel5=レベル5で<color=#D89555>魔法による回復</color>を有効にする
+ModUi/&EnableSorcererSorcerousRestoration=レベル5で<color=#D89555>魔法による回復</color>を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
+ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
+ModUi/&EnableSpeechActorHelp=• 俳優を選択
+ModUi/&EnableSpeechOnNpcs=<i>+ NPC のスピーチを有効にする <color=#F0DAA0>[キャンペーン マッピングまたは自動割り当てから]</color></i>
+ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブの不利を強制します。
 ModUi/&EnableTeleportToRemoveRestrained=<color=#D89555>テレポート</color>を有効にすると、ターゲットからすべての<color=#D89555>拘束</color>状態が解除されます。
 ModUi/&EnableTooltipDistance=戦闘中のキャラクターにマウスを移動したときにツールチップに距離が表示されるようにする
 ModUi/&EnableUnarmedMainAttackAction=<color=#D89555>素手攻撃</color>アクションを有効にする <i><color=#F0DAA0>[アクターがメインに武器を持っているか、<b>モンク</b>を持っているか、<b>ハンドラップ</b>または<b>ガントレット</b>を装備している場合]</color></i>
+ModUi/&EnableUnlimitedInventoryActions=ターンごとに無制限の<color=#D89555>インベントリアクション</color>を有効にします。
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召喚</color>と<color=#D89555>フェイ召喚</color>のアップキャストを有効にする
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>ポーション</color>と<color=#D89555>巻物</color>を持ち運んで弾薬スロットで使用できるようにします
@@ -193,6 +208,7 @@ ModUi/&EnableVersatileOffHandSlot=<color=#D89555>ポーション</color>と<colo
 ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
 ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にし、レベル20で<color=#D89555>エルドリッチマスター</color>を向上させる
 ModUi/&EnableWarlockToLearnPatronAtLevel3=<color=#D89555>パトロン</color>をレベル1ではなくレベル3で有効にする
+ModUi/&EnableWizardMemorizeSpell=レベル5で<color=#D89555>呪文記憶</color>を有効にする
 ModUi/&EnableWizardToLearnScholarAtLevel2=レベル2で<color=#D89555>学者</color>を有効にする
 ModUi/&EnableWizardToLearnSchoolAtLevel3=<color=#D89555>魔法学校</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と <color=#D89555>特技</color> の選択の両方を有効にします <i><color=#F0DAA0>[排他的選択の代わりに]</color></i>
@@ -211,6 +227,7 @@ ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの�
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチ ブラスト</color>で24セルの範囲を使用します <i><color=#F0DAA0>[12の代わりに]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>再生の指輪</color>の回復速度を3分ごとに1HPに設定
 ModUi/&FlightSuspendWingedBoots=<i>+ ウィングドブーツの公式ルールを使用 <color=#F0DAA0>[飛行が中断されると残り時間はカウントされません]</color></i>
+ModUi/&ForceModSpeechOnNpcs=<i>+キャンペーンマッピングの代わりに、すべての NPC に音声の自動割り当てを強制する</i>
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤーゲーム中はフォーメーションを変更できません...</color>
 ModUi/&FormationHelp1=• 数字ボタンを使用して、特定のセットを編集します <i><color=#F0DAA0>[入力時にホットキーを有効にすることを検討してください]</color></i>
@@ -273,6 +290,7 @@ ModUi/&QuickCastLightCantripOnWornItemsFirst=クイックキャスト<color=#D89
 ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>、<color=#D89555>Gray Dwarf</color> の <color=#D89555>Light Sensitivity</color> を有効にすると、屋外でのみトリガーされます\n<i><color=#F0DAA0>[ロード画面なしでアクセス可能な屋外の場所の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
+ModUi/&RefreshVoice=ボイスリストを更新
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=レベル14と18で<color=#D89555>魔法の秘密</color>を削除します
@@ -310,6 +328,7 @@ ModUi/&ShowCraftedItemOnRecipeIcon=ショップとインベントリのレシピ
 ModUi/&ShowCraftingRecipeInDetailedTooltips=詳細なツールチップにクラフトレシピを表示する
 ModUi/&ShowDescriptions=説明を表示
 ModUi/&ShowMotionFormPreview=<b>プッシュ</b>と<b>プル</b>効果のプレビューを表示
+ModUi/&SpeechScale=<color=white>ナレーション速度修飾子</color> <i><color=#F0DAA0>[低いほど速くなります]</color></i>
 ModUi/&SpellLevelFilter=<b><i><color=white>スペルレベルフィルター</color> <color=#F0DAA0>[-1 はすべて表示]</color></i></b>
 ModUi/&SpellsMenu=呪文
 ModUi/&StealthBreaksWhenAttackHits=武器や呪文攻撃がヒットしたときにステルス解除を有効にする
@@ -340,6 +359,7 @@ ModUi/&TotalFeatsGrantedFirstLevel=<color=white>第 1 レベルで付与され�
 ModUi/&Translate=翻訳する
 ModUi/&TranslateCancel={1} で {0} をキャンセル
 ModUi/&Translations=<color=#F0DAA0>翻訳:</color>
+ModUi/&UnityExplorer=<b><color=#D89555>Unity エクスプローラー UI</color></b>
 ModUi/&UnleashEnemyAsNpc=NPCガジェットでモンスターを選択できるようにする
 ModUi/&UnleashNpcAsEnemy=モンスター選択のロックを解除
 ModUi/&Update=<b><color=#D89555>更新</color></b>

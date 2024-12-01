@@ -44,6 +44,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition AshardalonStride = BuildAshardalonStride();
     internal static readonly SpellDefinition AuraOfLife = BuildAuraOfLife();
+    internal static readonly SpellDefinition AuraOfVitality = BuildAuraOfVitality();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BindingIce = BuildBindingIce();
     internal static readonly SpellDefinition BlessingOfRime = BuildBlessingOfRime();
@@ -80,7 +81,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
-    internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
+    internal static List<SpellDefinition> Spells { get; private set; } = [];
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -300,6 +301,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildRayOfSickness(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
@@ -334,7 +336,7 @@ internal static class SpellsContext
         RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(AshardalonStride, 0, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(AuraOfVitality, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(CorruptingBolt, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
@@ -477,7 +479,7 @@ internal static class SpellsContext
         int suggestedStartsAt = 0,
         params SpellListDefinition[] registeredSpellLists)
     {
-        if (!Spells.Add(spellDefinition))
+        if (!Spells.TryAdd(spellDefinition))
         {
             return;
         }

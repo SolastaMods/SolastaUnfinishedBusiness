@@ -218,7 +218,7 @@ public sealed class WizardAbjuration : AbstractSubclass
                 .Select(spellByLevel => new SpellListDefinition.SpellsByLevelDuplet
                 {
                     Level = spellByLevel.Level,
-                    spells = spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolAbjuration).ToList()
+                    Spells = [..spellByLevel.Spells.Where(x => x.SchoolOfMagic == SchoolAbjuration)]
                 }));
     }
 
