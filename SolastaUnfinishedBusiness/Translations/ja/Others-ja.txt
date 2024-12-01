@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=この呪文は他のレパートリー�
 Screen/&MulticlassExtraSpellTitle=マルチクラス
 Screen/&PatronExtraSpellDescription=パトロンの呪文
 Screen/&PatronExtraSpellTitle=パトロン
+Screen/&PreparePanelMemorizeSpellSelect=準備する呪文を選択します。
 Screen/&RaceExtraSpellDescription=あなたは先祖からこの呪文を知っています。
 Screen/&RaceExtraSpellTitle=遺産
 Screen/&RangerSpellDescription=この呪文はあなたのレンジャーのアーキタイプによって付与されており、あなたは知っていると考えられています。

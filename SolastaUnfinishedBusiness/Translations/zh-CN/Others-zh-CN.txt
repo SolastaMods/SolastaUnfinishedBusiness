@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=你从其他法术表中知道这个法�
 Screen/&MulticlassExtraSpellTitle=兼职
 Screen/&PatronExtraSpellDescription=宗主法术
 Screen/&PatronExtraSpellTitle=宗主
+Screen/&PreparePanelMemorizeSpellSelect=选择要准备的咒语。
 Screen/&RaceExtraSpellDescription=你从你的血脉传承中获得该法术。
 Screen/&RaceExtraSpellTitle=血脉传承
 Screen/&RangerSpellDescription=该法术已被你的游侠职业授予，并被视为你已知。

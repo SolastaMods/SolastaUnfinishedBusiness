@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=Conosci questo incantesimo da un altro r
 Screen/&MulticlassExtraSpellTitle=Multiclasse
 Screen/&PatronExtraSpellDescription=Incantesimi del patrono
 Screen/&PatronExtraSpellTitle=Patrono
+Screen/&PreparePanelMemorizeSpellSelect=Seleziona un incantesimo da preparare.
 Screen/&RaceExtraSpellDescription=Conosci questo incantesimo dalla tua eredità.
 Screen/&RaceExtraSpellTitle=Eredità
 Screen/&RangerSpellDescription=Questo incantesimo ti è stato concesso dal tuo archetipo Ranger ed è considerato noto a te.

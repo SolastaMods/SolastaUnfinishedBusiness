@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=Conoces este hechizo de otro repertorio.
 Screen/&MulticlassExtraSpellTitle=Multiclase
 Screen/&PatronExtraSpellDescription=Hechizos de patronaje
 Screen/&PatronExtraSpellTitle=Patrón
+Screen/&PreparePanelMemorizeSpellSelect=Selecciona un hechizo para preparar.
 Screen/&RaceExtraSpellDescription=Conoces este hechizo por tu herencia.
 Screen/&RaceExtraSpellTitle=Herencia
 Screen/&RangerSpellDescription=Este hechizo te ha sido otorgado por tu arquetipo de Ranger y lo consideras conocido por ti.

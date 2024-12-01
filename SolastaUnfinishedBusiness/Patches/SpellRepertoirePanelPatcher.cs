@@ -86,12 +86,13 @@ public static class SpellRepertoirePanelPatcher
             string title,
             bool showDesc, bool showAutoButton, bool showClearRevertButtons, string byPassInstruction = null)
         {
-            var titleTransform = __instance.PreparationPanel.transform.FindChildRecursive("Title");
-            var descriptionTransform = __instance.PreparationPanel.transform.FindChildRecursive("Description");
-            var automateButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("AutomateButton");
-            var clearButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("ClearButton");
-            var revertButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("RevertButton");
-            var instructionTransform = __instance.PreparationPanel.transform.FindChildRecursive("Instruction");
+            var preparationPanelTransform = __instance.PreparationPanel.transform;
+            var titleTransform = preparationPanelTransform.FindChildRecursive("Title");
+            var descriptionTransform = preparationPanelTransform.FindChildRecursive("Description");
+            var automateButtonTransform = preparationPanelTransform.FindChildRecursive("AutomateButton");
+            var clearButtonTransform = preparationPanelTransform.FindChildRecursive("ClearButton");
+            var revertButtonTransform = preparationPanelTransform.FindChildRecursive("RevertButton");
+            var instructionTransform = preparationPanelTransform.FindChildRecursive("Instruction");
 
             titleTransform!.GetComponentInChildren<TextMeshProUGUI>().text = title;
 
@@ -123,13 +124,15 @@ public static class SpellRepertoirePanelPatcher
             if (Tabletop2024Context.IsMemorizeSpellPreparation(rulesetCharacter))
             {
                 RepaintPanel(
-                    spellRepertoirePanel, Tabletop2024Context.FeatureMemorizeSpell.FormatTitle(), false, false, false,
-                    Gui.Format("Screen/&PreparePanelInstruction", 1.ToString()));
+                    spellRepertoirePanel, Tabletop2024Context.FeatureMemorizeSpell.FormatTitle(),
+                    false, false, false,
+                    Gui.Localize("Screen/&PreparePanelMemorizeSpellSelect"));
             }
             else if (WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
-                    spellRepertoirePanel, WizardSpellMastery.FeatureSpellMastery.FormatTitle(), true, false, true);
+                    spellRepertoirePanel, WizardSpellMastery.FeatureSpellMastery.FormatTitle(),
+                    true, false, true);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 1 or 2;
             }

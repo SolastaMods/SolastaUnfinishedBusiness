@@ -377,7 +377,7 @@ internal static class Tabletop2024Context
         .Create("ConditionMemorizeSpell")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFixedAmount(1)
+        .SetFixedAmount(0)
         .AddToDB();
 
     internal static void LateLoad()
@@ -1355,28 +1355,33 @@ internal static class Tabletop2024Context
     internal static bool IsInvalidMemorizeSelectedSpell(
         SpellRepertoirePanel spellRepertoirePanel, RulesetCharacter rulesetCharacter, SpellDefinition spell)
     {
+        if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name, out var activeCondition))
+        {
+            return false;
+        }
+
         var spellIndex = SpellsContext.Spells.IndexOf(spell);
         var isUncheck = spellRepertoirePanel.preparedSpells.Contains(spell);
-        var maxPreparedSpells = spellRepertoirePanel.SpellRepertoire.MaxPreparedSpell;
-        var currentPreparedSpells = spellRepertoirePanel.preparedSpells.Count;
-        var isInvalid =
-            rulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name, out var activeCondition) &&
-            maxPreparedSpells - currentPreparedSpells >= activeCondition.Amount &&
-            spellIndex != activeCondition.SourceAbilityBonus;
 
         if (isUncheck)
         {
-            // can only unselect a spell once
-            activeCondition.Amount = 0;
-        }
-        else
-        {
-            // keep a tab on unselected spell
-            activeCondition.SourceAbilityBonus = spellIndex;
+            if (activeCondition.SourceProficiencyBonus != -1 &&
+                activeCondition.SourceProficiencyBonus != spellIndex)
+            {
+                return true;
+            }
+
+            activeCondition.Amount = 1;
+            activeCondition.SourceProficiencyBonus = spellIndex;
+
+            return false;
         }
 
-        return isInvalid && isUncheck;
+        activeCondition.Amount = 0;
+        activeCondition.SourceProficiencyBonus = spellIndex;
+
+        return false;
     }
 
     private static void LoadWizardMemorizeSpell()
@@ -1597,9 +1602,11 @@ internal static class Tabletop2024Context
                 hero.CurrentFaction.Name,
                 1,
                 ConditionMemorizeSpell.Name,
-                1, // how many spells can be prepared
-                -1, // index to the unselected spell
-                0);
+                // how many spells can be prepared starting at zero as need an unselect event first
+                0,
+                0,
+                // index to the unselected spell starting at -1 to allow any spell to be unselected on first take
+                -1);
 
             partyStatusScreen.SetupDisplayPreferences(false, false, false);
             inspectionScreen.ShowSpellPreparation(

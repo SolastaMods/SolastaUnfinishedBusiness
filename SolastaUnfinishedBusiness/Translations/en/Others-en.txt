@@ -353,6 +353,7 @@ Screen/&MulticlassExtraSpellDescription=You know this spell from other repertoir
 Screen/&MulticlassExtraSpellTitle=Multiclass
 Screen/&PatronExtraSpellDescription=Patron Spells
 Screen/&PatronExtraSpellTitle=Patron
+Screen/&PreparePanelMemorizeSpellSelect=Select a spell to prepare.
 Screen/&RaceExtraSpellDescription=You know this spell from your heritage.
 Screen/&RaceExtraSpellTitle=Heritage
 Screen/&RangerSpellDescription=This spell has been granted by your Ranger archetype and is considered known to you.

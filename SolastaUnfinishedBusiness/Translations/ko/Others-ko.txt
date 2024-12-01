@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=당신은 다른 레퍼토리에서 이 
 Screen/&MulticlassExtraSpellTitle=멀티클래스
 Screen/&PatronExtraSpellDescription=후원자 주문
 Screen/&PatronExtraSpellTitle=후원자
+Screen/&PreparePanelMemorizeSpellSelect=준비할 주문을 선택하세요.
 Screen/&RaceExtraSpellDescription=당신은 당신의 유산에서 이 주문을 알고 있습니다.
 Screen/&RaceExtraSpellTitle=유산
 Screen/&RangerSpellDescription=이 주문은 당신의 레인저 원형에 의해 부여되었으며 당신에게 알려진 것으로 간주됩니다.

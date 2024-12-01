@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=Sie kennen diesen Zauber aus anderen Rep
 Screen/&MulticlassExtraSpellTitle=Mehrklassen
 Screen/&PatronExtraSpellDescription=Schutzzauber
 Screen/&PatronExtraSpellTitle=Patron
+Screen/&PreparePanelMemorizeSpellSelect=Wählen Sie einen Zauber aus, den Sie vorbereiten möchten.
 Screen/&RaceExtraSpellDescription=Sie kennen diesen Zauber aus Ihrer Vergangenheit.
 Screen/&RaceExtraSpellTitle=Erbe
 Screen/&RangerSpellDescription=Dieser Zauber wurde Ihnen von Ihrem Ranger-Archetyp verliehen und gilt als Ihnen bekannt.

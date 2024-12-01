@@ -353,6 +353,7 @@ Screen/&MulticlassExtraSpellDescription=Вам известно это закл�
 Screen/&MulticlassExtraSpellTitle=Мультикласс
 Screen/&PatronExtraSpellDescription=Заклинания покровителя
 Screen/&PatronExtraSpellTitle=Покровитель
+Screen/&PreparePanelMemorizeSpellSelect=Выберите заклинание для подготовки.
 Screen/&RaceExtraSpellDescription=Вам известно это заклинание из своего наследия.
 Screen/&RaceExtraSpellTitle=Наследие
 Screen/&RangerSpellDescription=Это заклинание досталось вам из архетипа Следопыта и считается известным вам.

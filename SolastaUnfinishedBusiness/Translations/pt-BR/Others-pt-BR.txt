@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=Você conhece esse feitiço de outro rep
 Screen/&MulticlassExtraSpellTitle=Multiclass
 Screen/&PatronExtraSpellDescription=Feitiços Patronos
 Screen/&PatronExtraSpellTitle=Patrono
+Screen/&PreparePanelMemorizeSpellSelect=Selecione um feitiço para preparar.
 Screen/&RaceExtraSpellDescription=Você conhece esse feitiço por sua herança.
 Screen/&RaceExtraSpellTitle=Herança
 Screen/&RangerSpellDescription=Esta magia foi concedida pelo seu arquétipo de Patrulheiro e é considerada conhecida por você.

@@ -354,6 +354,7 @@ Screen/&MulticlassExtraSpellDescription=Vous connaissez ce sort d'un autre répe
 Screen/&MulticlassExtraSpellTitle=Multiclasse
 Screen/&PatronExtraSpellDescription=Sorts de patron
 Screen/&PatronExtraSpellTitle=Mécène
+Screen/&PreparePanelMemorizeSpellSelect=Sélectionnez un sort à préparer.
 Screen/&RaceExtraSpellDescription=Vous connaissez ce sort grâce à votre héritage.
 Screen/&RaceExtraSpellTitle=Patrimoine
 Screen/&RangerSpellDescription=Ce sort a été accordé par votre archétype Ranger et est considéré comme connu de vous.
