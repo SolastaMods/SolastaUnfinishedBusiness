@@ -350,10 +350,9 @@ internal static class SpeechContext
                 ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
                 File.Delete(fullZipFile);
 
-                if (!TryGetExecutablePath(out var executablePath))
+                if (!TryGetExecutablePath(out _))
                 {
-                    message =
-                        $"Piper successfully downloaded but failed to find executable at {executablePath}.";
+                    message = "Piper successfully downloaded but failed to extract executable.";
                 }
             }
         }
@@ -367,8 +366,8 @@ internal static class SpeechContext
 
     internal static void RefreshAvailableVoices()
     {
-        var directoryInfo = new DirectoryInfo(VoicesFolder);
-        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty));
+        var voices = new DirectoryInfo(VoicesFolder)
+            .GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty));
 
         VoiceNames = new List<string> { DefaultVoice }.Union(voices).ToArray();
     }
@@ -568,7 +567,6 @@ internal static class SpeechContext
 
             if (!TryGetExecutablePath(out var executablePath))
             {
-                Main.Info($"Speech system cannot find executable path: {executablePath}");
                 return;
             }
 

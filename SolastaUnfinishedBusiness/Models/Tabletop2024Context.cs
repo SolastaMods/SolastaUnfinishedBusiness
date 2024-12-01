@@ -1346,17 +1346,21 @@ internal static class Tabletop2024Context
                (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
     }
 
-    internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter)
+    private static bool TryGetMemorizeSpellCondition(RulesetCharacter character, out RulesetCondition condition)
     {
-        return rulesetCharacter.HasConditionOfCategoryAndType(
-            AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name);
+        return character.TryGetConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name, out condition);
+    }
+
+    internal static bool IsMemorizeSpellPreparation(RulesetCharacter character)
+    {
+        return TryGetMemorizeSpellCondition(character, out _);
     }
 
     internal static bool IsInvalidMemorizeSelectedSpell(
         SpellRepertoirePanel spellRepertoirePanel, RulesetCharacter rulesetCharacter, SpellDefinition spell)
     {
-        if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name, out var activeCondition))
+        if (!TryGetMemorizeSpellCondition(rulesetCharacter, out var activeCondition))
         {
             return false;
         }

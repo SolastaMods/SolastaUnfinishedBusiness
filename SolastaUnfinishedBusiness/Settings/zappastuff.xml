@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>2</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -730,6 +730,7 @@
     <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>true
     </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
     <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
+    <EnableWizardMemorizeSpell>true</EnableWizardMemorizeSpell>
     <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -1866,8 +1867,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

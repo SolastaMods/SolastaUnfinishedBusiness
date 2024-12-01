@@ -1,4 +1,6 @@
-1.5.97.40:
+1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:
+
+ATTENTION: Check "The Forsaken Isle" and "Morrows Deep" from Artyoan, updated with NPCs text-to-speech data
 
 - added 'Enable Fighter Studied Attacks at 13' setting [ADV if previous attack in turn against same target missed]
 - added 'Enable Fighter Tactical Mind, and Tactical Shift at 2 and 5' setting [augment second wind scenarios]
@@ -19,7 +21,7 @@
 - fixed 'Enable Second Wind to use 5e 2024 usages progression' forcing max usage to zero when off
 - fixed Defensive Duelist triggering on any attack roll instead of melee attacks only
 - fixed Grapple interaction with teleporting enemies
-- fixed Martial Arcane Archer Beguiling Arrow charmed condition application time 
+- fixed Martial Arcane Archer Beguiling Arrow charmed condition application time, and improved all arrows impact SFX
 - fixed Patron Hexblade interaction with 5e 2024 pact of blades invocation [by BradS]
 - fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
 - fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration
