@@ -82,19 +82,33 @@ public static class SpellRepertoirePanelPatcher
         }
 
         private static void RepaintPanel(
-            SpellRepertoirePanel __instance, string title, bool showDesc, bool showAutoButton, bool showClearButton)
+            SpellRepertoirePanel __instance,
+            string title,
+            bool showDesc, bool showAutoButton, bool showClearRevertButtons, string byPassInstruction = null)
         {
             var titleTransform = __instance.PreparationPanel.transform.FindChildRecursive("Title");
             var descriptionTransform = __instance.PreparationPanel.transform.FindChildRecursive("Description");
             var automateButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("AutomateButton");
             var clearButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("ClearButton");
+            var revertButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("RevertButton");
+            var instructionTransform = __instance.PreparationPanel.transform.FindChildRecursive("Instruction");
 
-            clearButtonTransform!.gameObject.SetActive(showClearButton);
-            descriptionTransform!.gameObject.SetActive(showDesc);
-            // not the best solution but this object is getting re-activated somewhere else so moving off-screen
-            automateButtonTransform!.localPosition =
-                showAutoButton ? new Vector3(-12.5f, -61) : new Vector3(-1000, -1000);
             titleTransform!.GetComponentInChildren<TextMeshProUGUI>().text = title;
+
+            descriptionTransform!.gameObject.SetActive(showDesc);
+
+            // not the best solution but this object is getting re-activated somewhere else so moving off-screen
+            automateButtonTransform!.localPosition = showAutoButton
+                ? new Vector3(-12.5f, -61)
+                : new Vector3(-1000, -1000);
+
+            clearButtonTransform!.gameObject.SetActive(showClearRevertButtons);
+            revertButtonTransform!.gameObject.SetActive(showClearRevertButtons);
+
+            if (byPassInstruction != null)
+            {
+                instructionTransform!.GetComponentInChildren<TextMeshProUGUI>().text = byPassInstruction;
+            }
         }
 
         private static void RefreshInteractivePreparation(
@@ -106,28 +120,23 @@ public static class SpellRepertoirePanelPatcher
         {
             var rulesetCharacter = spellRepertoirePanel.GuiCharacter.RulesetCharacter;
 
-
             if (Tabletop2024Context.IsMemorizeSpellPreparation(rulesetCharacter))
             {
                 RepaintPanel(
-                    spellRepertoirePanel,
-                    Gui.Localize(WizardSpellMastery.FeatureSpellMastery.GuiPresentation.Title),
-                    true, true, false);
+                    spellRepertoirePanel, Tabletop2024Context.FeatureMemorizeSpell.FormatTitle(), false, false, false,
+                    Gui.Format("Screen/&PreparePanelInstruction", 1.ToString()));
             }
             else if (WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
-                    spellRepertoirePanel,
-                    Gui.Localize(WizardSpellMastery.FeatureSpellMastery.GuiPresentation.Title),
-                    true, false, true);
+                    spellRepertoirePanel, WizardSpellMastery.FeatureSpellMastery.FormatTitle(), true, false, true);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 1 or 2;
             }
             else if (WizardSignatureSpells.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
-                    spellRepertoirePanel,
-                    Gui.Localize(WizardSignatureSpells.PowerSignatureSpells.GuiPresentation.Title),
+                    spellRepertoirePanel, WizardSignatureSpells.PowerSignatureSpells.FormatTitle(),
                     Main.Settings.EnableSignatureSpellsRelearn, false, true);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 3;

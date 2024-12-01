@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -31,7 +30,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private const string FeatureSetArcaneShotName = $"FeatureSet{Name}ArcaneShot";
     private const Id ArcaneArcherToggle = (Id)ExtraActionId.ArcaneArcherToggle;
 
-    private static readonly Dictionary<FeatureDefinitionPower, GameObject> ArrowEffects = [];
+    private static readonly Dictionary<FeatureDefinitionPower, IMagicEffect> ArrowEffects = [];
 
     internal static readonly FeatureDefinitionPower PowerArcaneShot = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}ArcaneShot")
@@ -273,7 +272,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerBanishingArrow);
-        ArrowEffects.Add(powerBanishingArrow, Banishment.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerBanishingArrow, Banishment);
 
         // Beguiling Arrow
 
@@ -302,7 +301,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerBeguilingArrow);
-        ArrowEffects.Add(powerBeguilingArrow, CharmPerson.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerBeguilingArrow, CharmPerson);
 
         // Bursting Arrow
 
@@ -334,13 +333,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
-                    .SetImpactEffectParameters(BurningHands_B)
+                    .SetImpactEffectParameters(BurningHands)
                     .Build())
             .AddCustomSubFeatures(ClassHolder.Fighter)
             .AddToDB();
 
         powers.Add(powerBurstingArrow);
-        ArrowEffects.Add(powerBurstingArrow, BurningHands_B.EffectDescription.EffectParticleParameters.ImpactParticle);
+        ArrowEffects.Add(powerBurstingArrow, FireBolt);
 
         // Enfeebling Arrow
 
@@ -403,8 +402,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerEnfeeblingArrow);
-        ArrowEffects.Add(powerEnfeeblingArrow, 
-            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerEnfeeblingArrow, RayOfEnfeeblement);
 
         // Grasping Arrow
 
@@ -447,7 +445,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerGraspingArrow);
-        ArrowEffects.Add(powerGraspingArrow, Entangle.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerGraspingArrow, Entangle);
 
         // Insight Arrow
 
@@ -499,7 +497,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerInsightArrow);
-        ArrowEffects.Add(powerInsightArrow, Shine.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerInsightArrow, Shine);
 
         // Shadow Arrow
 
@@ -535,7 +533,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerShadowArrow);
-        ArrowEffects.Add(powerInsightArrow, Blindness.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerShadowArrow, Blindness);
 
         // Slowing Arrow
 
@@ -571,7 +569,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         powers.Add(powerSlowingArrow);
-        ArrowEffects.Add(powerInsightArrow, Slow.EffectDescription.EffectParticleParameters.EffectParticle);
+        ArrowEffects.Add(powerSlowingArrow, Slow);
 
         // create UI choices
 
@@ -656,7 +654,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 var selectedPower = subPowers[option];
 
                 _selectedPowers.Add(selectedPower);
-                EffectHelpers.StartVisualEffect(attacker, defender, ArrowEffects[selectedPower]);
+                EffectHelpers.StartVisualEffect(attacker, defender, ArrowEffects[selectedPower],
+                    EffectHelpers.EffectType.Effect);
             }
         }
 

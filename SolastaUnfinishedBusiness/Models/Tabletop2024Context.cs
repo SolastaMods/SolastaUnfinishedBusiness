@@ -1585,11 +1585,13 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
-            var activeCondition = hero.InflictCondition(
+            // make this until any rest to ensure users cannot cheat by reopening the prep screen
+            // as conditions on refresh won't update source amount nor source ability bonus used for tracking
+            hero.InflictCondition(
                 ConditionMemorizeSpell.Name,
-                DurationType.Permanent,
+                DurationType.UntilAnyRest,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 hero.guid,
                 hero.CurrentFaction.Name,
@@ -1600,7 +1602,6 @@ internal static class Tabletop2024Context
                 0);
 
             partyStatusScreen.SetupDisplayPreferences(false, false, false);
-
             inspectionScreen.ShowSpellPreparation(
                 functorParameters.RestingHero, Gui.GuiService.GetScreen<RestModal>(), spellRepertoire);
 
@@ -1610,7 +1611,6 @@ internal static class Tabletop2024Context
             }
 
             partyStatusScreen.SetupDisplayPreferences(true, true, true);
-            hero.RemoveCondition(activeCondition);
         }
     }
 

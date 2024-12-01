@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -30,6 +29,12 @@ internal static class EffectHelpers
         EffectParticleParameters effectParticleParameters,
         EffectType effectType = EffectType.Impact)
     {
+        // be safe on multiplayer sessions as depending on flow, SFX can break them
+        if (Global.IsMultiplayer)
+        {
+            return;
+        }
+
         var prefab = effectType switch
         {
             EffectType.Caster => effectParticleParameters.CasterParticle,
@@ -40,20 +45,6 @@ internal static class EffectHelpers
             EffectType.Zone => effectParticleParameters.ZoneParticle,
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
-
-        StartVisualEffect(attacker, defender, prefab);
-    }
-
-    internal static void StartVisualEffect(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        GameObject prefab)
-    {
-        // be safe on multiplayer sessions as depending on flow, SFX can break them
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
 
         if (!prefab)
         {

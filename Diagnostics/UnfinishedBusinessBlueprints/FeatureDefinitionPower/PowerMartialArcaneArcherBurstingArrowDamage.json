@@ -272,7 +272,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a2cb9f6aec3460a48a88280b9b516c63",
+        "m_AssetGUID": "8ec6fce55ab85a5449a811ba713366ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
