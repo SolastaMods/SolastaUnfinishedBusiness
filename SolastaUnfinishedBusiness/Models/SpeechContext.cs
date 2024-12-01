@@ -353,7 +353,7 @@ internal static class SpeechContext
                 if (!TryGetExecutablePath(out var executablePath))
                 {
                     message =
-                        $"Piper successfully downloaded but failed to find piper executable at {executablePath}. Check your anti-virus.";
+                        $"Piper successfully downloaded but failed to find executable at {executablePath}.";
                 }
             }
         }
@@ -425,14 +425,14 @@ internal static class SpeechContext
         CampaignVoices.Clear();
 
         var userCampaign = Gui.Session.UserCampaign;
-        var voiceData = userCampaign.UserItems.FirstOrDefault(x =>
+        var voiceData = userCampaign?.UserItems?.FirstOrDefault(x =>
             x.ReferenceItemDefinition.IsDocument &&
             x.DocumentFragments is { Count: > 0 } &&
             x.InternalName == UB_VOICE_DATA);
 
         if (voiceData == null)
         {
-            Main.Info($"Campaign {userCampaign.DisplayTitle} has no voice data.");
+            Main.Info("No voice data found.");
 
             return;
         }
