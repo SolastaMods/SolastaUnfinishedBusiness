@@ -81,7 +81,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
-    internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
+    internal static List<SpellDefinition> Spells { get; private set; } = [];
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -479,7 +479,7 @@ internal static class SpellsContext
         int suggestedStartsAt = 0,
         params SpellListDefinition[] registeredSpellLists)
     {
-        if (!Spells.Add(spellDefinition))
+        if (!Spells.TryAdd(spellDefinition))
         {
             return;
         }

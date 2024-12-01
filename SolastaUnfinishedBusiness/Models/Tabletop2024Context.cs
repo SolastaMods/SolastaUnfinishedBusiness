@@ -357,7 +357,7 @@ internal static class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
-    private static readonly FeatureDefinition FeatureMemorizeSpell = FeatureDefinitionBuilder
+    internal static readonly FeatureDefinition FeatureMemorizeSpell = FeatureDefinitionBuilder
         .Create("FeatureWizardMemorizeSpell")
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
@@ -371,6 +371,13 @@ internal static class Tabletop2024Context
             RestActivityDefinition.ActivityCondition.CanPrepareSpells,
             nameof(FunctorMemorizeSpell),
             string.Empty)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionMemorizeSpell = ConditionDefinitionBuilder
+        .Create("ConditionMemorizeSpell")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(1)
         .AddToDB();
 
     internal static void LateLoad()
@@ -1342,30 +1349,38 @@ internal static class Tabletop2024Context
     internal static bool IsMemorizeSpellPreparation(RulesetCharacter rulesetCharacter)
     {
         return rulesetCharacter.HasConditionOfCategoryAndType(
-            AttributeDefinitions.TagEffect, "ConditionMemorizeSpell");
+            AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name);
     }
 
     internal static bool IsInvalidMemorizeSelectedSpell(
         SpellRepertoirePanel spellRepertoirePanel, RulesetCharacter rulesetCharacter, SpellDefinition spell)
     {
+        var spellIndex = SpellsContext.Spells.IndexOf(spell);
+        var isUncheck = spellRepertoirePanel.preparedSpells.Contains(spell);
         var maxPreparedSpells = spellRepertoirePanel.SpellRepertoire.MaxPreparedSpell;
         var currentPreparedSpells = spellRepertoirePanel.preparedSpells.Count;
+        var isInvalid =
+            rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionMemorizeSpell.Name, out var activeCondition) &&
+            maxPreparedSpells - currentPreparedSpells >= activeCondition.Amount &&
+            spellIndex != activeCondition.SourceAbilityBonus;
 
-        return
-            rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, "ConditionMemorizeSpell") &&
-            maxPreparedSpells - currentPreparedSpells >= 1 &&
-            spellRepertoirePanel.preparedSpells.Contains(spell);
+        if (isUncheck)
+        {
+            // can only unselect a spell once
+            activeCondition.Amount = 0;
+        }
+        else
+        {
+            // keep a tab on unselected spell
+            activeCondition.SourceAbilityBonus = spellIndex;
+        }
+
+        return isInvalid && isUncheck;
     }
 
     private static void LoadWizardMemorizeSpell()
     {
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionMemorizeSpell")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         ServiceRepository.GetService<IFunctorService>()
             .RegisterFunctor(nameof(FunctorMemorizeSpell), new FunctorMemorizeSpell());
     }
@@ -1571,7 +1586,7 @@ internal static class Tabletop2024Context
             }
 
             var activeCondition = hero.InflictCondition(
-                "ConditionMemorizeSpell",
+                ConditionMemorizeSpell.Name,
                 DurationType.Permanent,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -1579,9 +1594,9 @@ internal static class Tabletop2024Context
                 hero.guid,
                 hero.CurrentFaction.Name,
                 1,
-                "ConditionMemorizeSpell",
-                0,
-                0,
+                ConditionMemorizeSpell.Name,
+                1, // how many spells can be prepared
+                -1, // index to the unselected spell
                 0);
 
             partyStatusScreen.SetupDisplayPreferences(false, false, false);
@@ -3420,7 +3435,7 @@ internal static class Tabletop2024Context
             {
                 if (selectedPower == powerKnockOut)
                 {
-                    HandleKnockOut(attacker, defender);
+                    yield return HandleKnockOut(attacker, defender);
                 }
                 else if (selectedPower == powerWithdraw)
                 {
@@ -3467,13 +3482,13 @@ internal static class Tabletop2024Context
             attacker.MyExecuteActionTacticalMove(position);
         }
 
-        private void HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
