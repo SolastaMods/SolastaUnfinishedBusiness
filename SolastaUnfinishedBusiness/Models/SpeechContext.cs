@@ -349,6 +349,12 @@ internal static class SpeechContext
                 wc.DownloadFile(url, fullZipFile);
                 ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
                 File.Delete(fullZipFile);
+
+                if (!TryGetExecutablePath(out var executablePath))
+                {
+                    message =
+                        $"Piper successfully downloaded but failed to find piper executable at {executablePath}. Check your anti-virus.";
+                }
             }
         }
         catch
@@ -562,6 +568,7 @@ internal static class SpeechContext
 
             if (!TryGetExecutablePath(out var executablePath))
             {
+                Main.Info($"Speech system cannot find executable path: {executablePath}");
                 return;
             }
 
@@ -584,11 +591,8 @@ internal static class SpeechContext
             }
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
-            var audioStream = await task;
 
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            PlaySpeech(audioSettingsService, waveStream);
+            PlaySpeech(audioSettingsService, await task);
         }
         catch (Exception e)
         {
@@ -614,7 +618,6 @@ internal static class SpeechContext
             {
                 return;
             }
-
 
             // only custom campaigns
             // unity life check...
@@ -689,11 +692,8 @@ internal static class SpeechContext
             }
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
-            var audioStream = await task;
 
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            PlaySpeech(audioSettingsService, waveStream);
+            PlaySpeech(audioSettingsService, await task);
         }
         catch (Exception e)
         {
@@ -701,8 +701,10 @@ internal static class SpeechContext
         }
     }
 
-    private static void PlaySpeech(IAudioSettingsService audioSettingsService, WaveStream waveStream)
+    private static void PlaySpeech(IAudioSettingsService audioSettingsService, MemoryStream audioStream)
     {
+        using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
+
         waveStream.Position = 0;
 
         WaveOutEvent.Init(waveStream);
