@@ -982,18 +982,19 @@ internal static class GLBM
                         // Look for the spellcasting feature holding the smite
                         var hero = attacker.RulesetCharacter.GetOriginalHero();
 
-                        // One DnD only allow smites as bonus action
-                        if (Main.Settings.EnablePaladinSmiteAsBonusAction &&
-                            !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
-                        {
-                            break;
-                        }
-
                         // This is used to only offer divine smites on critical hits
                         var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
                         {
                             NotificationTag: "DivineSmite"
                         };
+
+                        // One DnD only allow smites as bonus action
+                        if (Main.Settings.EnablePaladinSmiteAsBonusAction &&
+                            isDivineSmite &&
+                            !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
+                        {
+                            break;
+                        }
 
                         if (!criticalHit &&
                             Main.Settings.AddPaladinSmiteToggle &&
