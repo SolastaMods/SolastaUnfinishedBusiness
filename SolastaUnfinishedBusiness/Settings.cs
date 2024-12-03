@@ -228,7 +228,8 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool OneDndHealingPotionBonusAction { get; set; }
+    public bool OneDndAllPotionsBonusAction { get; set; }
+    public bool OneDndPoisonsBonusAction { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }

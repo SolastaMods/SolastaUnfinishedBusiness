@@ -49,12 +49,19 @@ internal static class Tabletop2024Context
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(
                 new ValidateDeviceFunctionUse((_, device, _) =>
-                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion") &&
-                    (device.Name.Contains("Healing") ||
-                     device.Name.Contains("Remedy") ||
-                     device.Name.Contains("Antitoxin"))))
+                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Potion")))
             .SetAuthorizedActions(Id.UseItemBonus)
             .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityPoisonBonusAction =
+    FeatureDefinitionActionAffinityBuilder
+        .Create("ActionAffinityPoisonBonusAction")
+        .SetGuiPresentationNoContent(true)
+        .AddCustomSubFeatures(
+            new ValidateDeviceFunctionUse((_, device, _) =>
+                device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+        .SetAuthorizedActions(Id.UseItemBonus)
+        .AddToDB();
 
     private static readonly ItemPropertyDescription ItemPropertyPotionBonusAction =
         new(RingFeatherFalling.StaticProperties[0])
@@ -65,6 +72,16 @@ internal static class Tabletop2024Context
             conditionDefinition = null,
             knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
         };
+
+    private static readonly ItemPropertyDescription ItemPropertyPoisonBonusAction =
+    new(RingFeatherFalling.StaticProperties[0])
+    {
+        appliesOnItemOnly = false,
+        type = ItemPropertyDescription.PropertyType.Feature,
+        featureDefinition = ActionAffinityPoisonBonusAction,
+        conditionDefinition = null,
+        knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+    };
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
@@ -415,7 +432,7 @@ internal static class Tabletop2024Context
         SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         SwitchOneDnDEnableDruidUseMetalArmor();
-        SwitchOneDndHealingPotionBonusAction();
+        SwitchOneDndAllPotionsBonusAction();
         SwitchOneDndDamagingSpellsUpgrade();
         SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
@@ -1212,9 +1229,9 @@ internal static class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndHealingPotionBonusAction()
+    internal static void SwitchOneDndAllPotionsBonusAction()
     {
-        if (Main.Settings.OneDndHealingPotionBonusAction)
+        if (Main.Settings.OneDndAllPotionsBonusAction)
         {
             foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
                          .Where(a =>
@@ -1232,6 +1249,30 @@ internal static class Tabletop2024Context
                              a.UsableDeviceDescription.usableDeviceTags.Contains("Potion")))
             {
                 potion.StaticProperties.Clear();
+            }
+        }
+    }
+
+    internal static void SwitchOneDndPoisonsBonusAction()
+    {
+        if (Main.Settings.OneDndPoisonsBonusAction)
+        {
+            foreach (var poison in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Poison")))
+            {
+                poison.StaticProperties.TryAdd(ItemPropertyPoisonBonusAction);
+            }
+        }
+        else
+        {
+            foreach (var poison in DatabaseRepository.GetDatabase<ItemDefinition>()
+                         .Where(a =>
+                             a.UsableDeviceDescription != null &&
+                             a.UsableDeviceDescription.usableDeviceTags.Contains("Poison")))
+            {
+                poison.StaticProperties.Clear();
             }
         }
     }
