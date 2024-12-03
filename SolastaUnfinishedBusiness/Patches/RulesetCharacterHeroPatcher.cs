@@ -427,6 +427,144 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    //PATCH: supports attribute modifiers from feature sets
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshAttributeModifiersFromInvocations))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshAttributeModifiersFromInvocations_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacterHero __instance)
+        {
+            RefreshAttributeModifiersFromInvocations(__instance);
+
+            return false;
+        }
+
+        private static void RefreshAttributeModifiersFromInvocations(RulesetCharacterHero __instance)
+        {
+            __instance.FeaturesToBrowse.Clear();
+
+            foreach (var attribute in __instance.Attributes)
+            {
+                attribute.Value.RemoveModifiersByTags(AttributeDefinitions.TagInvocation);
+            }
+
+            foreach (var trainedInvocation in __instance.trainedInvocations)
+            {
+                var grantedFeatures = new List<FeatureDefinitionAttributeModifier>();
+                var rulesetInvocation = __instance.Invocations.FirstOrDefault(invocation =>
+                    invocation.InvocationDefinition == trainedInvocation);
+
+                if (rulesetInvocation == null || rulesetInvocation.Active)
+                {
+                    switch (trainedInvocation.GrantedFeature)
+                    {
+                        case FeatureDefinitionAttributeModifier attributeModifier:
+                            grantedFeatures.Add(attributeModifier);
+                            break;
+                        // BEGIN PATCH: support attribute modifiers from feature sets
+                        case FeatureDefinitionFeatureSet featureSet:
+                            grantedFeatures.AddRange(featureSet.FeatureSet
+                                .OfType<FeatureDefinitionAttributeModifier>());
+                            break;
+                        // END PATCH
+                    }
+                }
+
+                //BEGIN PATCH: it wasn't a loop before
+                foreach (var grantedFeature in grantedFeatures)
+                {
+                    var attribute = __instance.GetAttribute(grantedFeature.ModifiedAttribute);
+                    var modifierValue = grantedFeature.ModifierValue;
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (grantedFeature.ModifierOperation)
+                    {
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus:
+                        {
+                            modifierValue =
+                                AttributeDefinitions.ComputeAbilityScoreModifier(
+                                    __instance.TryGetAttributeValue(grantedFeature.ModifierAbilityScore));
+
+                            if (grantedFeature.Minimum1 && modifierValue < 1)
+                            {
+                                modifierValue = 1;
+                            }
+
+                            break;
+                        }
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus
+                            when grantedFeature.UseBonusFromCaster:
+                        {
+                            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                            switch (ServiceRepository.GetService<IGameService>()
+                                        .TryFindControllerFromKindredSpirit(__instance, out var controller))
+                            {
+                                case TryFindControllerFromKindredSpiritErrorType.Success:
+                                    modifierValue =
+                                        controller.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                                    break;
+                                case TryFindControllerFromKindredSpiritErrorType.ConditionNotFound:
+                                    modifierValue = 0;
+                                    break;
+                                default:
+                                    Trace.LogError("Couldn't find caster for " + __instance.SystemName);
+                                    modifierValue = 0;
+                                    break;
+                            }
+
+                            break;
+                        }
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus:
+                            modifierValue = __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                            break;
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus
+                            when grantedFeature.UseBonusFromCaster:
+                        {
+                            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                            switch (ServiceRepository.GetService<IGameService>()
+                                        .TryFindControllerFromKindredSpirit(__instance, out var controller))
+                            {
+                                case TryFindControllerFromKindredSpiritErrorType.Success:
+                                    var attributeValue =
+                                        controller.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                                    modifierValue = (attributeValue / 2) + (attributeValue % 2 == 1 ? 1 : 0);
+                                    break;
+                                case TryFindControllerFromKindredSpiritErrorType.ConditionNotFound:
+                                    modifierValue = 0;
+                                    break;
+                                default:
+                                    Trace.LogError("Couldn't find caster for " + __instance.SystemName);
+                                    modifierValue = 0;
+                                    break;
+                            }
+
+                            break;
+                        }
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus:
+                        {
+                            var attributeValue =
+                                __instance.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+                            modifierValue = (attributeValue / 2) + (attributeValue % 2 == 1 ? 1 : 0);
+                            break;
+                        }
+                    }
+
+                    attribute.AddModifier(
+                        RulesetAttributeModifier.BuildAttributeModifier(
+                            grantedFeature.ModifierOperation, modifierValue, AttributeDefinitions.TagInvocation));
+                }
+            }
+
+            foreach (var attribute in __instance.Attributes)
+            {
+                RulesetAttributeModifier.SortAttributeModifiersList(attribute.Value.ActiveModifiers);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshAttackMode))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
