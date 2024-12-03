@@ -160,6 +160,20 @@ internal static class CraftingAndItems
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
+        toggle = Main.Settings.EnableStackableAxesAndDaggers;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStackableAxesAndDaggers"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStackableAxesAndDaggers = toggle;
+            ItemCraftingMerchantContext.SwitchStackableAxesAndDaggers();
+        }
+
+        toggle = Main.Settings.EnableStackableArtItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStackableArtItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStackableArtItems = toggle;
+            ItemCraftingMerchantContext.SwitchStackableArtItems();
+        }
+
         toggle = Main.Settings.EnableVersatileAmmunitionSlots;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableVersatileAmmunitionSlots"), ref toggle, UI.AutoWidth()))
         {
