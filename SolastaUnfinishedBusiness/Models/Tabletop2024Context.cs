@@ -433,6 +433,7 @@ internal static class Tabletop2024Context
         SwitchOneDndEnableBardWordsOfCreationAtLevel20();
         SwitchOneDnDEnableDruidUseMetalArmor();
         SwitchOneDndAllPotionsBonusAction();
+        SwitchOneDndPoisonsBonusAction();
         SwitchOneDndDamagingSpellsUpgrade();
         SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
