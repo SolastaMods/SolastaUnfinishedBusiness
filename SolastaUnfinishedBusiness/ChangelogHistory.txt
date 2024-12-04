@@ -5,7 +5,7 @@
 - added 'Enable stacking Art items' setting [by SilverGriffon]
 - added 'Enable stacking Daggers and Hand Axes' setting [by SilverGriffon]
 - fixed Eldritch Smite interaction with 'Paladin smites as a bonus action' setting
-- fixed Fighter tactical shift feature applying from level 1 instead of 5
+- fixed Fighter tactical shift applying on level 1 instead of 5, and not preventing AoO if moving one cell only
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
 - removed 'Enable bonus action on Healing Potions and Antitoxin usages' setting [by SilverGriffon]
 
