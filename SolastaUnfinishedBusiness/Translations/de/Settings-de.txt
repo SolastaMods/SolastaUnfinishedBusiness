@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kamp
 ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
 ModUi/&EnableSpeechOnNpcs=<i>+ Sprache für NPCs aktivieren <color=#F0DAA0>[entweder über Kampagnenzuordnung oder automatische Zuweisung]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Wählen Sie eine Stimme und Erzählgeschwindigkeit
+ModUi/&EnableStackableArtItems=Stapeln aktivieren <color=#D89555>Kunstgegenstände</color> <i><color=#F0DAA0>[kann nicht geteilt werden, solange diese Einstellung deaktiviert ist]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=Stapeln von <color=#D89555>Dolchen</color> und <color=#D89555>Handäxten</color> aktivieren <i><color=#F0DAA0>[kann nicht geteilt werden, solange diese Einstellung deaktiviert ist]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[z. B.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Außerdem fügt jeder Held einen D20-Wurf zur Gewichtung hinzu, um ein wenig Zufälligkeit zu erzeugen <color=#F0DAA0>[Wahlgewicht = Stimmen * Charisma-Modifikator des Helden + D20-Wurf]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Aktivieren Sie die Bedingung <color=#D89555>Überrascht</color>, um einen Initiativenachteil durchzusetzen, anstatt eine Runde zu überspringen.
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Dunkelsicht</color>, <color=#D89555>Blindsicht</color> und <color=#D89555>Wahrsicht</color> hinzu</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[Einstellungssammlungen <b>Monster, die über Dunkelsicht verfügen sollten</b>, <b>Monster, die über echte Sicht verfügen sollten</b>, <b>Monster, die über blinde Sicht verfügen sollten</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tischplatte <i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=Aktiviere Bonusaktionen bei der Verwendung von <color=#D89555>Heiltränken</color> und <color=#D89555>Gegengift</color>.
+ModUi/&OneDndAllPotionsBonusAction=Aktivieren Sie das Trinken von <color=#D89555>Tränken</color> als Bonusaktion
+ModUi/&OneDndPoisonsBonusAction=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplizieren Sie die Geschwindigkeit der Umrissgitteranimation mit</color> <color=#C04040E0>[%]</color>

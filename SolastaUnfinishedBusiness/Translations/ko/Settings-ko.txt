@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=사용자 정의 캠페인에서 음성 활성화 <i><color=
 ModUi/&EnableSpeechActorHelp=• 배우를 선택하세요
 ModUi/&EnableSpeechOnNpcs=<i>+ NPC의 음성 활성화 <color=#F0DAA0>[캠페인 매핑 또는 자동 할당에서]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 음성 및 내레이션 속도를 선택하세요
+ModUi/&EnableStackableArtItems=<color=#D89555>아트 아이템</color> 스택 활성화 <i><color=#F0DAA0>[이 설정이 비활성화된 동안에는 분할할 수 없음]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=<color=#D89555>단검</color>과 <color=#D89555>손도끼</color>를 중첩할 수 있습니다. <i><color=#F0DAA0>[이 설정이 비활성화된 동안에는 분할할 수 없습니다]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다 <color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정치 + D20 롤]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=라운드를 건너뛰는 대신 이니셔티브 불이익을 적용하려면 <color=#D89555>놀람</color> 조건을 활성화하세요.
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 적절한 경우 몬스터와 NPC에게 <color=#D89555>암흑 시야</color>, <color=#D89555>맹시력</color>, <color=#D89555>진시력</color>을 추가합니다.</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>어둠의 시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈먼 시야를 가져야 하는 괴물</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>테이블탑<i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>치유 물약</color>과 <color=#D89555>항독소</color> 사용 시 보너스 액션을 활성화합니다.
+ModUi/&OneDndAllPotionsBonusAction=보너스 액션으로 <color=#D89555>물약</color> 마시기를 활성화합니다.
+ModUi/&OneDndPoisonsBonusAction=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시합니다.</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도를 </color> <color=#C04040E0>[%]</color>로 곱합니다.

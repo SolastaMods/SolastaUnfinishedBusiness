@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0D
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
 ModUi/&EnableSpeechOnNpcs=<i>+ Abilita la parola sui PNG <color=#F0DAA0>[sia dalla mappatura della campagna che dall'assegnazione automatica]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Seleziona una voce e una velocità di narrazione
+ModUi/&EnableStackableArtItems=Abilita l'impilamento di <color=#D89555>Oggetti artistici</color> <i><color=#F0DAA0>[non può essere diviso mentre questa impostazione è disabilitata]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=Abilita l'accumulo di <color=#D89555>Pugnali</color> e <color=#D89555>Asce a mano</color> <i><color=#F0DAA0>[non può essere diviso mentre questa impostazione è disabilitata]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso della scelta = voti * modificatore del Carisma dell'eroe + tiro di D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Abilita la condizione <color=#D89555>Sorpreso</color> per imporre lo svantaggio dell'iniziativa invece di saltare un round
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Visione Oscura</color>, <color=#D89555>Vista Cieca</color> e <color=#D89555>Vista Vera</color> a mostri e PNG quando appropriato</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tavolo <i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=Abilita l'azione bonus sugli utilizzi di <color=#D89555>Pozioni curative</color> e <color=#D89555>Antitossina</color>
+ModUi/&OneDndAllPotionsBonusAction=Abilita bere <color=#D89555>Pozioni</color> come azione bonus
+ModUi/&OneDndPoisonsBonusAction=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia di contorno per</color> <color=#C04040E0>[%]</color>

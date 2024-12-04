@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><col
 ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur
 ModUi/&EnableSpeechOnNpcs=<i>+ Activer la parole sur les PNJ <color=#F0DAA0>[soit à partir de la cartographie de campagne, soit à partir de l'attribution automatique]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Sélectionnez une voix et une vitesse de narration
+ModUi/&EnableStackableArtItems=Activer l'empilement des <color=#D89555>éléments d'art</color> <i><color=#F0DAA0>[ne peut pas être divisé lorsque ce paramètre est désactivé]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=Activer l'empilement des <color=#D89555>dagues</color> et des <color=#D89555>haches à main</color> <i><color=#F0DAA0>[ne peut pas être divisé tant que ce paramètre est désactivé]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 pour pondérer un peu le caractère aléatoire <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Activez la condition <color=#D89555>Surprise</color> pour appliquer un désavantage d'initiative au lieu de sauter un tour
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changez l
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Jeux de société <i>[5e 2024]</i> :</color>
-ModUi/&OneDndHealingPotionBonusAction=Activer l'action bonus sur les utilisations de <color=#D89555>potions de soins</color> et d'<color=#D89555>antitoxines</color>
+ModUi/&OneDndAllPotionsBonusAction=Activer la consommation de <color=#D89555>potions</color> en tant qu'action bonus
+ModUi/&OneDndPoisonsBonusAction=Activer l'application de <color=#D89555>Poisons</color> aux armes en tant qu'action bonus
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>

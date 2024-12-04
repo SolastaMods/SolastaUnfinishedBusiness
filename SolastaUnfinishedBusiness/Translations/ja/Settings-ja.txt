@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効に�
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
 ModUi/&EnableSpeechOnNpcs=<i>+ NPC のスピーチを有効にする <color=#F0DAA0>[キャンペーン マッピングまたは自動割り当てから]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 音声とナレーションの速度を選択します
+ModUi/&EnableStackableArtItems=スタッキングを有効にする <color=#D89555>アートアイテム</color> <i><color=#F0DAA0>[この設定が無効になっていると分割できません]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=<color=#D89555>ダガー</color>と<color=#D89555>ハンドアックス</color>のスタックを有効にする <i><color=#F0DAA0>[この設定が無効になっている間は分割できません]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカルヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ また、各ヒーローはランダム性を高めるために D20 ロールを重みに追加します <color=#F0DAA0>[選択重み = 投票数 * ヒーローのカリスマ修正値 + D20 ロール]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=<color=#D89555>驚き</color>状態を有効にして、ラウンドをスキップする代わりにイニシアチブの不利を強制します。
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 適切な場合はいつでも、モンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=<color=#D89555>治癒ポーション</color>と<color=#D89555>解毒剤</color>の使用時にボーナスアクションを有効にする
+ModUi/&OneDndAllPotionsBonusAction=ボーナスアクションとして<color=#D89555>ポーション</color>を飲むことを可能にする
+ModUi/&OneDndPoisonsBonusAction=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライングリッドアニメーションの速度を</color> <color=#C04040E0>[%]</color> で乗算します。

@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0
 ModUi/&EnableSpeechActorHelp=• Selecione um ator
 ModUi/&EnableSpeechOnNpcs=<i>+ Habilitar fala em NPCs <color=#F0DAA0>[por mapeamento de campanha ou atribuição automática]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Selecione uma voz e velocidade de narração
+ModUi/&EnableStackableArtItems=Habilitar empilhamento <color=#D89555>Itens de arte</color> <i><color=#F0DAA0>[não pode ser dividido enquanto esta configuração estiver desabilitada]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=Habilitar empilhamento de <color=#D89555>Adagas</color> e <color=#D89555>Machados de Mão</color> <i><color=#F0DAA0>[não pode ser dividido enquanto esta configuração estiver desabilitada]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[por exemplo: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Além disso, cada herói adiciona um teste de D20 ao peso para um pouco de aleatoriedade <color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói + teste de D20]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Habilitar a condição <color=#D89555>Surpreso</color> para impor desvantagem de iniciativa em vez de pular uma rodada
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Alterar �
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Visão no Escuro</color>, <color=#D89555>Visão Cega</color> e <color=#D89555>Visão Verdadeira</color> aos monstros e PNJs sempre que apropriado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[configurações de coleções <b>MonstrosQueDeveriamTerVisãoNoEscuro</b>, <b>MonstrosQueDeveriamTerVisãoVerdadeira</b>, <b>MonstrosQueDeveriamTerVisãoCega</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Mesa <i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=Habilitar ação bônus em usos de <color=#D89555>Poções de Cura</color> e <color=#D89555>Antitoxina</color>
+ModUi/&OneDndAllPotionsBonusAction=Habilitar beber <color=#D89555>Poções</color> como uma ação bônus
+ModUi/&OneDndPoisonsBonusAction=Habilitar a aplicação de <color=#D89555>Venenos</color> em armas como uma ação bônus
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplique a velocidade da animação da grade de contorno por</color> <color=#C04040E0>[%]</color>

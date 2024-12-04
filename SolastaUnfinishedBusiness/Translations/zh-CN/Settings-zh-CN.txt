@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限�
 ModUi/&EnableSpeechActorHelp=• 选择演员
 ModUi/&EnableSpeechOnNpcs=<i>+ 启用 NPC 语音<color=#F0DAA0>[通过战役映射或自动分配]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• 选择语音和叙述速度
+ModUi/&EnableStackableArtItems=启用堆叠<color=#D89555>艺术品</color> <i><color=#F0DAA0>[此设置禁用时无法拆分]</color></i>
+ModUi/&EnableStackableAxesAndDaggers=启用堆叠<color=#D89555>匕首</color>和<color=#D89555>手斧</color> <i><color=#F0DAA0>[禁用此设置时无法拆分]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[例如：暴击、暴击失败等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ 此外，每个英雄都会增加一个 D20 掷骰来增加权重，以增加一点随机性 <color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值 + D20 掷骰]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=启用<color=#D89555>惊讶</color>条件来强制执行主动劣势，而不是跳过一轮
@@ -277,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的情况下为怪物和 NPC 添加 <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color> 和 <color=#D89555>TrueSight</color></i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[设置的集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>桌面<i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=启用<color=#D89555>治疗药水</color>和<color=#D89555>解毒剂</color>使用奖励行动
+ModUi/&OneDndAllPotionsBonusAction=启用饮用<color=#D89555>药水</color>作为奖励行动
+ModUi/&OneDndPoisonsBonusAction=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 仅显示召唤列表中最强大的生物</i>
 ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
