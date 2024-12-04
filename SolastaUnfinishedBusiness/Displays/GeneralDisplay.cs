@@ -355,6 +355,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchBarbarianBrutalStrike();
         }
 
+        toggle = Main.Settings.EnableBarbarianInstinctivePounce;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianInstinctivePounce"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianInstinctivePounce = toggle;
+            Tabletop2024Context.SwitchBarbarianInstinctivePounce();
+        }
+
         toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
         {

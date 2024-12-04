@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=Aktivieren Sie die Implementierung von <b>A
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Verringert sich jedes Mal um 1, wenn Schaden verhindert wird, statt um verhinderten Schaden. Es ist nicht nötig, einen Bannzauber zu wirken, um aktiv zu sein,\naber der Maximalwert beträgt 2x Zaubererstufe statt 2x Zaubererstufe + INT-Mod und wird bei einer langen Pause nur auf die Hälfte aufgeladen]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color>, um <color=#D89555>Brutal Critical</color> auf den Stufen 9, 13 und 17 zu ersetzen.
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
+ModUi/&EnableBarbarianInstinctivePounce=Aktiviere <color=#D89555>Instinktives Anspringen</color> auf Stufe 7
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 7
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion

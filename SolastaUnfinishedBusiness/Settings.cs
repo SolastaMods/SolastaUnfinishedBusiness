@@ -279,6 +279,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveBardSongOfRestAt2 { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
+    public bool EnableBarbarianInstinctivePounce { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
     public bool EnableDruidUseMetalArmor { get; set; }

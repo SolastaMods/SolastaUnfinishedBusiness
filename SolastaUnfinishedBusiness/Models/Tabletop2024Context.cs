@@ -402,6 +402,7 @@ internal static class Tabletop2024Context
         BuildBarbarianBrutalStrike();
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();
+        LoadBarbarianInstinctivePounce();
         LoadFighterTacticalShiftCustomBehavior();
         LoadFighterStudiedAttacks();
         LoadMonkHeightenedMetabolism();
@@ -412,6 +413,7 @@ internal static class Tabletop2024Context
         LoadSorcerousRestorationAtLevel5();
         LoadWizardMemorizeSpell();
         SwitchBarbarianBrutalStrike();
+        SwitchBarbarianInstinctivePounce();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianRegainOneRageAtShortRest();
         SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
@@ -496,7 +498,7 @@ internal static class Tabletop2024Context
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorWithdraw())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
             .AddToDB();
 
         PowerFighterSecondWind.AddCustomSubFeatures(
@@ -2170,6 +2172,43 @@ internal static class Tabletop2024Context
         }
     }
 
+    private sealed class CustomBehaviorFilterTargetingPositionHalfMove : IFilterTargetingPosition,
+        IIgnoreInvisibilityInterruptionCheck
+    {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+
+            var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
+            var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+            }
+        }
+    }
+
     #region Monk
 
     private sealed class CustomBehaviorHeightenedMetabolism(
@@ -2952,6 +2991,84 @@ internal static class Tabletop2024Context
         Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private static readonly FeatureDefinition FeatureBarbarianInstinctivePounce = FeatureDefinitionBuilder
+        .Create("FeatureBarbarianInstinctivePounce")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    internal static void LoadBarbarianInstinctivePounce()
+    {
+        var powerBarbarianInstinctivePounceTargeting = FeatureDefinitionPowerBuilder
+            .Create(PowerBarbarianRageStart, "PowerBarbarianInstinctivePounceTargeting")
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
+            .AddToDB();
+
+        PowerBarbarianRageStart.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
+    }
+
+    private sealed class PowerOrSpellFinishedByMePowerBarbarianRageStart(FeatureDefinitionPower powerDummyTargeting)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!Main.Settings.EnableBarbarianInstinctivePounce)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetClassLevel(Barbarian) < 7)
+            {
+                yield break;
+            }
+
+            yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
+
+            var position = action.ActionParams.Positions[0];
+
+            if (attacker.LocationPosition == position)
+            {
+                yield break;
+            }
+
+            var distance = (int)int3.Distance(attacker.LocationPosition, position);
+
+            attacker.UsedTacticalMoves -= distance;
+
+            if (attacker.UsedTacticalMoves < 0)
+            {
+                attacker.UsedTacticalMoves = 0;
+            }
+
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+            attacker.SpendActionType(ActionType.Bonus);
+            attacker.MyExecuteActionTacticalMove(position);
+        }
+    }
+
+    internal static void SwitchBarbarianInstinctivePounce()
+    {
+        Barbarian.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureBarbarianInstinctivePounce);
+
+        if (Main.Settings.EnableBarbarianInstinctivePounce)
+        {
+            Barbarian.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureBarbarianInstinctivePounce, 7));
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchBarbarianRecklessSameBuffDebuffDuration()
     {
         RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration
@@ -3153,7 +3270,7 @@ internal static class Tabletop2024Context
             .AddCustomSubFeatures(
                 ModifyPowerVisibility.Hidden,
                 PowerUsesSneakDiceTooltipModifier.Instance,
-                new CustomBehaviorWithdraw())
+                new CustomBehaviorFilterTargetingPositionHalfMove())
             .AddToDB();
 
         //
@@ -3608,42 +3725,6 @@ internal static class Tabletop2024Context
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class CustomBehaviorWithdraw : IFilterTargetingPosition, IIgnoreInvisibilityInterruptionCheck
-    {
-        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
-        {
-            cursorLocationSelectPosition.validPositionsCache.Clear();
-
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
-            var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
-            var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
-
-            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
-
-            foreach (var position in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
-                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
-                {
-                    continue;
-                }
-
-                cursorLocationSelectPosition.validPositionsCache.Add(position);
-
-                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-            }
         }
     }
 

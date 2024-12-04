@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=Включить реализацию <colo
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Уменьшать на 1 каждый раз при предотвращении урона вместо уменьшения на количество предотвращённого урона. Нет необходимости в накладывании заклинания школы Ограждения для активации,\nно максимальные хиты защиты равны двукратному уровню Волшебника без модификатора ИНТ, восстанавливается наполовину после долгого отдыха]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Включите <color=#D89555>Жестокий удар</color> и <color=#D89555>Улучшение жестокого удара</color>, чтобы заменить <color=#D89555>Жестокий критический</color> на уровнях 9, 13 и 17.
 ModUi/&EnableBarbarianFightingStyle=Включить выбор <color=#D89555>Боевого стиля</color> на уровне 2
+ModUi/&EnableBarbarianInstinctivePounce=Включить <color=#D89555>Инстинктивный наскок</color> на уровне 7
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить завершение эффектов <color=#D89555>Безрассудной атаки</color> в начале следующего хода
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Включить на уровне 7 возможность восстанавливать один заряд <color=#D89555>Ярости</color> за короткий отдых
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Включить <color=#D89555>Контрчары</color> на уровне 7 реакцией вместо действия на уровне 6

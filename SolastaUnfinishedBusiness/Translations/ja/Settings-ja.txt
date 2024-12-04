@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> の <color=#D89555>Arcane Wa
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防ぐたびに 1 減少します (防いだダメージの数ではありません)。有効にするために防御呪文を唱える必要はありません\nただし、最大値はウィザード レベルの 2 倍 (ウィザード レベル + INT 修正値の 2 倍) であり、長い休憩でのみ半分に再充電されます]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=レベル 9、13、17 で <color=#D89555>残忍な一撃</color> と <color=#D89555>残忍な一撃の改善</color> を有効にして、<color=#D89555>残忍なクリティカル</color> を置き換えます
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
+ModUi/&EnableBarbarianInstinctivePounce=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします

@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=Enable <b>Abjurer</b> <color=#D89555>Arcane
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Decrease by 1 each time it prevents damage, instead of by damage prevented. No need to cast abjuration spell to be active\nbut max value is 2x Wizard level instead of 2x Wizard level + INT mod and is only recharged to half on a long rest]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> to replace <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
+ModUi/&EnableBarbarianInstinctivePounce=Enable <color=#D89555>Instinctive Pounce</color> at level 7
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action

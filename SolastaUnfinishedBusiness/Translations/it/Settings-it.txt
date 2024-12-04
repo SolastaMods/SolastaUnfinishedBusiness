@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=Abilita l'implementazione di <b>Abjurer</b>
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminuisce di 1 ogni volta che previene danni, invece di per danni prevenuti. Non c'è bisogno di lanciare un incantesimo di abjurazione per essere attivo\nma il valore massimo è 2x livello mago invece di 2x livello mago + mod INT e si ricarica solo a metà con un riposo lungo]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Colpo Brutale</color> e <color=#D89555>Miglioramento Colpo Brutale</color> per sostituire <color=#D89555>Critico Brutale</color> ai livelli 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
+ModUi/&EnableBarbarianInstinctivePounce=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 7
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione

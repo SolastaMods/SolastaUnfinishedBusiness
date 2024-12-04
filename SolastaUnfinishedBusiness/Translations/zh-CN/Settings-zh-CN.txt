@@ -103,6 +103,7 @@ ModUi/&EnableBG3AbjurationArcaneWard=启用 <b>Abjurer</b> <color=#D89555>Arcane
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[每次防止伤害时减少 1，而不是通过防止伤害来减少。无需施放驱散法术即可激活\n但最大值是 2x 巫师等级，而不是 2x 巫师等级 + INT mod，并且长时间休息只能恢复到一半]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=在第 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>来取代<color=#D89555>残酷暴击</color>
 ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
+ModUi/&EnableBarbarianInstinctivePounce=在第 7 级启用<color=#D89555>本能突袭</color>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
