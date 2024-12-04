@@ -279,7 +279,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <c
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tabletop <i>[5e 2024]</i>:</color>
-ModUi/&OneDndHealingPotionBonusAction=Enable bonus action on <color=#D89555>Healing Potions</color> and <color=#D89555>Antitoxin</color> usages
+ModUi/&OneDndAllPotionsBonusAction=Enable drinking <color=#D89555>Potions</color> as a bonus action
+ModUi/&OneDndPoisonsBonusAction=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>
