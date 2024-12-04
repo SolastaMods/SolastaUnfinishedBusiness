@@ -1794,9 +1794,16 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetClassLevel(Fighter) < 5)
+            {
+                yield break;
+            }
+
             yield return CampaignsContext.SelectPosition(action, powerDummyTargeting);
 
-            var attacker = action.ActingCharacter;
             var position = action.ActionParams.Positions[0];
 
             if (attacker.LocationPosition == position)
@@ -1804,7 +1811,6 @@ internal static class Tabletop2024Context
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= distance;
