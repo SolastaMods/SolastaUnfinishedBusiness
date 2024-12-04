@@ -62,7 +62,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résult
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également <color=#D89555>Brutal Critical</color> aux niveaux 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactiver les prérequis de lancement de sorts sur le mod <color=#D89555>feats</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les <color=#D89555>exploits</color>
 ModUi/&DisableMultilineSpellOffering=Désactiver l'offre de sorts multilignes sur la barre d'action <i><color=#F0DAA0>[principalement pour les utilisateurs de contrôleur utilisant des héros non multicasters]</color></i>
@@ -102,7 +101,7 @@ ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[poids du choix = votes * modificateur de charisme du héros]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Activer l'implémentation d'Abjurer <color=#D89555>Arcane Ward</color> pour qu'elle se comporte comme BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminue de 1 à chaque fois qu'il prévient les dégâts, au lieu de diminuer en fonction des dégâts prévenus. Pas besoin de lancer le sort d'abjuration pour être actif\nmais la valeur maximale est 2x niveau de sorcier au lieu de 2x niveau de sorcier + mod INT et ne se recharge qu'à moitié lors d'un repos long]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color> et <color=#D89555>Amélioration de la frappe brutale</color> aux niveaux 9, 13 et 17
+ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Frappe brutale</color> et <color=#D89555>Amélioration de la frappe brutale</color> pour remplacer <color=#D89555>Critique brutale</color> aux niveaux 9, 13 et 17
 ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le debuff <color=#D89555>Attaque imprudente</color> pour qu'ils se terminent au début du prochain tour
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet de récupérer une utilisation de <color=#D89555>Rage</color> sur un repos court au niveau 7

@@ -62,7 +62,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最�
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将你的攻击总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=禁用库存中的物品自动装备
-ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时禁用 9、13 和 17 级的<color=#D89555>残酷暴击</color></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用 mod <color=#D89555>feats</color> 上的施法先决条件<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用<color=#D89555>功绩</color>的级别先决条件
 ModUi/&DisableMultilineSpellOffering=禁用操作栏上的多行法术提供<i><color=#F0DAA0>[主要针对使用非多路施法者英雄的控制器用户]</color></i>
@@ -102,7 +101,7 @@ ModUi/&EnableAlternateHuman=启用替代<color=#D89555>人类</color> <i><color=
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=启用 <b>Abjurer</b> <color=#D89555>Arcane Ward</color> 实现，使其行为类似于 BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[每次防止伤害时减少 1，而不是通过防止伤害来减少。无需施放驱散法术即可激活\n但最大值是 2x 巫师等级，而不是 2x 巫师等级 + INT mod，并且长时间休息只能恢复到一半]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>
+ModUi/&EnableBarbarianBrutalStrike=在第 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>来取代<color=#D89555>残酷暴击</color>
 ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>

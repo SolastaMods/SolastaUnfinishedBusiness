@@ -62,7 +62,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 데미지 주사위의 �
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 가능한 가장 높은 결과가 나오는 모든 데미지 주사위를 계속 다시 굴려 총 데미지에 추가합니다.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위를 굴리는 대신 공격의 총 데미지를 두 배로 늘립니다. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=인벤토리에 있는 아이템의 자동 장착을 비활성화합니다.
-ModUi/&DisableBarbarianBrutalCritical=<i>+ 레벨 9, 13, 17에서 <color=#D89555>잔혹한 치명타</color>도 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=<color=#D89555>특기</color> 모드에서 주문 시전 전제 조건 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=<color=#D89555>특기</color>에 레벨 전제 조건 비활성화
 ModUi/&DisableMultilineSpellOffering=액션 바에서 다중 줄 주문 제공 비활성화 <i><color=#F0DAA0>[주로 멀티캐스터 영웅을 사용하지 않는 컨트롤러 사용자를 위해]</color></i>
@@ -102,7 +101,7 @@ ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DA
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 수 * 영웅 카리스마 수정치]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> <color=#D89555>Arcane Ward</color> 구현을 BG3처럼 동작하도록 활성화합니다.
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[피해를 방지할 때마다 1씩 감소, 방지한 피해에 따라 감소하는 것이 아님. 활성화하려면 금지 주문을 시전할 필요가 없음\n하지만 최대값은 위저드 레벨의 2배 + INT 수정치 대신 위저드 레벨의 2배이며 긴 휴식 시에만 절반으로 재충전됨]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화합니다.
+ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화하여 <color=#D89555>잔혹한 치명타</color>를 대체합니다.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능

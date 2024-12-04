@@ -62,7 +62,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: ダメージダイスの
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の結果を出したダメージダイスを再度振り直し、合計ダメージに加えます。
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージを 2 倍にします。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
-ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で <color=#D89555>Brutal Critical</color> も無効にします</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=モッド <color=#D89555>feats</color> の呪文詠唱の前提条件を無効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=<color=#D89555>特技</color>のレベル前提条件を無効にする
 ModUi/&DisableMultilineSpellOffering=アクションバーでの複数行の呪文の提供を無効にする <i><color=#F0DAA0>[主に非マルチキャスターヒーローを使用するコントローラーユーザー向け]</color></i>
@@ -102,7 +101,7 @@ ModUi/&EnableAlternateHuman=代替の <color=#D89555>人間</color> を有効に
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ性補正値]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> の <color=#D89555>Arcane Ward</color> 実装を有効にして、BG3 のように動作させます。
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防ぐたびに 1 減少します (防いだダメージの数ではありません)。有効にするために防御呪文を唱える必要はありません\nただし、最大値はウィザード レベルの 2 倍 (ウィザード レベル + INT 修正値の 2 倍) であり、長い休憩でのみ半分に再充電されます]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=レベル9、13、17で<color=#D89555>残忍な一撃</color>と<color=#D89555>残忍な一撃の改善</color>を有効にする
+ModUi/&EnableBarbarianBrutalStrike=レベル 9、13、17 で <color=#D89555>残忍な一撃</color> と <color=#D89555>残忍な一撃の改善</color> を有効にして、<color=#D89555>残忍なクリティカル</color> を置き換えます
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。

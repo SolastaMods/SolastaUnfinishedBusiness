@@ -62,7 +62,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: some o resultado máximo
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue rolando novamente todos os dados de dano que rolarem o maior resultado possível e adicione-os ao dano total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DisableAutoEquip=Desabilitar equipamento automático de itens no inventário
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Também desabilite <color=#D89555>Brutal Critical</color> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desabilitar pré-requisitos de conjuração de magias em <color=#D89555>talentos</color> do mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desabilitar pré-requisitos de nível em <color=#D89555>talentos</color>
 ModUi/&DisableMultilineSpellOffering=Desabilitar oferta de magia multi-linha na barra de ação <i><color=#F0DAA0>[principalmente para usuários de controle que usam heróis não multicaster]</color></i>
@@ -102,7 +101,7 @@ ModUi/&EnableAlternateHuman=Habilitar o <color=#D89555>Humano</color> alternativ
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votação alternativo <i><color=#F0DAA0>[peso da escolha = votos * modificador de Carisma do herói]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Habilitar a implementação <b>Abjurer</b> <color=#D89555>Arcane Ward</color> para se comportar como BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminui em 1 cada vez que previne dano, em vez de por dano prevenido. Não há necessidade de conjurar magia de abjuração para ser ativo,\nmas o valor máximo é 2x nível de mago em vez de 2x nível de mago + mod INT e só é recarregado pela metade em um descanso longo]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Habilitar <color=#D89555>Golpe Brutal</color> e <color=#D89555>Melhoria do Golpe Brutal</color> nos níveis 9, 13 e 17
+ModUi/&EnableBarbarianBrutalStrike=Habilitar <color=#D89555>Golpe Brutal</color> e <color=#D89555>Melhoria do Golpe Brutal</color> para substituir <color=#D89555>Crítico Brutal</color> nos níveis 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar o bônus e o debuff <color=#D89555>Ataque Reckless</color> para terminar no início do próximo turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar recuperar um uso de <color=#D89555>Fúria</color> durante um descanso curto no nível 7

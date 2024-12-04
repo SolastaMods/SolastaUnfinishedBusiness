@@ -278,7 +278,6 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveBardMagicalSecretAt14And18 { get; set; }
     public bool RemoveBardSongOfRestAt2 { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
-    public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }

@@ -6,6 +6,7 @@
 - added 'Enable stacking Daggers and Hand Axes' setting [by SilverGriffon]
 - fixed Eldritch Smite interaction with 'Paladin smites as a bonus action' setting
 - fixed Fighter tactical shift applying on level 1 instead of 5, and not preventing AoO if moving one cell only
+- fixed Improved Barbarian Brutal Strike at 17 missing 2 additional effects offering
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
 - removed 'Enable bonus action on Healing Potions and Antitoxin usages' setting [by SilverGriffon]
 

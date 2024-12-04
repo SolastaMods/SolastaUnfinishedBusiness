@@ -54,14 +54,14 @@ internal static class Tabletop2024Context
             .AddToDB();
 
     private static readonly FeatureDefinitionActionAffinity ActionAffinityPoisonBonusAction =
-    FeatureDefinitionActionAffinityBuilder
-        .Create("ActionAffinityPoisonBonusAction")
-        .SetGuiPresentationNoContent(true)
-        .AddCustomSubFeatures(
-            new ValidateDeviceFunctionUse((_, device, _) =>
-                device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
-        .SetAuthorizedActions(Id.UseItemBonus)
-        .AddToDB();
+        FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityPoisonBonusAction")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new ValidateDeviceFunctionUse((_, device, _) =>
+                    device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+            .SetAuthorizedActions(Id.UseItemBonus)
+            .AddToDB();
 
     private static readonly ItemPropertyDescription ItemPropertyPotionBonusAction =
         new(RingFeatherFalling.StaticProperties[0])
@@ -74,14 +74,14 @@ internal static class Tabletop2024Context
         };
 
     private static readonly ItemPropertyDescription ItemPropertyPoisonBonusAction =
-    new(RingFeatherFalling.StaticProperties[0])
-    {
-        appliesOnItemOnly = false,
-        type = ItemPropertyDescription.PropertyType.Feature,
-        featureDefinition = ActionAffinityPoisonBonusAction,
-        conditionDefinition = null,
-        knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
-    };
+        new(RingFeatherFalling.StaticProperties[0])
+        {
+            appliesOnItemOnly = false,
+            type = ItemPropertyDescription.PropertyType.Feature,
+            featureDefinition = ActionAffinityPoisonBonusAction,
+            conditionDefinition = null,
+            knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
+        };
 
     private static readonly FeatureDefinitionCombatAffinity CombatAffinityConditionSurprised =
         FeatureDefinitionCombatAffinityBuilder
@@ -411,7 +411,6 @@ internal static class Tabletop2024Context
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
         LoadWizardMemorizeSpell();
-        SwitchBarbarianBrutalCritical();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianRegainOneRageAtShortRest();
@@ -2717,15 +2716,43 @@ internal static class Tabletop2024Context
                 0,
                 0);
 
+            var aborted = false;
+            var attempts = rulesetAttacker.GetClassLevel(Barbarian) >= 17 ? 2 : 1;
             var usablePower = PowerProvider.Get(powerBarbarianBrutalStrike, rulesetAttacker);
+            List<FeatureDefinitionPower> selectedPowers = [];
+            RulesetUsablePower savedUsablePower = null;
 
-            yield return attacker.MyReactToSpendPowerBundle(
-                usablePower,
-                [defender],
-                attacker,
-                powerBarbarianBrutalStrike.Name,
-                reactionValidated: ReactionValidated,
-                battleManager: battleManager);
+            for (var i = 0; i < attempts; i++)
+            {
+                yield return attacker.MyReactToSpendPowerBundle(
+                    usablePower,
+                    [defender],
+                    attacker,
+                    powerBarbarianBrutalStrike.Name,
+                    reactionValidated: ReactionValidated,
+                    reactionNotValidated: ReactionNotValidated,
+                    battleManager: battleManager);
+
+                if (aborted)
+                {
+                    break;
+                }
+
+                if (selectedPowers.Count > 1)
+                {
+                    continue;
+                }
+
+                // don't offer 1st selected effect again
+                savedUsablePower = PowerProvider.Get(selectedPowers[0], rulesetAttacker);
+                rulesetAttacker.UsablePowers.Remove(PowerProvider.Get(selectedPowers[0], rulesetAttacker));
+            }
+
+            // recover first selected usable power
+            if (savedUsablePower != null)
+            {
+                rulesetAttacker.UsablePowers.Add(savedUsablePower);
+            }
 
             yield break;
 
@@ -2741,6 +2768,8 @@ internal static class Tabletop2024Context
                 }
 
                 var selectedPower = subPowers[option];
+
+                selectedPowers.Add(selectedPower);
 
                 switch (selectedPower.Name)
                 {
@@ -2758,6 +2787,11 @@ internal static class Tabletop2024Context
                         InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionSunderingBlow.Name);
                         break;
                 }
+            }
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                aborted = true;
             }
         }
 
@@ -2896,7 +2930,9 @@ internal static class Tabletop2024Context
         Barbarian.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == _featureSetBarbarianBrutalStrike ||
             x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13 ||
-            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17 ||
+            x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
+            x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
         {
@@ -2905,17 +2941,7 @@ internal static class Tabletop2024Context
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
         }
-
-        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchBarbarianBrutalCritical()
-    {
-        Barbarian.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
-            x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-
-        if (!Main.Settings.DisableBarbarianBrutalCritical)
+        else
         {
             Barbarian.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),

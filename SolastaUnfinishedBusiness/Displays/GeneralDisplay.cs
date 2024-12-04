@@ -352,19 +352,7 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
-            Main.Settings.DisableBarbarianBrutalCritical = toggle;
             Tabletop2024Context.SwitchBarbarianBrutalStrike();
-            Tabletop2024Context.SwitchBarbarianBrutalCritical();
-        }
-
-        if (Main.Settings.EnableBarbarianBrutalStrike)
-        {
-            toggle = Main.Settings.DisableBarbarianBrutalCritical;
-            if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.DisableBarbarianBrutalCritical = toggle;
-                Tabletop2024Context.SwitchBarbarianBrutalCritical();
-            }
         }
 
         toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
