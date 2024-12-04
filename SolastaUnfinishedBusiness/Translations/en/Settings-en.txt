@@ -194,6 +194,8 @@ ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narrati
 ModUi/&EnableSpeechActorHelp=• Select an actor
 ModUi/&EnableSpeechOnNpcs=<i>+ Enable speech on NPCs <color=#F0DAA0>[either from campaign mapping or auto assignment]</color></i>
 ModUi/&EnableSpeechVoiceHelp=• Select a voice and narration speed
+ModUi/&EnableStackableAxesAndDaggers=Enable stacking <color=#D89555>Daggers</color> and <color=#D89555>Hand Axes</color> <i><color=#F0DAA0>[cannot be split while this setting is disabled]</color></i>
+ModUi/&EnableStackableArtItems=Enable stacking <color=#D89555>Art Items</color> <i><color=#F0DAA0>[cannot be split while this setting is disabled]</color></i>
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableSurprisedToEnforceDisadvantage=Enable <color=#D89555>Surprised</color> condition to enforce initiative disadvantage instead of skipping a round

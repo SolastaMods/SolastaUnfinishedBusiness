@@ -235,6 +235,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    public bool EnableStackableAxesAndDaggers { get; set; }
+    public bool EnableStackableArtItems { get; set; }
     public bool EnableVersatileAmmunitionSlots { get; set; }
     public bool EnableVersatileOffHandSlot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
