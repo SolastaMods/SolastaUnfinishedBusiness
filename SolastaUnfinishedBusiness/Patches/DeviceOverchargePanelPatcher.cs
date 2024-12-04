@@ -101,7 +101,7 @@ public static class DeviceOverchargePanelPatcher
 
         private static void BindPowerSlot(
             DeviceOverchargeBox box,
-            IMagicEffect magic,
+            FeatureDefinitionPower magic,
             int addedCharges,
             int slotDelta,
             bool lastChargeWarning,

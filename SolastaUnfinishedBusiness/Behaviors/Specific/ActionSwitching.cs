@@ -338,7 +338,7 @@ public static class ActionSwitching
     private static void SaveIndexes(
         IDictionary<string, int> map,
         ActionDefinitions.ActionType type,
-        IReadOnlyList<int> list)
+        List<int> list)
     {
         for (var i = 0; i < list.Count; i++)
         {

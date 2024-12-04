@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 internal static class GLBM
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(IControllableCharacter glc, IAdditionalDamageProvider provider)
+    private static int ComputeSavingThrowDC(GameLocationCharacter glc, IAdditionalDamageProvider provider)
     {
         var character = glc.RulesetCharacter;
 

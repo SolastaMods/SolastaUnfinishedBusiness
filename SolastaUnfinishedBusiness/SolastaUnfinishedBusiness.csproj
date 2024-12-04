@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
 
   <PropertyGroup>
-    <LangVersion>12</LangVersion>
+    <LangVersion>13</LangVersion>
     <TargetFramework>net481</TargetFramework>
     <AssemblyVersion>1.5.97.40</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>

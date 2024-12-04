@@ -929,7 +929,7 @@ public static class RulesetImplementationManagerPatcher
             new(OpCodes.Brfalse_S)
         ];
 
-        private static bool CompareInstructions(IReadOnlyList<CodeInstruction> codes)
+        private static bool CompareInstructions(List<CodeInstruction> codes)
         {
             for (var i = 0; i < codes.Count; i++)
             {
