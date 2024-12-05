@@ -10,13 +10,6 @@ internal static class StringExtensions
         return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
     }
 
-    private static readonly Regex RemoveXmlTags = new(@"<[bci/].*?>|<#B5D3DE>", RegexOptions.Compiled);
-
-    internal static string StripXmlTags(this string str)
-    {
-        return RemoveXmlTags.Replace(str.Replace("<#57BCF4>", "\r\n\t"), string.Empty);
-    }
-
     internal static bool Matches(this string source, string other)
     {
         if (source == null || other == null)

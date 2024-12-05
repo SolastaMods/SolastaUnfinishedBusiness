@@ -88,7 +88,8 @@ public static class GameLocationCharacterExtensions
             ActionModifiers = actionModifiers,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteAction(actionParams, null, true);
@@ -105,7 +106,8 @@ public static class GameLocationCharacterExtensions
             StringParameter = usablePower.PowerDefinition.Name,
             RulesetEffect = implementationService.InstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [.. targets]
+            targetCharacters = [.. targets],
+            SkipAnimationsAndVFX = true
         };
 
         actionService.ExecuteInstantSingleAction(actionParams);
@@ -226,8 +228,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(ruleCaster, repertoire, spell, slotLevel, false),
             SpellRepertoire = repertoire,
-            TargetCharacters = { target },
-            IsReactionEffect = true
+            TargetCharacters = { target }
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -261,10 +262,7 @@ public static class GameLocationCharacterExtensions
             yield break;
         }
 
-        var reactionParams = new CharacterActionParams(character, (Id)actionId)
-        {
-            StringParameter = stringParameter, IsReactionEffect = actionId == ExtraActionId.DoNothingReaction
-        };
+        var reactionParams = new CharacterActionParams(character, (Id)actionId) { StringParameter = stringParameter };
         var reactionRequest = new ReactionRequestCustom(type, reactionParams) { Resource = resource };
         var count = actionManager.PendingReactionRequestGroups.Count;
 
@@ -306,7 +304,8 @@ public static class GameLocationCharacterExtensions
             StringParameter2 = stringParameter2,
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
-            UsablePower = usablePower
+            UsablePower = usablePower,
+            SkipAnimationsAndVFX = true
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -349,7 +348,8 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets
+            targetCharacters = targets,
+            SkipAnimationsAndVFX = true
         };
         var reactionRequest =
             new ReactionRequestSpendBundlePower(reactionParams, reactionValidated, reactionNotValidated);
@@ -388,8 +388,7 @@ public static class GameLocationCharacterExtensions
             RulesetEffect =
                 implementationService.InstantiateEffectPower(character.RulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = targets,
-            IsReactionEffect = actionId == Id.PowerReaction
+            targetCharacters = targets
         };
         var count = actionService.PendingReactionRequestGroups.Count;
 
@@ -481,18 +480,12 @@ public static class GameLocationCharacterExtensions
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
-        this GameLocationCharacter instance,
-        GameLocationCharacter target,
-        IGameLocationBattleService service,
-        bool allowUnarmed = false)
+        this GameLocationCharacter instance, GameLocationCharacter target, IGameLocationBattleService service)
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            // don't use IsMelee(attackMode) here
-            var isValid = (allowUnarmed && mode.SourceObject is null) ||
-                          (mode.SourceObject is RulesetItem rulesetItem && ValidatorsWeapon.IsMelee(rulesetItem));
-
-            if (!isValid)
+            if (mode.SourceObject is not RulesetItem rulesetItem ||
+                !ValidatorsWeapon.IsMelee(rulesetItem))
             {
                 continue;
             }
@@ -501,8 +494,8 @@ public static class GameLocationCharacterExtensions
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var modifier = new ActionModifier();
 
-            attackParams.FillForPhysicalReachAttack(
-                instance, instance.LocationPosition, mode, target, target.LocationPosition, modifier);
+            attackParams.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                target, target.LocationPosition, modifier);
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
             if (service.CanAttack(attackParams))
@@ -528,8 +521,8 @@ public static class GameLocationCharacterExtensions
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var modifier = new ActionModifier();
 
-            attackParams.FillForPhysicalRangeAttack(
-                instance, instance.LocationPosition, mode, target, target.LocationPosition, modifier);
+            attackParams.FillForPhysicalRangeAttack(instance, instance.LocationPosition, mode,
+                target, target.LocationPosition, modifier);
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
             if (service.CanAttack(attackParams))
@@ -634,8 +627,8 @@ public static class GameLocationCharacterExtensions
         return rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                !character.IsCharging &&
                !character.MoveStepInProgress &&
-               !rulesetCharacter.IsIncapacitated &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }

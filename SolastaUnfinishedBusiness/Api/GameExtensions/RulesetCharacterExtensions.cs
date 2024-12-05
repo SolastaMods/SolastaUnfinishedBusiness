@@ -535,6 +535,27 @@ internal static class RulesetCharacterExtensions
             .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
     }
 #if false
+    /**
+     * Removes all matching conditions and returns true if any was removed, false otherwise
+     */
+    internal static bool RemoveAllConditionsOfType(this RulesetCharacter character, params string[] types)
+    {
+        //should we return number of removed conditions, instead of whether we removed any?
+        var conditions = character?.ConditionsByCategoryAndType
+            .SelectMany(x => x.Value)
+            .Where(c => types.Contains(c.conditionDefinition.Name))
+            .ToList();
+
+        if (conditions == null || conditions.Count == 0)
+        {
+            return false;
+        }
+
+        conditions.ForEach(c => character.RemoveCondition(c, false, false));
+        character.RefreshAll();
+        return true;
+    }
+
     internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
     {
         if (character == null)

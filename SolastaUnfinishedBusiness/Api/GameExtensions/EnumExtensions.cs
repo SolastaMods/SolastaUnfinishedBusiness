@@ -76,12 +76,6 @@ internal enum ExtraActionId
     Grapple,
     GrappleBonus,
     DisableGrapple,
-    GrappleOnUnarmedToggle,
-    CleavingAttackToggle,
-    PowerAttackToggle,
-    DeadEyeToggle,
-    OverChannelToggle,
-    GravityWellToggle,
     PrioritizeAction = 10000
 }
 
@@ -164,11 +158,6 @@ internal enum ExtraMotionType
     // PushRandomDirection,
     CustomSwap = 9000,
     PushDown = 9001
-}
-
-internal enum ExtraEffectType
-{
-    RecoverSorceryHalfLevelDown = 9000
 }
 
 internal enum ExtraPowerAttackHitComputation

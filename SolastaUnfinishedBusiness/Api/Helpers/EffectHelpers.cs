@@ -20,7 +20,34 @@ internal static class EffectHelpers
         IMagicEffect magicEffect,
         EffectType effectType = EffectType.Impact)
     {
-        StartVisualEffect(attacker, defender, magicEffect.EffectDescription.EffectParticleParameters, effectType);
+        // be safe on multiplayer sessions as depending on flow, SFX can break them
+        if (Global.IsMultiplayer)
+        {
+            return;
+        }
+
+        var prefab = effectType switch
+        {
+            EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,
+            EffectType.QuickCaster => magicEffect.EffectDescription.EffectParticleParameters.CasterQuickSpellParticle,
+            EffectType.Condition => magicEffect.EffectDescription.EffectParticleParameters.ConditionParticle,
+            EffectType.Effect => magicEffect.EffectDescription.EffectParticleParameters.EffectParticle,
+            EffectType.Impact => magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle,
+            EffectType.Zone => magicEffect.EffectDescription.EffectParticleParameters.ZoneParticle,
+            _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
+        };
+
+        if (!prefab)
+        {
+            return;
+        }
+
+        var sentParameters = new ParticleSentParameters(attacker, defender, magicEffect.Name);
+
+        WorldLocationPoolManager
+            .GetElement(prefab, true)
+            .GetComponent<ParticleSetup>()
+            .Setup(sentParameters);
     }
 
     internal static void StartVisualEffect(
@@ -29,12 +56,6 @@ internal static class EffectHelpers
         EffectParticleParameters effectParticleParameters,
         EffectType effectType = EffectType.Impact)
     {
-        // be safe on multiplayer sessions as depending on flow, SFX can break them
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
-
         var prefab = effectType switch
         {
             EffectType.Caster => effectParticleParameters.CasterParticle,
@@ -51,7 +72,7 @@ internal static class EffectHelpers
             return;
         }
 
-        var sentParameters = new ParticleSentParameters(attacker, defender, "ChuckNorris");
+        var sentParameters = new ParticleSentParameters(attacker, defender, "test");
 
         WorldLocationPoolManager
             .GetElement(prefab, true)
@@ -85,11 +106,14 @@ internal static class EffectHelpers
                 return effectDescription.FixedSavingThrowDifficultyClass;
             //TODO: implement missing computation methods (like Ki and Breath Weapon)
             case RuleDefinitions.EffectDifficultyClassComputation.Ki:
+                break;
             case RuleDefinitions.EffectDifficultyClassComputation.BreathWeapon:
+                break;
             case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
-            default:
                 break;
             // ReSharper disable once RedundantEmptySwitchSection
+            default:
+                break;
         }
 
         return def;
