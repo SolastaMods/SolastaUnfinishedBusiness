@@ -414,6 +414,7 @@ internal static class Tabletop2024Context
         LoadWizardMemorizeSpell();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianInstinctivePounce();
+        SwitchBarbarianPersistentRage();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianRegainOneRageAtShortRest();
         SwitchBarbarianRelentlessRage();
@@ -3089,6 +3090,23 @@ internal static class Tabletop2024Context
         DamageAffinityBarbarianRelentlessRage.GuiPresentation.description = Main.Settings.EnableBarbarianRelentlessRage
             ? "Feature/&RelentlessRageExtendedDescription"
             : "Feature/&RelentlessRageDescription";
+    }
+
+    internal static void SwitchBarbarianPersistentRage()
+    {
+        if (Main.Settings.EnableBarbarianPersistentRage)
+        {
+            ConditionRagingPersistent.durationParameter = 10;
+            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
+            PowerBarbarianPersistentRageStart.GuiPresentation.description =
+                "Action/&PersistentRageStartExtendedDescription";
+        }
+        else
+        {
+            ConditionRagingPersistent.durationParameter = 1;
+            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
+            PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
+        }
     }
 
     #endregion

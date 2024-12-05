@@ -2136,7 +2136,7 @@ public static class RulesetCharacterPatcher
     public static class SustainDamage_Patch
     {
         private static bool _isRelentlessRageKnockout;
-        
+
         [UsedImplicitly]
         public static void Prefix(
             RulesetCharacter __instance,
@@ -2147,7 +2147,7 @@ public static class RulesetCharacterPatcher
             RollInfo rollInfo)
         {
             _isRelentlessRageKnockout = false;
-            
+
             //PATCH: support for `ModifySustainedDamageHandler` sub-feature
             ModifySustainedDamage.ModifyDamage(
                 __instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid, rollInfo);
@@ -2157,7 +2157,7 @@ public static class RulesetCharacterPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
-            var myRollSavingThrowMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("MyRollSavingThrow");
+            var myRollSavingThrowMethod = typeof(SustainDamage_Patch).GetMethod("MyRollSavingThrow");
 
             return instructions.ReplaceCalls(rollSavingThrowMethod,
                 "RulesetCharacter.SustainDamage",
@@ -2181,10 +2181,11 @@ public static class RulesetCharacterPatcher
             // only scenario that can roll a save here is Damage Affinity Relentless Rage
             __instance.RollSavingThrow(saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
                 rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
-            
+
             _isRelentlessRageKnockout = outcome == RollOutcome.Success;
         }
 
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
             if (Main.Settings.EnableBarbarianRelentlessRage && _isRelentlessRageKnockout)
