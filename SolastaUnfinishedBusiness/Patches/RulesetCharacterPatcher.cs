@@ -1689,7 +1689,7 @@ public static class RulesetCharacterPatcher
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
                 restType == RestType.ShortRest &&
-                __instance.GetClassLevel(Barbarian) >= 7 &&
+                __instance.GetClassLevel(Barbarian) >= 1 &&
                 __instance.UsedRagePoints > 0)
             {
                 if (!simulate)

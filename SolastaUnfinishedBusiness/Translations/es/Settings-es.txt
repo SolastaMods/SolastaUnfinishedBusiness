@@ -106,7 +106,7 @@ ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo d
 ModUi/&EnableBarbarianInstinctivePounce=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
 ModUi/&EnableBarbarianPersistentRage=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 1
 ModUi/&EnableBarbarianRelentlessRage=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10

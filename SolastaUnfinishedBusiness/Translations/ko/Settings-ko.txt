@@ -106,7 +106,7 @@ ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타�
 ModUi/&EnableBarbarianInstinctivePounce=레벨 7에서 <color=#D89555>본능적 습격</color> 활성화
 ModUi/&EnableBarbarianPersistentRage=<color=#D89555>Persistent Rage</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=1레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
 ModUi/&EnableBarbarianRelentlessRage=<color=#D89555>Relentless Rage</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[생명력이 클래스 레벨의 1배가 아닌 2배로 설정됨]</color></i>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.

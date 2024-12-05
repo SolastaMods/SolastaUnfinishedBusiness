@@ -106,7 +106,7 @@ ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风�
 ModUi/&EnableBarbarianInstinctivePounce=在第 7 级启用<color=#D89555>本能突袭</color>
 ModUi/&EnableBarbarianPersistentRage=将 <color=#D89555>Persistent Rage</color> 与 5e 2024 版本交换
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 7 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBarbarianRelentlessRage=将<color=#D89555>无情之怒</color>与 5e 2024 版本交换<i><color=#F0DAA0>[你的生命值设置为你的职业等级的 2 倍而不是 1 倍]</color></i>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>

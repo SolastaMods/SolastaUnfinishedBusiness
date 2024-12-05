@@ -106,7 +106,7 @@ ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di co
 ModUi/&EnableBarbarianInstinctivePounce=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianPersistentRage=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 7
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
 ModUi/&EnableBarbarianRelentlessRage=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
