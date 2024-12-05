@@ -290,7 +290,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=당신은 수표 판정�
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=체크 롤을 교체하려면 d20을 굴립니다.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=마법의 인도
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=마법의 인도
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=당신은 분노의 모든 소모된 사용을 회복할 수 있습니다. 그 후에는 긴 휴식을 마칠 때까지 다시 회복할 수 없습니다.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=분노 포인트를 모두 회복합니다.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=분노 회복
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=분노 회복

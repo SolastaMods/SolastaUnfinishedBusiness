@@ -289,7 +289,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=Вы провалили 
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=Бросьте d20, чтобы заменить результат броска проверки.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=Волшебное указание
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=Волшебное указание
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=Вы можете восстановить все использованные использования Ярости. После этого вы не сможете сделать это снова, пока не закончите Длительный Отдых.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=Восстановите все свои очки ярости.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=Вернуть ярость
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=Вернуть ярость

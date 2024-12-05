@@ -290,7 +290,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=Ein Kontrollwurf ist Ihn
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=Würfeln Sie einen W20, um den Kontrollwurf zu ersetzen.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=Magische Führung
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=Magische Führung
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=Du kannst alle verbrauchten Wut-Anwendungen wiederherstellen. Danach ist dies nicht mehr möglich, bis du eine lange Pause eingelegt hast.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=Gewinnen Sie alle Ihre Wutpunkte zurück.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=Wut zurückgewinnen
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=Wut zurückgewinnen

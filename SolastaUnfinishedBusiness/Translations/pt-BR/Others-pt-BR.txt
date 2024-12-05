@@ -290,7 +290,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=Você falhou em um teste
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=Role um d20 para substituir o teste.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=Orientação Mágica
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=Orientação Mágica
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=Você pode recuperar todos os usos gastos de Rage. Depois disso, você não pode fazer isso novamente até terminar um Long Rest.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=Recupere todos os seus pontos de fúria.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=Recuperar a Fúria
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=Recuperar a Fúria

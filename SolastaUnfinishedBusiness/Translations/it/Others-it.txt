@@ -290,7 +290,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=Hai fallito un tiro di c
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=Tira un d20 per sostituire il tiro di controllo.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=Guida magica
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=Guida magica
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=Puoi recuperare tutti gli usi di Rage spesi. Dopodiché, non puoi più farlo finché non finisci un Long Rest.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=Recupera tutti i tuoi punti rabbia.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=Riconquista la rabbia
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=Riconquista la rabbia

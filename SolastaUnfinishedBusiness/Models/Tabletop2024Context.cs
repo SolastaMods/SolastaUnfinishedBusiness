@@ -3107,7 +3107,7 @@ internal static class Tabletop2024Context
             .AddToDB();
 
         PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
-            new InitiativeEndListenerPowerBarbarianPersistentRageStart(powerBarbarianPersistentRegainRagePoints));
+            new CustomBehaviorPowerBarbarianPersistentRageStart(powerBarbarianPersistentRegainRagePoints));
     }
 
     internal static void SwitchBarbarianPersistentRage()
@@ -3127,8 +3127,8 @@ internal static class Tabletop2024Context
         }
     }
 
-    private sealed class InitiativeEndListenerPowerBarbarianPersistentRageStart(
-        FeatureDefinitionPower powerBarbarianPersistentRegainRagePoints) : IInitiativeEndListener
+    private sealed class CustomBehaviorPowerBarbarianPersistentRageStart(
+        FeatureDefinitionPower powerBarbarianPersistentRegainRagePoints) : IInitiativeEndListener, IOnItemEquipped
     {
         public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
         {
@@ -3140,7 +3140,8 @@ internal static class Tabletop2024Context
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBarbarianPersistentRegainRagePoints, rulesetCharacter);
 
-            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
+            if (rulesetCharacter.UsedRagePoints == 0 ||
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -3149,7 +3150,8 @@ internal static class Tabletop2024Context
                 ExtraActionId.DoNothingFree,
                 character,
                 "PersistentRegainRagePoints",
-                "CustomReactionPersistentRegainRagePointsDescription".Localized(Category.Reaction),
+                "CustomReactionPersistentRegainRagePointsDescription"
+                    .Formatted(Category.Reaction, rulesetCharacter.UsedRagePoints),
                 ReactionValidated);
 
             yield break;
@@ -3159,6 +3161,16 @@ internal static class Tabletop2024Context
                 // be silent on combat log
                 usablePower.remainingUses--;
                 rulesetCharacter.UsedRagePoints = 0;
+            }
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (hero.IsWearingHeavyArmor() &&
+                hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionRagingPersistent.Name, out var activeCondition))
+            {
+                hero.RemoveCondition(activeCondition);
             }
         }
     }

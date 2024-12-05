@@ -290,7 +290,6 @@ Reaction/&CustomReactionMagicalGuidanceCheckDescription=Fallaste una tirada de v
 Reaction/&CustomReactionMagicalGuidanceCheckReactDescription=Tira un d20 para reemplazar la tirada de control.
 Reaction/&CustomReactionMagicalGuidanceCheckReactTitle=Guía mágica
 Reaction/&CustomReactionMagicalGuidanceCheckTitle=Guía mágica
-Reaction/&CustomReactionPersistentRegainRagePointsDescription=Puedes recuperar todos los usos de Furia que hayas utilizado. Después de eso, no podrás volver a hacerlo hasta que termines un Descanso prolongado.
 Reaction/&CustomReactionPersistentRegainRagePointsReactDescription=Recupera todos tus puntos de ira.
 Reaction/&CustomReactionPersistentRegainRagePointsReactTitle=Recuperar la ira
 Reaction/&CustomReactionPersistentRegainRagePointsTitle=Recuperar la ira
