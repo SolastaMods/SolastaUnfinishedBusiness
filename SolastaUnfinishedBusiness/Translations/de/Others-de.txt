@@ -225,6 +225,7 @@ Feature/&PowerVanishSummonDescription=Sie können Ihre Beschwörung verschwinden
 Feature/&PowerVanishSummonTitle=Verschwinden
 Feature/&PowerWarlockMagicalCunningDescription=Sie können 1 Minute lang ein esoterisches Ritual durchführen. Am Ende erhalten Sie verbrauchte Paktmagie-Zauberplätze zurück, jedoch nicht mehr als eine Anzahl, die der Hälfte Ihres Maximums entspricht (aufgerundet). Sobald Sie diese Funktion verwenden, können Sie dies nicht erneut tun, bis Sie eine lange Pause beendet haben.
 Feature/&PowerWarlockMagicalCunningTitle=Magische List
+Feature/&RelentlessRageExtendedDescription=Ihre Wut kann Sie trotz schwerer Wunden weiterkämpfen lassen. Wenn Ihre Trefferpunkte auf 0 fallen, während Ihre Wut aktiv ist, und Sie nicht sofort sterben, können Sie einen Konstitutionsrettungswurf DC 10 machen. Wenn Sie erfolgreich sind, ändern sich Ihre Trefferpunkte stattdessen auf eine Zahl, die dem Doppelten Ihrer Barbarenstufe entspricht.
 Feature/&RogueSlipperyMindExtendedDescription=Sie haben größere mentale Stärke erlangt. Sie erlangen Kompetenz bei Weisheits- und Charismarettungswürfen.
 Feature/&ToolGainChoicesPluralDescription=Wählen Sie {0} dieser Tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Wählen Sie eines dieser Tools: {1}

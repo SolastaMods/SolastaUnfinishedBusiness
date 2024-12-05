@@ -225,6 +225,7 @@ Feature/&PowerVanishSummonDescription=Você pode fazer sua invocação desaparec
 Feature/&PowerVanishSummonTitle=Desaparecer
 Feature/&PowerWarlockMagicalCunningDescription=Você pode realizar um rito esotérico por 1 minuto. No final dele, você recupera os espaços de magia de Pacto Mágico gastos, mas não mais do que um número igual à metade do seu máximo (arredondado para cima). Depois de usar esse recurso, você não pode fazê-lo novamente até terminar um Descanso Longo.
 Feature/&PowerWarlockMagicalCunningTitle=Astúcia Mágica
+Feature/&RelentlessRageExtendedDescription=Sua Fúria pode mantê-lo lutando apesar de ferimentos graves. Se você cair para 0 Pontos de Vida enquanto sua Fúria estiver ativa e não morrer imediatamente, você pode fazer um teste de resistência de Constituição CD 10. Se você for bem-sucedido, seus Pontos de Vida mudam para um número igual ao dobro do seu nível de Bárbaro.
 Feature/&RogueSlipperyMindExtendedDescription=Você adquiriu maior força mental. Você ganha proficiência em testes de resistência de Sabedoria e Carisma.
 Feature/&ToolGainChoicesPluralDescription=Escolha {0} destas ferramentas: {1}
 Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}

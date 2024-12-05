@@ -416,6 +416,7 @@ internal static class Tabletop2024Context
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianRegainOneRageAtShortRest();
+        SwitchBarbarianRelentlessRage();
         SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         SwitchDruidWeaponProficiencyToUseOneDnd();
         SwitchSpellRitualOnAllCasters();
@@ -3081,6 +3082,13 @@ internal static class Tabletop2024Context
         FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
             ? "Feature/&FeatureSetRageExtendedDescription"
             : "Feature/&FeatureSetRageDescription";
+    }
+
+    internal static void SwitchBarbarianRelentlessRage()
+    {
+        DamageAffinityBarbarianRelentlessRage.GuiPresentation.description = Main.Settings.EnableBarbarianRelentlessRage
+            ? "Feature/&RelentlessRageExtendedDescription"
+            : "Feature/&RelentlessRageDescription";
     }
 
     #endregion

@@ -225,6 +225,7 @@ Feature/&PowerVanishSummonDescription=Puedes hacer que tu invocación desaparezc
 Feature/&PowerVanishSummonTitle=Desaparecer
 Feature/&PowerWarlockMagicalCunningDescription=Puedes realizar un rito esotérico durante 1 minuto. Al final, recuperas los espacios de conjuro de Magia de pacto gastados, pero no más de una cantidad igual a la mitad de tu máximo (redondeando hacia arriba). Una vez que uses esta característica, no podrás volver a hacerlo hasta que termines un Descanso prolongado.
 Feature/&PowerWarlockMagicalCunningTitle=Astucia mágica
+Feature/&RelentlessRageExtendedDescription=Tu Furia puede hacer que sigas luchando a pesar de las graves heridas que tengas. Si tus Puntos de Golpe caen a 0 mientras tu Furia está activa y no mueres directamente, puedes hacer una tirada de salvación de Constitución CD 10. Si tienes éxito, tus Puntos de Golpe cambian a un número igual al doble de tu nivel de Bárbaro.
 Feature/&RogueSlipperyMindExtendedDescription=Has adquirido mayor fuerza mental. Ganas competencia en tiradas de salvación de Sabiduría y Carisma.
 Feature/&ToolGainChoicesPluralDescription=Elija {0} de estas herramientas: {1}
 Feature/&ToolGainChoicesSingleDescription=Elija una de estas herramientas: {1}

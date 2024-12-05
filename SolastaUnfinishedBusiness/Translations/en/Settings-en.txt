@@ -106,6 +106,7 @@ ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color>
 ModUi/&EnableBarbarianInstinctivePounce=Enable <color=#D89555>Instinctive Pounce</color> at level 7
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
+ModUi/&EnableBarbarianRelentlessRage=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
 ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest

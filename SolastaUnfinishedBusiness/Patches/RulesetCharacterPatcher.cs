@@ -2135,13 +2135,62 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class SustainDamage_Patch
     {
+        private static bool _isRelentlessRageKnockout;
+        
         [UsedImplicitly]
-        public static void Prefix(RulesetCharacter __instance, ref int totalDamageRaw, string damageType,
-            bool criticalSuccess, ulong sourceGuid, RollInfo rollInfo)
+        public static void Prefix(
+            RulesetCharacter __instance,
+            ref int totalDamageRaw,
+            string damageType,
+            bool criticalSuccess,
+            ulong sourceGuid,
+            RollInfo rollInfo)
         {
+            _isRelentlessRageKnockout = false;
+            
             //PATCH: support for `ModifySustainedDamageHandler` sub-feature
-            ModifySustainedDamage.ModifyDamage(__instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid,
-                rollInfo);
+            ModifySustainedDamage.ModifyDamage(
+                __instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid, rollInfo);
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod = typeof(RefreshUsableDeviceFunctions_Patch).GetMethod("MyRollSavingThrow");
+
+            return instructions.ReplaceCalls(rollSavingThrowMethod,
+                "RulesetCharacter.SustainDamage",
+                new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void MyRollSavingThrow(
+            RulesetActor __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            out RollOutcome outcome,
+            out int outcomeDelta)
+        {
+            // only scenario that can roll a save here is Damage Affinity Relentless Rage
+            __instance.RollSavingThrow(saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
+                rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
+            
+            _isRelentlessRageKnockout = outcome == RollOutcome.Success;
+        }
+
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (Main.Settings.EnableBarbarianRelentlessRage && _isRelentlessRageKnockout)
+            {
+                __instance.CurrentHitPoints = __instance.GetClassLevel(Barbarian) * 2;
+            }
         }
     }
 

@@ -114,6 +114,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
+        toggle = Main.Settings.EnableBarbarianRelentlessRage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRelentlessRage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRelentlessRage = toggle;
+            Tabletop2024Context.SwitchBarbarianRelentlessRage();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();

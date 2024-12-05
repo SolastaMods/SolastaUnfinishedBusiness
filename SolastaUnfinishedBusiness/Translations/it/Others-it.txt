@@ -225,6 +225,7 @@ Feature/&PowerVanishSummonDescription=Puoi far svanire la tua evocazione.
 Feature/&PowerVanishSummonTitle=Svanire
 Feature/&PowerWarlockMagicalCunningDescription=Puoi eseguire un rito esoterico per 1 minuto. Alla fine, recuperi gli slot incantesimo Pact Magic spesi, ma non più di un numero pari alla metà del tuo massimo (arrotondato per eccesso). Una volta che usi questa caratteristica, non puoi farlo di nuovo finché non finisci un Riposo Lungo.
 Feature/&PowerWarlockMagicalCunningTitle=Astuzia magica
+Feature/&RelentlessRageExtendedDescription=La tua Furia può farti continuare a combattere nonostante le ferite gravi. Se scendi a 0 Punti Ferita mentre la tua Furia è attiva e non muori all'istante, puoi effettuare un tiro salvezza su Costituzione con CD 10. Se hai successo, i tuoi Punti Ferita cambiano invece in un numero pari al doppio del tuo livello da Barbaro.
 Feature/&RogueSlipperyMindExtendedDescription=Hai acquisito una maggiore forza mentale. Ottieni competenza nei tiri salvezza su Saggezza e Carisma.
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}

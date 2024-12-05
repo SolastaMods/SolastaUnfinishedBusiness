@@ -225,6 +225,7 @@ Feature/&PowerVanishSummonDescription=召喚を消滅させることができま
 Feature/&PowerVanishSummonTitle=消え去る
 Feature/&PowerWarlockMagicalCunningDescription=1 分間、秘教的な儀式を行うことができます。儀式の終了時に、消費した契約魔法の呪文スロットを回復しますが、最大値の半分 (切り上げ) を超えることはできません。この機能を一度使用すると、大休憩を終了するまで再度使用することはできません。
 Feature/&PowerWarlockMagicalCunningTitle=魔法の狡猾さ
+Feature/&RelentlessRageExtendedDescription=激怒があれば、重傷を負っても戦い続けることができます。激怒が発動している間にヒット ポイントが 0 になっても即死しなかった場合、DC 10 の Constitution セーヴィング スローを行うことができます。成功した場合、ヒット ポイントはバーバリアン レベルの 2 倍に等しい数値に変わります。
 Feature/&RogueSlipperyMindExtendedDescription=あなたはより大きな精神力を獲得しました。あなたは知恵と魅力のセーヴィング スローに習熟しました。
 Feature/&ToolGainChoicesPluralDescription=次のツールから {0} 個を選択してください: {1}
 Feature/&ToolGainChoicesSingleDescription=次のツールのいずれかを選択します: {1}
