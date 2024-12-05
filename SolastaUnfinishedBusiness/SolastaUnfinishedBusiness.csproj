@@ -56,15 +56,17 @@
     <DebugType>portable</DebugType>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
+    <PackageReference Include="Fody" Version="6.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  
   <ItemGroup>
-    <!--    <PackageReference Include="Fody" Version="6.9.1">-->
-    <!--      <PrivateAssets>all</PrivateAssets>-->
-    <!--      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>-->
-    <!--    </PackageReference>-->
-    <!--    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">-->
-    <!--      <PrivateAssets>all</PrivateAssets>-->
-    <!--    </PackageReference>-->
-    <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
     <Reference Include="System.Collections"/>
     <Reference Include="System.IO.Compression"/>
     <Reference Include="System.Web"/>
