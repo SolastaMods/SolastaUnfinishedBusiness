@@ -3101,7 +3101,7 @@ internal static class Tabletop2024Context
     {
         var powerBarbarianPersistentRegainRagePoints = FeatureDefinitionPowerBuilder
             .Create("PowerBarbarianPersistentRegainRagePoints")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetShowCasting(false)
             .AddToDB();

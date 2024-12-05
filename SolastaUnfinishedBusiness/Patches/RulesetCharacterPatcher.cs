@@ -22,6 +22,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -2135,8 +2136,6 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class SustainDamage_Patch
     {
-        private static bool _isRelentlessRageKnockout;
-
         [UsedImplicitly]
         public static void Prefix(
             RulesetCharacter __instance,
@@ -2146,8 +2145,6 @@ public static class RulesetCharacterPatcher
             ulong sourceGuid,
             RollInfo rollInfo)
         {
-            _isRelentlessRageKnockout = false;
-
             //PATCH: support for `ModifySustainedDamageHandler` sub-feature
             ModifySustainedDamage.ModifyDamage(
                 __instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid, rollInfo);
@@ -2156,42 +2153,31 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
-            var myRollSavingThrowMethod = typeof(SustainDamage_Patch).GetMethod("MyRollSavingThrow");
+            var setCurrentHitPointsMethod = typeof(RulesetActor).GetProperty("CurrentHitPoints")!.SetMethod;
+            var mySetCurrentHitPointsMethod =
+                new Action<RulesetActor, int, IDamageAffinityProvider, bool>(MySetCurrentHitPoints).Method;
 
-            return instructions.ReplaceCalls(rollSavingThrowMethod,
-                "RulesetCharacter.SustainDamage",
-                new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+            return instructions
+                .ReplaceCalls(setCurrentHitPointsMethod,
+                    "RulesetCharacter.SustainDamage.set_CurrentHitPoints",
+                    new CodeInstruction(OpCodes.Ldloc, 12), // temperingFeature
+                    new CodeInstruction(OpCodes.Ldloc, 8), // success
+                    new CodeInstruction(OpCodes.Call, mySetCurrentHitPointsMethod));
         }
 
-        [UsedImplicitly]
-        public static void MyRollSavingThrow(
-            RulesetActor __instance,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            out RollOutcome outcome,
-            out int outcomeDelta)
+        private static void MySetCurrentHitPoints(
+            RulesetActor actor,
+            int currentHitPoints,
+            IDamageAffinityProvider damageProvider,
+            bool success)
         {
-            // only scenario that can roll a save here is Damage Affinity Relentless Rage
-            __instance.RollSavingThrow(saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
-                rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
-
-            _isRelentlessRageKnockout = outcome == RollOutcome.Success;
-        }
-
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance)
-        {
-            if (Main.Settings.EnableBarbarianRelentlessRage && _isRelentlessRageKnockout)
-            {
-                __instance.CurrentHitPoints = __instance.GetClassLevel(Barbarian) * 2;
-            }
+            actor.CurrentHitPoints = Main.Settings.EnableBarbarianRelentlessRage &&
+                                     success &&
+                                     damageProvider is FeatureDefinitionDamageAffinity damageAffinityProvider &&
+                                     damageAffinityProvider == DamageAffinityBarbarianRelentlessRage &&
+                                     actor is RulesetCharacter rulesetCharacter
+                ? rulesetCharacter.GetClassLevel(Barbarian) * 2
+                : currentHitPoints;
         }
     }
 
