@@ -13,6 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MerchantDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -284,7 +285,7 @@ internal static class ItemCraftingMerchantContext
     internal static void SwitchStackableArtItems()
     {
         foreach (var art in DatabaseRepository.GetDatabase<ItemDefinition>()
-            .Where(x => x.Name.Contains("Art_Item")))
+                     .Where(x => x.Name.Contains("Art_Item")))
         {
             art.canBeStacked = Main.Settings.EnableStackableArtItems;
         }
@@ -293,8 +294,10 @@ internal static class ItemCraftingMerchantContext
     internal static void SwitchStackableAxesAndDaggers()
     {
         foreach (var weapon in DatabaseRepository.GetDatabase<ItemDefinition>()
-                    .Where(x => x.IsWeapon &&
-                    (x.Name.Contains("Handaxe") || x.Name.Contains("Dagger"))))
+                     .Where(x =>
+                         x.IsWeapon &&
+                         (x.WeaponDescription.WeaponTypeDefinition == DaggerType ||
+                          x.WeaponDescription.WeaponTypeDefinition == HandaxeType)))
         {
             weapon.canBeStacked = Main.Settings.EnableStackableAxesAndDaggers;
             weapon.stackSize = 5;
