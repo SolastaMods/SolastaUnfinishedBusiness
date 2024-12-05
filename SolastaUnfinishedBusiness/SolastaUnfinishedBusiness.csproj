@@ -57,13 +57,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fody" Version="6.9.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <!--    <PackageReference Include="Fody" Version="6.9.1">-->
+    <!--      <PrivateAssets>all</PrivateAssets>-->
+    <!--      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>-->
+    <!--    </PackageReference>-->
+    <!--    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">-->
+    <!--      <PrivateAssets>all</PrivateAssets>-->
+    <!--    </PackageReference>-->
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
     <Reference Include="System.Collections"/>
     <Reference Include="System.IO.Compression"/>
