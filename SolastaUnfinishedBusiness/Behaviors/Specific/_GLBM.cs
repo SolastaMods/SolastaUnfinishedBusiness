@@ -1062,7 +1062,7 @@ internal static class GLBM
                             validTrigger = reactionParams.ReactionValidated;
 
                             // One DnD only allow smites as bonus action
-                            if (Main.Settings.EnablePaladinSmiteAsBonusAction && validTrigger)
+                            if (Main.Settings.EnablePaladinSmiteAsBonusAction && isDivineSmite && validTrigger)
                             {
                                 attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
                             }
