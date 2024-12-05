@@ -733,7 +733,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 usablePower,
                 helper,
                 "TidesOfChaosCheck",
-                "SpendPowerTidesOfChaosCheckDescription".Formatted(Category.Reaction),
+                "SpendPowerTidesOfChaosCheckDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager);
 

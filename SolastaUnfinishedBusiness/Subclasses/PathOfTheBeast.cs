@@ -329,7 +329,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "ExtraClawAttack",
-                "CustomReactionExtraClawAttackDescription".Formatted(Category.Reaction),
+                "CustomReactionExtraClawAttackDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

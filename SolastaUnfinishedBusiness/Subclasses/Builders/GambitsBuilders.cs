@@ -1485,7 +1485,7 @@ internal static class GambitsBuilders
                 ExtraActionId.DoNothingFree,
                 actingCharacter,
                 "GambitSwitch",
-                "CustomReactionGambitSwitchDescription".Formatted(Category.Reaction),
+                "CustomReactionGambitSwitchDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 ReactionNotValidated);
 

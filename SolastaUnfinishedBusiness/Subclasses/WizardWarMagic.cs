@@ -183,7 +183,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "ArcaneDeflectionAttack",
-                "CustomReactionArcaneDeflectionAttackDescription".Formatted(Category.Reaction),
+                "CustomReactionArcaneDeflectionAttackDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 
