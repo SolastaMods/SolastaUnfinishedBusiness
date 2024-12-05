@@ -75,7 +75,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypePiercing;
 
         _beastBite = CustomWeaponsContext.BuildWeapon(
-            "CEBeastBite", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastBite", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastBite", Resources.BeastBite, 128));
         _beastBite.itemTags = [TagBeastWeapon];
     }
@@ -100,7 +100,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypePiercing;
 
         _beastTail = CustomWeaponsContext.BuildWeapon(
-            "CEBeastTail", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastTail", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastTail", Resources.BeastTail, 128));
         _beastTail.itemTags = [TagBeastWeapon];
     }
@@ -117,7 +117,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypeSlashing;
 
         _beastClaws = CustomWeaponsContext.BuildWeapon(
-            "CEBeastClaws", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastClaws", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
         _beastClaws.itemTags = [TagBeastWeapon];
     }
@@ -198,7 +198,6 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .Create($"Power{Name}FormOfTheBeast{suffixes[i]}")
                 .SetGuiPresentation(Category.Feature)
                 .SetSharedPool(ActivationTime.OnPowerActivatedAuto, powerFormOfTheBeast)
-                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -329,7 +328,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "ExtraClawAttack",
-                "CustomReactionExtraClawAttackDescription".Localized(Category.Reaction),
+                "CustomReactionExtraClawAttackDescription".Formatted(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 
@@ -353,8 +352,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
-            if (character is not RulesetCharacterHero hero ||
-                !ValidatorsCharacter.HasFreeHandConsiderGrapple(character))
+            if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasFreeHand(character))
             {
                 return null;
             }
@@ -591,11 +589,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class BestialSoulMagicalAttack : IModifyWeaponAttackMode
     {
-        public void ModifyWeaponAttackMode(
-            RulesetCharacter character,
-            RulesetAttackMode attackMode,
-            RulesetItem weapon,
-            bool canAddAbilityDamageBonus)
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (attackMode.sourceDefinition is not ItemDefinition item ||
                 !item.ItemTags.Contains(TagBeastWeapon))
@@ -603,7 +597,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return;
             }
 
-            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
+            attackMode.AttackTags.Add("MagicalWeapon");
         }
     }
 
@@ -706,7 +700,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 usablePower,
                 [defender],
                 attacker,
-                "PowerInfectiousFury",
+                "InfectiousFury",
                 battleManager: battleManager);
         }
     }
@@ -839,7 +833,7 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
             usablePower,
             targets,
             character,
-            "PowerCallTheHunt",
+            "CallTheHunt",
             reactionValidated: ReactionValidated);
 
         yield break;
