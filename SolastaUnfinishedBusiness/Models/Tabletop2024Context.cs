@@ -1789,9 +1789,9 @@ internal static class Tabletop2024Context
     }
 
     private sealed class PowerOrSpellFinishedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
-        : IPowerOrSpellFinishedByMe
+        : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (!Main.Settings.EnableFighterTacticalProgression)
             {
@@ -1824,8 +1824,6 @@ internal static class Tabletop2024Context
                 attacker.UsedTacticalMoves = 0;
             }
 
-            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
-
             rulesetAttacker.InflictCondition(
                 ConditionWithdrawn.Name,
                 DurationType.Round,
@@ -1841,7 +1839,7 @@ internal static class Tabletop2024Context
                 0,
                 0);
 
-            attacker.SpendActionType(ActionType.Bonus);
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
             attacker.MyExecuteActionTacticalMove(position);
         }
     }
@@ -3022,9 +3020,9 @@ internal static class Tabletop2024Context
     }
 
     private sealed class PowerOrSpellFinishedByMePowerBarbarianRageStart(FeatureDefinitionPower powerDummyTargeting)
-        : IPowerOrSpellFinishedByMe
+        : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (!Main.Settings.EnableBarbarianInstinctivePounce)
             {
@@ -3058,7 +3056,6 @@ internal static class Tabletop2024Context
             }
 
             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
-            attacker.SpendActionType(ActionType.Bonus);
             attacker.MyExecuteActionTacticalMove(position);
         }
     }

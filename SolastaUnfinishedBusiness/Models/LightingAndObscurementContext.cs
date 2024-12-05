@@ -68,6 +68,10 @@ internal static class LightingAndObscurementContext
 
     private static string[] EffectsThatTargetDistantIndividualsAndDontRequireSight { get; } =
     [
+        "PowerBarbarianInstinctivePounceTargeting",
+        "PowerFighterSecondWindTargeting",
+        "PowerRogueCunningStrikeWithdraw",
+        "PowerSorcerousWildMagicTeleport",
         "AcidSplash",
         "Aid",
         "AnimalShapes",
