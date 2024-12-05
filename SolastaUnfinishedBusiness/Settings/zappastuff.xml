@@ -604,13 +604,16 @@
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-    <OneDndHealingPotionBonusAction>true</OneDndHealingPotionBonusAction>
+    <OneDndAllPotionsBonusAction>true</OneDndAllPotionsBonusAction>
+    <OneDndPoisonsBonusAction>true</OneDndPoisonsBonusAction>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
+    <EnableStackableAxesAndDaggers>false</EnableStackableAxesAndDaggers>
+    <EnableStackableArtItems>false</EnableStackableArtItems>
     <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
     <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
@@ -681,10 +684,12 @@
     <RemoveBardMagicalSecretAt14And18>true</RemoveBardMagicalSecretAt14And18>
     <RemoveBardSongOfRestAt2>true</RemoveBardSongOfRestAt2>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
-    <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
+    <EnableBarbarianInstinctivePounce>true</EnableBarbarianInstinctivePounce>
+    <EnableBarbarianPersistentRage>true</EnableBarbarianPersistentRage>
     <EnableBarbarianRecklessSameBuffDebuffDuration>true</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRelentlessRage>true</EnableBarbarianRelentlessRage>
     <EnableDruidUseMetalArmor>true</EnableDruidUseMetalArmor>
     <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>true</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
     <SwapDruidToUseOneDndWeaponProficiency>true</SwapDruidToUseOneDndWeaponProficiency>

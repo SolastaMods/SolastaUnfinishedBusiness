@@ -604,13 +604,16 @@
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-    <OneDndHealingPotionBonusAction>false</OneDndHealingPotionBonusAction>
+    <OneDndAllPotionsBonusAction>false</OneDndAllPotionsBonusAction>
+    <OneDndPoisonsBonusAction>false</OneDndPoisonsBonusAction>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>false</DisableAutoEquip>
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+    <EnableStackableAxesAndDaggers>false</EnableStackableAxesAndDaggers>
+    <EnableStackableArtItems>false</EnableStackableArtItems>
     <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
     <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
@@ -639,10 +642,12 @@
     <RemoveBardMagicalSecretAt14And18>false</RemoveBardMagicalSecretAt14And18>
     <RemoveBardSongOfRestAt2>false</RemoveBardSongOfRestAt2>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
-    <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
+    <EnableBarbarianInstinctivePounce>false</EnableBarbarianInstinctivePounce>
+    <EnableBarbarianPersistentRage>false</EnableBarbarianPersistentRage>
     <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRelentlessRage>false</EnableBarbarianRelentlessRage>
     <EnableDruidUseMetalArmor>false</EnableDruidUseMetalArmor>
     <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>false</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
     <SwapDruidToUseOneDndWeaponProficiency>false</SwapDruidToUseOneDndWeaponProficiency>
@@ -1153,8 +1158,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
