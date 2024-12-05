@@ -104,6 +104,7 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防�
 ModUi/&EnableBarbarianBrutalStrike=レベル 9、13、17 で <color=#D89555>残忍な一撃</color> と <color=#D89555>残忍な一撃の改善</color> を有効にして、<color=#D89555>残忍なクリティカル</color> を置き換えます
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableBarbarianInstinctivePounce=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
+ModUi/&EnableBarbarianPersistentRage=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 7 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBarbarianRelentlessRage=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます

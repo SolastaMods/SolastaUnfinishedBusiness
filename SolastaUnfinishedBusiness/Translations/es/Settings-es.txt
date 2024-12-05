@@ -104,6 +104,7 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Disminuye en 1 cada 
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> para reemplazar <color=#D89555>Crítico brutal</color> en los niveles 9, 13 y 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianInstinctivePounce=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
+ModUi/&EnableBarbarianPersistentRage=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 7
 ModUi/&EnableBarbarianRelentlessRage=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>

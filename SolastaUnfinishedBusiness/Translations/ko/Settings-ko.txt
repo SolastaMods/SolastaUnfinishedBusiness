@@ -104,6 +104,7 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[피해를 방지할 
 ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화하여 <color=#D89555>잔혹한 치명타</color>를 대체합니다.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableBarbarianInstinctivePounce=레벨 7에서 <color=#D89555>본능적 습격</color> 활성화
+ModUi/&EnableBarbarianPersistentRage=<color=#D89555>Persistent Rage</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=7레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
 ModUi/&EnableBarbarianRelentlessRage=<color=#D89555>Relentless Rage</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[생명력이 클래스 레벨의 1배가 아닌 2배로 설정됨]</color></i>

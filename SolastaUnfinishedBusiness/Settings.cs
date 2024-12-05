@@ -280,6 +280,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableBarbarianInstinctivePounce { get; set; }
+    public bool EnableBarbarianPersistentRage { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
     public bool EnableBarbarianRelentlessRage { get; set; }

@@ -376,6 +376,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
+        toggle = Main.Settings.EnableBarbarianPersistentRage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPersistentRage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianPersistentRage = toggle;
+            Tabletop2024Context.SwitchBarbarianPersistentRage();
+        }
+
         toggle = Main.Settings.EnableBarbarianRelentlessRage;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRelentlessRage"), ref toggle, UI.AutoWidth()))
         {

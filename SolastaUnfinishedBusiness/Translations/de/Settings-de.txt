@@ -104,6 +104,7 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Verringert sich jede
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color>, um <color=#D89555>Brutal Critical</color> auf den Stufen 9, 13 und 17 zu ersetzen.
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableBarbarianInstinctivePounce=Aktiviere <color=#D89555>Instinktives Anspringen</color> auf Stufe 7
+ModUi/&EnableBarbarianPersistentRage=Tauschen Sie <color=#D89555>Persistent Rage</color> gegen die Version 5e 2024 aus.
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 7
 ModUi/&EnableBarbarianRelentlessRage=Tauschen Sie <color=#D89555>Relentless Rage</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Ihre Trefferpunkte werden auf das Zweifache Ihrer Klassenstufe statt auf 1 gesetzt]</color></i>

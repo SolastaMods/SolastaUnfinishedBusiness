@@ -403,6 +403,7 @@ internal static class Tabletop2024Context
         BuildOneDndGuidanceSubspells();
         BuildRogueCunningStrike();
         LoadBarbarianInstinctivePounce();
+        LoadBarbarianPersistentRage();
         LoadFighterTacticalShiftCustomBehavior();
         LoadFighterStudiedAttacks();
         LoadMonkHeightenedMetabolism();
@@ -1751,7 +1752,7 @@ internal static class Tabletop2024Context
                 ExtraActionId.DoNothingFree,
                 defender,
                 "TacticalMindCheck",
-                "CustomReactionTacticalMindCheckDescription".Formatted(Category.Reaction),
+                "CustomReactionTacticalMindCheckDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 
@@ -2998,7 +2999,7 @@ internal static class Tabletop2024Context
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    internal static void LoadBarbarianInstinctivePounce()
+    private static void LoadBarbarianInstinctivePounce()
     {
         var powerBarbarianInstinctivePounceTargeting = FeatureDefinitionPowerBuilder
             .Create(PowerBarbarianRageStart, "PowerBarbarianInstinctivePounceTargeting")
@@ -3013,6 +3014,10 @@ internal static class Tabletop2024Context
             .AddToDB();
 
         PowerBarbarianRageStart.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
+        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
+        PathOfTheSavagery.PowerPrimalInstinct.AddCustomSubFeatures(
             new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
     }
 
@@ -3092,6 +3097,19 @@ internal static class Tabletop2024Context
             : "Feature/&RelentlessRageDescription";
     }
 
+    private static void LoadBarbarianPersistentRage()
+    {
+        var powerBarbarianPersistentRegainRagePoints = FeatureDefinitionPowerBuilder
+            .Create("PowerBarbarianPersistentRegainRagePoints")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
+            new InitiativeEndListenerPowerBarbarianPersistentRageStart(powerBarbarianPersistentRegainRagePoints));
+    }
+
     internal static void SwitchBarbarianPersistentRage()
     {
         if (Main.Settings.EnableBarbarianPersistentRage)
@@ -3106,6 +3124,42 @@ internal static class Tabletop2024Context
             ConditionRagingPersistent.durationParameter = 1;
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
+        }
+    }
+
+    private sealed class InitiativeEndListenerPowerBarbarianPersistentRageStart(
+        FeatureDefinitionPower powerBarbarianPersistentRegainRagePoints) : IInitiativeEndListener
+    {
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
+        {
+            if (!Main.Settings.EnableBarbarianPersistentRage)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerBarbarianPersistentRegainRagePoints, rulesetCharacter);
+
+            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return character.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                character,
+                "PersistentRegainRagePoints",
+                "CustomReactionPersistentRegainRagePointsDescription".Localized(Category.Reaction),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                // be silent on combat log
+                usablePower.remainingUses--;
+                rulesetCharacter.UsedRagePoints = 0;
+            }
         }
     }
 

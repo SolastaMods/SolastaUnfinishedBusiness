@@ -104,6 +104,7 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Decrease by 1 each t
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> to replace <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianInstinctivePounce=Enable <color=#D89555>Instinctive Pounce</color> at level 7
+ModUi/&EnableBarbarianPersistentRage=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 7
 ModUi/&EnableBarbarianRelentlessRage=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
