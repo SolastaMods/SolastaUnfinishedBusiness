@@ -73,12 +73,12 @@ internal static partial class Tabletop2024Context
                 Attribute = FighterClass
             });
     }
-    
+
     private static void LoadFighterStudiedAttacks()
     {
         ConditionStudiedAttacks.Features.SetRange(CombatAffinityStudiedAttacks);
     }
-    
+
     private static void LoadFighterTacticalProgression()
     {
         var powerFighterSecondWindTargeting = FeatureDefinitionPowerBuilder
@@ -100,7 +100,7 @@ internal static partial class Tabletop2024Context
     internal static void SwitchFighterIndomitableSaving()
     {
         UseIndomitableResistance.GuiPresentation.description =
-            Main.Settings.AddFighterLevelToIndomitableSavingReroll
+            Main.Settings.EnableFighterIndomitableSaving2024
                 ? "Feature/&EnhancedIndomitableResistanceDescription"
                 : "Feature/&IndomitableResistanceDescription";
     }
@@ -109,7 +109,7 @@ internal static partial class Tabletop2024Context
     {
         Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureFighterStudiedAttacks);
 
-        if (Main.Settings.EnableFighterStudiedAttacks)
+        if (Main.Settings.EnableFighterStudiedAttacks2024)
         {
             Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
         }
@@ -123,7 +123,7 @@ internal static partial class Tabletop2024Context
             x.FeatureDefinition == FeatureFighterTacticalMind ||
             x.FeatureDefinition == FeatureFighterTacticalShift);
 
-        if (Main.Settings.EnableFighterTacticalProgression)
+        if (Main.Settings.EnableFighterTacticalProgression2024)
         {
             Fighter.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(FeatureFighterTacticalMind, 2),
@@ -135,14 +135,14 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchFighterSecondWind()
     {
-        PowerFighterSecondWind.rechargeRate = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression
+        PowerFighterSecondWind.rechargeRate = Main.Settings.EnableFighterSecondWind2024
             ? RechargeRate.LongRest
             : RechargeRate.ShortRest;
     }
 
     internal static void SwitchFighterSkillOptions()
     {
-        if (Main.Settings.AddPersuasionToFighterSkillOptions)
+        if (Main.Settings.EnableFighterSkillOptions2024)
         {
             PointPoolFighterSkillPoints.restrictedChoices.Add(SkillDefinitions.Persuasion);
         }
@@ -217,7 +217,7 @@ internal static partial class Tabletop2024Context
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (!Main.Settings.EnableFighterTacticalProgression)
+            if (!Main.Settings.EnableFighterTacticalProgression2024)
             {
                 yield break;
             }

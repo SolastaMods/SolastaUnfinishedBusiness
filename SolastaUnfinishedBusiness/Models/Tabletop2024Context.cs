@@ -73,8 +73,8 @@ internal static partial class Tabletop2024Context
         SwitchPoisonsBonusAction();
         SwitchOneDndPreparedSpellsTables();
         SwitchOneDndRangerLearnSpellCastingAtOne();
-        SwitchOneDndRemoveBardMagicalSecretAt14And18();
-        SwitchOneDndRemoveBardSongOfRest();
+        SwitchOneDndRemoveBardMagicalSecret2024();
+        SwitchOneDndRemoveBardSongOfRest2024();
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellGuidance();

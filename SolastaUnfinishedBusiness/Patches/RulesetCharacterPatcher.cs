@@ -243,7 +243,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
+    //PATCH: supports `EnableFighterIndomitableSaving2024`
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.UseIndomitableResistance))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -252,7 +252,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Prefix(RulesetCharacter __instance)
         {
-            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
+            if (!Main.Settings.EnableFighterIndomitableSaving2024)
             {
                 return;
             }
@@ -1707,7 +1707,7 @@ public static class RulesetCharacterPatcher
             var fighterClassLevel = __instance.GetClassLevel(Fighter);
 
             // ReSharper disable once InvertIf
-            if (Main.Settings.EnableSecondWindToUseOneDndUsagesProgression &&
+            if (Main.Settings.EnableFighterSecondWind2024 &&
                 restType == RestType.ShortRest &&
                 fighterClassLevel >= 1)
             {
@@ -2171,7 +2171,7 @@ public static class RulesetCharacterPatcher
             IDamageAffinityProvider damageProvider,
             bool success)
         {
-            actor.CurrentHitPoints = Main.Settings.EnableBarbarianRelentlessRage &&
+            actor.CurrentHitPoints = Main.Settings.EnableBarbarianRelentlessRage2024 &&
                                      success &&
                                      damageProvider is FeatureDefinitionDamageAffinity damageAffinityProvider &&
                                      damageAffinityProvider == DamageAffinityBarbarianRelentlessRage &&

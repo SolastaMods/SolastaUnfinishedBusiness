@@ -6,11 +6,11 @@ ModUi/&AddCustomIconsToOfficialItems=Añade íconos personalizados a los element
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilita <color=#D89555>Percepción de la oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Kóbold oscuro</color> y <color=#D89555>Enano gris</color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Añade el modificador DEX a los enemigos <color=#D89555>Tiro de iniciativa</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Habilita <color=#D89555>Orden primigenia</color> en el nivel 1 y elimina <color=#D89555>Competencia en armadura media</color>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Añade el nivel de clase como bonificación a la repetición de la tirada de salvación de <color=#D89555>Resistencia indomable</color>.
+ModUi/&EnableFighterIndomitableSaving2024=Añade el nivel de clase como bonificación a la repetición de la tirada de salvación de <color=#D89555>Resistencia indomable</color>.
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar enemigos preferidos <color=#D89555>humanoides</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Añade nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[vendas de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregar un interruptor para permitir que los <color=#D89555>Paladines</color> solo habiliten golpes críticos. <i><color=#F0DAA0>[útil para minimizar las solicitudes de reacción]</color></i>
-ModUi/&AddPersuasionToFighterSkillOptions=Añade <color=#D89555>Persuasión</color> a las opciones de habilidad en el nivel 1
+ModUi/&EnableFighterSkillOptions2024=Añade <color=#D89555>Persuasión</color> a las opciones de habilidad en el nivel 1
 ModUi/&AddPickPocketableLoot=Añadir botín hurtable <i><color=#F0DAA0>[sugerido si la dote <color=#D89555>Hurto</color> está habilitada]</color></i>
 ModUi/&AddToStore=Agregar {0}
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Permitir que los <color=#D89555>trucos de es
 ModUi/&AllowClubsToBeThrown=Permitir que los <color=#D89555>garrotes</color> se arrojen como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir hechizos no sugeridos por mods en cada lista
 ModUi/&AllowDisplayingOfficialSpells=Permitir hechizos oficiales del juego en cada lista
-ModUi/&EnableDruidMetalArmor=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidMetalArmor2024=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowFlightSuspend=Permitir suspender temporalmente el vuelo de objetos y hechizos <i><color=#F0DAA0>[no afecta a las razas voladoras ni a las de forma salvaje]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic con la tecla <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
@@ -104,12 +104,12 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Disminuye en 1 cada 
 ModUi/&EnableBarbarianBrutalStrike2024=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> para reemplazar <color=#D89555>Crítico brutal</color> en los niveles 9, 13 y 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianInstinctivePounce2024=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
-ModUi/&EnableBarbarianPersistentRage=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
+ModUi/&EnableBarbarianPersistentRage2024=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
 ModUi/&EnableBarbarianReckless2024=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 1
-ModUi/&EnableBarbarianRelentlessRage=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>
+ModUi/&EnableBarbarianRelentlessRage2024=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
-ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
+ModUi/&EnableBardExpertiseOneLevelBefore2024=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
 ModUi/&EnableBardSuperiorInspiration2024=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
 ModUi/&EnableBardWordsOfCreation2024=Habilita <color=#D89555>Palabras de creación</color> en el nivel 20
@@ -125,8 +125,8 @@ ModUi/&EnableEpicPointsAndArray=Habilitar un sistema de compra épico de 35 punt
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar la visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[reducción del rendimiento en la inspección del personaje. úsalo bajo tu propio riesgo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de <color=#D89555>dotes</color> en los niveles 6 y 14
-ModUi/&EnableFighterStudiedAttacks=Habilita <color=#D89555>Ataques estudiados</color> en el nivel 13 <i><color=#F0DAA0>[ventaja si el ataque anterior en la ronda contra la criatura falló]</color></i>
-ModUi/&EnableFighterTacticalProgression=Habilita <color=#D89555>Mente táctica</color> y <color=#D89555>Cambio táctico</color> en los niveles 2 y 5 <i><color=#F0DAA0>[escenarios de aumento de segundo aliento]</color></i>
+ModUi/&EnableFighterStudiedAttacks2024=Habilita <color=#D89555>Ataques estudiados</color> en el nivel 13 <i><color=#F0DAA0>[ventaja si el ataque anterior en la ronda contra la criatura falló]</color></i>
+ModUi/&EnableFighterTacticalProgression2024=Habilita <color=#D89555>Mente táctica</color> y <color=#D89555>Cambio táctico</color> en los niveles 2 y 5 <i><color=#F0DAA0>[escenarios de aumento de segundo aliento]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 8 y 16 <i><color=#F0DAA0>[obtienes +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fondos flexibles <i><color=#F0DAA0>[seleccionar habilidades y competencias de herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de habilidad en lugar de los valores raciales predeterminados]</color></i>
@@ -184,7 +184,7 @@ ModUi/&EnableRogueReliableTalentAt7=Habilitar <color=#D89555>Talento confiable</
 ModUi/&EnableRogueSlipperyMind=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
-ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Habilitar <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
+ModUi/&EnableFighterSecondWind2024=Habilitar <color=#D89555>Second Wind</color> para usar la progresión de usos de 5e 2024
 ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis=Habilita <color=#D89555>Apoteosis arcana</color> en 20
 ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
@@ -298,8 +298,8 @@ ModUi/&RecipeCost=<color=white>Costo de la receta</color>
 ModUi/&RefreshVoice=Actualizar lista de voces
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&RemoveBardMagicalSecretAt14And18=Elimina <color=#D89555>Secreto mágico</color> en los niveles 14 y 18
-ModUi/&RemoveBardSongOfRest=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
+ModUi/&RemoveBardMagicalSecret2024=Elimina <color=#D89555>Secreto mágico</color> en los niveles 14 y 18
+ModUi/&RemoveBardSongOfRest2024=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.
@@ -349,7 +349,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
 ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
 ModUi/&SwapAbjurationSavant=Intercambia <b>Abjurador</b> <color=#D89555>Sabio de la abjuración</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de espacio]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
-ModUi/&SwapDruidToUseOneDndWeaponProficiency=Habilita la competencia en <color=#D89555>Armas simples</color> <i><color=#F0DAA0>[en lugar de tipos de armas individuales pero pierdes la competencia en Cimitarra]</color></i>
+ModUi/&EnableDruidWeaponProficiency2024=Habilita la competencia en <color=#D89555>Armas simples</color> <i><color=#F0DAA0>[en lugar de tipos de armas individuales pero pierdes la competencia en Cimitarra]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia <b>Evocador</b>, <color=#D89555>hechizos de escultura</color> y <color=#D89555>truco potente</color> al progresar.
 ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Habilite <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado 5e 2024

@@ -6,11 +6,11 @@ ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Enable <color=#D89555>Primal Order</color> at level 1 and remove <color=#D89555>Medium Armor Proficiency</color>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
+ModUi/&EnableFighterIndomitableSaving2024=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Humanoid</color> preferred enemies <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
-ModUi/&AddPersuasionToFighterSkillOptions=Add <color=#D89555>Persuasion</color> to skill options at level 1
+ModUi/&EnableFighterSkillOptions2024=Add <color=#D89555>Persuasion</color> to skill options at level 1
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add {0}
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> 
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
-ModUi/&EnableDruidMetalArmor=Remove <color=#D89555>Metal Armor</color> restrictions
+ModUi/&EnableDruidMetalArmor2024=Remove <color=#D89555>Metal Armor</color> restrictions
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -104,12 +104,12 @@ ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Decrease by 1 each t
 ModUi/&EnableBarbarianBrutalStrike2024=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> to replace <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianInstinctivePounce2024=Enable <color=#D89555>Instinctive Pounce</color> at level 7
-ModUi/&EnableBarbarianPersistentRage=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
+ModUi/&EnableBarbarianPersistentRage2024=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
 ModUi/&EnableBarbarianReckless2024=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
-ModUi/&EnableBarbarianRelentlessRage=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
+ModUi/&EnableBarbarianRelentlessRage2024=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
-ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
+ModUi/&EnableBardExpertiseOneLevelBefore2024=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
 ModUi/&EnableBardSuperiorInspiration2024=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
 ModUi/&EnableBardWordsOfCreation2024=Enable <color=#D89555>Words of Creation</color> at level 20
@@ -125,8 +125,8 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
-ModUi/&EnableFighterStudiedAttacks=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
-ModUi/&EnableFighterTacticalProgression=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
+ModUi/&EnableFighterStudiedAttacks2024=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
+ModUi/&EnableFighterTacticalProgression2024=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
@@ -184,7 +184,7 @@ ModUi/&EnableRogueReliableTalentAt7=Enable <color=#D89555>Reliable Talent</color
 ModUi/&EnableRogueSlipperyMind=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
-ModUi/&EnableSecondWindToUseOneDndUsagesProgression=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
+ModUi/&EnableFighterSecondWind2024=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis=Enable <color=#D89555>Arcane Apotheosis</color> at 20
 ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
@@ -298,8 +298,8 @@ ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RefreshVoice=Refresh Voices List
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
-ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 2
+ModUi/&RemoveBardMagicalSecret2024=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
+ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
@@ -349,7 +349,7 @@ ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
-ModUi/&SwapDruidToUseOneDndWeaponProficiency=Enable <color=#D89555>Simple Weapons</color> proficiency <i><color=#F0DAA0>[instead of individual weapon types but you lose Scimitar proficiency]</color></i>
+ModUi/&EnableDruidWeaponProficiency2024=Enable <color=#D89555>Simple Weapons</color> proficiency <i><color=#F0DAA0>[instead of individual weapon types but you lose Scimitar proficiency]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression

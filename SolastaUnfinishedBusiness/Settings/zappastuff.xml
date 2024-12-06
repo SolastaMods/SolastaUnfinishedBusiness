@@ -678,26 +678,26 @@
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
-    <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
+    <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
     <EnableBardSuperiorInspiration2024>true</EnableBardSuperiorInspiration2024>
     <EnableBardWordsOfCreation2024>true</EnableBardWordsOfCreation2024>
-    <RemoveBardMagicalSecretAt14And18>true</RemoveBardMagicalSecretAt14And18>
-    <RemoveBardSongOfRest>true</RemoveBardSongOfRest>
+    <RemoveBardMagicalSecret2024>true</RemoveBardMagicalSecret2024>
+    <RemoveBardSongOfRest2024>true</RemoveBardSongOfRest2024>
     <EnableBarbarianBrutalStrike2024>true</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
     <EnableBarbarianInstinctivePounce2024>true</EnableBarbarianInstinctivePounce2024>
-    <EnableBarbarianPersistentRage>true</EnableBarbarianPersistentRage>
+    <EnableBarbarianPersistentRage2024>true</EnableBarbarianPersistentRage2024>
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
-    <EnableBarbarianRelentlessRage>true</EnableBarbarianRelentlessRage>
+    <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
     <EnableDruidUseMetalArmor>true</EnableDruidUseMetalArmor>
-    <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>true</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
-    <SwapDruidToUseOneDndWeaponProficiency>true</SwapDruidToUseOneDndWeaponProficiency>
-    <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
-    <AddPersuasionToFighterSkillOptions>true</AddPersuasionToFighterSkillOptions>
-    <EnableSecondWindToUseOneDndUsagesProgression>true</EnableSecondWindToUseOneDndUsagesProgression>
-    <EnableFighterStudiedAttacks>true</EnableFighterStudiedAttacks>
-    <EnableFighterTacticalProgression>true</EnableFighterTacticalProgression>
+    <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
+    <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
+    <EnableFighterIndomitableSaving2024>true</EnableFighterIndomitableSaving2024>
+    <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
+    <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
+    <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>

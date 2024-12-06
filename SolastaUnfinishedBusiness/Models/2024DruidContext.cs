@@ -65,7 +65,7 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchDruidMetalArmor()
     {
-        var active = Main.Settings.EnableDruidMetalArmor;
+        var active = Main.Settings.EnableDruidMetalArmor2024;
 
         if (active)
         {
@@ -87,7 +87,7 @@ internal static partial class Tabletop2024Context
         Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
         ProficiencyDruidArmor.Proficiencies.Remove(EquipmentDefinitions.MediumArmorCategory);
 
-        if (Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency)
+        if (Main.Settings.EnableDruidPrimalOrder2024)
         {
             Druid.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetDruidPrimalOrder, 1));
         }
@@ -102,7 +102,7 @@ internal static partial class Tabletop2024Context
     internal static void SwitchDruidWeaponProficiencyToUseOneDnd()
     {
         ProficiencyDruidWeapon.proficiencies =
-            Main.Settings.SwapDruidToUseOneDndWeaponProficiency
+            Main.Settings.EnableDruidWeaponProficiency2024
                 ? [WeaponCategoryDefinitions.SimpleWeaponCategory.Name]
                 : DruidWeaponsCategories;
     }

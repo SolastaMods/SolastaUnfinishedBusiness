@@ -28,8 +28,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    #region Barbarian
-
     private const string BrutalStrike = "BarbarianBrutalStrike";
     private static ConditionDefinition _conditionBrutalStrike;
     private static ConditionDefinition _conditionHamstringBlow;
@@ -39,6 +37,17 @@ internal static partial class Tabletop2024Context
     private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrike;
     private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement13;
     private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement17;
+
+    private static readonly FeatureDefinition FeatureBarbarianInstinctivePounce = FeatureDefinitionBuilder
+        .Create("FeatureBarbarianInstinctivePounce")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinition PointPoolBarbarianPrimalKnowledge = FeatureDefinitionPointPoolBuilder
+        .Create(FeatureDefinitionPointPools.PointPoolBarbarianrSkillPoints, "PointPoolBarbarianPrimalKnowledge")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckPrimalKnowledge())
+        .AddToDB();
 
     private static void BuildBarbarianBrutalStrike()
     {
@@ -222,6 +231,148 @@ internal static partial class Tabletop2024Context
             .Create($"FeatureSet{BrutalStrikeImprovement17}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+    }
+
+    internal static void SwitchBarbarianBrutalStrike()
+    {
+        Barbarian.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrike ||
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13 ||
+            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17 ||
+            x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
+            x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
+
+        if (Main.Settings.EnableBarbarianBrutalStrike2024)
+        {
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private static void LoadBarbarianInstinctivePounce()
+    {
+        var powerBarbarianInstinctivePounceTargeting = FeatureDefinitionPowerBuilder
+            .Create(PowerBarbarianRageStart, "PowerBarbarianInstinctivePounceTargeting")
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
+            .AddToDB();
+
+        var rageStartBehavior =
+            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting);
+
+        PowerBarbarianRageStart.AddCustomSubFeatures(rageStartBehavior);
+        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(rageStartBehavior);
+        PathOfTheSavagery.PowerPrimalInstinct.AddCustomSubFeatures(rageStartBehavior);
+    }
+
+    internal static void SwitchBarbarianInstinctivePounce()
+    {
+        Barbarian.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureBarbarianInstinctivePounce);
+
+        if (Main.Settings.EnableBarbarianInstinctivePounce2024)
+        {
+            Barbarian.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureBarbarianInstinctivePounce, 7));
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchBarbarianReckless()
+    {
+        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianReckless2024
+            ? "Action/&RecklessAttackExtendedDescription"
+            : "Action/&RecklessAttackDescription";
+    }
+
+    internal static void SwitchBarbarianRegainOneRageAtShortRest()
+    {
+        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
+            ? "Feature/&FeatureSetRageExtendedDescription"
+            : "Feature/&FeatureSetRageDescription";
+    }
+
+    internal static void SwitchBarbarianRelentlessRage()
+    {
+        DamageAffinityBarbarianRelentlessRage.GuiPresentation.description =
+            Main.Settings.EnableBarbarianRelentlessRage2024
+                ? "Feature/&RelentlessRageExtendedDescription"
+                : "Feature/&RelentlessRageDescription";
+    }
+
+    private static void LoadBarbarianPersistentRage()
+    {
+        var powerBarbarianPersistentRegainRagePoints = FeatureDefinitionPowerBuilder
+            .Create("PowerBarbarianPersistentRegainRagePoints")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
+            new CustomBehaviorPowerBarbarianPersistentRageStart(powerBarbarianPersistentRegainRagePoints));
+    }
+
+    internal static void SwitchBarbarianPersistentRage()
+    {
+        if (Main.Settings.EnableBarbarianPersistentRage2024)
+        {
+            ConditionRagingNormal.SpecialInterruptions.SetRange(
+                ConditionInterruption.NoAttackOrDamagedInTurn);
+            ConditionRagingPersistent.durationParameter = 10;
+            ConditionRagingPersistent.SpecialInterruptions.Clear();
+            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
+            PowerBarbarianPersistentRageStart.GuiPresentation.description =
+                "Action/&PersistentRageStartExtendedDescription";
+        }
+        else
+        {
+            ConditionRagingNormal.SpecialInterruptions.SetRange(
+                ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.BattleEnd);
+            ConditionRagingPersistent.durationParameter = 1;
+            ConditionRagingPersistent.SpecialInterruptions.SetRange(ConditionInterruption.BattleEnd);
+            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
+            PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
+        }
+    }
+
+    internal static void SwitchBarbarianPrimalKnowledge()
+    {
+        Barbarian.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolBarbarianPrimalKnowledge);
+
+        if (Main.Settings.EnableBarbarianBrutalStrike2024)
+        {
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13),
+                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+        }
+
+        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private sealed class CustomBehaviorBrutalStrike(FeatureDefinitionPower powerBarbarianBrutalStrike)
@@ -477,60 +628,6 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchBarbarianBrutalStrike()
-    {
-        Barbarian.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == _featureSetBarbarianBrutalStrike ||
-            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13 ||
-            x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17 ||
-            x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
-            x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-
-        if (Main.Settings.EnableBarbarianBrutalStrike2024)
-        {
-            Barbarian.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
-        }
-        else
-        {
-            Barbarian.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13),
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
-        }
-
-        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    private static readonly FeatureDefinition FeatureBarbarianInstinctivePounce = FeatureDefinitionBuilder
-        .Create("FeatureBarbarianInstinctivePounce")
-        .SetGuiPresentation(Category.Feature)
-        .AddToDB();
-
-    private static void LoadBarbarianInstinctivePounce()
-    {
-        var powerBarbarianInstinctivePounceTargeting = FeatureDefinitionPowerBuilder
-            .Create(PowerBarbarianRageStart, "PowerBarbarianInstinctivePounceTargeting")
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
-                    .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
-            .AddToDB();
-
-        var rageStartBehavior =
-            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting);
-
-        PowerBarbarianRageStart.AddCustomSubFeatures(rageStartBehavior);
-        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(rageStartBehavior);
-        PathOfTheSavagery.PowerPrimalInstinct.AddCustomSubFeatures(rageStartBehavior);
-    }
-
     private sealed class PowerOrSpellFinishedByMePowerBarbarianRageStart(FeatureDefinitionPower powerDummyTargeting)
         : IPowerOrSpellInitiatedByMe
     {
@@ -572,82 +669,12 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchBarbarianInstinctivePounce()
-    {
-        Barbarian.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == FeatureBarbarianInstinctivePounce);
-
-        if (Main.Settings.EnableBarbarianInstinctivePounce2024)
-        {
-            Barbarian.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureBarbarianInstinctivePounce, 7));
-        }
-
-        Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchBarbarianReckless()
-    {
-        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianReckless2024
-            ? "Action/&RecklessAttackExtendedDescription"
-            : "Action/&RecklessAttackDescription";
-    }
-
-    internal static void SwitchBarbarianRegainOneRageAtShortRest()
-    {
-        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
-            ? "Feature/&FeatureSetRageExtendedDescription"
-            : "Feature/&FeatureSetRageDescription";
-    }
-
-    internal static void SwitchBarbarianRelentlessRage()
-    {
-        DamageAffinityBarbarianRelentlessRage.GuiPresentation.description = Main.Settings.EnableBarbarianRelentlessRage
-            ? "Feature/&RelentlessRageExtendedDescription"
-            : "Feature/&RelentlessRageDescription";
-    }
-
-    private static void LoadBarbarianPersistentRage()
-    {
-        var powerBarbarianPersistentRegainRagePoints = FeatureDefinitionPowerBuilder
-            .Create("PowerBarbarianPersistentRegainRagePoints")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-            .SetShowCasting(false)
-            .AddToDB();
-
-        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
-            new CustomBehaviorPowerBarbarianPersistentRageStart(powerBarbarianPersistentRegainRagePoints));
-    }
-
-    internal static void SwitchBarbarianPersistentRage()
-    {
-        if (Main.Settings.EnableBarbarianPersistentRage)
-        {
-            ConditionRagingNormal.SpecialInterruptions.SetRange(
-                ConditionInterruption.NoAttackOrDamagedInTurn);
-            ConditionRagingPersistent.durationParameter = 10;
-            ConditionRagingPersistent.SpecialInterruptions.Clear();
-            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
-            PowerBarbarianPersistentRageStart.GuiPresentation.description =
-                "Action/&PersistentRageStartExtendedDescription";
-        }
-        else
-        {
-            ConditionRagingNormal.SpecialInterruptions.SetRange(
-                ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.BattleEnd);
-            ConditionRagingPersistent.durationParameter = 1;
-            ConditionRagingPersistent.SpecialInterruptions.SetRange(ConditionInterruption.BattleEnd);
-            ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
-            PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
-        }
-    }
-
     private sealed class CustomBehaviorPowerBarbarianPersistentRageStart(
         FeatureDefinitionPower powerBarbarianPersistentRegainRagePoints) : IInitiativeEndListener, IOnItemEquipped
     {
         public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
         {
-            if (!Main.Settings.EnableBarbarianPersistentRage)
+            if (!Main.Settings.EnableBarbarianPersistentRage2024)
             {
                 yield break;
             }
@@ -692,5 +719,59 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    #endregion
+    private sealed class TryAlterOutcomeAttributeCheckPrimalKnowledge : ITryAlterOutcomeAttributeCheck
+    {
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var strength = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var strMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckSuccessDelta < -strMod ||
+                helper != defender ||
+                rulesetHelper.RemainingRagePoints == 0)
+            {
+                yield break;
+            }
+
+            yield return helper.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                defender,
+                "PrimalKnowledge",
+                "CustomReactionPrimalKnowledgeDescription".Localized(Category.Reaction),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var abilityCheckModifier = abilityCheckData.AbilityCheckActionModifier;
+
+                abilityCheckModifier.AbilityCheckModifierTrends.Add(
+                    new TrendInfo(strMod, FeatureSourceType.CharacterFeature, PointPoolBarbarianPrimalKnowledge.Name,
+                        PointPoolBarbarianPrimalKnowledge));
+
+                abilityCheckModifier.AbilityCheckModifier += strMod;
+                abilityCheckData.AbilityCheckSuccessDelta += strMod;
+
+                if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+                {
+                    abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                    rulesetHelper.SpendRagePoint();
+                }
+
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feature/&PointPoolBarbarianPrimalKnowledgeTitle",
+                    "Feedback/&PrimalKnowledgeCheckToHitRoll",
+                    extra: [(ConsoleStyleDuplet.ParameterType.Positive, strMod.ToString())]);
+            }
+        }
+    }
 }

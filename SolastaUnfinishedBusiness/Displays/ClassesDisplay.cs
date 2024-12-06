@@ -40,10 +40,10 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBardCounterCharm();
         }
 
-        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableBardExpertiseOneLevelBefore2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardExpertiseOneLevelBefore2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableBardExpertiseOneLevelBefore = toggle;
+            Main.Settings.EnableBardExpertiseOneLevelBefore2024 = toggle;
             Tabletop2024Context.SwitchBardExpertiseOneLevelBefore();
         }
 
@@ -61,18 +61,18 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBardWordsOfCreation();
         }
 
-        toggle = Main.Settings.RemoveBardMagicalSecretAt14And18;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecretAt14And18"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveBardMagicalSecret2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecret2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.RemoveBardMagicalSecretAt14And18 = toggle;
-            Tabletop2024Context.SwitchOneDndRemoveBardMagicalSecretAt14And18();
+            Main.Settings.RemoveBardMagicalSecret2024 = toggle;
+            Tabletop2024Context.SwitchOneDndRemoveBardMagicalSecret2024();
         }
 
-        toggle = Main.Settings.RemoveBardSongOfRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveBardSongOfRest2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.RemoveBardSongOfRest = toggle;
-            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRest();
+            Main.Settings.RemoveBardSongOfRest2024 = toggle;
+            Tabletop2024Context.SwitchOneDndRemoveBardSongOfRest2024();
         }
 
         UI.Label();
@@ -114,17 +114,17 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
-        toggle = Main.Settings.EnableBarbarianPersistentRage;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPersistentRage"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableBarbarianPersistentRage2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPersistentRage2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableBarbarianPersistentRage = toggle;
+            Main.Settings.EnableBarbarianPersistentRage2024 = toggle;
             Tabletop2024Context.SwitchBarbarianPersistentRage();
         }
 
-        toggle = Main.Settings.EnableBarbarianRelentlessRage;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRelentlessRage"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableBarbarianRelentlessRage2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRelentlessRage2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableBarbarianRelentlessRage = toggle;
+            Main.Settings.EnableBarbarianRelentlessRage2024 = toggle;
             Tabletop2024Context.SwitchBarbarianRelentlessRage();
         }
 
@@ -132,25 +132,25 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidMetalArmor;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableDruidMetalArmor2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidMetalArmor = toggle;
+            Main.Settings.EnableDruidMetalArmor2024 = toggle;
             Tabletop2024Context.SwitchDruidMetalArmor();
         }
 
-        toggle = Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency;
+        toggle = Main.Settings.EnableDruidPrimalOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
                 UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidPrimalOrderAndRemoveMediumArmorProficiency = toggle;
+            Main.Settings.EnableDruidPrimalOrder2024 = toggle;
             Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
         }
 
-        toggle = Main.Settings.SwapDruidToUseOneDndWeaponProficiency;
-        if (UI.Toggle(Gui.Localize("ModUi/&SwapDruidToUseOneDndWeaponProficiency"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableDruidWeaponProficiency2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWeaponProficiency2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.SwapDruidToUseOneDndWeaponProficiency = toggle;
+            Main.Settings.EnableDruidWeaponProficiency2024 = toggle;
             Tabletop2024Context.SwitchDruidWeaponProficiencyToUseOneDnd();
         }
 
@@ -158,17 +158,17 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterIndomitableSaving2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterIndomitableSaving2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+            Main.Settings.EnableFighterIndomitableSaving2024 = toggle;
             Tabletop2024Context.SwitchFighterIndomitableSaving();
         }
 
-        toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterSkillOptions2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSkillOptions2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
+            Main.Settings.EnableFighterSkillOptions2024 = toggle;
             Tabletop2024Context.SwitchFighterSkillOptions();
         }
 
@@ -179,24 +179,24 @@ internal static class ClassesDisplay
             ClassesContext.SwitchFighterWeaponSpecialization();
         }
 
-        toggle = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterSecondWind2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSecondWind2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSecondWindToUseOneDndUsagesProgression = toggle;
+            Main.Settings.EnableFighterSecondWind2024 = toggle;
             Tabletop2024Context.SwitchFighterSecondWind();
         }
 
-        toggle = Main.Settings.EnableFighterStudiedAttacks;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterStudiedAttacks"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterStudiedAttacks2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterStudiedAttacks2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFighterStudiedAttacks = toggle;
+            Main.Settings.EnableFighterStudiedAttacks2024 = toggle;
             Tabletop2024Context.SwitchFighterStudiedAttacks();
         }
 
-        toggle = Main.Settings.EnableFighterTacticalProgression;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalProgression"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterTacticalProgression2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalProgression2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFighterTacticalProgression = toggle;
+            Main.Settings.EnableFighterTacticalProgression2024 = toggle;
             Tabletop2024Context.SwitchFighterTacticalProgression();
         }
 

@@ -64,7 +64,7 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchBardExpertiseOneLevelBefore()
     {
-        var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
+        var level = Main.Settings.EnableBardExpertiseOneLevelBefore2024 ? 2 : 3;
 
         foreach (var featureUnlock in Bard.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel3))
@@ -72,7 +72,7 @@ internal static partial class Tabletop2024Context
             featureUnlock.level = level;
         }
 
-        level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 9 : 10;
+        level = Main.Settings.EnableBardExpertiseOneLevelBefore2024 ? 9 : 10;
 
         foreach (var featureUnlock in Bard.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == PointPoolBardExpertiseLevel10))
@@ -80,7 +80,7 @@ internal static partial class Tabletop2024Context
             featureUnlock.level = level;
         }
 
-        if (Main.Settings.EnableBardExpertiseOneLevelBefore)
+        if (Main.Settings.EnableBardExpertiseOneLevelBefore2024)
         {
             PointPoolBardExpertiseLevel3.GuiPresentation.description = "Feature/&BardExpertiseExtendedDescription";
             PointPoolBardExpertiseLevel10.GuiPresentation.description = "Feature/&BardExpertiseExtendedDescription";
@@ -108,12 +108,12 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndRemoveBardSongOfRest()
+    internal static void SwitchOneDndRemoveBardSongOfRest2024()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == RestHealingModifierBardSongOfRest);
 
-        if (!Main.Settings.RemoveBardSongOfRest)
+        if (!Main.Settings.RemoveBardSongOfRest2024)
         {
             Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(RestHealingModifierBardSongOfRest, 2));
         }
@@ -121,13 +121,13 @@ internal static partial class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndRemoveBardMagicalSecretAt14And18()
+    internal static void SwitchOneDndRemoveBardMagicalSecret2024()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == PointPoolBardMagicalSecrets14 ||
             x.FeatureDefinition == Level20Context.PointPoolBardMagicalSecrets18);
 
-        if (!Main.Settings.RemoveBardMagicalSecretAt14And18)
+        if (!Main.Settings.RemoveBardMagicalSecret2024)
         {
             Bard.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PointPoolBardMagicalSecrets14, 14),
