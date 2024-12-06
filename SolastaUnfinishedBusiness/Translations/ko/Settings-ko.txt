@@ -6,11 +6,9 @@ ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 지정
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에게 <color=#D89555>어둠 지각</color>을 활성화합니다. <i><color=#F0DAA0>\n[조명이 없거나 마법적 어둠에 있을 때 지각 검사에 유리합니다]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
-ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>불굴의 저항력</color> 세이빙 스로우 재시전에 보너스로 클래스 레벨을 추가합니다.
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>성기사</color>가 치명타에만 스마이트를 사용할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
-ModUi/&EnableFighterSkillOptions2024=1레벨 스킬 옵션에 <color=#D89555>설득</color>을 추가합니다.
 ModUi/&AddPickPocketableLoot=주머니털이 가능한 전리품 추가 <i><color=#F0DAA0>[<color=#D89555>주머니털이</color> 특기가 활성화된 경우 추천]</color></i>
 ModUi/&AddToStore={0} 추가
 ModUi/&Advanced=<color=#F0DAA0>고급:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
@@ -22,7 +20,6 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에 제안되지 않은 주문 허용
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문 허용
-ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20인 던전 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시적으로 중단할 수 있습니다. <i><color=#F0DAA0>[야생형이나 비행 종족에는 영향을 미치지 않습니다.]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=가젯이나 소품을 배치할 때 모든 검사를 우회하려면 <color=#1E81B0>CTRL</color> 클릭을 활성화하세요.
@@ -42,7 +39,6 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀었
 ModUi/&Blueprints=청사진
 ModUi/&Campaigns=캠페인
 ModUi/&Category=범주
-ModUi/&EnableBardicInspiration2024=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>드래곤본</color> 원소 숨결 사용을 짧은 휴식당 CON 수정치로 변경
 ModUi/&ChangeSleetStormToCube=<color=#D89555>눈보라 폭풍</color>을 실린더 대신 큐브를 사용하도록 변경합니다.
 ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
@@ -113,18 +109,24 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=레벨 3과 10 대신 레벨 2와 9
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
 ModUi/&EnableBardSuperiorInspiration2024=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
 ModUi/&EnableBardWordsOfCreation2024=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
+ModUi/&EnableBardicInspiration2024=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
+ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
+ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>간단한 무기</color> 숙련도를 활성화합니다. <i><color=#F0DAA0>[개별 무기 유형 대신 검 숙련도를 잃습니다]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기, 모든 환경의 자산을 혼합한 단순함 포함]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
 ModUi/&EnableEpicPointsAndArray=35포인트의 장대한 구매 시스템과 배열을 활성화하세요 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[비밀의 사격, 주입, 기동 및 다양성]</color></i>\n<b><i><color=#C04040E0>[캐릭터 검사 시 성능 저하. 사용 시 모든 위험을 감수해야 함]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=레벨 2, 10, 18에서 <color=#D89555>특기</color> 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>특기</color> 선택 활성화
+ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>불굴의 저항력</color> 세이빙 스로우 재시전에 보너스로 클래스 레벨을 추가합니다.
+ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color>를 활성화하여 5e 2024 사용 진행을 사용하세요.
+ModUi/&EnableFighterSkillOptions2024=1레벨 스킬 옵션에 <color=#D89555>설득</color>을 추가합니다.
 ModUi/&EnableFighterStudiedAttacks2024=레벨 13에서 <color=#D89555>공격 연구</color>를 활성화합니다. <i><color=#F0DAA0>[이번 라운드에 생물에 대한 이전 공격이 빗나갔을 경우 유리함]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=레벨 2와 5에서 <color=#D89555>전술적 마인드</color>와 <color=#D89555>전술적 변화</color>를 활성화합니다. <i><color=#F0DAA0>[2차 바람 시나리오 증강]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
@@ -171,6 +173,8 @@ ModUi/&EnablePaladinLayOnHandsAsBonusAction=<color=#D89555>안수</color>를 보
 ModUi/&EnablePaladinSmiteAsBonusAction=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePoisonsBonusAction2024=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
+ModUi/&EnablePotionsBonusAction2024=보너스 액션으로 <color=#D89555>물약</color> 마시기를 활성화합니다.
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerNatureShroudAt14=레벨 14에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
@@ -184,7 +188,6 @@ ModUi/&EnableRogueReliableTalentAt7=레벨 11 대신 레벨 7에서 <color=#D895
 ModUi/&EnableRogueSlipperyMind=<color=#D89555>Slippery Mind</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[지혜 외에도 카리스마 세이빙 스로우에 능숙해짐]</color></i>
 ModUi/&EnableRogueSteadyAim=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
-ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color>를 활성화하여 5e 2024 사용 진행을 사용하세요.
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주문</color>을 준비할 수 있게 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis=20에서 <color=#D89555>비전적 신격화</color> 활성화
 ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=레벨 1과 7에서 <color=#D89555>선천적 마법</color>과 <color=#D89555>마법의 화신</color>을 활성화합니다.
@@ -281,8 +284,6 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 적절한 경우 몬스터와 NPC에게 <color=#D89555>암흑 시야</color>, <color=#D89555>맹시력</color>, <color=#D89555>진시력</color>을 추가합니다.</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>어둠의 시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈먼 시야를 가져야 하는 괴물</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>테이블탑<i>[5e 2024]</i>:</color>
-ModUi/&EnablePotionsBonusAction2024=보너스 액션으로 <color=#D89555>물약</color> 마시기를 활성화합니다.
-ModUi/&EnablePoisonsBonusAction2024=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시합니다.</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
@@ -349,7 +350,6 @@ ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
 ModUi/&Subraces=<color=#F0DAA0>아종</color>
 ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
-ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>간단한 무기</color> 숙련도를 활성화합니다. <i><color=#F0DAA0>[개별 무기 유형 대신 검 숙련도를 잃습니다]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=진행 중 <b>소환사</b> <color=#D89555>조각 주문</color>과 <color=#D89555>강력한 주문</color>을 교체하세요.
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=<color=#D89555>비무장 공격</color>을 활성화하여 5e 2024 주사위 유형 진행을 사용합니다.

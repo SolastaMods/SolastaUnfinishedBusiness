@@ -121,6 +121,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBarbarianPersistentRage();
         }
 
+        toggle = Main.Settings.EnableBarbarianPrimalKnowledge2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPrimalKnowledge2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianPrimalKnowledge2024 = toggle;
+            Tabletop2024Context.SwitchBarbarianPrimalKnowledge();
+        }
+
         toggle = Main.Settings.EnableBarbarianRelentlessRage2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRelentlessRage2024"), ref toggle, UI.AutoWidth()))
         {

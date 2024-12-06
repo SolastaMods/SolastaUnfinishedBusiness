@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -357,19 +358,9 @@ internal static partial class Tabletop2024Context
     {
         Barbarian.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolBarbarianPrimalKnowledge);
 
-        if (Main.Settings.EnableBarbarianBrutalStrike2024)
+        if (Main.Settings.EnableBarbarianPrimalKnowledge2024)
         {
-            Barbarian.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13),
-                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
-        }
-        else
-        {
-            Barbarian.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9),
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13),
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+            Barbarian.FeatureUnlocks.AddRange(new FeatureUnlockByLevel(PointPoolBarbarianPrimalKnowledge, 3));
         }
 
         Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -719,8 +710,27 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private sealed class TryAlterOutcomeAttributeCheckPrimalKnowledge : ITryAlterOutcomeAttributeCheck
+    private sealed class TryAlterOutcomeAttributeCheckPrimalKnowledge : ITryAlterOutcomeAttributeCheck,
+        IModifyAbilityCheck
     {
+        private readonly string[] _allowedProficiencies =
+        [
+            SkillDefinitions.Acrobatics,
+            SkillDefinitions.Intimidation,
+            SkillDefinitions.Perception,
+            SkillDefinitions.Stealth,
+            SkillDefinitions.Survival
+        ];
+
+        private string _proficiencyName;
+
+        public void MinRoll(
+            RulesetCharacter character, int baseBonus, string abilityScoreName, string proficiencyName,
+            List<TrendInfo> advantageTrends, List<TrendInfo> modifierTrends, ref int rollModifier, ref int minRoll)
+        {
+            _proficiencyName = proficiencyName;
+        }
+
         public IEnumerator OnTryAlterAttributeCheck(
             GameLocationBattleManager battleManager,
             AbilityCheckData abilityCheckData,
@@ -735,7 +745,8 @@ internal static partial class Tabletop2024Context
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 abilityCheckData.AbilityCheckSuccessDelta < -strMod ||
                 helper != defender ||
-                rulesetHelper.RemainingRagePoints == 0)
+                rulesetHelper.RemainingRagePoints == 0 ||
+                !_allowedProficiencies.Contains(_proficiencyName))
             {
                 yield break;
             }
@@ -743,8 +754,8 @@ internal static partial class Tabletop2024Context
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingFree,
                 defender,
-                "PrimalKnowledge",
-                "CustomReactionPrimalKnowledgeDescription".Localized(Category.Reaction),
+                "PrimalKnowledgeCheck",
+                "CustomReactionPrimalKnowledgeCheckDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

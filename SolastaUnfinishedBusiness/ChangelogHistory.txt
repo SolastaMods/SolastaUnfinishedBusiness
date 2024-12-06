@@ -2,16 +2,17 @@
 
 - added 'Enable applying Poisons to weapons as a bonus action' setting [by SilverGriffon]
 - added 'Enable Barbarian Instinctive Pounce at 7' setting
+- added 'Enable Barbarian Primal Knowledge at 3' setting
 - added 'Enable drinking Potions as a bonus action' setting [by SilverGriffon]
 - added 'Enable stacking Art items' setting [by SilverGriffon]
 - added 'Enable stacking Daggers and Hand Axes' setting [by SilverGriffon]
 - added 'Swap Barbarian Persistent Rage with 5e 2024 version' setting
 - added 'Swap Barbarian Relentless Rage with 5e 2024 version' setting
+- improved 'Improved Barbarian Brutal Strike at 17' setting missing 2 additional effects offering
+- improved 'Regain one Rage point at short rest' setting to be active from level 1 instead of 7
 - fixed Eldritch Smite interaction with 'Paladin smites as a bonus action' setting
 - fixed Fighter tactical shift applying on level 1 instead of 5, and not preventing AoO if moving one cell only
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
-- improved 'Improved Barbarian Brutal Strike at 17' setting missing 2 additional effects offering
-- improved 'Regain one Rage point at short rest' setting to be active from level 1 instead of 7
 - removed 'Enable bonus action on Healing Potions and Antitoxin usages' setting
 
 1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:

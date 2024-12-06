@@ -6,11 +6,9 @@ ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen b
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
 ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>
-ModUi/&EnableFighterIndomitableSaving2024=Füge die Klassenstufe als Bonus zur Wiederholung des Rettungswurfs für <color=#D89555>Unbezwingbaren Widerstand</color> hinzu
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Humanoide</color> bevorzugte Feinde <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&EnableFighterSkillOptions2024=Fügen Sie <color=#D89555>Überredung</color> zu den Fertigkeitsoptionen auf Stufe 1 hinzu
 ModUi/&AddPickPocketableLoot=Beute, die durch Taschendiebstahl gestohlen werden kann, hinzufügen <i><color=#F0DAA0>[empfohlen, wenn die Fähigkeit <color=#D89555>Taschendiebstahl</color> aktiviert ist]</color></i>
 ModUi/&AddToStore={0} hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -22,7 +20,6 @@ ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color
 ModUi/&AllowClubsToBeThrown=Ermöglicht das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolche</color> oder <color=#D89555>Faustäxte</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube Mods, die nicht vorgeschlagene Zaubersprüche auf jeder Liste
 ModUi/&AllowDisplayingOfficialSpells=Offizielle Spielzauber auf jeder Liste zulassen
-ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Level 20
 ModUi/&AllowFlightSuspend=Erlaubt die vorübergehende Aussetzung des Flugs durch Gegenstände und Zauber <i><color=#F0DAA0>[betrifft keine Wildform- oder Flugrassen]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -42,7 +39,6 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Keine Gelegenheitsangriffe a
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie
-ModUi/&EnableBardicInspiration2024=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
 ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung des Elementaratems von <color=#D89555>Dragonborn</color> in einen CON-Modifikator pro kurzer Pause.
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Schneeregen</color>, um einen Würfel statt eines Zylinders zu verwenden.
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
@@ -113,18 +109,24 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=Aktivieren Sie <color=#D89555>Exper
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
 ModUi/&EnableBardSuperiorInspiration2024=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
 ModUi/&EnableBardWordsOfCreation2024=Aktiviere <color=#D89555>Worte der Schöpfung</color> auf Level 20
+ModUi/&EnableBardicInspiration2024=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
 ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
+ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidWeaponProficiency2024=Aktivieren Sie die Fertigkeit <color=#D89555>Einfache Waffen</color> <i><color=#F0DAA0>[anstelle einzelner Waffentypen, aber Sie verlieren die Fertigkeit Krummsäbel]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeon-Größen von 150 x 150 und 200 x 200 und ohne Schnickschnack, indem Sie Assets aus allen Umgebungen mischen]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht</i>
 ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und -Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Anzeige des erweiterten Kompetenzfelds aktivieren <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeit]</color></i>\n<b><i><color=#C04040E0>[Leistungseinbußen bei der Charakterüberprüfung. Verwendung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktiviere die Auswahl von <color=#D89555>Fähigkeiten</color> auf den Stufen 6 und 14.
+ModUi/&EnableFighterIndomitableSaving2024=Füge die Klassenstufe als Bonus zur Wiederholung des Rettungswurfs für <color=#D89555>Unbezwingbaren Widerstand</color> hinzu
+ModUi/&EnableFighterSecondWind2024=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
+ModUi/&EnableFighterSkillOptions2024=Fügen Sie <color=#D89555>Überredung</color> zu den Fertigkeitsoptionen auf Stufe 1 hinzu
 ModUi/&EnableFighterStudiedAttacks2024=Aktivieren Sie <color=#D89555>Durchdachte Angriffe</color> auf Stufe 13 <i><color=#F0DAA0>[Vorteil, wenn vorheriger Angriff in Runde gegen Kreatur fehlgeschlagen ist]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Aktivieren Sie <color=#D89555>Tactical Mind</color> und <color=#D89555>Tactical Shift</color> auf den Stufen 2 und 5 <i><color=#F0DAA0>[erweitern Sie Szenarien für den zweiten Wind]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
@@ -171,6 +173,8 @@ ModUi/&EnablePaladinLayOnHandsAsBonusAction=Aktiviere <color=#D89555>Handauflege
 ModUi/&EnablePaladinSmiteAsBonusAction=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePoisonsBonusAction2024=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
+ModUi/&EnablePotionsBonusAction2024=Aktivieren Sie das Trinken von <color=#D89555>Tränken</color> als Bonusaktion
 ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke gehen</color> <i><color=#F0DAA0>[Sie können kostenlos in die Hocke gehen]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerNatureShroudAt14=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 14 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
@@ -184,7 +188,6 @@ ModUi/&EnableRogueReliableTalentAt7=Aktiviere <color=#D89555>Zuverlässiges Tale
 ModUi/&EnableRogueSlipperyMind=Tauschen Sie <color=#D89555>Slippery Mind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Sie erhalten neben Weisheit auch Kenntnisse in Charismarettungswürfen]</color></i>
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
-ModUi/&EnableFighterSecondWind2024=Aktivieren Sie <color=#D89555>Second Wind</color>, um den Nutzungsfortschritt von 5e 2024 zu nutzen
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis=Aktiviere <color=#D89555>Arkane Apotheose</color> bei 20
 ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
@@ -281,8 +284,6 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Dunkelsicht</color>, <color=#D89555>Blindsicht</color> und <color=#D89555>Wahrsicht</color> hinzu</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[Einstellungssammlungen <b>Monster, die über Dunkelsicht verfügen sollten</b>, <b>Monster, die über echte Sicht verfügen sollten</b>, <b>Monster, die über blinde Sicht verfügen sollten</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tischplatte <i>[5e 2024]</i>:</color>
-ModUi/&EnablePotionsBonusAction2024=Aktivieren Sie das Trinken von <color=#D89555>Tränken</color> als Bonusaktion
-ModUi/&EnablePoisonsBonusAction2024=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplizieren Sie die Geschwindigkeit der Umrissgitteranimation mit</color> <color=#C04040E0>[%]</color>
@@ -349,7 +350,6 @@ ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
 ModUi/&Subraces=<color=#F0DAA0>Unterrassen</color>
 ModUi/&SwapAbjurationSavant=Tauschen Sie <b>Abjurer</b> <color=#D89555>Abjuration Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erwerben, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
-ModUi/&EnableDruidWeaponProficiency2024=Aktivieren Sie die Fertigkeit <color=#D89555>Einfache Waffen</color> <i><color=#F0DAA0>[anstelle einzelner Waffentypen, aber Sie verlieren die Fertigkeit Krummsäbel]</color></i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <color=#D89555>Potent Cantrip</color> beim Fortschreiten aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
 ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Aktivieren Sie <color=#D89555>Unbewaffneter Angriff</color>, um die Würfeltyp-Progression von 5e 2024 zu verwenden
