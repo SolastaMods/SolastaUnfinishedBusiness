@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=生存邪术士护甲
 Tooltip/&NoFreeHandToLoadAmmoDescription=没有空闲的手来填装弹药！
 Tooltip/&TagPolearmWeaponTitle=长柄
 Tooltip/&TagReturningWeaponTitle=回力
+tem/&KatanaTitle=武士刀

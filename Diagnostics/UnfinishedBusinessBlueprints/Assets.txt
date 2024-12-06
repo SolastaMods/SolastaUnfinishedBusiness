@@ -8430,6 +8430,7 @@ Javelin_Frostburn	ItemDefinition	ItemDefinition	7d17ef79-4cba-5bad-b8a3-87dbe73d
 Javelin_Sharpness	ItemDefinition	ItemDefinition	f410a1db-4653-5dc1-83ab-289565013f0f
 Javelin_Souldrinker	ItemDefinition	ItemDefinition	0d6bf2c0-6854-5754-8009-e3d1561ba84b
 Javelin_Whiteburn	ItemDefinition	ItemDefinition	9da88d58-7a3d-5066-aa12-7f72fd84d0c0
+Katana	ItemDefinition	ItemDefinition	96d4b95c-9e7a-5aee-b491-b19629afc2a9
 Leather_Deflection	ItemDefinition	ItemDefinition	d2dbc337-5a9d-5ee3-b2a4-b5b538534eb6
 Leather_FlameDancing	ItemDefinition	ItemDefinition	daf53c90-6764-5719-89ff-8d1c83070f8b
 Leather_FrostWalking	ItemDefinition	ItemDefinition	b718a5e3-ee8c-51d3-af65-7b87275755f0

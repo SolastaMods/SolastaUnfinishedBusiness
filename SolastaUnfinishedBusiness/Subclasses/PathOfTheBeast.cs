@@ -75,7 +75,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypePiercing;
 
         _beastBite = CustomWeaponsContext.BuildWeapon(
-            "CEBeastBite", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastBite", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastBite", Resources.BeastBite, 128));
         _beastBite.itemTags = [TagBeastWeapon];
     }
@@ -100,7 +100,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypePiercing;
 
         _beastTail = CustomWeaponsContext.BuildWeapon(
-            "CEBeastTail", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastTail", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastTail", Resources.BeastTail, 128));
         _beastTail.itemTags = [TagBeastWeapon];
     }
@@ -117,7 +117,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         damageForm.damageType = DamageTypeSlashing;
 
         _beastClaws = CustomWeaponsContext.BuildWeapon(
-            "CEBeastClaws", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
+            "CEBeastClaws", baseItem, null, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
         _beastClaws.itemTags = [TagBeastWeapon];
     }

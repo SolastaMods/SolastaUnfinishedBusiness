@@ -77,6 +77,208 @@ public static class Sprites
 
     #endregion
 
+    #region Conditions
+
+    internal static AssetReferenceSprite ConditionGuardian =>
+        GetSprite("ConditionGuardian", Resources.ConditionGuardian, 32);
+
+    internal static AssetReferenceSprite ConditionInfiltrate =>
+        GetSprite("ConditionInfiltrate", Resources.ConditionInfiltrate, 32);
+
+    internal static AssetReferenceSprite ConditionGambit =>
+        GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
+
+    #endregion
+
+    #region Actions
+
+    internal static AssetReferenceSprite ActionPlaneMagic =>
+        GetSprite("ActionPlaneMagic", Resources.ActionPlaneMagic, 80);
+
+    internal static AssetReferenceSprite ActionInfuse =>
+        GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
+
+    internal static AssetReferenceSprite ActionCrystalDefenseOff =>
+        GetSprite("ActionCrystalDefenseOff", Resources.ActionCrystalDefenseOff, 80);
+
+    internal static AssetReferenceSprite ActionCrystalDefenseOn =>
+        GetSprite("ActionCrystalDefenseOn", Resources.ActionCrystalDefenseOn, 80);
+
+    internal static AssetReferenceSprite ActionGambit =>
+        GetSprite("ActionGambit", Resources.ActionGambit, 80);
+
+    internal static AssetReferenceSprite ActionEldritchVersatility =>
+        GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
+
+    #endregion
+
+    #region Weapon Icons
+
+    #region Katana Icons
+
+    private static AssetReferenceSprite _katanaIcon;
+
+    [NotNull]
+    internal static AssetReferenceSprite KatanaIcon =>
+        _katanaIcon ??= GetSprite("Katana", Resources.Katana, 128);
+
+    #endregion
+
+    #region Halberd Icons
+
+    private static AssetReferenceSprite
+        _halberdIcon,
+        _halberdPrimedIcon,
+        _halberdP1Icon,
+        _halberdP2Icon,
+        _halberdP3Icon,
+        _halberdLightningIcon;
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdIcon =>
+        _halberdIcon ??= GetSprite("Halberd", Resources.Halberd, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
+        GetSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
+        GetSprite("Halberd_1", Resources.Halberd_1, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
+        GetSprite("Halberd_2", Resources.Halberd_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdP3Icon => _halberdP3Icon ??=
+        GetSprite("Halberd_3", Resources.Halberd_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
+        GetSprite("HalberdLightning", Resources.HalberdLightning, 128);
+
+    #endregion
+
+    #region Pike Icons
+
+    private static AssetReferenceSprite
+        _pikeIcon,
+        _pikePrimedIcon,
+        _pikeP1Icon,
+        _pikeP2Icon,
+        _pikeP3Icon,
+        _pikeLightningIcon;
+
+    [NotNull]
+    internal static AssetReferenceSprite PikeIcon =>
+        _pikeIcon ??= GetSprite("Pike", Resources.Pike, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
+        GetSprite("PikePrimed", Resources.PikePrimed, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
+        GetSprite("Pike_1", Resources.Pike_1, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
+        GetSprite("Pike_2", Resources.Pike_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite PikeP3Icon => _pikeP3Icon ??=
+        GetSprite("Pike_3", Resources.Pike_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
+        GetSprite("PikePsychic", Resources.PikePsychic, 128);
+
+    #endregion
+
+    #region Long Mace Icons
+
+    private static AssetReferenceSprite
+        _longMaceIcon,
+        _longMacePrimedIcon,
+        _longMaceP1Icon,
+        _longMaceP2Icon,
+        _longMaceP3Icon,
+        _longMaceLightningIcon;
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMaceIcon =>
+        _longMaceIcon ??= GetSprite("LongMace", Resources.LongMace, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
+        GetSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
+        GetSprite("LongMace_1", Resources.LongMace_1, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
+        GetSprite("LongMace_2", Resources.LongMace_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMaceP3Icon => _longMaceP3Icon ??=
+        GetSprite("LongMace_3", Resources.LongMace_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
+        GetSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
+
+    #endregion
+
+    #region Hand Crossbow Icons
+
+    private static AssetReferenceSprite _handXbowIcon,
+        _handXbowPrimedIcon,
+        _handXbowP1Icon,
+        _handXbowP2Icon,
+        _handXbowP3Icon,
+        _handXbowAcidIcon;
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowIcon =>
+        _handXbowIcon ??= GetSprite("HandXbow", Resources.HandXbow, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
+        GetSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
+        GetSprite("HandXbow_1", Resources.HandXbow_1, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
+        GetSprite("HandXbow_2", Resources.HandXbow_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowP3Icon => _handXbowP3Icon ??=
+        GetSprite("HandXbow_3", Resources.HandXbow_2, 128);
+
+    [NotNull]
+    internal static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
+        GetSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
+
+    #endregion
+
+    #region Produced Flame Icons
+
+    private static AssetReferenceSprite _producedFlameThrow;
+
+    [NotNull]
+    internal static AssetReferenceSprite ProducedFlameThrow => _producedFlameThrow ??=
+        GetSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
+
+    #endregion
+
+    #endregion
+
     #region CustomSprites
 
     private static readonly Dictionary<string, Sprite> SpritesByGuid = new();
@@ -164,41 +366,6 @@ public static class Sprites
 
         return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
     }
-
-    #endregion
-
-    #region Conditions
-
-    internal static AssetReferenceSprite ConditionGuardian =>
-        GetSprite("ConditionGuardian", Resources.ConditionGuardian, 32);
-
-    internal static AssetReferenceSprite ConditionInfiltrate =>
-        GetSprite("ConditionInfiltrate", Resources.ConditionInfiltrate, 32);
-
-    internal static AssetReferenceSprite ConditionGambit =>
-        GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
-
-    #endregion
-
-    #region Actions
-
-    internal static AssetReferenceSprite ActionPlaneMagic =>
-        GetSprite("ActionPlaneMagic", Resources.ActionPlaneMagic, 80);
-
-    internal static AssetReferenceSprite ActionInfuse =>
-        GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
-
-    internal static AssetReferenceSprite ActionCrystalDefenseOff =>
-        GetSprite("ActionCrystalDefenseOff", Resources.ActionCrystalDefenseOff, 80);
-
-    internal static AssetReferenceSprite ActionCrystalDefenseOn =>
-        GetSprite("ActionCrystalDefenseOn", Resources.ActionCrystalDefenseOn, 80);
-
-    internal static AssetReferenceSprite ActionGambit =>
-        GetSprite("ActionGambit", Resources.ActionGambit, 80);
-
-    internal static AssetReferenceSprite ActionEldritchVersatility =>
-        GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
 
     #endregion
 }

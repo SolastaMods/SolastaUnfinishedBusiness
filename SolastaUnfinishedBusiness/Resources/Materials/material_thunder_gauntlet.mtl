@@ -1,0 +1,12 @@
+# Blender 4.2.3 LTS MTL File: 'thunder_guantlet_v2.blend'
+# www.blender.org
+
+newmtl Material.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 0.000000
+d 1.000000
+illum 1
+map_Kd texture_thunder_gauntlet.png

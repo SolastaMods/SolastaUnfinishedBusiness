@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Armure de Survie du Sorcier
 Tooltip/&NoFreeHandToLoadAmmoDescription=Pas de mains libres pour charger les munitions !
 Tooltip/&TagPolearmWeaponTitle=Bras de perche
 Tooltip/&TagReturningWeaponTitle=De retour
+tem/&KatanaTitle=Katana
