@@ -415,7 +415,6 @@ internal static class CustomWeaponsContext
             .Create(MaulType, "CELongMaceType")
             .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
-            //.AddCustomSubFeatures(new CustomScale(z: 3.5f))
             .AddToDB();
 
         var longmacePrefab = Prefabs.GetLongMacePrefab();
@@ -439,8 +438,7 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
 
         LongMace = BuildWeapon("CELongMace", baseItem, longmacePrefab, 20, true, Common, null, baseDescription,
-            Sprites.LongMaceIcon,
-            scale: 0.035f
+            Sprites.LongMaceIcon
         );
 
         MerchantContext.AddItem(LongMace, ShopItemType.ShopGenericMelee);
@@ -454,7 +452,6 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace, longmacePrefab, 1050, true, Rare,
-            scale: 0.035f,
             icon: Sprites.LongMaceP1Icon,
             properties: [WeaponPlus1]
         );
@@ -465,7 +462,6 @@ internal static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace, longmacePrefab, 4000, true, VeryRare,
-            scale: 0.035f,
             icon: Sprites.LongMaceP2Icon,
             properties: [WeaponPlus2]
         );
@@ -476,7 +472,6 @@ internal static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         LongMacePlus3 = BuildWeapon("CELongMace+3", LongMace, longmacePrefab, 16000, true, VeryRare,
-            scale: 0.035f,
             icon: Sprites.LongMaceP3Icon,
             properties: [WeaponPlus3]
         );
@@ -488,7 +483,6 @@ internal static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace, longmacePrefab, 4000, true, VeryRare,
-            scale: 0.035f,
             icon: Sprites.LongMaceThunderIcon,
             needId: false,
             properties: [ThunderImpactVFX, WeaponPlus1AttackOnly]
