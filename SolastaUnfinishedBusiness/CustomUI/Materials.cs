@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.Rendering;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
-// To Do:  Allow multiple materials per prefab based on .mtl file
+//TODO: Allow multiple materials per prefab based on .mtl file
+namespace SolastaUnfinishedBusiness.CustomUI;
+
 public static class Materials
 {
     #region Materials
@@ -47,7 +46,7 @@ public static class Materials
             Debug.LogError($"Resource not found: {name}:{resourceKey}");
             return null;
         }
-        
+
         material = LoadMaterialFromFile(mtlData);
         if (material == null)
         {
@@ -55,7 +54,7 @@ public static class Materials
             return null;
         }
 
-        MaterialsByGuid[guid] = material; 
+        MaterialsByGuid[guid] = material;
 
         return material;
     }
@@ -69,7 +68,7 @@ public static class Materials
 
         try
         {
-            var lines = mtlData.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = mtlData.Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var line in lines)
             {
@@ -90,9 +89,10 @@ public static class Materials
                 }
                 else if (trimmedLine.StartsWith("Ns"))
                 {
-                    if (float.TryParse(trimmedLine.Substring(3), NumberStyles.Float, CultureInfo.InvariantCulture, out var nsValue))
+                    if (float.TryParse(trimmedLine.Substring(3), NumberStyles.Float, CultureInfo.InvariantCulture,
+                            out var nsValue))
                     {
-                        material.SetFloat("_Glossiness", Mathf.Clamp01(nsValue / 1000f)); // Scale Ns to Unity range
+                        material.SetFloat(Glossiness, Mathf.Clamp01(nsValue / 1000f)); // Scale Ns to Unity range
                     }
                 }
                 else if (trimmedLine.StartsWith("Ka"))
@@ -100,7 +100,7 @@ public static class Materials
                     var kaValues = ParseVector3(trimmedLine.Substring(3));
                     if (kaValues != Vector3.zero)
                     {
-                        material.SetColor("_AmbientColor", new Color(kaValues.x, kaValues.y, kaValues.z));
+                        material.SetColor(AmbientColor, new Color(kaValues.x, kaValues.y, kaValues.z));
                     }
                 }
                 else if (trimmedLine.StartsWith("Ks"))
@@ -108,33 +108,40 @@ public static class Materials
                     var ksValues = ParseVector3(trimmedLine.Substring(3));
                     if (ksValues != Vector3.zero)
                     {
-                        material.SetColor("_SpecColor", new Color(ksValues.x, ksValues.y, ksValues.z));
+                        material.SetColor(SpecColor, new Color(ksValues.x, ksValues.y, ksValues.z));
                     }
                 }
                 else if (trimmedLine.StartsWith("Ke"))
                 {
                     var keValues = ParseVector3(trimmedLine.Substring(3));
-                    if (keValues != Vector3.zero)
+                    if (keValues == Vector3.zero)
                     {
-                        material.SetColor("_EmissionColor", new Color(keValues.x, keValues.y, keValues.z));
-                        material.EnableKeyword("_EMISSION");
+                        continue;
                     }
+
+                    material.SetColor(EmissionColor, new Color(keValues.x, keValues.y, keValues.z));
+                    material.EnableKeyword("_EMISSION");
                 }
                 else if (trimmedLine.StartsWith("d"))
                 {
-                    if (float.TryParse(trimmedLine.Substring(2), NumberStyles.Float, CultureInfo.InvariantCulture, out var dValue))
+                    if (!float.TryParse(
+                            trimmedLine.Substring(2), NumberStyles.Float, CultureInfo.InvariantCulture, out var dValue))
                     {
-                        material.SetFloat("_Alpha", dValue);
-                        if (dValue < 1.0f)
-                        {
-                            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                            material.SetInt("_ZWrite", 0);
-                            material.DisableKeyword("_ALPHATEST_ON");
-                            material.EnableKeyword("_ALPHABLEND_ON");
-                            material.renderQueue = 3000;
-                        }
+                        continue;
                     }
+
+                    material.SetFloat(Alpha, dValue);
+                    if (!(dValue < 1.0f))
+                    {
+                        continue;
+                    }
+
+                    material.SetInt(SrcBlend, (int)BlendMode.SrcAlpha);
+                    material.SetInt(DstBlend, (int)BlendMode.OneMinusSrcAlpha);
+                    material.SetInt(ZWrite, 0);
+                    material.DisableKeyword("_ALPHATEST_ON");
+                    material.EnableKeyword("_ALPHABLEND_ON");
+                    material.renderQueue = 3000;
                 }
                 else if (trimmedLine.StartsWith("map_Kd"))
                 {
@@ -159,6 +166,7 @@ public static class Materials
             Debug.LogError($"Error parsing MTL resource: {ex.Message}");
             return null;
         }
+
         return material;
     }
 
@@ -168,9 +176,9 @@ public static class Materials
         if (!string.IsNullOrEmpty(diffuseTextureKey))
         {
             var diffuseTexture = GetOrCreateTexture(diffuseTextureKey, diffuseTextureKey);
-            if (diffuseTexture != null)
+            if (diffuseTexture)
             {
-                material.SetTexture("_MainTex", diffuseTexture);
+                material.SetTexture(MainTex, diffuseTexture);
             }
             else
             {
@@ -178,33 +186,40 @@ public static class Materials
             }
         }
 
-        if (!string.IsNullOrEmpty(normalMapKey))
+        if (string.IsNullOrEmpty(normalMapKey))
         {
-            var normalMap = GetOrCreateTexture(normalMapKey, normalMapKey);
-            if (normalMap != null)
-            {
-                material.SetTexture("_BumpMap", normalMap);
-                material.EnableKeyword("_NORMALMAP");
-            }
-            else
-            {
-                Debug.LogError($"_BumpMap is null at ApplyTexturesToMaterial for {material} : {normalMapKey}");
-            }
+            return;
+        }
+
+        var normalMap = GetOrCreateTexture(normalMapKey, normalMapKey);
+        if (normalMap)
+        {
+            material.SetTexture(BumpMap, normalMap);
+            material.EnableKeyword("_NORMALMAP");
+        }
+        else
+        {
+            Debug.LogError($"_BumpMap is null at ApplyTexturesToMaterial for {material} : {normalMapKey}");
         }
     }
 
-     public static void ValidateAndRecalculateMeshNormals(Mesh mesh)
+    #if false
+    public static void ValidateAndRecalculateMeshNormals(Mesh mesh)
     {
-        if (mesh.vertices.Length != mesh.normals.Length)
+        if (mesh.vertices.Length == mesh.normals.Length)
         {
-            Debug.LogWarning($"Mesh vertices ({mesh.vertices.Length}) and normals ({mesh.normals.Length}) mismatch. Recalculating normals...");
-            mesh.RecalculateNormals();
+            return;
         }
-    }
 
+        Debug.LogWarning(
+            $"Mesh vertices ({mesh.vertices.Length}) and normals ({mesh.normals.Length}) mismatch. Recalculating normals...");
+        mesh.RecalculateNormals();
+    }
+#endif
+    
     private static Vector3 ParseVector3(string input)
     {
-        var values = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        var values = input.Split([' '], StringSplitOptions.RemoveEmptyEntries);
         if (values.Length == 3 &&
             float.TryParse(values[0], NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
             float.TryParse(values[1], NumberStyles.Float, CultureInfo.InvariantCulture, out var y) &&
@@ -221,13 +236,23 @@ public static class Materials
     #region Textures
 
     private static readonly Dictionary<string, Texture2D> TexturesByGuid = new();
+    private static readonly int Alpha = Shader.PropertyToID("_Alpha");
+    private static readonly int SrcBlend = Shader.PropertyToID("_SrcBlend");
+    private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+    private static readonly int SpecColor = Shader.PropertyToID("_SpecColor");
+    private static readonly int AmbientColor = Shader.PropertyToID("_AmbientColor");
+    private static readonly int Glossiness = Shader.PropertyToID("_Glossiness");
+    private static readonly int DstBlend = Shader.PropertyToID("_DstBlend");
+    private static readonly int ZWrite = Shader.PropertyToID("_ZWrite");
+    private static readonly int MainTex = Shader.PropertyToID("_MainTex");
+    private static readonly int BumpMap = Shader.PropertyToID("_BumpMap");
 
     private static string GetTextureGuid(string name)
     {
         return GuidHelper.Create(DefinitionBuilder.CeNamespaceGuid, name).ToString();
     }
 
-    public static Texture2D GetOrCreateTexture(string name, string resourceKey)
+    private static Texture2D GetOrCreateTexture(string name, string resourceKey)
     {
         var guid = GetTextureGuid(name);
 
@@ -237,8 +262,7 @@ public static class Materials
         }
 
         // Access the resource from .resx using the provided resource key
-        Byte[] texData = Resources.ResourceManager.GetObject(resourceKey) as Byte[];
-        if (texData == null)
+        if (Resources.ResourceManager.GetObject(resourceKey) is not byte[] texData)
         {
             Debug.LogError($"Resource not found at GetOrCreateTexture: {name}:{resourceKey}");
             return null;
@@ -256,26 +280,23 @@ public static class Materials
         return texture;
     }
 
-    private static Texture2D LoadTextureFromFile(Byte[] texData)
+    private static Texture2D LoadTextureFromFile(byte[] texData)
     {
-
         try
         {
             if (texData != null)
             {
-                Texture2D texture = new Texture2D(2, 2); // Create a new texture
+                var texture = new Texture2D(2, 2); // Create a new texture
                 if (texture.LoadImage(texData)) // Load the image from byte array
                 {
                     return texture;
                 }
-                else
-                {
-                    Debug.LogError($"Failed to load texture from LoadTextureFromFile. The data is invalid: {texData}");
-                }
+
+                Debug.LogError($"Failed to load texture from LoadTextureFromFile. The data is invalid: {texData}");
             }
             else
             {
-                Debug.LogError($"Texture file empty or not found and LoadTextureFromFile");
+                Debug.LogError("Texture file empty or not found and LoadTextureFromFile");
             }
         }
         catch (Exception ex)
@@ -288,5 +309,3 @@ public static class Materials
 
     #endregion
 }
-
-

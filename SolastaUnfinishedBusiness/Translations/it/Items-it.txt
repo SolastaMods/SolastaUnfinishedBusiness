@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Armatura di sopravvivenza dello stregone
 Tooltip/&NoFreeHandToLoadAmmoDescription=Nessuna mano libera per caricare le munizioni!
 Tooltip/&TagPolearmWeaponTitle=Braccio ad asta
 Tooltip/&TagReturningWeaponTitle=Ritorno
+tem/&KatanaTitle=Catana

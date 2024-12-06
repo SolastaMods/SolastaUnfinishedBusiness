@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Hexenmeister-Rüstung des Überlebens
 Tooltip/&NoFreeHandToLoadAmmoDescription=Keine freie Hand zum Laden der Munition!
 Tooltip/&TagPolearmWeaponTitle=Stangenarm
 Tooltip/&TagReturningWeaponTitle=Rückkehr
+tem/&KatanaTitle=Katana

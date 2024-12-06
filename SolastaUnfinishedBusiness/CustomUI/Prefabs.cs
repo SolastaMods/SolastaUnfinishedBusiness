@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -27,7 +25,7 @@ public static class Prefabs
     }
     // Gets or creates a prefab and returns an asset reference
     [NotNull]
-    public static AssetReference GetPrefab(string name, string resourceName)
+    private static AssetReference GetPrefab(string name, string resourceName)
     {
         var guid = GetPrefabGuid(name);
 
@@ -40,32 +38,36 @@ public static class Prefabs
     }
 
     // Loads or creates a prefab from an embedded .obj resource.
-    public static GameObject GetOrCreatePrefab(string name, string resourceKey)
+    private static void GetOrCreatePrefab(string name, string resourceKey)
     {
         var guid = GetPrefabGuid(name);
         Debug.LogWarning($"{name} {guid}");
-        if (PrefabsByGuid.TryGetValue(guid, out var prefab))
+        if (PrefabsByGuid.TryGetValue(guid, out _))
         {
-            return prefab;
+            return;
         }
 
         // Access the resource from .resx using the provided resource key
-        var fileBytes = Resources.ResourceManager.GetObject(resourceKey) as byte[];
+        if (Resources.ResourceManager.GetObject(resourceKey) is not byte[] fileBytes)
+        {
+            Debug.LogError($"Resource not found: {resourceKey}");
+            return;
+        }
         var objData = Encoding.UTF8.GetString(fileBytes);
         if (string.IsNullOrEmpty(objData))
         {
             Debug.LogError($"Resource not found: {resourceKey}");
-            return null;
+            return;
         }
 
         var mesh = LoadMeshFromFile(objData, out var materialKey);
-        if (mesh == null)
+        if (!mesh)
         {
             Debug.LogError($"Failed to create mesh from resource: {resourceKey}");
-            return null;
+            return;
         }
 
-        prefab = new GameObject(name);
+        var prefab = new GameObject(name);
         var meshFilter = prefab.AddComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
@@ -86,8 +88,6 @@ public static class Prefabs
         }
 
         PrefabsByGuid[guid] = prefab;
-
-        return prefab;
     }
 
     // Generates a GUID for a prefab based on its name.
@@ -112,14 +112,14 @@ public static class Prefabs
         try
         {
             // Split the objText into lines
-            var lines = objText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = objText.Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var line in lines)
             {
                 if (line.StartsWith("mtllib "))
                 {
                     // Handle material library
-                    var parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
                     if (parts.Length > 1)
                     {
                         materialKey = Path.GetFileNameWithoutExtension(parts[1]);
@@ -128,7 +128,7 @@ public static class Prefabs
                 else if (line.StartsWith("v "))
                 {
                     // Parse vertices
-                    var parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
                     vertices.Add(new Vector3(
                         float.Parse(parts[1]),
                         float.Parse(parts[2]),
@@ -137,7 +137,7 @@ public static class Prefabs
                 else if (line.StartsWith("vn "))
                 {
                     // Parse normals
-                    var parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
                     normals.Add(new Vector3(
                         float.Parse(parts[1]),
                         float.Parse(parts[2]),
@@ -146,7 +146,7 @@ public static class Prefabs
                 else if (line.StartsWith("vt "))
                 {
                     // Parse UVs
-                    var parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
                     uv.Add(new Vector2(
                         float.Parse(parts[1]),
                         float.Parse(parts[2])));
@@ -154,7 +154,7 @@ public static class Prefabs
                 else if (line.StartsWith("f "))
                 {
                     // Parse faces
-                    var parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
                     for (int i = 1; i < parts.Length; i++)
                     {
@@ -170,12 +170,13 @@ public static class Prefabs
                         var vertexTuple = (vertices[vertexIndex], normals[normalIndex], uv[uvIndex]);
 
                         // If this combination hasn't been added before, add it
-                        if (!uniqueVertices.ContainsKey(vertexTuple))
+                        if (!uniqueVertices.TryGetValue(vertexTuple, out var value))
                         {
-                            uniqueVertices[vertexTuple] = uniqueVertices.Count;
+                            value = uniqueVertices.Count;
+                            uniqueVertices[vertexTuple] = value;
                         }
 
-                        triangles.Add(uniqueVertices[vertexTuple]);
+                        triangles.Add(value);
                     }
                 }
             }
@@ -211,21 +212,16 @@ public static class Prefabs
 
     #region Weapon Prefabs
 
-    #region Longsword Prefabs
+    #region Katana Prefabs
 
     private static AssetReference _katanaPrefab;
 
     public static AssetReference GetKatanaPrefab()
     {
-        if (_katanaPrefab == null)
-        {
-            _katanaPrefab = GetPrefab(
-                "prefab_katana",
-                "prefab_katana"
-            );
-        }
-
-        return _katanaPrefab;
+        return _katanaPrefab ??= GetPrefab(
+            "prefab_katana",
+            "prefab_katana"
+        );
     }
 
     #endregion
@@ -236,49 +232,34 @@ public static class Prefabs
 
     public static AssetReference GetLauncherPrefab()
     {
-        if (_launcherPrefab == null)
-        {
-            _launcherPrefab = GetPrefab(
-                "prefab_lightning_launcher",
-                "prefab_lightning_launcher"
-            );
-        }
-
-        return _launcherPrefab;
+        return _launcherPrefab ??= GetPrefab(
+            "prefab_lightning_launcher",
+            "prefab_lightning_launcher"
+        );
     }
 
     private static AssetReference _thunderGauntletPrefab;
 
     public static AssetReference GetThunderGauntletPrefab()
     {
-        if (_thunderGauntletPrefab == null)
-        {
-            _thunderGauntletPrefab = GetPrefab(
-                "prefab_thunder_gauntlet",
-                "prefab_thunder_gauntlet"
-            );
-        }
-
-        return _thunderGauntletPrefab;
+        return _thunderGauntletPrefab ??= GetPrefab(
+            "prefab_thunder_gauntlet",
+            "prefab_thunder_gauntlet"
+        );
     }
 
     #endregion
 
     #region Long Mace Prefabs
 
-    private static AssetReference _LongMacePrefab;
+    private static AssetReference _longMacePrefab;
 
     public static AssetReference GetLongMacePrefab()
     {
-        if (_LongMacePrefab == null)
-        {
-            _LongMacePrefab = GetPrefab(
-                "prefab_longmace",
-                "prefab_longmace"
-            );
-        }
-
-        return _LongMacePrefab;
+        return _longMacePrefab ??= GetPrefab(
+            "prefab_longmace",
+            "prefab_longmace"
+        );
     }
 
     #endregion
@@ -289,14 +270,10 @@ public static class Prefabs
 
     public static AssetReference GetPikePrefab()
     {
-        if (_pikePrefab == null)
-        {
-            _pikePrefab = GetPrefab(
-                "prefab_pike",
-                "prefab_pike"
-            );
-        }
-        return _pikePrefab;
+        return _pikePrefab ??= GetPrefab(
+            "prefab_pike",
+            "prefab_pike"
+        );
     }
 
     #endregion

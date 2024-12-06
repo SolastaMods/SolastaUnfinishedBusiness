@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "merchantCategory": "Weapon",
-  "weight": 2.0,
+  "weight": 3.0,
   "slotTypes": [
     "MainHandSlot",
     "ContainerSlot"
@@ -19,44 +19,34 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4000,
+    20,
     0,
     0,
     0
   ],
   "itemTags": [
+    "Standard",
     "Metal"
   ],
   "activeTags": [],
   "inactiveTags": [],
-  "magical": true,
+  "magical": false,
   "requiresAttunement": false,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "VeryRare",
+  "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
-  "staticProperties": [
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
-      "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+2:55d0f93f185d1cc49a5b01ab65f42c52",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
-    }
-  ],
+  "staticProperties": [],
   "isArmor": false,
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "CELongMaceType",
-    "reachRange": 2,
+    "weaponType": "LongswordType",
+    "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
     "weaponTags": [
-      "Heavy",
-      "Reach",
-      "TwoHanded"
+      "Versatile"
     ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
@@ -138,11 +128,11 @@
             "$type": "DamageForm, Assembly-CSharp",
             "versatile": true,
             "diceNumber": 1,
-            "dieType": "D10",
+            "dieType": "D8",
             "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D10",
             "bonusDamage": 0,
-            "damageType": "DamageBludgeoning",
+            "damageType": "DamageSlashing",
             "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
@@ -476,16 +466,16 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&CELongMace+2UnidentifiedTitle",
+    "unidentifiedTitle": "Item/&KatanaUnidentifiedTitle",
     "unidentifiedDescription": "Feature/&Emptystring",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0c471300-425c-5ffe-a044-c7a49d9028c6",
+      "m_AssetGUID": "718e077d-f25a-5901-ab1a-279f495bbe8f",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
-    "scaleFactorWhileWielded": 0.035,
+    "scaleFactorWhileWielded": 0.005,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
@@ -506,11 +496,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&CELongMace+2Title",
+    "title": "Item/&KatanaTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4b6e1c66-ba25-50a7-818d-115539c85b6a",
+      "m_AssetGUID": "065cf525-184f-5887-8721-9d0c012fc07a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -527,7 +517,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8eddfaf2-50d7-56f9-a7dc-59540b2b943f",
+  "guid": "96d4b95c-9e7a-5aee-b491-b19629afc2a9",
   "contentPack": 9999,
-  "name": "CELongMace+2"
+  "name": "Katana"
 }

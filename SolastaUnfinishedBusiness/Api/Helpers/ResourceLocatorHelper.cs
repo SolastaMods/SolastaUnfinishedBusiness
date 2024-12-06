@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -9,7 +8,7 @@ using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.Api.Helpers;
 
 internal static class ResourceLocatorHelper
 {
@@ -152,7 +151,7 @@ internal sealed class PrefabResourceProvider : ResourceProviderBase
 internal sealed class PrefabResourceLocator : IResourceLocator
 {
     private static readonly Dictionary<string, PrefabResourceLocation> LocationsCache = new();
-    private static readonly List<IResourceLocation> EmptyList = new();
+    private static readonly List<IResourceLocation> EmptyList = [];
 
     private PrefabResourceLocator() { }
 
@@ -229,7 +228,7 @@ internal sealed class MaterialResourceProvider : ResourceProviderBase
 internal sealed class MaterialResourceLocator : IResourceLocator
 {
     private static readonly Dictionary<string, MaterialResourceLocation> LocationsCache = new();
-    private static readonly List<IResourceLocation> EmptyList = new();
+    private static readonly List<IResourceLocation> EmptyList = [];
 
     private MaterialResourceLocator() { }
 

@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Доспехи колдуна Выживан�
 Tooltip/&NoFreeHandToLoadAmmoDescription=Нет свободной руки, чтобы зарядить боеприпас!
 Tooltip/&TagPolearmWeaponTitle=Древковое
 Tooltip/&TagReturningWeaponTitle=Возвращающийся
+tem/&KatanaTitle=Катана

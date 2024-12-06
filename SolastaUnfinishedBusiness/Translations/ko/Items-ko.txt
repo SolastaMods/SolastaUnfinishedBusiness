@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=흑마법사 생존 갑옷
 Tooltip/&NoFreeHandToLoadAmmoDescription=탄약을 장전할 자유가 없습니다!
 Tooltip/&TagPolearmWeaponTitle=폴암
 Tooltip/&TagReturningWeaponTitle=돌아오는 중
+tem/&KatanaTitle=카타나
