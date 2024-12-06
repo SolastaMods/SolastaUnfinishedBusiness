@@ -35,7 +35,7 @@ internal static partial class Tabletop2024Context
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
         LoadMonkHeightenedMetabolism();
-        LoadOneDndEnableBardCounterCharmAsReactionAtLevel7();
+        LoadOneDndEnableBardCounterCharm2024();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
         LoadSorcerousRestorationAtLevel5();
@@ -43,7 +43,7 @@ internal static partial class Tabletop2024Context
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianPersistentRage();
-        SwitchBarbarianRecklessSameBuffDebuffDuration();
+        SwitchBarbarianReckless();
         SwitchBarbarianRegainOneRageAtShortRest();
         SwitchBarbarianRelentlessRage();
         SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
@@ -58,23 +58,23 @@ internal static partial class Tabletop2024Context
         SwitchMonkDoNotRequireAttackActionForFlurry();
         SwitchMonkHeightenedMetabolism();
         SwitchMonkSuperiorDefenseToReplaceEmptyBody();
-        SwitchOneDnDEnableDruidUseMetalArmor();
-        SwitchOneDndAllPotionsBonusAction();
-        SwitchOneDndChangeBardicInspirationDurationToOneHour();
+        SwitchDruidMetalArmor();
+        SwitchPotionsBonusAction();
+        SwitchBardBardicInspiration();
         SwitchOneDndDamagingSpellsUpgrade();
-        SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7();
-        SwitchOneDndEnableBardExpertiseOneLevelBefore();
-        SwitchOneDndEnableBardSuperiorInspirationAtLevel18();
-        SwitchOneDndEnableBardWordsOfCreationAtLevel20();
+        SwitchBardCounterCharm();
+        SwitchBardExpertiseOneLevelBefore();
+        SwitchBardSuperiorInspiration();
+        SwitchBardWordsOfCreation();
         SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
-        SwitchOneDndPoisonsBonusAction();
+        SwitchPoisonsBonusAction();
         SwitchOneDndPreparedSpellsTables();
         SwitchOneDndRangerLearnSpellCastingAtOne();
         SwitchOneDndRemoveBardMagicalSecretAt14And18();
-        SwitchOneDndRemoveBardSongOfRestAt2();
+        SwitchOneDndRemoveBardSongOfRest();
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellGuidance();
@@ -86,7 +86,7 @@ internal static partial class Tabletop2024Context
         SwitchOneDndSpellSpareTheDying();
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
-        SwitchOneDndSurprisedEnforceDisadvantage();
+        SwitchSurprisedEnforceDisadvantage();
         SwitchOneDndWarlockInvocationsProgression();
         SwitchOneDndWarlockPatronLearningLevel();
         SwitchOneDndWizardMemorizeSpell();
@@ -171,7 +171,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndSurprisedEnforceDisadvantage()
+    internal static void SwitchSurprisedEnforceDisadvantage()
     {
         if (Main.Settings.EnableSurprisedToEnforceDisadvantage)
         {

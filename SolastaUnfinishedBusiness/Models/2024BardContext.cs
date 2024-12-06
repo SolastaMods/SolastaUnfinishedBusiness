@@ -36,19 +36,19 @@ internal static partial class Tabletop2024Context
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
-    private static void LoadOneDndEnableBardCounterCharmAsReactionAtLevel7()
+    private static void LoadOneDndEnableBardCounterCharm2024()
     {
         PowerBardCountercharm.AddCustomSubFeatures(
-            new ModifyPowerVisibility((_, _, _) => !Main.Settings.EnableBardCounterCharmAsReactionAtLevel7),
+            new ModifyPowerVisibility((_, _, _) => !Main.Settings.EnableBardCounterCharm2024),
             new TryAlterOutcomeSavingThrowBardCounterCharm());
     }
 
-    internal static void SwitchOneDndEnableBardCounterCharmAsReactionAtLevel7()
+    internal static void SwitchBardCounterCharm()
     {
-        var level = Main.Settings.EnableBardCounterCharmAsReactionAtLevel7 ? 7 : 6;
+        var level = Main.Settings.EnableBardCounterCharm2024 ? 7 : 6;
 
         Bard.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == PowerBardCountercharm)!.level = level;
-        if (Main.Settings.EnableBardCounterCharmAsReactionAtLevel7)
+        if (Main.Settings.EnableBardCounterCharm2024)
         {
             PowerBardCountercharm.GuiPresentation.description = "Feature/&PowerBardCountercharmExtendedDescription";
             PowerBardCountercharm.activationTime = ActivationTime.NoCost;
@@ -62,7 +62,7 @@ internal static partial class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndEnableBardExpertiseOneLevelBefore()
+    internal static void SwitchBardExpertiseOneLevelBefore()
     {
         var level = Main.Settings.EnableBardExpertiseOneLevelBefore ? 2 : 3;
 
@@ -94,9 +94,9 @@ internal static partial class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndChangeBardicInspirationDurationToOneHour()
+    internal static void SwitchBardBardicInspiration()
     {
-        if (Main.Settings.ChangeBardicInspirationDurationToOneHour)
+        if (Main.Settings.EnableBardicInspiration2024)
         {
             ConditionDefinitions.ConditionBardicInspiration.durationType = DurationType.Hour;
             ConditionDefinitions.ConditionBardicInspiration.durationParameter = 1;
@@ -108,12 +108,12 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndRemoveBardSongOfRestAt2()
+    internal static void SwitchOneDndRemoveBardSongOfRest()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == RestHealingModifierBardSongOfRest);
 
-        if (!Main.Settings.RemoveBardSongOfRestAt2)
+        if (!Main.Settings.RemoveBardSongOfRest)
         {
             Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(RestHealingModifierBardSongOfRest, 2));
         }
@@ -137,26 +137,26 @@ internal static partial class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndEnableBardSuperiorInspirationAtLevel18()
+    internal static void SwitchBardSuperiorInspiration()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration ||
             x.FeatureDefinition == Level20Context.FeatureBardSuperiorInspiration2024);
 
         Bard.FeatureUnlocks.Add(
-            Main.Settings.EnableBardSuperiorInspirationAtLevel18
+            Main.Settings.EnableBardSuperiorInspiration2024
                 ? new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration2024, 18)
                 : new FeatureUnlockByLevel(Level20Context.FeatureBardSuperiorInspiration, 20));
 
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndEnableBardWordsOfCreationAtLevel20()
+    internal static void SwitchBardWordsOfCreation()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == Level20Context.AutoPreparedSpellsBardWordOfCreation);
 
-        if (Main.Settings.EnableBardWordsOfCreationAtLevel20)
+        if (Main.Settings.EnableBardWordsOfCreation2024)
         {
             Bard.FeatureUnlocks.Add(
                 new FeatureUnlockByLevel(Level20Context.AutoPreparedSpellsBardWordOfCreation, 20));
@@ -175,7 +175,7 @@ internal static partial class Tabletop2024Context
             SavingThrowData savingThrowData,
             bool hasHitVisual)
         {
-            if (!Main.Settings.EnableBardCounterCharmAsReactionAtLevel7)
+            if (!Main.Settings.EnableBardCounterCharm2024)
             {
                 yield break;
             }

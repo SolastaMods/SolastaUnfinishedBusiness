@@ -28,7 +28,7 @@ public static class CharacterActionRecklessAttackPatcher
             CharacterActionRecklessAttack action,
             IEnumerator values)
         {
-            if (!Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration)
+            if (!Main.Settings.EnableBarbarianReckless2024)
             {
                 yield return values;
                 yield break;

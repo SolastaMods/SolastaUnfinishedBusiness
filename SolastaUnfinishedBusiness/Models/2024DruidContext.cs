@@ -63,9 +63,9 @@ internal static partial class Tabletop2024Context
                 .Build())
         .AddToDB();
 
-    internal static void SwitchOneDnDEnableDruidUseMetalArmor()
+    internal static void SwitchDruidMetalArmor()
     {
-        var active = Main.Settings.EnableDruidUseMetalArmor;
+        var active = Main.Settings.EnableDruidMetalArmor;
 
         if (active)
         {

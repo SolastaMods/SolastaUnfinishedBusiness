@@ -604,8 +604,8 @@
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-    <OneDndAllPotionsBonusAction>true</OneDndAllPotionsBonusAction>
-    <OneDndPoisonsBonusAction>true</OneDndPoisonsBonusAction>
+    <EnablePotionsBonusAction2024>true</EnablePotionsBonusAction2024>
+    <EnablePoisonsBonusAction2024>true</EnablePoisonsBonusAction2024>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
@@ -676,18 +676,18 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <ChangeBardicInspirationDurationToOneHour>true</ChangeBardicInspirationDurationToOneHour>
-    <EnableBardCounterCharmAsReactionAtLevel7>true</EnableBardCounterCharmAsReactionAtLevel7>
+    <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
+    <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore>true</EnableBardExpertiseOneLevelBefore>
-    <EnableBardSuperiorInspirationAtLevel18>true</EnableBardSuperiorInspirationAtLevel18>
-    <EnableBardWordsOfCreationAtLevel20>true</EnableBardWordsOfCreationAtLevel20>
+    <EnableBardSuperiorInspiration2024>true</EnableBardSuperiorInspiration2024>
+    <EnableBardWordsOfCreation2024>true</EnableBardWordsOfCreation2024>
     <RemoveBardMagicalSecretAt14And18>true</RemoveBardMagicalSecretAt14And18>
-    <RemoveBardSongOfRestAt2>true</RemoveBardSongOfRestAt2>
-    <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
+    <RemoveBardSongOfRest>true</RemoveBardSongOfRest>
+    <EnableBarbarianBrutalStrike2024>true</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
-    <EnableBarbarianInstinctivePounce>true</EnableBarbarianInstinctivePounce>
+    <EnableBarbarianInstinctivePounce2024>true</EnableBarbarianInstinctivePounce2024>
     <EnableBarbarianPersistentRage>true</EnableBarbarianPersistentRage>
-    <EnableBarbarianRecklessSameBuffDebuffDuration>true</EnableBarbarianRecklessSameBuffDebuffDuration>
+    <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
     <EnableBarbarianRelentlessRage>true</EnableBarbarianRelentlessRage>
     <EnableDruidUseMetalArmor>true</EnableDruidUseMetalArmor>

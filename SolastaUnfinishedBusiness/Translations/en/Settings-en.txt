@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> 
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
-ModUi/&AllowDruidToWearMetalArmor=Remove <color=#D89555>Metal Armor</color> restrictions
+ModUi/&EnableDruidMetalArmor=Remove <color=#D89555>Metal Armor</color> restrictions
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportu
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
 ModUi/&Category=Category
-ModUi/&ChangeBardicInspirationDurationToOneHour=Change <color=#D89555>Bardic Inspiration</color> duration to 1hr instead of 10 minutes
+ModUi/&EnableBardicInspiration2024=Change <color=#D89555>Bardic Inspiration</color> duration to 1hr instead of 10 minutes
 ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to CON modifier per short rest
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Enable <b>Abjurer</b> <color=#D89555>Arcane Ward</color> implementation to behave like BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Decrease by 1 each time it prevents damage, instead of by damage prevented. No need to cast abjuration spell to be active\nbut max value is 2x Wizard level instead of 2x Wizard level + INT mod and is only recharged to half on a long rest]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> to replace <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17
+ModUi/&EnableBarbarianBrutalStrike2024=Enable <color=#D89555>Brutal Strike</color> and <color=#D89555>Brutal Strike Improvement</color> to replace <color=#D89555>Brutal Critical</color> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
-ModUi/&EnableBarbarianInstinctivePounce=Enable <color=#D89555>Instinctive Pounce</color> at level 7
+ModUi/&EnableBarbarianInstinctivePounce2024=Enable <color=#D89555>Instinctive Pounce</color> at level 7
 ModUi/&EnableBarbarianPersistentRage=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
+ModUi/&EnableBarbarianReckless2024=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
 ModUi/&EnableBarbarianRelentlessRage=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
+ModUi/&EnableBardCounterCharm2024=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
-ModUi/&EnableBardSuperiorInspirationAtLevel18=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
-ModUi/&EnableBardWordsOfCreationAtLevel20=Enable <color=#D89555>Words of Creation</color> at level 20
+ModUi/&EnableBardSuperiorInspiration2024=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
+ModUi/&EnableBardWordsOfCreation2024=Enable <color=#D89555>Words of Creation</color> at level 20
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <c
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tabletop <i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=Enable drinking <color=#D89555>Potions</color> as a bonus action
-ModUi/&OneDndPoisonsBonusAction=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
+ModUi/&EnablePotionsBonusAction2024=Enable drinking <color=#D89555>Potions</color> as a bonus action
+ModUi/&EnablePoisonsBonusAction2024=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=Refresh Voices List
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
-ModUi/&RemoveBardSongOfRestAt2=Remove <color=#D89555>Song of Rest</color> at level 2
+ModUi/&RemoveBardSongOfRest=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines

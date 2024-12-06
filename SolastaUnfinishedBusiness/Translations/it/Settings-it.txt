@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Consenti a <color=#D89555>Trucchetti Lama</c
 ModUi/&AllowClubsToBeThrown=Consentire che i <color=#D89555>mazze</color> vengano lanciati come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Consenti mod incantesimi non suggeriti in ogni elenco
 ModUi/&AllowDisplayingOfficialSpells=Consenti incantesimi ufficiali di gioco su ogni elenco
-ModUi/&AllowDruidToWearMetalArmor=Rimuovi le restrizioni per <color=#D89555>Armatura metallica</color>
+ModUi/&EnableDruidMetalArmor=Rimuovi le restrizioni per <color=#D89555>Armatura metallica</color>
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle razze di forma selvaggia o volanti]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il clic <color=#1E81B0>CTRL</color> per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di op
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=Campagne
 ModUi/&Category=Categoria
-ModUi/&ChangeBardicInspirationDurationToOneHour=Modifica la durata di <color=#D89555>Ispirazione bardica</color> a 1 ora invece di 10 minuti
+ModUi/&EnableBardicInspiration2024=Modifica la durata di <color=#D89555>Ispirazione bardica</color> a 1 ora invece di 10 minuti
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambia l'uso del respiro elementale di <color=#D89555>Dragonborn</color> in modificatore COS per riposo breve
 ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per usare un cubo invece di un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro delle modifiche</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=Abilita l'alternativa <color=#D89555>Umano</color> <
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[peso della scelta = voti * modificatore Carisma dell'eroe]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Abilita l'implementazione di <b>Abjurer</b> <color=#D89555>Arcane Ward</color> per comportarsi come BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Diminuisce di 1 ogni volta che previene danni, invece di per danni prevenuti. Non c'è bisogno di lanciare un incantesimo di abjurazione per essere attivo\nma il valore massimo è 2x livello mago invece di 2x livello mago + mod INT e si ricarica solo a metà con un riposo lungo]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Colpo Brutale</color> e <color=#D89555>Miglioramento Colpo Brutale</color> per sostituire <color=#D89555>Critico Brutale</color> ai livelli 9, 13 e 17
+ModUi/&EnableBarbarianBrutalStrike2024=Abilita <color=#D89555>Colpo Brutale</color> e <color=#D89555>Miglioramento Colpo Brutale</color> per sostituire <color=#D89555>Critico Brutale</color> ai livelli 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
-ModUi/&EnableBarbarianInstinctivePounce=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
+ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianPersistentRage=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
+ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
 ModUi/&EnableBarbarianRelentlessRage=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
+ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Abilita <b>College of Hope</b> <color=#D89555>Ballata curativa</color> durante il riposo lungo
-ModUi/&EnableBardSuperiorInspirationAtLevel18=Abilita <color=#D89555>Ispirazione superiore</color> al livello 18 invece che 20 e concedi anche due ricariche invece di 1
-ModUi/&EnableBardWordsOfCreationAtLevel20=Abilita <color=#D89555>Parole di Creazione</color> al livello 20
+ModUi/&EnableBardSuperiorInspiration2024=Abilita <color=#D89555>Ispirazione superiore</color> al livello 18 invece che 20 e concedi anche due ricariche invece di 1
+ModUi/&EnableBardWordsOfCreation2024=Abilita <color=#D89555>Parole di Creazione</color> al livello 20
 ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Visione Oscura</color>, <color=#D89555>Vista Cieca</color> e <color=#D89555>Vista Vera</color> a mostri e PNG quando appropriato</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tavolo <i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=Abilita bere <color=#D89555>Pozioni</color> come azione bonus
-ModUi/&OneDndPoisonsBonusAction=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
+ModUi/&EnablePotionsBonusAction2024=Abilita bere <color=#D89555>Pozioni</color> come azione bonus
+ModUi/&EnablePoisonsBonusAction2024=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia di contorno per</color> <color=#C04040E0>[%]</color>
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=Aggiorna elenco voci
 ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Rimuovi <color=#D89555>Segreto magico</color> ai livelli 14 e 18
-ModUi/&RemoveBardSongOfRestAt2=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
+ModUi/&RemoveBardSongOfRest=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci

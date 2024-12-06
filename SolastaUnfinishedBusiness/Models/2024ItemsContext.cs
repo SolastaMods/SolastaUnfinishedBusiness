@@ -49,9 +49,9 @@ internal static partial class Tabletop2024Context
             knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden
         };
 
-    internal static void SwitchOneDndAllPotionsBonusAction()
+    internal static void SwitchPotionsBonusAction()
     {
-        if (Main.Settings.OneDndAllPotionsBonusAction)
+        if (Main.Settings.EnablePotionsBonusAction2024)
         {
             foreach (var potion in DatabaseRepository.GetDatabase<ItemDefinition>()
                          .Where(a =>
@@ -73,9 +73,9 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndPoisonsBonusAction()
+    internal static void SwitchPoisonsBonusAction()
     {
-        if (Main.Settings.OneDndPoisonsBonusAction)
+        if (Main.Settings.EnablePoisonsBonusAction2024)
         {
             foreach (var poison in DatabaseRepository.GetDatabase<ItemDefinition>()
                          .Where(a =>

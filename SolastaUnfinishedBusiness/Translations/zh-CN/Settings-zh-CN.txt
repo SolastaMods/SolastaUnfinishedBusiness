@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=允许<color=#D89555>剑术戏法</color>使
 ModUi/&AllowClubsToBeThrown=允许像投掷<color=#D89555>匕首</color>或<color=#D89555>手斧</color>那样投掷<color=#D89555>棍棒</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=允许每个列表中的 mod 非建议咒语
 ModUi/&AllowDisplayingOfficialSpells=允许每个列表中的游戏官方咒语
-ModUi/&AllowDruidToWearMetalArmor=删除<color=#D89555>金属装甲</color>限制
+ModUi/&EnableDruidMetalArmor=删除<color=#D89555>金属装甲</color>限制
 ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地下城
 ModUi/&AllowFlightSuspend=允许暂时中止因物品和法术而产生的飞行<i><color=#F0DAA0>[不影响野性变身或飞行种族]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=启用<color=#1E81B0>CTRL</color>单击以在放置小工具或道具时绕过任何检查
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=当<color=#D89555>失明</co
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=活动
 ModUi/&Category=类别
-ModUi/&ChangeBardicInspirationDurationToOneHour=将<color=#D89555>吟游诗人灵感</color>的持续时间从 10 分钟改为 1 小时
+ModUi/&EnableBardicInspiration2024=将<color=#D89555>吟游诗人灵感</color>的持续时间从 10 分钟改为 1 小时
 ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>Dragonborn</color>元素气息用法更改为每次短暂休息后的体质修正
 ModUi/&ChangeSleetStormToCube=将 <color=#D89555>Sleet Storm</color> 改为使用立方体，而不是圆柱体
 ModUi/&Changelog=<b><color=#D89555>变更日志</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=启用替代<color=#D89555>人类</color> <i><color=
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=启用 <b>Abjurer</b> <color=#D89555>Arcane Ward</color> 实现，使其行为类似于 BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[每次防止伤害时减少 1，而不是通过防止伤害来减少。无需施放驱散法术即可激活\n但最大值是 2x 巫师等级，而不是 2x 巫师等级 + INT mod，并且长时间休息只能恢复到一半]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在第 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>来取代<color=#D89555>残酷暴击</color>
+ModUi/&EnableBarbarianBrutalStrike2024=在第 9、13 和 17 级启用<color=#D89555>残酷打击</color>和<color=#D89555>残酷打击改进</color>来取代<color=#D89555>残酷暴击</color>
 ModUi/&EnableBarbarianFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
-ModUi/&EnableBarbarianInstinctivePounce=在第 7 级启用<color=#D89555>本能突袭</color>
+ModUi/&EnableBarbarianInstinctivePounce2024=在第 7 级启用<color=#D89555>本能突袭</color>
 ModUi/&EnableBarbarianPersistentRage=将 <color=#D89555>Persistent Rage</color> 与 5e 2024 版本交换
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
+ModUi/&EnableBarbarianReckless2024=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBarbarianRelentlessRage=将<color=#D89555>无情之怒</color>与 5e 2024 版本交换<i><color=#F0DAA0>[你的生命值设置为你的职业等级的 2 倍而不是 1 倍]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
+ModUi/&EnableBardCounterCharm2024=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
 ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<b>希望学院</b> <color=#D89555>治愈之歌</color>
-ModUi/&EnableBardSuperiorInspirationAtLevel18=在 18 级（而非 20 级）启用<color=#D89555>卓越灵感</color>，并且授予 2 次充能（而非 1 次）
-ModUi/&EnableBardWordsOfCreationAtLevel20=在 20 级时启用<color=#D89555>创世圣言</color>
+ModUi/&EnableBardSuperiorInspiration2024=在 18 级（而非 20 级）启用<color=#D89555>卓越灵感</color>，并且授予 2 次充能（而非 1 次）
+ModUi/&EnableBardWordsOfCreation2024=在 20 级时启用<color=#D89555>创世圣言</color>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的情况下为怪物和 NPC 添加 <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color> 和 <color=#D89555>TrueSight</color></i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[设置的集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>桌面<i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=启用饮用<color=#D89555>药水</color>作为奖励行动
-ModUi/&OneDndPoisonsBonusAction=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
+ModUi/&EnablePotionsBonusAction2024=启用饮用<color=#D89555>药水</color>作为奖励行动
+ModUi/&EnablePoisonsBonusAction2024=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 仅显示召唤列表中最强大的生物</i>
 ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=刷新语音列表
 ModUi/&RelicForgeries=文物伪造
 ModUi/&RemoveAttunementRequirements=删除调谐要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=删除 14 级和 18 级的<color=#D89555>魔法秘密</color>
-ModUi/&RemoveBardSongOfRestAt2=删除 2 级的<color=#D89555>休息之歌</color>
+ModUi/&RemoveBardSongOfRest=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓

@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Erlaube <color=#D89555>Blade Cantrips</color
 ModUi/&AllowClubsToBeThrown=Ermöglicht das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolche</color> oder <color=#D89555>Faustäxte</color>.
 ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube Mods, die nicht vorgeschlagene Zaubersprüche auf jeder Liste
 ModUi/&AllowDisplayingOfficialSpells=Offizielle Spielzauber auf jeder Liste zulassen
-ModUi/&AllowDruidToWearMetalArmor=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidMetalArmor=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Level 20
 ModUi/&AllowFlightSuspend=Erlaubt die vorübergehende Aussetzung des Flugs durch Gegenstände und Zauber <i><color=#F0DAA0>[betrifft keine Wildform- oder Flugrassen]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Keine Gelegenheitsangriffe a
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie
-ModUi/&ChangeBardicInspirationDurationToOneHour=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
+ModUi/&EnableBardicInspiration2024=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
 ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung des Elementaratems von <color=#D89555>Dragonborn</color> in einen CON-Modifikator pro kurzer Pause.
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Schneeregen</color>, um einen Würfel statt eines Zylinders zu verwenden.
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=Aktiviere den alternativen <color=#D89555>Menschen</
 ModUi/&EnableAlternateVotingSystem=Alternatives Abstimmungssystem aktivieren <i><color=#F0DAA0>[Auswahlgewicht = Stimmen * Charisma-Modifikator des Helden]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Aktivieren Sie die Implementierung von <b>Abjurer</b> <color=#D89555>Arcane Ward</color>, damit sie sich wie BG3 verhält
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Verringert sich jedes Mal um 1, wenn Schaden verhindert wird, statt um verhinderten Schaden. Es ist nicht nötig, einen Bannzauber zu wirken, um aktiv zu sein,\naber der Maximalwert beträgt 2x Zaubererstufe statt 2x Zaubererstufe + INT-Mod und wird bei einer langen Pause nur auf die Hälfte aufgeladen]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color>, um <color=#D89555>Brutal Critical</color> auf den Stufen 9, 13 und 17 zu ersetzen.
+ModUi/&EnableBarbarianBrutalStrike2024=Aktiviere <color=#D89555>Brutal Strike</color> und <color=#D89555>Brutal Strike Improvement</color>, um <color=#D89555>Brutal Critical</color> auf den Stufen 9, 13 und 17 zu ersetzen.
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
-ModUi/&EnableBarbarianInstinctivePounce=Aktiviere <color=#D89555>Instinktives Anspringen</color> auf Stufe 7
+ModUi/&EnableBarbarianInstinctivePounce2024=Aktiviere <color=#D89555>Instinktives Anspringen</color> auf Stufe 7
 ModUi/&EnableBarbarianPersistentRage=Tauschen Sie <color=#D89555>Persistent Rage</color> gegen die Version 5e 2024 aus.
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
+ModUi/&EnableBarbarianReckless2024=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 1
 ModUi/&EnableBarbarianRelentlessRage=Tauschen Sie <color=#D89555>Relentless Rage</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Ihre Trefferpunkte werden auf das Zweifache Ihrer Klassenstufe statt auf 1 gesetzt]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
+ModUi/&EnableBardCounterCharm2024=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
 ModUi/&EnableBardExpertiseOneLevelBefore=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt auf 3 und 10.
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
-ModUi/&EnableBardSuperiorInspirationAtLevel18=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
-ModUi/&EnableBardWordsOfCreationAtLevel20=Aktiviere <color=#D89555>Worte der Schöpfung</color> auf Level 20
+ModUi/&EnableBardSuperiorInspiration2024=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
+ModUi/&EnableBardWordsOfCreation2024=Aktiviere <color=#D89555>Worte der Schöpfung</color> auf Level 20
 ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Dunkelsicht</color>, <color=#D89555>Blindsicht</color> und <color=#D89555>Wahrsicht</color> hinzu</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[Einstellungssammlungen <b>Monster, die über Dunkelsicht verfügen sollten</b>, <b>Monster, die über echte Sicht verfügen sollten</b>, <b>Monster, die über blinde Sicht verfügen sollten</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Tischplatte <i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=Aktivieren Sie das Trinken von <color=#D89555>Tränken</color> als Bonusaktion
-ModUi/&OneDndPoisonsBonusAction=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
+ModUi/&EnablePotionsBonusAction2024=Aktivieren Sie das Trinken von <color=#D89555>Tränken</color> als Bonusaktion
+ModUi/&EnablePoisonsBonusAction2024=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplizieren Sie die Geschwindigkeit der Umrissgitteranimation mit</color> <color=#C04040E0>[%]</color>
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=Stimmenliste aktualisieren
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Entferne <color=#D89555>Magisches Geheimnis</color> auf den Ebenen 14 und 18
-ModUi/&RemoveBardSongOfRestAt2=Entferne <color=#D89555>Song of Rest</color> auf Level 2
+ModUi/&RemoveBardSongOfRest=Entferne <color=#D89555>Song of Rest</color> auf Level 2
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Greuelhaftes Gelächter</color> entfernen
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Verstricken</color>-Effekt nur beim Zaubern an und erzwinge außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien.

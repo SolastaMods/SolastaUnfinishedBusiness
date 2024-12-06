@@ -147,18 +147,18 @@ internal static class CraftingAndItems
             Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
         }
 
-        toggle = Main.Settings.OneDndAllPotionsBonusAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&OneDndAllPotionsBonusAction"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePotionsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePotionsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.OneDndAllPotionsBonusAction = toggle;
-            Tabletop2024Context.SwitchOneDndAllPotionsBonusAction();
+            Main.Settings.EnablePotionsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPotionsBonusAction();
         }
 
-        toggle = Main.Settings.OneDndPoisonsBonusAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&OneDndPoisonsBonusAction"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePoisonsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.OneDndPoisonsBonusAction = toggle;
-            Tabletop2024Context.SwitchOneDndPoisonsBonusAction();
+            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPoisonsBonusAction();
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;

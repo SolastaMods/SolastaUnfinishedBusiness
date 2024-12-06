@@ -486,7 +486,7 @@ internal static partial class Tabletop2024Context
             x.FeatureDefinition == FeatureSetBarbarianBrutalCritical ||
             x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
 
-        if (Main.Settings.EnableBarbarianBrutalStrike)
+        if (Main.Settings.EnableBarbarianBrutalStrike2024)
         {
             Barbarian.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9),
@@ -523,12 +523,12 @@ internal static partial class Tabletop2024Context
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
             .AddToDB();
 
-        PowerBarbarianRageStart.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
-        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
-        PathOfTheSavagery.PowerPrimalInstinct.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting));
+        var rageStartBehavior =
+            new PowerOrSpellFinishedByMePowerBarbarianRageStart(powerBarbarianInstinctivePounceTargeting);
+
+        PowerBarbarianRageStart.AddCustomSubFeatures(rageStartBehavior);
+        PowerBarbarianPersistentRageStart.AddCustomSubFeatures(rageStartBehavior);
+        PathOfTheSavagery.PowerPrimalInstinct.AddCustomSubFeatures(rageStartBehavior);
     }
 
     private sealed class PowerOrSpellFinishedByMePowerBarbarianRageStart(FeatureDefinitionPower powerDummyTargeting)
@@ -536,7 +536,7 @@ internal static partial class Tabletop2024Context
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (!Main.Settings.EnableBarbarianInstinctivePounce)
+            if (!Main.Settings.EnableBarbarianInstinctivePounce2024)
             {
                 yield break;
             }
@@ -577,7 +577,7 @@ internal static partial class Tabletop2024Context
         Barbarian.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == FeatureBarbarianInstinctivePounce);
 
-        if (Main.Settings.EnableBarbarianInstinctivePounce)
+        if (Main.Settings.EnableBarbarianInstinctivePounce2024)
         {
             Barbarian.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureBarbarianInstinctivePounce, 7));
         }
@@ -585,9 +585,9 @@ internal static partial class Tabletop2024Context
         Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchBarbarianRecklessSameBuffDebuffDuration()
+    internal static void SwitchBarbarianReckless()
     {
-        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration
+        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianReckless2024
             ? "Action/&RecklessAttackExtendedDescription"
             : "Action/&RecklessAttackDescription";
     }

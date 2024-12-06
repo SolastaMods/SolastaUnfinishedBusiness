@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=Permitir que los <color=#D89555>trucos de es
 ModUi/&AllowClubsToBeThrown=Permitir que los <color=#D89555>garrotes</color> se arrojen como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Permitir hechizos no sugeridos por mods en cada lista
 ModUi/&AllowDisplayingOfficialSpells=Permitir hechizos oficiales del juego en cada lista
-ModUi/&AllowDruidToWearMetalArmor=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidMetalArmor=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowFlightSuspend=Permitir suspender temporalmente el vuelo de objetos y hechizos <i><color=#F0DAA0>[no afecta a las razas voladoras ni a las de forma salvaje]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic con la tecla <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de opor
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría
-ModUi/&ChangeBardicInspirationDurationToOneHour=Cambiar la duración de <color=#D89555>Inspiración bárdica</color> a 1 hora en lugar de 10 minutos
+ModUi/&EnableBardicInspiration2024=Cambiar la duración de <color=#D89555>Inspiración bárdica</color> a 1 hora en lugar de 10 minutos
 ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos del aliento elemental de <color=#D89555>Dragonborn</color> a modificador CON por cada descanso corto
 ModUi/&ChangeSleetStormToCube=Cambie <color=#D89555>Tormenta de aguanieve</color> para utilizar un cubo en lugar de un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro de cambios</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=Habilitar el <color=#D89555>Humano</color> alternati
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votación alternativo <i><color=#F0DAA0>[peso de la elección = votos * modificador de Carisma del héroe]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Habilitar la implementación de <color=#D89555>Arcane Ward</color> de Abjurer para que se comporte como BG3
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[Disminuye en 1 cada vez que previene daño, en lugar de por el daño prevenido. No es necesario lanzar un hechizo de abjuración para estar activo\npero el valor máximo es 2 veces el nivel de mago en lugar de 2 veces el nivel de mago + mod de INT y solo se recarga a la mitad en un descanso prolongado]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> para reemplazar <color=#D89555>Crítico brutal</color> en los niveles 9, 13 y 17
+ModUi/&EnableBarbarianBrutalStrike2024=Habilita <color=#D89555>Golpe brutal</color> y <color=#D89555>Mejora de golpe brutal</color> para reemplazar <color=#D89555>Crítico brutal</color> en los niveles 9, 13 y 17
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
-ModUi/&EnableBarbarianInstinctivePounce=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
+ModUi/&EnableBarbarianInstinctivePounce2024=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
 ModUi/&EnableBarbarianPersistentRage=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
+ModUi/&EnableBarbarianReckless2024=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 1
 ModUi/&EnableBarbarianRelentlessRage=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
+ModUi/&EnableBardCounterCharm2024=Habilitar <color=#D89555>Contraencantamiento</color> en el nivel 7 como reacción en lugar del nivel 6 como acción
 ModUi/&EnableBardExpertiseOneLevelBefore=Habilitar <color=#D89555>Experiencia</color> en los niveles 2 y 9 en lugar de 3 y 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
-ModUi/&EnableBardSuperiorInspirationAtLevel18=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
-ModUi/&EnableBardWordsOfCreationAtLevel20=Habilita <color=#D89555>Palabras de creación</color> en el nivel 20
+ModUi/&EnableBardSuperiorInspiration2024=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
+ModUi/&EnableBardWordsOfCreation2024=Habilita <color=#D89555>Palabras de creación</color> en el nivel 20
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen un ataque adicional adicional de <color=#D89555>Magia de guerra</color>
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambiar l
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Agrega <color=#D89555>Visión en la oscuridad</color>, <color=#D89555>Vista ciega</color> y <color=#D89555>Vista verdadera</color> a monstruos y PNJ cuando sea apropiado</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[colecciones de configuraciones <b>MonstruosQueDeberíanTenerVisiónOscura</b>, <b>MonstruosQueDeberíanTenerVistaVerdadera</b>, <b>MonstruosQueDeberíanTenerVistaCiego</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>Mesa <i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=Habilitar beber <color=#D89555>Pociones</color> como acción adicional
-ModUi/&OneDndPoisonsBonusAction=Habilitar la aplicación de <color=#D89555>venenos</color> a las armas como acción adicional
+ModUi/&EnablePotionsBonusAction2024=Habilitar beber <color=#D89555>Pociones</color> como acción adicional
+ModUi/&EnablePoisonsBonusAction2024=Habilitar la aplicación de <color=#D89555>venenos</color> a las armas como acción adicional
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuración</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplica la velocidad de animación de la cuadrícula de contorno por</color> <color=#C04040E0>[%]</color>
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=Actualizar lista de voces
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=Elimina <color=#D89555>Secreto mágico</color> en los niveles 14 y 18
-ModUi/&RemoveBardSongOfRestAt2=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
+ModUi/&RemoveBardSongOfRest=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.

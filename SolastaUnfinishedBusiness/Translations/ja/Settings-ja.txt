@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>ブレード・カントリ�
 ModUi/&AllowClubsToBeThrown=<color=#D89555>クラブ</color>を<color=#D89555>ダガー</color>や<color=#D89555>ハンドアックス</color>のように投げられるようになります
 ModUi/&AllowDisplayingNonSuggestedSpells=各リストでmodの非推奨呪文を許可する
 ModUi/&AllowDisplayingOfficialSpells=各リストでゲーム公式呪文を許可する
-ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>金属装甲</color>の制限を解除
+ModUi/&EnableDruidMetalArmor=<color=#D89555>金属装甲</color>の制限を解除
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可する
 ModUi/&AllowFlightSuspend=アイテムや呪文による飛行を一時的に停止できるようにします <i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=ガジェットや小道具を配置する際のチェックをバイパスするために、<color=#1E81B0>CTRL</color> クリックを有効にします
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color
 ModUi/&Blueprints=設計図
 ModUi/&Campaigns=キャンペーン
 ModUi/&Category=カテゴリ
-ModUi/&ChangeBardicInspirationDurationToOneHour=<color=#D89555>吟遊詩人のインスピレーション</color>の持続時間を10分から1時間に変更
+ModUi/&EnableBardicInspiration2024=<color=#D89555>吟遊詩人のインスピレーション</color>の持続時間を10分から1時間に変更
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color> のエレメンタルブレスの使用量を短い休憩ごとの CON 修正値に変更します
 ModUi/&ChangeSleetStormToCube=<color=#D89555>Sleet Storm</color> を、円柱の代わりに立方体を使用するように変更します。
 ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=代替の <color=#D89555>人間</color> を有効に
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ性補正値]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> の <color=#D89555>Arcane Ward</color> 実装を有効にして、BG3 のように動作させます。
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[ダメージを防ぐたびに 1 減少します (防いだダメージの数ではありません)。有効にするために防御呪文を唱える必要はありません\nただし、最大値はウィザード レベルの 2 倍 (ウィザード レベル + INT 修正値の 2 倍) であり、長い休憩でのみ半分に再充電されます]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=レベル 9、13、17 で <color=#D89555>残忍な一撃</color> と <color=#D89555>残忍な一撃の改善</color> を有効にして、<color=#D89555>残忍なクリティカル</color> を置き換えます
+ModUi/&EnableBarbarianBrutalStrike2024=レベル 9、13、17 で <color=#D89555>残忍な一撃</color> と <color=#D89555>残忍な一撃の改善</color> を有効にして、<color=#D89555>残忍なクリティカル</color> を置き換えます
 ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
-ModUi/&EnableBarbarianInstinctivePounce=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
+ModUi/&EnableBarbarianInstinctivePounce2024=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
 ModUi/&EnableBarbarianPersistentRage=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
+ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBarbarianRelentlessRage=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
+ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
-ModUi/&EnableBardSuperiorInspirationAtLevel18=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
-ModUi/&EnableBardWordsOfCreationAtLevel20=レベル20で<color=#D89555>創造の言葉</color>を有効にする
+ModUi/&EnableBardSuperiorInspiration2024=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
+ModUi/&EnableBardWordsOfCreation2024=レベル20で<color=#D89555>創造の言葉</color>を有効にする
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 適切な場合はいつでも、モンスターと NPC に <color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>テーブルトップ <i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=ボーナスアクションとして<color=#D89555>ポーション</color>を飲むことを可能にする
-ModUi/&OneDndPoisonsBonusAction=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする
+ModUi/&EnablePotionsBonusAction2024=ボーナスアクションとして<color=#D89555>ポーション</color>を飲むことを可能にする
+ModUi/&EnablePoisonsBonusAction2024=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストに最も強力なクリーチャーのみを表示する</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライングリッドアニメーションの速度を</color> <color=#C04040E0>[%]</color> で乗算します。
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=ボイスリストを更新
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=レベル14と18で<color=#D89555>魔法の秘密</color>を削除します
-ModUi/&RemoveBardSongOfRestAt2=レベル2で<color=#D89555>安息の歌</color>を削除します
+ModUi/&RemoveBardSongOfRest=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>絡みつく</color>効果は詠唱時にのみ適用され、蔓から逃れるには筋力チェックも強制される。

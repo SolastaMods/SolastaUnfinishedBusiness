@@ -27,7 +27,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool DisplayMultiplayerToggle { get; set; }
-    public bool DisplayOneDndToggle { get; set; }
+    public bool DisplayTabletop2024 { get; set; }
     public bool DisplayTabletopToggle { get; set; }
     public bool DisplayRacesToggle { get; set; }
     public bool DisplaySubracesToggle { get; set; }
@@ -228,8 +228,8 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool OneDndAllPotionsBonusAction { get; set; }
-    public bool OneDndPoisonsBonusAction { get; set; }
+    public bool EnablePotionsBonusAction2024 { get; set; }
+    public bool EnablePoisonsBonusAction2024 { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
@@ -270,22 +270,22 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool ChangeBardicInspirationDurationToOneHour { get; set; }
-    public bool EnableBardCounterCharmAsReactionAtLevel7 { get; set; }
+    public bool EnableBardicInspiration2024 { get; set; }
+    public bool EnableBardCounterCharm2024 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore { get; set; }
-    public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
-    public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
+    public bool EnableBardSuperiorInspiration2024 { get; set; }
+    public bool EnableBardWordsOfCreation2024 { get; set; }
     public bool RemoveBardMagicalSecretAt14And18 { get; set; }
-    public bool RemoveBardSongOfRestAt2 { get; set; }
-    public bool EnableBarbarianBrutalStrike { get; set; }
+    public bool RemoveBardSongOfRest { get; set; }
+    public bool EnableBarbarianBrutalStrike2024 { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableBarbarianInstinctivePounce { get; set; }
+    public bool EnableBarbarianInstinctivePounce2024 { get; set; }
     public bool EnableBarbarianPersistentRage { get; set; }
-    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
+    public bool EnableBarbarianReckless2024 { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
     public bool EnableBarbarianRelentlessRage { get; set; }
 
-    public bool EnableDruidUseMetalArmor { get; set; }
+    public bool EnableDruidMetalArmor { get; set; }
     public bool EnableDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
     public bool SwapDruidToUseOneDndWeaponProficiency { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }

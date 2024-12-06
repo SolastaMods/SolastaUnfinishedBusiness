@@ -22,7 +22,7 @@ ModUi/&AllowBladeCantripsToUseReach=<color=#D89555>블레이드 캔트립</color
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있도록 허용합니다.
 ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에 제안되지 않은 주문 허용
 ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문 허용
-ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>금속 갑옷</color> 제한 제거
+ModUi/&EnableDruidMetalArmor=<color=#D89555>금속 갑옷</color> 제한 제거
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20인 던전 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시적으로 중단할 수 있습니다. <i><color=#F0DAA0>[야생형이나 비행 종족에는 영향을 미치지 않습니다.]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=가젯이나 소품을 배치할 때 모든 검사를 우회하려면 <color=#1E81B0>CTRL</color> 클릭을 활성화하세요.
@@ -42,7 +42,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀었
 ModUi/&Blueprints=청사진
 ModUi/&Campaigns=캠페인
 ModUi/&Category=범주
-ModUi/&ChangeBardicInspirationDurationToOneHour=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
+ModUi/&EnableBardicInspiration2024=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
 ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>드래곤본</color> 원소 숨결 사용을 짧은 휴식당 CON 수정치로 변경
 ModUi/&ChangeSleetStormToCube=<color=#D89555>눈보라 폭풍</color>을 실린더 대신 큐브를 사용하도록 변경합니다.
 ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
@@ -101,18 +101,18 @@ ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DA
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 수 * 영웅 카리스마 수정치]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> <color=#D89555>Arcane Ward</color> 구현을 BG3처럼 동작하도록 활성화합니다.
 ModUi/&EnableBG3AbjurationArcaneWardHelp=<i><color=#F0DAA0>[피해를 방지할 때마다 1씩 감소, 방지한 피해에 따라 감소하는 것이 아님. 활성화하려면 금지 주문을 시전할 필요가 없음\n하지만 최대값은 위저드 레벨의 2배 + INT 수정치 대신 위저드 레벨의 2배이며 긴 휴식 시에만 절반으로 재충전됨]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화하여 <color=#D89555>잔혹한 치명타</color>를 대체합니다.
+ModUi/&EnableBarbarianBrutalStrike2024=레벨 9, 13, 17에서 <color=#D89555>잔혹한 일격</color>과 <color=#D89555>잔혹한 일격 개선</color>을 활성화하여 <color=#D89555>잔혹한 치명타</color>를 대체합니다.
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
-ModUi/&EnableBarbarianInstinctivePounce=레벨 7에서 <color=#D89555>본능적 습격</color> 활성화
+ModUi/&EnableBarbarianInstinctivePounce2024=레벨 7에서 <color=#D89555>본능적 습격</color> 활성화
 ModUi/&EnableBarbarianPersistentRage=<color=#D89555>Persistent Rage</color>를 5e 2024 버전으로 바꾸세요
-ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
+ModUi/&EnableBarbarianReckless2024=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=1레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
 ModUi/&EnableBarbarianRelentlessRage=<color=#D89555>Relentless Rage</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[생명력이 클래스 레벨의 1배가 아닌 2배로 설정됨]</color></i>
-ModUi/&EnableBardCounterCharmAsReactionAtLevel7=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
+ModUi/&EnableBardCounterCharm2024=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
-ModUi/&EnableBardSuperiorInspirationAtLevel18=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
-ModUi/&EnableBardWordsOfCreationAtLevel20=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
+ModUi/&EnableBardSuperiorInspiration2024=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
+ModUi/&EnableBardWordsOfCreation2024=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
@@ -281,8 +281,8 @@ ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 적절한 경우 몬스터와 NPC에게 <color=#D89555>암흑 시야</color>, <color=#D89555>맹시력</color>, <color=#D89555>진시력</color>을 추가합니다.</i>
 ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>어둠의 시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈먼 시야를 가져야 하는 괴물</b>]</color></i>
 ModUi/&OneDnd=<color=#F0DAA0>테이블탑<i>[5e 2024]</i>:</color>
-ModUi/&OneDndAllPotionsBonusAction=보너스 액션으로 <color=#D89555>물약</color> 마시기를 활성화합니다.
-ModUi/&OneDndPoisonsBonusAction=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
+ModUi/&EnablePotionsBonusAction2024=보너스 액션으로 <color=#D89555>물약</color> 마시기를 활성화합니다.
+ModUi/&EnablePoisonsBonusAction2024=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시합니다.</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
@@ -299,7 +299,7 @@ ModUi/&RefreshVoice=음성 목록 새로 고침
 ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveBardMagicalSecretAt14And18=레벨 14와 18에서 <color=#D89555>마법의 비밀</color>을 제거하세요
-ModUi/&RemoveBardSongOfRestAt2=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
+ModUi/&RemoveBardSongOfRest=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
