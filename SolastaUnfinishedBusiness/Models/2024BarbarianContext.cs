@@ -47,6 +47,7 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinition PointPoolBarbarianPrimalKnowledge = FeatureDefinitionPointPoolBuilder
         .Create(FeatureDefinitionPointPools.PointPoolBarbarianrSkillPoints, "PointPoolBarbarianPrimalKnowledge")
         .SetGuiPresentation(Category.Feature)
+        .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
         .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckPrimalKnowledge())
         .AddToDB();
 
