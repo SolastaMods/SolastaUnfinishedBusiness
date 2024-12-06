@@ -122,7 +122,7 @@ public static class Prefabs
                     var parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
                     if (parts.Length > 1)
                     {
-                        materialKey = Path.GetFileNameWithoutExtension(parts[1]);
+                        materialKey = Path.GetFileNameWithoutExtension(parts[1].Replace("\r", "").Replace("\n", "").Replace("..", "")); // Trim line endings
                     }
                 }
                 else if (line.StartsWith("v "))
