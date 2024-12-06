@@ -101,6 +101,7 @@ ModUi/&EnableBarbarianBrutalStrike2024=Abilita <color=#D89555>Colpo Brutale</col
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
 ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianPersistentRage2024=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
+ModUi/&EnableBarbarianPrimalKnowledge2024=Abilita <color=#D89555>Conoscenza primordiale</color> al livello 3
 ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
 ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>

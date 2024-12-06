@@ -101,6 +101,7 @@ ModUi/&EnableBarbarianBrutalStrike2024=Habilita <color=#D89555>Golpe brutal</col
 ModUi/&EnableBarbarianFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableBarbarianInstinctivePounce2024=Habilitar <color=#D89555>Salto instintivo</color> en el nivel 7
 ModUi/&EnableBarbarianPersistentRage2024=Intercambia <color=#D89555>Persistent Rage</color> con la versión 5e 2024
+ModUi/&EnableBarbarianPrimalKnowledge2024=Habilitar <color=#D89555>Conocimiento primordial</color> en el nivel 3
 ModUi/&EnableBarbarianReckless2024=Habilitar el beneficio y desventaja de <color=#D89555>Ataque imprudente</color> para que finalicen al comienzo del siguiente turno
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permite recuperar un uso de <color=#D89555>Furia</color> durante un descanso corto en el nivel 1
 ModUi/&EnableBarbarianRelentlessRage2024=Cambia <color=#D89555>Ira implacable</color> por la versión 5e 2024 <i><color=#F0DAA0>[tus puntos de vida se establecen en el doble de tu nivel de clase en lugar de 1]</color></i>

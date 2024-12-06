@@ -362,6 +362,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchBarbarianInstinctivePounce();
         }
 
+        toggle = Main.Settings.EnableBarbarianPrimalKnowledge2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPrimalKnowledge2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianPrimalKnowledge2024 = toggle;
+            Tabletop2024Context.SwitchBarbarianPrimalKnowledge();
+        }
+
         toggle = Main.Settings.EnableBarbarianReckless2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianReckless2024"), ref toggle, UI.AutoWidth()))
         {
@@ -381,13 +388,6 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableBarbarianPersistentRage2024 = toggle;
             Tabletop2024Context.SwitchBarbarianPersistentRage();
-        }
-
-        toggle = Main.Settings.EnableBarbarianPrimalKnowledge2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPrimalKnowledge2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianPrimalKnowledge2024 = toggle;
-            Tabletop2024Context.SwitchBarbarianPrimalKnowledge();
         }
 
         toggle = Main.Settings.EnableBarbarianRelentlessRage2024;

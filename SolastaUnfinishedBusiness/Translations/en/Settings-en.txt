@@ -101,6 +101,7 @@ ModUi/&EnableBarbarianBrutalStrike2024=Enable <color=#D89555>Brutal Strike</colo
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableBarbarianInstinctivePounce2024=Enable <color=#D89555>Instinctive Pounce</color> at level 7
 ModUi/&EnableBarbarianPersistentRage2024=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
+ModUi/&EnableBarbarianPrimalKnowledge2024=Enable <color=#D89555>Primal Knowledge</color> at level 3
 ModUi/&EnableBarbarianReckless2024=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
 ModUi/&EnableBarbarianRelentlessRage2024=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
