@@ -1,5 +1,6 @@
 1.5.97.41:
 
+- added custom models to Lightning Launcher, Long Mace, Katana, Pike, and Thunder Gauntlet [by cckcckcc]
 - added 'Enable applying Poisons to weapons as a bonus action' setting [by SilverGriffon]
 - added 'Enable Barbarian Instinctive Pounce at 7' setting
 - added 'Enable Barbarian Primal Knowledge at 3' setting

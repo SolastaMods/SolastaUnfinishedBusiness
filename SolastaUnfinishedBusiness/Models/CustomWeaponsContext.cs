@@ -9,19 +9,12 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement;
 using static RuleDefinitions;
 using static RuleDefinitions.ItemRarity;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
-using UnityEngine.InputSystem;
-using UnityEngine.AddressableAssets.ResourceLocators;
-using UnityEngine.ResourceManagement.ResourceLocations;
-using System;
-using System.Threading.Tasks;
 
 // ReSharper disable InconsistentNaming
 namespace SolastaUnfinishedBusiness.Models;
@@ -40,7 +33,7 @@ internal static class CustomWeaponsContext
         PikeWeaponType,
         LongMaceWeaponType;
 
-    internal static ItemDefinition Katana;
+    private static ItemDefinition Katana;
 
     internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
@@ -79,14 +72,15 @@ internal static class CustomWeaponsContext
     [NotNull]
     internal static ItemPresentation BuildPresentation(
         string unIdentifiedName,
-        ItemPresentation basePresentation = null,
+        ItemPresentation basePresentation,
         AssetReference customPresentation = null,
         float scale = 1.0f, bool hasUnidentifiedDescription = false)
     {
         //TODO: either create a builder for ItemPresentation, or add setter with custom values to ItemDefinitionBuilder
-        var presentation = new ItemPresentation(basePresentation);
-        if (customPresentation == null) { presentation.assetReference = basePresentation.AssetReference; }
-        else { presentation.assetReference = customPresentation; }
+        var presentation = new ItemPresentation(basePresentation)
+        {
+            assetReference = customPresentation ?? basePresentation.AssetReference
+        };
 
         presentation.ItemFlags.Clear();
         presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
@@ -101,7 +95,8 @@ internal static class CustomWeaponsContext
     }
 
     [NotNull]
-    internal static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, AssetReference customPresentation, int goldCost, bool noDescription,
+    internal static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, AssetReference customPresentation,
+        int goldCost, bool noDescription,
         ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
@@ -185,10 +180,10 @@ internal static class CustomWeaponsContext
     }
 
     #region Longswords
+
     private static void BuildLongswords()
     {
         var baseItem = ItemDefinitions.Longsword;
-        var basePresentation = ItemDefinitions.Longsword.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 1,
@@ -208,176 +203,17 @@ internal static class CustomWeaponsContext
         var katanaPrefab = Prefabs.GetKatanaPrefab();
 
         Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription,
-            icon: Sprites.KatanaIcon,
+            Sprites.KatanaIcon,
             scale: 0.005f
         );
 
-        Katana.GuiPresentation.Title = "Katana";
         MerchantContext.AddItem(Katana, ShopItemType.ShopGenericMelee);
     }
 
     #endregion
 
-    #region Handwraps
-    private static void BuildHandwraps()
-    {
-        HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
-            WeaponPlus1AttackOnly);
-        HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetDamageForm(DamageTypeForce, 1, DieType.D4)
-                .SetCreatedBy(false, false)
-                .Build());
-
-        HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
-        HandwrapsOfPulling.IsUsableDevice = true;
-        HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
-            .SetRecharge(RechargeRate.AtWill)
-            .SetSaveDc(EffectHelpers.BasedOnUser)
-            .AddFunctions(new DeviceFunctionDescriptionBuilder()
-                .SetPower(
-                    FeatureDefinitionPowerBuilder
-                        .Create("PowerHandwrapsOfPulling")
-                        .SetGuiPresentation(Category.Feature)
-                        .SetUsesFixed(ActivationTime.BonusAction)
-                        .SetEffectDescription(
-                            EffectDescriptionBuilder
-                                .Create()
-                                .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
-                                .ExcludeCaster()
-                                .SetSavingThrowData(
-                                    true,
-                                    AttributeDefinitions.Strength,
-                                    false,
-                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                                .SetEffectForms(
-                                    EffectFormBuilder
-                                        .Create()
-                                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                                        .SetCreatedBy(false, false)
-                                        .Build())
-                                .Build())
-                        .AddToDB())
-                .Build())
-            .Build();
-
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfForce, 14, 18,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
-
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfPulling, 14, 18,
-            ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
-    }
-
-    [NotNull]
-    private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
-        ItemRarity rarity,
-        params ItemPropertyDescription[] properties)
-    {
-        return BuildWeapon(
-            name,
-            ItemDefinitions.Primed_Gauntlet,
-            null,
-            goldCost,
-            noDescription, rarity, needId: needId,
-            properties: properties
-        );
-    }
-
-    internal static void UpdateHandWrapsUseGauntletSlot()
-    {
-        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-        {
-            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
-            {
-                continue;
-            }
-
-            if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
-
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
-            {
-                item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
-                item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
-            }
-            else
-            {
-                item.SlotTypes.Remove(EquipmentDefinitions.SlotTypeGloves);
-                item.SlotsWhereActive.Remove(EquipmentDefinitions.SlotTypeGloves);
-            }
-        }
-    }
-
-    internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,
-        ref WeaponDescription weaponDescription, ref RulesetItem weapon)
-    {
-        if (!Main.Settings.EnableMonkHandwrapsUseGauntletSlot
-            || weapon != null || itemDefinition != ItemDefinitions.UnarmedStrikeBase)
-        {
-            return;
-        }
-
-        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
-
-        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
-        {
-            return;
-        }
-
-        itemDefinition = item.ItemDefinition;
-        weaponDescription = itemDefinition.WeaponDescription;
-        weapon = item;
-    }
-
- 
-    //TODO: not sure this is the best place for this method
-    internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
-    {
-        if (!Main.Settings.EnableUnarmedMainAttackAction)
-        {
-            return;
-        }
-
-        //skip if we already have main unarmed attack
-        if (hero.AttackModes.Any(m => m is
-            {
-                ActionType: ActionDefinitions.ActionType.Main,
-                SourceDefinition: ItemDefinition
-                {
-                    WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike
-                }
-            }
-            ))
-        {
-            return;
-        }
-
-        //checkin only extra glove slot, because gauntlets in main hand slot would already add attack
-        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
-        var definition = item?.ItemDefinition;
-
-        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
-        {
-            item = null;
-            definition = null;
-        }
-
-        definition ??= ItemDefinitions.UnarmedStrikeBase;
-
-        if (hero.GetClassLevel(CharacterClassDefinitions.Monk) == 0 && item == null)
-        {
-            return;
-        }
-
-        hero.AttackModes.Add(hero.RefreshAttackMode(ActionDefinitions.ActionType.Main, definition,
-            definition.WeaponDescription, hero.HasFreeHandSlot(), true, EquipmentDefinitions.SlotTypeMainHand,
-            hero.attackModifiers, hero.FeaturesOrigin, item));
-    }
-
-    #endregion
-
     #region Halberds
+
     private static void BuildHalberds()
     {
         HalberdWeaponType = WeaponTypeDefinitionBuilder
@@ -471,6 +307,7 @@ internal static class CustomWeaponsContext
     #endregion
 
     #region Pikes
+
     private static void BuildPikes()
     {
         PikeWeaponType = WeaponTypeDefinitionBuilder
@@ -481,7 +318,6 @@ internal static class CustomWeaponsContext
             .AddToDB();
 
         var baseItem = ItemDefinitions.Spear;
-        var basePresentation = ItemDefinitions.Morningstar.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 2,
@@ -502,13 +338,14 @@ internal static class CustomWeaponsContext
         var pikePrefab = Prefabs.GetPikePrefab();
 
         Pike = BuildWeapon("CEPike", baseItem, pikePrefab, 20, true, Common, null, baseDescription,
-            icon: Sprites.PikeIcon
+            Sprites.PikeIcon
         );
 
         Pike.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(Pike, ShopItemType.ShopGenericMelee);
 
-        PikePrimed = BuildWeapon("CEPikePrimed", baseItem, pikePrefab, 40, true, Uncommon, null, baseDescription, Sprites.PikePrimedIcon);
+        PikePrimed = BuildWeapon("CEPikePrimed", baseItem, pikePrefab, 40, true, Uncommon, null, baseDescription,
+            Sprites.PikePrimedIcon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
@@ -527,8 +364,6 @@ internal static class CustomWeaponsContext
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
-        var itemDefinition = ItemDefinitions.MorningstarPlus2;
-
         PikePlus2 = BuildWeapon("CEPike+2", Pike, pikePrefab, 4000, true, VeryRare,
             icon: Sprites.PikeP2Icon,
             properties: [WeaponPlus2]
@@ -539,8 +374,6 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 14, 18,
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
-
-        itemDefinition = ItemDefinitions.MorningstarPlus3;
 
         PikePlus3 = BuildWeapon("CEPike+3", Pike, pikePrefab, 16000, true, VeryRare,
             icon: Sprites.PikeP3Icon,
@@ -575,6 +408,7 @@ internal static class CustomWeaponsContext
     #endregion
 
     #region Long Maces
+
     private static void BuildLongMaces()
     {
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
@@ -587,7 +421,6 @@ internal static class CustomWeaponsContext
         var longmacePrefab = Prefabs.GetLongMacePrefab();
 
         var baseItem = ItemDefinitions.Warhammer;
-        var basePresentation = ItemDefinitions.Mace.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 2,
@@ -605,13 +438,15 @@ internal static class CustomWeaponsContext
         damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
-        LongMace = BuildWeapon("CELongMace", baseItem, longmacePrefab, 20, true, Common, null, baseDescription, Sprites.LongMaceIcon,
+        LongMace = BuildWeapon("CELongMace", baseItem, longmacePrefab, 20, true, Common, null, baseDescription,
+            Sprites.LongMaceIcon,
             scale: 0.035f
         );
 
         MerchantContext.AddItem(LongMace, ShopItemType.ShopGenericMelee);
 
-        LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem, longmacePrefab, 40, true, Uncommon, null, baseDescription, Sprites.LongMacePrimedIcon);
+        LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem, longmacePrefab, 40, true, Uncommon, null,
+            baseDescription, Sprites.LongMacePrimedIcon);
         LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
 
@@ -629,8 +464,6 @@ internal static class CustomWeaponsContext
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
-        var itemDefinition = ItemDefinitions.MacePlus2;
-
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace, longmacePrefab, 4000, true, VeryRare,
             scale: 0.035f,
             icon: Sprites.LongMaceP2Icon,
@@ -641,8 +474,6 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 14, 18,
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
-
-        itemDefinition = ItemDefinitions.MacePlus3;
 
         LongMacePlus3 = BuildWeapon("CELongMace+3", LongMace, longmacePrefab, 16000, true, VeryRare,
             scale: 0.035f,
@@ -677,6 +508,7 @@ internal static class CustomWeaponsContext
     #endregion
 
     #region Hand Crossbows
+
     private static void BuildHandXbow()
     {
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
@@ -777,7 +609,286 @@ internal static class CustomWeaponsContext
 
     #endregion
 
+    #region Thunder Guantlet
+
+    private static void BuildThunderGauntlet()
+    {
+        ThunderGauntletType = WeaponTypeDefinitionBuilder
+            .Create(UnarmedStrikeType, "CEThunderGauntletType")
+            .SetGuiPresentation("Item/&CEThunderGauntletTitle", GuiPresentationBuilder.EmptyString)
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .AddToDB();
+
+        var thunderGauntletPrefab = Prefabs.GetThunderGauntletPrefab();
+        var baseItem = ItemDefinitions.UnarmedStrikeBase;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
+        {
+            reachRange = 1, weaponType = ThunderGauntletType.Name, weaponTags = []
+        };
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D8;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = DamageTypeThunder;
+
+        baseDescription.EffectDescription.DurationType = DurationType.Round;
+        baseDescription.EffectDescription.DurationParameter = 1;
+        baseDescription.EffectDescription.EndOfEffect = (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn;
+        baseDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
+
+        var effectParticleParameters = new EffectParticleParameters();
+
+        effectParticleParameters.Copy(SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters);
+        effectParticleParameters.casterParticleReference = new AssetReference();
+        baseDescription.EffectDescription.effectParticleParameters = effectParticleParameters;
+
+        ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, thunderGauntletPrefab, 0, true, Common, null,
+            baseDescription,
+            Sprites.GetSprite("ItemThunderGauntlet", Resources.ItemThunderGauntlet, 128),
+            scale: 0.25f,
+            properties: [ThunderImpactVFX]
+        );
+        ThunderGauntlet.inDungeonEditor = false;
+    }
+
+    #endregion
+
+    #region Lightning Launcher
+
+    private static void BuildLightningLauncher()
+    {
+        LightningLauncherType = WeaponTypeDefinitionBuilder
+            .Create(ShortbowType, "CELightningLauncherType")
+            .SetGuiPresentation("Item/&CELightningLauncherTitle", GuiPresentationBuilder.EmptyString)
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .SetAnimationTag("Rapier")
+            .AddToDB();
+
+        var launcherPrefab = Prefabs.GetLauncherPrefab();
+        var baseItem = ItemDefinitions.Shortbow;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
+        {
+            //TODO: add custom ammunition that looks like lightning
+            closeRange = 18, maxRange = 60, weaponType = LightningLauncherType.Name, weaponTags = []
+        };
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = DamageTypeLightning;
+
+        baseDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create(AttackedWithLauncherConditionName)
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add, true)
+                .Build());
+
+        baseDescription.EffectDescription.effectParticleParameters =
+            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters;
+
+        LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, launcherPrefab, 0, true, Common, null,
+            baseDescription,
+            Sprites.GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128),
+            properties: [LightningImpactVFX],
+            scale: 0.25f
+        );
+        LightningLauncher.inDungeonEditor = false;
+    }
+
+    #endregion
+
+    #region Natural Weapons
+
+    private static void BuildUnarmedStrikeClaws()
+    {
+        var baseItem = ItemDefinitions.UnarmedStrikeBase;
+        var basePresentation = baseItem.ItemPresentation;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription);
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = DamageTypeSlashing;
+
+        UnarmedStrikeClaws = BuildWeapon("CEUnarmedStrikeClaws", baseItem, null, 0, true, Common,
+            basePresentation, baseDescription,
+            Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
+    }
+
+    #endregion
+
+    #region Handwraps
+
+    private static void BuildHandwraps()
+    {
+        HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
+            WeaponPlus1AttackOnly);
+        HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeForce, 1, DieType.D4)
+                .SetCreatedBy(false, false)
+                .Build());
+
+        HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
+        HandwrapsOfPulling.IsUsableDevice = true;
+        HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
+            .SetRecharge(RechargeRate.AtWill)
+            .SetSaveDc(EffectHelpers.BasedOnUser)
+            .AddFunctions(new DeviceFunctionDescriptionBuilder()
+                .SetPower(
+                    FeatureDefinitionPowerBuilder
+                        .Create("PowerHandwrapsOfPulling")
+                        .SetGuiPresentation(Category.Feature)
+                        .SetUsesFixed(ActivationTime.BonusAction)
+                        .SetEffectDescription(
+                            EffectDescriptionBuilder
+                                .Create()
+                                .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
+                                .ExcludeCaster()
+                                .SetSavingThrowData(
+                                    true,
+                                    AttributeDefinitions.Strength,
+                                    false,
+                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
+                                .SetEffectForms(
+                                    EffectFormBuilder
+                                        .Create()
+                                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                        .SetCreatedBy(false, false)
+                                        .Build())
+                                .Build())
+                        .AddToDB())
+                .Build())
+            .Build();
+
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfForce, 14, 18,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
+
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfPulling, 14, 18,
+            ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
+    }
+
+    [NotNull]
+    private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
+        ItemRarity rarity,
+        params ItemPropertyDescription[] properties)
+    {
+        return BuildWeapon(
+            name,
+            ItemDefinitions.Primed_Gauntlet,
+            null,
+            goldCost,
+            noDescription, rarity, needId: needId,
+            properties: properties
+        );
+    }
+
+    private static void UpdateHandWrapsUseGauntletSlot()
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
+        {
+            if (item is not { WeaponDescription.weaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+            {
+                continue;
+            }
+
+            if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
+
+            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
+            {
+                item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
+                item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
+            }
+            else
+            {
+                item.SlotTypes.Remove(EquipmentDefinitions.SlotTypeGloves);
+                item.SlotsWhereActive.Remove(EquipmentDefinitions.SlotTypeGloves);
+            }
+        }
+    }
+
+    internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,
+        ref WeaponDescription weaponDescription, ref RulesetItem weapon)
+    {
+        if (!Main.Settings.EnableMonkHandwrapsUseGauntletSlot
+            || weapon != null || itemDefinition != ItemDefinitions.UnarmedStrikeBase)
+        {
+            return;
+        }
+
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+        {
+            return;
+        }
+
+        itemDefinition = item.ItemDefinition;
+        weaponDescription = itemDefinition.WeaponDescription;
+        weapon = item;
+    }
+
+
+    //TODO: not sure this is the best place for this method
+    internal static void TryAddMainActionUnarmedAttacks(RulesetCharacterHero hero)
+    {
+        if (!Main.Settings.EnableUnarmedMainAttackAction)
+        {
+            return;
+        }
+
+        //skip if we already have main unarmed attack
+        if (hero.AttackModes.Any(m => m is
+                {
+                    ActionType: ActionDefinitions.ActionType.Main,
+                    SourceDefinition: ItemDefinition
+                    {
+                        WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike
+                    }
+                }
+            ))
+        {
+            return;
+        }
+
+        //checkin only extra glove slot, because gauntlets in main hand slot would already add attack
+        var item = hero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeGloves][0]?.EquipedItem;
+        var definition = item?.ItemDefinition;
+
+        if (item is not { ItemDefinition.WeaponDescription.WeaponType: EquipmentDefinitions.WeaponTypeUnarmedStrike })
+        {
+            item = null;
+            definition = null;
+        }
+
+        definition ??= ItemDefinitions.UnarmedStrikeBase;
+
+        if (hero.GetClassLevel(CharacterClassDefinitions.Monk) == 0 && item == null)
+        {
+            return;
+        }
+
+        hero.AttackModes.Add(hero.RefreshAttackMode(ActionDefinitions.ActionType.Main, definition,
+            definition.WeaponDescription, hero.HasFreeHandSlot(), true, EquipmentDefinitions.SlotTypeMainHand,
+            hero.attackModifiers, hero.FeaturesOrigin, item));
+    }
+
+    #endregion
+
     #region Produce Flame
+
     private static void WeaponizeProducedFlame()
     {
         var flame = ItemDefinitions.ProducedFlame;
@@ -818,7 +929,7 @@ internal static class CustomWeaponsContext
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,
-     [NotNull] RulesetAttackMode mode)
+        [NotNull] RulesetAttackMode mode)
     {
         var num = hero.characterInventory.CurrentConfiguration;
         var configurations = hero.characterInventory.WieldedItemsConfigurations;
@@ -849,127 +960,6 @@ internal static class CustomWeaponsContext
     }
 
     #endregion
-
-    #region Thunder Guantlet
-    private static void BuildThunderGauntlet()
-    {
-        ThunderGauntletType = WeaponTypeDefinitionBuilder
-            .Create(UnarmedStrikeType, "CEThunderGauntletType")
-            .SetGuiPresentation("Item/&CEThunderGauntletTitle", GuiPresentationBuilder.EmptyString)
-            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
-            .AddToDB();
-
-        var thunderGauntletPrefab = Prefabs.GetThunderGauntletPrefab();
-        var baseItem = ItemDefinitions.UnarmedStrikeBase;
-        var basePresentation = baseItem.ItemPresentation;
-        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
-        {
-            reachRange = 1,
-            weaponType = ThunderGauntletType.Name,
-            weaponTags = []
-        };
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-
-        damageForm.dieType = DieType.D8;
-        damageForm.diceNumber = 1;
-        damageForm.damageType = DamageTypeThunder;
-
-        baseDescription.EffectDescription.DurationType = DurationType.Round;
-        baseDescription.EffectDescription.DurationParameter = 1;
-        baseDescription.EffectDescription.EndOfEffect = (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn;
-        baseDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
-
-        var effectParticleParameters = new EffectParticleParameters();
-
-        effectParticleParameters.Copy(SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters);
-        effectParticleParameters.casterParticleReference = new AssetReference();
-        baseDescription.EffectDescription.effectParticleParameters = effectParticleParameters;
-
-        ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, thunderGauntletPrefab, 0, true, Common, null, baseDescription,
-            Sprites.GetSprite("ItemThunderGauntlet", SolastaUnfinishedBusiness.Properties.Resources.ItemThunderGauntlet, 128),
-            scale: 0.25f,
-            properties: [ThunderImpactVFX]
-        );
-        ThunderGauntlet.inDungeonEditor = false;
-    }
-
-    #endregion
-
-    #region Lightning Launcher
-    private static void BuildLightningLauncher()
-    {
-        LightningLauncherType = WeaponTypeDefinitionBuilder
-            .Create(ShortbowType, "CELightningLauncherType")
-            .SetGuiPresentation("Item/&CELightningLauncherTitle", GuiPresentationBuilder.EmptyString)
-            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
-            .SetAnimationTag("Rapier")
-            .AddToDB();
-
-        var launcherPrefab = Prefabs.GetLauncherPrefab();
-        var baseItem = ItemDefinitions.Shortbow;
-        var basePresentation = baseItem.ItemPresentation;
-        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
-        {
-            //TODO: add custom ammunition that looks like lightning
-            closeRange = 18,
-            maxRange = 60,
-            weaponType = LightningLauncherType.Name,
-            weaponTags = []
-        };
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-
-        damageForm.dieType = DieType.D6;
-        damageForm.diceNumber = 1;
-        damageForm.damageType = DamageTypeLightning;
-
-        baseDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(AttackedWithLauncherConditionName)
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add, true)
-                .Build());
-
-        baseDescription.EffectDescription.effectParticleParameters =
-            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters;
-
-        LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, launcherPrefab, 0, true, Common, null, baseDescription,
-            Sprites.GetSprite("ItemGemLightning", SolastaUnfinishedBusiness.Properties.Resources.ItemGemLightning, 128),
-            properties: [LightningImpactVFX],
-            scale: 0.25f
-        );
-        LightningLauncher.inDungeonEditor = false;
-    }
-
-    #endregion
-
-    #region Natural Weapons
-    private static void BuildUnarmedStrikeClaws()
-    {
-        var baseItem = ItemDefinitions.UnarmedStrikeBase;
-        var basePresentation = baseItem.ItemPresentation;
-        var baseDescription = new WeaponDescription(baseItem.WeaponDescription);
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
-
-        damageForm.dieType = DieType.D6;
-        damageForm.diceNumber = 1;
-        damageForm.damageType = DamageTypeSlashing;
-
-        UnarmedStrikeClaws = BuildWeapon("CEUnarmedStrikeClaws", baseItem, null, 0, true, Common,
-            basePresentation, baseDescription,
-            Sprites.GetSprite("UnarmedStrikeClaws", SolastaUnfinishedBusiness.Properties.Resources.UnarmedStrikeClaws, 128));
-    }
-
-    #endregion
-
 }
 
 internal sealed class ModifyWeaponProducedFlameDice : ModifyWeaponAttackModeBase

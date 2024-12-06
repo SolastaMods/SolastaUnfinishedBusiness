@@ -684,3 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Warlock Armor of Survival
 Tooltip/&NoFreeHandToLoadAmmoDescription=No free hand to load ammo!
 Tooltip/&TagPolearmWeaponTitle=Polearm
 Tooltip/&TagReturningWeaponTitle=Returning
+tem/&KatanaTitle=Katana
