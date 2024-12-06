@@ -22,7 +22,6 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -2155,29 +2154,35 @@ public static class RulesetCharacterPatcher
         {
             var setCurrentHitPointsMethod = typeof(RulesetActor).GetProperty("CurrentHitPoints")!.SetMethod;
             var mySetCurrentHitPointsMethod =
-                new Action<RulesetActor, int, IDamageAffinityProvider, bool>(MySetCurrentHitPoints).Method;
+                new Action<RulesetActor, int, bool>(MySetCurrentHitPoints).Method;
 
             return instructions
                 .ReplaceCalls(setCurrentHitPointsMethod,
                     "RulesetCharacter.SustainDamage.set_CurrentHitPoints",
-                    new CodeInstruction(OpCodes.Ldloc, 12), // temperingFeature
                     new CodeInstruction(OpCodes.Ldloc, 8), // success
                     new CodeInstruction(OpCodes.Call, mySetCurrentHitPointsMethod));
         }
-
-        private static void MySetCurrentHitPoints(
-            RulesetActor actor,
-            int currentHitPoints,
-            IDamageAffinityProvider damageProvider,
-            bool success)
+        
+        //TODO: review this as I believe it'll bleed into other scenarios. if so should get outcome from RollSaving with another transpiler
+        private static void MySetCurrentHitPoints(RulesetActor actor, int currentHitPoints, bool success)
         {
-            actor.CurrentHitPoints = Main.Settings.EnableBarbarianRelentlessRage2024 &&
-                                     success &&
-                                     damageProvider is FeatureDefinitionDamageAffinity damageAffinityProvider &&
-                                     damageAffinityProvider == DamageAffinityBarbarianRelentlessRage &&
-                                     actor is RulesetCharacter rulesetCharacter
-                ? rulesetCharacter.GetClassLevel(Barbarian) * 2
-                : currentHitPoints;
+            if (!Main.Settings.EnableBarbarianRelentlessRage2024 || actor is not RulesetCharacter rulesetCharacter)
+            {
+                actor.CurrentHitPoints = currentHitPoints;
+
+                return;
+            }
+
+            var barbarianLevels = rulesetCharacter.GetClassLevel(Barbarian);
+
+            if (barbarianLevels == 0)
+            {
+                actor.CurrentHitPoints = currentHitPoints;
+
+                return;
+            }
+
+            actor.CurrentHitPoints = success ? rulesetCharacter.GetClassLevel(Barbarian) * 2 : currentHitPoints;
         }
     }
 
