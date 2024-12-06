@@ -424,21 +424,21 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-            Tabletop2024Context.SwitchFighterLevelToIndomitableSavingReroll();
+            Tabletop2024Context.SwitchFighterIndomitableSaving();
         }
 
         toggle = Main.Settings.AddPersuasionToFighterSkillOptions;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPersuasionToFighterSkillOptions"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPersuasionToFighterSkillOptions = toggle;
-            Tabletop2024Context.SwitchPersuasionToFighterSkillOptions();
+            Tabletop2024Context.SwitchFighterSkillOptions();
         }
 
         toggle = Main.Settings.EnableSecondWindToUseOneDndUsagesProgression;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSecondWindToUseOneDndUsagesProgression"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSecondWindToUseOneDndUsagesProgression = toggle;
-            Tabletop2024Context.SwitchSecondWindToUseOneDndUsagesProgression();
+            Tabletop2024Context.SwitchFighterSecondWind();
         }
 
         toggle = Main.Settings.EnableFighterStudiedAttacks;
