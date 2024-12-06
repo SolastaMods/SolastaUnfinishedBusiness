@@ -3111,14 +3111,20 @@ internal static class Tabletop2024Context
     {
         if (Main.Settings.EnableBarbarianPersistentRage)
         {
+            ConditionRagingNormal.SpecialInterruptions.SetRange(
+                ConditionInterruption.NoAttackOrDamagedInTurn);
             ConditionRagingPersistent.durationParameter = 10;
+            ConditionRagingPersistent.SpecialInterruptions.Clear();
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description =
                 "Action/&PersistentRageStartExtendedDescription";
         }
         else
         {
+            ConditionRagingNormal.SpecialInterruptions.SetRange(
+                ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.BattleEnd);
             ConditionRagingPersistent.durationParameter = 1;
+            ConditionRagingPersistent.SpecialInterruptions.SetRange(ConditionInterruption.BattleEnd);
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
         }
@@ -3158,6 +3164,8 @@ internal static class Tabletop2024Context
                 // be silent on combat log
                 usablePower.remainingUses--;
                 rulesetCharacter.UsedRagePoints = 0;
+                EffectHelpers.StartVisualEffect(
+                    character, character, PowerDefilerEatFriends, EffectHelpers.EffectType.Caster);
             }
         }
 

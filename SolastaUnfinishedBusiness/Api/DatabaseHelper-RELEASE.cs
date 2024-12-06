@@ -308,6 +308,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionRagingNormal { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRagingNormal");
+
         internal static ConditionDefinition ConditionRagingPersistent { get; } =
             GetDefinition<ConditionDefinition>("ConditionRagingPersistent");
 
@@ -1830,6 +1833,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerDefilerEatFriends { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDefilerEatFriends");
+
         internal static FeatureDefinitionPower PowerBarbarianPersistentRageStart { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianPersistentRageStart");
 
