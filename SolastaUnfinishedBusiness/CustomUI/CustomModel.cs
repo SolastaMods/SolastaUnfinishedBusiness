@@ -21,7 +21,7 @@ public static class CustomModel
     [NotNull]
     internal static AssetReference GetCustomModelPrefab(string name)
     {
-        var guid = GetPrefabGuid(name);
+        var guid = GetGuid(name);
 
         if (!PrefabsByGuid.ContainsKey(guid))
         {
@@ -31,7 +31,7 @@ public static class CustomModel
         return new AssetReference(guid);
     }
 
-    private static string GetPrefabGuid(string name)
+    private static string GetGuid(string name)
     {
         return GuidHelper.Create(DefinitionBuilder.CeNamespaceGuid, name).ToString();
     }
@@ -113,47 +113,45 @@ public static class CustomModel
             }
 
             var token = line.Split(' ');
-            NewMtl currentMaterial;
 
             switch (token[0])
             {
                 case "newmtl":
-                    currentMaterial = new NewMtl { newmtl = token[1] };
-                    mtl.Materials.Add(currentMaterial);
+                    mtl.Materials.Add(new NewMtl { newmtl = token[1] });
                     break;
                 case "Ns":
-                    currentMaterial.Ns = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count -1].Ns = float.Parse(token[1]);
                     break;
                 case "Ka":
-                    currentMaterial.Ka =
+                    mtl.Materials[mtl.Materials.Count -1].Ka =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Kd":
-                    currentMaterial.Kd =
+                    mtl.Materials[mtl.Materials.Count -1].Kd =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ks":
-                    currentMaterial.Ks =
+                    mtl.Materials[mtl.Materials.Count -1].Ks =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ke":
-                    currentMaterial.Ke =
+                    mtl.Materials[mtl.Materials.Count -1].Ke =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ni":
-                    currentMaterial.Ni = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count -1].Ni = float.Parse(token[1]);
                     break;
                 case "d":
-                    currentMaterial.d = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count -1].d = float.Parse(token[1]);
                     break;
                 case "ileum":
-                    currentMaterial.illum = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count -1].illum = float.Parse(token[1]);
                     break;
                 case "map_Kd":
-                    currentMaterial.map_Kd = token[1];
+                    mtl.Materials[mtl.Materials.Count -1].map_Kd = token[1];
                     break;
                 case "map_Bump":
-                    currentMaterial.map_Bump = token[1];
+                    mtl.Materials[mtl.Materials.Count -1].map_Bump = token[1];
                     break;
             }
         }
@@ -205,7 +203,7 @@ public static class CustomModel
             meshFilter.mesh = PopulateMesh(obj);
             meshRenderer.materials = DefineMaterial(obj, mtl);
 
-            var guid = GetPrefabGuid(filename);
+            var guid = GetGuid(filename);
 
             PrefabsByGuid[guid] = prefab;
         }
@@ -278,19 +276,26 @@ public static class CustomModel
                 var newMtl = mtl.Materials.FirstOrDefault(x => x.newmtl == materialName);
                 var material = new Material(Shader.Find("Standard")) { name = materialName };
 
-                material.SetFloat(Alpha, newMtl.d);
-                material.SetFloat(Glossiness, Mathf.Clamp01(newMtl.Ns / 1000f));
-                material.SetColor(AmbientColor, new Color(newMtl.Ka.x, newMtl.Ka.y, newMtl.Ka.z));
-                material.SetColor(SpecColor, new Color(newMtl.Ks.x, newMtl.Ks.y, newMtl.Ks.z));
-                material.SetColor(EmissionColor, new Color(newMtl.Ke.x, newMtl.Ke.y, newMtl.Ke.z));
-                material.SetInt(SrcBlend, (int)BlendMode.SrcAlpha);
-                material.SetInt(DstBlend, (int)BlendMode.OneMinusSrcAlpha);
-                material.SetInt(ZWrite, 0);
-                material.DisableKeyword("_ALPHATEST_ON");
-                material.EnableKeyword("_ALPHABLEND_ON");
-                material.renderQueue = 3000;
+                if (newMtl != null)
+                {
+                    material.SetFloat(Alpha, newMtl.d);
+                    material.SetFloat(Glossiness, Mathf.Clamp01(newMtl.Ns / 1000f));
+                    material.SetColor(AmbientColor, new Color(newMtl.Ka.x, newMtl.Ka.y, newMtl.Ka.z));
+                    material.SetColor(SpecColor, new Color(newMtl.Ks.x, newMtl.Ks.y, newMtl.Ks.z));
+                    material.SetColor(EmissionColor, new Color(newMtl.Ke.x, newMtl.Ke.y, newMtl.Ke.z));
+                    material.SetInt(SrcBlend, (int)BlendMode.SrcAlpha);
+                    material.SetInt(DstBlend, (int)BlendMode.OneMinusSrcAlpha);
+                    material.SetInt(ZWrite, 0);
+                    material.DisableKeyword("_ALPHATEST_ON");
+                    material.EnableKeyword("_ALPHABLEND_ON");
+                    material.renderQueue = 3000;
 
-                ApplyTexturesToMaterial(material, newMtl.map_Kd, newMtl.map_Bump);
+                    ApplyTexturesToMaterial(material, newMtl.map_Kd, newMtl.map_Bump);
+                }
+                else
+                {
+                    Main.Error($"Cannot find material {materialName} in {obj.mtllib}.");
+                }
 
                 materials[i] = material;
             }
@@ -308,10 +313,11 @@ public static class CustomModel
         }
     }
 
-    private struct ObjectFile
+    private sealed class ObjectFile
     {
         // ReSharper disable file InconsistentNaming
         public string o;
+        // ReSharper disable once NotAccessedField.Local
         public string mtllib;
         public List<string> usemtl;
         public List<Vector3> v;
@@ -321,7 +327,7 @@ public static class CustomModel
     }
     // ReSharper enable file InconsistentNaming
 
-    private struct NewMtl
+    private sealed class NewMtl
     {
         // ReSharper disable file InconsistentNaming
         public string newmtl;
@@ -377,7 +383,7 @@ public static class CustomModel
     [CanBeNull]
     private static Texture2D GetOrCreateTexture(string modelName, string name)
     {
-        var guid = GuidHelper.Create(DefinitionBuilder.CeNamespaceGuid, name).ToString();
+        var guid = GetGuid(name);
 
         if (TexturesByGuid.TryGetValue(guid, out var texture))
         {
