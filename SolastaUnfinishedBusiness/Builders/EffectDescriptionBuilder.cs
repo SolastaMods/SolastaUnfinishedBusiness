@@ -312,12 +312,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition(bool requiresVisibilityForPosition)
-    {
-        _effect.requiresVisibilityForPosition = requiresVisibilityForPosition;
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetSavingThrowData(
         bool disableSavingThrowOnAllies,
         string savingThrowAbility,

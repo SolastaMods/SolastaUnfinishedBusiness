@@ -217,8 +217,6 @@ internal static partial class Tabletop2024Context
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
             var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
 
@@ -226,8 +224,7 @@ internal static partial class Tabletop2024Context
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
+                if (!positioningService.CanPlaceCharacter(
                         actingCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
                         actingCharacter, position, onlyCheckCellsWithRealGround: true))
