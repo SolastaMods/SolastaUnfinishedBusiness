@@ -615,11 +615,7 @@ internal static partial class Tabletop2024Context
             var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= distance;
-
-            if (attacker.UsedTacticalMoves < 0)
-            {
-                attacker.UsedTacticalMoves = 0;
-            }
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             rulesetAttacker.InflictCondition(
                 ConditionWithdrawn.Name,
@@ -635,8 +631,6 @@ internal static partial class Tabletop2024Context
                 0,
                 0,
                 0);
-
-            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             var actionParams = new CharacterActionParams(
                 attacker, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)

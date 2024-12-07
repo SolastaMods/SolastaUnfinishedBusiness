@@ -5,6 +5,20 @@ namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class StringExtensions
 {
+    internal static string ReplaceFirst(this string str, string term, string replace)
+    {
+        var position = str.IndexOf(term, StringComparison.Ordinal);
+
+        if (position < 0)
+        {
+            return str;
+        }
+
+        str = str.Substring(0, position) + replace + str.Substring(position + term.Length);
+
+        return str;
+    }
+
     internal static string SplitCamelCase(this string str)
     {
         return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
