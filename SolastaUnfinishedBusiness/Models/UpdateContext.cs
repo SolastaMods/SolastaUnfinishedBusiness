@@ -93,14 +93,12 @@ internal static class UpdateContext
     {
         UnityModManager.UI.Instance.ToggleWindow(false);
 
-        var version = toLatest ? LatestVersion : PreviousVersion;
-        var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
-
         using var wc = new WebClient();
 
         wc.Encoding = Encoding.UTF8;
 
         string message;
+        var version = toLatest ? LatestVersion : PreviousVersion;
         var zipFile = $"SolastaUnfinishedBusiness-{version}.zip";
         var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
         var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaUnfinishedBusiness");
@@ -119,14 +117,13 @@ internal static class UpdateContext
             ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
             File.Delete(fullZipFile);
 
-            foreach (var destFile in destFiles)
+            foreach (var sourceFile in Directory.GetFiles(fullZipFolder))
             {
-                var fullDestFile = Path.Combine(Main.ModFolder, destFile);
+                var fileName = Path.GetFileName(sourceFile);
+                var destFile = Path.Combine(Main.ModFolder, fileName);
 
-                File.Delete(fullDestFile);
-                File.Move(
-                    Path.Combine(fullZipFolder, destFile),
-                    fullDestFile);
+                File.Delete(destFile);
+                File.Move(sourceFile, destFile);
             }
 
             Directory.Delete(fullZipFolder, true);
