@@ -96,8 +96,7 @@ internal static class CreditsDisplay
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),
-        ("Ermite_Crabe", "french translations"),
-        ("chrisjansson", "https://github.com/chrisjansson/ObjLoader")
+        ("Ermite_Crabe", "french translations")
     ];
 
     internal static void DisplayCredits()
