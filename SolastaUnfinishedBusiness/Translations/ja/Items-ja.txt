@@ -684,4 +684,4 @@ Item/&Warlock_Armor_Survival_Title=サバイバルのウォーロックアーマ
 Tooltip/&NoFreeHandToLoadAmmoDescription=弾薬を装填するためのフリーハンドはありません。
 Tooltip/&TagPolearmWeaponTitle=ポールアーム
 Tooltip/&TagReturningWeaponTitle=戻る
-tem/&KatanaTitle=カタナ
+Item/&KatanaTitle=カタナ

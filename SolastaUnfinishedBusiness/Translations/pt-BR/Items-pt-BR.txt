@@ -684,4 +684,4 @@ Item/&Warlock_Armor_Survival_Title=Armadura de Sobrevivência do Bruxo
 Tooltip/&NoFreeHandToLoadAmmoDescription=Sem mãos livres para carregar munição!
 Tooltip/&TagPolearmWeaponTitle=Braço de pólo
 Tooltip/&TagReturningWeaponTitle=Retornando
-tem/&KatanaTitle=Catana
+Item/&KatanaTitle=Catana

@@ -528,7 +528,7 @@
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
-    "scaleFactorWhileWielded": 0.035,
+    "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",

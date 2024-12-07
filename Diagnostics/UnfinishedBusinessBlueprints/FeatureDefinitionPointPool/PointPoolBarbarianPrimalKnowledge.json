@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
   "poolType": "Skill",
-  "poolAmount": 2,
+  "poolAmount": 1,
   "restrictedChoices": [
     "AnimalHandling",
     "Athletics",
