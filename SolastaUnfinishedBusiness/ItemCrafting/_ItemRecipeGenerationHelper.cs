@@ -47,6 +47,7 @@ internal static class ItemRecipeGenerationHelper
             { StuddedLeather, Primed_StuddedLeather },
             { Warhammer, Primed_Warhammer },
             { CustomWeaponsContext.Halberd, CustomWeaponsContext.HalberdPrimed },
+            { CustomWeaponsContext.Katana, CustomWeaponsContext.KatanaPrimed },
             { CustomWeaponsContext.Pike, CustomWeaponsContext.PikePrimed },
             { CustomWeaponsContext.LongMace, CustomWeaponsContext.LongMacePrimed },
             { CustomWeaponsContext.HandXbow, CustomWeaponsContext.HandXbowPrimed }

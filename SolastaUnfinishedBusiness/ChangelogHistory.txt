@@ -8,13 +8,15 @@
 - added 'Enable stacking Daggers and Hand Axes' setting [by SilverGriffon]
 - added 'Swap Barbarian Persistent Rage with 5e 2024 version' setting
 - added 'Swap Barbarian Relentless Rage with 5e 2024 version' setting
-- added custom models to Lightning Launcher, Long Mace, Katana, Pike, and Thunder Gauntlet [by cckcckcc]
+- added Base, Primed, +1, +2, +3, Bearclaw, Lightbringer, Souldrinker, Whiteburn Katanas 
+- added custom models to Katana, Lightning Launcher, Long Mace, Pike, and Thunder Gauntlet [by cckcckcc]
 - fixed 'Improved Barbarian Brutal Strike at 17' setting missing 2 additional effects offering
 - fixed 'Regain one Rage point at short rest' setting to be active from level 1 instead of 7
 - fixed Eldritch Smite interaction with 'Paladin smites as a bonus action' setting
 - fixed Fighter tactical shift applying on level 1 instead of 5, and not preventing AoO if moving one cell only
+- fixed Lighting and Obscurement rules interaction with Fighter tactical shift, and Rogue cunning strike withdraw
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
-- fixed lighting and obscurement rules interaction with Fighter tactical shift, and Rogue cunning strike withdraw
+- fixed Thunder Gauntlet interaction with Cleaving Attack, and Power Attack feats
 
 1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:
 

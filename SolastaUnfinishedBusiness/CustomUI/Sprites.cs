@@ -122,6 +122,18 @@ public static class Sprites
     internal static AssetReferenceSprite KatanaIcon =>
         _katanaIcon ??= GetSprite("Katana", Resources.Katana, 128);
 
+    internal static AssetReferenceSprite KatanaPrimedIcon =>
+        _katanaIcon ??= GetSprite("KatanaPrimed", Resources.Katana, 128);
+
+    internal static AssetReferenceSprite KatanaP1Icon =>
+        _katanaIcon ??= GetSprite("Katana_1", Resources.Katana, 128);
+
+    internal static AssetReferenceSprite KatanaP2Icon =>
+        _katanaIcon ??= GetSprite("Katana_2", Resources.Katana, 128);
+
+    internal static AssetReferenceSprite KatanaP3Icon =>
+        _katanaIcon ??= GetSprite("Katana_3", Resources.Katana, 128);
+
     #endregion
 
     #region Halberd Icons

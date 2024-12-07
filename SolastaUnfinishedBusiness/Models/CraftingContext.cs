@@ -88,6 +88,7 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HalberdData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(KatanaData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongswordData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);

@@ -33,7 +33,8 @@ internal static class CustomWeaponsContext
         PikeWeaponType,
         LongMaceWeaponType;
 
-    private static ItemDefinition Katana;
+    internal static ItemDefinition Katana, KatanaPrimed, KatanaPlus2;
+    private static ItemDefinition KatanaPlus1, KatanaPlus3;
 
     internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
@@ -201,10 +202,49 @@ internal static class CustomWeaponsContext
         damageForm.versatileDieType = DieType.D10;
         damageForm.diceNumber = 1;
 
-        Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription,
-            Sprites.KatanaIcon);
+        Katana = BuildWeapon(
+            "Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription, Sprites.KatanaIcon);
 
         MerchantContext.AddItem(Katana, ShopItemType.ShopGenericMelee);
+
+        KatanaPrimed = BuildWeapon("KatanaPrimed", baseItem, katanaPrefab, 40, true, Uncommon, null,
+            baseDescription, Sprites.KatanaPrimedIcon);
+        KatanaPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
+        KatanaPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+
+        MerchantContext.AddItem(KatanaPrimed, ShopItemType.ShopPrimedMelee);
+        MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Katana, KatanaPrimed), ShopItemType.ShopCrafting);
+
+        KatanaPlus1 = BuildWeapon("Katana+1", Katana, katanaPrefab, 1050, true, Rare,
+            icon: Sprites.KatanaP1Icon,
+            properties: [WeaponPlus1]
+        );
+
+        MerchantContext.AddItem(KatanaPlus1, ShopItemType.ShopMeleePlus1);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(KatanaPlus1, 12, 14,
+            KatanaPrimed,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
+
+        KatanaPlus2 = BuildWeapon("Katana+2", Katana, katanaPrefab, 4000, true, VeryRare,
+            icon: Sprites.KatanaP2Icon,
+            properties: [WeaponPlus2]
+        );
+
+        MerchantContext.AddItem(KatanaPlus2, ShopItemType.ShopMeleePlus2);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(KatanaPlus2, 14, 18,
+            KatanaPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
+        KatanaPlus3 = BuildWeapon("Katana+3", Katana, katanaPrefab, 16000, true, VeryRare,
+            icon: Sprites.KatanaP3Icon,
+            properties: [WeaponPlus3]
+        );
+
+        MerchantContext.AddItem(KatanaPlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(KatanaPlus3, 16, 22,
+            KatanaPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
     }
 
     #endregion
