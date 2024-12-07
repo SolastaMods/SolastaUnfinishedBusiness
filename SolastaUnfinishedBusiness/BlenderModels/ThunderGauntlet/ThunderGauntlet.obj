@@ -1,7 +1,7 @@
 # Blender 4.2.3 LTS
 # www.blender.org
 mtllib ThunderGauntlet.mtl
-o Gauntlet_of_Steam_1203170438_texture
+o ThunderGauntlet
 v 1.190703 0.536457 0.073868
 v 1.075263 0.567548 0.027151
 v 1.146549 0.596817 -0.179155

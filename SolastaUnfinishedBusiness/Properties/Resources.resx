@@ -2277,61 +2277,7 @@
     <value>..\Resources\Versatilities\VersatilitySwitch.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prefab_katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prefabs\prefab_katana.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="prefab_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prefabs\prefab_lightning_launcher.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="prefab_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prefabs\prefab_longmace.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="prefab_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prefabs\prefab_pike.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="prefab_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Prefabs\prefab_thunder_gauntlet.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Items\Katana.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="material_katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Materials\material_katana.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="material_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Materials\material_lightning_launcher.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="material_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Materials\material_longmace.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="material_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Materials\material_pike.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="material_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Materials\material_thunder_gauntlet.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="handgrip_bump" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\handgrip_bump.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="handgrip_color" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\handgrip_color.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="normal_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\normal_lightning_launcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="normal_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\normal_longmace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="texture_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\texture_lightning_launcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="texture_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\texture_longmace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="texture_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\texture_pike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="texture_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\texture_thunder_gauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
