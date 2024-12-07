@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using TA;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -264,7 +265,14 @@ internal static partial class Tabletop2024Context
                 0);
 
             attacker.UsedTacticalMovesChanged?.Invoke(attacker);
-            attacker.MyExecuteActionTacticalMove(position);
+
+            var actionParams = new CharacterActionParams(
+                attacker, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
+            {
+                BoolParameter3 = false, BoolParameter5 = false
+            };
+
+            action.ResultingActions.Add(new CharacterActionMove(actionParams));
         }
     }
 

@@ -621,8 +621,6 @@ internal static partial class Tabletop2024Context
                 attacker.UsedTacticalMoves = 0;
             }
 
-            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
-
             rulesetAttacker.InflictCondition(
                 ConditionWithdrawn.Name,
                 DurationType.Round,
@@ -638,8 +636,15 @@ internal static partial class Tabletop2024Context
                 0,
                 0);
 
-            attacker.SpendActionType(ActionType.Main);
-            attacker.MyExecuteActionTacticalMove(position);
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+
+            var actionParams = new CharacterActionParams(
+                attacker, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
+            {
+                BoolParameter3 = false, BoolParameter5 = false
+            };
+
+            action.ResultingActions.Add(new CharacterActionMove(actionParams));
         }
 
         private IEnumerator HandleKnockOut(GameLocationCharacter attacker, GameLocationCharacter defender)
