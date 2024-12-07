@@ -135,17 +135,17 @@ internal static class SpellsDisplay
         UI.Label();
         UI.Label();
 
-        toggle = Main.Settings.EnableOneDnDPreparedSpellsTables;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDnDPreparedSpellsTables"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePreparedSpellsTables2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePreparedSpellsTables2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableOneDnDPreparedSpellsTables = toggle;
+            Main.Settings.EnablePreparedSpellsTables2024 = toggle;
             Tabletop2024Context.SwitchOneDndPreparedSpellsTables();
         }
 
-        toggle = Main.Settings.EnableRitualOnAllCasters;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableRitualOnAllCasters2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRitualOnAllCasters = toggle;
+            Main.Settings.EnableRitualOnAllCasters2024 = toggle;
             Tabletop2024Context.SwitchSpellRitualOnAllCasters();
         }
 

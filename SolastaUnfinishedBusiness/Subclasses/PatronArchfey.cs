@@ -465,7 +465,7 @@ public class PatronArchfey : AbstractSubclass
                 ExtraActionId.DoNothingFree,
                 attacker,
                 TagMistyEscape,
-                $"CustomReaction{TagMistyEscape}Description".Formatted(Category.Reaction),
+                $"CustomReaction{TagMistyEscape}Description".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

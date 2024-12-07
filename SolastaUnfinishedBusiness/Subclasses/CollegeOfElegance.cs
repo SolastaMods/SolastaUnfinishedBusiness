@@ -285,7 +285,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "EvasiveFootwork",
-                "CustomReactionEvasiveFootworkDescription".Formatted(Category.Reaction),
+                "CustomReactionEvasiveFootworkDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using TMPro;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Models.Level20Context;
@@ -51,10 +52,11 @@ public static class SpellRepertoirePanelPatcher
         public static bool Prefix(SpellRepertoirePanel __instance, SpellBox spellBox)
         {
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+            var spellDefinition = spellBox.SpellDefinition;
 
-            return
-                !WizardSpellMastery.IsInvalidSelectedSpell(rulesetCharacter, spellBox.SpellDefinition) &&
-                !WizardSignatureSpells.IsInvalidSelectedSpell(rulesetCharacter, spellBox.SpellDefinition);
+            return !Tabletop2024Context.IsInvalidMemorizeSelectedSpell(__instance, rulesetCharacter, spellDefinition) &&
+                   !WizardSpellMastery.IsInvalidSelectedSpell(rulesetCharacter, spellDefinition) &&
+                   !WizardSignatureSpells.IsInvalidSelectedSpell(rulesetCharacter, spellDefinition);
         }
     }
 
@@ -79,16 +81,35 @@ public static class SpellRepertoirePanelPatcher
                 new CodeInstruction(OpCodes.Call, myRefreshInteractivePreparationMethod));
         }
 
-        private static void RepaintPanel(SpellRepertoirePanel __instance, string title, bool showDesc, bool showButton)
+        private static void RepaintPanel(
+            SpellRepertoirePanel __instance,
+            string title,
+            bool showDesc, bool showAutoButton, bool showClearRevertButtons, string byPassInstruction = null)
         {
-            var titleTransform = __instance.PreparationPanel.transform.FindChildRecursive("Title");
-            var descriptionTransform = __instance.PreparationPanel.transform.FindChildRecursive("Description");
-            var automateButtonTransform = __instance.PreparationPanel.transform.FindChildRecursive("AutomateButton");
+            var preparationPanelTransform = __instance.PreparationPanel.transform;
+            var titleTransform = preparationPanelTransform.FindChildRecursive("Title");
+            var descriptionTransform = preparationPanelTransform.FindChildRecursive("Description");
+            var automateButtonTransform = preparationPanelTransform.FindChildRecursive("AutomateButton");
+            var clearButtonTransform = preparationPanelTransform.FindChildRecursive("ClearButton");
+            var revertButtonTransform = preparationPanelTransform.FindChildRecursive("RevertButton");
+            var instructionTransform = preparationPanelTransform.FindChildRecursive("Instruction");
+
+            titleTransform!.GetComponentInChildren<TextMeshProUGUI>().text = title;
 
             descriptionTransform!.gameObject.SetActive(showDesc);
+
             // not the best solution but this object is getting re-activated somewhere else so moving off-screen
-            automateButtonTransform!.localPosition = showButton ? new Vector3(-12.5f, -61) : new Vector3(-1000, -1000);
-            titleTransform!.GetComponentInChildren<TextMeshProUGUI>().text = title;
+            automateButtonTransform!.localPosition = showAutoButton
+                ? new Vector3(-12.5f, -61)
+                : new Vector3(-1000, -1000);
+
+            clearButtonTransform!.gameObject.SetActive(showClearRevertButtons);
+            revertButtonTransform!.gameObject.SetActive(showClearRevertButtons);
+
+            if (byPassInstruction != null)
+            {
+                instructionTransform!.GetComponentInChildren<TextMeshProUGUI>().text = byPassInstruction;
+            }
         }
 
         private static void RefreshInteractivePreparation(
@@ -100,21 +121,26 @@ public static class SpellRepertoirePanelPatcher
         {
             var rulesetCharacter = spellRepertoirePanel.GuiCharacter.RulesetCharacter;
 
-            if (WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
+            if (Tabletop2024Context.IsMemorizeSpellPreparation(rulesetCharacter))
             {
                 RepaintPanel(
-                    spellRepertoirePanel,
-                    Gui.Localize(WizardSpellMastery.FeatureSpellMastery.GuiPresentation.Title),
-                    true, false);
+                    spellRepertoirePanel, Tabletop2024Context.FeatureMemorizeSpell.FormatTitle(),
+                    false, false, false,
+                    Gui.Localize("Screen/&PreparePanelMemorizeSpellSelect"));
+            }
+            else if (WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
+            {
+                RepaintPanel(
+                    spellRepertoirePanel, WizardSpellMastery.FeatureSpellMastery.FormatTitle(),
+                    true, false, true);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 1 or 2;
             }
             else if (WizardSignatureSpells.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
-                    spellRepertoirePanel,
-                    Gui.Localize(WizardSignatureSpells.PowerSignatureSpells.GuiPresentation.Title),
-                    Main.Settings.EnableSignatureSpellsRelearn, false);
+                    spellRepertoirePanel, WizardSignatureSpells.PowerSignatureSpells.FormatTitle(),
+                    Main.Settings.EnableSignatureSpellsRelearn, false, true);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 3;
             }
@@ -123,7 +149,7 @@ public static class SpellRepertoirePanelPatcher
                 RepaintPanel(
                     spellRepertoirePanel,
                     Gui.Localize("Screen/&PreparePanelTitle"),
-                    true, true);
+                    true, true, true);
             }
 
             spellsByLevelGroup.RefreshInteractivePreparation(canSelectSpells, maxReached, preparedSpells);

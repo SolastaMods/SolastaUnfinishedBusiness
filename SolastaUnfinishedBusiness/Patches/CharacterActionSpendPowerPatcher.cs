@@ -329,14 +329,6 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
-            //PATCH: support for `IMagicEffectFinishedByMe`
-            foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
-            {
-                yield return
-                    magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
-            }
-
             //PATCH: support for `IMagicEffectFinishedOnMe`
             foreach (var target in targets)
             {
@@ -353,6 +345,14 @@ public static class CharacterActionSpendPowerPatcher
                     yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
                         __instance, actingCharacter, target, targets);
                 }
+            }
+
+            //PATCH: support for `IMagicEffectFinishedByMe`
+            foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
+            {
+                yield return
+                    magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
             }
 
             //PATCH: support for `IMagicEffectFinishedByMeOrAlly`

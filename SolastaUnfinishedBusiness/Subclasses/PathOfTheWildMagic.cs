@@ -1058,7 +1058,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 }
 
                 // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-                if (ValidatorsWeapon.IsMelee(rulesetItem))
+                if (ValidatorsWeapon.IsMelee(null, rulesetItem, character))
                 {
                     attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
                     attackMode.thrown = true;

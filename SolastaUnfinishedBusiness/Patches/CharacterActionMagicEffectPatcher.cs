@@ -883,6 +883,24 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
+            //PATCH: support for `IMagicEffectFinishedOnMe`
+            foreach (var target in targets)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                foreach (var magicEffectFinishedOnMe in rulesetTarget
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
+                {
+                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
+                        __instance, actingCharacter, target, targets);
+                }
+            }
+
             //PATCH: supports `IPowerOrSpellFinishedByMe`
             var powerOrSpellFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellFinishedByMe>();
 
@@ -908,24 +926,6 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     yield return
                         magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
-                }
-            }
-
-            //PATCH: support for `IMagicEffectFinishedOnMe`
-            foreach (var target in targets)
-            {
-                var rulesetTarget = target.RulesetCharacter;
-
-                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    continue;
-                }
-
-                foreach (var magicEffectFinishedOnMe in rulesetTarget
-                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
-                {
-                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
-                        __instance, actingCharacter, target, targets);
                 }
             }
 

@@ -391,7 +391,7 @@ internal static class CampaignsContext
         ICollection<SpellRepertoireLine> spellRepertoireLines,
         RectTransform spellRepertoireLinesTable,
         SlotAdvancementPanel slotAdvancementPanel,
-        IReadOnlyCollection<RulesetSpellRepertoire> spellRepertoires,
+        RulesetSpellRepertoire[] spellRepertoires,
         bool needNewLine,
         int lineIndex,
         int indexOfLine,
@@ -424,7 +424,7 @@ internal static class CampaignsContext
         curLine.Bind(
             __instance.Caster,
             rulesetSpellRepertoire,
-            spellRepertoires.Count > 1,
+            spellRepertoires.Length > 1,
             spellCastEngaged,
             slotAdvancementPanel,
             actionType,

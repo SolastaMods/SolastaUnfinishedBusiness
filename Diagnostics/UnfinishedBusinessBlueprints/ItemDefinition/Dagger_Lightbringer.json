@@ -17,7 +17,7 @@
   "forceEquip": false,
   "forceEquipSlot": "",
   "canBeStacked": false,
-  "stackSize": 10,
+  "stackSize": 5,
   "defaultStackCount": -1,
   "costs": [
     0,

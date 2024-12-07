@@ -349,6 +349,11 @@ internal static class SpeechContext
                 wc.DownloadFile(url, fullZipFile);
                 ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
                 File.Delete(fullZipFile);
+
+                if (!TryGetExecutablePath(out _))
+                {
+                    message = "Piper successfully downloaded but failed to extract executable.";
+                }
             }
         }
         catch
@@ -361,8 +366,8 @@ internal static class SpeechContext
 
     internal static void RefreshAvailableVoices()
     {
-        var directoryInfo = new DirectoryInfo(VoicesFolder);
-        var voices = directoryInfo.GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty));
+        var voices = new DirectoryInfo(VoicesFolder)
+            .GetFiles("*.onnx").Select(x => x.Name.Replace(".onnx", string.Empty));
 
         VoiceNames = new List<string> { DefaultVoice }.Union(voices).ToArray();
     }
@@ -419,14 +424,14 @@ internal static class SpeechContext
         CampaignVoices.Clear();
 
         var userCampaign = Gui.Session.UserCampaign;
-        var voiceData = userCampaign.UserItems.FirstOrDefault(x =>
+        var voiceData = userCampaign?.UserItems?.FirstOrDefault(x =>
             x.ReferenceItemDefinition.IsDocument &&
             x.DocumentFragments is { Count: > 0 } &&
             x.InternalName == UB_VOICE_DATA);
 
         if (voiceData == null)
         {
-            Main.Info($"Campaign {userCampaign.DisplayTitle} has no voice data.");
+            Main.Info("No voice data found.");
 
             return;
         }
@@ -516,6 +521,11 @@ internal static class SpeechContext
 
     internal static void Speak(string inputText, GameLocationCharacter character)
     {
+        if (character == null)
+        {
+            return;
+        }
+
         var index = Gui.Game.GameCampaign.Party.CharactersList
             .FindIndex(x => x.RulesetCharacter == character.RulesetCharacter);
 
@@ -584,11 +594,8 @@ internal static class SpeechContext
             }
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
-            var audioStream = await task;
 
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            PlaySpeech(audioSettingsService, waveStream);
+            PlaySpeech(audioSettingsService, await task);
         }
         catch (Exception e)
         {
@@ -614,7 +621,6 @@ internal static class SpeechContext
             {
                 return;
             }
-
 
             // only custom campaigns
             // unity life check...
@@ -689,11 +695,8 @@ internal static class SpeechContext
             }
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
-            var audioStream = await task;
 
-            using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
-
-            PlaySpeech(audioSettingsService, waveStream);
+            PlaySpeech(audioSettingsService, await task);
         }
         catch (Exception e)
         {
@@ -701,8 +704,10 @@ internal static class SpeechContext
         }
     }
 
-    private static void PlaySpeech(IAudioSettingsService audioSettingsService, WaveStream waveStream)
+    private static void PlaySpeech(IAudioSettingsService audioSettingsService, MemoryStream audioStream)
     {
+        using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
+
         waveStream.Position = 0;
 
         WaveOutEvent.Init(waveStream);

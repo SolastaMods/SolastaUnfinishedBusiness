@@ -604,13 +604,16 @@
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-    <OneDndHealingPotionBonusAction>false</OneDndHealingPotionBonusAction>
+    <EnablePotionsBonusAction2024>false</EnablePotionsBonusAction2024>
+    <EnablePoisonsBonusAction2024>false</EnablePoisonsBonusAction2024>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
     <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>false</DisableAutoEquip>
     <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+    <EnableStackableAxesAndDaggers>false</EnableStackableAxesAndDaggers>
+    <EnableStackableArtItems>false</EnableStackableArtItems>
     <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
     <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
@@ -631,64 +634,66 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <ChangeBardicInspirationDurationToOneHour>false</ChangeBardicInspirationDurationToOneHour>
-    <EnableBardCounterCharmAsReactionAtLevel7>false</EnableBardCounterCharmAsReactionAtLevel7>
-    <EnableBardExpertiseOneLevelBefore>false</EnableBardExpertiseOneLevelBefore>
-    <EnableBardSuperiorInspirationAtLevel18>false</EnableBardSuperiorInspirationAtLevel18>
-    <EnableBardWordsOfCreationAtLevel20>false</EnableBardWordsOfCreationAtLevel20>
-    <RemoveBardMagicalSecretAt14And18>false</RemoveBardMagicalSecretAt14And18>
-    <RemoveBardSongOfRestAt2>false</RemoveBardSongOfRestAt2>
-    <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
-    <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
+    <EnableBardicInspiration2024>false</EnableBardicInspiration2024>
+    <EnableBardCounterCharm2024>false</EnableBardCounterCharm2024>
+    <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
+    <EnableBardSuperiorInspiration2024>false</EnableBardSuperiorInspiration2024>
+    <EnableBardWordsOfCreation2024>false</EnableBardWordsOfCreation2024>
+    <RemoveBardMagicalSecret2024>false</RemoveBardMagicalSecret2024>
+    <RemoveBardSongOfRest2024>false</RemoveBardSongOfRest2024>
+    <EnableBarbarianBrutalStrike2024>false</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
-    <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
+    <EnableBarbarianInstinctivePounce2024>false</EnableBarbarianInstinctivePounce2024>
+    <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
+    <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
     <EnableDruidUseMetalArmor>false</EnableDruidUseMetalArmor>
-    <EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>false</EnableDruidPrimalOrderAndRemoveMediumArmorProficiency>
-    <SwapDruidToUseOneDndWeaponProficiency>false</SwapDruidToUseOneDndWeaponProficiency>
-    <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
-    <AddPersuasionToFighterSkillOptions>false</AddPersuasionToFighterSkillOptions>
-    <EnableSecondWindToUseOneDndUsagesProgression>false</EnableSecondWindToUseOneDndUsagesProgression>
-    <EnableFighterStudiedAttacks>false</EnableFighterStudiedAttacks>
-    <EnableFighterTacticalProgression>false</EnableFighterTacticalProgression>
+    <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>
+    <EnableDruidWeaponProficiency2024>false</EnableDruidWeaponProficiency2024>
+    <EnableFighterIndomitableSaving2024>false</EnableFighterIndomitableSaving2024>
+    <EnableFighterSkillOptions2024>false</EnableFighterSkillOptions2024>
+    <EnableFighterSecondWind2024>false</EnableFighterSecondWind2024>
+    <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroudAt14>false</EnableRangerNatureShroudAt14>
+    <EnableRangerNatureShroud2024>false</EnableRangerNatureShroud2024>
     <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
-    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>false
-    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
-    <EnableMonkDoNotRequireAttackActionForFlurry>false</EnableMonkDoNotRequireAttackActionForFlurry>
+    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>false
+    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
+    <EnableMonkDoNotRequireAttackActionForFlurry2024>false</EnableMonkDoNotRequireAttackActionForFlurry2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>false</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
     <EnableMonkHandwrapsUseGauntletSlot>false</EnableMonkHandwrapsUseGauntletSlot>
-    <EnableMonkHeightenedMetabolism>false</EnableMonkHeightenedMetabolism>
-    <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
-    <EnableMonkBodyAndMindToReplacePerfectSelf>false</EnableMonkBodyAndMindToReplacePerfectSelf>
+    <EnableMonkHeightenedMetabolism2024>false</EnableMonkHeightenedMetabolism2024>
+    <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
+    <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
-    <SwapMonkToUseOneDndUnarmedDieTypeProgression>false</SwapMonkToUseOneDndUnarmedDieTypeProgression>
+    <EnableMonkUnarmoredDieTypeProgression2024>false</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction>false</EnablePaladinLayOnHandsAsBonusAction>
-    <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
+    <EnablePaladinLayOnHandsAsBonusAction2024>false</EnablePaladinLayOnHandsAsBonusAction2024>
+    <EnablePaladinSmiteAsBonusAction2024>false</EnablePaladinSmiteAsBonusAction2024>
     <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
-    <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
+    <EnableRogueCunningStrike2024>false</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
-    <EnableRogueReliableTalentAt7>false</EnableRogueReliableTalentAt7>
-    <EnableRogueSlipperyMind>false</EnableRogueSlipperyMind>
-    <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
-    <RemoveRogueBlindSense>false</RemoveRogueBlindSense>
-    <EnableSorcererArcaneApotheosis>false</EnableSorcererArcaneApotheosis>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate>false</EnableSorcererInnateSorceryAndSorceryIncarnate>
+    <EnableRogueReliableTalent2024>false</EnableRogueReliableTalent2024>
+    <EnableRogueSlipperyMind2024>false</EnableRogueSlipperyMind2024>
+    <EnableRogueSteadyAim2024>false</EnableRogueSteadyAim2024>
+    <RemoveRogueBlindSense2024>false</RemoveRogueBlindSense2024>
+    <EnableSorcererArcaneApotheosis2024>false</EnableSorcererArcaneApotheosis2024>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>false</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcererSorcerousRestoration>false</EnableSorcererSorcerousRestoration>
-    <EnableWarlockToUseOneDndInvocationProgression>false</EnableWarlockToUseOneDndInvocationProgression>
-    <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>false
-    </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
+    <EnableSorcererSorcerousRestoration2024>false</EnableSorcererSorcerousRestoration2024>
+    <EnableWarlockInvocationProgression2024>false</EnableWarlockInvocationProgression2024>
+    <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>false
+    </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>
     <EnableWarlockToLearnPatronAtLevel3>false</EnableWarlockToLearnPatronAtLevel3>
-    <EnableWizardMemorizeSpell>false</EnableWizardMemorizeSpell>
+    <EnableWizardMemorizeSpell2024>false</EnableWizardMemorizeSpell2024>
     <EnableWizardToLearnScholarAtLevel2>false</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>false</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -727,8 +732,8 @@
     <MetamagicSliderPosition>4</MetamagicSliderPosition>
     <MetamagicEnabled/>
     <AllowBladeCantripsToUseReach>false</AllowBladeCantripsToUseReach>
-    <EnableOneDnDPreparedSpellsTables>false</EnableOneDnDPreparedSpellsTables>
-    <EnableRitualOnAllCasters>false</EnableRitualOnAllCasters>
+    <EnablePreparedSpellsTables2024>false</EnablePreparedSpellsTables2024>
+    <EnableRitualOnAllCasters2024>false</EnableRitualOnAllCasters2024>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
@@ -1153,8 +1158,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

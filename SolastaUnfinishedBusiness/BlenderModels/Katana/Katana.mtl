@@ -1,0 +1,33 @@
+# Blender 4.2.3 LTS MTL File: 'katana.blend'
+# www.blender.org
+
+newmtl Metal_Chrome
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Kd 0.902000 0.902000 0.902000
+Ks 1.350000 1.350000 1.350000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Metal_Dark_Gold
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Kd 0.878400 0.607800 0.317600
+Ks 1.135333 1.135333 1.135333
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl handgrip
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd handgrip_color.jpg
+map_Bump handgrip_bump.jpg

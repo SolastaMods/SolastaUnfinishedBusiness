@@ -482,9 +482,9 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6b04c49c968c2784398b7e8bfde58345",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "22643827-ec4f-5e9a-8aad-d6cbba9f127e",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,

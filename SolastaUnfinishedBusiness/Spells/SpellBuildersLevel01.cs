@@ -41,6 +41,8 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
             .SetParticleEffectParameters(ShockingGrasp)
+            .SetImpactEffectParameters(AcidSplash)
+            .SetSpeedAndImpactOffset(SpeedType.CellsPerSeconds, 12)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -2904,7 +2906,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
-                    .SetParticleEffectParameters(LightningBolt)
+                    .SetParticleEffectParameters(ChainLightning)
+                    .SetImpactEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
@@ -2941,7 +2944,8 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(
                             conditionWitchBoltSelf,
                             ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(LightningBolt)
+                    .SetParticleEffectParameters(ChainLightning)
+                    .SetImpactEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 

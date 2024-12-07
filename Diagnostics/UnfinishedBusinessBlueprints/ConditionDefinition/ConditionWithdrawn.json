@@ -6,7 +6,7 @@
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": true,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

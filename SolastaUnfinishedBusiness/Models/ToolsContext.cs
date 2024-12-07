@@ -450,7 +450,7 @@ internal static class ToolsContext
             }
         }
 
-        private static void UpdateRestPanelUi(IReadOnlyList<GameCampaignCharacter> gameCampaignCharacters)
+        private static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
         {
             var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
             var restAfterPanel = restModalScreen.restAfterPanel;

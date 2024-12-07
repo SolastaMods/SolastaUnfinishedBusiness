@@ -198,6 +198,9 @@ internal static class RulesetActorExtensions
 
         actor?.EnumerateFeaturesToBrowse<T>(list);
 
+        // mainly because of Feature Sets granted as invocations (tabletop 2024)
+        list.AddRange(list.OfType<FeatureDefinitionFeatureSet>().SelectMany(x => x.FeatureSet).ToArray());
+
         return list
             .OfType<T>()
             .ToList();

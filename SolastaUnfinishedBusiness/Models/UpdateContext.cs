@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -93,14 +94,12 @@ internal static class UpdateContext
     {
         UnityModManager.UI.Instance.ToggleWindow(false);
 
-        var version = toLatest ? LatestVersion : PreviousVersion;
-        var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
-
         using var wc = new WebClient();
 
         wc.Encoding = Encoding.UTF8;
 
         string message;
+        var version = toLatest ? LatestVersion : PreviousVersion;
         var zipFile = $"SolastaUnfinishedBusiness-{version}.zip";
         var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
         var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaUnfinishedBusiness");
@@ -119,14 +118,14 @@ internal static class UpdateContext
             ZipFile.ExtractToDirectory(fullZipFile, Main.ModFolder);
             File.Delete(fullZipFile);
 
-            foreach (var destFile in destFiles)
+            foreach (var sourceFile in Directory.GetFiles(fullZipFolder, "*", SearchOption.AllDirectories))
             {
-                var fullDestFile = Path.Combine(Main.ModFolder, destFile);
+                var destFile = sourceFile.ReplaceFirst("SolastaUnfinishedBusiness", string.Empty);
+                var destFolder = Path.GetDirectoryName(destFile);
 
-                File.Delete(fullDestFile);
-                File.Move(
-                    Path.Combine(fullZipFolder, destFile),
-                    fullDestFile);
+                Directory.CreateDirectory(destFolder!);
+                File.Delete(destFile);
+                File.Move(sourceFile, destFile);
             }
 
             Directory.Delete(fullZipFolder, true);

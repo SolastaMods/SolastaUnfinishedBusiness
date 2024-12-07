@@ -328,8 +328,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPathOfTheRavagerIntimidatingPresenceTitle",
-    "description": "Feature/&PowerPathOfTheRavagerIntimidatingPresenceDescription",
+    "title": "Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceTitle",
+    "description": "Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0a12e32-68fa-5bcd-a7d3-f2d963e28556",

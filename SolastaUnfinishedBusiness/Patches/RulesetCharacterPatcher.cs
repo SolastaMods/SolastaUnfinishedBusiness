@@ -242,7 +242,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
+    //PATCH: supports `EnableFighterIndomitableSaving2024`
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.UseIndomitableResistance))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -251,7 +251,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Prefix(RulesetCharacter __instance)
         {
-            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
+            if (!Main.Settings.EnableFighterIndomitableSaving2024)
             {
                 return;
             }
@@ -1689,7 +1689,7 @@ public static class RulesetCharacterPatcher
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
             if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
                 restType == RestType.ShortRest &&
-                __instance.GetClassLevel(Barbarian) >= 7 &&
+                __instance.GetClassLevel(Barbarian) >= 1 &&
                 __instance.UsedRagePoints > 0)
             {
                 if (!simulate)
@@ -1706,7 +1706,7 @@ public static class RulesetCharacterPatcher
             var fighterClassLevel = __instance.GetClassLevel(Fighter);
 
             // ReSharper disable once InvertIf
-            if (Main.Settings.EnableSecondWindToUseOneDndUsagesProgression &&
+            if (Main.Settings.EnableFighterSecondWind2024 &&
                 restType == RestType.ShortRest &&
                 fighterClassLevel >= 1)
             {
@@ -2136,12 +2136,53 @@ public static class RulesetCharacterPatcher
     public static class SustainDamage_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(RulesetCharacter __instance, ref int totalDamageRaw, string damageType,
-            bool criticalSuccess, ulong sourceGuid, RollInfo rollInfo)
+        public static void Prefix(
+            RulesetCharacter __instance,
+            ref int totalDamageRaw,
+            string damageType,
+            bool criticalSuccess,
+            ulong sourceGuid,
+            RollInfo rollInfo)
         {
             //PATCH: support for `ModifySustainedDamageHandler` sub-feature
-            ModifySustainedDamage.ModifyDamage(__instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid,
-                rollInfo);
+            ModifySustainedDamage.ModifyDamage(
+                __instance, ref totalDamageRaw, damageType, criticalSuccess, sourceGuid, rollInfo);
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var setCurrentHitPointsMethod = typeof(RulesetActor).GetProperty("CurrentHitPoints")!.SetMethod;
+            var mySetCurrentHitPointsMethod =
+                new Action<RulesetActor, int, bool>(MySetCurrentHitPoints).Method;
+
+            return instructions
+                .ReplaceCalls(setCurrentHitPointsMethod,
+                    "RulesetCharacter.SustainDamage.set_CurrentHitPoints",
+                    new CodeInstruction(OpCodes.Ldloc, 8), // success
+                    new CodeInstruction(OpCodes.Call, mySetCurrentHitPointsMethod));
+        }
+        
+        //TODO: review this as I believe it'll bleed into other scenarios. if so should get outcome from RollSaving with another transpiler
+        private static void MySetCurrentHitPoints(RulesetActor actor, int currentHitPoints, bool success)
+        {
+            if (!Main.Settings.EnableBarbarianRelentlessRage2024 || actor is not RulesetCharacter rulesetCharacter)
+            {
+                actor.CurrentHitPoints = currentHitPoints;
+
+                return;
+            }
+
+            var barbarianLevels = rulesetCharacter.GetClassLevel(Barbarian);
+
+            if (barbarianLevels == 0)
+            {
+                actor.CurrentHitPoints = currentHitPoints;
+
+                return;
+            }
+
+            actor.CurrentHitPoints = success ? rulesetCharacter.GetClassLevel(Barbarian) * 2 : currentHitPoints;
         }
     }
 

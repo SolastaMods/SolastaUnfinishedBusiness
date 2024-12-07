@@ -1168,7 +1168,7 @@ internal static class Level20Context
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
-            var limit = Main.Settings.EnableBardSuperiorInspirationAtLevel18 ? 2 : 1;
+            var limit = Main.Settings.EnableBardSuperiorInspiration2024 ? 2 : 1;
 
             if (character.RemainingBardicInspirations >= limit)
             {

@@ -60,47 +60,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
-              xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -114,2724 +113,2225 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms"
-            name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ArcaneWardPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\ArcaneWardPoints.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundDevoted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Backgrounds/BackgroundDevoted.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BackgroundFarmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Backgrounds/BackgroundFarmer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BackgroundMilitia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Backgrounds/BackgroundMilitia.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BackgroundTroublemaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Backgrounds/BackgroundTroublemaker.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CreateBonfire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CreateBonfire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AganazzarScorcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AganazzarScorcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Glibness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Glibness.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="GravityFissure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/GravityFissure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/HolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <!--
-  <data name="MagicStone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/MagicStone.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  -->
   <data name="PowerHolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerHolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SwiftQuiver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SwiftQuiver.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SickeningRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SickeningRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Invulnerability" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Invulnerability.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ShelterFromEnergy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShelterFromEnergy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AshardalonStride" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AshardalonStride.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PsychicScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PsychicScream.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalBane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ElementalBane.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BorrowedKnowledge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BorrowedKnowledge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EmpoweredKnowledge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/EmpoweredKnowledge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SoulExpulsion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SoulExpulsion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AbiDalzimHorridWilting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AbiDalzimHorridWilting.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RescueTheDying" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/RescueTheDying.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="KineticJaunt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/KineticJaunt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SynapticStatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SynapticStatic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LightningLure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/LightningLure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="IntellectFortress" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/IntellectFortress.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PsionicBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PsionicBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SnillocSnowballStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SnillocSnowballStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CrownOfStars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CrownOfStars.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ChaosBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ChaosBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MaddeningDarkness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MaddeningDarkness.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DraconicTransformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/DraconicTransformation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PrimordialWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PrimordialWard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Scatter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Scatter.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="FaithfulHound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/FaithfulHound.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WitherAndBloom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/WitherAndBloom.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WitchBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/WitchBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="StrikeWithTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StrikeWithTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MysticalCloak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MysticalCloak.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Telekinesis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Telekinesis.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Weird" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Weird.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ShapeChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShapeChange.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerMenacing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMenacing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerClingeStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerClingeStrength.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerSpiritTeleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSpiritTeleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerSummonSpirit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSummonSpirit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerStormborn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerStormborn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerWhirlWindAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerWhirlWindAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerMonkSuperiorDefense" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMonkSuperiorDefense.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerLightningLure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerLightningLure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerEleganceDash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEleganceDash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerCharmAnimalsAndPlants" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerCharmAnimalsAndPlants.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerEleganceDisengage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEleganceDisengage.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerEleganceDodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEleganceDodge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerAdvancedTraining" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerAdvancedTraining.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerWordHeal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PowerWordHeal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="StarryWisp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StarryWisp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerWordKill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PowerWordKill.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BurningBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BurningBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="IceBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/IceBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SpikeBarrage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpikeBarrage.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CloudOfDaggers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CloudOfDaggers.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HungerOfTheVoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/HungerOfTheVoid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="FlameArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/FlameArrows.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalInfusion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ElementalInfusion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LightningArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/LightningArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SteelWhirlwind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SteelWhirlwind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ThunderStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ThunderStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HeroicInfusion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/HeroicInfusion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PsychicLance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PsychicLance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PsychicWhip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PsychicWhip.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ForestGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ForestGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Dawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Dawn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AuraOfLife" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AuraOfLife.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AuraOfPerseverance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AuraOfPerseverance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AuraOfVitality" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AuraOfVitality.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Immolation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Immolation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BrainBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BrainBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ColorBurst" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ColorBurst.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Web.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AcidClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AcidClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AirBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AirBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ElementalWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Inventor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Classes/Inventor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Battleborn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Battleborn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Bolgrif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Bolgrif.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Malakh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Malakh.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BurstOfRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089
-    </value>
+      Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ContentPack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/UI/ContentPack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Darkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Darkelf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Fairy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Fairy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EarthTremor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/EarthTremor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerMasterOfNature" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMasterOfNature.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerShadowDance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerShadowDance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerEyeOfTheStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEyeOfTheStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerForceBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerForceBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerForceDrive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerForceDrive.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerPsionicPropulsion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerPsionicPropulsion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerFeyPresence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerFeyPresence.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerDarkDelirium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerDarkDelirium.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerBolsteringMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerConstellationForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerConstellationForm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerArcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerEmergencySurgery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEmergencySurgery.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerStepOfTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerStepOfTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerCosmosOmen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerCosmosOmen.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerSwitchConstellationForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSwitchConstellationForm.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerSilhouetteStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSilhouetteStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerFullMoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerFullMoon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerNewMoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerNewMoon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerLunarCloak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerLunarCloak.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerPerniciousCloak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerPerniciousCloak.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerTombOfFrost" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerTombOfFrost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerRingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerRingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerShoutOfProvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerShoutOfProvocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TelekinesisPull" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/TelekinesisPull.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TelekinesisPush" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/TelekinesisPush.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerLivingTempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerLivingTempest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerElderChampion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerElderChampion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ElementalForm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ElementalFormEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089
-    </value>
+      Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ElementalFormIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ElementalFormIconEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ElementalFormIconEnhanced.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b77a5c561934e089
-    </value>
+      Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ZenArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ZenArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerQuiveringPalm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerQuiveringPalm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerSoulHex" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSoulHex.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PowerArdentHate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerArdentHate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Entry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Map/Entry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Map/Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ShadarKai" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/ShadarKai.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="GrayDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/GrayDwarf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Teleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Map/Teleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/WinterBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Infestation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Infestation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PrimalSavagery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PrimalSavagery.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/RingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PoisonWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PoisonWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="GravitySinkhole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/GravitySinkhole.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DivineWrath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/DivineWrath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PulseWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PulseWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CircleOfMagicalNegation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CircleOfMagicalNegation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MagnifyGravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MagnifyGravity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="VitalityTransfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/VitalityTransfer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="VoidGrasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/VoidGrasp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AdderFangs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AdderFangs.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="NoxiousSpray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/NoxiousSpray.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="VileBrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/VileBrew.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="IrresistiblePerformance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/IrresistiblePerformance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BlessingOfRime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BlessingOfRime.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="FlashFreeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/FlashFreeze.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SunlightBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SunlightBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CorruptingBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CorruptingBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Halberd.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalberdLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HalberdLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalberdPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HalberdPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Halberd+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Halberd_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Halberd+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="UnarmedStrikeClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BeastBite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/BeastBite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Items/BeastBite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BeastTail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/BeastTail.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Items/BeastTail.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMacePrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMacePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMaceThunder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMaceThunder.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMace+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LongMace_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMace+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Pike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PikePrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/PikePrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PikePsychic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/PikePsychic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Pike+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Pike_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/Pike+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HandXbow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbowAcid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HandXbowAcid.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbowPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HandXbowPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HandXbow+1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HandXbow_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/HandXbow+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Translations" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Translations.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Names" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Names.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="HalfDarkelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/HalfDarkelf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfHighElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/HalfHighElf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HalfSylvanElf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/HalfSylvanElf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProducedFlameThrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ProducedFlameThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ThornyVines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ThornyVines.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MinorLifesteal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MinorLifesteal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VitriolicSphere" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/VitriolicSphere.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnhanceArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/EnhanceArmor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnhanceFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/EnhanceFocus.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnhanceWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/EnhanceWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MindSharpener" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/MindSharpener.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReturningWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/ReturningWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SteelDefenderPower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/SteelDefenderPower.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SteelDefenderRepair" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/SteelDefenderRepair.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorArcaneJolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/InventorArcaneJolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorQuickWit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/InventorQuickWit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ResistantArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/ResistantArmor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyFlask" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyFlask.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombColdBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombColdBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombColdPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombColdPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombColdSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombColdSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombElement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/AlchemyBombElement.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombFireBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombFireBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombFirePrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombFirePrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombFireSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombFireSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombLightningBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombLightningBreath.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombLightningPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombLightningPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombLightningSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombLightningSplash.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombAcidBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombAcidBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombAcidPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombAcidPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombAcidSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombAcidSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPoisonBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPoisonBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPoisonPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPoisonPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPoisonSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPoisonSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombForceBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombForceBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombForcePrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombForcePrecise.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombForceSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombForceSplash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombAdvanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/AlchemyBombAdvanced.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombNecroticBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombNecroticBreath.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombNecroticPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombNecroticPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombNecroticSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombNecroticSplash.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPsychicBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPsychicBreath.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPsychicPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPsychicPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombPsychicSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombPsychicSplash.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombRadiantBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombRadiantBreath.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombRadiantPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombRadiantPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombRadiantSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombRadiantSplash.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombThunderBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombThunderBreath.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombThunderPrecise" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombThunderPrecise.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AlchemyBombThunderSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/AlchemyBombThunderSplash.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorPictogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Classes/InventorPictogram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlindFighting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/BlindFighting.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlessedWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/BlessedWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DruidicWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/DruidicWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Crippling" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Crippling.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Executioner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Executioner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HandAndAHalf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/HandAndAHalf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lunger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Lunger.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Torchbearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Torchbearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritShroud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpiritShroud.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EmptyBody" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/EmptyBody.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerFarStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerFarStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FarStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/FarStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionMirrorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionMirrorImage.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RadiantMotes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/RadiantMotes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionInfiltrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionInfiltrate.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionTimeStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionTimeStop.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerGuardianMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerGuardianMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerSteadyAim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSteadyAim.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerInfiltratorMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerInfiltratorMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ItemGemLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/ItemGemLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ItemThunderGauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/ItemThunderGauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDefensiveField" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerDefensiveField.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseGhost" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseGhost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseGhoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseGhoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseSkeleton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseSkeleton.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseSkeletonArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseSkeletonArcher.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseSkeletonEnforcer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseSkeletonEnforcer.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseSkeletonKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseSkeletonKnight.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseSkeletonMarksman" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseSkeletonMarksman.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseWight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseWight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpellRaiseWightLord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SpellRaiseWightLord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionPlaneMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionPlaneMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionInfuse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionInfuse.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionFlightResume" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionFlightResume.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionFlightSuspend" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionFlightSuspend.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionGambit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionGambit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionCrystalDefenseOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionCrystalDefenseOff.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionCrystalDefenseOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Actions/ActionCrystalDefenseOn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionFlightSuspended" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionFlightSuspended.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConditionGambit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionGambit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/UI/GambitResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ImpBadland" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/ImpBadland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Races/ImpBadland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ImpInfernal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/ImpInfernal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ImpForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/ImpForest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Kobold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Kobold.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="IronbornDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/IronbornDwarf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ObsidianDwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/ObsidianDwarf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Oligath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Oligath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Oni" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/Oni.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Races/Oni.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Wendigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Wendigo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Wildling" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Wildling.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Wyrmkin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Wyrmkin.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Lizardfolk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/Lizardfolk.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>../Resources/Races/Lizardfolk.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LivewoodClub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LivewoodClub.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+      PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EnduringSting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/EnduringSting.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BladeWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BladeWard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TimeStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/TimeStop.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReverseGravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ReverseGravity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Resurrection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Resurrection.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MindBlank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MindBlank.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MeteorSwarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/MeteorSwarm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Foresight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Foresight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerMedKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMedKit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerStabilize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerStabilize.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerResuscitate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerResuscitate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProtectThreshold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ProtectThreshold.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerHelp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerStudyYourEnemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerStudyYourEnemy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerCommandUndead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerCommandUndead.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDraconicCry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerDraconicCry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerMarshalSummonEternalComrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMarshalSummonEternalComrade.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcidBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/AcidBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FlamingBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/FlamingBolt.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RadiantBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/RadiantBolt.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ArtisanToolSmithTools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/ArtisanToolSmithTools.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HerbalismKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/HerbalismKit.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CausticZap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/CausticZap.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DissonantWhispers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/DissonantWhispers.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChromaticOrb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ChromaticOrb.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SearingSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SearingSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlindingSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BlindingSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RayOfSickness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/RayOfSickness.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WrathfulSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/WrathfulSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ThunderousSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ThunderousSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StaggeringSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StaggeringSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BanishmentSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BanishmentSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SonicBoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/SonicBoom.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ShadeBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShadeBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RepeatingShot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Infusions\RepeatingShot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PetalStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\PetalStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SkinOfRetribution" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\SkinOfRetribution.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MindSpike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\MindSpike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SwordStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\SwordStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpearMasteryCharge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\SpearMasteryCharge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpearMasteryReach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\SpearMasteryReach.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\checkOff.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\checkOn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="expanded" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\expanded.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\collapsed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-
   <data name="PowerBestialSoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerBestialSoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+    <value>..\Resources\Powers\PowerBestialSoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerInfectiousFuryMindlash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerInfectiousFuryMindlash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+    <value>..\Resources\Powers\PowerInfectiousFuryMindlash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerInfectiousFuryCompelledStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerInfectiousFuryCompelledStrike.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerInfectiousFuryCompelledStrike.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerBurstOfDisharmony" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerBurstOfDisharmony.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerGainSlot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerGainSlot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerGainChannelDivinity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerGainChannelDivinity.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerGainWildShape" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerGainWildShape.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDefileLife" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerDefileLife.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerReflexes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerReflexes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerSlayTheEnemies" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerSlayTheEnemies.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerFocusedStrikes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerFocusedStrikes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerCallForCharge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerCallForCharge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDragonWings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerDragonWings.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerInspiringLeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerInspiringLeader.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerManaShield" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerManaShield.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Wrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\Wrack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CrusadersMantle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\CrusadersMantle.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MantleOfThorns" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\MantleOfThorns.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sanctuary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\Sanctuary.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChannelDivinityResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\ChannelDivinityResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mule" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\Mule.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnsnaringStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\EnsnaringStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerRallyingCry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerRallyingCry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerLifeBringer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerLifeBringer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerBlessedWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerBlessedWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerAngelicFormDismiss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerAngelicFormDismiss.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerAngelicFormSprout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerAngelicFormSprout.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerHungryJaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerHungryJaws.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerHungryJaws.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerImpHospitality" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpHospitality.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpHospitality.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerImpPassage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpPassage.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpPassage.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerImpSpite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpSpite.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpSpite.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerTorchBearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerTorchBearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerMarkOfTheDammed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerMarkOfTheDammed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerAuraOfDomination" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerAuraOfDomination.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDreadfulPresence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerDreadfulPresence.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerMarkOfTheSubmission" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerMarkOfTheSubmission.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerFiendishSpawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerFiendishSpawn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerTrialMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerTrialMark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerEldritchCannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerEldritchCannon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheAncientForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheAncientForest.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheCosmos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheCosmos.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheForestGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheForestGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheLife" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheLife.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheNight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheNight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CircleOfTheWildfire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheWildfire.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfElegance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfElegance.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfValiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfValiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfGuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfGuts.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfHarlequin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfHarlequin.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfLife" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfLife.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CollegeOfWarDancer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfWarDancer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DomainNature" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainNature.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DomainTempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainTempest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DomainDefiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainDefiler.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DomainSmith" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainSmith.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorAlchemist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorAlchemist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorArmor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorArtillerist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorArtillerist.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorVivisectionist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorVivisectionist.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorVitriolist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorVitriolist.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InventorWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialArcaneArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialArcaneArcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialWarlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialWarlord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialForceKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialForceKnight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialRoyalKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialRoyalKnight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialSpellShield" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialSpellShield.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialTactician" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialTactician.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialWeaponMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialWeaponMaster.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfAltruism" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfAltruism.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfAncients" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfAncients.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfDemonHunter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfDemonHunter.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfDread" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfDread.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfThunder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfThunder.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OathOfHatred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfHatred.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronArchfey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronCelestial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronCelestial.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronElementalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronMountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronMountain.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheElements" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheElements.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheRavager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheRavager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheReaver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheReaver.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheSavagery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSavagery.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+    <value>..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheBattlerager" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+    <value>..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheBeast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheBeast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+    <value>..\Resources\Subclasses\PathOfTheBeast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathOfTheYeoman" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheYeoman.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronMoonlit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronMoonlit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronRiftWalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronRiftWalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronSoulBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronSoulBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatronEldritchSurge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronEldritchSurge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerArcanist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerArcanist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerFeyWanderer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerFeyWanderer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerGloomStalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerGloomStalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerLightBearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerLightBearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerHellWalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerHellWalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerSkyWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerSkyWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerSurvivalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerSurvivalist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerWildMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerWildMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishAcrobat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishAcrobat.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishArcaneScoundrel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishArcaneScoundrel.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishBladeCaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishBladeCaller.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishDuelist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishDuelist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishOpportunist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishOpportunist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishRaven" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishRaven.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishSlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishSlayer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoguishUmbralStalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishUmbralStalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererDivineHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererDivineHeart.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererPsion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererPsion.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererFieldManipulator" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererFieldManipulator.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererSorrAkkath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererSorrAkkath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererSpellBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererSpellBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorcererWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheDiscordance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheDiscordance.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheStormSoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheStormSoul.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheZenArchery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheZenArchery.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheSilhouette" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheSilhouette.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WayOfTheWealAndWoe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheWealAndWoe.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardArcaneFighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardArcaneFighter.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardBladeDancer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardBladeDancer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardDeadMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardDeadMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardGravityMage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardGravityMage.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardSpellMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardSpellMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardAbjuration" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardAbjuration.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardEvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardEvocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardWarMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardWarMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyAberration" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyAberration.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyBeast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyBeast.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyCelestial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyCelestial.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyConstruct" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyConstruct.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyDragon.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyElemental" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyElemental.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyFey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyFey.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Interception" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FightingStyles\Interception.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyFiend" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyFiend.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyGiant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyGiant.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyHumanoid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyHumanoid.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyMonstrosity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyMonstrosity.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyOoze" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyOoze.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyPlant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyPlant.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PreferredEnemyUndead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyUndead.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityArctic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityArctic.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityCoast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityCoast.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityDesert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityDesert.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityForest.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityGrassland" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityGrassland.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinityMountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinityMountain.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TerrainAffinitySwamp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinitySwamp.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlackDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\BlackDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlueDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\BlueDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GoldDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\GoldDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GreenDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\GreenDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SilverDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\SilverDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritApe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritApe.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritBear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritBear.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritEagle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritEagle.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritSpider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritSpider.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritViper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritViper.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SpiritWolf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritWolf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitBlind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitBlind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitElusiveMovement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitElusiveMovement.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitSwiftThrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitSwiftThrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitOverwhelmingAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitOverwhelmingAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitBrace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitBrace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitCounterAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitCounterAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitDebilitate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitDebilitate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitFeint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitFeint.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitRally" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitRally.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitCoordinatedAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitCoordinatedAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitKnockdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitKnockdown.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitParry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitParry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitPrecision" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitPrecision.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitProvoke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitProvoke.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitReach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitReach.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitRepel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitRepel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitReturnFire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitReturnFire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitSwitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitSwitch.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitThreaten" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitThreaten.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GambitUrgentOrders" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitUrgentOrders.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TutorialActionSwitching" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\TutorialActionSwitching.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BardicDiceResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\BardicDiceResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ActionEldritchVersatility" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions\ActionEldritchVersatility.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BattlefieldConversion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\BattlefieldConversion.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BattlefieldShorthand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\BattlefieldShorthand.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlastBreakthrough" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\BlastBreakthrough.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlastEmpower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\BlastEmpower.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlastOverload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\BlastOverload.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchAegis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\EldritchAegis.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchVersatilityResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\EldritchVersatilityResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SorceryPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\SorceryPoints.png;System.Byte[], mscorlib, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\EldritchWard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VersatilitySwitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\VersatilitySwitch.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prefab_katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prefabs\prefab_katana.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="prefab_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prefabs\prefab_lightning_launcher.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="prefab_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prefabs\prefab_longmace.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="prefab_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prefabs\prefab_pike.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="prefab_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prefabs\prefab_thunder_gauntlet.obj;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\Katana.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="material_katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Materials\material_katana.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="material_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Materials\material_lightning_launcher.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="material_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Materials\material_longmace.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="material_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Materials\material_pike.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="material_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Materials\material_thunder_gauntlet.mtl;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="handgrip_bump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\handgrip_bump.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="handgrip_color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\handgrip_color.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="normal_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\normal_lightning_launcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="normal_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\normal_longmace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="texture_lightning_launcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\texture_lightning_launcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="texture_longmace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\texture_longmace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="texture_pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\texture_pike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="texture_thunder_gauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\texture_thunder_gauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
