@@ -200,9 +200,10 @@ internal static class CustomWeaponsContext
         damageForm.versatileDieType = DieType.D10;
         damageForm.diceNumber = 1;
 
-        var katanaPrefab = Prefabs.GetKatanaPrefab();
+        var katanaPrefab = CustomModelPrefabs.GetKatanaPrefab();
 
-        Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription, Sprites.KatanaIcon);
+        Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription,
+            Sprites.KatanaIcon);
 
         MerchantContext.AddItem(Katana, ShopItemType.ShopGenericMelee);
     }
@@ -332,7 +333,7 @@ internal static class CustomWeaponsContext
         damageForm.dieType = DieType.D10;
         damageForm.diceNumber = 1;
 
-        var pikePrefab = Prefabs.GetPikePrefab();
+        var pikePrefab = CustomModelPrefabs.GetPikePrefab();
 
         Pike = BuildWeapon("CEPike", baseItem, pikePrefab, 20, true, Common, null, baseDescription,
             Sprites.PikeIcon
@@ -414,7 +415,7 @@ internal static class CustomWeaponsContext
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var longmacePrefab = Prefabs.GetLongMacePrefab();
+        var longmacePrefab = CustomModelPrefabs.GetLongMacePrefab();
 
         var baseItem = ItemDefinitions.Warhammer;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
@@ -610,7 +611,7 @@ internal static class CustomWeaponsContext
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 
-        var thunderGauntletPrefab = Prefabs.GetThunderGauntletPrefab();
+        var thunderGauntletPrefab = CustomModelPrefabs.GetThunderGauntletPrefab();
         var baseItem = ItemDefinitions.UnarmedStrikeBase;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
@@ -657,7 +658,7 @@ internal static class CustomWeaponsContext
             .SetAnimationTag("Rapier")
             .AddToDB();
 
-        var launcherPrefab = Prefabs.GetLauncherPrefab();
+        var launcherPrefab = CustomModelPrefabs.GetLauncherPrefab();
         var baseItem = ItemDefinitions.Shortbow;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {

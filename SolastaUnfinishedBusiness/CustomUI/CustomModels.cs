@@ -12,23 +12,34 @@ using UnityEngine.Rendering;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public static class CustomModel
+public static class CustomModels
 {
     private static readonly Dictionary<string, GameObject> PrefabsByGuid = [];
-    private static readonly Dictionary<string, Texture2D> TexturesByGuid = [];
+    private static readonly Dictionary<string, Material> MaterialsByGuid = [];
 
     // Gets or creates a prefab and returns an asset reference
     [NotNull]
     internal static AssetReference GetCustomModelPrefab(string name)
     {
-        var guid = GetGuid(name);
+        var prefabGuid = GetGuid(name);
 
-        if (!PrefabsByGuid.ContainsKey(guid))
+        if (!PrefabsByGuid.ContainsKey(prefabGuid))
         {
             ObjectLoader.Shared.LoadModel(name);
         }
 
-        return new AssetReference(guid);
+        return new AssetReference(prefabGuid);
+    }
+
+    [CanBeNull]
+    internal static GameObject GetPrefabByGuid([NotNull] string guid)
+    {
+        return PrefabsByGuid.TryGetValue(guid, out var prefab) ? prefab : null;
+    }
+
+    public static Material GetMaterialByGuid([NotNull] string guid)
+    {
+        return MaterialsByGuid.TryGetValue(guid, out var material) ? material : null;
     }
 
     private static string GetGuid(string name)
@@ -120,38 +131,38 @@ public static class CustomModel
                     mtl.Materials.Add(new NewMtl { newmtl = token[1] });
                     break;
                 case "Ns":
-                    mtl.Materials[mtl.Materials.Count -1].Ns = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count - 1].Ns = float.Parse(token[1]);
                     break;
                 case "Ka":
-                    mtl.Materials[mtl.Materials.Count -1].Ka =
+                    mtl.Materials[mtl.Materials.Count - 1].Ka =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Kd":
-                    mtl.Materials[mtl.Materials.Count -1].Kd =
+                    mtl.Materials[mtl.Materials.Count - 1].Kd =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ks":
-                    mtl.Materials[mtl.Materials.Count -1].Ks =
+                    mtl.Materials[mtl.Materials.Count - 1].Ks =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ke":
-                    mtl.Materials[mtl.Materials.Count -1].Ke =
+                    mtl.Materials[mtl.Materials.Count - 1].Ke =
                         new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                     break;
                 case "Ni":
-                    mtl.Materials[mtl.Materials.Count -1].Ni = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count - 1].Ni = float.Parse(token[1]);
                     break;
                 case "d":
-                    mtl.Materials[mtl.Materials.Count -1].d = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count - 1].d = float.Parse(token[1]);
                     break;
                 case "ileum":
-                    mtl.Materials[mtl.Materials.Count -1].illum = float.Parse(token[1]);
+                    mtl.Materials[mtl.Materials.Count - 1].illum = float.Parse(token[1]);
                     break;
                 case "map_Kd":
-                    mtl.Materials[mtl.Materials.Count -1].map_Kd = token[1];
+                    mtl.Materials[mtl.Materials.Count - 1].map_Kd = token[1];
                     break;
                 case "map_Bump":
-                    mtl.Materials[mtl.Materials.Count -1].map_Bump = token[1];
+                    mtl.Materials[mtl.Materials.Count - 1].map_Bump = token[1];
                     break;
             }
         }
@@ -203,9 +214,9 @@ public static class CustomModel
             meshFilter.mesh = PopulateMesh(obj);
             meshRenderer.materials = DefineMaterial(obj, mtl);
 
-            var guid = GetGuid(filename);
+            var prefabGuid = GetGuid(filename);
 
-            PrefabsByGuid[guid] = prefab;
+            PrefabsByGuid[prefabGuid] = prefab;
         }
 
         private static Mesh PopulateMesh(ObjectFile obj)
@@ -232,7 +243,7 @@ public static class CustomModel
             {
                 vertices[i] = obj.v[triplets[i][0] - 1];
                 normals[i] = obj.vn[triplets[i][2] - 1];
-                
+
                 if (triplets[i][1] > 0)
                 {
                     uvs[i] = obj.vt[triplets[i][1] - 1];
@@ -298,6 +309,10 @@ public static class CustomModel
                 }
 
                 materials[i] = material;
+
+                var materialGuid = GetGuid(materialName);
+                
+                MaterialsByGuid[materialGuid] = material;
             }
 
             return materials;
@@ -317,6 +332,7 @@ public static class CustomModel
     {
         // ReSharper disable file InconsistentNaming
         public string o;
+
         // ReSharper disable once NotAccessedField.Local
         public string mtllib;
         public List<string> usemtl;
@@ -367,11 +383,11 @@ public static class CustomModel
                 material.EnableKeyword("_NORMALMAP");
             }
         }
-                
+
         // ReSharper disable once InvertIf
         if (!string.IsNullOrEmpty(diffuseTextureKey))
         {
-            var diffuseTexture = GetOrCreateTexture(material.name,diffuseTextureKey);
+            var diffuseTexture = GetOrCreateTexture(material.name, diffuseTextureKey);
 
             if (diffuseTexture)
             {
@@ -383,33 +399,26 @@ public static class CustomModel
     [CanBeNull]
     private static Texture2D GetOrCreateTexture(string modelName, string name)
     {
-        var guid = GetGuid(name);
-
-        if (TexturesByGuid.TryGetValue(guid, out var texture))
-        {
-            return texture;
-        }
-        
         try
         {
             var directory = Path.Combine(Path.Combine(Main.ModFolder, "BlenderModels"), modelName);
             var filename = Path.Combine(directory, name);
             var texData = File.ReadAllBytes(filename);
-            
-            texture = new Texture2D(2, 2);
+
+            var texture = new Texture2D(2, 2);
 
             if (!texture.LoadImage(texData))
             {
                 Main.Error($"Failed to load texture from LoadTextureFromFile:\n {texData}");
             }
+
+            return texture;
         }
         catch
         {
             Main.Error($"Failed to load texture from {name}.");
         }
 
-        TexturesByGuid[guid] = texture;
-        
-        return texture;
+        return null;
     }
 }

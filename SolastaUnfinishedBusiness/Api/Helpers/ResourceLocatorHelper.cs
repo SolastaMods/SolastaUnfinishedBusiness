@@ -163,7 +163,7 @@ internal sealed class PrefabResourceLocator : IResourceLocator
     public bool Locate([NotNull] object key, Type type, out IList<IResourceLocation> locations)
     {
         var id = key.ToString();
-        var prefab = Prefabs.GetPrefabByGuid(id);
+        var prefab = CustomModels.GetPrefabByGuid(id);
 
         if (prefab)
         {
@@ -240,7 +240,7 @@ internal sealed class MaterialResourceLocator : IResourceLocator
     public bool Locate([NotNull] object key, Type type, out IList<IResourceLocation> locations)
     {
         var id = key.ToString();
-        var material = Materials.GetMaterialByGuid(id);
+        var material = CustomModels.GetMaterialByGuid(id);
 
         if (material)
         {
