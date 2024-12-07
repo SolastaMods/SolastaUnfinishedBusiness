@@ -700,42 +700,42 @@
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroudAt14>true</EnableRangerNatureShroudAt14>
+    <EnableRangerNatureShroud2024>true</EnableRangerNatureShroud2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
-    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
-    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
-    <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
+    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>true
+    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
+    <EnableMonkDoNotRequireAttackActionForFlurry2024>true</EnableMonkDoNotRequireAttackActionForFlurry2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
     <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
-    <EnableMonkHeightenedMetabolism>true</EnableMonkHeightenedMetabolism>
-    <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
-    <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
+    <EnableMonkHeightenedMetabolism2024>true</EnableMonkHeightenedMetabolism2024>
+    <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
+    <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
-    <SwapMonkToUseOneDndUnarmedDieTypeProgression>true</SwapMonkToUseOneDndUnarmedDieTypeProgression>
+    <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction>true</EnablePaladinLayOnHandsAsBonusAction>
-    <EnablePaladinSmiteAsBonusAction>false</EnablePaladinSmiteAsBonusAction>
+    <EnablePaladinLayOnHandsAsBonusAction2024>true</EnablePaladinLayOnHandsAsBonusAction2024>
+    <EnablePaladinSmiteAsBonusAction2024>false</EnablePaladinSmiteAsBonusAction2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
-    <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
+    <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
-    <EnableRogueReliableTalentAt7>true</EnableRogueReliableTalentAt7>
-    <EnableRogueSlipperyMind>true</EnableRogueSlipperyMind>
-    <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
-    <RemoveRogueBlindSense>true</RemoveRogueBlindSense>
-    <EnableSorcererArcaneApotheosis>true</EnableSorcererArcaneApotheosis>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate>true</EnableSorcererInnateSorceryAndSorceryIncarnate>
+    <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>
+    <EnableRogueSlipperyMind2024>true</EnableRogueSlipperyMind2024>
+    <EnableRogueSteadyAim2024>true</EnableRogueSteadyAim2024>
+    <RemoveRogueBlindSense2024>true</RemoveRogueBlindSense2024>
+    <EnableSorcererArcaneApotheosis2024>true</EnableSorcererArcaneApotheosis2024>
+    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>true</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
-    <EnableSorcererSorcerousRestoration>true</EnableSorcererSorcerousRestoration>
-    <EnableWarlockToUseOneDndInvocationProgression>true</EnableWarlockToUseOneDndInvocationProgression>
-    <EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>true
-    </EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20>
+    <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
+    <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
+    <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
+    </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>
     <EnableWarlockToLearnPatronAtLevel3>true</EnableWarlockToLearnPatronAtLevel3>
-    <EnableWizardMemorizeSpell>true</EnableWizardMemorizeSpell>
+    <EnableWizardMemorizeSpell2024>true</EnableWizardMemorizeSpell2024>
     <EnableWizardToLearnScholarAtLevel2>true</EnableWizardToLearnScholarAtLevel2>
     <EnableWizardToLearnSchoolAtLevel3>true</EnableWizardToLearnSchoolAtLevel3>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
@@ -997,8 +997,8 @@
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowBladeCantripsToUseReach>true</AllowBladeCantripsToUseReach>
-    <EnableOneDnDPreparedSpellsTables>true</EnableOneDnDPreparedSpellsTables>
-    <EnableRitualOnAllCasters>true</EnableRitualOnAllCasters>
+    <EnablePreparedSpellsTables2024>true</EnablePreparedSpellsTables2024>
+    <EnableRitualOnAllCasters2024>true</EnableRitualOnAllCasters2024>
     <QuickCastLightCantripOnWornItemsFirst>false</QuickCastLightCantripOnWornItemsFirst>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>

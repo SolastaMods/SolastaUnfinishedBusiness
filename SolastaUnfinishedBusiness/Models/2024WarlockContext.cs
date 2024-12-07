@@ -65,14 +65,14 @@ internal static partial class Tabletop2024Context
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    internal static void SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20()
+    internal static void SwitchWarlockMagicalCunningAndImprovedEldritchMaster()
     {
         Warlock.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == PowerWarlockMagicalCunning ||
             x.FeatureDefinition == FeatureEldritchMaster ||
             x.FeatureDefinition == Level20Context.PowerWarlockEldritchMaster);
 
-        if (Main.Settings.EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20)
+        if (Main.Settings.EnableWarlockMagicalCunningAndImprovedEldritchMaster2024)
         {
             Warlock.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PowerWarlockMagicalCunning, 2),
@@ -86,7 +86,7 @@ internal static partial class Tabletop2024Context
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndWarlockPatronLearningLevel()
+    internal static void SwitchWarlockPatronLearningLevel()
     {
         var patrons = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
             .Where(x => x.Name.StartsWith("Patron"))
@@ -136,12 +136,12 @@ internal static partial class Tabletop2024Context
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndWarlockInvocationsProgression()
+    internal static void SwitchWarlockInvocationsProgression()
     {
         Warlock.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == FeatureSetPactSelection);
 
-        if (Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
+        if (Main.Settings.EnableWarlockInvocationProgression2024)
         {
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(PointPoolWarlockInvocation1, 1));
             PointPoolWarlockInvocation2.GuiPresentation.Title =

@@ -145,17 +145,17 @@ ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during n
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Abundant Ki</color> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <color=#D89555>Body and Mind</color> to replace <color=#D89555>Perfect Self</color> at level 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Martial Arts - Bonus Unarmed Strikes</color> to not require an attack action before usage
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Flurry of Blows</color> to not require an attack action before usage
+ModUi/&EnableMonkBodyAndMind2024=Enable <color=#D89555>Body and Mind</color> to replace <color=#D89555>Perfect Self</color> at level 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Enable <color=#D89555>Martial Arts - Bonus Unarmed Strikes</color> to not require an attack action before usage
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Enable <color=#D89555>Flurry of Blows</color> to not require an attack action before usage
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Handwraps</color> and <color=#D89555>Gauntlets</color> to work in gauntlet slot
-ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Heightened Metabolism</color> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism2024=Enable <color=#D89555>Heightened Metabolism</color> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
+ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableOneDnDPreparedSpellsTables=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
+ModUi/&EnablePreparedSpellsTables2024=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Enable <color=#D89555>Divine Favor</color> 5e 2024 spell version <i><color=#F0DAA0>[no concentration]</color></i>
@@ -170,31 +170,31 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Enable <color=#D89555>Spare the Dying</col
 ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=Enable <color=#D89555>Lay on Hands</color> as bonus action
-ModUi/&EnablePaladinSmiteAsBonusAction=Enable <color=#D89555>Smite</color> as bonus action
+ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Enable <color=#D89555>Lay on Hands</color> as bonus action
+ModUi/&EnablePaladinSmiteAsBonusAction2024=Enable <color=#D89555>Smite</color> as bonus action
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
 ModUi/&EnablePotionsBonusAction2024=Enable drinking <color=#D89555>Potions</color> as a bonus action
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroudAt14=Enable <color=#D89555>Nature's Veil</color> feature at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> feature at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
-ModUi/&EnableRitualOnAllCasters=Enable <color=#D89555>Ritual</color> casting on all casters
-ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color>, and <color=#D89555>Devious Strike</color> at levels 5, 11 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
+ModUi/&EnableRitualOnAllCasters2024=Enable <color=#D89555>Ritual</color> casting on all casters
+ModUi/&EnableRogueCunningStrike2024=Enable <color=#D89555>Cunning Strike</color>, <color=#D89555>Improved Cunning Strike</color>, and <color=#D89555>Devious Strike</color> at levels 5, 11 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
 ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
-ModUi/&EnableRogueReliableTalentAt7=Enable <color=#D89555>Reliable Talent</color> at level 7 instead of 11
-ModUi/&EnableRogueSlipperyMind=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
-ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
+ModUi/&EnableRogueReliableTalent2024=Enable <color=#D89555>Reliable Talent</color> at level 7 instead of 11
+ModUi/&EnableRogueSlipperyMind2024=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
+ModUi/&EnableRogueSteadyAim2024=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis=Enable <color=#D89555>Arcane Apotheosis</color> at 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Enable <color=#D89555>Arcane Apotheosis</color> at 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
-ModUi/&EnableSorcererSorcerousRestoration=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
+ModUi/&EnableSorcererSorcerousRestoration2024=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
 ModUi/&EnableSpeechActorHelp=• Select an actor
@@ -214,9 +214,9 @@ ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descrip
 ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammunition slots
 ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Off-hand Weapon slot
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
-ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
+ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
-ModUi/&EnableWizardMemorizeSpell=Enable <color=#D89555>Memorize Spell</color> at level 5
+ModUi/&EnableWizardMemorizeSpell2024=Enable <color=#D89555>Memorize Spell</color> at level 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Enable <color=#D89555>Scholar</color> at level 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Enable <color=#D89555>School of Magic</color> at level 3 instead of 2
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
@@ -305,7 +305,7 @@ ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at le
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
-ModUi/&RemoveRogueBlindSense=Remove <color=#D89555>Blind Sense</color> at level 14
+ModUi/&RemoveRogueBlindSense2024=Remove <color=#D89555>Blind Sense</color> at level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <b>Shadowcaster</b>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remove school restrictions from <b>Spellblade</b>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
@@ -353,8 +353,8 @@ ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
-ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
+ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
+ModUi/&EnableWarlockInvocationProgression2024=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
 ModUi/&TableTopButton=<b><color=#D89555>Select Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
 ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience

@@ -26,19 +26,19 @@ internal static partial class Tabletop2024Context
 
     internal static void LateLoad()
     {
-        BuildBarbarianBrutalStrike();
-        BuildOneDndGuidanceSubspells();
-        BuildRogueCunningStrike();
+        LoadBarbarianBrutalStrike();
         LoadBarbarianInstinctivePounce();
         LoadBarbarianPersistentRage();
+        LoadBardCounterCharm();
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
         LoadMonkHeightenedMetabolism();
-        LoadOneDndEnableBardCounterCharm2024();
+        LoadOneDndSpellGuidanceSubspells();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndTrueStrike();
-        LoadSorcerousRestorationAtLevel5();
+        LoadRogueCunningStrike();
+        LoadSorcererSorcerousRestoration();
         LoadWizardMemorizeSpell();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianInstinctivePounce();
@@ -46,35 +46,33 @@ internal static partial class Tabletop2024Context
         SwitchBarbarianReckless();
         SwitchBarbarianRegainOneRageAtShortRest();
         SwitchBarbarianRelentlessRage();
+        SwitchBardBardMagicalSecrets();
+        SwitchBardBardicInspiration();
+        SwitchBardCounterCharm();
+        SwitchBardExpertiseOneLevelBefore();
+        SwitchBardSongOfRest();
+        SwitchBardSuperiorInspiration();
+        SwitchBardWordsOfCreation();
+        SwitchDruidMetalArmor();
         SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
-        SwitchDruidWeaponProficiencyToUseOneDnd();
+        SwitchDruidWeaponProficiency();
         SwitchFighterIndomitableSaving();
         SwitchFighterSecondWind();
         SwitchFighterSkillOptions();
         SwitchFighterStudiedAttacks();
         SwitchFighterTacticalProgression();
-        SwitchMonkBodyAndMindToReplacePerfectSelf();
+        SwitchMonkBodyAndMind();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkDoNotRequireAttackActionForFlurry();
         SwitchMonkHeightenedMetabolism();
-        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
-        SwitchDruidMetalArmor();
-        SwitchPotionsBonusAction();
-        SwitchBardBardicInspiration();
+        SwitchMonkSuperiorDefense();
         SwitchOneDndDamagingSpellsUpgrade();
-        SwitchBardCounterCharm();
-        SwitchBardExpertiseOneLevelBefore();
-        SwitchBardSuperiorInspiration();
-        SwitchBardWordsOfCreation();
         SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndMonkUnarmedDieTypeProgression();
         SwitchOneDndPaladinLayOnHandAsBonusAction();
         SwitchOneDndPaladinLearnSpellCastingAtOne();
-        SwitchPoisonsBonusAction();
         SwitchOneDndPreparedSpellsTables();
         SwitchOneDndRangerLearnSpellCastingAtOne();
-        SwitchOneDndRemoveBardMagicalSecret2024();
-        SwitchOneDndRemoveBardSongOfRest2024();
         SwitchOneDndSpellBarkskin();
         SwitchOneDndSpellDivineFavor();
         SwitchOneDndSpellGuidance();
@@ -86,12 +84,8 @@ internal static partial class Tabletop2024Context
         SwitchOneDndSpellSpareTheDying();
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
-        SwitchSurprisedEnforceDisadvantage();
-        SwitchOneDndWarlockInvocationsProgression();
-        SwitchOneDndWarlockPatronLearningLevel();
-        SwitchOneDndWizardMemorizeSpell();
-        SwitchOneDndWizardScholar();
-        SwitchOneDndWizardSchoolOfMagicLearningLevel();
+        SwitchPoisonsBonusAction();
+        SwitchPotionsBonusAction();
         SwitchRangerNatureShroud();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
@@ -102,7 +96,13 @@ internal static partial class Tabletop2024Context
         SwitchSorcererInnateSorcery();
         SwitchSorcerousRestorationAtLevel5();
         SwitchSpellRitualOnAllCasters();
-        SwitchWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20();
+        SwitchSurprisedEnforceDisadvantage();
+        SwitchWarlockInvocationsProgression();
+        SwitchWarlockMagicalCunningAndImprovedEldritchMaster();
+        SwitchWarlockPatronLearningLevel();
+        SwitchWizardMemorizeSpell();
+        SwitchWizardScholar();
+        SwitchWizardSchoolOfMagicLearningLevel();
     }
 
     internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
@@ -115,7 +115,7 @@ internal static partial class Tabletop2024Context
             featureUnlock.level = level;
         }
 
-        // allows back and forth compatibility with EnableRitualOnAllCasters
+        // allows back and forth compatibility with EnableRitualOnAllCasters2024
         foreach (var featureUnlock in Paladin.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
         {
@@ -148,7 +148,7 @@ internal static partial class Tabletop2024Context
             featureUnlock.level = level;
         }
 
-        // allows back and forth compatibility with EnableRitualOnAllCasters
+        // allows back and forth compatibility with EnableRitualOnAllCasters2024
         foreach (var featureUnlock in Ranger.FeatureUnlocks
                      .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
         {
@@ -190,7 +190,7 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchOneDndPaladinLayOnHandAsBonusAction()
     {
-        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
     }
@@ -200,7 +200,7 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks
             .RemoveAll(x => x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
 
-        if (Main.Settings.EnableRangerNatureShroudAt14)
+        if (Main.Settings.EnableRangerNatureShroud2024)
         {
             Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
         }

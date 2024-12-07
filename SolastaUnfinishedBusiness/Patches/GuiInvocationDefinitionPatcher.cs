@@ -94,7 +94,7 @@ public static class GuiInvocationDefinitionPatcher
 
                     //PATCH: supports pacts as invocations as in tabletop 2024
                     if (!hasPact &&
-                        Main.Settings.EnableWarlockToUseOneDndInvocationProgression)
+                        Main.Settings.EnableWarlockInvocationProgression2024)
                     {
                         var invocationPactName = invocation.RequiredPact.Name.Replace("FeatureSet", "Invocation");
 

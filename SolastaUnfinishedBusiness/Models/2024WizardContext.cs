@@ -48,7 +48,7 @@ internal static partial class Tabletop2024Context
         .AddToDB();
 
 
-    internal static void SwitchOneDndWizardSchoolOfMagicLearningLevel()
+    internal static void SwitchWizardSchoolOfMagicLearningLevel()
     {
         var schools = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
             .Where(x =>
@@ -87,7 +87,7 @@ internal static partial class Tabletop2024Context
         Wizard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndWizardScholar()
+    internal static void SwitchWizardScholar()
     {
         Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolWizardScholar);
 
@@ -103,7 +103,7 @@ internal static partial class Tabletop2024Context
         RestActivityDefinition activity, RulesetCharacterHero hero)
     {
         return activity != RestActivityMemorizeSpell ||
-               (Main.Settings.EnableWizardMemorizeSpell && hero.GetClassLevel(Wizard) >= 5);
+               (Main.Settings.EnableWizardMemorizeSpell2024 && hero.GetClassLevel(Wizard) >= 5);
     }
 
     private static bool TryGetMemorizeSpellCondition(RulesetCharacter character, out RulesetCondition condition)
@@ -154,11 +154,11 @@ internal static partial class Tabletop2024Context
             .RegisterFunctor(nameof(FunctorMemorizeSpell), new FunctorMemorizeSpell());
     }
 
-    internal static void SwitchOneDndWizardMemorizeSpell()
+    internal static void SwitchWizardMemorizeSpell()
     {
         Wizard.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMemorizeSpell);
 
-        if (Main.Settings.EnableWizardMemorizeSpell)
+        if (Main.Settings.EnableWizardMemorizeSpell2024)
         {
             Wizard.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMemorizeSpell, 5));
         }

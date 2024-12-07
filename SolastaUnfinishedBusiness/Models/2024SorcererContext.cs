@@ -86,7 +86,7 @@ internal static partial class Tabletop2024Context
             x.FeatureDefinition == Level20Context.PowerSorcerousRestoration);
 
         Sorcerer.FeatureUnlocks.Add(
-            Main.Settings.EnableSorcererArcaneApotheosis
+            Main.Settings.EnableSorcererArcaneApotheosis2024
                 ? new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20)
                 : new FeatureUnlockByLevel(Level20Context.PowerSorcerousRestoration, 20));
 
@@ -105,7 +105,7 @@ internal static partial class Tabletop2024Context
         RulesetEffect rulesetEffect,
         bool validateMetamagicOption = true)
     {
-        if (!Main.Settings.EnableSorcererArcaneApotheosis ||
+        if (!Main.Settings.EnableSorcererArcaneApotheosis2024 ||
             rulesetEffect is not RulesetEffectSpell rulesetEffectSpell ||
             (validateMetamagicOption && !rulesetEffectSpell.MetamagicOption))
         {
@@ -136,7 +136,7 @@ internal static partial class Tabletop2024Context
             x.FeatureDefinition == PowerSorcererInnateSorcery ||
             x.FeatureDefinition == FeatureSetSorcererSorceryIncarnate);
 
-        if (Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate)
+        if (Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate2024)
         {
             Sorcerer.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1),
@@ -146,7 +146,7 @@ internal static partial class Tabletop2024Context
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private static void LoadSorcerousRestorationAtLevel5()
+    private static void LoadSorcererSorcerousRestoration()
     {
         RestActivityDefinitionBuilder
             .Create("RestActivitySorcerousRestoration")
@@ -164,7 +164,7 @@ internal static partial class Tabletop2024Context
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
 
-        if (Main.Settings.EnableSorcererSorcerousRestoration)
+        if (Main.Settings.EnableSorcererSorcerousRestoration2024)
         {
             Sorcerer.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerSorcerousRestoration, 5));
         }

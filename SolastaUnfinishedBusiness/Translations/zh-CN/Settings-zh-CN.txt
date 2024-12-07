@@ -145,17 +145,17 @@ ModUi/&EnableLogDialoguesToConsole=在叙事过程中启用游戏控制台日志
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义广告系列中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+ 强制执行能力得分最低进出先决条件</i>
 ModUi/&EnableMonkAbundantKi=在 2 级时启用<color=#D89555>充沛的气</color> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武术 - 额外徒手攻击</color>，在使用前无需采取攻击行动
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>Flurry of Blows</color>，在使用前无需采取攻击行动
+ModUi/&EnableMonkBodyAndMind2024=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=启用<color=#D89555>武术 - 额外徒手攻击</color>，在使用前无需采取攻击行动
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=启用<color=#D89555>Flurry of Blows</color>，在使用前无需采取攻击行动
 ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
-ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>增强新陈代谢</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism2024=在 10 级时启用<color=#D89555>增强新陈代谢</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=启用<color=#D89555>超级防御</color>来替换 18 级时的<color=#D89555>空虚之身</color>
+ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来替换 18 级时的<color=#D89555>空虚之身</color>
 ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableOneDnDPreparedSpellsTables=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
+ModUi/&EnablePreparedSpellsTables2024=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>、<color=#D89555>棱镜喷射</color>。以及<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的伤害]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=启用<color=#D89555>神恩</color> 5e 2024 法术版本<i><color=#F0DAA0>[无集中]</color></i>
@@ -170,31 +170,31 @@ ModUi/&EnableOneDndSpareTheDyingSpell=启用<color=#D89555>Spare the Dying</colo
 ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e 2024 法术版本<i><color=#F0DAA0>[每次施法 +1 个目标]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=启用<color=#D89555>圣疗术</color>作为奖励行动
-ModUi/&EnablePaladinSmiteAsBonusAction=启用 <color=#D89555>Smite</color> 作为奖励行动
+ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=启用<color=#D89555>圣疗术</color>作为奖励行动
+ModUi/&EnablePaladinSmiteAsBonusAction2024=启用 <color=#D89555>Smite</color> 作为奖励行动
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
 ModUi/&EnablePotionsBonusAction2024=启用饮用<color=#D89555>药水</color>作为奖励行动
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
-ModUi/&EnableRangerNatureShroudAt14=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
+ModUi/&EnableRangerNatureShroud2024=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
-ModUi/&EnableRitualOnAllCasters=对所有施法者启用<color=#D89555>仪式</color>施法
-ModUi/&EnableRogueCunningStrike=在等级 5、11 和 14 时启用<color=#D89555>狡猾打击</color>、<color=#D89555>强化狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
+ModUi/&EnableRitualOnAllCasters2024=对所有施法者启用<color=#D89555>仪式</color>施法
+ModUi/&EnableRogueCunningStrike2024=在等级 5、11 和 14 时启用<color=#D89555>狡猾打击</color>、<color=#D89555>强化狡猾打击</color>和<color=#D89555>阴险打击</color> <i><color=#F0DAA0>[你放弃 1 个偷袭骰子以获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
-ModUi/&EnableRogueReliableTalentAt7=将<color=#D89555>可靠天赋</color>设置为 7 级（而非 11 级）
-ModUi/&EnableRogueSlipperyMind=将 <color=#D89555>Slippery Mind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[除了智慧之外，你还获得了魅力豁免的熟练程度]</color></i>
-ModUi/&EnableRogueSteadyAim=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
+ModUi/&EnableRogueReliableTalent2024=将<color=#D89555>可靠天赋</color>设置为 7 级（而非 11 级）
+ModUi/&EnableRogueSlipperyMind2024=将 <color=#D89555>Slippery Mind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[除了智慧之外，你还获得了魅力豁免的熟练程度]</color></i>
+ModUi/&EnableRogueSteadyAim2024=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis=在 20 级时启用<color=#D89555>奥术神化</color>
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
+ModUi/&EnableSorcererArcaneApotheosis2024=在 20 级时启用<color=#D89555>奥术神化</color>
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
-ModUi/&EnableSorcererSorcerousRestoration=在第 5 级启用<color=#D89555>魔法恢复</color>
+ModUi/&EnableSorcererSorcerousRestoration2024=在第 5 级启用<color=#D89555>魔法恢复</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员
@@ -214,9 +214,9 @@ ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><co
 ModUi/&EnableVersatileAmmunitionSlots=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并将其放入弹药槽中使用
 ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并在副手武器槽中使用
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
-ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
+ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>
-ModUi/&EnableWizardMemorizeSpell=在第 5 级启用<color=#D89555>记忆法术</color>
+ModUi/&EnableWizardMemorizeSpell2024=在第 5 级启用<color=#D89555>记忆法术</color>
 ModUi/&EnableWizardToLearnScholarAtLevel2=启用 2 级 <color=#D89555>Scholar</color>
 ModUi/&EnableWizardToLearnSchoolAtLevel3=在 3 级（而非 2 级）启用<color=#D89555>魔法学校</color>
 ModUi/&EnablesAsiAndFeat=同时启用属性得分增加和<color=#D89555>专长</color>选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
@@ -305,7 +305,7 @@ ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</colo
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
-ModUi/&RemoveRogueBlindSense=移除 14 级的<color=#D89555>盲感</color>
+ModUi/&RemoveRogueBlindSense2024=移除 14 级的<color=#D89555>盲感</color>
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<b>Shadowcaster</b>的学校限制
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除 <b>Spellblade</b> 的学校限制
 ModUi/&RestockAntiquarians=重新进货古董商<i><color=#F0DAA0>[Halman Summer]</color></i>
@@ -353,8 +353,8 @@ ModUi/&SwapAbjurationSavant=将<b>Abjurer</b> <color=#D89555>Abjuration Savant</
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=在进度中交换<b>召唤师</b> <color=#D89555>塑形法术</color>和<color=#D89555>强效戏法</color>
 ModUi/&SwapEvocationSavant=将<b>Evoker</b> <color=#D89555>Evocation Savant</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得时学习 2 个学校法术，每次获得一个插槽等级时再学习 1 个]</color></i>
-ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=启用<color=#D89555>徒手攻击</color>以使用 5e 2024 骰子类型进程
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=启用 <color=#D89555>Invocations</color> 以使用 5e 2024 进程
+ModUi/&EnableMonkUnarmoredDieTypeProgression2024=启用<color=#D89555>徒手攻击</color>以使用 5e 2024 骰子类型进程
+ModUi/&EnableWarlockInvocationProgression2024=启用 <color=#D89555>Invocations</color> 以使用 5e 2024 进程
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>
 ModUi/&TableTopHelp1=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>5e 2014 和 2024</color> 设置，以方便您使用
 ModUi/&TableTopHelp2=• 按下按钮仅选择角色选项卡下的桌面内容，并选择以下所有选项以获得真正的 TT 体验

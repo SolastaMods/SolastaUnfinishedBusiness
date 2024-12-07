@@ -822,7 +822,7 @@ public static class GameLocationCharacterExtensions
     {
         var rulesetCharacter = instance.RulesetCharacter;
 
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack ||
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 ||
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) == 0)
         {
             return;

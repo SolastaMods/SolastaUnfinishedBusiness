@@ -51,7 +51,7 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckPrimalKnowledge())
         .AddToDB();
 
-    private static void BuildBarbarianBrutalStrike()
+    private static void LoadBarbarianBrutalStrike()
     {
         const string BrutalStrikeImprovement13 = "BarbarianBrutalStrikeImprovement13";
         const string BrutalStrikeImprovement17 = "BarbarianBrutalStrikeImprovement17";
@@ -271,6 +271,7 @@ internal static partial class Tabletop2024Context
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
+                    .SetRequiresVisibilityForPosition(false)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())

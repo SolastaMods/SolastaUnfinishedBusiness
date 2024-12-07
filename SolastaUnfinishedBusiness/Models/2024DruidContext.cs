@@ -99,7 +99,7 @@ internal static partial class Tabletop2024Context
         Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchDruidWeaponProficiencyToUseOneDnd()
+    internal static void SwitchDruidWeaponProficiency()
     {
         ProficiencyDruidWeapon.proficiencies =
             Main.Settings.EnableDruidWeaponProficiency2024

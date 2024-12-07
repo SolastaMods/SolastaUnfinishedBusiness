@@ -145,17 +145,17 @@ ModUi/&EnableLogDialoguesToConsole=Habilitar diálogos de registro en la consola
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de referencias no válidas en campañas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos mínimos de puntuación de habilidad para entrar y salir</i>
 ModUi/&EnableMonkAbundantKi=Habilita <color=#D89555>Ki abundante</color> en el nivel 2 <i><color=#F0DAA0>[obtienes Ki adicional equivalente a la mitad de la bonificación de competencia redondeada hacia arriba]</color></i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilita <color=#D89555>Cuerpo y Mente</color> para reemplazar a <color=#D89555>Perfección Personal</color> en el nivel 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilitar <color=#D89555>Artes marciales: golpes sin armas adicionales</color> para que no requieran una acción de ataque antes de su uso
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilitar <color=#D89555>Ráfaga de golpes</color> para que no requiera una acción de ataque antes de su uso
+ModUi/&EnableMonkBodyAndMind2024=Habilita <color=#D89555>Cuerpo y Mente</color> para reemplazar a <color=#D89555>Perfección Personal</color> en el nivel 20
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Habilitar <color=#D89555>Artes marciales: golpes sin armas adicionales</color> para que no requieran una acción de ataque antes de su uso
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Habilitar <color=#D89555>Ráfaga de golpes</color> para que no requiera una acción de ataque antes de su uso
 ModUi/&EnableMonkFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableMonkHandwrapsUseGauntletSlot=Habilitar <color=#D89555>Manos</color> y <color=#D89555>Guanteletes</color> para que funcionen en la ranura de guantelete
-ModUi/&EnableMonkHeightenedMetabolism=Habilita <color=#D89555>Metabolismo acelerado</color> en el nivel 10. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen beneficios adicionales]</color></i>
+ModUi/&EnableMonkHeightenedMetabolism2024=Habilita <color=#D89555>Metabolismo acelerado</color> en el nivel 10. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen beneficios adicionales]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
+ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
 ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&EnableOneDnDPreparedSpellsTables=Permitir que todos los <color=#D89555>lanzadores de conjuros</color> utilicen las nuevas tablas de conjuros preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladín, Explorador, Hechicero, Mago]</color></i>
+ModUi/&EnablePreparedSpellsTables2024=Permitir que todos los <color=#D89555>lanzadores de conjuros</color> utilicen las nuevas tablas de conjuros preparadas <i><color=#F0DAA0>[Bardo, Clérigo, Druida, Paladín, Explorador, Hechicero, Mago]</color></i>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar la versión del hechizo <color=#D89555>Corteza</color> 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilita los hechizos <color=#D89555>Espada arcana</color>, <color=#D89555>Círculo de la muerte</color>, <color=#D89555>Golpe de llamas</color>, <color=#D89555>Tormenta de hielo</color>, <color=#D89555>Rociado prismático</color> y <color=#D89555>Burla cruel</color> versión 5e 2024 <i><color=#F0DAA0>[mejor daño]</color></i>
 ModUi/&EnableOneDndDivineFavorSpell=Habilitar <color=#D89555>Favor divino</color> versión del hechizo 5e 2024 <i><color=#F0DAA0>[sin concentración]</color></i>
@@ -170,31 +170,31 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Habilitar la versión del hechizo <color=#
 ModUi/&EnableOneDndSpiderClimbSpell=Habilitar la versión del hechizo <color=#D89555>Spider Climb</color> 5e 2024 <i><color=#F0DAA0>[+1 objetivo por mejora]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Piel de piedra</color> versión del hechizo 5e 2024 <i><color=#F0DAA0>[también proporciona resistencia a B/P/S mágicos]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>Golpe verdadero</color> versión 5e 2024 del truco <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>\n<i><color=#F0DAA0>[el ataque usa tu capacidad de lanzamiento de conjuros para la tirada de ataque y la bonificación de daño, y daño radiante adicional a partir del nivel 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional
-ModUi/&EnablePaladinSmiteAsBonusAction=Habilitar <color=#D89555>Castigar</color> como acción adicional
+ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Habilitar <color=#D89555>Imposición de manos</color> como acción adicional
+ModUi/&EnablePaladinSmiteAsBonusAction2024=Habilitar <color=#D89555>Castigar</color> como acción adicional
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Habilitar la aplicación de <color=#D89555>venenos</color> a las armas como acción adicional
 ModUi/&EnablePotionsBonusAction2024=Habilitar beber <color=#D89555>Pociones</color> como acción adicional
 ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</color> <i><color=#F0DAA0>[puedes caer boca abajo sin costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
-ModUi/&EnableRangerNatureShroudAt14=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 14 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
+ModUi/&EnableRangerNatureShroud2024=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 14 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnableRelearnSpells=Habilitar la selección de trucos o hechizos ya aprendidos de otras fuentes
 ModUi/&EnableRespecAction=Habilitar la acción <color=#D89555>RESPECT</color> después del descanso <i><color=#F0DAA0>[no usar RESPECT durante una sesión multijugador]</color></i>
-ModUi/&EnableRitualOnAllCasters=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
-ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Golpe astuto</color>, <color=#D89555>Golpe astuto mejorado</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5, 11 y 14. <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
+ModUi/&EnableRitualOnAllCasters2024=Habilitar el lanzamiento de <color=#D89555>Ritual</color> para todos los lanzadores
+ModUi/&EnableRogueCunningStrike2024=Habilita <color=#D89555>Golpe astuto</color>, <color=#D89555>Golpe astuto mejorado</color> y <color=#D89555>Golpe tortuoso</color> en los niveles 5, 11 y 14. <i><color=#F0DAA0>[dejas de usar 1 dado de ataque furtivo para obtener efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
-ModUi/&EnableRogueReliableTalentAt7=Habilitar <color=#D89555>Talento confiable</color> en el nivel 7 en lugar del 11
-ModUi/&EnableRogueSlipperyMind=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
-ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
+ModUi/&EnableRogueReliableTalent2024=Habilitar <color=#D89555>Talento confiable</color> en el nivel 7 en lugar del 11
+ModUi/&EnableRogueSlipperyMind2024=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
+ModUi/&EnableRogueSteadyAim2024=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
 ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis=Habilita <color=#D89555>Apoteosis arcana</color> en 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Habilita <color=#D89555>Apoteosis arcana</color> en 20
+ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Guía mágica</color> en el nivel 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar la acción <color=#D89555>Hechizo acelerado</color> para permitir lanzar un hechizo de acción principal con metamagia acelerada aplicada
-ModUi/&EnableSorcererSorcerousRestoration=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
+ModUi/&EnableSorcererSorcerousRestoration2024=Habilitar <color=#D89555>Restauración hechicera</color> en el nivel 5
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableSpeech=Habilitar el habla en campañas personalizadas <i><color=#F0DAA0>[solo narración y héroes]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleccione un actor
@@ -214,9 +214,9 @@ ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de va
 ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y utilicen en las ranuras de munición.
 ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y usen en la ranura de Arma Secundaria
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
-ModUi/&EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
+ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patron</color> en el nivel 3 en lugar del 1
-ModUi/&EnableWizardMemorizeSpell=Habilitar <color=#D89555>Memorizar hechizo</color> en el nivel 5
+ModUi/&EnableWizardMemorizeSpell2024=Habilitar <color=#D89555>Memorizar hechizo</color> en el nivel 5
 ModUi/&EnableWizardToLearnScholarAtLevel2=Habilitar <color=#D89555>Scholar</color> en el nivel 2
 ModUi/&EnableWizardToLearnSchoolAtLevel3=Habilitar <color=#D89555>Escuela de Magia</color> en el nivel 3 en lugar de 2
 ModUi/&EnablesAsiAndFeat=Habilitar el aumento de las puntuaciones de atributos y la selección de <color=#D89555>dotes</color> <i><color=#F0DAA0>[en lugar de una elección exclusiva]</color></i>
@@ -305,7 +305,7 @@ ModUi/&RemoveBardSongOfRest2024=Eliminar <color=#D89555>Canción de descanso</co
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.
-ModUi/&RemoveRogueBlindSense=Elimina el <color=#D89555>Sentido ciego</color> en el nivel 14
+ModUi/&RemoveRogueBlindSense2024=Elimina el <color=#D89555>Sentido ciego</color> en el nivel 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Eliminar las restricciones escolares de <b>Shadowcaster</b>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Eliminar las restricciones escolares de <b>Spellblade</b>
 ModUi/&RestockAntiquarians=Reposición de Anticuarios <i><color=#F0DAA0>[Halman Summer]</color></i>
@@ -353,8 +353,8 @@ ModUi/&SwapAbjurationSavant=Intercambia <b>Abjurador</b> <color=#D89555>Sabio de
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia <b>Evocador</b>, <color=#D89555>hechizos de escultura</color> y <color=#D89555>truco potente</color> al progresar.
 ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
-ModUi/&SwapMonkToUseOneDndUnarmedDieTypeProgression=Habilite <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado 5e 2024
-ModUi/&SwapWarlockToUseOneDndInvocationProgression=Habilitar <color=#D89555>Invocaciones</color> para usar la progresión 5e 2024
+ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Habilite <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Habilitar <color=#D89555>Invocaciones</color> para usar la progresión 5e 2024
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
 ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones de <color=#D89555>5e 2014 y 2024</color> esparcidas por el mod para tu conveniencia.
 ModUi/&TableTopHelp2=• Presiona el botón para seleccionar solo contenido de mesa en la pestaña Personaje y selecciona todas las opciones a continuación para una verdadera experiencia TT

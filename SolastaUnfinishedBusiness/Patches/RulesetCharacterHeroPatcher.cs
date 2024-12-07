@@ -1427,7 +1427,7 @@ public static class RulesetCharacterHeroPatcher
                 return true;
             }
 
-            if (!Main.Settings.EnableOneDnDPreparedSpellsTables ||
+            if (!Main.Settings.EnablePreparedSpellsTables2024 ||
                 !PreparedSpells.TryGetValue(spellRepertoire.SpellCastingClass, out var preparedSpells))
             {
                 return true;

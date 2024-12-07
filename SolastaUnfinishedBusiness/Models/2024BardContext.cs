@@ -36,7 +36,7 @@ internal static partial class Tabletop2024Context
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
-    private static void LoadOneDndEnableBardCounterCharm2024()
+    private static void LoadBardCounterCharm()
     {
         PowerBardCountercharm.AddCustomSubFeatures(
             new ModifyPowerVisibility((_, _, _) => !Main.Settings.EnableBardCounterCharm2024),
@@ -108,7 +108,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndRemoveBardSongOfRest2024()
+    internal static void SwitchBardSongOfRest()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == RestHealingModifierBardSongOfRest);
@@ -121,7 +121,7 @@ internal static partial class Tabletop2024Context
         Bard.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchOneDndRemoveBardMagicalSecret2024()
+    internal static void SwitchBardBardMagicalSecrets()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
             x.FeatureDefinition == PointPoolBardMagicalSecrets14 ||

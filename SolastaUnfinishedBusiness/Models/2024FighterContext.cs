@@ -88,13 +88,14 @@ internal static partial class Tabletop2024Context
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
+                    .SetRequiresVisibilityForPosition(false)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorFilterTargetingPositionHalfMove())
             .AddToDB();
 
         PowerFighterSecondWind.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeSecondWind(powerFighterSecondWindTargeting));
+            new PowerOrSpellInitiatedByMeSecondWind(powerFighterSecondWindTargeting));
     }
 
     internal static void SwitchFighterIndomitableSaving()
@@ -212,7 +213,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private sealed class PowerOrSpellFinishedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
+    private sealed class PowerOrSpellInitiatedByMeSecondWind(FeatureDefinitionPower powerDummyTargeting)
         : IPowerOrSpellInitiatedByMe
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

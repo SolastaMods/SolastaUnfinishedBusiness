@@ -86,7 +86,7 @@ internal static partial class Tabletop2024Context
     {
         var subclasses = SharedSpellsContext.SubclassCasterType.Keys.Select(GetDefinition<CharacterSubclassDefinition>);
 
-        if (Main.Settings.EnableRitualOnAllCasters)
+        if (Main.Settings.EnableRitualOnAllCasters2024)
         {
             Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting,
                 Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2));
@@ -108,7 +108,7 @@ internal static partial class Tabletop2024Context
         foreach (var subclass in subclasses
                      .Where(x => x.HasSubFeatureOfType<FeatureDefinitionCastSpell>()))
         {
-            if (Main.Settings.EnableRitualOnAllCasters)
+            if (Main.Settings.EnableRitualOnAllCasters2024)
             {
                 subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericRitualCasting, 3));
             }
@@ -141,7 +141,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private static void BuildOneDndGuidanceSubspells()
+    private static void LoadOneDndSpellGuidanceSubspells()
     {
         foreach (var (attribute, skill) in GuidanceProficiencyPairs)
         {
@@ -335,7 +335,7 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchOneDndPreparedSpellsTables()
     {
-        if (Main.Settings.EnableOneDnDPreparedSpellsTables)
+        if (Main.Settings.EnablePreparedSpellsTables2024)
         {
             FeatureDefinitionCastSpells.CastSpellBard.knownSpells =
                 [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22];
