@@ -1,7 +1,7 @@
 # Blender 4.2.3 LTS
 # www.blender.org
 mtllib LightningLauncher.mtl
-o lightning_launcher
+o LightningLauncher
 v 0.498009 -0.006792 -0.583447
 v 0.494895 -0.036531 -0.572746
 v 0.548691 -0.102219 -0.540019
