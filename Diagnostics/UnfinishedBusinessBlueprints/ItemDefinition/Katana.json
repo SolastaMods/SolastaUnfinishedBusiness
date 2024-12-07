@@ -351,7 +351,10 @@
   "isUsableDevice": false,
   "isTool": false,
   "isMusicalInstrument": false,
-  "musicalInstrumentDefinition": null,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -471,11 +474,11 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "718e077d-f25a-5901-ab1a-279f495bbe8f",
+      "m_AssetGUID": "96d4b95c-9e7a-5aee-b491-b19629afc2a9",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
-    "scaleFactorWhileWielded": 0.005,
+    "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
@@ -490,7 +493,7 @@
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
-    "serializedVersion": 0
+    "serializedVersion": 1
   },
   "clueSuspectPairs": [],
   "guiPresentation": {
