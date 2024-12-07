@@ -19,14 +19,14 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    20,
+    40,
     0,
     0,
     0
   ],
   "itemTags": [
-    "Standard",
-    "Metal"
+    "Metal",
+    "Ingredient"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -34,7 +34,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -351,10 +351,7 @@
   "isUsableDevice": false,
   "isTool": false,
   "isMusicalInstrument": false,
-  "musicalInstrumentDefinition": {
-    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "LuteType"
-  },
+  "musicalInstrumentDefinition": null,
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -469,7 +466,7 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&KatanaUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&KatanaPrimedUnidentifiedTitle",
     "unidentifiedDescription": "Feature/&Emptystring",
     "overrideSubtype": "None",
     "assetReference": {
@@ -492,14 +489,16 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
-    "serializedVersion": 1
+    "itemFlags": [
+      "Definition:ItemFlagPrimed:5ad24d01133943542b4b992e0b4ce985"
+    ],
+    "serializedVersion": 0
   },
   "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&KatanaTitle",
+    "title": "Item/&KatanaPrimedTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -520,7 +519,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "96d4b95c-9e7a-5aee-b491-b19629afc2a9",
+  "guid": "ef44ca25-6900-5462-b4b1-ed7e419ced9c",
   "contentPack": 9999,
-  "name": "Katana"
+  "name": "KatanaPrimed"
 }

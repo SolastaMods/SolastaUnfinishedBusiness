@@ -1,0 +1,139 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "merchantCategory": "Crafting",
+  "weight": 1.0,
+  "slotTypes": [
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    200,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Standard",
+    "Paper"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": false,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": null,
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": true,
+  "documentDescription": {
+    "$type": "DocumentDescription, Assembly-CSharp",
+    "format": "Parchment",
+    "contentFragments": [
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&CraftingManualContentDescription",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      }
+    ],
+    "script": "Narrative",
+    "language": "Language_Common",
+    "loreType": "CraftingRecipe",
+    "recipeDefinition": "Definition:RecipePrimeKatana:1fd5ed95-63db-5521-94cd-31d88cbabcd2",
+    "locationDefinition": null,
+    "locationKnowledgeLevel": "Known",
+    "unlockedBestiaryContent": [],
+    "destroyAfterReading": true
+  },
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": null,
+  "soundEffectOnHitDescriptionOverride": null,
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "isArmorAddressableNameGenderSpecific": false,
+    "armorAddressableName": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [
+      "Definition:ItemFlagRecipeIcon:048ea97c-9dc6-5f73-b157-7da55477257c"
+    ],
+    "serializedVersion": 0
+  },
+  "clueSuspectPairs": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prime Katana",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9198c200dd2f1c7468b9b31724b2baf2",
+      "m_SubObjectName": "RecipeManual",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b4d02151-6d6f-5de3-90ac-045c474ea90e",
+  "contentPack": 9999,
+  "name": "CraftingManualRecipePrimeKatana"
+}

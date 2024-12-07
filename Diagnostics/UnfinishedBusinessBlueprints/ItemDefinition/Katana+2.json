@@ -19,24 +19,32 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    20,
+    4000,
     0,
     0,
     0
   ],
   "itemTags": [
-    "Standard",
     "Metal"
   ],
   "activeTags": [],
   "inactiveTags": [],
-  "magical": false,
+  "magical": true,
   "requiresAttunement": false,
-  "requiresIdentification": false,
+  "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "VeryRare",
   "incompatibleWithMonkReturnMissile": false,
-  "staticProperties": [],
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttackModifierWeapon+2:55d0f93f185d1cc49a5b01ab65f42c52",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndHidden"
+    }
+  ],
   "isArmor": false,
   "isWeapon": true,
   "weaponDefinition": {
@@ -351,10 +359,7 @@
   "isUsableDevice": false,
   "isTool": false,
   "isMusicalInstrument": false,
-  "musicalInstrumentDefinition": {
-    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
-    "musicalInstrumentType": "LuteType"
-  },
+  "musicalInstrumentDefinition": null,
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
@@ -469,7 +474,7 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&KatanaUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&Katana+2UnidentifiedTitle",
     "unidentifiedDescription": "Feature/&Emptystring",
     "overrideSubtype": "None",
     "assetReference": {
@@ -493,13 +498,13 @@
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
-    "serializedVersion": 1
+    "serializedVersion": 0
   },
   "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&KatanaTitle",
+    "title": "Item/&Katana+2Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -520,7 +525,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "96d4b95c-9e7a-5aee-b491-b19629afc2a9",
+  "guid": "abc07d9a-d1f6-52e3-9345-26afe6801a8a",
   "contentPack": 9999,
-  "name": "Katana"
+  "name": "Katana+2"
 }
