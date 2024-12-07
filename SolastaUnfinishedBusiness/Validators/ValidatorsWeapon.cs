@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -50,7 +51,7 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
+    internal static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
         if (!itemDefinition)
         {
@@ -72,14 +73,7 @@ internal static class ValidatorsWeapon
         var finalRulesetItem =
             attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon();
 
-        // don't use IsMelee(attackMode) in here as these are used before an attack initiates
-        return IsMelee(finalRulesetItem);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsMelee([CanBeNull] RulesetItem rulesetItem)
-    {
-        return IsMelee(rulesetItem?.ItemDefinition);
+        return IsMelee(finalRulesetItem?.ItemDefinition) || InnovationArmor.InGuardianMode(rulesetCharacter);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
