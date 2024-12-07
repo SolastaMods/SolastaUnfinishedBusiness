@@ -9,5 +9,5 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
-map_Kd lightning_launcher/texture_lightning_launcher.png
+map_Kd texture_lightning_launcher.png
 map_Bump normal_lightning_launcher.png
