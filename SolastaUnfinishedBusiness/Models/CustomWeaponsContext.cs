@@ -202,10 +202,7 @@ internal static class CustomWeaponsContext
 
         var katanaPrefab = Prefabs.GetKatanaPrefab();
 
-        Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription,
-            Sprites.KatanaIcon,
-            scale: 0.005f
-        );
+        Katana = BuildWeapon("Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription, Sprites.KatanaIcon);
 
         MerchantContext.AddItem(Katana, ShopItemType.ShopGenericMelee);
     }
