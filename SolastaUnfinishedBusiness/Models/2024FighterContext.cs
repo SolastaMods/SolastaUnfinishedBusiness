@@ -240,11 +240,6 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            var distance = (int)int3.Distance(attacker.LocationPosition, position);
-
-            attacker.UsedTacticalMoves -= distance;
-            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
-
             rulesetAttacker.InflictCondition(
                 ConditionWithdrawn.Name,
                 DurationType.Round,
@@ -256,9 +251,14 @@ internal static partial class Tabletop2024Context
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 ConditionWithdrawn.Name,
-                0,
+                attacker.UsedTacticalMoves,
                 0,
                 0);
+
+            var distance = (int)int3.Distance(attacker.LocationPosition, position);
+
+            attacker.UsedTacticalMoves -= distance;
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             var actionParams = new CharacterActionParams(
                 attacker, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)

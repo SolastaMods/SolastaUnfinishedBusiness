@@ -308,6 +308,12 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionBerserkerFrenzy { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBerserkerFrenzy");
+
+        internal static ConditionDefinition ConditionBerserkerMindlessRage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBerserkerMindlessRage");
+
         internal static ConditionDefinition ConditionRagingNormal { get; } =
             GetDefinition<ConditionDefinition>("ConditionRagingNormal");
 
@@ -2282,6 +2288,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionProficiency ProficiencyMonkWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkWeapon");
+
         internal static FeatureDefinitionProficiency ProficiencyRogueSlipperyMind { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyRogueSlipperyMind");
 

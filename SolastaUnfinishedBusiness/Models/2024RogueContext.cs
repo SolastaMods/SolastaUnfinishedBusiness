@@ -97,6 +97,7 @@ internal static partial class Tabletop2024Context
         .SetSilent(Silent.None)
         .SetParentCondition(ConditionDefinitions.ConditionDisengaging)
         .SetFeatures()
+        .SetFixedAmount(0)
         .AddCustomSubFeatures(new ActionFinishedByWithdraw())
         .AddToDB();
 
@@ -610,12 +611,14 @@ internal static partial class Tabletop2024Context
         {
             yield return CampaignsContext.SelectPosition(action, powerWithdraw);
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var position = action.ActionParams.Positions[0];
-            var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
-            attacker.UsedTacticalMoves -= distance;
-            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
+            if (attacker.LocationPosition == position)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
                 ConditionWithdrawn.Name,
@@ -628,9 +631,14 @@ internal static partial class Tabletop2024Context
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 ConditionWithdrawn.Name,
-                0,
+                attacker.UsedTacticalMoves,
                 0,
                 0);
+
+            var distance = (int)int3.Distance(attacker.LocationPosition, position);
+
+            attacker.UsedTacticalMoves -= distance;
+            attacker.UsedTacticalMovesChanged?.Invoke(attacker);
 
             var actionParams = new CharacterActionParams(
                 attacker, Id.TacticalMove, MoveStance.Run, position, LocationDefinitions.Orientation.North)
@@ -705,6 +713,8 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
+            actingCharacter.UsedTacticalMoves = activeCondition.Amount;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
             rulesetCharacter.RemoveCondition(activeCondition);
         }
     }
