@@ -352,6 +352,8 @@ internal static partial class Tabletop2024Context
             ConditionBerserkerFrenzy.durationParameter = 10;
             ConditionStoneResilience.durationParameter = 10;
             ConditionStoneResilience.specialDuration = true;
+            PathOfTheSpirits.PowerSpiritGuardians.EffectDescription.durationParameter = 10;
+            PathOfTheSpirits.PowerSpiritGuardiansRageCost.EffectDescription.durationParameter = 10;
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description =
                 "Action/&PersistentRageStartExtendedDescription";
@@ -366,6 +368,8 @@ internal static partial class Tabletop2024Context
             ConditionBerserkerFrenzy.durationParameter = 1;
             ConditionStoneResilience.durationParameter = 1;
             ConditionStoneResilience.specialDuration = false;
+            PathOfTheSpirits.PowerSpiritGuardians.EffectDescription.durationParameter = 1;
+            PathOfTheSpirits.PowerSpiritGuardiansRageCost.EffectDescription.durationParameter = 1;
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
         }
