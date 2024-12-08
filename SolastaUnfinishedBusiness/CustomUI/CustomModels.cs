@@ -105,19 +105,16 @@ public static class CustomModels
             }
 
             var prefabGuid = GetGuid(filename);
-            var prefab = new GameObject(filename, typeof(MeshFilter), typeof(MeshRenderer));
+            var prefab = new GameObject(filename);
 
             // ReSharper disable Unity.PerformanceAnalysis
-            var meshFilter = prefab.GetComponent<MeshFilter>();
-            var meshRenderer = prefab.GetComponent<MeshRenderer>();
+            var meshFilter = prefab.AddComponent<MeshFilter>();
+            var meshRenderer = prefab.AddComponent<MeshRenderer>();
             // ReSharper enable Unity.PerformanceAnalysis
-
-            //TODO: these game objects don't have a parent which is causing them to render on many game screens
-            // question is who should be their parent
 
             meshFilter.mesh = PopulateMesh(obj);
             meshRenderer.materials = DefineMaterial(obj, mtl);
-
+            meshRenderer.enabled = false;
             PrefabsByGuid[prefabGuid] = prefab;
 
             Main.Info($"Model {filename} loaded.");
