@@ -270,6 +270,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool GrantKatanaSpecializationToMonk { get; set; }
     public bool EnableBardicInspiration2024 { get; set; }
     public bool EnableBardCounterCharm2024 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }

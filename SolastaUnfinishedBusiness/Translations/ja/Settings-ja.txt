@@ -250,6 +250,7 @@ ModUi/&FullyControlConjurations=召喚を完全に制御します <i><color=#F0D
 ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>一般:</color>
 ModUi/&GeneralMenu=一般的な
+ModUi/&GrantKatanaSpecializationToMonk=<b>僧侶</b>に刀の<color=#D89555>武器特化</color>を付与します
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=シミターの<color=#D89555>武器特化</color>を<b>吟遊詩人</b>と<b>盗賊</b>に付与します
 ModUi/&GridSelectedColor=動きの<b><color=$$$$$$>グリッドの色</color></b>を変更します
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は出口とテレポーターの視覚効果を非表示にします

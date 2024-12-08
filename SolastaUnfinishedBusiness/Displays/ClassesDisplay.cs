@@ -15,7 +15,15 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+
+        var toggle = Main.Settings.GrantKatanaSpecializationToMonk;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantKatanaSpecializationToMonk"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantKatanaSpecializationToMonk = toggle;
+            ClassesContext.SwitchKatanaWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;

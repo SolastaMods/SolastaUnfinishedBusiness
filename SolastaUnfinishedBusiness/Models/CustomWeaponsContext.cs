@@ -33,7 +33,7 @@ internal static class CustomWeaponsContext
         PikeWeaponType,
         LongMaceWeaponType;
 
-    private static WeaponTypeDefinition KatanaWeaponType;
+    internal static WeaponTypeDefinition KatanaWeaponType;
 
     internal static ItemDefinition Katana, KatanaPrimed, KatanaPlus2;
     private static ItemDefinition KatanaPlus1, KatanaPlus3;

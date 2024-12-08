@@ -250,6 +250,7 @@ ModUi/&FullyControlConjurations=Controla completamente los conjuros <i><color=#F
 ModUi/&Gameplay=Jugabilidad
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
+ModUi/&GrantKatanaSpecializationToMonk=Otorgar la <color=#D89555>especialización en armas</color> a los <b>monjes</b>
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga la <color=#D89555>especialización en armas</color> a los <b>bardos</b> y a los <b>pícaros</b>
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar los efectos visuales de las salidas y los teletransportadores si aún no se han descubierto

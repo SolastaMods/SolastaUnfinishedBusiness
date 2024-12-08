@@ -250,6 +250,7 @@ ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><col
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
+ModUi/&GrantKatanaSpecializationToMonk=Accorder la <color=#D89555>spécialisation d'arme Katana</color> aux <b>moines</b>
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <color=#D89555>spécialisation en arme Cimeterre</color> aux <b>bardes</b> et aux <b>voleurs</b>
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille de mouvement</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts

@@ -250,6 +250,7 @@ ModUi/&FullyControlConjurations=Полностью контролировать 
 ModUi/&Gameplay=Игровой процесс
 ModUi/&General=<color=#F0DAA0>Основные:</color>
 ModUi/&GeneralMenu=Основные
+ModUi/&GrantKatanaSpecializationToMonk=Предоставьте <b>монахам</b> <color=#D89555>специализацию на оружии</color> «Катана»
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Дать <color=#D89555>Специализацию на оружии</color> скимитаров <b>Бардам</b> и <b>Плутам</b>
 ModUi/&GridSelectedColor=Изменить <b><color=$$$$$$>цвет сетки перемещения</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Скрыть визуальные эффекты выходов и телепортов, если они ещё не открыты

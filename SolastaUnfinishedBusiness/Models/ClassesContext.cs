@@ -44,27 +44,6 @@ internal static class ClassesContext
         UpdateHandWrapsUseGauntletSlot();
     }
 
-    #region _General
-
-    internal static void SwitchScimitarWeaponSpecialization()
-    {
-        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
-
-        foreach (var proficiency in proficiencies)
-        {
-            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
-            {
-                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
-            }
-            else
-            {
-                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
-            }
-        }
-    }
-
-    #endregion
-
     #region Fighter
 
     internal static void SwitchFighterWeaponSpecialization()
@@ -110,6 +89,37 @@ internal static class ClassesContext
         }
 
         AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort(Sorting.CompareTitle);
+    }
+
+    #endregion
+
+    #region _General
+
+    internal static void SwitchKatanaWeaponSpecialization()
+    {
+        ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
+
+        if (Main.Settings.GrantKatanaSpecializationToMonk)
+        {
+            ProficiencyMonkWeapon.Proficiencies.Add(CustomWeaponsContext.KatanaWeaponType.Name);
+        }
+    }
+
+    internal static void SwitchScimitarWeaponSpecialization()
+    {
+        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
+
+        foreach (var proficiency in proficiencies)
+        {
+            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
+            {
+                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+            else
+            {
+                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+        }
     }
 
     #endregion
