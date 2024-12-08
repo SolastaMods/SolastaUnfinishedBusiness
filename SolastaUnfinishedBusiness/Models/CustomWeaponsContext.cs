@@ -21,9 +21,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CustomWeaponsContext
 {
-    private const string PolearmWeaponTag = "PolearmWeapon";
-    private const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
+
+    private const string PolearmWeaponTag = "PolearmWeapon";
 
     internal static WeaponTypeDefinition
         HandXbowWeaponType,
@@ -32,6 +32,8 @@ internal static class CustomWeaponsContext
         HalberdWeaponType,
         PikeWeaponType,
         LongMaceWeaponType;
+
+    private static WeaponTypeDefinition KatanaWeaponType;
 
     internal static ItemDefinition Katana, KatanaPrimed, KatanaPlus2;
     private static ItemDefinition KatanaPlus1, KatanaPlus3;
@@ -180,16 +182,21 @@ internal static class CustomWeaponsContext
                 item.WeaponDescription.WeaponTypeDefinition.Name == type);
     }
 
-    #region Longswords
+    #region Katanas
 
     private static void BuildKatana()
     {
+        KatanaWeaponType = WeaponTypeDefinitionBuilder
+            .Create(LongswordType, "KatanaType")
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
+            .AddToDB();
+
         var katanaPrefab = CustomModels.GetBlenderModel("Katana");
         var baseItem = ItemDefinitions.Longsword;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 1,
-            weaponType = LongswordType.Name,
+            weaponType = KatanaWeaponType.Name,
             weaponTags =
             [
                 TagsDefinitions.WeaponTagVersatile
@@ -545,7 +552,7 @@ internal static class CustomWeaponsContext
     private static void BuildHandXbow()
     {
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
-            .Create(LightCrossbowType, CeHandXbowType)
+            .Create(LightCrossbowType, "CEHandXbowType")
             .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddCustomSubFeatures(new CustomScale(0.5f))

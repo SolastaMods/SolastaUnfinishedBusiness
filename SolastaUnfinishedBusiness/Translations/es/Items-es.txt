@@ -361,6 +361,7 @@ Item/&Katana+2Title=Katana +2
 Item/&Katana+3Title=Katana +3
 Item/&KatanaPrimedTitle=Katana preparada
 Item/&KatanaTitle=Katana
+Item/&KatanaType=Katana
 Item/&Katana_Bearclaw_Description=Esta arma encantada fue forjada utilizando el conocimiento ancestral de los maestros herreros de Manacalon. Las afiladas púas de la garra del oso destrozan la armadura para infligir daño adicional. La primera arma de este tipo fue diseñada por Ildurial Stronghand.
 Item/&Katana_Bearclaw_Title=Katana con garra de oso
 Item/&Katana_Lightbringer_Description=Esta arma encantada fue forjada con el conocimiento ancestral de los maestros herreros de Colthannin. Fue diseñada por Elgador Keenspirit, herrero mágico del Arcaneum, para ayudar en el combate contra criaturas no muertas.

@@ -361,6 +361,7 @@ Item/&Katana+2Title=カタナ +2
 Item/&Katana+3Title=カタナ +3
 Item/&KatanaPrimedTitle=プライムドカタナ
 Item/&KatanaTitle=カタナ
+Item/&KatanaType=カタナ
 Item/&Katana_Bearclaw_Description=この魔法の武器は、マナカロンの熟練鍛冶職人の古代の知識を使って鍛造されました。熊の爪の鋭い棘が鎧を切り裂き、さらなるダメージを与えます。この種の最初の武器は、イルドゥリアル・ストロングハンドによって設計されました。
 Item/&Katana_Bearclaw_Title=ベアクローカタナ
 Item/&Katana_Lightbringer_Description=この魔法の武器は、コルタニンの熟練鍛冶職人の古代の知識を使用して鍛造されました。これは、アンデッドの生き物との戦闘をサポートするために、アルケニウムの魔術師であるエルガドール・キーンスピリットによって設計されました。
