@@ -15,16 +15,8 @@ internal static class ClassesDisplay
 
         UI.Label();
 
-
-        var toggle = Main.Settings.GrantKatanaSpecializationToMonk;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantKatanaSpecializationToMonk"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.GrantKatanaSpecializationToMonk = toggle;
-            ClassesContext.SwitchKatanaWeaponSpecialization();
-        }
-
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        var toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBardRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             ClassesContext.SwitchScimitarWeaponSpecialization();
@@ -147,13 +139,6 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidMetalArmor2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableDruidMetalArmor2024 = toggle;
-            Tabletop2024Context.SwitchDruidMetalArmor();
-        }
-
         toggle = Main.Settings.EnableDruidPrimalOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
                 UI.AutoWidth()))
@@ -167,6 +152,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableDruidWeaponProficiency2024 = toggle;
             Tabletop2024Context.SwitchDruidWeaponProficiency();
+        }
+
+        toggle = Main.Settings.EnableDruidMetalArmor2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidMetalArmor2024 = toggle;
+            Tabletop2024Context.SwitchDruidMetalArmor();
         }
 
         UI.Label();
@@ -301,6 +293,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableMonkUnarmoredDieTypeProgression2024 = toggle;
             Tabletop2024Context.SwitchOneDndMonkUnarmedDieTypeProgression();
+        }
+
+        toggle = Main.Settings.GrantKatanaSpecializationToMonk;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantKatanaSpecializationToMonk"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantKatanaSpecializationToMonk = toggle;
+            ClassesContext.SwitchKatanaWeaponSpecialization();
         }
 
         UI.Label();

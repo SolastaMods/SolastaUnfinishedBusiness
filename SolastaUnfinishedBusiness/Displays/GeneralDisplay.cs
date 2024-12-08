@@ -401,13 +401,6 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidMetalArmor2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableDruidMetalArmor2024 = toggle;
-            Tabletop2024Context.SwitchDruidMetalArmor();
-        }
-
         toggle = Main.Settings.EnableDruidPrimalOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
                 UI.AutoWidth()))
@@ -421,6 +414,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableDruidWeaponProficiency2024 = toggle;
             Tabletop2024Context.SwitchDruidWeaponProficiency();
+        }
+
+        toggle = Main.Settings.EnableDruidMetalArmor2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidMetalArmor2024 = toggle;
+            Tabletop2024Context.SwitchDruidMetalArmor();
         }
 
         UI.Label();
