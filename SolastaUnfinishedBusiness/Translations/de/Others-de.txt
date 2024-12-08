@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=In einem Multiplayer-Spiel können
 Message/&SpawnCustomEncounterTitle=Begegnen
 Message/&TeleportPartyDescription=Gruppe zu den Koordinaten ({0}, {1}) teleportieren?\nWenn Sie sich an einen unentdeckten Ort teleportieren, könnten Sie Quests oder Karten zerstören.
 Message/&TeleportPartyTitle=Teleport
+ModUi/&MissingBlenderModelsDescription=Es sieht so aus, als ob Sie automatisch von v40 oder niedriger aktualisiert haben. Die automatische Aktualisierung wurde aktualisiert, um benutzerdefinierte Blender-Modelle in der Zip-Nutzlast zu unterstützen. Bitte wenden Sie das Update erneut über die Mod-Benutzeroberfläche an.
 Reaction/&CastSpellInRetributionDescription={0} greift {1} an! Du kannst als Antwort {2} einsetzen!
 Reaction/&CastSpellInRetributionReactDescription=Klicken Sie hier, um {0} zu wirken.
 Reaction/&CastSpellInRetributionReactTitle=Zauber wirken

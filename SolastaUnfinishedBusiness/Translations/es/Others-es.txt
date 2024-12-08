@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=No se pueden generar encuentros en
 Message/&SpawnCustomEncounterTitle=Encontrar
 Message/&TeleportPartyDescription=¿Teletransportar al grupo a las coordenadas ({0}, {1})?\nPodrías interrumpir misiones o mapas si te teletransportas a un lugar no descubierto.
 Message/&TeleportPartyTitle=Teletransportarse
+ModUi/&MissingBlenderModelsDescription=Parece que se actualizó automáticamente desde la versión 40 o anterior. La actualización automática se actualizó para admitir modelos personalizados de Blender en la carga útil del archivo zip. Vuelva a aplicar la actualización desde la interfaz de usuario del mod.
 Reaction/&CastSpellInRetributionDescription=¡{0} está atacando a {1}! ¡Puedes lanzar {2} en respuesta!
 Reaction/&CastSpellInRetributionReactDescription=Haz clic para lanzar {0}.
 Reaction/&CastSpellInRetributionReactTitle=Lanzar hechizo

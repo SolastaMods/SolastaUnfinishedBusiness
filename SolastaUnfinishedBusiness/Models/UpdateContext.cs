@@ -8,6 +8,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
 using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -28,13 +29,18 @@ internal static class UpdateContext
         {
             DisplayUpdateMessage();
         }
-        else if (Main.Settings.DisplayModMessage == 0)
+        else
         {
-            DisplayWelcomeMessage();
+            CustomModels.AlertIfModelsNotFound();
+
+            if (Main.Settings.DisplayModMessage == 0)
+            {
+                DisplayWelcomeMessage();
+            }
         }
 
-        // display mod message every 30 launches
-        Main.Settings.DisplayModMessage = (Main.Settings.DisplayModMessage + 1) % 30;
+        // display mod message every 100 launches
+        Main.Settings.DisplayModMessage = (Main.Settings.DisplayModMessage + 1) % 100;
     }
 
     private static string GetInstalledVersion()

@@ -279,6 +279,7 @@ Message/&SpawnCustomEncounterErrorDescription=Cannot spawn encounters on a multi
 Message/&SpawnCustomEncounterTitle=Encounter
 Message/&TeleportPartyDescription=Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place.
 Message/&TeleportPartyTitle=Teleport
+ModUi/&MissingBlenderModelsDescription=It looks like you auto updated from v40 or below. Auto-update was refreshed to support custom blender models in the zip payload. Please re-apply the update from the Mod UI.
 Reaction/&CastSpellInRetributionDescription={0} is attacking {1}! You can cast {2} in response!
 Reaction/&CastSpellInRetributionReactDescription=Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle=Cast Spell
