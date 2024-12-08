@@ -251,7 +251,7 @@ ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
 ModUi/&GrantKatanaSpecializationToMonk=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<b>바드</b>와 <b>도적</b>에게 <color=#D89555>무기 전문화</color>를 부여합니다.
+ModUi/&GrantScimitarSpecializationToBardRogue=<b>바드</b>와 <b>도적</b>에게 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&GridSelectedColor=움직임 변경 <b><color=$$$$$$>격자 색상</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않았다면 출구와 텔레포터 시각 효과를 숨깁니다.
 ModUi/&HideMonsterHitPoints=정확한 체력 대신 25% / 50% / 75% / 100% 단계로 몬스터의 체력을 표시합니다.

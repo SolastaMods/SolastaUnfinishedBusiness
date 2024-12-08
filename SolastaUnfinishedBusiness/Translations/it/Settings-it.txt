@@ -251,7 +251,7 @@ ModUi/&Gameplay=Modalità di gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
 ModUi/&GrantKatanaSpecializationToMonk=Concedi Katana <color=#D89555>Specializzazione in arma</color> ai <b>monaci</b>
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi Scimitar <color=#D89555>Specializzazione nelle armi</color> a <b>bardi</b> e <b>ladri</b>
+ModUi/&GrantScimitarSpecializationToBardRogue=Concedi Scimitar <color=#D89555>Specializzazione nelle armi</color> a <b>bardi</b> e <b>ladri</b>
 ModUi/&GridSelectedColor=Cambia il colore della griglia del movimento <b><color=$$$$$$>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non sono ancora stati scoperti
 ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
