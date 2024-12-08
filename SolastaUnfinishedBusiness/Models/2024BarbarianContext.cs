@@ -51,6 +51,14 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckPrimalKnowledge())
         .AddToDB();
 
+    private static readonly ConditionDefinition ConditionPounce = ConditionDefinitionBuilder
+        .Create("ConditionPounce")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(0)
+        .AddCustomSubFeatures(new ActionFinishedByPounce())
+        .AddToDB();
+
     private static void LoadBarbarianBrutalStrike()
     {
         const string BrutalStrikeImprovement13 = "BarbarianBrutalStrikeImprovement13";
@@ -340,6 +348,10 @@ internal static partial class Tabletop2024Context
                 ConditionInterruption.NoAttackOrDamagedInTurn);
             ConditionRagingPersistent.durationParameter = 10;
             ConditionRagingPersistent.SpecialInterruptions.Clear();
+            ConditionBerserkerMindlessRage.durationParameter = 10;
+            ConditionBerserkerFrenzy.durationParameter = 10;
+            ConditionStoneResilience.durationParameter = 10;
+            ConditionStoneResilience.specialDuration = true;
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description =
                 "Action/&PersistentRageStartExtendedDescription";
@@ -350,6 +362,10 @@ internal static partial class Tabletop2024Context
                 ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.BattleEnd);
             ConditionRagingPersistent.durationParameter = 1;
             ConditionRagingPersistent.SpecialInterruptions.SetRange(ConditionInterruption.BattleEnd);
+            ConditionBerserkerMindlessRage.durationParameter = 1;
+            ConditionBerserkerFrenzy.durationParameter = 1;
+            ConditionStoneResilience.durationParameter = 1;
+            ConditionStoneResilience.specialDuration = false;
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
         }
@@ -647,6 +663,20 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
+            rulesetAttacker.InflictCondition(
+                ConditionPounce.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionPounce.Name,
+                attacker.UsedTacticalMoves,
+                0,
+                0);
+
             var distance = (int)int3.Distance(attacker.LocationPosition, position);
 
             attacker.UsedTacticalMoves -= distance;
@@ -659,6 +689,31 @@ internal static partial class Tabletop2024Context
             };
 
             action.ResultingActions.Add(new CharacterActionMove(actionParams));
+        }
+    }
+
+    private sealed class ActionFinishedByPounce : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            if (action is not CharacterActionMoveStepBase || actingCharacter.MovingToDestination)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionPounce.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            actingCharacter.UsedTacticalMoves = activeCondition.Amount;
+            actingCharacter.UsedTacticalMovesChanged?.Invoke(actingCharacter);
+            rulesetCharacter.RemoveCondition(activeCondition);
         }
     }
 

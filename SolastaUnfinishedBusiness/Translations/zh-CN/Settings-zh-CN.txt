@@ -250,7 +250,8 @@ ModUi/&FullyControlConjurations=完全控制召唤术<i><color=#F0DAA0>[动物�
 ModUi/&Gameplay=游戏玩法
 ModUi/&General=<color=#F0DAA0>常规：</color>
 ModUi/&GeneralMenu=一般的
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=授予<b>吟游诗人</b>和<b>盗贼</b>弯刀<color=#D89555>武器专长</color>
+ModUi/&GrantKatanaSpecializationToMonk=授予<b>僧侣</b>武士刀<color=#D89555>武器专长</color>
+ModUi/&GrantScimitarSpecializationToBardRogue=授予<b>吟游诗人</b>和<b>盗贼</b>弯刀<color=#D89555>武器专长</color>
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器的视觉效果
 ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的生命值，而不是精确的生命值

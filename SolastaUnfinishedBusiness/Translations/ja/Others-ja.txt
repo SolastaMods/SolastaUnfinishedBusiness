@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=マルチプレイヤー ゲーム
 Message/&SpawnCustomEncounterTitle=出会い
 Message/&TeleportPartyDescription=パーティを座標 ({0}、{1}) にテレポートしますか?\n未発見の場所にテレポートすると、クエストやマップが壊れる可能性があります。
 Message/&TeleportPartyTitle=テレポート
+ModUi/&MissingBlenderModelsDescription=V40 以下から自動更新されたようです。自動更新は、zip ペイロード内のカスタム Blender モデルをサポートするように更新されました。Mod UI から更新を再度適用してください。
 Reaction/&CastSpellInRetributionDescription={0} が {1} を攻撃しています!応答して {2} をキャストできます。
 Reaction/&CastSpellInRetributionReactDescription=クリックして {0} をキャストします。
 Reaction/&CastSpellInRetributionReactTitle=おまじない

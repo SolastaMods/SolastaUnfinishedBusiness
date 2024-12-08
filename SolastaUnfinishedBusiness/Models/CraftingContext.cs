@@ -33,6 +33,7 @@ internal static class CraftingContext
         { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
         { "HideArmor", Gui.Localize("Equipment/&Armor_HideTitle") },
         { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
+        { "Katana", Gui.Localize("Item/&KatanaTitle") },
         { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
         { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
         { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },

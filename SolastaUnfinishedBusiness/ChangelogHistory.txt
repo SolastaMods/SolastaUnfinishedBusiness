@@ -6,6 +6,7 @@
 - added 'Enable drinking Potions as a bonus action' setting [by SilverGriffon]
 - added 'Enable stacking Art items' setting [by SilverGriffon]
 - added 'Enable stacking Daggers and Hand Axes' setting [by SilverGriffon]
+- added 'Grant Katana Weapon Specialization to Monks' setting
 - added 'Swap Barbarian Persistent Rage with 5e 2024 version' setting
 - added 'Swap Barbarian Relentless Rage with 5e 2024 version' setting
 - added Base, Primed, +1, +2, +3, Bearclaw, Lightbringer, Souldrinker, Whiteburn Katanas 

@@ -93,7 +93,8 @@ public sealed class InnovationArmor : AbstractSubclass
 
         var guardianMarker = ConditionDefinitionBuilder
             .Create(GuardianMarkerName)
-            .SetGuiPresentation(Category.Condition, Sprites.ConditionGuardian)
+            .SetGuiPresentation(Category.Condition,
+                Sprites.GetSprite("ConditionGuardian", Resources.ConditionGuardian, 32))
             .SetSilent(Silent.WhenRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
@@ -104,7 +105,8 @@ public sealed class InnovationArmor : AbstractSubclass
 
         var infiltratorMarker = ConditionDefinitionBuilder
             .Create(InfiltratorMarkerName)
-            .SetGuiPresentation(Category.Condition, Sprites.ConditionInfiltrate)
+            .SetGuiPresentation(Category.Condition,
+                Sprites.GetSprite("ConditionInfiltrate", Resources.ConditionInfiltrate, 32))
             .SetSilent(Silent.WhenRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder

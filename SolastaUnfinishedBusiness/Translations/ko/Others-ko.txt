@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=멀티플레이어 게임에서는
 Message/&SpawnCustomEncounterTitle=맞닥뜨리다
 Message/&TeleportPartyDescription=좌표({0}, {1})로 파티를 이동하시겠습니까?\n발견되지 않은 장소로 순간이동하면 퀘스트나 지도가 깨질 수 있습니다.
 Message/&TeleportPartyTitle=텔레포트
+ModUi/&MissingBlenderModelsDescription=V40 이하에서 자동 업데이트한 것 같습니다. 자동 업데이트가 zip 페이로드에서 사용자 정의 블렌더 모델을 지원하도록 새로 고쳐졌습니다. Mod UI에서 업데이트를 다시 적용하세요.
 Reaction/&CastSpellInRetributionDescription={0}이(가) {1}을(를) 공격하고 있습니다! 응답으로 {2}를 전송할 수 있습니다!
 Reaction/&CastSpellInRetributionReactDescription={0}을(를) 전송하려면 클릭하세요.
 Reaction/&CastSpellInRetributionReactTitle=주문 시전

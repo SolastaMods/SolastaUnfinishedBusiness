@@ -250,7 +250,8 @@ ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[an
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
+ModUi/&GrantKatanaSpecializationToMonk=Grant Katana <color=#D89555>Weapon Specialization</color> to <b>Monks</b>
+ModUi/&GrantScimitarSpecializationToBardRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points

@@ -361,6 +361,7 @@ Item/&Katana+2Title=Katana +2
 Item/&Katana+3Title=Katana +3
 Item/&KatanaPrimedTitle=Katana preparada
 Item/&KatanaTitle=Catana
+Item/&KatanaTypeTitle=Catana
 Item/&Katana_Bearclaw_Description=Esta arma encantada foi forjada usando o conhecimento antigo dos mestres ferreiros de Manacalon. Os espinhos afiados da garra do urso destroem a armadura para infligir dano adicional. A primeira arma deste tipo foi projetada por Ildurial Stronghand.
 Item/&Katana_Bearclaw_Title=Katana Garra de Urso
 Item/&Katana_Lightbringer_Description=Esta arma encantada foi forjada usando o conhecimento antigo dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcaneum para dar suporte ao combate contra criaturas mortas-vivas.

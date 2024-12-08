@@ -250,7 +250,8 @@ ModUi/&FullyControlConjurations=Vollständige Kontrolle über Beschwörungen <i>
 ModUi/&Gameplay=Spielablauf
 ModUi/&General=<color=#F0DAA0>Allgemeines:</color>
 ModUi/&GeneralMenu=Allgemein
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Verleiht <b>Barden</b> und <b>Schurken</b> die <color=#D89555>Waffenspezialisierung</color> mit dem Krummsäbel
+ModUi/&GrantKatanaSpecializationToMonk=Verleihen Sie <b>Mönchen</b> die Katana-<color=#D89555>Waffenspezialisierung</color>
+ModUi/&GrantScimitarSpecializationToBardRogue=Verleiht <b>Barden</b> und <b>Schurken</b> die <color=#D89555>Waffenspezialisierung</color> mit dem Krummsäbel
 ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Rasterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecke die visuellen Effekte von Ausgängen und Teleportern, falls sie noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % an, statt in exakten Trefferpunkten.

@@ -28,6 +28,25 @@ public static class CustomModels
         return new AssetReference(prefabGuid);
     }
 
+    internal static void AlertIfModelsNotFound()
+    {
+        var blenderModels = Path.Combine(Main.ModFolder, "BlenderModels");
+
+        string[] expectedModels = ["Katana", "LightningLauncher", "LongMace", "Pike", "ThunderGauntlet"];
+
+        if (expectedModels.Any(x => !Directory.Exists(Path.Combine(blenderModels, x))))
+        {
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Attention2,
+                "Message/&MessageModWelcomeTitle",
+                "ModUi/&MissingBlenderModelsDescription",
+                "Message/&MessageOkTitle",
+                "Message/&MessageCancelTitle",
+                () => { },
+                () => { });
+        }
+    }
+
     private static string GetGuid(string name)
     {
         return GuidHelper.Create(DefinitionBuilder.CeNamespaceGuid, name).ToString();
@@ -75,16 +94,19 @@ public static class CustomModels
 
         private IEnumerator ConstructModel(string filename)
         {
-            var obj = ReadObjectFile(Path.Combine(directoryPath, $"{filename}.obj"));
-            var mtl = ReadMaterialFile(Path.Combine(directoryPath, $"{filename}.mtl"));
+            if (!TryReadObjectFile(Path.Combine(directoryPath, $"{filename}.obj"), out var obj))
+            {
+                yield break;
+            }
+
+            if (!TryReadMaterialFile(Path.Combine(directoryPath, $"{filename}.mtl"), out var mtl))
+            {
+                yield break;
+            }
+
             var prefab = new GameObject(name);
-
-            yield return null;
-
             var meshFilter = prefab.AddComponent<MeshFilter>();
             var meshRenderer = prefab.AddComponent<MeshRenderer>();
-
-            yield return null;
 
             meshFilter.mesh = PopulateMesh(obj);
             meshRenderer.materials = DefineMaterial(obj, mtl);
@@ -301,127 +323,147 @@ public static class CustomModels
     // ReSharper enable file InconsistentNaming
 
 
-    private static ObjectFile ReadObjectFile(string path)
+    private static bool TryReadObjectFile(string path, out ObjectFile obj)
     {
-        var obj = new ObjectFile();
-        var lines = File.ReadAllLines(path);
+        obj = new ObjectFile();
 
-        obj.usemtl = [];
-        obj.v = [];
-        obj.vn = [];
-        obj.vt = [];
-        obj.f = [];
-
-        foreach (var line in lines)
+        try
         {
-            if (string.IsNullOrEmpty(line) || line.StartsWith("#"))
+            var lines = File.ReadAllLines(path);
+
+            obj.usemtl = [];
+            obj.v = [];
+            obj.vn = [];
+            obj.vt = [];
+            obj.f = [];
+
+            foreach (var line in lines)
             {
-                continue;
+                if (string.IsNullOrEmpty(line) || line.StartsWith("#"))
+                {
+                    continue;
+                }
+
+                var token = line.Split(' ');
+
+                switch (token[0])
+                {
+                    case "o":
+                        obj.o = token[1];
+                        break;
+                    case "mtllib":
+                        obj.mtllib = token[1];
+                        break;
+                    case "usemtl":
+                        obj.usemtl.Add(token[1]);
+                        obj.f.Add([]);
+                        break;
+                    case "v":
+                        obj.v.Add(new Vector3(
+                            float.Parse(token[1]),
+                            float.Parse(token[2]),
+                            float.Parse(token[3])));
+                        break;
+                    case "vn":
+                        obj.vn.Add(new Vector3(
+                            float.Parse(token[1]),
+                            float.Parse(token[2]),
+                            float.Parse(token[3])));
+                        break;
+                    case "vt":
+                        obj.vt.Add(new Vector3(
+                            float.Parse(token[1]),
+                            float.Parse(token[2])));
+                        break;
+                    case "f":
+                        for (var i = 1; i < 4; i += 1)
+                        {
+                            var triplet = Array.ConvertAll(token[i].Split('/'),
+                                x => string.IsNullOrEmpty(x) ? 0 : int.Parse(x));
+                            obj.f[obj.f.Count - 1].Add(triplet);
+                        }
+
+                        break;
+                }
             }
 
-            var token = line.Split(' ');
-
-            switch (token[0])
-            {
-                case "o":
-                    obj.o = token[1];
-                    break;
-                case "mtllib":
-                    obj.mtllib = token[1];
-                    break;
-                case "usemtl":
-                    obj.usemtl.Add(token[1]);
-                    obj.f.Add([]);
-                    break;
-                case "v":
-                    obj.v.Add(new Vector3(
-                        float.Parse(token[1]),
-                        float.Parse(token[2]),
-                        float.Parse(token[3])));
-                    break;
-                case "vn":
-                    obj.vn.Add(new Vector3(
-                        float.Parse(token[1]),
-                        float.Parse(token[2]),
-                        float.Parse(token[3])));
-                    break;
-                case "vt":
-                    obj.vt.Add(new Vector3(
-                        float.Parse(token[1]),
-                        float.Parse(token[2])));
-                    break;
-                case "f":
-                    for (var i = 1; i < 4; i += 1)
-                    {
-                        var triplet = Array.ConvertAll(token[i].Split('/'),
-                            x => string.IsNullOrEmpty(x) ? 0 : int.Parse(x));
-                        obj.f[obj.f.Count - 1].Add(triplet);
-                    }
-
-                    break;
-            }
+            return true;
         }
+        catch
+        {
+            Main.Error($"Failed to read object file {path}");
 
-        return obj;
+            return false;
+        }
     }
 
-    private static MaterialFile ReadMaterialFile(string path)
+    private static bool TryReadMaterialFile(string path, out MaterialFile mtl)
     {
-        var mtl = new MaterialFile();
-        var lines = File.ReadAllLines(path);
+        mtl = new MaterialFile();
 
-        foreach (var line in lines)
+        try
         {
-            if (string.IsNullOrEmpty(line) || line.StartsWith("#"))
+            var lines = File.ReadAllLines(path);
+
+            foreach (var line in lines)
             {
-                continue;
+                if (string.IsNullOrEmpty(line) || line.StartsWith("#"))
+                {
+                    continue;
+                }
+
+                var token = line.Split(' ');
+
+                switch (token[0])
+                {
+                    case "newmtl":
+                        mtl.Materials.Add(new NewMtl { newmtl = token[1] });
+                        break;
+                    case "Ns":
+                        mtl.Materials[mtl.Materials.Count - 1].Ns = float.Parse(token[1]);
+                        break;
+                    case "Ka":
+                        mtl.Materials[mtl.Materials.Count - 1].Ka =
+                            new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
+                        break;
+                    case "Kd":
+                        mtl.Materials[mtl.Materials.Count - 1].Kd =
+                            new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
+                        break;
+                    case "Ks":
+                        mtl.Materials[mtl.Materials.Count - 1].Ks =
+                            new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
+                        break;
+                    case "Ke":
+                        mtl.Materials[mtl.Materials.Count - 1].Ke =
+                            new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
+                        break;
+                    case "Ni":
+                        mtl.Materials[mtl.Materials.Count - 1].Ni = float.Parse(token[1]);
+                        break;
+                    case "d":
+                        mtl.Materials[mtl.Materials.Count - 1].d = float.Parse(token[1]);
+                        break;
+                    case "ileum":
+                        mtl.Materials[mtl.Materials.Count - 1].illum = float.Parse(token[1]);
+                        break;
+                    case "map_Kd":
+                        mtl.Materials[mtl.Materials.Count - 1].map_Kd = token[1];
+                        break;
+                    case "map_Bump":
+                        mtl.Materials[mtl.Materials.Count - 1].map_Bump = token[1];
+                        break;
+                }
             }
 
-            var token = line.Split(' ');
-
-            switch (token[0])
-            {
-                case "newmtl":
-                    mtl.Materials.Add(new NewMtl { newmtl = token[1] });
-                    break;
-                case "Ns":
-                    mtl.Materials[mtl.Materials.Count - 1].Ns = float.Parse(token[1]);
-                    break;
-                case "Ka":
-                    mtl.Materials[mtl.Materials.Count - 1].Ka =
-                        new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
-                    break;
-                case "Kd":
-                    mtl.Materials[mtl.Materials.Count - 1].Kd =
-                        new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
-                    break;
-                case "Ks":
-                    mtl.Materials[mtl.Materials.Count - 1].Ks =
-                        new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
-                    break;
-                case "Ke":
-                    mtl.Materials[mtl.Materials.Count - 1].Ke =
-                        new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
-                    break;
-                case "Ni":
-                    mtl.Materials[mtl.Materials.Count - 1].Ni = float.Parse(token[1]);
-                    break;
-                case "d":
-                    mtl.Materials[mtl.Materials.Count - 1].d = float.Parse(token[1]);
-                    break;
-                case "ileum":
-                    mtl.Materials[mtl.Materials.Count - 1].illum = float.Parse(token[1]);
-                    break;
-                case "map_Kd":
-                    mtl.Materials[mtl.Materials.Count - 1].map_Kd = token[1];
-                    break;
-                case "map_Bump":
-                    mtl.Materials[mtl.Materials.Count - 1].map_Bump = token[1];
-                    break;
-            }
+            return true;
         }
+        catch
+        {
+            Main.Error($"Failed to read material file {path}");
 
-        return mtl;
+            return false;
+        }
     }
 
     #endregion

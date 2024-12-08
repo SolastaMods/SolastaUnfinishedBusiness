@@ -68,6 +68,7 @@ Item/&CEHalberdLightningUnidentifiedTitle=Magnificent Halberd
 Item/&CEHalberdPrimedTitle=Primed Halberd
 Item/&CEHalberdTitle=Halberd
 Item/&CEHalberdTypeTitle=Halberd
+Item/&KatanaTypeTitle=Katana
 Item/&CEHalberd_Acuteness_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Item/&CEHalberd_Acuteness_Title=Halberd of Acuteness
 Item/&CEHalberd_Bearclaw_Description=This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.

@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=Impossible de générer des rencon
 Message/&SpawnCustomEncounterTitle=Rencontre
 Message/&TeleportPartyDescription=Téléporter le groupe aux coordonnées ({0}, {1}) ?\nVous risquez d'interrompre des quêtes ou des cartes si vous vous téléportez vers un endroit inconnu.
 Message/&TeleportPartyTitle=Téléportation
+ModUi/&MissingBlenderModelsDescription=Il semble que vous ayez effectué une mise à jour automatique à partir de la version 40 ou d'une version antérieure. La mise à jour automatique a été actualisée pour prendre en charge les modèles Blender personnalisés dans la charge utile ZIP. Veuillez réappliquer la mise à jour à partir de l'interface utilisateur du module.
 Reaction/&CastSpellInRetributionDescription={0} attaque {1} ! Vous pouvez lancer {2} en réponse !
 Reaction/&CastSpellInRetributionReactDescription=Cliquez pour lancer {0}.
 Reaction/&CastSpellInRetributionReactTitle=Lancer un sort

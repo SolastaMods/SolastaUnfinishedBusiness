@@ -280,6 +280,7 @@ Message/&SpawnCustomEncounterErrorDescription=无法在多人游戏中生成遭�
 Message/&SpawnCustomEncounterTitle=遭遇
 Message/&TeleportPartyDescription=将队伍传送到坐标 ({0}, {1})？\n如果传送到未被发现的地方，你可能会破坏任务或地图。
 Message/&TeleportPartyTitle=传送
+ModUi/&MissingBlenderModelsDescription=看起来您是从 v40 或更低版本自动更新的。自动更新已刷新以支持 zip 有效负载中的自定义搅拌机模型。请从 Mod UI 重新应用更新。
 Reaction/&CastSpellInRetributionDescription={0} 正在攻击 {1}！你可以施放 {2} 作为反应！
 Reaction/&CastSpellInRetributionReactDescription=单击以施放 {0}。
 Reaction/&CastSpellInRetributionReactTitle=施法
