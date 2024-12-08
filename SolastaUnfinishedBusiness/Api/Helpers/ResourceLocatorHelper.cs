@@ -96,11 +96,13 @@ internal sealed class SpriteResourceLocator : IResourceLocator
                 LocationsCache.Add(id, location);
             }
 
-            locations = new List<IResourceLocation> { location };
+            locations = [location];
+
             return true;
         }
 
         locations = EmptyList;
+
         return false;
     }
 }
@@ -137,6 +139,7 @@ internal sealed class PrefabResourceProvider : ResourceProviderBase
     public override bool CanProvide(Type t, IResourceLocation location)
     {
         var canProvide = t == typeof(GameObject) && location is PrefabResourceLocation;
+
         return canProvide;
     }
 
@@ -150,7 +153,7 @@ internal sealed class PrefabResourceProvider : ResourceProviderBase
 // ResourceLocator returns location of prefab resource
 internal sealed class PrefabResourceLocator : IResourceLocator
 {
-    private static readonly Dictionary<string, PrefabResourceLocation> LocationsCache = new();
+    private static readonly Dictionary<string, PrefabResourceLocation> LocationsCache = [];
     private static readonly List<IResourceLocation> EmptyList = [];
 
     private PrefabResourceLocator() { }
@@ -173,11 +176,13 @@ internal sealed class PrefabResourceLocator : IResourceLocator
                 LocationsCache.Add(id, location);
             }
 
-            locations = new List<IResourceLocation> { location };
+            locations = [location];
+
             return true;
         }
 
         locations = EmptyList;
+
         return false;
     }
 }
@@ -214,6 +219,7 @@ internal sealed class MaterialResourceProvider : ResourceProviderBase
     public override bool CanProvide(Type t, IResourceLocation location)
     {
         var canProvide = t == typeof(Material) && location is MaterialResourceLocation;
+
         return canProvide;
     }
 
@@ -227,7 +233,7 @@ internal sealed class MaterialResourceProvider : ResourceProviderBase
 // ResourceLocator returns location of Material resource
 internal sealed class MaterialResourceLocator : IResourceLocator
 {
-    private static readonly Dictionary<string, MaterialResourceLocation> LocationsCache = new();
+    private static readonly Dictionary<string, MaterialResourceLocation> LocationsCache = [];
     private static readonly List<IResourceLocation> EmptyList = [];
 
     private MaterialResourceLocator() { }
@@ -250,11 +256,13 @@ internal sealed class MaterialResourceLocator : IResourceLocator
                 LocationsCache.Add(id, location);
             }
 
-            locations = new List<IResourceLocation> { location };
+            locations = [location];
+
             return true;
         }
 
         locations = EmptyList;
+
         return false;
     }
 }
