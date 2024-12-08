@@ -473,7 +473,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         .AddToDB();
     
         internal static readonly ConditionDefinition ConditionSpiritGuardiansSelf = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSpiritGuardiansSelf, $"Condition{Name}SpiritGuardians")
+            .Create(ConditionDefinitions.ConditionSpiritGuardiansSelf, $"Condition{Name}SpiritGuardiansSelf")
             .AddToDB();
         
     private static readonly FeatureDefinitionPower PowerSpiritGuardians = FeatureDefinitionPowerBuilder
