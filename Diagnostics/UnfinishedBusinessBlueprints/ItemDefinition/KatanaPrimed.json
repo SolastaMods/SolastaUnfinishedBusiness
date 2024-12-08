@@ -41,7 +41,7 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "LongswordType",
+    "weaponType": "KatanaType",
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
@@ -502,7 +502,7 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "065cf525-184f-5887-8721-9d0c012fc07a",
+      "m_AssetGUID": "11807fd3-bfbb-5e5e-8ef4-916abc72b5f2",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
