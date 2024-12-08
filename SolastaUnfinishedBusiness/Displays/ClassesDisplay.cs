@@ -179,12 +179,14 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchFighterSkillOptions();
         }
 
+#if false
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             ClassesContext.SwitchFighterWeaponSpecialization();
         }
+#endif
 
         toggle = Main.Settings.EnableFighterSecondWind2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSecondWind2024"), ref toggle, UI.AutoWidth()))
@@ -281,12 +283,14 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchMonkSuperiorDefense();
         }
 
+#if false
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
             ClassesContext.SwitchMonkWeaponSpecialization();
         }
+#endif
 
         toggle = Main.Settings.EnableMonkUnarmoredDieTypeProgression2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUnarmoredDieTypeProgression2024"), ref toggle, UI.AutoWidth()))

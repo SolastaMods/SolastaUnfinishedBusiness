@@ -29,49 +29,26 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
+        // kept for backward compatibility
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolMonkWeaponSpecialization")
+            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+            .AddToDB();
+
         LoadMonkWeaponSpecialization();
-        SwitchScimitarWeaponSpecialization();
         SwitchBarbarianFightingStyle();
-        SwitchFighterWeaponSpecialization();
+        SwitchKatanaWeaponSpecialization();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
-        SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRogueFightingStyle();
         SwitchRogueStrSaving();
+        SwitchScimitarWeaponSpecialization();
         SwitchSorcererMagicalGuidance();
         UpdateHandWrapsUseGauntletSlot();
     }
-
-    #region Fighter
-
-    internal static void SwitchFighterWeaponSpecialization()
-    {
-        var levels = new[] { 8, 16 };
-
-        if (Main.Settings.EnableFighterWeaponSpecialization)
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(MartialWeaponMaster.InvocationPoolSpecialization, level));
-            }
-        }
-        else
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks
-                    .RemoveAll(x => x.level == level &&
-                                    x.FeatureDefinition == MartialWeaponMaster.InvocationPoolSpecialization);
-            }
-        }
-
-        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    #endregion
 
     #region Ranger
 
@@ -203,14 +180,6 @@ internal static class ClassesContext
                 "TwoWeapon")
             .AddToDB();
 
-
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolMonkWeaponSpecialization")
-            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
-            .AddToDB();
-
     private static void LoadMonkWeaponSpecialization()
     {
         var weaponTypeDefinitions = new List<WeaponTypeDefinition>
@@ -318,6 +287,7 @@ internal static class ClassesContext
         }
     }
 
+#if false
     internal static void SwitchMonkWeaponSpecialization()
     {
         var levels = new[] { 2, 11 };
@@ -342,7 +312,7 @@ internal static class ClassesContext
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-
+#endif
 
     internal static void UpdateHandWrapsUseGauntletSlot()
     {

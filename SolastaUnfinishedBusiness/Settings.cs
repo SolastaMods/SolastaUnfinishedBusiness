@@ -294,7 +294,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterSecondWind2024 { get; set; }
     public bool EnableFighterStudiedAttacks2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
-    public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroud2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
@@ -307,7 +306,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkHeightenedMetabolism2024 { get; set; }
     public bool EnableMonkSuperiorDefense2024 { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }
-    public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinLayOnHandsAsBonusAction2024 { get; set; }
