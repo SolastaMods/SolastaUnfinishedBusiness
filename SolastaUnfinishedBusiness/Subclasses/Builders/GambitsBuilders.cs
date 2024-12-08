@@ -24,6 +24,9 @@ internal static class GambitsBuilders
 {
     private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
+    private static AssetReferenceSprite ConditionGambit =>
+        Sprites.GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
+
     internal static FeatureDefinitionPower GambitPool { get; } = FeatureDefinitionPowerBuilder
         .Create("PowerPoolTacticianGambit")
         .SetGuiPresentation(Category.Feature)
@@ -150,7 +153,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
@@ -208,7 +211,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
@@ -268,7 +271,7 @@ internal static class GambitsBuilders
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
-                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                     .SetFeatures(gambitDieDamage, reactionPower)
@@ -329,7 +332,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
@@ -398,7 +401,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}Trigger")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
@@ -449,7 +452,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamageMelee, reactionPower)
@@ -506,7 +509,7 @@ internal static class GambitsBuilders
 
         var conditionReaction = ConditionDefinitionBuilder
             .Create($"Condition{name}")
-            .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+            .SetGuiPresentation(name, Category.Feature, ConditionGambit)
             .SetPossessive()
             .SetFeatures(reactionPower)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
@@ -585,7 +588,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage)
@@ -620,7 +623,7 @@ internal static class GambitsBuilders
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetGuiPresentation(name, Category.Feature, ConditionGambit)
                                 .SetPossessive()
                                 .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee))
                                 .AddToDB()))
