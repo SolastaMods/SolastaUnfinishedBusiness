@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePathOfTheSavageryUnbridledFerocity:cbcac43d-4378-5d2c-9e50-63782e632050",
       "level": 14
+     },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheSavageryPersistentPrimalInstinct:88c054e9-6071-5bd5-9f4c-917a4c7339e8",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],
