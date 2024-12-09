@@ -122,21 +122,8 @@ internal static class RangedCombatFeats
         const string Name = "FeatDeadeye";
 
         // kept for backward compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration()
-            .AddToDB();
-
-        // kept for backward compatibility
         _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
