@@ -111,8 +111,17 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         #region 10th LEVEL FEATURES
 
+        PowerSpiritGuardians.effectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardians;
+        PowerSpiritGuardians.effectDescription.EffectForms[2].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardiansSelf;
         PowerSpiritGuardians.AddCustomSubFeatures(
             new ModifyEffectDescriptionSpiritGuardians(PowerSpiritGuardians));
+
+        PowerSpiritGuardiansRageCost.effectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardians;
+        PowerSpiritGuardiansRageCost.effectDescription.EffectForms[2].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardiansSelf;
         PowerSpiritGuardiansRageCost.AddCustomSubFeatures(
             new ModifyEffectDescriptionSpiritGuardians(PowerSpiritGuardiansRageCost));
 
@@ -450,7 +459,10 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 [attacker],
                 attacker,
                 "SpiritWalker",
-                reactionValidated: ReactionValidated);
+                Main.Settings.EnableBarbarianRelentlessRage2024
+                    ? "Reaction/&UseSpiritWalkerExtendedDescription"
+                    : "Reaction/&UseSpiritWalkerDescription",
+                ReactionValidated);
 
             yield break;
 
@@ -471,11 +483,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     internal static readonly ConditionDefinition ConditionSpiritGuardians = ConditionDefinitionBuilder
         .Create(ConditionDefinitions.ConditionSpiritGuardians, $"Condition{Name}SpiritGuardians")
         .AddToDB();
-    
-        internal static readonly ConditionDefinition ConditionSpiritGuardiansSelf = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSpiritGuardiansSelf, $"Condition{Name}SpiritGuardiansSelf")
-            .AddToDB();
-        
+
+    internal static readonly ConditionDefinition ConditionSpiritGuardiansSelf = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionSpiritGuardiansSelf, $"Condition{Name}SpiritGuardiansSelf")
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerSpiritGuardians = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}SpiritGuardians")
         .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
@@ -487,11 +499,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 .SetSavingThrowData(
                     false, AttributeDefinitions.Wisdom, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypeRadiant, 3, DieType.D8),
-                    EffectFormBuilder.ConditionForm(ConditionSpiritGuardians),
-                    EffectFormBuilder.ConditionForm(ConditionSpiritGuardiansSelf,
-                        ConditionForm.ConditionOperation.Add, true, true))
                 .Build())
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
