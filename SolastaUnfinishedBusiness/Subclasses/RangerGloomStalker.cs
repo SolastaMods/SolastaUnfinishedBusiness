@@ -356,7 +356,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "ShadowyDodge",
-                "CustomReactionShadowyDodgeDescription".Formatted(Category.Reaction),
+                "CustomReactionShadowyDodgeDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

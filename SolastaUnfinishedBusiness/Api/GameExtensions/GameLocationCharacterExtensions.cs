@@ -490,7 +490,8 @@ public static class GameLocationCharacterExtensions
         {
             // don't use IsMelee(attackMode) here
             var isValid = (allowUnarmed && mode.SourceObject is null) ||
-                          (mode.SourceObject is RulesetItem rulesetItem && ValidatorsWeapon.IsMelee(rulesetItem));
+                          (mode.SourceObject is RulesetItem rulesetItem &&
+                           ValidatorsWeapon.IsMelee(null, rulesetItem, instance.RulesetCharacter));
 
             if (!isValid)
             {
@@ -822,7 +823,7 @@ public static class GameLocationCharacterExtensions
     {
         var rulesetCharacter = instance.RulesetCharacter;
 
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack ||
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 ||
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) == 0)
         {
             return;

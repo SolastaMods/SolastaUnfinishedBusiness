@@ -111,46 +111,19 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         #region 10th LEVEL FEATURES
 
-        // Spirit Walker
+        PowerSpiritGuardians.effectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardians;
+        PowerSpiritGuardians.effectDescription.EffectForms[2].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardiansSelf;
+        PowerSpiritGuardians.AddCustomSubFeatures(
+            new ModifyEffectDescriptionSpiritGuardians(PowerSpiritGuardians));
 
-        var powerSpiritGuardians = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SpiritGuardians")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .AddToDB();
-
-        var powerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SpiritGuardiansRageCost")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
-            .AddToDB();
-
-        var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}SpiritWalker")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerSpiritGuardians, powerSpiritGuardiansRageCost)
-            .AddToDB();
-
-        powerSpiritGuardiansRageCost.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new MagicEffectFinishedByMeSpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
+        PowerSpiritGuardiansRageCost.effectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardians;
+        PowerSpiritGuardiansRageCost.effectDescription.EffectForms[2].ConditionForm.ConditionDefinition =
+            ConditionSpiritGuardiansSelf;
+        PowerSpiritGuardiansRageCost.AddCustomSubFeatures(
+            new ModifyEffectDescriptionSpiritGuardians(PowerSpiritGuardiansRageCost));
 
         #endregion
 
@@ -185,7 +158,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 featureSetPathOfTheSpiritsAnimalAspect)
             .AddFeaturesAtLevel(10,
-                featureSetPathOfTheSpiritsSpiritWalker)
+                FeatureSetPathOfTheSpiritsSpiritWalker)
             .AddFeaturesAtLevel(14,
                 featureSetPathOfTheSpiritsHonedAnimalAspects)
             .AddToDB();
@@ -419,9 +392,40 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerHonedAnimalAspectsWolf;
     }
 
-    private sealed class MagicEffectFinishedByMeSpiritWalker(
-        FeatureDefinitionPower powerLongRest,
-        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMe
+    // Supports integration with persistent rage 2024
+    private sealed class ModifyEffectDescriptionSpiritGuardians(FeatureDefinitionPower power) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == power;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!Main.Settings.EnableBarbarianPersistentRage2024)
+            {
+                return effectDescription;
+            }
+
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
+
+            // persistent rage is only granted at 15
+            if (classLevel < 15)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.durationParameter = 10;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeSpiritWalker : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterAction action,
@@ -436,10 +440,10 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
-            var power = rulesetCharacter.GetRemainingPowerUses(powerLongRest) > 0
-                ? powerLongRest
-                : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
-                    ? powerRageCost
+            var power = rulesetCharacter.GetRemainingPowerUses(PowerSpiritGuardians) > 0
+                ? PowerSpiritGuardians
+                : rulesetCharacter.GetRemainingPowerUses(PowerSpiritGuardiansRageCost) > 0
+                    ? PowerSpiritGuardiansRageCost
                     : null;
 
             if (!power)
@@ -455,17 +459,64 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 [attacker],
                 attacker,
                 "SpiritWalker",
-                reactionValidated: ReactionValidated);
+                Main.Settings.EnableBarbarianRelentlessRage2024
+                    ? "Reaction/&UseSpiritWalkerExtendedDescription"
+                    : "Reaction/&UseSpiritWalkerDescription",
+                ReactionValidated);
 
             yield break;
 
             void ReactionValidated()
             {
-                if (power == powerRageCost)
+                if (power == PowerSpiritGuardiansRageCost)
                 {
                     rulesetCharacter.SpendRagePoint();
                 }
             }
         }
     }
+
+    #region 10th LEVEL FEATURES
+
+    // Spirit Walker
+
+    internal static readonly ConditionDefinition ConditionSpiritGuardians = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionSpiritGuardians, $"Condition{Name}SpiritGuardians")
+        .AddToDB();
+
+    internal static readonly ConditionDefinition ConditionSpiritGuardiansSelf = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionSpiritGuardiansSelf, $"Condition{Name}SpiritGuardiansSelf")
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerSpiritGuardians = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}SpiritGuardians")
+        .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetSavingThrowData(
+                    false, AttributeDefinitions.Wisdom, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                .Build())
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
+        .Create(PowerSpiritGuardians, $"Power{Name}SpiritGuardiansRageCost")
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
+        .AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new MagicEffectFinishedByMeSpiritWalker())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheSpiritsSpiritWalker =
+        FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}SpiritWalker")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(PowerSpiritGuardians, PowerSpiritGuardiansRageCost)
+            .AddToDB();
+
+    #endregion
 }

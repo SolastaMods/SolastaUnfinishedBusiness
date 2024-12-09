@@ -27,7 +27,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool DisplayMultiplayerToggle { get; set; }
-    public bool DisplayOneDndToggle { get; set; }
+    public bool DisplayTabletop2024 { get; set; }
     public bool DisplayTabletopToggle { get; set; }
     public bool DisplayRacesToggle { get; set; }
     public bool DisplaySubracesToggle { get; set; }
@@ -228,13 +228,16 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool OneDndHealingPotionBonusAction { get; set; }
+    public bool EnablePotionsBonusAction2024 { get; set; }
+    public bool EnablePoisonsBonusAction2024 { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    public bool EnableStackableAxesAndDaggers { get; set; }
+    public bool EnableStackableArtItems { get; set; }
     public bool EnableVersatileAmmunitionSlots { get; set; }
     public bool EnableVersatileOffHandSlot { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
@@ -267,62 +270,64 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool ChangeBardicInspirationDurationToOneHour { get; set; }
-    public bool EnableBardCounterCharmAsReactionAtLevel7 { get; set; }
-    public bool EnableBardExpertiseOneLevelBefore { get; set; }
-    public bool EnableBardSuperiorInspirationAtLevel18 { get; set; }
-    public bool EnableBardWordsOfCreationAtLevel20 { get; set; }
-    public bool RemoveBardMagicalSecretAt14And18 { get; set; }
-    public bool RemoveBardSongOfRestAt2 { get; set; }
-    public bool EnableBarbarianBrutalStrike { get; set; }
-    public bool DisableBarbarianBrutalCritical { get; set; }
+    public bool GrantKatanaSpecializationToMonk { get; set; }
+    public bool EnableBardicInspiration2024 { get; set; }
+    public bool EnableBardCounterCharm2024 { get; set; }
+    public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
+    public bool EnableBardSuperiorInspiration2024 { get; set; }
+    public bool EnableBardWordsOfCreation2024 { get; set; }
+    public bool RemoveBardMagicalSecret2024 { get; set; }
+    public bool RemoveBardSongOfRest2024 { get; set; }
+    public bool EnableBarbarianBrutalStrike2024 { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
+    public bool EnableBarbarianInstinctivePounce2024 { get; set; }
+    public bool EnableBarbarianPersistentRage2024 { get; set; }
+    public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
+    public bool EnableBarbarianReckless2024 { get; set; }
     public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
-    public bool EnableDruidUseMetalArmor { get; set; }
-    public bool EnableDruidPrimalOrderAndRemoveMediumArmorProficiency { get; set; }
-    public bool SwapDruidToUseOneDndWeaponProficiency { get; set; }
-    public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
-    public bool AddPersuasionToFighterSkillOptions { get; set; }
-    public bool EnableSecondWindToUseOneDndUsagesProgression { get; set; }
-    public bool EnableFighterStudiedAttacks { get; set; }
-    public bool EnableFighterTacticalProgression { get; set; }
-    public bool EnableFighterWeaponSpecialization { get; set; }
+    public bool EnableBarbarianRelentlessRage2024 { get; set; }
+    public bool EnableDruidMetalArmor2024 { get; set; }
+    public bool EnableDruidPrimalOrder2024 { get; set; }
+    public bool EnableDruidWeaponProficiency2024 { get; set; }
+    public bool EnableFighterIndomitableSaving2024 { get; set; }
+    public bool EnableFighterSkillOptions2024 { get; set; }
+    public bool EnableFighterSecondWind2024 { get; set; }
+    public bool EnableFighterStudiedAttacks2024 { get; set; }
+    public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerNatureShroudAt14 { get; set; }
+    public bool EnableRangerNatureShroud2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
+    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
+    public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
     public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
-    public bool EnableMonkHeightenedMetabolism { get; set; }
-    public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
-    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
-    public bool EnableMonkWeaponSpecialization { get; set; }
-    public bool SwapMonkToUseOneDndUnarmedDieTypeProgression { get; set; }
+    public bool EnableMonkHeightenedMetabolism2024 { get; set; }
+    public bool EnableMonkSuperiorDefense2024 { get; set; }
+    public bool EnableMonkBodyAndMind2024 { get; set; }
+    public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool EnablePaladinLayOnHandsAsBonusAction { get; set; }
-    public bool EnablePaladinSmiteAsBonusAction { get; set; }
+    public bool EnablePaladinLayOnHandsAsBonusAction2024 { get; set; }
+    public bool EnablePaladinSmiteAsBonusAction2024 { get; set; }
     public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
-    public bool EnableRogueCunningStrike { get; set; }
+    public bool EnableRogueCunningStrike2024 { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
-    public bool EnableRogueReliableTalentAt7 { get; set; }
-    public bool EnableRogueSlipperyMind { get; set; }
-    public bool EnableRogueSteadyAim { get; set; }
-    public bool RemoveRogueBlindSense { get; set; }
-    public bool EnableSorcererArcaneApotheosis { get; set; }
-    public bool EnableSorcererInnateSorceryAndSorceryIncarnate { get; set; }
+    public bool EnableRogueReliableTalent2024 { get; set; }
+    public bool EnableRogueSlipperyMind2024 { get; set; }
+    public bool EnableRogueSteadyAim2024 { get; set; }
+    public bool RemoveRogueBlindSense2024 { get; set; }
+    public bool EnableSorcererArcaneApotheosis2024 { get; set; }
+    public bool EnableSorcererInnateSorceryAndSorceryIncarnate2024 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableSorcererSorcerousRestoration { get; set; }
-    public bool EnableWarlockToUseOneDndInvocationProgression { get; set; }
-    public bool EnableWarlockMagicalCunningAtLevel2AndImprovedEldritchMasterAt20 { get; set; }
+    public bool EnableSorcererSorcerousRestoration2024 { get; set; }
+    public bool EnableWarlockInvocationProgression2024 { get; set; }
+    public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
-    public bool EnableWizardMemorizeSpell { get; set; }
+    public bool EnableWizardMemorizeSpell2024 { get; set; }
     public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
     public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
@@ -376,8 +381,8 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowBladeCantripsToUseReach { get; set; }
-    public bool EnableOneDnDPreparedSpellsTables { get; set; }
-    public bool EnableRitualOnAllCasters { get; set; }
+    public bool EnablePreparedSpellsTables2024 { get; set; }
+    public bool EnableRitualOnAllCasters2024 { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

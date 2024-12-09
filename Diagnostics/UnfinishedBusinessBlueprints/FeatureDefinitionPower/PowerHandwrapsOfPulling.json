@@ -37,7 +37,7 @@
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": true,
     "savingThrowAbility": "Strength",
-    "ignoreCover": true,
+    "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,

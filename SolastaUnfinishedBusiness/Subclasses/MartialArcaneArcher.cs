@@ -747,7 +747,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "MartialArcaneArcherGuidedShot",
-                "CustomReactionMartialArcaneArcherGuidedShotDescription".Formatted(Category.Reaction),
+                "CustomReactionMartialArcaneArcherGuidedShotDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

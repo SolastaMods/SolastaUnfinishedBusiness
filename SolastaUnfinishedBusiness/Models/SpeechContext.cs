@@ -521,6 +521,11 @@ internal static class SpeechContext
 
     internal static void Speak(string inputText, GameLocationCharacter character)
     {
+        if (character == null)
+        {
+            return;
+        }
+
         var index = Gui.Game.GameCampaign.Party.CharactersList
             .FindIndex(x => x.RulesetCharacter == character.RulesetCharacter);
 

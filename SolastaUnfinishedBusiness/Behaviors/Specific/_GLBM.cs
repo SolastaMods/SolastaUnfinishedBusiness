@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 internal static class GLBM
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(IControllableCharacter glc, IAdditionalDamageProvider provider)
+    private static int ComputeSavingThrowDC(GameLocationCharacter glc, IAdditionalDamageProvider provider)
     {
         var character = glc.RulesetCharacter;
 
@@ -982,18 +982,19 @@ internal static class GLBM
                         // Look for the spellcasting feature holding the smite
                         var hero = attacker.RulesetCharacter.GetOriginalHero();
 
-                        // One DnD only allow smites as bonus action
-                        if (Main.Settings.EnablePaladinSmiteAsBonusAction &&
-                            !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
-                        {
-                            break;
-                        }
-
                         // This is used to only offer divine smites on critical hits
                         var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
                         {
                             NotificationTag: "DivineSmite"
                         };
+
+                        // One DnD only allow smites as bonus action
+                        if (Main.Settings.EnablePaladinSmiteAsBonusAction2024 &&
+                            isDivineSmite &&
+                            !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
+                        {
+                            break;
+                        }
 
                         if (!criticalHit &&
                             Main.Settings.AddPaladinSmiteToggle &&
@@ -1061,7 +1062,7 @@ internal static class GLBM
                             validTrigger = reactionParams.ReactionValidated;
 
                             // One DnD only allow smites as bonus action
-                            if (Main.Settings.EnablePaladinSmiteAsBonusAction && validTrigger)
+                            if (Main.Settings.EnablePaladinSmiteAsBonusAction2024 && isDivineSmite && validTrigger)
                             {
                                 attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
                             }

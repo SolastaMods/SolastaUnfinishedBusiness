@@ -372,7 +372,7 @@ internal static class Level20SubclassesContext
                      .Where(x => x.Name.StartsWith("PowerDomainMischiefStrikeOfChaos")))
         {
             powerStrikeOfChaos.AddCustomSubFeatures(
-                new RestrictReactionAttackMode((_, _, _, mode, _) => ValidatorsWeapon.IsMeleeOrUnarmed(mode)));
+                new RestrictReactionAttackMode((_, _, _, mode, _) => mode != null));
         }
 
         //

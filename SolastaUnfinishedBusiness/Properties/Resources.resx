@@ -177,13 +177,6 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
-  <!--
-  <data name="MagicStone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/MagicStone.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
-  -->
   <data name="PowerHolyWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerHolyWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -640,8 +633,7 @@
     </value>
   </data>
   <data name="PowerBolsteringMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -932,20 +924,17 @@
     </value>
   </data>
   <data name="UnarmedStrikeClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
   <data name="BeastBite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/BeastBite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Items/BeastBite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
   <data name="BeastTail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Items/BeastTail.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Items/BeastTail.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1524,8 +1513,7 @@
     </value>
   </data>
   <data name="ImpBadland" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/ImpBadland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Races/ImpBadland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1560,8 +1548,7 @@
     </value>
   </data>
   <data name="Oni" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/Oni.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Races/Oni.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1581,8 +1568,7 @@
     </value>
   </data>
   <data name="Lizardfolk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Races/Lizardfolk.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>../Resources/Races/Lizardfolk.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1819,22 +1805,19 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-
   <data name="PowerBestialSoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerBestialSoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\PowerBestialSoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PowerInfectiousFuryMindlash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerInfectiousFuryMindlash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Powers\PowerInfectiousFuryMindlash.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PowerInfectiousFuryCompelledStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerInfectiousFuryCompelledStrike.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerInfectiousFuryCompelledStrike.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
@@ -1963,29 +1946,25 @@
     </value>
   </data>
   <data name="PowerHungryJaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerHungryJaws.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerHungryJaws.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PowerImpHospitality" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpHospitality.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpHospitality.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PowerImpPassage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpPassage.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpPassage.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PowerImpSpite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Powers\PowerImpSpite.png;System.Byte[], mscorlib, Version=4.0.0.0,
+    <value>..\Resources\Powers\PowerImpSpite.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
@@ -2271,20 +2250,17 @@
     </value>
   </data>
   <data name="PathOfTheWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PathOfTheBattlerager" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
   <data name="PathOfTheBeast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ..\Resources\Subclasses\PathOfTheBeast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Subclasses\PathOfTheBeast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2832,6 +2808,31 @@
   <data name="VersatilitySwitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Versatilities\VersatilitySwitch.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="Katana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\Katana.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Katana1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\Katana1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Katana2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\Katana2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Katana3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\Katana3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="KatanaPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Items\KatanaPrimed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
     </value>
   </data>
 </root>

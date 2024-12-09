@@ -515,11 +515,11 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "b3cd9de3-1344-5a62-9f8e-8c2aee3749dc",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
-    "scaleFactorWhileWielded": 1.0,
+    "scaleFactorWhileWielded": 0.25,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",

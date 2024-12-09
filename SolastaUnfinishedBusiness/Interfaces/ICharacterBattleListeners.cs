@@ -78,8 +78,8 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
+        //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 &&
             rulesetCharacter.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk) > 0)
         {
             rulesetCharacter.InflictCondition(

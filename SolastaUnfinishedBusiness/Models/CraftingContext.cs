@@ -33,6 +33,7 @@ internal static class CraftingContext
         { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
         { "HideArmor", Gui.Localize("Equipment/&Armor_HideTitle") },
         { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
+        { "Katana", Gui.Localize("Item/&KatanaTitle") },
         { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
         { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
         { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
@@ -88,6 +89,7 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HalberdData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(KatanaData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongswordData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);

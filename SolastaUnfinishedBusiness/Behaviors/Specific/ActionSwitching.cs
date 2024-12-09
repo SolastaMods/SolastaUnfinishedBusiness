@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -16,7 +17,8 @@ public static class ActionSwitching
 {
     internal static readonly TutorialStepDefinition Tutorial = TutorialStepDefinitionBuilder
         .Create("TutorialActionSwitching")
-        .SetGuiPresentation(Category.Tutorial, Sprites.TutorialActionSwitching)
+        .SetGuiPresentation(Category.Tutorial,
+            Sprites.GetSprite("TutorialActionSwitching", Resources.TutorialActionSwitching, 512, 256))
         .AddToDB();
 
     internal static void LateLoad()
@@ -338,7 +340,7 @@ public static class ActionSwitching
     private static void SaveIndexes(
         IDictionary<string, int> map,
         ActionDefinitions.ActionType type,
-        IReadOnlyList<int> list)
+        List<int> list)
     {
         for (var i = 0; i < list.Count; i++)
         {

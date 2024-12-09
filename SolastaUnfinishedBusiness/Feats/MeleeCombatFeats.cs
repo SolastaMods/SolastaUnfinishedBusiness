@@ -486,7 +486,7 @@ internal static class MeleeCombatFeats
             return
                 ValidatorsCharacter.HasFreeHandConsiderGrapple(character) &&
                 ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
-                 (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
+                 (attackMode == null && ValidatorsWeapon.IsMelee(null, null, character))) &&
                 ValidatorsWeapon.HasAnyWeaponTag(
                     itemDefinition, TagsDefinitions.WeaponTagHeavy, TagsDefinitions.WeaponTagVersatile);
         }
@@ -1012,21 +1012,8 @@ internal static class MeleeCombatFeats
         const string Name = "FeatCleavingAttack";
 
         // kept for backward compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration()
-            .AddToDB();
-
-        // kept for backward compatibility
         _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -1080,7 +1067,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (!ValidateCleavingAttack(attackMode, true))
+            if (!ValidateCleavingAttack(character, attackMode, true))
             {
                 return;
             }
@@ -1104,12 +1091,14 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!ValidateCleavingAttack(attackMode))
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!ValidateCleavingAttack(rulesetCharacter, attackMode))
             {
                 yield break;
             }
 
-            InflictCondition(attacker.RulesetCharacter);
+            InflictCondition(rulesetCharacter);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -1121,13 +1110,15 @@ internal static class MeleeCombatFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
             if (rollOutcome != RollOutcome.CriticalSuccess ||
-                !ValidateCleavingAttack(attackMode))
+                !ValidateCleavingAttack(rulesetCharacter, attackMode))
             {
                 yield break;
             }
 
-            InflictCondition(attacker.RulesetCharacter);
+            InflictCondition(rulesetCharacter);
         }
 
         private void InflictCondition(RulesetCharacter rulesetCharacter)
@@ -1148,7 +1139,8 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
+    private static bool ValidateCleavingAttack(
+        RulesetCharacter character, RulesetAttackMode attackMode, bool validateHeavy = false)
     {
         if (attackMode?.SourceObject is not RulesetItem rulesetItem)
         {
@@ -1156,7 +1148,7 @@ internal static class MeleeCombatFeats
         }
 
         // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-        return ValidatorsWeapon.IsMelee(rulesetItem) &&
+        return ValidatorsWeapon.IsMelee(null, rulesetItem, character) &&
                (!validateHeavy ||
                 ValidatorsWeapon.HasAnyWeaponTag(
                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
@@ -1613,21 +1605,8 @@ internal static class MeleeCombatFeats
         const string Name = "FeatPowerAttack";
 
         // kept for backward compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration()
-            .AddToDB();
-
-        // kept for backward compatibility
         _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -1667,7 +1646,7 @@ internal static class MeleeCombatFeats
             }
 
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+            if (!ValidatorsWeapon.IsMelee(null, attackMode.SourceObject as RulesetItem, character) &&
                 !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;

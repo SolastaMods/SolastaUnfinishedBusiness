@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -181,15 +180,14 @@ internal static class ValidatorsCharacter
     {
         var weapon = character.GetMainWeapon();
 
-        return ValidatorsWeapon.IsMelee(weapon) || (weapon == null && InnovationArmor.InGuardianMode(character));
+        return ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
-        return ValidatorsWeapon.IsMelee(weapon) ||
-               (weapon == null && InnovationArmor.InGuardianMode(character));
+        return ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>

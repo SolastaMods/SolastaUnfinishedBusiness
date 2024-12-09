@@ -281,7 +281,8 @@ internal static class InvocationsBuilders
 
         _ = ActionDefinitionBuilder
             .Create($"ActionDefinition{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation, Sprites.Teleport, 71)
+            .SetGuiPresentation(NAME, Category.Invocation,
+                Sprites.GetSprite("Teleport", Resources.Teleport, 24), 71)
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
             .RequiresAuthorization(false)
             .OverrideClassName("UsePower")

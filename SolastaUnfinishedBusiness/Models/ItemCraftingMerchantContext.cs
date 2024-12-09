@@ -13,6 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MerchantDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -34,6 +35,8 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
+        SwitchStackableArtItems();
+        SwitchStackableAxesAndDaggers();
         SwitchVersatileInventorySlots();
         LoadDontDisplayHelmets();
     }
@@ -276,6 +279,29 @@ internal static class ItemCraftingMerchantContext
         foreach (var stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
         {
             stock.reassortAmount = 1;
+        }
+    }
+
+    internal static void SwitchStackableArtItems()
+    {
+        foreach (var art in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(x => x.Name.Contains("Art_Item")))
+        {
+            art.canBeStacked = Main.Settings.EnableStackableArtItems;
+        }
+    }
+
+    internal static void SwitchStackableAxesAndDaggers()
+    {
+        foreach (var weapon in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(x =>
+                         x.IsWeapon &&
+                         (x.WeaponDescription.WeaponTypeDefinition == DaggerType ||
+                          x.WeaponDescription.WeaponTypeDefinition == HandaxeType)))
+        {
+            weapon.canBeStacked = Main.Settings.EnableStackableAxesAndDaggers;
+            weapon.stackSize = 5;
+            weapon.defaultStackCount = -1;
         }
     }
 

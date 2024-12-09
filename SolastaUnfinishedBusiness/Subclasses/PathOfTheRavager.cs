@@ -50,7 +50,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
 
         var powerIntimidatingPresence = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}IntimidatingPresence")
-            .SetGuiPresentation(Category.Feature,
+            .SetGuiPresentation($"FeatureSet{Name}IntimidatingPresence", Category.Feature,
                 Sprites.GetSprite("IntimidatingPresence", Resources.PowerDreadfulPresence, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(

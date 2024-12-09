@@ -1137,7 +1137,7 @@ internal static class RaceFeats
                 ExtraActionId.DoNothingFree,
                 attacker,
                 "DwarvenFortitude",
-                "CustomReactionDwarvenFortitudeDescription".Formatted(Category.Reaction),
+                "CustomReactionDwarvenFortitudeDescription".Localized(Category.Reaction),
                 ReactionValidated);
 
             yield break;
@@ -1839,7 +1839,7 @@ internal static class RaceFeats
                 ExtraActionId.DoNothingReaction,
                 attacker,
                 "SecondChance",
-                "CustomReactionSecondChanceDescription".Formatted(Category.Reaction),
+                "CustomReactionSecondChanceDescription".Localized(Category.Reaction),
                 ReactionValidated,
                 battleManager: battleManager);
 

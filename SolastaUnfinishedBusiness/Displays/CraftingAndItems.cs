@@ -147,17 +147,40 @@ internal static class CraftingAndItems
             Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
         }
 
-        toggle = Main.Settings.OneDndHealingPotionBonusAction;
-        if (UI.Toggle(Gui.Localize("ModUi/&OneDndHealingPotionBonusAction"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePotionsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePotionsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.OneDndHealingPotionBonusAction = toggle;
-            Tabletop2024Context.SwitchOneDndHealingPotionBonusAction();
+            Main.Settings.EnablePotionsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPotionsBonusAction();
+        }
+
+        toggle = Main.Settings.EnablePoisonsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPoisonsBonusAction();
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableStackableAxesAndDaggers;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStackableAxesAndDaggers"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStackableAxesAndDaggers = toggle;
+            ItemCraftingMerchantContext.SwitchStackableAxesAndDaggers();
+        }
+
+        toggle = Main.Settings.EnableStackableArtItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStackableArtItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStackableArtItems = toggle;
+            ItemCraftingMerchantContext.SwitchStackableArtItems();
         }
 
         toggle = Main.Settings.EnableVersatileAmmunitionSlots;

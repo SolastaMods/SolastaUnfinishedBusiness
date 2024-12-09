@@ -389,7 +389,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            Tabletop2024Context.SwitchOneDndSurprisedEnforceDisadvantage();
+            Tabletop2024Context.SwitchSurprisedEnforceDisadvantage();
         }
 
         toggle = Main.Settings.EnableTeleportToRemoveRestrained;
