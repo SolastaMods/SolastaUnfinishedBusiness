@@ -167,6 +167,8 @@ internal static class CraftingAndItems
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableStackableAxesAndDaggers;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableStackableAxesAndDaggers"), ref toggle, UI.AutoWidth()))
         {

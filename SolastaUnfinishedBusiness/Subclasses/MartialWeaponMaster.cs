@@ -24,18 +24,18 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     private const string Name = "MartialWeaponMaster";
     private const string Specialization = "Specialization";
 
-    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolSpecialization =
-        CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPool{Name}{Specialization}")
-            .SetGuiPresentation($"AttributeModifier{Name}{Specialization}", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
-            .AddToDB();
-
     public MartialWeaponMaster()
     {
         // LEVEL 03
 
         // Specialization
+        var invocationPoolSpecialization =
+            CustomInvocationPoolDefinitionBuilder
+                .Create($"InvocationPool{Name}{Specialization}")
+                .SetGuiPresentation($"AttributeModifier{Name}{Specialization}", Category.Feature)
+                .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
+                .AddToDB();
+
         var featureSpecializationDisadvantage = FeatureDefinitionBuilder
             .Create($"Feature{Name}{Specialization}Disadvantage")
             .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature, hidden: true)
@@ -181,7 +181,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialWeaponMaster, 256))
             .AddFeaturesAtLevel(3,
                 FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionImprovedCritical,
-                InvocationPoolSpecialization,
+                invocationPoolSpecialization,
                 featureSpecializationDisadvantage,
                 powerFocusedStrikes)
             .AddFeaturesAtLevel(7,
