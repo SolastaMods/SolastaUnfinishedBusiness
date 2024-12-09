@@ -5,7 +5,7 @@
   "isBow": false,
   "isCrossbow": false,
   "isAttachedToBone": "Prop1",
-  "animationTag": "NoWeapon",
+  "animationTag": "Mace",
   "secondaryAnimationTag": "NoWeapon",
   "soundEffectDescription": {
     "$type": "SoundEffectDescription, Assembly-CSharp",
