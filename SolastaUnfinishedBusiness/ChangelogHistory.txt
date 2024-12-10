@@ -1,5 +1,7 @@
 1.5.97.41:
 
+ATTENTION: bootstrap feels much slower with custom blender models parsing. need feedback from user base.
+
 - added 'Enable Barbarian Instinctive Pounce at 7' setting
 - added 'Enable Barbarian Primal Knowledge at 3' setting
 - added 'Enable applying Poisons to weapons as a bonus action' setting [by SilverGriffon]
@@ -13,11 +15,17 @@
 - added custom models to Katana, Lightning Launcher, Long Mace, Pike, and Thunder Gauntlet [by cckcckcc]
 - fixed 'Improved Barbarian Brutal Strike at 17' setting missing 2 additional effects offering
 - fixed 'Regain one Rage point at short rest' setting to be active from level 1 instead of 7
+- fixed Domain Mischief strike of chaos not triggering on ranged attacks
 - fixed Eldritch Smite interaction with 'Paladin smites as a bonus action' setting
 - fixed Fighter tactical shift applying on level 1 instead of 5, and not preventing AoO if moving one cell only
 - fixed Lighting and Obscurement rules interaction with Fighter tactical shift, and Rogue cunning strike withdraw
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
 - fixed Thunder Gauntlet interaction with Cleaving Attack, and Power Attack feats
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:
 
@@ -47,11 +55,6 @@ ATTENTION: Check "The Forsaken Isle" and "Morrows Deep" from Artyoan, updated wi
 - fixed Staff of Fire not granting fire damage resistance to wielder [VANILLA]
 - fixed True Strike 2024 version not allowing ranged or thrown, and enforcing concentration
 - fixed weapon attribute determination not enforcing the higher scored modifier [i.e.: Hexblade, precision feats, etc.]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.39:
 

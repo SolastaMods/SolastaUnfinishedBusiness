@@ -114,7 +114,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionSpiritGuardians:7694fe6825ce7e14f98e3020d7b9c6df",
+          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsSpiritGuardians:2653557c-3d6f-5138-a007-d90cd7df4635",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -141,7 +141,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionSpiritGuardiansSelf:5e156379ed4ea7843b4cedbaa0cf6dab",
+          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsSpiritGuardiansSelf:6b0d7cc3-26e4-5de7-be2a-1a5bcc622349",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

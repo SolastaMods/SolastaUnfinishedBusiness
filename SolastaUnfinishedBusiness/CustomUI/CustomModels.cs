@@ -56,6 +56,9 @@ public static class CustomModels
 
     internal sealed class BlenderModelLoader : MonoBehaviour
     {
+        private static readonly GameObject Template =
+            new("BlenderModelLoader", typeof(MeshFilter), typeof(MeshRenderer));
+
         private static readonly int Alpha = Shader.PropertyToID("_Alpha");
         private static readonly int SrcBlend = Shader.PropertyToID("_SrcBlend");
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
@@ -88,11 +91,17 @@ public static class CustomModels
 
         public void LoadModel(string filename)
         {
+            // should get better performance by instantiating the prefab outside the coroutine
+            var prefab = Instantiate(Template);
+            var meshFilter = prefab.GetComponent<MeshFilter>();
+            var meshRenderer = prefab.GetComponent<MeshRenderer>();
+
             directoryPath = Path.Combine(Path.Combine(Main.ModFolder, "BlenderModels"), filename);
-            StartCoroutine(ConstructModel(filename));
+            StartCoroutine(ConstructModel(filename, prefab, meshFilter, meshRenderer));
         }
 
-        private IEnumerator ConstructModel(string filename)
+        private IEnumerator ConstructModel(
+            string filename, GameObject prefab, MeshFilter meshFilter, MeshRenderer meshRenderer)
         {
             if (!TryReadObjectFile(Path.Combine(directoryPath, $"{filename}.obj"), out var obj))
             {
@@ -104,15 +113,11 @@ public static class CustomModels
                 yield break;
             }
 
-            var prefab = new GameObject(name);
-            var meshFilter = prefab.AddComponent<MeshFilter>();
-            var meshRenderer = prefab.AddComponent<MeshRenderer>();
+            var prefabGuid = GetGuid(filename);
 
             meshFilter.mesh = PopulateMesh(obj);
             meshRenderer.materials = DefineMaterial(obj, mtl);
-
-            var prefabGuid = GetGuid(filename);
-
+            meshRenderer.enabled = false;
             PrefabsByGuid[prefabGuid] = prefab;
 
             Main.Info($"Model {filename} loaded.");

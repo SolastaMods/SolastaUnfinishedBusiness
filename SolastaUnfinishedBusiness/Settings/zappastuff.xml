@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>2</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayOneDndToggle>false</DisplayOneDndToggle>
+    <DisplayTabletop2024>false</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -301,7 +301,7 @@
             </key>
             <value>
                 <ValueTupleOfStringSingle>
-                    <Item1>No Voice</Item1>
+                    <Item1>en_GB-alan-medium</Item1>
                     <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
@@ -587,9 +587,9 @@
     </FormationGridSets>
     <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
     <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
-    <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
+    <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
     <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
-    <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
+    <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
     <RestockAntiquarians>true</RestockAntiquarians>
     <RestockArcaneum>true</RestockArcaneum>
     <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
@@ -612,10 +612,10 @@
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
     <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
-    <EnableStackableAxesAndDaggers>false</EnableStackableAxesAndDaggers>
-    <EnableStackableArtItems>false</EnableStackableArtItems>
-    <EnableVersatileAmmunitionSlots>false</EnableVersatileAmmunitionSlots>
-    <EnableVersatileOffHandSlot>false</EnableVersatileOffHandSlot>
+    <EnableStackableAxesAndDaggers>true</EnableStackableAxesAndDaggers>
+    <EnableStackableArtItems>true</EnableStackableArtItems>
+    <EnableVersatileAmmunitionSlots>true</EnableVersatileAmmunitionSlots>
+    <EnableVersatileOffHandSlot>true</EnableVersatileOffHandSlot>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
     <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
@@ -676,6 +676,7 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <GrantKatanaSpecializationToMonk>false</GrantKatanaSpecializationToMonk>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
@@ -687,10 +688,11 @@
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
     <EnableBarbarianInstinctivePounce2024>true</EnableBarbarianInstinctivePounce2024>
     <EnableBarbarianPersistentRage2024>true</EnableBarbarianPersistentRage2024>
+    <EnableBarbarianPrimalKnowledge2024>true</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
-    <EnableDruidUseMetalArmor>true</EnableDruidUseMetalArmor>
+    <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
     <EnableFighterIndomitableSaving2024>true</EnableFighterIndomitableSaving2024>
@@ -698,7 +700,6 @@
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
-    <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroud2024>true</EnableRangerNatureShroud2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
@@ -712,7 +713,6 @@
     <EnableMonkHeightenedMetabolism2024>true</EnableMonkHeightenedMetabolism2024>
     <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
-    <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnablePaladinLayOnHandsAsBonusAction2024>true</EnablePaladinLayOnHandsAsBonusAction2024>

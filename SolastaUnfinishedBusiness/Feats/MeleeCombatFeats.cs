@@ -1012,21 +1012,8 @@ internal static class MeleeCombatFeats
         const string Name = "FeatCleavingAttack";
 
         // kept for backward compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration()
-            .AddToDB();
-
-        // kept for backward compatibility
         _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -1618,21 +1605,8 @@ internal static class MeleeCombatFeats
         const string Name = "FeatPowerAttack";
 
         // kept for backward compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration()
-            .AddToDB();
-
-        // kept for backward compatibility
         _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 

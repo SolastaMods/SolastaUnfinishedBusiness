@@ -346,10 +346,10 @@ internal static class FixesContext
     {
         //BUGFIX: Some vanilla additional damage definitions have incorrect attributes
         AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
-        AdditionalDamageDomainLifeDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
+        AdditionalDamageDomainLifeDivineStrike.requiredProperty = RestrictedContextRequiredProperty.Weapon;
 
         AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
-        AdditionalDamageDomainMischiefDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
+        AdditionalDamageDomainMischiefDivineStrike.requiredProperty = RestrictedContextRequiredProperty.Weapon;
 
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;

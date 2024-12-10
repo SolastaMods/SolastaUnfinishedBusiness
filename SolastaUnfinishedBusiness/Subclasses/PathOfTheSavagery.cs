@@ -25,6 +25,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         .Create(PowerBarbarianRageStart, $"Power{Name}PrimalInstinct")
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
         .SetOverriddenPower(PowerBarbarianRageStart)
+        .AddCustomSubFeatures(new ModifyEffectDescriptionPrimalInstinct())
         .AddToDB();
 
     public PathOfTheSavagery()
@@ -176,9 +177,41 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         abilityScoreName = AttributeDefinitions.Strength;
     }
 
-    private sealed class PhysicalAttackFinishedByMeUnbridledFerocity(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionUnbridledFerocity) : IPhysicalAttackFinishedByMe
+    private sealed class ModifyEffectDescriptionPrimalInstinct : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerPrimalInstinct;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!Main.Settings.EnableBarbarianPersistentRage2024)
+            {
+                return effectDescription;
+            }
+
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
+
+            // persistent rage is only granted at 15
+            if (classLevel < 15)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionDefinitions.ConditionRagingPersistent;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -220,7 +253,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             }
         }
     }
-
 
     private sealed class ActionFinishedByMeWrathAndFury : IActionFinishedByMe
     {

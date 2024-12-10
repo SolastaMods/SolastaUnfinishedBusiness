@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayOneDndToggle>false</DisplayOneDndToggle>
+    <DisplayTabletop2024>false</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -634,6 +634,7 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <GrantKatanaSpecializationToMonk>false</GrantKatanaSpecializationToMonk>
     <EnableBardicInspiration2024>false</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>false</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
@@ -645,10 +646,11 @@
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <EnableBarbarianInstinctivePounce2024>false</EnableBarbarianInstinctivePounce2024>
     <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
+    <EnableBarbarianPrimalKnowledge2024>false</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
-    <EnableDruidUseMetalArmor>false</EnableDruidUseMetalArmor>
+    <EnableDruidMetalArmor2024>false</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>false</EnableDruidWeaponProficiency2024>
     <EnableFighterIndomitableSaving2024>false</EnableFighterIndomitableSaving2024>
@@ -656,7 +658,6 @@
     <EnableFighterSecondWind2024>false</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
-    <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroud2024>false</EnableRangerNatureShroud2024>
     <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
@@ -670,7 +671,6 @@
     <EnableMonkHeightenedMetabolism2024>false</EnableMonkHeightenedMetabolism2024>
     <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
     <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
-    <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableMonkUnarmoredDieTypeProgression2024>false</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinLayOnHandsAsBonusAction2024>false</EnablePaladinLayOnHandsAsBonusAction2024>

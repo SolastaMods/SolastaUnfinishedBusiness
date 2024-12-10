@@ -661,6 +661,7 @@ internal static class CustomWeaponsContext
             .Create(UnarmedStrikeType, "CEThunderGauntletType")
             .SetGuiPresentation("Item/&CEThunderGauntletTitle", GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .SetAnimationTag("Mace")
             .AddToDB();
 
         var thunderGauntletPrefab = CustomModels.GetBlenderModel("ThunderGauntlet");

@@ -980,13 +980,6 @@ internal static class OtherFeats
                 new PhysicalAttackFinishedByMeGrappler())
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatDefinitionBuilder
-            .Create("FeatGrapplerDex")
-            .SetGuiPresentation("FeatGrapplerStr", Category.Feat, hidden: true)
-            .SetFeatures(actionAffinityGrappleOnUnarmedToggle)
-            .AddToDB();
-
         FeatGrappler = FeatDefinitionBuilder
             .Create("FeatGrapplerStr")
             .SetGuiPresentation(Category.Feat)

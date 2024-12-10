@@ -773,6 +773,13 @@ Starting at 10th level, while you are dual-wielding melee weapons, increase the 
 Starting at 14th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
 
 
+### Level 15
+
+* Persistent Rage
+
+You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+
+
 
 ## 11. Path of the Stone [SOL]
 
@@ -2026,7 +2033,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
 
 * Mischief Domain Spells
 
@@ -2060,7 +2067,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
 
 
 ### Level 8
@@ -3166,14 +3173,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense
+* Coordinated Defense​​​​​​​
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout
+* Invigorating Shout​​​​​​​
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 

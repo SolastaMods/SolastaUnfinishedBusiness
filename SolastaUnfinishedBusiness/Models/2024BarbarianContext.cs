@@ -352,6 +352,10 @@ internal static partial class Tabletop2024Context
             ConditionBerserkerFrenzy.durationParameter = 10;
             ConditionStoneResilience.durationParameter = 10;
             ConditionStoneResilience.specialDuration = true;
+            PathOfTheSpirits.FeatureSetPathOfTheSpiritsSpiritWalker.GuiPresentation.description =
+                "Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerExtendedDescription";
+            PathOfTheSpirits.ConditionSpiritGuardians.SpecialInterruptions.SetRange(ConditionInterruption.RageStop);
+            PathOfTheSpirits.ConditionSpiritGuardiansSelf.SpecialInterruptions.SetRange(ConditionInterruption.RageStop);
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartExtendedDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description =
                 "Action/&PersistentRageStartExtendedDescription";
@@ -366,6 +370,10 @@ internal static partial class Tabletop2024Context
             ConditionBerserkerFrenzy.durationParameter = 1;
             ConditionStoneResilience.durationParameter = 1;
             ConditionStoneResilience.specialDuration = false;
+            PathOfTheSpirits.FeatureSetPathOfTheSpiritsSpiritWalker.GuiPresentation.description =
+                "Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerDescription";
+            PathOfTheSpirits.ConditionSpiritGuardians.SpecialInterruptions.Clear();
+            PathOfTheSpirits.ConditionSpiritGuardiansSelf.SpecialInterruptions.Clear();
             ConditionRagingPersistent.GuiPresentation.description = "Action/&PersistentRageStartDescription";
             PowerBarbarianPersistentRageStart.GuiPresentation.description = "Action/&PersistentRageStartDescription";
         }

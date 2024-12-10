@@ -1,12 +1,12 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionDisengaging:9d3de19ca17c6554ea5485fbc3eabd25",
-  "conditionType": "Beneficial",
+  "parentCondition": null,
+  "conditionType": "Neutral",
   "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -38,19 +38,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "74e7b62375b1ebd4cae4578617922cdb",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "5da536fd218669849b8994451c9028cc",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "3824c08b2f8da7b449bc3abf7b5f5bc4",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -220,8 +220,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
-  "amountOrigin": "Fixed",
+  "possessive": true,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -263,12 +263,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionDisengagingTitle",
-    "description": "Rules/&ConditionDisengagingDescription",
+    "title": "Rules/&ConditionSpiritGuardiansSelfTitle",
+    "description": "Rules/&ConditionSpiritGuardiansSelfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
-      "m_SubObjectName": "ConditionDisengaging",
+      "m_AssetGUID": "6de0173309bec82429f3ed8af187b216",
+      "m_SubObjectName": "ConditionProtectedBySpiritGuardians",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -284,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f34dd424-9c5d-518c-bb0e-fc6dfeb92d13",
+  "guid": "6b0d7cc3-26e4-5de7-be2a-1a5bcc622349",
   "contentPack": 9999,
-  "name": "ConditionWithdrawn"
+  "name": "ConditionPathOfTheSpiritsSpiritGuardiansSelf"
 }

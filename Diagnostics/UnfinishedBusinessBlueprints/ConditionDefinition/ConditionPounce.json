@@ -5,14 +5,14 @@
   "conditionType": "Beneficial",
   "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
+  "specialDuration": false,
+  "durationType": "Hour",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -86,7 +86,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "None",
+  "amountOrigin": "Fixed",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e52567dc-e3ed-5410-b116-8f57973a2422",
+  "guid": "f061d5c0-a474-56e6-985a-97a9427fa9d0",
   "contentPack": 9999,
-  "name": "ConditionFeatDeadeye"
+  "name": "ConditionPounce"
 }

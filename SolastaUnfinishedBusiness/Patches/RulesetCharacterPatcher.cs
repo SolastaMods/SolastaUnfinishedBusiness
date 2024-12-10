@@ -2162,7 +2162,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldloc, 8), // success
                     new CodeInstruction(OpCodes.Call, mySetCurrentHitPointsMethod));
         }
-        
+
         //TODO: review this as I believe it'll bleed into other scenarios. if so should get outcome from RollSaving with another transpiler
         private static void MySetCurrentHitPoints(RulesetActor actor, int currentHitPoints, bool success)
         {
