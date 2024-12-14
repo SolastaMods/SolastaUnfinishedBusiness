@@ -179,8 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=启用饮用<color=#D89555>药水</color>作
 ModUi/&EnablePreparedSpellsTables2024=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
+ModUi/&EnableRangerDeftExplorer2024=在 2 级时启用 <color=#D89555>Deft Explorer</color> <i><color=#F0DAA0>[获得一项游侠技能专长，并学习 2 种语言]</color></i>
+ModUi/&EnableRangerExpertise2024=在 9 级启用<color=#D89555>专业知识</color> <i><color=#F0DAA0>[获得两项游侠技能专业知识]</color></i>
+ModUi/&EnableRangerFeralSenses2024=将 <color=#D89555>Feral Senses</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得 30 英尺盲视]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=将 <color=#D89555>Foe Slayer</color> 与 5e 2024 版本交换 <i><color=#F0DAA0>[将 Hunter's Mark 骰子增加至 d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=在 17 级时启用<color=#D89555>精准猎手</color> <i><color=#F0DAA0>[对抗被猎人标记的生物的优势]</color></i>
+ModUi/&EnableRangerRoving2024=在 6 级时启用<color=#D89555>漫游</color> <i><color=#F0DAA0>[不使用重型装甲时可移动 10 英尺，且爬升速度相同]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
+ModUi/&EnableRangerTireless=在 10 级时启用<color=#D89555>不知疲倦</color> <i><color=#F0DAA0>[使用动作获取临时生命值]</color></i>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=对所有施法者启用<color=#D89555>仪式</color>施法

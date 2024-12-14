@@ -179,8 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=Activer la consommation de <color=#D89555>po
 ModUi/&EnablePreparedSpellsTables2024=Permettre à tous les <color=#D89555>lanceurs de sorts</color> d'utiliser les nouvelles tables de sorts préparés <i><color=#F0DAA0>[Barde, Clerc, Druide, Paladin, Rôdeur, Sorcier, Magicien]</color></i>
 ModUi/&EnableProneAction=Activer l'action <color=#D89555>Tomber à plat ventre</color> <i><color=#F0DAA0>[vous pouvez tomber à plat ventre sans frais]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Activez les effets de mouvement de poussée et de traction pour qu'ils fonctionnent également sur l'axe haut/bas
+ModUi/&EnableRangerDeftExplorer2024=Activez <color=#D89555>Deft Explorer</color> au niveau 2 <i><color=#F0DAA0>[obtenez une expertise sur les compétences de Ranger et apprenez 2 langues]</color></i>
+ModUi/&EnableRangerExpertise2024=Activer <color=#D89555>Expertise</color> au niveau 9 <i><color=#F0DAA0>[obtenir deux expertises sur les compétences de Ranger]</color></i>
+ModUi/&EnableRangerFeralSenses2024=Échangez <color=#D89555>Sens sauvages</color> avec la version 5e 2024 <i><color=#F0DAA0>[obtenez une vision aveugle de 30 pieds]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Remplacez <color=#D89555>Foe Slayer</color> par la version 5e 2024 <i><color=#F0DAA0>[augmentez le dé de marque du chasseur à d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 14 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Activer <color=#D89555>Chasseur précis</color> au niveau 17 <i><color=#F0DAA0>[avantage contre les créatures marquées par Chasseur]</color></i>
+ModUi/&EnableRangerRoving2024=Activez <color=#D89555>Roving</color> au niveau 6 <i><color=#F0DAA0>[obtenez un mouvement de 10 pieds lorsque vous n'utilisez pas d'armure lourde et la même vitesse de montée]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
+ModUi/&EnableRangerTireless=Activez <color=#D89555>Tireless</color> au niveau 10 <i><color=#F0DAA0>[utilisez une action pour obtenir des points de vie temporaires]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts

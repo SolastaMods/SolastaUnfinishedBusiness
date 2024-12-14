@@ -179,15 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=Enable drinking <color=#D89555>Potions</colo
 ModUi/&EnablePreparedSpellsTables2024=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerDeftExplorer2024=Enable <color=#D89555>Deft Explorer</color> at level 2
-ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at level 9
-ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color>  with 5e 2024 version
-ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color>  with 5e 2024 version
+ModUi/&EnableRangerDeftExplorer2024=Enable <color=#D89555>Deft Explorer</color> at level 2 <i><color=#F0DAA0>[get one expertise on Ranger skills, and learn 2 languages]</color></i>
+ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at level 9 <i><color=#F0DAA0>[get two expertises on Ranger skills]</color></i>
+ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color> with 5e 2024 version <i><color=#F0DAA0>[get 30ft blindsight]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color>  with 5e 2024 version <i><color=#F0DAA0>[increase Hunter's Mark die to d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
-ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17
-ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6
+ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17 <i><color=#F0DAA0>[advantage against creatures marked by Hunter]</color></i>
+ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6 <i><color=#F0DAA0>[get 10ft movement when not using Heavy Armor, and same climb speed]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
-ModUi/&EnableRangerTireless=Enable <color=#D89555>Tireless</color> at level 10
+ModUi/&EnableRangerTireless=Enable <color=#D89555>Tireless</color> at level 10 <i><color=#F0DAA0>[use an action to get temporary hit points]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Enable <color=#D89555>Ritual</color> casting on all casters

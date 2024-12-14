@@ -179,8 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=Включить использование 
 ModUi/&EnablePreparedSpellsTables2024=Включить всем <color=#D89555>Заклинателям</color> использовать новые таблицы подготовленных заклинаний <i><color=#F0DAA0>[Бард, Жрец, Друид, Паладин, Следопыт, Чародей, Волшебник]</color></i>
 ModUi/&EnableProneAction=Включить действие <color=#D89555>Упасть ничком</color> <i><color=#F0DAA0>[вы можете упасть ничком без затрат каких-либо действий]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Включить работу эффектов толкания и притяжения по вертикальным осям
+ModUi/&EnableRangerDeftExplorer2024=Включите <color=#D89555>Ловкий исследователь</color> на уровне 2 <i><color=#F0DAA0>[получите одну экспертизу по навыкам рейнджера и выучите 2 языка]</color></i>
+ModUi/&EnableRangerExpertise2024=Включить <color=#D89555>Экспертизу</color> на уровне 9 <i><color=#F0DAA0>[получить две экспертизы по навыкам рейнджера]</color></i>
+ModUi/&EnableRangerFeralSenses2024=Поменяйте <color=#D89555>Feral Senses</color> на версию 5e 2024 <i><color=#F0DAA0>[получите 30-футовое слепое зрение]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Поменяйте <color=#D89555>Убийцу врагов</color> на версию 5e 2024 <i><color=#F0DAA0>[увеличите кубик Метки охотника до d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Включить умение <color=#D89555>Природная завеса</color> на уровне 14 <i><color=#F0DAA0>[бонусным действием вы можете волшебным образом стать невидимым до начала следующего хода]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Включить <color=#D89555>Точный Охотник</color> на уровне 17 <i><color=#F0DAA0>[преимущество против существ, отмеченных Охотником]</color></i>
+ModUi/&EnableRangerRoving2024=Включить <color=#D89555>Roving</color> на уровне 6 <i><color=#F0DAA0>[получить 10 футов движения, когда не используется тяжелая броня, и ту же скорость подъема]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
+ModUi/&EnableRangerTireless=Включить <color=#D89555>Неутомимый</color> на уровне 10 <i><color=#F0DAA0>[используйте действие, чтобы получить временные очки здоровья]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Включить <color=#D89555>Ритуальное колдовство</color> для всех заклинателей

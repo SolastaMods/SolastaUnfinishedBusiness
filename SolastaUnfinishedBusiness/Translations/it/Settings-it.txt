@@ -179,8 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=Abilita bere <color=#D89555>Pozioni</color> 
 ModUi/&EnablePreparedSpellsTables2024=Abilita tutti i <color=#D89555>incantatori</color> a usare le nuove tabelle degli incantesimi preparati <i><color=#F0DAA0>[Bardo, Chierico, Druido, Paladino, Ranger, Stregone, Mago]</color></i>
 ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
+ModUi/&EnableRangerDeftExplorer2024=Abilita <color=#D89555>Esploratore esperto</color> al livello 2 <i><color=#F0DAA0>[ottieni una competenza nelle abilità Ranger e impara 2 lingue]</color></i>
+ModUi/&EnableRangerExpertise2024=Abilita <color=#D89555>Competenza</color> al livello 9 <i><color=#F0DAA0>[ottieni due competenze sulle abilità Ranger]</color></i>
+ModUi/&EnableRangerFeralSenses2024=Sostituisci <color=#D89555>Sensi selvaggi</color> con la versione 5e 2024 <i><color=#F0DAA0>[ottieni vista cieca a 30 piedi]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Sostituisci <color=#D89555>Foe Slayer</color> con la versione 5e 2024 <i><color=#F0DAA0>[aumenta il dado del Marchio del Cacciatore a d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 14 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Abilita <color=#D89555>Cacciatore Preciso</color> al livello 17 <i><color=#F0DAA0>[vantaggio contro le creature contrassegnate dal Cacciatore]</color></i>
+ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
+ModUi/&EnableRangerTireless=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Abilita il lancio di <color=#D89555>Rituale</color> su tutti gli incantatori
