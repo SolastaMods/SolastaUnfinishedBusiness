@@ -179,8 +179,15 @@ ModUi/&EnablePotionsBonusAction2024=Enable drinking <color=#D89555>Potions</colo
 ModUi/&EnablePreparedSpellsTables2024=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> feature at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerDeftExplorer2024=Enable <color=#D89555>Deft Explorer</color> at level 2
+ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at level 9
+ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color>  with 5e 2024 version
+ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color>  with 5e 2024 version
+ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17
+ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
+ModUi/&EnableRangerTireless=Enable <color=#D89555>Tireless</color> at level 10
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Enable <color=#D89555>Ritual</color> casting on all casters

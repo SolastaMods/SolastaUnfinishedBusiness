@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -7,9 +6,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
@@ -86,7 +82,14 @@ internal static partial class Tabletop2024Context
         SwitchOneDndSpellStoneSkin();
         SwitchPoisonsBonusAction();
         SwitchPotionsBonusAction();
+        SwitchRangerDeftExplorer();
+        SwitchRangerExpertise();
+        SwitchRangerFeralSenses();
+        SwitchRangerFoeSlayers();
         SwitchRangerNatureShroud();
+        SwitchRangerPreciseHunter();
+        SwitchRangerRoving();
+        SwitchRangerTireless();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
         SwitchRogueReliableTalent();
@@ -105,72 +108,6 @@ internal static partial class Tabletop2024Context
         SwitchWizardSchoolOfMagicLearningLevel();
     }
 
-    internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
-    {
-        var level = Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2;
-
-        foreach (var featureUnlock in Paladin.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellPaladin))
-        {
-            featureUnlock.level = level;
-        }
-
-        // allows back and forth compatibility with EnableRitualOnAllCasters2024
-        foreach (var featureUnlock in Paladin.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
-        {
-            featureUnlock.level = level;
-        }
-
-        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-
-        if (Main.Settings.EnablePaladinSpellCastingAtLevel1)
-        {
-            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
-            SharedSpellsContext.ClassCasterType[PaladinClass] =
-                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
-        }
-        else
-        {
-            FeatureDefinitionCastSpells.CastSpellPaladin.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
-            SharedSpellsContext.ClassCasterType[PaladinClass] =
-                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
-        }
-    }
-
-    internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
-    {
-        var level = Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2;
-
-        foreach (var featureUnlock in Ranger.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellRanger))
-        {
-            featureUnlock.level = level;
-        }
-
-        // allows back and forth compatibility with EnableRitualOnAllCasters2024
-        foreach (var featureUnlock in Ranger.FeatureUnlocks
-                     .Where(x => x.FeatureDefinition == FeatureSetClericRitualCasting))
-        {
-            featureUnlock.level = level;
-        }
-
-        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-
-        if (Main.Settings.EnableRangerSpellCastingAtLevel1)
-        {
-            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfRoundUpCastingSlots;
-            SharedSpellsContext.ClassCasterType[RangerClass] =
-                FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp;
-        }
-        else
-        {
-            FeatureDefinitionCastSpells.CastSpellRanger.slotsPerLevels = SharedSpellsContext.HalfCastingSlots;
-            SharedSpellsContext.ClassCasterType[RangerClass] =
-                FeatureDefinitionCastSpellBuilder.CasterProgression.Half;
-        }
-    }
-
     internal static void SwitchSurprisedEnforceDisadvantage()
     {
         if (Main.Settings.EnableSurprisedToEnforceDisadvantage)
@@ -186,26 +123,6 @@ internal static partial class Tabletop2024Context
             ConditionDefinitions.ConditionSurprised.GuiPresentation.Description =
                 "Rules/&ConditionSurprisedDescription";
         }
-    }
-
-    internal static void SwitchOneDndPaladinLayOnHandAsBonusAction()
-    {
-        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024
-            ? ActivationTime.BonusAction
-            : ActivationTime.Action;
-    }
-
-    internal static void SwitchRangerNatureShroud()
-    {
-        Ranger.FeatureUnlocks
-            .RemoveAll(x => x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
-
-        if (Main.Settings.EnableRangerNatureShroud2024)
-        {
-            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
-        }
-
-        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private sealed class CustomBehaviorFilterTargetingPositionHalfMove

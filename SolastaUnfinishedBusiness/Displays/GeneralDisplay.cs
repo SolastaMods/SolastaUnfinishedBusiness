@@ -541,11 +541,53 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RangerTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableRangerDeftExplorer2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerDeftExplorer2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerDeftExplorer2024 = toggle;
+            Tabletop2024Context.SwitchRangerDeftExplorer();
+        }
+
+        toggle = Main.Settings.EnableRangerExpertise2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerExpertise2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerExpertise2024 = toggle;
+            Tabletop2024Context.SwitchRangerExpertise();
+        }
+
+        toggle = Main.Settings.EnableRangerFeralSenses2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFeralSenses2024 = toggle;
+            Tabletop2024Context.SwitchRangerFeralSenses();
+        }
+
+        toggle = Main.Settings.EnableRangerFoeSlayers2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
+            Tabletop2024Context.SwitchRangerFoeSlayers();
+        }
+
         toggle = Main.Settings.EnableRangerNatureShroud2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroud2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerNatureShroud2024 = toggle;
             Tabletop2024Context.SwitchRangerNatureShroud();
+        }
+
+        toggle = Main.Settings.EnableRangerPreciseHunter2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerPreciseHunter2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerPreciseHunter2024 = toggle;
+            Tabletop2024Context.SwitchRangerPreciseHunter();
+        }
+
+        toggle = Main.Settings.EnableRangerRoving2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerRoving2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerRoving2024 = toggle;
+            Tabletop2024Context.SwitchRangerRoving();
         }
 
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;

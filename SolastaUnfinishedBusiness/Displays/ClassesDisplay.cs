@@ -353,11 +353,53 @@ internal static class ClassesDisplay
             ClassesContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
+        toggle = Main.Settings.EnableRangerDeftExplorer2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerDeftExplorer2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerDeftExplorer2024 = toggle;
+            Tabletop2024Context.SwitchRangerDeftExplorer();
+        }
+
+        toggle = Main.Settings.EnableRangerExpertise2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerExpertise2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerExpertise2024 = toggle;
+            Tabletop2024Context.SwitchRangerExpertise();
+        }
+
+        toggle = Main.Settings.EnableRangerFeralSenses2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFeralSenses2024 = toggle;
+            Tabletop2024Context.SwitchRangerFeralSenses();
+        }
+
+        toggle = Main.Settings.EnableRangerFoeSlayers2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
+            Tabletop2024Context.SwitchRangerFoeSlayers();
+        }
+
         toggle = Main.Settings.EnableRangerNatureShroud2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroud2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerNatureShroud2024 = toggle;
             Tabletop2024Context.SwitchRangerNatureShroud();
+        }
+
+        toggle = Main.Settings.EnableRangerPreciseHunter2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerPreciseHunter2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerPreciseHunter2024 = toggle;
+            Tabletop2024Context.SwitchRangerPreciseHunter();
+        }
+
+        toggle = Main.Settings.EnableRangerRoving2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerRoving2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerRoving2024 = toggle;
+            Tabletop2024Context.SwitchRangerRoving();
         }
 
         toggle = Main.Settings.EnableRangerSpellCastingAtLevel1;
@@ -366,7 +408,14 @@ internal static class ClassesDisplay
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
-
+        
+        toggle = Main.Settings.EnableRangerTireless;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerTireless"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerTireless = toggle;
+            Tabletop2024Context.SwitchRangerTireless();
+        }
+        
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RogueTitle") + ":</color>");
         UI.Label();

@@ -295,8 +295,15 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterStudiedAttacks2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    public bool EnableRangerDeftExplorer2024 { get; set; }
+    public bool EnableRangerExpertise2024 { get; set; }
+    public bool EnableRangerFeralSenses2024 { get; set; }
+    public bool EnableRangerFoeSlayers2024 { get; set; }
     public bool EnableRangerNatureShroud2024 { get; set; }
+    public bool EnableRangerPreciseHunter2024 { get; set; }
+    public bool EnableRangerRoving2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
+    public bool EnableRangerTireless { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
