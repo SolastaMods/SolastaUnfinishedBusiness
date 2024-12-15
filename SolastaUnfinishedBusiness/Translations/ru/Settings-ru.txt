@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Включить <color=#D89555>Ин
 ModUi/&EnableBarbarianPersistentRage2024=Заменить <color=#D89555>Непрерывную ярость</color> на версию 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Включить <color=#D89555>Первобытное знание</color> на уровне 3
 ModUi/&EnableBarbarianReckless2024=Включить завершение эффектов <color=#D89555>Безрассудной атаки</color> в начале следующего хода
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Включить на уровне 1 возможность восстанавливать один заряд <color=#D89555>Ярости</color> за короткий отдых
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Включить на уровне 1 возможность восстанавливать один заряд <color=#D89555>Ярости</color> за короткий отдых
 ModUi/&EnableBarbarianRelentlessRage2024=Заменить <color=#D89555>Непреклонную ярость</color> на версию 5e 2024 <i><color=#F0DAA0>[ваши хиты становятся равны удвоенному значению вашего уровня класса вместо 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Включить <color=#D89555>Контрчары</color> на уровне 7 реакцией вместо действия на уровне 6
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Включить <color=#D89555>Компетентность</color> на уровнях 2 и 9 вместо 3 и 10
@@ -187,7 +187,7 @@ ModUi/&EnableRangerNatureShroud2024=Включить умение <color=#D89555
 ModUi/&EnableRangerPreciseHunter2024=Включить <color=#D89555>Точный Охотник</color> на уровне 17 <i><color=#F0DAA0>[преимущество против существ, отмеченных Охотником]</color></i>
 ModUi/&EnableRangerRoving2024=Включить <color=#D89555>Roving</color> на уровне 6 <i><color=#F0DAA0>[получить 10 футов движения, когда не используется тяжелая броня, и ту же скорость подъема]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
-ModUi/&EnableRangerTireless=Включить <color=#D89555>Неутомимый</color> на уровне 10 <i><color=#F0DAA0>[используйте действие, чтобы получить временные очки здоровья]</color></i>
+ModUi/&EnableRangerTireless2024=Включить <color=#D89555>Неутомимый</color> на уровне 10 <i><color=#F0DAA0>[используйте действие, чтобы получить временные очки здоровья]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Включить <color=#D89555>Ритуальное колдовство</color> для всех заклинателей
@@ -203,6 +203,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Включить <colo
 ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Волшебное указание</color> на уровне 5
 ModUi/&EnableSorcererQuickenedAction=Включить действие <color=#D89555>Ускоренное заклинание</color>, позволяющее накладывать заклинание основного действия с применением метамагии Ускоренного заклинания.
 ModUi/&EnableSorcererSorcerousRestoration2024=Включить <color=#D89555>Чародейское восстановление</color> на уровне 5
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Включить <color=#D89555>Origins</color> на уровне 3 вместо 1
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableSpeech=Включить речь в пользовательских кампаниях <i><color=#F0DAA0>[только повествование и герои]</color></i>
 ModUi/&EnableSpeechActorHelp=• Выберите актера

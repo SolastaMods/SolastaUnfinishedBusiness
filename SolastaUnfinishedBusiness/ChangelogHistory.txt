@@ -1,3 +1,10 @@
+1.5.97.42:
+
+- added 7 new tabletop 2024 Ranger settings [2024 Ranger almost complete]
+- added 1 new tabletop 2024 Sorcerer setting [2024 Sorcerer now complete]
+- fixed custom models rendering
+- fixed off-hand Katanas
+
 1.5.97.41:
 
 ATTENTION: bootstrap feels much slower with custom blender models parsing. need feedback from user base.

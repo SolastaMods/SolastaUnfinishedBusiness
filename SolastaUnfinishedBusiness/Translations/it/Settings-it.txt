@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istinti
 ModUi/&EnableBarbarianPersistentRage2024=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Abilita <color=#D89555>Conoscenza primordiale</color> al livello 3
 ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
 ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
@@ -187,7 +187,7 @@ ModUi/&EnableRangerNatureShroud2024=Abilita la funzione <color=#D89555>Velo dell
 ModUi/&EnableRangerPreciseHunter2024=Abilita <color=#D89555>Cacciatore Preciso</color> al livello 17 <i><color=#F0DAA0>[vantaggio contro le creature contrassegnate dal Cacciatore]</color></i>
 ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
-ModUi/&EnableRangerTireless=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>
+ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Abilita il lancio di <color=#D89555>Rituale</color> su tutti gli incantatori
@@ -203,6 +203,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Abilita <color=#D89555
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSorcererSorcerousRestoration2024=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore

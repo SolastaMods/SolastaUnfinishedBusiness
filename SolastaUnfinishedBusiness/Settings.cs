@@ -284,7 +284,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianPersistentRage2024 { get; set; }
     public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
     public bool EnableBarbarianReckless2024 { get; set; }
-    public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
+    public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }
@@ -297,13 +297,15 @@ public class Settings : UnityModManager.ModSettings
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerDeftExplorer2024 { get; set; }
     public bool EnableRangerExpertise2024 { get; set; }
+    public bool EnableRangerFavoredEnemy2024 { get; set; }
     public bool EnableRangerFeralSenses2024 { get; set; }
     public bool EnableRangerFoeSlayers2024 { get; set; }
     public bool EnableRangerNatureShroud2024 { get; set; }
     public bool EnableRangerPreciseHunter2024 { get; set; }
+    public bool EnableRangerRelentlessHunter2024 { get; set; }
     public bool EnableRangerRoving2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
-    public bool EnableRangerTireless { get; set; }
+    public bool EnableRangerTireless2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
@@ -331,6 +333,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
     public bool EnableSorcererSorcerousRestoration2024 { get; set; }
+    public bool EnableSorcererToLearnOriginAtLevel3 { get; set; }
     public bool EnableWarlockInvocationProgression2024 { get; set; }
     public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }

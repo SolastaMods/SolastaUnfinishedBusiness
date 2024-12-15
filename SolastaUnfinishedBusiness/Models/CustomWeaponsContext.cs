@@ -692,7 +692,7 @@ internal static class CustomWeaponsContext
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, thunderGauntletPrefab, 0, true, Common, null,
             baseDescription,
             Sprites.GetSprite("ItemThunderGauntlet", Resources.ItemThunderGauntlet, 128),
-            scale: 0.25f,
+            scale: 0.20f,
             properties: [ThunderImpactVFX]
         );
         ThunderGauntlet.inDungeonEditor = false;

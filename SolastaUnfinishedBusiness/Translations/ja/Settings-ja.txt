@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=レベル 7 で <color=#D89555>本�
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBarbarianPrimalKnowledge2024=レベル3で<color=#D89555>原始の知識</color>を有効にする
 ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます
 ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
@@ -187,7 +187,7 @@ ModUi/&EnableRangerNatureShroud2024=レベル 14 で <color=#D89555>自然のベ
 ModUi/&EnableRangerPreciseHunter2024=レベル 17 で <color=#D89555>精密ハンター</color> を有効にする <i><color=#F0DAA0>[ハンターによってマークされたクリーチャーに対して有利]</color></i>
 ModUi/&EnableRangerRoving2024=レベル 6 で <color=#D89555>移動</color> を有効にする <i><color=#F0DAA0>[重装甲を使用していないときに 10 フィート移動し、同じ登攀速度を得る]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
-ModUi/&EnableRangerTireless=レベル 10 で <color=#D89555>Tireless</color> を有効にする <i><color=#F0DAA0>[アクションを使用して一時的なヒット ポイントを獲得]</color></i>
+ModUi/&EnableRangerTireless2024=レベル 10 で <color=#D89555>Tireless</color> を有効にする <i><color=#F0DAA0>[アクションを使用して一時的なヒット ポイントを獲得]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=すべてのキャスターに<color=#D89555>儀式</color>の詠唱を有効にする
@@ -203,6 +203,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=レベル 1 と 7 で 
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcererSorcerousRestoration2024=レベル5で<color=#D89555>魔法による回復</color>を有効にする
+ModUi/&EnableSorcererToLearnOriginAtLevel3=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択

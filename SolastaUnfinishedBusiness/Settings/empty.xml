@@ -648,7 +648,7 @@
     <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>false</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRegainOneRageAtShortRest2024>false</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
     <EnableDruidMetalArmor2024>false</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>

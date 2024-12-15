@@ -189,7 +189,7 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == PowerRangerHideInPlainSight ||
                 x.FeatureDefinition == PowerRangerTireless);
 
-        Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerTireless
+        Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerTireless2024
             ? new FeatureUnlockByLevel(PowerRangerTireless, 10)
             : new FeatureUnlockByLevel(PowerRangerHideInPlainSight, 10));
 

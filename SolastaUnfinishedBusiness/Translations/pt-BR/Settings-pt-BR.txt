@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Habilitar <color=#D89555>Instinctive
 ModUi/&EnableBarbarianPersistentRage2024=Troque <color=#D89555>Persistent Rage</color> pela versão 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Habilitar <color=#D89555>Conhecimento Primordial</color> no nível 3
 ModUi/&EnableBarbarianReckless2024=Habilitar o bônus e o debuff <color=#D89555>Ataque Reckless</color> para terminar no início do próximo turno
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilitar recuperar um uso de <color=#D89555>Fúria</color> durante um descanso curto no nível 1
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Habilitar recuperar um uso de <color=#D89555>Fúria</color> durante um descanso curto no nível 1
 ModUi/&EnableBarbarianRelentlessRage2024=Troque <color=#D89555>Relentless Rage</color> pela versão 5e 2024 <i><color=#F0DAA0>[seus pontos de vida são definidos como 2x seu nível de classe em vez de 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Habilitar <color=#D89555>Contrafeitiço</color> no nível 7 como uma reação em vez do nível 6 como uma ação
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Habilitar <color=#D89555>Expertise</color> nos níveis 2 e 9 em vez de 3 e 10
@@ -187,7 +187,7 @@ ModUi/&EnableRangerNatureShroud2024=Habilite o recurso <color=#D89555>Véu da Na
 ModUi/&EnableRangerPreciseHunter2024=Habilitar <color=#D89555>Caçador Preciso</color> no nível 17 <i><color=#F0DAA0>[vantagem contra criaturas marcadas por Caçador]</color></i>
 ModUi/&EnableRangerRoving2024=Habilite <color=#D89555>Roving</color> no nível 6 <i><color=#F0DAA0>[obtenha 10 pés de movimento quando não estiver usando armadura pesada e a mesma velocidade de escalada]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
-ModUi/&EnableRangerTireless=Habilite <color=#D89555>Incansável</color> no nível 10 <i><color=#F0DAA0>[use uma ação para obter pontos de vida temporários]</color></i>
+ModUi/&EnableRangerTireless2024=Habilite <color=#D89555>Incansável</color> no nível 10 <i><color=#F0DAA0>[use uma ação para obter pontos de vida temporários]</color></i>
 ModUi/&EnableRelearnSpells=Habilitar seleção de truques ou magias já aprendidas de outras fontes
 ModUi/&EnableRespecAction=Habilitar <color=#D89555>RESPEC</color> após a ação de descanso <i><color=#F0DAA0>[não usar RESPEC durante uma sessão multijogador]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Habilitar a conjuração de <color=#D89555>Ritual</color> em todos os conjuradores
@@ -203,6 +203,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Habilitar <color=#D895
 ModUi/&EnableSorcererMagicalGuidance=Habilitar <color=#D89555>Orientação Mágica</color> no nível 5
 ModUi/&EnableSorcererQuickenedAction=Habilitar ação <color=#D89555>Feitiço Acelerado</color> para permitir conjurar feitiço de ação principal com metamagia acelerada aplicada
 ModUi/&EnableSorcererSorcerousRestoration2024=Habilitar <color=#D89555>Restauração Feiticeira</color> no nível 5
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Habilitar <color=#D89555>Origens</color> no nível 3 em vez de 1
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar classificação de ativos no editor do Dungeon Maker
 ModUi/&EnableSpeech=Habilitar fala em campanhas personalizadas <i><color=#F0DAA0>[somente narração e heróis]</color></i>
 ModUi/&EnableSpeechActorHelp=• Selecione um ator

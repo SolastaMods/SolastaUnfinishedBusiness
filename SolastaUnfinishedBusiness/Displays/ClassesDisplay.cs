@@ -114,10 +114,10 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBarbarianReckless();
         }
 
-        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+            Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024 = toggle;
             Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
@@ -395,10 +395,10 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
 
-        toggle = Main.Settings.EnableRangerTireless;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerTireless"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableRangerTireless2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerTireless2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRangerTireless = toggle;
+            Main.Settings.EnableRangerTireless2024 = toggle;
             Tabletop2024Context.SwitchRangerTireless();
         }
 
@@ -501,6 +501,13 @@ internal static class ClassesDisplay
             {
                 Main.Settings.HideQuickenedActionWhenMetamagicOff = toggle;
             }
+        }
+
+        toggle = Main.Settings.EnableSorcererToLearnOriginAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererToLearnOriginAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererToLearnOriginAtLevel3 = toggle;
+            Tabletop2024Context.SwitchSorcererOriginLearningLevel();
         }
 
         toggle = Main.Settings.EnableSorcererSorcerousRestoration2024;

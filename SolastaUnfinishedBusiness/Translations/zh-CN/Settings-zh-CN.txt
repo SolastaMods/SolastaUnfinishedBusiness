@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=在第 7 级启用<color=#D89555>本
 ModUi/&EnableBarbarianPersistentRage2024=将 <color=#D89555>Persistent Rage</color> 与 5e 2024 版本交换
 ModUi/&EnableBarbarianPrimalKnowledge2024=在第 3 级启用<color=#D89555>原始知识</color>
 ModUi/&EnableBarbarianReckless2024=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBarbarianRelentlessRage2024=将<color=#D89555>无情之怒</color>与 5e 2024 版本交换<i><color=#F0DAA0>[你的生命值设置为你的职业等级的 2 倍而不是 1 倍]</color></i>
 ModUi/&EnableBardCounterCharm2024=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore2024=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
@@ -187,7 +187,7 @@ ModUi/&EnableRangerNatureShroud2024=在 14 级时启用<color=#D89555>自然面�
 ModUi/&EnableRangerPreciseHunter2024=在 17 级时启用<color=#D89555>精准猎手</color> <i><color=#F0DAA0>[对抗被猎人标记的生物的优势]</color></i>
 ModUi/&EnableRangerRoving2024=在 6 级时启用<color=#D89555>漫游</color> <i><color=#F0DAA0>[不使用重型装甲时可移动 10 英尺，且爬升速度相同]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
-ModUi/&EnableRangerTireless=在 10 级时启用<color=#D89555>不知疲倦</color> <i><color=#F0DAA0>[使用动作获取临时生命值]</color></i>
+ModUi/&EnableRangerTireless2024=在 10 级时启用<color=#D89555>不知疲倦</color> <i><color=#F0DAA0>[使用动作获取临时生命值]</color></i>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=对所有施法者启用<color=#D89555>仪式</color>施法
@@ -203,6 +203,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=在 1 级和 7 级时�
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
 ModUi/&EnableSorcererSorcerousRestoration2024=在第 5 级启用<color=#D89555>魔法恢复</color>
+ModUi/&EnableSorcererToLearnOriginAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Origins</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员

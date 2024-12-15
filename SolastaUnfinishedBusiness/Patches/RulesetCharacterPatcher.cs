@@ -1687,7 +1687,7 @@ public static class RulesetCharacterPatcher
             //TODO: time to make this an interface to support scenarios like below
 
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
-            if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
+            if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024 &&
                 restType == RestType.ShortRest &&
                 __instance.GetClassLevel(Barbarian) >= 1 &&
                 __instance.UsedRagePoints > 0)
