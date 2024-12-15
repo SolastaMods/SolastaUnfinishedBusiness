@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -68,11 +70,42 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
-    internal static void LoadPaladinRestoringTouch()
+    private static readonly ConditionDefinition[] RestoringTouchConditions =
+    [
+        ConditionDefinitions.ConditionFrightened,
+        ConditionDefinitions.ConditionBlinded,
+        ConditionDefinitions.ConditionCharmed,
+        ConditionDefinitions.ConditionParalyzed,
+        ConditionDefinitions.ConditionStunned
+    ];
+
+    private static void LoadPaladinRestoringTouch()
     {
         PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
 
-        //TODO: add subpowers and logic on custom behavior
+        foreach (var condition in RestoringTouchConditions)
+        {
+            var conditionTitle = condition.FormatTitle();
+            var title = "PowerPaladinRestoringTouchSubPowerTitle".Formatted(Category.Feature, conditionTitle);
+            var description =
+                "PowerPaladinRestoringTouchSubPowerDescription".Formatted(Category.Feature, conditionTitle);
+
+            _ = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerPaladinRestoringTouch{condition.Name}")
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.NoCost, PowerPaladinRestoringTouch, 5)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.RemoveDetrimentalAll)
+                                .Build())
+                        .Build())
+                .AddToDB();
+        }
     }
 
     internal static void SwitchPaladinSpellCastingAtOne()
@@ -192,6 +225,48 @@ internal static partial class Tabletop2024Context
             if (!Main.Settings.EnablePaladinRestoringTouch2024)
             {
                 yield break;
+            }
+
+            var caster = action.ActingCharacter;
+            var rulesetCaster = caster.RulesetCharacter;
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
+            var usablePowerPool = PowerProvider.Get(PowerPaladinRestoringTouch, rulesetCaster);
+
+            while (rulesetCaster.GetRemainingUsesOfPower(usablePowerPool) > 0)
+            {
+                var usablePowers = new List<RulesetUsablePower>();
+
+                foreach (var condition in RestoringTouchConditions)
+                {
+                    if (!rulesetTarget.HasConditionOfTypeOrSubType(condition.Name))
+                    {
+                        continue;
+                    }
+
+                    var power = GetDefinition<FeatureDefinitionPowerSharedPool>(
+                        $"PowerPaladinRestoringTouch{condition.Name}");
+                    var usablePower = PowerProvider.Get(power, rulesetCaster);
+
+                    usablePowers.Add(usablePower);
+                    rulesetCaster.UsablePowers.Add(usablePower);
+                }
+
+                if (usablePowers.Count == 0)
+                {
+                    yield break;
+                }
+
+                yield return caster.MyReactToSpendPowerBundle(
+                    usablePowerPool,
+                    [target],
+                    caster,
+                    "RestoringTouch");
+
+                foreach (var usablePower in usablePowers)
+                {
+                    rulesetCaster.UsablePowers.Remove(usablePower);
+                }
             }
         }
     }
