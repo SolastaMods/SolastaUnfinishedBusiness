@@ -528,7 +528,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererSorcerousRestoration2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSorcererSorcerousRestoration2024 = toggle;
-            Tabletop2024Context.SwitchSorcerousRestorationAtLevel5();
+            Tabletop2024Context.SwitchSorcererSorcerousRestorationAtLevel5();
         }
 
         UI.Label();

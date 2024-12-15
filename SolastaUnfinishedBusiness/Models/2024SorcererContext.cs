@@ -216,7 +216,7 @@ internal static partial class Tabletop2024Context
             (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown;
     }
 
-    internal static void SwitchSorcerousRestorationAtLevel5()
+    internal static void SwitchSorcererSorcerousRestorationAtLevel5()
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
 

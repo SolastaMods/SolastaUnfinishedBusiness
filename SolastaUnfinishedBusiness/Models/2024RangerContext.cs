@@ -59,6 +59,20 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerRangerTireless = FeatureDefinitionPowerBuilder
         .Create("PowerRangerTireless")
         .SetGuiPresentation(Category.Feature)
+        .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+        .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.UntilAnyRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetTempHpForm(0, DieType.D8, 1)
+                        .Build())
+                .Build())
         .AddToDB();
 
     private static readonly FeatureDefinition FeatureRangerRelentlessHunter = FeatureDefinitionBuilder
@@ -176,8 +190,8 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == Level20Context.SenseRangerFeralSenses2024);
 
         Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerFeralSenses2024
-            ? new FeatureUnlockByLevel(Level20Context.SenseRangerFeralSenses, 18)
-            : new FeatureUnlockByLevel(Level20Context.SenseRangerFeralSenses2024, 18));
+            ? new FeatureUnlockByLevel(Level20Context.SenseRangerFeralSenses2024, 18)
+            : new FeatureUnlockByLevel(Level20Context.SenseRangerFeralSenses, 18));
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
@@ -190,8 +204,8 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == Level20Context.FeatureFoeSlayer2024);
 
         Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerFoeSlayers2024
-            ? new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer, 20)
-            : new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer2024, 20));
+            ? new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer2024, 20)
+            : new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer, 20));
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }

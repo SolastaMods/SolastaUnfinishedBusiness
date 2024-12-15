@@ -97,7 +97,8 @@ internal static partial class Tabletop2024Context
         SwitchRogueSteadyAim();
         SwitchSorcererArcaneApotheosis();
         SwitchSorcererInnateSorcery();
-        SwitchSorcerousRestorationAtLevel5();
+        SwitchSorcererOriginLearningLevel();
+        SwitchSorcererSorcerousRestorationAtLevel5();
         SwitchSpellRitualOnAllCasters();
         SwitchSurprisedEnforceDisadvantage();
         SwitchWarlockInvocationsProgression();
