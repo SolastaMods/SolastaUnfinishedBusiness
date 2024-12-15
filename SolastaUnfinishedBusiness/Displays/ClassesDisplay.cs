@@ -367,20 +367,6 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchRangerExpertise();
         }
 
-        toggle = Main.Settings.EnableRangerFeralSenses2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerFeralSenses2024 = toggle;
-            Tabletop2024Context.SwitchRangerFeralSenses();
-        }
-
-        toggle = Main.Settings.EnableRangerFoeSlayers2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
-            Tabletop2024Context.SwitchRangerFoeSlayers();
-        }
-
         toggle = Main.Settings.EnableRangerNatureShroud2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroud2024"), ref toggle, UI.AutoWidth()))
         {
@@ -408,14 +394,28 @@ internal static class ClassesDisplay
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
         }
-        
+
         toggle = Main.Settings.EnableRangerTireless;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerTireless"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerTireless = toggle;
             Tabletop2024Context.SwitchRangerTireless();
         }
-        
+
+        toggle = Main.Settings.EnableRangerFeralSenses2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFeralSenses2024 = toggle;
+            Tabletop2024Context.SwitchRangerFeralSenses();
+        }
+
+        toggle = Main.Settings.EnableRangerFoeSlayers2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
+            Tabletop2024Context.SwitchRangerFoeSlayers();
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&RogueTitle") + ":</color>");
         UI.Label();

@@ -555,20 +555,6 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchRangerExpertise();
         }
 
-        toggle = Main.Settings.EnableRangerFeralSenses2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerFeralSenses2024 = toggle;
-            Tabletop2024Context.SwitchRangerFeralSenses();
-        }
-
-        toggle = Main.Settings.EnableRangerFoeSlayers2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
-            Tabletop2024Context.SwitchRangerFoeSlayers();
-        }
-
         toggle = Main.Settings.EnableRangerNatureShroud2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroud2024"), ref toggle, UI.AutoWidth()))
         {
@@ -595,6 +581,20 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
+        }
+
+        toggle = Main.Settings.EnableRangerFeralSenses2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFeralSenses2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFeralSenses2024 = toggle;
+            Tabletop2024Context.SwitchRangerFeralSenses();
+        }
+
+        toggle = Main.Settings.EnableRangerFoeSlayers2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFoeSlayers2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFoeSlayers2024 = toggle;
+            Tabletop2024Context.SwitchRangerFoeSlayers();
         }
 
         UI.Label();

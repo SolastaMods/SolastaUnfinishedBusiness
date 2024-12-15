@@ -22,8 +22,7 @@ internal static partial class Tabletop2024Context
                     .SetPool(HeroDefinitions.PointsPoolType.Language, 2)
                     .AddToDB(),
                 FeatureDefinitionPointPoolBuilder
-                    .Create(
-                        FeatureDefinitionPointPools.PointPoolRangerSkillPoints, "PointPoolRangerDeftExplorerSkills")
+                    .Create("PointPoolRangerDeftExplorerSkills")
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
                     .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckPrimalKnowledge())
@@ -39,7 +38,7 @@ internal static partial class Tabletop2024Context
             .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolRangerExpertise = FeatureDefinitionPointPoolBuilder
-        .Create(FeatureDefinitionPointPools.PointPoolRangerSkillPoints, "PointPoolRangerExpertise")
+        .Create("PointPoolRangerExpertise")
         .SetGuiPresentation(Category.Feature)
         .SetPool(HeroDefinitions.PointsPoolType.Expertise, 2)
         .AddToDB();
@@ -51,6 +50,11 @@ internal static partial class Tabletop2024Context
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, ConditionDefinitions.ConditionMarkedByHunter)
             .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerRangerTireless = FeatureDefinitionPowerBuilder
+        .Create("PowerRangerTireless")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
 
     internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
     {
@@ -132,7 +136,7 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == Level20Context.FeatureFoeSlayer ||
                 x.FeatureDefinition == Level20Context.FeatureFoeSlayer2024);
 
-        Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerFeralSenses2024
+        Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerFoeSlayers2024
             ? new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer, 20)
             : new FeatureUnlockByLevel(Level20Context.FeatureFoeSlayer2024, 20));
 
@@ -178,11 +182,6 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private static readonly FeatureDefinitionPower PowerRangerTireless = FeatureDefinitionPowerBuilder
-        .Create("PowerRangerTireless")
-        .SetGuiPresentation(Category.Feature)
-        .AddToDB();
-    
     internal static void SwitchRangerTireless()
     {
         Ranger.FeatureUnlocks
