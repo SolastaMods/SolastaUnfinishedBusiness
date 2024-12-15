@@ -170,8 +170,9 @@ ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>Spare the Dying</color> 5e 
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>スパイダークライム</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[アップキャストごとにターゲット +1]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
-ModUi/&EnablePaladinSmiteAsBonusAction2024=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
+ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
+ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
+ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする

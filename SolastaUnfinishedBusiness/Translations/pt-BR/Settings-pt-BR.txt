@@ -170,8 +170,9 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Habilitar <color=#D89555>Poupar os Moribun
 ModUi/&EnableOneDndSpiderClimbSpell=Habilitar <color=#D89555>Escalada de Aranha</color> versão de magia 5e 2024 <i><color=#F0DAA0>[+1 alvo por upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Stone Skin</color> versão de magia 5e 2024 <i><color=#F0DAA0>[fornece resistência a B/P/S mágicos também]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>True Strike</color> versão 5e 2024 do truque <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[o ataque usa sua habilidade de conjuração para a jogada de ataque e bônus de dano, além de dano radiante adicional do nível 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Habilitar <color=#D89555>Impor as Mãos</color> como ação bônus
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Habilitar <color=#D89555>Smite</color> como ação bônus
+ModUi/&EnablePaladinChannelDivinity2024=Habilitar <color=#D89555>Channel Divinity</color> versão 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Habilitar <color=#D89555>Impor as Mãos</color> versão 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
+ModUi/&EnablePaladinSmite2024=Habilitar <color=#D89555>Divine Smite</color> versão 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
 ModUi/&EnablePcgRandom=Habilitar um algoritmo de gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Habilitar a aplicação de <color=#D89555>Venenos</color> em armas como uma ação bônus

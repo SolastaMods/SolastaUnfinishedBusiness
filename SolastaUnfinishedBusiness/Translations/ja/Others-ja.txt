@@ -187,6 +187,7 @@ Feature/&MonkAlternateUnarmoredMovementImprovedDescription=9 レベルからは�
 Feature/&MonkAlternateUnarmoredMovementImprovedTitle=非装甲の動き - 改善されました
 Feature/&MovementAffinityRangerRovingDescription=重装甲を着用していない間、移動速度が 10 フィート増加します。また、移動速度と同じ速度で登攀できます。
 Feature/&MovementAffinityRangerRovingTitle=ロービング
+Feature/&PaladinChannelDivinityDescription=外界から直接神聖なエネルギーを導き、魔法の効果を活性化することができます。このクラスの「チャネル ディヴィニティ」は 2 回使用できます。小休憩を終えると消費した使用回数が 1 回回復し、大休憩を終えると消費した使用回数がすべて回復します。パラディン レベル 11 に到達すると、使用回数が 1 回追加されます。
 Feature/&PointPoolBarbarianPrimalKnowledgeDescription=レベル 1 でバーバリアンが使用できるスキル リストから選択した別のスキルに習熟します。さらに、アクロバット、威圧、知覚、ステルス、または生存のいずれかの能力チェックに失敗するたびに、怒りの使用量を 1 回消費して、ロールに筋力修正値を追加し、代わりに成功させる可能性があります。この能力を使用するとき、筋力はあなたに流れる原始的な力を表し、敏捷性、態度、および感覚を磨きます。
 Feature/&PointPoolBarbarianPrimalKnowledgeTitle=原始的な知識
 Feature/&PointPoolRangerExpertiseDescription=専門知識が不足しているスキルの熟練度を 2 つ選択します。それらのスキルの専門知識を獲得します。

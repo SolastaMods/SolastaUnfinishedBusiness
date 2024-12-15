@@ -170,8 +170,9 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Включить версию заклин
 ModUi/&EnableOneDndSpiderClimbSpell=Включить версию заклинания <color=#D89555>Паук</color> из 5e 2024 <i><color=#F0DAA0>[+1 цель за каждый дополнительный уровень ячейки заклинания]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Включить версию заклинания <color=#D89555>Каменная кожа</color> из 5e 2024 <i><color=#F0DAA0>[также даёт сопротивление магическому дробящему, рубящему и колющему урону]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Включить версию заговора <color=#D89555>Меткий удар</color> из 5e 2024 <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>\n<i><color=#F0DAA0>[для бросков атаки и урона используется ваша заклинательная характеристика, а также дополнительный урон излучением с 5-го уровня]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Включить <color=#D89555>Наложение рук</color> бонусным действием
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Включить <color=#D89555>Кару</color> бонусным действием
+ModUi/&EnablePaladinChannelDivinity2024=Включить <color=#D89555>Channel Divinity</color> 5e 2024 версии <i><color=#F0DAA0>[различные варианты использования]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Включить <color=#D89555>Возложение рук</color> 5e 2024 версия <i><color=#F0DAA0>[бонусное действие]</color></i>
+ModUi/&EnablePaladinSmite2024=Включить <color=#D89555>Divine Smite</color> 5e 2024 версии <i><color=#F0DAA0>[бонусное действие]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Включить нанесение <color=#D89555>Ядов</color> на оружие бонусным действием

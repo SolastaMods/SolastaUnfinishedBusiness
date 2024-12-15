@@ -187,6 +187,7 @@ Feature/&MonkAlternateUnarmoredMovementImprovedDescription=从第 9 级开始，
 Feature/&MonkAlternateUnarmoredMovementImprovedTitle=无甲移动 - 改进
 Feature/&MovementAffinityRangerRovingDescription=未穿着重甲时，您的速度增加 10 英尺。您的攀爬速度也等于您的速度。
 Feature/&MovementAffinityRangerRovingTitle=粗纱
+Feature/&PaladinChannelDivinityDescription=您可以直接从外层位面引导神圣能量，用它来产生魔法效果。您可以使用此职业的神圣引导两次。完成短暂休息后，您可以恢复一次已消耗的使用次数，完成长时间休息后，您可以恢复所有已消耗的使用次数。当您达到圣骑士等级 11 时，您可以获得一次额外使用次数。
 Feature/&PointPoolBarbarianPrimalKnowledgeDescription=你可以熟练掌握 1 级野蛮人技能列表中的另一项技能。此外，每当你未通过以下能力检定之一时：杂技、威吓、感知、隐身或生存，你可以消耗一次怒气值，将力量调整值添加到检定中，从而有可能导致检定成功。当你使用此能力时，你的力量代表着你体内流淌的原始力量，磨练你的敏捷、风度和感官。
 Feature/&PointPoolBarbarianPrimalKnowledgeTitle=原始知识
 Feature/&PointPoolRangerExpertiseDescription=选择两项你不擅长的技能。你将在这些技能上获得专业知识。

@@ -187,6 +187,7 @@ Feature/&MonkAlternateUnarmoredMovementImprovedDescription=Starting at the 9th l
 Feature/&MonkAlternateUnarmoredMovementImprovedTitle=Unarmored Movement - Improved
 Feature/&MovementAffinityRangerRovingDescription=Your speed increase by 10 ft while you aren't wearing heavy armor. You also have a climb speed equal to your speed.
 Feature/&MovementAffinityRangerRovingTitle=Roving
+Feature/&PaladinChannelDivinityDescription=You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. 
 Feature/&PointPoolBarbarianPrimalKnowledgeDescription=You gain proficiency in another skill of your choice from the skill list available to Barbarians at level 1. In addition, whenever you fail one of the following ability checks: Acrobatics, Intimidation, Perception, Stealth, or Survival, you can expend one Rage usage to add your Strength modifier to the roll, potentially causing it to succeed instead. When you use this ability, your Strength represents primal power coursing through you, honing your agility, bearing, and senses.
 Feature/&PointPoolBarbarianPrimalKnowledgeTitle=Primal Knowledge
 Feature/&PointPoolRangerExpertiseDescription=Choose two of your skill proficiencies with which you lack expertise. You gain expertise in those skills.

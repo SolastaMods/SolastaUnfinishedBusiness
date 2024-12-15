@@ -170,8 +170,9 @@ ModUi/&EnableOneDndSpareTheDyingSpell=启用<color=#D89555>Spare the Dying</colo
 ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e 2024 法术版本<i><color=#F0DAA0>[每次施法 +1 个目标]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=启用<color=#D89555>圣疗术</color>作为奖励行动
-ModUi/&EnablePaladinSmiteAsBonusAction2024=启用 <color=#D89555>Smite</color> 作为奖励行动
+ModUi/&EnablePaladinChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=启用<color=#D89555>圣疗术</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinSmite2024=启用<color=#D89555>Divine Smite</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动

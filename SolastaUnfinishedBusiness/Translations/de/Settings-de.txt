@@ -170,8 +170,9 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Aktiviere die Zauberversion <color=#D89555
 ModUi/&EnableOneDndSpiderClimbSpell=Aktiviere <color=#D89555>Spider Climb</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[+1 Ziel pro Upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Aktiviere <color=#D89555>Steinhaut</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bietet auch Widerstand gegen magisches B/P/S]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Aktiviere <color=#D89555>True Strike</color> 5e 2024 Cantrip-Version <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Angriff nutzt deine Zauberfähigkeit für den Angriffswurf und Schadensbonus sowie zusätzlichen Strahlungsschaden ab Level 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
+ModUi/&EnablePaladinChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Aktivieren Sie <color=#D89555>Handauflegen</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
+ModUi/&EnablePaladinSmite2024=Aktivieren Sie <color=#D89555>Divine Smite</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
