@@ -1,5 +1,3 @@
-                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
-=VIDE
 Action/&ActionDisableGrappleDescription=Vous relâchez la cible agrippée.
 Action/&ActionDisableGrappleTitle=Désactiver le grappin
 Action/&ActionGrappleDescription=Vous pouvez remplacer l'une de vos attaques principales par une lutte contre une créature à votre portée et pas plus grande qu'elle. Vous effectuez un test de Force (Athlétisme) contesté par le test de Force (Athlétisme) ou de Dextérité (Acrobaties) de la cible.
@@ -146,7 +144,7 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=Directeur
 Feature/&FeatureSetRageExtendedDescription=Au combat, vous combattez avec une férocité primitive. À votre tour, vous pouvez entrer en rage en tant qu'action bonus. Cela vous confère un avantage aux jets de sauvegarde et aux tests de Force, un bonus initial de +2 aux dégâts d'attaque au corps à corps et une résistance aux dégâts tranchants, contondants et perforants. Vous ne bénéficiez de ces avantages que si vous ne portez pas d'armure lourde. Dure 1 minute ou prend fin si vous n'avez pas attaqué ou subi de dégâts depuis votre dernier tour.\n Vous commencez avec 2 rages, renouvelées après un repos long. Au niveau 7, vous regagnez un point de rage après un repos court.
 Feature/&FeatureSetRangerDeftExplorerDescription=Grâce à vos voyages, vous obtenez les avantages suivants.\n• Expertise. Choisissez l'une de vos compétences que vous ne maîtrisez pas suffisamment. Vous obtenez une expertise dans cette compétence.\n• Langues. Vous connaissez 2 langues de votre choix.
 Feature/&FeatureSetRangerDeftExplorerTitle=Explorateur habile
-Feature/&FeatureSetRangerFavoredEnemyDescription=Vous avez toujours le sort Marque du chasseur prêt. Vous pouvez le lancer deux fois sans dépenser d'emplacement de sort, et vous récupérez toutes les utilisations dépensées de cette capacité lorsque vous terminez un repos long.
+Feature/&FeatureSetRangerFavoredEnemyDescription=Vous avez toujours le sort Marque du chasseur prêt. Vous pouvez le lancer deux fois sans dépenser d'emplacement de sort, et vous récupérez toutes les utilisations dépensées de cette capacité lorsque vous terminez un Repos long. Le nombre de fois que vous pouvez lancer le sort sans emplacement de sort augmente lorsque vous atteignez certains niveaux de Rôdeur, comme indiqué dans la colonne Ennemi favori du tableau des Caractéristiques du Rôdeur.
 Feature/&FeatureSetRangerFavoredEnemyTitle=Ennemi favori
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=Si vous n'avez plus d'utilisation de Sorcellerie innée, vous pouvez l'utiliser si vous dépensez 2 points de Sorcellerie lorsque vous effectuez l'action bonus pour l'activer.
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=La sorcellerie incarnée

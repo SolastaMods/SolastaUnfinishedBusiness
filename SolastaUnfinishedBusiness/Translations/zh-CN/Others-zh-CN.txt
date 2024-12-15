@@ -1,5 +1,3 @@
-                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
-=空的
 Action/&ActionDisableGrappleDescription=你放开了被擒抱的目标。
 Action/&ActionDisableGrappleTitle=禁用抓钩
 Action/&ActionGrappleDescription=你可以用一次主要攻击来代替擒抱，以你触手可及的范围内且体型不大于你一号的生物为目标。你进行力量（运动）检定，并与目标的力量（运动）或敏捷（杂技）检定进行对抗。
@@ -146,7 +144,7 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=典狱长
 Feature/&FeatureSetRageExtendedDescription=在战斗中，你会以原始的凶猛进行战斗。在你的回合中，你可以输入狂怒作为附赠动作。这使你在力量豁免和检定上获得优势，近战攻击伤害初始 +2 加值，以及对挥砍、钝击和穿刺伤害的抗性。仅当你不穿着重甲时你才能获得这些好处。持续 1 分钟，如果自上回合以来你没有攻击或受到伤害，则结束。\n你以 2 点怒气开始，在长休后恢复。 7 级时，短休后你会恢复 1 点怒气。
 Feature/&FeatureSetRangerDeftExplorerDescription=通过旅行，您将获得以下好处。\n• 专业知识。选择一项您不擅长的技能。您将获得该技能的专业知识。\n• 语言。您掌握 2 种您选择的语言。
 Feature/&FeatureSetRangerDeftExplorerTitle=灵巧的探险家
-Feature/&FeatureSetRangerFavoredEnemyDescription=你始终会准备好猎人印记法术。你可以施放两次而不消耗法术位，并且在完成长时间休息后，你可以恢复此技能的所有消耗使用次数。
+Feature/&FeatureSetRangerFavoredEnemyDescription=你始终准备好猎人印记法术。你可以施放两次而不消耗法术位，当你完成长时间休息时，你可以恢复此技能的所有已消耗使用次数。当你达到某些游侠等级时，无需消耗法术位即可施放此法术的次数会增加，如游侠特性表中的偏好敌人栏所示。
 Feature/&FeatureSetRangerFavoredEnemyTitle=最喜欢的敌人
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=如果您已经无法使用天生巫术，您可以在采取奖励行动激活它时花费 2 个巫术点来使用它。
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=魔法化身

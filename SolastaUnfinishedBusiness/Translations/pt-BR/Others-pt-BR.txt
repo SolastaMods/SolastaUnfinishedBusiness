@@ -1,5 +1,3 @@
-                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
-=VAZIO
 Action/&ActionDisableGrappleDescription=Você solta o alvo agarrado.
 Action/&ActionDisableGrappleTitle=Desabilitar Grapple
 Action/&ActionGrappleDescription=Você pode substituir um dos seus ataques principais para iniciar um agarrar, mirando em uma criatura dentro do seu alcance e não mais do que um tamanho maior que você. Você faz um teste de Força (Atletismo) contestado pelo teste de Força (Atletismo) ou Destreza (Acrobacia) do alvo.
@@ -146,7 +144,7 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=Diretor
 Feature/&FeatureSetRageExtendedDescription=Em batalha, você luta com ferocidade primitiva. No seu turno, você pode entrar em fúria como uma ação bônus. Isso lhe concede vantagem em testes de resistência e força, um bônus inicial de +2 para dano de ataque corpo a corpo e resistência a dano cortante, contundente e perfurante. Você ganha esses benefícios somente se não estiver usando armadura pesada. Dura 1 minuto ou termina se você não tiver atacado ou sofrido dano desde seu último turno.\n Você começa com 2 fúrias, renovadas após um longo descanso. No nível 7, você recupera um ponto de fúria após um descanso curto.
 Feature/&FeatureSetRangerDeftExplorerDescription=Graças às suas viagens, você ganha os seguintes benefícios.\n• Expertise. Escolha uma das suas proficiências de habilidade com a qual você não tem proficiência. Você ganha expertise nessa habilidade.\n• Idiomas. Você sabe 2 idiomas de sua escolha.
 Feature/&FeatureSetRangerDeftExplorerTitle=Explorador hábil
-Feature/&FeatureSetRangerFavoredEnemyDescription=Você sempre tem a magia Hunter's Mark preparada. Você pode conjurá-la duas vezes sem gastar um espaço de magia, e você recupera todos os usos gastos dessa habilidade quando termina um Long Rest.
+Feature/&FeatureSetRangerFavoredEnemyDescription=Você sempre tem a magia Hunter's Mark preparada. Você pode conjurá-la duas vezes sem gastar um espaço de magia, e você recupera todos os usos gastos dessa habilidade quando termina um Long Rest. O número de vezes que você pode conjurar a magia sem um espaço de magia aumenta quando você alcança certos níveis de Ranger, como mostrado na coluna Favored Enemy da tabela Ranger Features.
 Feature/&FeatureSetRangerFavoredEnemyTitle=Inimigo Favorito
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=Se você não tiver mais usos para Feitiçaria Inata, poderá usá-la se gastar 2 Pontos de Feitiçaria ao realizar a Ação Bônus para ativá-la.
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=Feitiçaria Encarnada

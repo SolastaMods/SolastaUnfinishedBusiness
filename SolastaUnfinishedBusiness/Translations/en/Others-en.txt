@@ -1,4 +1,3 @@
-                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
 Action/&ActionDisableGrappleDescription=You release the grappled target.
 Action/&ActionDisableGrappleTitle=Disable Grapple
 Action/&ActionGrappleDescription=You can replace one of your main attacks to initiate a grapple, targeting a creature within your reach and no more than one size larger than you. You make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check.
@@ -145,7 +144,7 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=Warden
 Feature/&FeatureSetRageExtendedDescription=In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. This grants you advantage on strength saves and checks, an initial +2 bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor. Lasts for 1 minute or ends if you have not attacked or suffered damage since your last turn.\n You start with 2 rages, renewed after a long rest. At level 7, you regain one rage point after a short rest.
 Feature/&FeatureSetRangerDeftExplorerDescription=Thanks to your travels, you gain the following benefits.\n• Expertise. Choose one of your skill proficiencies with which you lack proficiency. You gain expertise in that skill.\n• Languages. You know 2 languages of your choice.
 Feature/&FeatureSetRangerDeftExplorerTitle=Deft Explorer
-Feature/&FeatureSetRangerFavoredEnemyDescription=You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest.
+Feature/&FeatureSetRangerFavoredEnemyDescription=You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest. The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
 Feature/&FeatureSetRangerFavoredEnemyTitle=Favored Enemy
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=If you have no uses of Innate Sorcery left, you can use it if you spend 2 Sorcery Points when you take the Bonus Action to activate it.
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=Sorcery Incarnate

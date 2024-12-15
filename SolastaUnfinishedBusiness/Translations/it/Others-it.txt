@@ -1,5 +1,3 @@
-                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
-=VUOTO
 Action/&ActionDisableGrappleDescription=Rilasci il bersaglio afferrato.
 Action/&ActionDisableGrappleTitle=Disattivare la presa
 Action/&ActionGrappleDescription=Puoi sostituire uno dei tuoi attacchi principali per iniziare una lotta, prendendo di mira una creatura entro la tua portata e non più grande di una taglia rispetto a te. Esegui una prova di Forza (Atletica) contrastata dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio.
@@ -146,7 +144,7 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=Guardiano
 Feature/&FeatureSetRageExtendedDescription=In battaglia, combatti con ferocia primordiale. Nel tuo turno, puoi entrare in ira come azione bonus. Ciò ti garantisce un vantaggio sui tiri salvezza e sulle prove di forza, un bonus iniziale di +2 ai danni da attacco in mischia e resistenza ai danni taglienti, contundenti e perforanti. Ottieni questi benefici solo se non indossi un'armatura pesante. Dura 1 minuto o termina se non hai attaccato o subito danni dal tuo ultimo turno. \n Inizi con 2 ira, rinnovate dopo un lungo riposo. Al livello 7, recuperi un punto ira dopo un breve riposo.
 Feature/&FeatureSetRangerDeftExplorerDescription=Grazie ai tuoi viaggi, ottieni i seguenti vantaggi.\n• Competenza. Scegli una delle tue competenze in cui non sei competente. Ottieni competenza in quella competenza.\n• Lingue. Conosci 2 lingue a tua scelta.
 Feature/&FeatureSetRangerDeftExplorerTitle=Esploratore abile
-Feature/&FeatureSetRangerFavoredEnemyDescription=Hai sempre pronto l'incantesimo Hunter's Mark. Puoi lanciarlo due volte senza spendere uno slot incantesimo e recuperi tutti gli usi spesi di questa capacità quando finisci un Long Rest.
+Feature/&FeatureSetRangerFavoredEnemyDescription=Hai sempre pronto l'incantesimo Hunter's Mark. Puoi lanciarlo due volte senza spendere uno slot incantesimo e recuperi tutti gli usi spesi di questa capacità quando finisci un Long Rest. Il numero di volte in cui puoi lanciare l'incantesimo senza uno slot incantesimo aumenta quando raggiungi determinati livelli da Ranger, come mostrato nella colonna Favorite Enemy della tabella Ranger Features.
 Feature/&FeatureSetRangerFavoredEnemyTitle=Nemico favorito
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=Se non hai più possibilità di usare la Stregoneria Innata, puoi usarla spendendo 2 Punti Stregoneria quando esegui l'Azione Bonus per attivarla.
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=Stregoneria incarnata
