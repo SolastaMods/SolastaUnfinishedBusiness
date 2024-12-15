@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 �
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
 ModUi/&EnableRangerDeftExplorer2024=레벨 2에서 <color=#D89555>탐험가 기민함</color> 활성화 <i><color=#F0DAA0>[레인저 기술 전문 지식 1개 획득, 언어 2개 학습]</color></i>
 ModUi/&EnableRangerExpertise2024=레벨 9에서 <color=#D89555>전문성</color>을 활성화하세요 <i><color=#F0DAA0>[레인저 기술 전문성 2개 획득]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=<color=#D89555>선호하는 적</color>과 <color=#D89555>선호하는 지형</color>을 <color=#D89555>선호하는 적</color> 5e 2024 버전으로 바꾸세요.
 ModUi/&EnableRangerFeralSenses2024=<color=#D89555>야생의 감각</color>을 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[30피트 실명 시야 확보]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=<color=#D89555>적 처치자</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[사냥꾼의 표식 주사위를 d10으로 증가]</color></i>
 ModUi/&EnableRangerNatureShroud2024=레벨 14에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=레벨 17에서 <color=#D89555>정밀 사냥꾼</color>을 활성화합니다. <i><color=#F0DAA0>[사냥꾼이 표시한 생물에 대한 이점]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=레벨 13에서 <color=#D89555>끈질긴 사냥꾼</color> 활성화 <i><color=#F0DAA0>[사냥꾼의 표식에 집중력 잃지 않음]</color></i>
 ModUi/&EnableRangerRoving2024=레벨 6에서 <color=#D89555>이동</color> 가능 <i><color=#F0DAA0>[중갑옷을 착용하지 않을 때 10피트 이동 가능, 동일한 등반 속도]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnableRangerTireless2024=레벨 10에서 <color=#D89555>무지력</color>을 활성화합니다. <i><color=#F0DAA0>[임시 생명력 포인트를 얻기 위해 액션을 사용하세요]</color></i>

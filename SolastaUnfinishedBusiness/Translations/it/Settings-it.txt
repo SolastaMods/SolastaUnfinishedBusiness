@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
 ModUi/&EnableRangerDeftExplorer2024=Abilita <color=#D89555>Esploratore esperto</color> al livello 2 <i><color=#F0DAA0>[ottieni una competenza nelle abilità Ranger e impara 2 lingue]</color></i>
 ModUi/&EnableRangerExpertise2024=Abilita <color=#D89555>Competenza</color> al livello 9 <i><color=#F0DAA0>[ottieni due competenze sulle abilità Ranger]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Sostituisci <color=#D89555>Nemico preferito</color> e <color=#D89555>Terreno preferito</color> con <color=#D89555>Nemico preferito</color> versione 5e 2024
 ModUi/&EnableRangerFeralSenses2024=Sostituisci <color=#D89555>Sensi selvaggi</color> con la versione 5e 2024 <i><color=#F0DAA0>[ottieni vista cieca a 30 piedi]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=Sostituisci <color=#D89555>Foe Slayer</color> con la versione 5e 2024 <i><color=#F0DAA0>[aumenta il dado del Marchio del Cacciatore a d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 14 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Abilita <color=#D89555>Cacciatore Preciso</color> al livello 17 <i><color=#F0DAA0>[vantaggio contro le creature contrassegnate dal Cacciatore]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Abilita <color=#D89555>Cacciatore implacabile</color> al livello 13 <i><color=#F0DAA0>[nessuna perdita di concentrazione sul Marchio del cacciatore]</color></i>
 ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>

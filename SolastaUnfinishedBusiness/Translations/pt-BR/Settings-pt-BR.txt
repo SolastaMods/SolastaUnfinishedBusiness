@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=Habilite a ação <color=#D89555>Cair de bruços</color
 ModUi/&EnablePullPushOnVerticalDirection=Habilitar efeitos de movimento de empurrar e puxar para também funcionarem no eixo para cima/baixo
 ModUi/&EnableRangerDeftExplorer2024=Habilite <color=#D89555>Explorador Hábil</color> no nível 2 <i><color=#F0DAA0>[obtenha uma especialização em habilidades de Patrulheiro e aprenda 2 idiomas]</color></i>
 ModUi/&EnableRangerExpertise2024=Habilite <color=#D89555>Expertise</color> no nível 9 <i><color=#F0DAA0>[obtenha duas expertises em habilidades de Ranger]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Troque <color=#D89555>Inimigo Favorito</color> e <color=#D89555>Terreno Favorito</color> por <color=#D89555>Inimigo Favorito</color> versão 5e 2024
 ModUi/&EnableRangerFeralSenses2024=Troque <color=#D89555>Sentidos Feral</color> pela versão 5e 2024 <i><color=#F0DAA0>[obtenha visão cega de 30 pés]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=Troque <color=#D89555>Foe Slayer</color> pela versão 5e 2024 <i><color=#F0DAA0>[aumente o dado Hunter's Mark para d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Habilite o recurso <color=#D89555>Véu da Natureza</color> no nível 14 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Habilitar <color=#D89555>Caçador Preciso</color> no nível 17 <i><color=#F0DAA0>[vantagem contra criaturas marcadas por Caçador]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Habilite <color=#D89555>Relentless Hunter</color> no nível 13 <i><color=#F0DAA0>[nenhuma concentração perdida na Hunter's Mark]</color></i>
 ModUi/&EnableRangerRoving2024=Habilite <color=#D89555>Roving</color> no nível 6 <i><color=#F0DAA0>[obtenha 10 pés de movimento quando não estiver usando armadura pesada e a mesma velocidade de escalada]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
 ModUi/&EnableRangerTireless2024=Habilite <color=#D89555>Incansável</color> no nível 10 <i><color=#F0DAA0>[use uma ação para obter pontos de vida temporários]</color></i>

@@ -1,9 +1,7 @@
 1.5.97.42:
 
-- added 7 new tabletop 2024 Ranger settings [2024 Ranger almost complete]
-- added 1 new tabletop 2024 Sorcerer setting [2024 Sorcerer now complete]
-- fixed custom models rendering
-- fixed off-hand Katanas
+- completed Ranger, and Sorcerer tabletop 2024 settings
+- fixed custom models rendering, and off-hand Katanas
 
 1.5.97.41:
 

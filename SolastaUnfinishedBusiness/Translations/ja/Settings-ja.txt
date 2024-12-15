@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクシ�
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
 ModUi/&EnableRangerDeftExplorer2024=レベル 2 で <color=#D89555>Deft Explorer</color> を有効にする <i><color=#F0DAA0>[レンジャー スキルの専門知識を 1 つ取得し、言語を 2 つ習得します]</color></i>
 ModUi/&EnableRangerExpertise2024=レベル 9 で <color=#D89555>専門知識</color> を有効にする <i><color=#F0DAA0>[レンジャー スキルに関する専門知識を 2 つ取得]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=<color=#D89555>得意な敵</color>と<color=#D89555>得意な地形</color>を<color=#D89555>得意な敵</color> 5e 2024バージョンと入れ替えます
 ModUi/&EnableRangerFeralSenses2024=<color=#D89555>Feral Senses</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[30 フィートの盲視力を得る]</color></i> と入れ替えます
 ModUi/&EnableRangerFoeSlayers2024=<color=#D89555>Foe Slayer</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[Hunter's Mark ダイスを d10 に増加]</color></i> と入れ替えます
 ModUi/&EnableRangerNatureShroud2024=レベル 14 で <color=#D89555>自然のベール</color> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法で透明になることができます]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=レベル 17 で <color=#D89555>精密ハンター</color> を有効にする <i><color=#F0DAA0>[ハンターによってマークされたクリーチャーに対して有利]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=レベル 13 で <color=#D89555>執拗なハンター</color> を有効にする <i><color=#F0DAA0>[ハンターのマークへの集中力が失われない]</color></i>
 ModUi/&EnableRangerRoving2024=レベル 6 で <color=#D89555>移動</color> を有効にする <i><color=#F0DAA0>[重装甲を使用していないときに 10 フィート移動し、同じ登攀速度を得る]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
 ModUi/&EnableRangerTireless2024=レベル 10 で <color=#D89555>Tireless</color> を有効にする <i><color=#F0DAA0>[アクションを使用して一時的なヒット ポイントを獲得]</color></i>

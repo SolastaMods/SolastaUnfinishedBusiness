@@ -569,6 +569,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchRangerPreciseHunter();
         }
 
+        toggle = Main.Settings.EnableRangerRelentlessHunter2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerRelentlessHunter2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerRelentlessHunter2024 = toggle;
+            Tabletop2024Context.SwitchRangerRelentlessHunter();
+        }
+
         toggle = Main.Settings.EnableRangerRoving2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerRoving2024"), ref toggle, UI.AutoWidth()))
         {
@@ -581,6 +588,20 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
             Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
+        }
+
+        toggle = Main.Settings.EnableRangerTireless2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerTireless2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerTireless2024 = toggle;
+            Tabletop2024Context.SwitchRangerTireless();
+        }
+
+        toggle = Main.Settings.EnableRangerFavoredEnemy2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFavoredEnemy2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerFavoredEnemy2024 = toggle;
+            Tabletop2024Context.SwitchRangerFavoredEnemy();
         }
 
         toggle = Main.Settings.EnableRangerFeralSenses2024;

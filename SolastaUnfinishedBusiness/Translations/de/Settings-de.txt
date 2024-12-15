@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke g
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
 ModUi/&EnableRangerDeftExplorer2024=Aktiviere <color=#D89555>Geschickter Entdecker</color> auf Level 2 <i><color=#F0DAA0>[erwerbe eine Expertise in Ranger-Fähigkeiten und lerne 2 Sprachen]</color></i>
 ModUi/&EnableRangerExpertise2024=Aktiviere <color=#D89555>Expertise</color> auf Level 9 <i><color=#F0DAA0>[erhalte zwei Expertisen für Ranger-Fertigkeiten]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Tauschen Sie <color=#D89555>Bevorzugter Feind</color> und <color=#D89555>Bevorzugtes Gelände</color> mit <color=#D89555>Bevorzugter Feind</color> 5e 2024-Version aus
 ModUi/&EnableRangerFeralSenses2024=Tauschen Sie <color=#D89555>Wilde Sinne</color> gegen die 5e-Version von 2024 aus <i><color=#F0DAA0>[erhalten Sie 30 Fuß Blindsicht]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=Tauschen Sie <color=#D89555>Foe Slayer</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Hunter's Mark-Würfel auf d10 erhöhen]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 14 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Aktiviere <color=#D89555>Precise Hunter</color> auf Level 17 <i><color=#F0DAA0>[Vorteil gegenüber von Hunter markierten Kreaturen]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Aktiviere <color=#D89555>Relentless Hunter</color> auf Level 13 <i><color=#F0DAA0>[keine Konzentration verloren bei Hunter's Mark]</color></i>
 ModUi/&EnableRangerRoving2024=Aktivieren Sie <color=#D89555>Umherziehen</color> auf Stufe 6 <i><color=#F0DAA0>[erhalten Sie 10 Fuß Bewegung, wenn Sie keine schwere Rüstung verwenden, und dieselbe Klettergeschwindigkeit]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnableRangerTireless2024=Aktiviere <color=#D89555>Tireless</color> auf Level 10 <i><color=#F0DAA0>[Verwende eine Aktion, um temporäre Trefferpunkte zu erhalten]</color></i>

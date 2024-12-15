@@ -1,11 +1,16 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -55,6 +60,39 @@ internal static partial class Tabletop2024Context
         .Create("PowerRangerTireless")
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
+
+    private static readonly FeatureDefinition FeatureRangerRelentlessHunter = FeatureDefinitionBuilder
+        .Create("FeatureRangerRelentlessHunter")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new PreventRemoveConcentrationOnDamageRelentlessHunter())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetRangerFavoredEnemy =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetRangerFavoredEnemy")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerFavoredEnemyHuntersMark")
+                    .SetGuiPresentation(HuntersMark.GuiPresentation)
+                    .SetUsesProficiencyBonus(ActivationTime.Action)
+                    .SetShowCasting(false)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create(HuntersMark)
+                            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
+                            .SetEffectForms()
+                            .Build())
+                    .AddCustomSubFeatures(new CustomBehaviorFavoredEnemyHuntersMark())
+                    .AddToDB(),
+                FeatureDefinitionAutoPreparedSpellsBuilder
+                    .Create("AutoPreparedHuntersMark")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAutoTag("Ranger")
+                    .SetSpellcastingClass(Ranger)
+                    .SetPreparedSpellGroups(BuildSpellGroup(1, HuntersMark))
+                    .AddToDB())
+            .AddToDB();
 
     internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
     {
@@ -115,6 +153,21 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchRangerFavoredEnemy()
+    {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == RulesContext.InvocationPoolRangerTerrainType ||
+                x.FeatureDefinition == RulesContext.InvocationPoolRangerPreferredEnemy);
+
+        if (Main.Settings.EnableRangerFavoredEnemy2024)
+        {
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetRangerFavoredEnemy, 1));
+        }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchRangerFeralSenses()
     {
         Ranger.FeatureUnlocks
@@ -169,6 +222,19 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchRangerRelentlessHunter()
+    {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == FeatureRangerRelentlessHunter);
+
+        if (Main.Settings.EnableRangerRelentlessHunter2024)
+        {
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureRangerRelentlessHunter, 13));
+        }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchRangerRoving()
     {
         Ranger.FeatureUnlocks
@@ -194,5 +260,23 @@ internal static partial class Tabletop2024Context
             : new FeatureUnlockByLevel(PowerRangerHideInPlainSight, 10));
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class CustomBehaviorFavoredEnemyHuntersMark : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.MyExecuteActionCastNoCost(HuntersMark, 0, action.ActionParams);
+
+            yield break;
+        }
+    }
+
+    private sealed class PreventRemoveConcentrationOnDamageRelentlessHunter : IPreventRemoveConcentrationOnDamage
+    {
+        public SpellDefinition[] SpellsThatShouldNotRollConcentrationCheckFromDamage(RulesetCharacter rulesetCharacter)
+        {
+            return [HuntersMark];
+        }
     }
 }

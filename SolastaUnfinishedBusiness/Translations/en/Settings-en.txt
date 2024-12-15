@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
 ModUi/&EnableRangerDeftExplorer2024=Enable <color=#D89555>Deft Explorer</color> at level 2 <i><color=#F0DAA0>[get one expertise on Ranger skills, and learn 2 languages]</color></i>
 ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at level 9 <i><color=#F0DAA0>[get two expertises on Ranger skills]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Swap <color=#D89555>Favored Enemy</color>, and <color=#D89555>Favored Terrain</color> with <color=#D89555>Favored Enemy</color> 5e 2024 version
 ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color> with 5e 2024 version <i><color=#F0DAA0>[get 30ft blindsight]</color></i>
-ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color>  with 5e 2024 version <i><color=#F0DAA0>[increase Hunter's Mark die to d10]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color> with 5e 2024 version <i><color=#F0DAA0>[increase Hunter's Mark die to d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17 <i><color=#F0DAA0>[advantage against creatures marked by Hunter]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Enable <color=#D89555>Relentless Hunter</color> at level 13 <i><color=#F0DAA0>[no concentration lost on Hunter's Mark]</color></i>
 ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6 <i><color=#F0DAA0>[get 10ft movement when not using Heavy Armor, and same climb speed]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnableRangerTireless2024=Enable <color=#D89555>Tireless</color> to replace <color=#D89555>Hide in Plain Sight</color> at level 10 <i><color=#F0DAA0>[use an action to get temporary hit points]</color></i>

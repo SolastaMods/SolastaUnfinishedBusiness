@@ -105,7 +105,7 @@ internal static partial class Tabletop2024Context
         }
 
         // handle level 2 grants
-        var featuresGrantedAt2 = new (string, string)[3]
+        var featuresGrantedAt2 = new[]
         {
             ("SorcerousManaPainter", "PowerSorcererManaPainterDrain"),
             ("SorcerousChildRift", "PowerSorcererChildRiftDeflection"),

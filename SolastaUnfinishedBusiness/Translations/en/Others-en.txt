@@ -1,3 +1,4 @@
+                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
 Action/&ActionDisableGrappleDescription=You release the grappled target.
 Action/&ActionDisableGrappleTitle=Disable Grapple
 Action/&ActionGrappleDescription=You can replace one of your main attacks to initiate a grapple, targeting a creature within your reach and no more than one size larger than you. You make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check.
@@ -126,6 +127,8 @@ Feature/&FeatureMonkHeightenedMetabolismDescription=Your training has pushed you
 Feature/&FeatureMonkHeightenedMetabolismTitle=Heightened Metabolism
 Feature/&FeatureRangerFoeSlayer2024Description=The damage die of your Hunter's Mark is a d10 rather than a d6.
 Feature/&FeatureRangerFoeSlayer2024Title=Foe Slayers
+Feature/&FeatureRangerRelentlessHunterDescription=Taking damage can't break your Concentration on Hunter's Mark.
+Feature/&FeatureRangerRelentlessHunterTitle=Relentless Hunter
 Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription=You can spend 1 Ki point to make two unarmed strikes as a bonus action.
 Feature/&FeatureSetBarbarianBrutalStrikeDescription=When you use Reckless Attack, one of your Strength-based attack rolls you make before your turn ends deals an extra 1d10 damage of the same type dealt by the weapon or Unarmed Strike, and you can also choose one of the following effects if it hits:\n• Forceful Blow. The target is pushed 15 feet straight away from you.\n• Hamstring Blow. The target's Speed is reduced by 15 feet until the start of your next turn.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Description=You have honed new ways to attack furiously. The following effects are now among your Brutal Strike options:\n• Staggering Blow. The target has Disadvantage on the next saving throw it makes, and it can't make Opportunity Attacks until the start of your next turn.\n• Sundering Blow. Your blow leaves an opening in the creature's defense for an ally until the start of your next turn. The next attack roll made by a creature other than you against the target gains a 1d10 bonus to attack and damage roll.
@@ -142,6 +145,8 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=Warden
 Feature/&FeatureSetRageExtendedDescription=In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. This grants you advantage on strength saves and checks, an initial +2 bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor. Lasts for 1 minute or ends if you have not attacked or suffered damage since your last turn.\n You start with 2 rages, renewed after a long rest. At level 7, you regain one rage point after a short rest.
 Feature/&FeatureSetRangerDeftExplorerDescription=Thanks to your travels, you gain the following benefits.\n• Expertise. Choose one of your skill proficiencies with which you lack proficiency. You gain expertise in that skill.\n• Languages. You know 2 languages of your choice.
 Feature/&FeatureSetRangerDeftExplorerTitle=Deft Explorer
+Feature/&FeatureSetRangerFavoredEnemyDescription=You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest.
+Feature/&FeatureSetRangerFavoredEnemyTitle=Favored Enemy
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=If you have no uses of Innate Sorcery left, you can use it if you spend 2 Sorcery Points when you take the Bonus Action to activate it.
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=Sorcery Incarnate
 Feature/&FeatureSorcererArcaneApotheosisDescription=While your Innate Sorcery feature is active, you can use one Metamagic option on each of your turns without spending Sorcery Points on it.

@@ -181,10 +181,12 @@ ModUi/&EnableProneAction=Habilita la acción <color=#D89555>Caer boca abajo</col
 ModUi/&EnablePullPushOnVerticalDirection=Habilite los efectos de movimiento de empujar y tirar para que funcionen también en el eje arriba/abajo
 ModUi/&EnableRangerDeftExplorer2024=Habilita <color=#D89555>Explorador hábil</color> en el nivel 2 <i><color=#F0DAA0>[obtén una experiencia en habilidades de explorador y aprende 2 idiomas]</color></i>
 ModUi/&EnableRangerExpertise2024=Habilita la <color=#D89555>Experiencia</color> en el nivel 9 <i><color=#F0DAA0>[obtén dos especializaciones en habilidades de Explorador]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Intercambia <color=#D89555>Enemigo Favorecido</color> y <color=#D89555>Terreno Favorecido</color> con <color=#D89555>Enemigo Favorecido</color> versión 5e 2024
 ModUi/&EnableRangerFeralSenses2024=Intercambia <color=#D89555>Sentidos salvajes</color> con la versión 5e 2024 <i><color=#F0DAA0>[obtén visión ciega de 30 pies]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=Intercambia <color=#D89555>Asesino de enemigos</color> con la versión 5e 2024 <i><color=#F0DAA0>[aumenta el dado Marca del cazador a d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Habilita la característica <color=#D89555>Velo de la Naturaleza</color> en el nivel 14 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Habilita <color=#D89555>Cazador preciso</color> en el nivel 17 <i><color=#F0DAA0>[ventaja contra criaturas marcadas por Cazador]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Habilita <color=#D89555>Cazador implacable</color> en el nivel 13 <i><color=#F0DAA0>[no se pierde la concentración en la Marca del cazador]</color></i>
 ModUi/&EnableRangerRoving2024=Habilita <color=#D89555>Roving</color> en el nivel 6 <i><color=#F0DAA0>[obtén 10 pies de movimiento cuando no uses armadura pesada y la misma velocidad de escalada]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnableRangerTireless2024=Habilita <color=#D89555>Incansable</color> en el nivel 10 <i><color=#F0DAA0>[usa una acción para obtener puntos de vida temporales]</color></i>

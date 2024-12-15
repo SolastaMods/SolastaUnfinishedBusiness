@@ -1,3 +1,5 @@
+                                                 The number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.
+=空の
 Action/&ActionDisableGrappleDescription=掴んだターゲットを解放します。
 Action/&ActionDisableGrappleTitle=グラップルを無効にする
 Action/&ActionGrappleDescription=主な攻撃の 1 つを組みつき攻撃に置き換えることができます。組みつき攻撃は、自分の攻撃範囲内にあり、自分より 1 サイズ以内のクリーチャーをターゲットとします。ターゲットの【筋力】(運動) または【敏捷性】(軽業) 判定と競合する【筋力】(運動) 判定を行います。
@@ -126,6 +128,8 @@ Feature/&FeatureMonkHeightenedMetabolismDescription=あなたのトレーニン�
 Feature/&FeatureMonkHeightenedMetabolismTitle=代謝の向上
 Feature/&FeatureRangerFoeSlayer2024Description=ハンターズマークのダメージダイスは d6 ではなく d10 です。
 Feature/&FeatureRangerFoeSlayer2024Title=敵スレイヤー
+Feature/&FeatureRangerRelentlessHunterDescription=ダメージを受けてもハンターズマークへの集中力は解除されません。
+Feature/&FeatureRangerRelentlessHunterTitle=容赦ないハンター
 Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription=ボーナス アクションとして、1 Ki ポイントを消費して素手攻撃を 2 回行うことができます。
 Feature/&FeatureSetBarbarianBrutalStrikeDescription=無謀な攻撃を使用する場合、ターン終了前に行う力ベースの攻撃ロールの 1 つが、武器または素手攻撃によって与えられるのと同じタイプに追加の 1d10 ダメージを与えます。また、それがヒットした場合は、次の効果のいずれかを選択することもできます。 :\n• 力強い打撃。ターゲットはあなたから 15 フィート真っ直ぐに押し出されます。\n・ハムストリングブロー。次のターンの開始まで、ターゲットの速度が 15 フィート減少します。
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Description=あなたは猛烈に攻撃するための新しい方法を磨きました。以下の効果がブルータル ストライクのオプションに追加されました:\n• よろめきの一撃。ターゲットは次に行うセーヴィング スローにディスアドバンテージを持ち、次のターンの開始時までオポチュニティ アタックを行うことができません。\n• サンダー ブロー。あなたの打撃は、次のターンの開始まで、味方のクリーチャーの防御に隙を残します。あなた以外のクリーチャーがターゲットに対して行う次の攻撃ロールは、攻撃ロールとダメージロールに1d10のボーナスを得る。
@@ -142,6 +146,8 @@ Feature/&FeatureSetDruidPrimalOrderWardenTitle=ウォーデン
 Feature/&FeatureSetRageExtendedDescription=戦闘では、根源的な凶暴性で戦います。自分のターンでは、ボーナス アクションとして激怒を入力できます。これにより、体力のセーブとチェックで有利になり、近接攻撃のダメージに最初の +2 ボーナスが与えられ、斬撃、殴打、突き刺しのダメージに対する耐性が得られます。これらの利点は、重装備を着用していない場合にのみ得られます。 1 分間持続するか、最後のターン以降に攻撃やダメージを受けていない場合は終了します。\n 2 つの激怒から始まり、長い休息の後に更新されます。レベル 7 では、短い休憩の後、怒りポイントが 1 回復します。
 Feature/&FeatureSetRangerDeftExplorerDescription=旅のおかげで、あなたは以下の利益を得ます。\n• 専門知識。あなたが熟達していないスキルの 1 つを選択します。そのスキルの専門知識を得ます。\n• 言語。あなたが選択した 2 つの言語を習得します。
 Feature/&FeatureSetRangerDeftExplorerTitle=巧みな探検家
+Feature/&FeatureSetRangerFavoredEnemyDescription=ハンターズ マーク呪文は常に準備されています。呪文スロットを消費せずに 2 回唱えることができ、大休憩を終えるとこの能力の使用回数がすべて回復します。
+Feature/&FeatureSetRangerFavoredEnemyTitle=好敵手
 Feature/&FeatureSetSorcererSorceryIncarnateDescription=生来の魔術の使用回数が残っていない場合、それを起動するためのボーナス アクションを実行するときに 2 魔術ポイントを消費すると、それを使用できます。
 Feature/&FeatureSetSorcererSorceryIncarnateTitle=魔術の化身
 Feature/&FeatureSorcererArcaneApotheosisDescription=生来の魔術機能がアクティブな間、魔術ポイントを消費せずに、各ターンに 1 つのメタマジック オプションを使用できます。
