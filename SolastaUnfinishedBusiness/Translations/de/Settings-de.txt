@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Tauschen Sie <color=#D89555>Foe Slayer</color>
 ModUi/&EnableRangerNatureShroud2024=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 14 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Aktiviere <color=#D89555>Precise Hunter</color> auf Level 17 <i><color=#F0DAA0>[Vorteil gegenüber von Hunter markierten Kreaturen]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Aktiviere <color=#D89555>Relentless Hunter</color> auf Level 13 <i><color=#F0DAA0>[keine Konzentration verloren bei Hunter's Mark]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Entfernen Sie stattdessen die Konzentrationsanforderungen von Hunter's Mark</i>
 ModUi/&EnableRangerRoving2024=Aktivieren Sie <color=#D89555>Umherziehen</color> auf Stufe 6 <i><color=#F0DAA0>[erhalten Sie 10 Fuß Bewegung, wenn Sie keine schwere Rüstung verwenden, und dieselbe Klettergeschwindigkeit]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnableRangerTireless2024=Aktiviere <color=#D89555>Tireless</color> auf Level 10 <i><color=#F0DAA0>[Verwende eine Aktion, um temporäre Trefferpunkte zu erhalten]</color></i>

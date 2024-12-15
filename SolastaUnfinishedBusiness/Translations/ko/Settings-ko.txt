@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=<color=#D89555>적 처치자</color>를 5e 202
 ModUi/&EnableRangerNatureShroud2024=레벨 14에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=레벨 17에서 <color=#D89555>정밀 사냥꾼</color>을 활성화합니다. <i><color=#F0DAA0>[사냥꾼이 표시한 생물에 대한 이점]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=레벨 13에서 <color=#D89555>끈질긴 사냥꾼</color> 활성화 <i><color=#F0DAA0>[사냥꾼의 표식에 집중력 잃지 않음]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 대신 사냥꾼의 표식에서 집중력 요구 사항을 제거합니다.</i>
 ModUi/&EnableRangerRoving2024=레벨 6에서 <color=#D89555>이동</color> 가능 <i><color=#F0DAA0>[중갑옷을 착용하지 않을 때 10피트 이동 가능, 동일한 등반 속도]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnableRangerTireless2024=레벨 10에서 <color=#D89555>무지력</color>을 활성화합니다. <i><color=#F0DAA0>[임시 생명력 포인트를 얻기 위해 액션을 사용하세요]</color></i>

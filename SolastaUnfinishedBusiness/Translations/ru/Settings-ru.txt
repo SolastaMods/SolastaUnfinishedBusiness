@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Поменяйте <color=#D89555>Убийцу
 ModUi/&EnableRangerNatureShroud2024=Включить умение <color=#D89555>Природная завеса</color> на уровне 14 <i><color=#F0DAA0>[бонусным действием вы можете волшебным образом стать невидимым до начала следующего хода]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Включить <color=#D89555>Точный Охотник</color> на уровне 17 <i><color=#F0DAA0>[преимущество против существ, отмеченных Охотником]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Включить <color=#D89555>Безжалостного охотника</color> на уровне 13 <i><color=#F0DAA0>[концентрация не теряется на Метке охотника]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Вместо этого уберите требования к концентрации из Hunter's Mark</i>
 ModUi/&EnableRangerRoving2024=Включить <color=#D89555>Roving</color> на уровне 6 <i><color=#F0DAA0>[получить 10 футов движения, когда не используется тяжелая броня, и ту же скорость подъема]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
 ModUi/&EnableRangerTireless2024=Включить <color=#D89555>Неутомимый</color> на уровне 10 <i><color=#F0DAA0>[используйте действие, чтобы получить временные очки здоровья]</color></i>

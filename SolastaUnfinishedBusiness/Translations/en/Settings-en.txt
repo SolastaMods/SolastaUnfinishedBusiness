@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color> with 5e
 ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17 <i><color=#F0DAA0>[advantage against creatures marked by Hunter]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Enable <color=#D89555>Relentless Hunter</color> at level 13 <i><color=#F0DAA0>[no concentration lost on Hunter's Mark]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Remove concentration requirements from Hunter's Mark instead</i>
 ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6 <i><color=#F0DAA0>[get 10ft movement when not using Heavy Armor, and same climb speed]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnableRangerTireless2024=Enable <color=#D89555>Tireless</color> to replace <color=#D89555>Hide in Plain Sight</color> at level 10 <i><color=#F0DAA0>[use an action to get temporary hit points]</color></i>
@@ -247,7 +248,7 @@ ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><c
 ModUi/&FixEldritchBlastRange=Use 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1 HP per 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
-ModUi/&ForceModSpeechOnNpcs=<i>+Force voice auto assignment on all NPCs instead of campaign mapping</i>
+ModUi/&ForceModSpeechOnNpcs=<i>+ Force voice auto assignment on all NPCs instead of campaign mapping</i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
 ModUi/&FormationHelp1=• Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>

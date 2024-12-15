@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Remplacez <color=#D89555>Foe Slayer</color> pa
 ModUi/&EnableRangerNatureShroud2024=Activez la fonction <color=#D89555>Voile de la nature</color> au niveau 14 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Activer <color=#D89555>Chasseur précis</color> au niveau 17 <i><color=#F0DAA0>[avantage contre les créatures marquées par Chasseur]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Activer <color=#D89555>Chasseur implacable</color> au niveau 13 <i><color=#F0DAA0>[aucune concentration perdue sur la marque du chasseur]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Supprimez plutôt les exigences de concentration de la marque du chasseur</i>
 ModUi/&EnableRangerRoving2024=Activez <color=#D89555>Roving</color> au niveau 6 <i><color=#F0DAA0>[obtenez un mouvement de 10 pieds lorsque vous n'utilisez pas d'armure lourde et la même vitesse de montée]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnableRangerTireless2024=Activez <color=#D89555>Tireless</color> au niveau 10 <i><color=#F0DAA0>[utilisez une action pour obtenir des points de vie temporaires]</color></i>

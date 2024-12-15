@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Sostituisci <color=#D89555>Foe Slayer</color> 
 ModUi/&EnableRangerNatureShroud2024=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 14 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Abilita <color=#D89555>Cacciatore Preciso</color> al livello 17 <i><color=#F0DAA0>[vantaggio contro le creature contrassegnate dal Cacciatore]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Abilita <color=#D89555>Cacciatore implacabile</color> al livello 13 <i><color=#F0DAA0>[nessuna perdita di concentrazione sul Marchio del cacciatore]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Rimuovi invece i requisiti di concentrazione dal Marchio del cacciatore</i>
 ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>

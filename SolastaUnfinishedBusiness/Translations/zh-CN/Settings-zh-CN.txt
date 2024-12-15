@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=将 <color=#D89555>Foe Slayer</color> 与 5e 2
 ModUi/&EnableRangerNatureShroud2024=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=在 17 级时启用<color=#D89555>精准猎手</color> <i><color=#F0DAA0>[对抗被猎人标记的生物的优势]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=在 13 级时启用<color=#D89555>无情猎手</color> <i><color=#F0DAA0>[猎人印记不会影响专注力]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 移除猎人印记的专注要求</i>
 ModUi/&EnableRangerRoving2024=在 6 级时启用<color=#D89555>漫游</color> <i><color=#F0DAA0>[不使用重型装甲时可移动 10 英尺，且爬升速度相同]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnableRangerTireless2024=在 10 级时启用<color=#D89555>不知疲倦</color> <i><color=#F0DAA0>[使用动作获取临时生命值]</color></i>

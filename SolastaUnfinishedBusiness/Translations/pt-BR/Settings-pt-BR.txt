@@ -187,6 +187,7 @@ ModUi/&EnableRangerFoeSlayers2024=Troque <color=#D89555>Foe Slayer</color> pela 
 ModUi/&EnableRangerNatureShroud2024=Habilite o recurso <color=#D89555>Véu da Natureza</color> no nível 14 <i><color=#F0DAA0>[como uma ação bônus, você pode magicamente ficar invisível até o início do próximo turno]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Habilitar <color=#D89555>Caçador Preciso</color> no nível 17 <i><color=#F0DAA0>[vantagem contra criaturas marcadas por Caçador]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Habilite <color=#D89555>Relentless Hunter</color> no nível 13 <i><color=#F0DAA0>[nenhuma concentração perdida na Hunter's Mark]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Remova os requisitos de concentração da Marca do Caçador</i>
 ModUi/&EnableRangerRoving2024=Habilite <color=#D89555>Roving</color> no nível 6 <i><color=#F0DAA0>[obtenha 10 pés de movimento quando não estiver usando armadura pesada e a mesma velocidade de escalada]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
 ModUi/&EnableRangerTireless2024=Habilite <color=#D89555>Incansável</color> no nível 10 <i><color=#F0DAA0>[use uma ação para obter pontos de vida temporários]</color></i>
