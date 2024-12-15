@@ -50,6 +50,7 @@ internal static partial class Tabletop2024Context
         SwitchBardSongOfRest();
         SwitchBardSuperiorInspiration();
         SwitchBardWordsOfCreation();
+        SwitchClericChannelDivinity();
         SwitchClericDomainLearningLevel();
         SwitchDruidMetalArmor();
         SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();

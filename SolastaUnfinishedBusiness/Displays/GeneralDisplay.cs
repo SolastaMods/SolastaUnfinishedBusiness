@@ -401,6 +401,13 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableClericChannelDivinity2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericChannelDivinity2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericChannelDivinity2024 = toggle;
+            Tabletop2024Context.SwitchClericChannelDivinity();
+        }
+
         toggle = Main.Settings.EnableClericToLearnDomainAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericToLearnDomainAtLevel3"), ref toggle, UI.AutoWidth()))
         {

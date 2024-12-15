@@ -1,13 +1,36 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    internal static void SwitchClericChannelDivinity()
+    {
+        if (Main.Settings.EnableClericChannelDivinity2024)
+        {
+            AttributeModifierClericChannelDivinity.modifierValue = 2;
+            AttributeModifierClericChannelDivinity.GuiPresentation.description =
+                "Feature/&PaladinChannelDivinityDescription";
+            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18));
+        }
+        else
+        {
+            AttributeModifierClericChannelDivinity.modifierValue = 1;
+            AttributeModifierClericChannelDivinity.GuiPresentation.description =
+                "Feature/&ClericChannelDivinityDescription";
+            Cleric.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == AttributeModifierClericChannelDivinityAdd && x.Level == 18);
+        }
+
+        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchClericDomainLearningLevel()
     {
         var domains = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
@@ -54,8 +77,8 @@ internal static partial class Tabletop2024Context
 
         foreach (var (subClassName, featureName) in featuresGrantedAt2)
         {
-            var subClass = DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(subClassName);
-            var feature = DatabaseHelper.GetDefinition<FeatureDefinition>(featureName);
+            var subClass = GetDefinition<CharacterSubclassDefinition>(subClassName);
+            var feature = GetDefinition<FeatureDefinition>(featureName);
 
             subClass.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == feature)!.level = level;
         }

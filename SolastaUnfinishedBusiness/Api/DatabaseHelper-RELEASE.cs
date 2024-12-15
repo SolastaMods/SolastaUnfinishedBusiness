@@ -1166,6 +1166,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAttributeModifiers
     {
+        internal static FeatureDefinitionAttributeModifier AttributeModifierClericChannelDivinity { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierClericChannelDivinity"); 
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinChannelDivinity");
 
