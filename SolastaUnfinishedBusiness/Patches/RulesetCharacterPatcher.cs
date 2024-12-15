@@ -22,6 +22,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -1714,7 +1715,6 @@ public static class RulesetCharacterPatcher
                 var maxUses = __instance.GetMaxUsesOfPower(usablePower);
                 var remainingUses = __instance.GetRemainingUsesOfPower(usablePower);
 
-                // ReSharper disable once InvertIf
                 if (remainingUses != maxUses)
                 {
                     if (!simulate)
@@ -1725,6 +1725,21 @@ public static class RulesetCharacterPatcher
 
                     __instance.recoveredFeatures.Add(PowerFighterSecondWind);
                 }
+            }
+
+            //PATCH: support for Paladins to regain one channel divinity usage at short rests
+            // ReSharper disable once InvertIf
+            if (Main.Settings.EnablePaladinChannelDivinity2024 &&
+                restType == RestType.ShortRest &&
+                __instance.GetClassLevel(Paladin) >= 3 &&
+                __instance.UsedChannelDivinity > 0)
+            {
+                if (!simulate)
+                {
+                    __instance.UsedChannelDivinity -= 1;
+                }
+
+                __instance.recoveredFeatures.Add(AttributeModifierPaladinChannelDivinity);
             }
         }
 

@@ -6,11 +6,20 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    internal static readonly FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity11 =
+        FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierPaladinChannelDivinity11")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.ChannelDivinityNumber)
+            .AddToDB();
+
     internal static void SwitchPaladinSpellCastingAtOne()
     {
         var level = Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2;
@@ -46,8 +55,28 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchPaladinLayOnHand()
     {
-        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+    }
+
+    internal static void SwitchPaladinChannelDivinity()
+    {
+        if (Main.Settings.EnablePaladinChannelDivinity2024)
+        {
+            AttributeModifierPaladinChannelDivinity.modifierValue = 2;
+            AttributeModifierPaladinChannelDivinity.GuiPresentation.description =
+                "Feature/&PaladinChannelDivinityDescription";
+            Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierPaladinChannelDivinity11, 11));
+        }
+        else
+        {
+            AttributeModifierPaladinChannelDivinity.modifierValue = 1;
+            AttributeModifierPaladinChannelDivinity.GuiPresentation.description =
+                "Feature/&ClericChannelDivinityDescription";
+            Paladin.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == AttributeModifierPaladinChannelDivinity11);
+        }
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 }

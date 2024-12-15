@@ -715,8 +715,8 @@
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
     <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction2024>true</EnablePaladinLayOnHandsAsBonusAction2024>
-    <EnablePaladinSmiteAsBonusAction2024>false</EnablePaladinSmiteAsBonusAction2024>
+    <EnablePaladinLayOnHands2024>true</EnablePaladinLayOnHands2024>
+    <EnablePaladinSmite2024>false</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>

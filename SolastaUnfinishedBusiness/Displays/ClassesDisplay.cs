@@ -316,17 +316,24 @@ internal static class ClassesDisplay
             Main.Settings.AddPaladinSmiteToggle = toggle;
         }
 
-        toggle = Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction2024"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePaladinChannelDivinity2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinChannelDivinity2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024 = toggle;
-            Tabletop2024Context.SwitchPaladinLayOnHand();
+            Main.Settings.EnablePaladinChannelDivinity2024 = toggle;
+            Tabletop2024Context.SwitchPaladinChannelDivinity();
         }
 
-        toggle = Main.Settings.EnablePaladinSmiteAsBonusAction2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmiteAsBonusAction2024"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePaladinSmite2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmite2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnablePaladinSmiteAsBonusAction2024 = toggle;
+            Main.Settings.EnablePaladinSmite2024 = toggle;
+        }
+        
+        toggle = Main.Settings.EnablePaladinLayOnHands2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHands2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinLayOnHands2024 = toggle;
+            Tabletop2024Context.SwitchPaladinLayOnHand();
         }
 
         toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
