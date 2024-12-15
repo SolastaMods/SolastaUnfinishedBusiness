@@ -170,6 +170,7 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Habilitar la versión del hechizo <color=#
 ModUi/&EnableOneDndSpiderClimbSpell=Habilitar la versión del hechizo <color=#D89555>Spider Climb</color> 5e 2024 <i><color=#F0DAA0>[+1 objetivo por mejora]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Habilitar <color=#D89555>Piel de piedra</color> versión del hechizo 5e 2024 <i><color=#F0DAA0>[también proporciona resistencia a B/P/S mágicos]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>Golpe verdadero</color> versión 5e 2024 del truco <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>\n<i><color=#F0DAA0>[el ataque usa tu capacidad de lanzamiento de conjuros para la tirada de ataque y la bonificación de daño, y daño radiante adicional a partir del nivel 5]</color></i>
+ModUi/&EnablePaladinAbjureFoes2024=Habilita <color=#D89555>Abjurar enemigos</color> en el nivel 9
 ModUi/&EnablePaladinChannelDivinity2024=Habilitar <color=#D89555>Canal Divinidad</color> versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Habilitar <color=#D89555>Imposición de manos</color> versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
 ModUi/&EnablePaladinSmite2024=Habilitar <color=#D89555>Divine Smite</color> versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>

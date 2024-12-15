@@ -1,6 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -12,13 +16,41 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    internal static readonly FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity11 =
+    private static readonly FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity11 =
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierPaladinChannelDivinity11")
             .SetGuiPresentationNoContent(true)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.ChannelDivinityNumber)
             .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerPaladinAbjureFoes = FeatureDefinitionPowerBuilder
+        .Create("PowerPaladinAbjureFoes")
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite(FeatSteadyAim, Resources.PowerPaladinAbjureFoes, 256, 128))
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
+                                .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+                                .SetSpecialInterruptions(ConditionInterruption.Damaged)
+                                .SetFeatures()
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+        .AddCustomSubFeatures(new ModifyEffectDescriptionPowerPaladinAbjureFoes())
+        .AddToDB();
 
     internal static void SwitchPaladinSpellCastingAtOne()
     {
@@ -60,6 +92,19 @@ internal static partial class Tabletop2024Context
             : ActivationTime.Action;
     }
 
+    internal static void SwitchPaladinAbjureFoes()
+    {
+        Paladin.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == PowerPaladinAbjureFoes);
+
+        if (Main.Settings.EnablePaladinAbjureFoes2024)
+        {
+            Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerPaladinAbjureFoes, 9));
+        }
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchPaladinChannelDivinity()
     {
         if (Main.Settings.EnablePaladinChannelDivinity2024)
@@ -78,5 +123,28 @@ internal static partial class Tabletop2024Context
         }
 
         Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyEffectDescriptionPowerPaladinAbjureFoes : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerPaladinAbjureFoes;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
+            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
+            var targets = Math.Max(1, charismaModifier);
+
+            effectDescription.targetParameter = targets;
+
+            return effectDescription;
+        }
     }
 }

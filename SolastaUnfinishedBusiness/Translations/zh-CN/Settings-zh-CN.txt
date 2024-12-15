@@ -170,6 +170,7 @@ ModUi/&EnableOneDndSpareTheDyingSpell=启用<color=#D89555>Spare the Dying</colo
 ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e 2024 法术版本<i><color=#F0DAA0>[每次施法 +1 个目标]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
+ModUi/&EnablePaladinAbjureFoes2024=在 9 级时启用<color=#D89555>Abjure Foes</color>
 ModUi/&EnablePaladinChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=启用<color=#D89555>圣疗术</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSmite2024=启用<color=#D89555>Divine Smite</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>

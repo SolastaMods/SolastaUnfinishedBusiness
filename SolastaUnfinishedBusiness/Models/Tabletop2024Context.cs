@@ -78,6 +78,7 @@ internal static partial class Tabletop2024Context
         SwitchOneDndSpellSpareTheDying();
         SwitchOneDndSpellSpiderClimb();
         SwitchOneDndSpellStoneSkin();
+        SwitchPaladinAbjureFoes();
         SwitchPaladinChannelDivinity();
         SwitchPaladinLayOnHand();
         SwitchPaladinSpellCastingAtOne();

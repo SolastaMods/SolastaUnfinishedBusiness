@@ -170,6 +170,7 @@ ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>죽음을 막아라</color>
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>거미 등반</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[업캐스트당 대상 +1개]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>
+ModUi/&EnablePaladinAbjureFoes2024=레벨 9에서 <color=#D89555>적을 배척</color>할 수 있습니다.
 ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
 ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>안수</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
 ModUi/&EnablePaladinSmite2024=<color=#D89555>신성한 일격</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>

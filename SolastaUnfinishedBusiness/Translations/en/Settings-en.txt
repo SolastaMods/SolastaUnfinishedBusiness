@@ -170,6 +170,7 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Enable <color=#D89555>Spare the Dying</col
 ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
+ModUi/&EnablePaladinAbjureFoes2024=Enable <color=#D89555>Abjure Foes</color> at level 9
 ModUi/&EnablePaladinChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Enable <color=#D89555>Lay on Hands</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinSmite2024=Enable <color=#D89555>Divine Smite</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>

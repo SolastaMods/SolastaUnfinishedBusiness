@@ -170,6 +170,7 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Activer <color=#D89555>Épargner les moura
 ModUi/&EnableOneDndSpiderClimbSpell=Activer <color=#D89555>Spider Climb</color> 5e 2024 version du sort <i><color=#F0DAA0>[+1 cible par upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Activer la version du sort <color=#D89555>Stone Skin</color> 5e 2024 <i><color=#F0DAA0>[offre également une résistance aux B/P/S magiques]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Activer <color=#D89555>True Strike</color> 5e 2024 version du tour de passe-passe <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[L'attaque utilise votre capacité de lancement de sorts pour le jet d'attaque et le bonus de dégâts, ainsi que des dégâts radiants supplémentaires à partir du niveau 5]</color></i>
+ModUi/&EnablePaladinAbjureFoes2024=Activez <color=#D89555>Abjurer les ennemis</color> au niveau 9
 ModUi/&EnablePaladinChannelDivinity2024=Activer <color=#D89555>Channel Divinity</color> 5e version 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Activer <color=#D89555>Imposition des mains</color> 5e version 2024 <i><color=#F0DAA0>[action bonus]</color></i>
 ModUi/&EnablePaladinSmite2024=Activer <color=#D89555>Divine Smite</color> version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>

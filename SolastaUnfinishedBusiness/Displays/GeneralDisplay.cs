@@ -517,6 +517,13 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&PaladinTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnablePaladinAbjureFoes2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinAbjureFoes2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinAbjureFoes2024 = toggle;
+            Tabletop2024Context.SwitchPaladinAbjureFoes();
+        }
+
         toggle = Main.Settings.EnablePaladinChannelDivinity2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinChannelDivinity2024"), ref toggle, UI.AutoWidth()))
         {

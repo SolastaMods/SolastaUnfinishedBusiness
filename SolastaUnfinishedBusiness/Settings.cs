@@ -305,6 +305,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkBodyAndMind2024 { get; set; }
     public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
+    public bool EnablePaladinAbjureFoes2024 { get; set; }
     public bool EnablePaladinChannelDivinity2024 { get; set; }
     public bool EnablePaladinLayOnHands2024 { get; set; }
     public bool EnablePaladinSmite2024 { get; set; }
