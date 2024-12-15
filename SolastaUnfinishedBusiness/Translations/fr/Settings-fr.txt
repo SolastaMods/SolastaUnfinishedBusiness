@@ -115,6 +115,7 @@ ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Néces
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
+ModUi/&EnableClericToLearnDomainAtLevel3=Activer le <color=#D89555>Domaine</color> au niveau 3 au lieu de 1
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nommés d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDruidMetalArmor2024=Supprimer les restrictions de <color=#D89555>Armure métallique</color>

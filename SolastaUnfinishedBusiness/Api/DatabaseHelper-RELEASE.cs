@@ -1001,7 +1001,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
-        
+
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionSurprised { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionSurprised");
 
@@ -2593,6 +2593,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSubclassChoice SubclassChoiceDruidCircle { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceDruidCircle");
+
+        internal static FeatureDefinitionSubclassChoice SubclassChoiceClericDivineDomains { get; } =
+            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceClericDivineDomains");
 
         internal static FeatureDefinitionSubclassChoice SubclassChoiceFighterMartialArchetypes { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceFighterMartialArchetypes");

@@ -398,6 +398,17 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
+        UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
+        UI.Label();
+
+        toggle = Main.Settings.EnableClericToLearnDomainAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericToLearnDomainAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericToLearnDomainAtLevel3 = toggle;
+            Tabletop2024Context.SwitchClericDomainLearningLevel();
+        }
+
+        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 

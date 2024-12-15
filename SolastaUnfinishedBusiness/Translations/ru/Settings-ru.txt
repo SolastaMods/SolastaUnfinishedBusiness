@@ -115,6 +115,7 @@ ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
 ModUi/&EnableCantripsTriggeringOnWarMagic=Разрешить срабатывание дополнительной бонусной атаки <color=#D89555>Боевой магии</color> от заговоров
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>Горящие</color> персонажи должны излучать свет <i><color=#F0DAA0>[Куб света, Огненный элементаль, Огненный балагур, Огненная скопа, Огненный паук, а также любые горящие существа]</color></i>
+ModUi/&EnableClericToLearnDomainAtLevel3=Включить <color=#D89555>Домен</color> на уровне 3 вместо 1
 ModUi/&EnableCustomPortraits=Включить <color=#D89555>Пользовательские портреты</color>
 ModUi/&EnableCustomPortraitsHelp=• Поместите свои пользовательские портреты в подпапки <i><b><color=#F0DAA0>Personal</color></b></i> или <i><b><color=#F0DAA0>PreGen</color></b></i> с именами, соответствующими именам героев <i><color=#F0DAA0>[т.е.: Антон, Селия, Ниалла и т. д.]</color></i>\n• Используйте изображения размером 256 x 384 пикселей с прозрачным фоном <i><color=#F0DAA0>[для достижения наилучших результатов используйте GIMP]</color></i>
 ModUi/&EnableDruidMetalArmor2024=Снять ограничения на <color=#D89555>Металлическую броню</color>
