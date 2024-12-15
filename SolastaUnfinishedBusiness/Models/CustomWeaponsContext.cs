@@ -211,12 +211,12 @@ internal static class CustomWeaponsContext
 
         Katana = BuildWeapon(
             "Katana", baseItem, katanaPrefab, 20, true, Common, null, baseDescription,
-            Sprites.GetSprite("Katana", Resources.Katana, 128));
+            Sprites.GetSprite("Katana", Resources.Katana, 128), twoHanded: false);
 
         MerchantContext.AddItem(Katana, ShopItemType.ShopGenericMelee);
 
         KatanaPrimed = BuildWeapon("KatanaPrimed", baseItem, katanaPrefab, 40, true, Uncommon, null,
-            baseDescription, Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128));
+            baseDescription, Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128), twoHanded: false);
         KatanaPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         KatanaPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
 
@@ -224,7 +224,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Katana, KatanaPrimed), ShopItemType.ShopCrafting);
 
         KatanaPlus1 = BuildWeapon("Katana+1", Katana, katanaPrefab, 1050, true, Rare,
-            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128),
+            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128), twoHanded: false,
             properties: [WeaponPlus1]
         );
 
@@ -234,7 +234,7 @@ internal static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         KatanaPlus2 = BuildWeapon("Katana+2", Katana, katanaPrefab, 4000, true, VeryRare,
-            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128),
+            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128), twoHanded: false,
             properties: [WeaponPlus2]
         );
 
@@ -244,7 +244,7 @@ internal static class CustomWeaponsContext
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         KatanaPlus3 = BuildWeapon("Katana+3", Katana, katanaPrefab, 16000, true, VeryRare,
-            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128),
+            icon: Sprites.GetSprite("KatanaPrimed", Resources.Katana, 128), twoHanded: false,
             properties: [WeaponPlus3]
         );
 
