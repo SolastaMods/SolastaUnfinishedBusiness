@@ -338,10 +338,19 @@ public static class CustomModels
     {
         objFile = new ObjectFile();
 
-        var pathCache = Path.Combine(directoryPath, $"{filename}.cache");
+        var pathCache = Path.Combine(directoryPath, "../../../ModelsCache");
 
-        if (Deserialize(pathCache, ref objFile))
+        if (!Directory.Exists(pathCache))
         {
+            Directory.CreateDirectory(pathCache);
+        }
+
+        var cacheFile = Path.Combine(pathCache, $"{filename}.cache");
+
+        if (Deserialize(cacheFile, ref objFile))
+        {
+            Main.Info($"Read {filename} from cache.");
+
             return true;
         }
 
@@ -412,7 +421,7 @@ public static class CustomModels
                 return false;
             }
 
-            Serialize(objFile, pathCache);
+            Serialize(objFile, cacheFile);
 
             return true;
         }

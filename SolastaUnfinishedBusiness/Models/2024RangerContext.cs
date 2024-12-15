@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -182,6 +183,16 @@ internal static partial class Tabletop2024Context
         if (Main.Settings.EnableRangerFavoredEnemy2024)
         {
             Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetRangerFavoredEnemy, 1));
+        }
+        else
+        {
+            Ranger.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerTerrainType, 1),
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerPreferredEnemy, 1),
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerTerrainType, 6),
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerPreferredEnemy, 6),
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerTerrainType, 10),
+                new FeatureUnlockByLevel(RulesContext.InvocationPoolRangerPreferredEnemy, 14));
         }
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
