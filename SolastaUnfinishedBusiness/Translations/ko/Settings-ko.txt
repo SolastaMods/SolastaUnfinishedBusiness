@@ -191,7 +191,7 @@ ModUi/&EnableRangerRelentlessHunter2024=레벨 13에서 <color=#D89555>끈질긴
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 대신 사냥꾼의 표식에서 집중력 요구 사항을 제거합니다.</i>
 ModUi/&EnableRangerRoving2024=레벨 6에서 <color=#D89555>이동</color> 가능 <i><color=#F0DAA0>[중갑옷을 착용하지 않을 때 10피트 이동 가능, 동일한 등반 속도]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
-ModUi/&EnableRangerTireless2024=레벨 10에서 <color=#D89555>무지력</color>을 활성화합니다. <i><color=#F0DAA0>[임시 생명력 포인트를 얻기 위해 액션을 사용하세요]</color></i>
+ModUi/&EnableRangerTireless2024=레벨 10에서 <color=#D89555>Hide in Plain Sight</color>를 대체하기 위해 <color=#D89555>Tireless</color>를 활성화하세요 <i><color=#F0DAA0>[임시 생명력 획득]</color></i>
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=모든 시전자에 <color=#D89555>의식</color> 시전 활성화
@@ -319,6 +319,7 @@ ModUi/&RemoveBardMagicalSecret2024=레벨 14와 18에서 <color=#D89555>마법�
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
+ModUi/&RemoveRangerVanish2024=레벨 14에서 <color=#D89555>사라짐</color> 제거
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
 ModUi/&RemoveRogueBlindSense2024=레벨 14에서 <color=#D89555>맹감각</color> 제거
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>섀도우캐스터</b>에서 학교 제한을 제거하세요

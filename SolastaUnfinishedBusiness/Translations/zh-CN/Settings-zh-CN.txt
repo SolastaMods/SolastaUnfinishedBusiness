@@ -191,7 +191,7 @@ ModUi/&EnableRangerRelentlessHunter2024=在 13 级时启用<color=#D89555>无情
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 移除猎人印记的专注要求</i>
 ModUi/&EnableRangerRoving2024=在 6 级时启用<color=#D89555>漫游</color> <i><color=#F0DAA0>[不使用重型装甲时可移动 10 英尺，且爬升速度相同]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
-ModUi/&EnableRangerTireless2024=在 10 级时启用<color=#D89555>不知疲倦</color> <i><color=#F0DAA0>[使用动作获取临时生命值]</color></i>
+ModUi/&EnableRangerTireless2024=在 10 级时启用<color=#D89555>不知疲倦</color>来替代<color=#D89555>隐藏在众目睽睽之下</color> <i><color=#F0DAA0>[获得临时生命值]</color></i>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=对所有施法者启用<color=#D89555>仪式</color>施法
@@ -319,6 +319,7 @@ ModUi/&RemoveBardMagicalSecret2024=删除 14 级和 18 级的<color=#D89555>魔�
 ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
+ModUi/&RemoveRangerVanish2024=删除 14 级的 <color=#D89555>消失</color>
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
 ModUi/&RemoveRogueBlindSense2024=移除 14 级的<color=#D89555>盲感</color>
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<b>Shadowcaster</b>的学校限制

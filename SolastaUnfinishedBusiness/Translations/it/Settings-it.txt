@@ -191,7 +191,7 @@ ModUi/&EnableRangerRelentlessHunter2024=Abilita <color=#D89555>Cacciatore implac
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Rimuovi invece i requisiti di concentrazione dal Marchio del cacciatore</i>
 ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
-ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> al livello 10 <i><color=#F0DAA0>[usa un'azione per ottenere punti ferita temporanei]</color></i>
+ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> per sostituire <color=#D89555>Nasconditi in bella vista</color> al livello 10 <i><color=#F0DAA0>[ottieni punti ferita temporanei]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Abilita il lancio di <color=#D89555>Rituale</color> su tutti gli incantatori
@@ -319,6 +319,7 @@ ModUi/&RemoveBardMagicalSecret2024=Rimuovi <color=#D89555>Segreto magico</color>
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
+ModUi/&RemoveRangerVanish2024=Rimuovi <color=#D89555>Svanisci</color> al livello 14
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
 ModUi/&RemoveRogueBlindSense2024=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <b>Shadowcaster</b>

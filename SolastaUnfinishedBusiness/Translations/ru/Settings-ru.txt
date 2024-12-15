@@ -191,7 +191,7 @@ ModUi/&EnableRangerRelentlessHunter2024=Включить <color=#D89555>Безж
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Вместо этого уберите требования к концентрации из Hunter's Mark</i>
 ModUi/&EnableRangerRoving2024=Включить <color=#D89555>Roving</color> на уровне 6 <i><color=#F0DAA0>[получить 10 футов движения, когда не используется тяжелая броня, и ту же скорость подъема]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
-ModUi/&EnableRangerTireless2024=Включить <color=#D89555>Неутомимый</color> на уровне 10 <i><color=#F0DAA0>[используйте действие, чтобы получить временные очки здоровья]</color></i>
+ModUi/&EnableRangerTireless2024=Включите <color=#D89555>Неутомимый</color> вместо <color=#D89555>Спрятаться на виду</color> на уровне 10 <i><color=#F0DAA0>[получить временные очки здоровья]</color></i>
 ModUi/&EnableRelearnSpells=Включить возможность выбирать заговоры или заклинания, уже известные из других источников
 ModUi/&EnableRespecAction=Включить возможность <color=#D89555>РЕСПЕКа</color> после отдыха <i><color=#F0DAA0>[не используйте РЕСПЕК в многопользовательских сессиях]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Включить <color=#D89555>Ритуальное колдовство</color> для всех заклинателей
@@ -319,6 +319,7 @@ ModUi/&RemoveBardMagicalSecret2024=Убрать <color=#D89555>Тайны маг
 ModUi/&RemoveBardSongOfRest2024=Убрать <color=#D89555>Песнь отдыха</color> на уровне 2
 ModUi/&RemoveBugVisualModels=Заменить паукообразные модельки в игре на медведеобразные <i><color=#F0DAA0>[арахнофобия]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Убрать гуманоидный фильтр на <color=#D89555>Жуткий смех</color>
+ModUi/&RemoveRangerVanish2024=Удалить <color=#D89555>Исчезновение</color> на уровне 14
 ModUi/&RemoveRecurringEffectOnEntangle=Применять эффект <color=#D89555>Опутывания</color> только на время действия заклинания, а также принудительно совершать проверку Силы, чтобы вырваться из лоз
 ModUi/&RemoveRogueBlindSense2024=Убрать <color=#D89555>Слепое зрение</color> на уровне 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Снять ограничения по школе заклинаний с <b>Заклинателя теней</b>

@@ -191,7 +191,7 @@ ModUi/&EnableRangerRelentlessHunter2024=Activer <color=#D89555>Chasseur implacab
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Supprimez plutôt les exigences de concentration de la marque du chasseur</i>
 ModUi/&EnableRangerRoving2024=Activez <color=#D89555>Roving</color> au niveau 6 <i><color=#F0DAA0>[obtenez un mouvement de 10 pieds lorsque vous n'utilisez pas d'armure lourde et la même vitesse de montée]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
-ModUi/&EnableRangerTireless2024=Activez <color=#D89555>Tireless</color> au niveau 10 <i><color=#F0DAA0>[utilisez une action pour obtenir des points de vie temporaires]</color></i>
+ModUi/&EnableRangerTireless2024=Activez <color=#D89555>Tireless</color> pour remplacer <color=#D89555>Hide in Plain Sight</color> au niveau 10 <i><color=#F0DAA0>[obtenir des points de vie temporaires]</color></i>
 ModUi/&EnableRelearnSpells=Activer la sélection de sorts ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespecAction=Activer l'action <color=#D89555>RESPEC</color> après le repos <i><color=#F0DAA0>[ne pas utiliser RESPEC pendant une session multijoueur]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Activer le lancement de <color=#D89555>rituel</color> sur tous les lanceurs de sorts
@@ -319,6 +319,7 @@ ModUi/&RemoveBardMagicalSecret2024=Supprimez le <color=#D89555>secret magique</c
 ModUi/&RemoveBardSongOfRest2024=Supprimez <color=#D89555>Chant de repos</color> au niveau 2
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>
+ModUi/&RemoveRangerVanish2024=Supprimez <color=#D89555>Vanish</color> au niveau 14
 ModUi/&RemoveRecurringEffectOnEntangle=Appliquez uniquement l'effet <color=#D89555>Enchevêtrement</color> au moment de l'incantation et forcez également un test de force pour vous libérer des vignes
 ModUi/&RemoveRogueBlindSense2024=Supprimez <color=#D89555>Blind Sense</color> au niveau 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <b>Shadowcaster</b>
