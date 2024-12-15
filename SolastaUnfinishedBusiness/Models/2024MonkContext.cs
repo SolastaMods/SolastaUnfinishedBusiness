@@ -160,7 +160,7 @@ internal static partial class Tabletop2024Context
                 : "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
     }
 
-    internal static void SwitchOneDndMonkUnarmedDieTypeProgression()
+    internal static void SwitchMonkUnarmedDieTypeProgression()
     {
         AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
             Main.Settings.EnableMonkUnarmoredDieTypeProgression2024

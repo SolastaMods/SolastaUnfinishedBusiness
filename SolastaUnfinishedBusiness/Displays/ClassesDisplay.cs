@@ -296,7 +296,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUnarmoredDieTypeProgression2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkUnarmoredDieTypeProgression2024 = toggle;
-            Tabletop2024Context.SwitchOneDndMonkUnarmedDieTypeProgression();
+            Tabletop2024Context.SwitchMonkUnarmedDieTypeProgression();
         }
 
         toggle = Main.Settings.GrantKatanaSpecializationToMonk;
@@ -320,7 +320,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHandsAsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024 = toggle;
-            Tabletop2024Context.SwitchOneDndPaladinLayOnHandAsBonusAction();
+            Tabletop2024Context.SwitchPaladinLayOnHand();
         }
 
         toggle = Main.Settings.EnablePaladinSmiteAsBonusAction2024;
@@ -333,7 +333,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinSpellCastingAtLevel1 = toggle;
-            Tabletop2024Context.SwitchOneDndPaladinLearnSpellCastingAtOne();
+            Tabletop2024Context.SwitchPaladinSpellCastingAtOne();
         }
 
         toggle = Main.Settings.ShowChannelDivinityOnPortrait;
@@ -386,6 +386,21 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRangerRelentlessHunter2024 = toggle;
             Tabletop2024Context.SwitchRangerRelentlessHunter();
+
+            if (toggle)
+            {
+                Main.Settings.EnableRangerRelentlessHunter2024AsNoConcentration = false;
+            }
+        }
+
+        if (Main.Settings.EnableRangerRelentlessHunter2024)
+        {
+            toggle = Main.Settings.EnableRangerRelentlessHunter2024AsNoConcentration;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.EnableRangerRelentlessHunter2024AsNoConcentration = toggle;
+            }
         }
 
         toggle = Main.Settings.EnableRangerRoving2024;
@@ -399,7 +414,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRangerSpellCastingAtLevel1 = toggle;
-            Tabletop2024Context.SwitchOneDndRangerLearnSpellCastingAtOne();
+            Tabletop2024Context.SwitchRangerSpellCastingAtOne();
         }
 
         toggle = Main.Settings.EnableRangerTireless2024;

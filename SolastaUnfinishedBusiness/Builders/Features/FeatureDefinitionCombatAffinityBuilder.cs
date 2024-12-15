@@ -97,6 +97,12 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder DisableAutoFormatDescription()
+    {
+        Definition.autoFormatDescription = false;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
         Definition.situationalContext = (SituationalContext)context;

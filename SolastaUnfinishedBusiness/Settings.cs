@@ -303,6 +303,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRangerNatureShroud2024 { get; set; }
     public bool EnableRangerPreciseHunter2024 { get; set; }
     public bool EnableRangerRelentlessHunter2024 { get; set; }
+    public bool EnableRangerRelentlessHunter2024AsNoConcentration { get; set; }
     public bool EnableRangerRoving2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableRangerTireless2024 { get; set; }

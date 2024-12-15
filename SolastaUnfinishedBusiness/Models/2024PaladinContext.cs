@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    internal static void SwitchOneDndPaladinLearnSpellCastingAtOne()
+    internal static void SwitchPaladinSpellCastingAtOne()
     {
         var level = Main.Settings.EnablePaladinSpellCastingAtLevel1 ? 1 : 2;
 
@@ -44,7 +44,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchOneDndPaladinLayOnHandAsBonusAction()
+    internal static void SwitchPaladinLayOnHand()
     {
         PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHandsAsBonusAction2024
             ? ActivationTime.BonusAction

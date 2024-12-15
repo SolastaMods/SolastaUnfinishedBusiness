@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -54,12 +55,13 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, ConditionDefinitions.ConditionMarkedByHunter)
+            .DisableAutoFormatDescription()
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerRangerTireless = FeatureDefinitionPowerBuilder
         .Create("PowerRangerTireless")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+        .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -69,16 +71,31 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetTempHpForm(0, DieType.D8, 1)
+                        .SetTempHpForm(5, DieType.D8, 1)
                         .Build())
                 .Build())
+        .AddCustomSubFeatures(new CustomBehaviorTireless())
         .AddToDB();
 
     private static readonly FeatureDefinition FeatureRangerRelentlessHunter = FeatureDefinitionBuilder
         .Create("FeatureRangerRelentlessHunter")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new PreventRemoveConcentrationOnDamageRelentlessHunter())
+        .AddCustomSubFeatures(new CustomBehaviorRelentlessHunter())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerFavoredEnemyHuntersMark = FeatureDefinitionPowerBuilder
+        .Create("PowerFavoredEnemyHuntersMark")
+        .SetGuiPresentation(HuntersMark.GuiPresentation)
+        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 0)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(HuntersMark)
+                .SetEffectForms()
+                .Build())
+        .AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new CustomBehaviorFavoredEnemyHuntersMark())
         .AddToDB();
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetRangerFavoredEnemy =
@@ -86,19 +103,7 @@ internal static partial class Tabletop2024Context
             .Create("FeatureSetRangerFavoredEnemy")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
-                FeatureDefinitionPowerBuilder
-                    .Create("PowerFavoredEnemyHuntersMark")
-                    .SetGuiPresentation(HuntersMark.GuiPresentation)
-                    .SetUsesProficiencyBonus(ActivationTime.Action)
-                    .SetShowCasting(false)
-                    .SetEffectDescription(
-                        EffectDescriptionBuilder
-                            .Create(HuntersMark)
-                            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
-                            .SetEffectForms()
-                            .Build())
-                    .AddCustomSubFeatures(new CustomBehaviorFavoredEnemyHuntersMark())
-                    .AddToDB(),
+                PowerFavoredEnemyHuntersMark,
                 FeatureDefinitionAutoPreparedSpellsBuilder
                     .Create("AutoPreparedHuntersMark")
                     .SetGuiPresentationNoContent(true)
@@ -108,7 +113,7 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
-    internal static void SwitchOneDndRangerLearnSpellCastingAtOne()
+    internal static void SwitchRangerSpellCastingAtOne()
     {
         var level = Main.Settings.EnableRangerSpellCastingAtLevel1 ? 1 : 2;
 
@@ -246,6 +251,11 @@ internal static partial class Tabletop2024Context
             Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureRangerRelentlessHunter, 13));
         }
 
+        FeatureRangerRelentlessHunter.GuiPresentation.description =
+            Main.Settings.EnableRangerRelentlessHunter2024AsNoConcentration
+                ? "Feature/&FeatureRangerRelentlessHunterExtendedDescription"
+                : "Feature/&FeatureRangerRelentlessHunterDescription";
+
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
@@ -276,8 +286,47 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private sealed class CustomBehaviorFavoredEnemyHuntersMark : IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorTireless : IModifyEffectDescription
     {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerRangerTireless;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var levels = character.GetClassLevel(Ranger);
+            var halfRoundUp = (levels + 1) / 2;
+
+            effectDescription.EffectForms[0].TemporaryHitPointsForm.BonusHitPoints = halfRoundUp;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CustomBehaviorFavoredEnemyHuntersMark : IPowerOrSpellFinishedByMe, IModifyPowerPoolAmount
+    {
+        public FeatureDefinitionPower PowerPool => PowerFavoredEnemyHuntersMark;
+
+        public int PoolChangeAmount(RulesetCharacter character)
+        {
+            var levels = character.GetClassLevel(Ranger);
+            var usages = levels switch
+            {
+                < 5 => 2,
+                < 9 => 3,
+                < 13 => 4,
+                < 17 => 5,
+                _ => 6
+            };
+
+            return usages;
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.MyExecuteActionCastNoCost(HuntersMark, 0, action.ActionParams);
@@ -286,11 +335,22 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private sealed class PreventRemoveConcentrationOnDamageRelentlessHunter : IPreventRemoveConcentrationOnDamage
+    private sealed class CustomBehaviorRelentlessHunter
+        : IPreventRemoveConcentrationOnDamage, IModifyConcentrationRequirement
     {
+        public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
+        {
+            if (!Main.Settings.EnableRangerRelentlessHunter2024)
+            {
+                return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
+            }
+
+            return rulesetEffectSpell.SpellDefinition != HuntersMark;
+        }
+
         public SpellDefinition[] SpellsThatShouldNotRollConcentrationCheckFromDamage(RulesetCharacter rulesetCharacter)
         {
-            return [HuntersMark];
+            return Main.Settings.EnableRangerRelentlessHunter2024AsNoConcentration ? [] : [HuntersMark];
         }
     }
 }
