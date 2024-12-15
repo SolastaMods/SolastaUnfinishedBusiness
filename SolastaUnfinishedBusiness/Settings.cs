@@ -308,6 +308,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablePaladinAbjureFoes2024 { get; set; }
     public bool EnablePaladinChannelDivinity2024 { get; set; }
     public bool EnablePaladinLayOnHands2024 { get; set; }
+    public bool EnablePaladinRestoringTouch2024 { get; set; }
     public bool EnablePaladinSmite2024 { get; set; }
     public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }

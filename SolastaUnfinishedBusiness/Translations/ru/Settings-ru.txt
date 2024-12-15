@@ -173,6 +173,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Включить версию загово�
 ModUi/&EnablePaladinAbjureFoes2024=Включить <color=#D89555>Отречение от врагов</color> на уровне 9
 ModUi/&EnablePaladinChannelDivinity2024=Включить <color=#D89555>Channel Divinity</color> 5e 2024 версии <i><color=#F0DAA0>[различные варианты использования]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Включить <color=#D89555>Возложение рук</color> 5e 2024 версия <i><color=#F0DAA0>[бонусное действие]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Включите <color=#D89555>Восстанавливающее прикосновение</color>, чтобы заменить <color=#D89555>Очищающее прикосновение</color> на уровне 14
 ModUi/&EnablePaladinSmite2024=Включить <color=#D89555>Divine Smite</color> 5e 2024 версии <i><color=#F0DAA0>[бонусное действие]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Включить возможность <color=#D89555>наложения заклинаний</color> на 1-м уровне вместо 2-го
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

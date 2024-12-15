@@ -173,6 +173,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 
 ModUi/&EnablePaladinAbjureFoes2024=레벨 9에서 <color=#D89555>적을 배척</color>할 수 있습니다.
 ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
 ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>안수</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=레벨 14에서 <color=#D89555>클렌징 터치</color>를 대체하기 위해 <color=#D89555>터치 복원</color>을 활성화합니다.
 ModUi/&EnablePaladinSmite2024=<color=#D89555>신성한 일격</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

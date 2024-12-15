@@ -173,6 +173,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>Golpe verdadero</c
 ModUi/&EnablePaladinAbjureFoes2024=Habilita <color=#D89555>Abjurar enemigos</color> en el nivel 9
 ModUi/&EnablePaladinChannelDivinity2024=Habilitar <color=#D89555>Canal Divinidad</color> versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Habilitar <color=#D89555>Imposición de manos</color> versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Habilita <color=#D89555>Toque restaurador</color> para reemplazar <color=#D89555>Toque purificador</color> en el nivel 14
 ModUi/&EnablePaladinSmite2024=Habilitar <color=#D89555>Divine Smite</color> versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
 ModUi/&EnablePcgRandom=Habilitar un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

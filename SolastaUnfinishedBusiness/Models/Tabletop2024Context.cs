@@ -33,6 +33,7 @@ internal static partial class Tabletop2024Context
         LoadOneDndSpellGuidanceSubspells();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndSpellTrueStrike();
+        LoadPaladinRestoringTouch();
         LoadRogueCunningStrike();
         LoadSorcererSorcerousRestoration();
         LoadWizardMemorizeSpell();
@@ -81,6 +82,7 @@ internal static partial class Tabletop2024Context
         SwitchPaladinAbjureFoes();
         SwitchPaladinChannelDivinity();
         SwitchPaladinLayOnHand();
+        SwitchPaladinRestoringTouch();
         SwitchPaladinSpellCastingAtOne();
         SwitchPoisonsBonusAction();
         SwitchPotionsBonusAction();

@@ -78,6 +78,7 @@ internal static partial class Tabletop2024Context
                         .Create()
                         .SetTempHpForm(5, DieType.D8, 1)
                         .Build())
+                .SetCasterEffectParameters(Command)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorTireless())
         .AddToDB();
@@ -181,6 +182,7 @@ internal static partial class Tabletop2024Context
     {
         Ranger.FeatureUnlocks
             .RemoveAll(x =>
+                x.FeatureDefinition == FeatureSetRangerFavoredEnemy ||
                 x.FeatureDefinition == RulesContext.InvocationPoolRangerTerrainType ||
                 x.FeatureDefinition == RulesContext.InvocationPoolRangerPreferredEnemy);
 

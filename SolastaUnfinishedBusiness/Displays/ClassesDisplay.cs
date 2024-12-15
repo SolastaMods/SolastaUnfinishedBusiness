@@ -343,6 +343,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchPaladinLayOnHand();
         }
 
+        toggle = Main.Settings.EnablePaladinRestoringTouch2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinRestoringTouch2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinRestoringTouch2024 = toggle;
+            Tabletop2024Context.SwitchPaladinRestoringTouch();
+        }
+
         toggle = Main.Settings.EnablePaladinSpellCastingAtLevel1;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSpellCastingAtLevel1"), ref toggle, UI.AutoWidth()))
         {

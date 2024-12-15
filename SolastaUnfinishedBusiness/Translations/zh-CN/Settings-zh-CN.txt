@@ -173,6 +173,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5
 ModUi/&EnablePaladinAbjureFoes2024=在 9 级时启用<color=#D89555>Abjure Foes</color>
 ModUi/&EnablePaladinChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=启用<color=#D89555>圣疗术</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=在第 14 级启用<color=#D89555>恢复之触</color>来替换<color=#D89555>清洁之触</color>
 ModUi/&EnablePaladinSmite2024=启用<color=#D89555>Divine Smite</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

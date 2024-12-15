@@ -173,6 +173,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Aktiviere <color=#D89555>True Strike</color
 ModUi/&EnablePaladinAbjureFoes2024=Aktiviere <color=#D89555>Feinde abschwören</color> auf Level 9.
 ModUi/&EnablePaladinChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Aktivieren Sie <color=#D89555>Handauflegen</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Aktiviere <color=#D89555>Restoring Touch</color>, um <color=#D89555>Cleansing Touch</color> auf Level 14 zu ersetzen.
 ModUi/&EnablePaladinSmite2024=Aktivieren Sie <color=#D89555>Divine Smite</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

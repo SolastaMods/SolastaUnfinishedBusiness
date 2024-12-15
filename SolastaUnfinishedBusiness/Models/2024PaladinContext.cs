@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -26,7 +29,8 @@ internal static partial class Tabletop2024Context
 
     private static readonly FeatureDefinitionPower PowerPaladinAbjureFoes = FeatureDefinitionPowerBuilder
         .Create("PowerPaladinAbjureFoes")
-        .SetGuiPresentation(Category.Feature, Sprites.GetSprite(FeatSteadyAim, Resources.PowerPaladinAbjureFoes, 256, 128))
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerPaladinAbjureFoes", Resources.PowerPaladinAbjureFoes, 256, 128))
         .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -51,6 +55,25 @@ internal static partial class Tabletop2024Context
                 .Build())
         .AddCustomSubFeatures(new ModifyEffectDescriptionPowerPaladinAbjureFoes())
         .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerPaladinRestoringTouch = FeatureDefinitionPowerBuilder
+        .Create("PowerPaladinRestoringTouch")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.HealingPool, 5)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .Build())
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
+    internal static void LoadPaladinRestoringTouch()
+    {
+        PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
+
+        //TODO: add subpowers and logic on custom behavior
+    }
 
     internal static void SwitchPaladinSpellCastingAtOne()
     {
@@ -90,6 +113,20 @@ internal static partial class Tabletop2024Context
         PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+    }
+
+    internal static void SwitchPaladinRestoringTouch()
+    {
+        Paladin.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == PowerPaladinRestoringTouch ||
+                x.FeatureDefinition == PowerPaladinCleansingTouch);
+
+        Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
+            ? new FeatureUnlockByLevel(PowerPaladinAbjureFoes, 14)
+            : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchPaladinAbjureFoes()
@@ -145,6 +182,17 @@ internal static partial class Tabletop2024Context
             effectDescription.targetParameter = targets;
 
             return effectDescription;
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeRestoringTouch : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!Main.Settings.EnablePaladinRestoringTouch2024)
+            {
+                yield break;
+            }
         }
     }
 }
