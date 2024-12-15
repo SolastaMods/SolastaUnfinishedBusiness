@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>0</SelectedTab>
+    <SelectedTab>3</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
     <DisplayTabletop2024>false</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
@@ -659,8 +659,17 @@
     <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
+    <EnableRangerDeftExplorer2024>false</EnableRangerDeftExplorer2024>
+    <EnableRangerExpertise2024>false</EnableRangerExpertise2024>
+    <EnableRangerFavoredEnemy2024>false</EnableRangerFavoredEnemy2024>
+    <EnableRangerFeralSenses2024>false</EnableRangerFeralSenses2024>
+    <EnableRangerFoeSlayers2024>false</EnableRangerFoeSlayers2024>
     <EnableRangerNatureShroud2024>false</EnableRangerNatureShroud2024>
+    <EnableRangerPreciseHunter2024>false</EnableRangerPreciseHunter2024>
+    <EnableRangerRelentlessHunter2024>false</EnableRangerRelentlessHunter2024>
+    <EnableRangerRoving2024>false</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
+    <EnableRangerTireless2024>false</EnableRangerTireless2024>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>false
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
@@ -689,6 +698,7 @@
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>false</EnableSorcererSorcerousRestoration2024>
+    <EnableSorcererToLearnOriginAtLevel3>false</EnableSorcererToLearnOriginAtLevel3>
     <EnableWarlockInvocationProgression2024>false</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>false
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>

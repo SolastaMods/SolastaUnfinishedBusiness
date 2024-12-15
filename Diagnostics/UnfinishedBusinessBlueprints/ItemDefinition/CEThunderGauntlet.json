@@ -519,7 +519,7 @@
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
-    "scaleFactorWhileWielded": 0.25,
+    "scaleFactorWhileWielded": 0.2,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
