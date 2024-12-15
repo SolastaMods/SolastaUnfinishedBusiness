@@ -999,6 +999,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
+        
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionSurprised { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionSurprised");
 
@@ -1163,6 +1166,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAttributeModifiers
     {
+        internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinChannelDivinity");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierBarbarianBrutalCriticalAdd { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarbarianBrutalCriticalAdd");
 

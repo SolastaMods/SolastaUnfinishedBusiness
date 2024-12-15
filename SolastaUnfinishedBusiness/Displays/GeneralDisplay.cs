@@ -523,13 +523,13 @@ internal static class ToolsDisplay
             Main.Settings.EnablePaladinChannelDivinity2024 = toggle;
             Tabletop2024Context.SwitchPaladinChannelDivinity();
         }
-        
+
         toggle = Main.Settings.EnablePaladinSmite2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmite2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnablePaladinSmite2024 = toggle;
         }
-        
+
         toggle = Main.Settings.EnablePaladinLayOnHands2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHands2024"), ref toggle, UI.AutoWidth()))
         {
@@ -617,6 +617,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableRangerTireless2024 = toggle;
             Tabletop2024Context.SwitchRangerTireless();
+        }
+
+        toggle = Main.Settings.RemoveRangerVanish2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRangerVanish2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRangerVanish2024 = toggle;
+            Tabletop2024Context.SwitchRangerVanish();
         }
 
         toggle = Main.Settings.EnableRangerFavoredEnemy2024;

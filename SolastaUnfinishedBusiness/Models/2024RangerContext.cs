@@ -5,10 +5,13 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -61,7 +64,8 @@ internal static partial class Tabletop2024Context
 
     private static readonly FeatureDefinitionPower PowerRangerTireless = FeatureDefinitionPowerBuilder
         .Create("PowerRangerTireless")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerRangerTireless", Resources.PowerTireless, 256, 128))
         .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
         .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
@@ -234,6 +238,19 @@ internal static partial class Tabletop2024Context
         if (Main.Settings.EnableRangerNatureShroud2024)
         {
             Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
+        }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchRangerVanish()
+    {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == ActionAffinityRangerVanish);
+
+        if (!Main.Settings.RemoveRangerVanish2024)
+        {
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(ActionAffinityRangerVanish, 14));
         }
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
