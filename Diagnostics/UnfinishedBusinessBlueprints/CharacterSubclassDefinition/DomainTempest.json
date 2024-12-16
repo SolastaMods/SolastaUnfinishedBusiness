@@ -43,7 +43,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerClericDivineInterventionImprovementWizard:e0410025-6a51-589f-9dc3-ecf95d055f7c",
+      "featureDefinition": "Definition:PowerClericDivineInterventionImprovementPaladin:11d90029-4c67-591e-8e69-f6d52b78d522",
       "level": 20
     }
   ],

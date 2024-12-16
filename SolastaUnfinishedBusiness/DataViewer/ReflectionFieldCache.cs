@@ -13,7 +13,7 @@ internal static partial class ReflectionCache
     [NotNull]
     private static CachedField<TField> GetFieldCache<T, TField>(string name)
     {
-        object cache = default;
+        object cache = null;
 
         if (FieldCache.TryGetValue(typeof(T), name, out var weakRef))
         {

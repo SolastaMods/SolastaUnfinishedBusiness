@@ -1515,7 +1515,7 @@ internal static class EldritchVersatilityBuilders
             var invocation = rulesetCharacter.Invocations.Find(invocation =>
                 !invocation.Active && invocation.invocationDefinition.Name == InvocationName);
 
-            if (invocation != default(RulesetInvocation) &&
+            if (invocation != null &&
                 supportCondition.StrPowerPriority.Contains("BlastEmpowerTitle"))
             {
                 invocation.Toggle();

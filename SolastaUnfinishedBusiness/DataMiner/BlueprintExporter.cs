@@ -73,7 +73,7 @@ internal class BlueprintExporter : MonoBehaviour
     // ReSharper disable once SuggestBaseTypeForParameter
     private static IEnumerator ExportMany(
         int exportId,
-        IReadOnlyList<BaseDefinition> baseDefinitions,
+        BaseDefinition[] baseDefinitions,
         Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
         Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
         bool exportOriginalCopy,
@@ -115,7 +115,7 @@ internal class BlueprintExporter : MonoBehaviour
 
         yield return null;
 
-        var total = baseDefinitions.Count;
+        var total = baseDefinitions.Length;
 
         // Blueprints/definitions
         for (var i = 0; i < total; i++)
