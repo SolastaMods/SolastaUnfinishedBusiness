@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -64,8 +64,19 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinition FeatureClericSearUndead = FeatureDefinitionBuilder
         .Create("FeatureClericSearUndead")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemySearUndead())
         .AddToDB();
+
+    private static readonly EffectForm SearUndeadDamageForm = EffectFormBuilder
+        .Create()
+        .HasSavingThrow(EffectSavingThrowType.Negates)
+        .SetDamageForm(DamageTypeRadiant, 0, DieType.D8)
+        .Build();
+
+    private static void LoadClericSearUndead()
+    {
+        PowerClericTurnUndead.EffectDescription.EffectForms.Insert(0, SearUndeadDamageForm);
+        PowerClericTurnUndead.AddCustomSubFeatures(new ModifyEffectDescriptionPowerTurnUndead());
+    }
 
     internal static void SwitchClericSearUndead()
     {
@@ -118,14 +129,17 @@ internal static partial class Tabletop2024Context
             var subClass = GetDefinition<CharacterSubclassDefinition>(subclassName);
             var power = GetDefinition<FeatureDefinitionPower>(powerName);
 
-            subClass.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == power ||
-                x.FeatureDefinition == FeatureSetClericDivineIntervention);
+            Cleric.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericDivineIntervention);
+            subClass.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == power);
 
-            subClass.FeatureUnlocks.Add(
-                Main.Settings.EnableClericDivineIntervention2024
-                    ? new FeatureUnlockByLevel(FeatureSetClericDivineIntervention, 10)
-                    : new FeatureUnlockByLevel(power, 10));
+            if (Main.Settings.EnableClericDivineIntervention2024)
+            {
+                Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericDivineIntervention, 10));
+            }
+            else
+            {
+                subClass.FeatureUnlocks.Add(new FeatureUnlockByLevel(power, 10));
+            }
         }
 
         foreach (var (subclassName, powerName) in divineInterventions)
@@ -134,13 +148,17 @@ internal static partial class Tabletop2024Context
             var improvementPowerName = powerName.Replace("Intervention", "InterventionImprovement");
             var improvementPower = GetDefinition<FeatureDefinitionPower>(improvementPowerName);
 
-            subClass.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == improvementPower ||
-                x.FeatureDefinition == FeatureSetClericDivineInterventionImproved);
+            Cleric.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetClericDivineInterventionImproved);
+            subClass.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == improvementPower);
 
-            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineIntervention2024
-                ? new FeatureUnlockByLevel(FeatureSetClericDivineInterventionImproved, 20)
-                : new FeatureUnlockByLevel(improvementPower, 20));
+            if (Main.Settings.EnableClericDivineIntervention2024)
+            {
+                Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericDivineInterventionImproved, 20));
+            }
+            else
+            {
+                subClass.FeatureUnlocks.Add(new FeatureUnlockByLevel(improvementPower, 20));
+            }
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -165,7 +183,7 @@ internal static partial class Tabletop2024Context
         {
             AttributeModifierClericChannelDivinity.modifierValue = 2;
             AttributeModifierClericChannelDivinity.GuiPresentation.description =
-                "Feature/&PaladinChannelDivinityDescription";
+                "Feature/&ClericChannelDivinityExtendedDescription";
         }
         else
         {
@@ -242,34 +260,33 @@ internal static partial class Tabletop2024Context
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal sealed class MagicEffectBeforeHitConfirmedOnEnemySearUndead : IMagicEffectBeforeHitConfirmedOnEnemy
+    internal sealed class ModifyEffectDescriptionPowerTurnUndead : IModifyEffectDescription
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            if (rulesetEffect.SourceDefinition != PowerClericTurnUndead)
+            return definition == PowerClericTurnUndead;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!Main.Settings.EnableClericSearUndead2024)
             {
-                yield break;
+                effectDescription.EffectForms.Remove(SearUndeadDamageForm);
+
+                return effectDescription;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
             var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
             var diceNumber = Math.Max(wisMod, 1);
-            var effectForm = EffectFormBuilder
-                .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .SetDamageForm(DamageTypeRadiant, diceNumber, DieType.D8)
-                .Build();
 
-            actualEffectForms.Insert(0, effectForm);
+            SearUndeadDamageForm.DamageForm.diceNumber = diceNumber;
+
+            return effectDescription;
         }
     }
 

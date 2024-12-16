@@ -100,6 +100,7 @@ Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=您已掌握了两个主要的创世之语：生命之语和死亡之语。因此，您始终准备好强力之语治疗和强力之语杀戮法术。当您施放任一法术时，如果该生物距离第一个目标 10 英尺以内，则可以将其作为第二个生物的目标。
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=创造世界
 Feature/&BardExpertiseExtendedDescription=选择两项技能熟练度。使用所选熟练度之一进行的任何能力检定，您的熟练度奖励都会翻倍。
+Feature/&ClericChannelDivinityExtendedDescription=您可以直接从外层位面引导神圣能量来为魔法效果提供能量。您一开始就拥有两种这样的效果：神圣火花和驱散亡灵。您可以使用该职业的引导神圣能力两次。完成短暂休息后，您可以恢复其已消耗的使用次数之一，完成长时间休息后，您可以恢复所有已消耗的使用次数。当您达到某些牧师等级时，您可以获得额外的使用次数，在 6 级时增加到 3 次，在 18 级时增加到 4 次。如果引导神圣能力效果需要豁免检定，则 DC 等于该职业的施法功能的法术豁免 DC。
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&CombatAffinityRangerPreciseHunterDescription=你在对当前被你的猎人印记标记的生物进行攻击检定时具有优势。
 Feature/&CombatAffinityRangerPreciseHunterTitle=精准猎人

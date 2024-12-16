@@ -100,6 +100,7 @@ Feature/&AttributeModifierMonkAbundantKiTitle=Abundant Ki
 Feature/&AutoPreparedSpellsBardWordOfCreationDescription=You have mastered two of the prime Words of Creation: the words of life and death. You therefore always have the Power Word Heal and Power Word Kill spells prepared. When you cast either spell, you can target a second creature with it if the creature is within 10 feet of the first target.
 Feature/&AutoPreparedSpellsBardWordOfCreationTitle=Words of Creation
 Feature/&BardExpertiseExtendedDescription=Choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
+Feature/&ClericChannelDivinityExtendedDescription=You can channel divine energy directly from the Outer Planes to fuel magical effects. You start with two such effects: Divine Spark and Turn Undead. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain additional uses when you reach certain Cleric levels, increasing to 3 at 6th level, and 4 at 18th level. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting feature.
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&CombatAffinityRangerPreciseHunterDescription=You have advantage on attack rolls against the creature currently marked by your Hunter's Mark.
 Feature/&CombatAffinityRangerPreciseHunterTitle=Precise Hunter

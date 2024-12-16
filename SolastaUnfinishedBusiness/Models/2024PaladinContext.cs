@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -26,8 +27,7 @@ internal static partial class Tabletop2024Context
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierPaladinChannelDivinity11")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ChannelDivinityNumber)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ChannelDivinityNumber, 1)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerPaladinAbjureFoes = FeatureDefinitionPowerBuilder
@@ -55,6 +55,7 @@ internal static partial class Tabletop2024Context
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
+                .SetCasterEffectParameters(PowerClericTurnUndead)
                 .Build())
         .AddCustomSubFeatures(new ModifyEffectDescriptionPowerPaladinAbjureFoes())
         .AddToDB();
@@ -163,7 +164,7 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == PowerPaladinCleansingTouch);
 
         Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
-            ? new FeatureUnlockByLevel(PowerPaladinAbjureFoes, 14)
+            ? new FeatureUnlockByLevel(PowerPaladinRestoringTouch, 14)
             : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
 
         Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

@@ -26,6 +26,7 @@ internal static partial class Tabletop2024Context
         LoadBarbarianInstinctivePounce();
         LoadBarbarianPersistentRage();
         LoadBardCounterCharm();
+        LoadClericSearUndead();
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
