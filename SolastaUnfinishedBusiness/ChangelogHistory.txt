@@ -1,3 +1,13 @@
+1.5.97.42:
+
+- added Cleric, Paladin, Ranger, and Sorcerer tabletop 2024 settings
+- fixed custom models rendering, and off-hand Katanas
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.41:
 
 ATTENTION: bootstrap feels much slower with custom blender models parsing. need feedback from user base.
@@ -21,11 +31,6 @@ ATTENTION: bootstrap feels much slower with custom blender models parsing. need 
 - fixed Lighting and Obscurement rules interaction with Fighter tactical shift, and Rogue cunning strike withdraw
 - fixed Pact of Chain bind chain usages when acquired as a 2024 invocation
 - fixed Thunder Gauntlet interaction with Cleaving Attack, and Power Attack feats
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.40 - 3 Years CE/UB anniversary has a lot to say:
 

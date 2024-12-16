@@ -690,8 +690,11 @@
     <EnableBarbarianPersistentRage2024>true</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>true</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRegainOneRageAtShortRest2024>true</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
+    <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
+    <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
+    <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
@@ -700,9 +703,6 @@
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
-    <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroud2024>true</EnableRangerNatureShroud2024>
-    <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>true
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
@@ -715,10 +715,27 @@
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
     <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction2024>true</EnablePaladinLayOnHandsAsBonusAction2024>
-    <EnablePaladinSmiteAsBonusAction2024>false</EnablePaladinSmiteAsBonusAction2024>
+    <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
+    <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>
+    <EnablePaladinLayOnHands2024>true</EnablePaladinLayOnHands2024>
+    <EnablePaladinRestoringTouch2024>true</EnablePaladinRestoringTouch2024>
+    <EnablePaladinSmite2024>true</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
+    <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+    <EnableRangerDeftExplorer2024>true</EnableRangerDeftExplorer2024>
+    <EnableRangerExpertise2024>true</EnableRangerExpertise2024>
+    <EnableRangerFavoredEnemy2024>true</EnableRangerFavoredEnemy2024>
+    <EnableRangerNatureShroud2024>true</EnableRangerNatureShroud2024>
+    <EnableRangerPreciseHunter2024>true</EnableRangerPreciseHunter2024>
+    <EnableRangerRelentlessHunter2024>true</EnableRangerRelentlessHunter2024>
+    <EnableRangerRelentlessHunter2024AsNoConcentration>false</EnableRangerRelentlessHunter2024AsNoConcentration>
+    <EnableRangerRoving2024>true</EnableRangerRoving2024>
+    <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
+    <EnableRangerTireless2024>true</EnableRangerTireless2024>
+    <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
+    <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
+    <RemoveRangerVanish2024>true</RemoveRangerVanish2024>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>
@@ -731,6 +748,7 @@
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
+    <EnableSorcererToLearnOriginAtLevel3>true</EnableSorcererToLearnOriginAtLevel3>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>

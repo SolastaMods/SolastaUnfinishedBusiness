@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -103,12 +105,7 @@ public static class CustomModels
         private IEnumerator ConstructModel(
             string filename, GameObject prefab, MeshFilter meshFilter, MeshRenderer meshRenderer)
         {
-            if (!TryReadObjectFile(Path.Combine(directoryPath, $"{filename}.obj"), out var obj))
-            {
-                yield break;
-            }
-
-            if (!TryReadMaterialFile(Path.Combine(directoryPath, $"{filename}.mtl"), out var mtl))
+            if (!TryReadObjectAndCorrespondingMaterialFiles(directoryPath, filename, out var obj))
             {
                 yield break;
             }
@@ -116,7 +113,7 @@ public static class CustomModels
             var prefabGuid = GetGuid(filename);
 
             meshFilter.mesh = PopulateMesh(obj);
-            meshRenderer.materials = DefineMaterial(obj, mtl);
+            meshRenderer.materials = DefineMaterial(obj);
             meshRenderer.enabled = false;
             PrefabsByGuid[prefabGuid] = prefab;
 
@@ -207,14 +204,14 @@ public static class CustomModels
             return null;
         }
 
-        private static Material[] DefineMaterial(ObjectFile obj, MaterialFile mtl)
+        private static Material[] DefineMaterial(ObjectFile obj)
         {
             var materials = new Material[obj.usemtl.Count];
 
             for (var i = 0; i < obj.usemtl.Count; i += 1)
             {
                 var materialName = obj.usemtl[i];
-                var newMtl = mtl.Materials.FirstOrDefault(x => x.newmtl == materialName);
+                var newMtl = obj.Materials.FirstOrDefault(x => x.newmtl == materialName);
                 var material = new Material(Shader.Find("Standard")) { name = materialName };
 
                 if (newMtl != null)
@@ -275,6 +272,14 @@ public static class CustomModels
     private static readonly Dictionary<string, GameObject> PrefabsByGuid = [];
     private static readonly Dictionary<string, Material> MaterialsByGuid = [];
 
+    internal static void SwitchRenderer(bool enabled)
+    {
+        foreach (var meshRenderer in PrefabsByGuid.Values.Select(gameObject => gameObject.GetComponent<MeshRenderer>()))
+        {
+            meshRenderer.enabled = enabled;
+        }
+    }
+
     [CanBeNull]
     internal static GameObject GetPrefabByGuid([NotNull] string guid)
     {
@@ -290,57 +295,76 @@ public static class CustomModels
 
     #region Blender Model Parser
 
-    private sealed class MaterialFile
-    {
-        public readonly List<NewMtl> Materials = [];
-    }
-
+    [Serializable]
     private sealed class ObjectFile
     {
         // ReSharper disable file InconsistentNaming
         public string o;
-
-        // ReSharper disable once NotAccessedField.Local
         public string mtllib;
         public List<string> usemtl;
         public List<Vector3> v;
         public List<Vector3> vn;
         public List<Vector2> vt;
         public List<List<int[]>> f;
+        public List<NewMtl> Materials = [];
     }
     // ReSharper enable file InconsistentNaming
 
+    [Serializable]
     private sealed class NewMtl
     {
         // ReSharper disable file InconsistentNaming
         public string newmtl;
         public float Ns;
+
         public Vector3 Ka;
-        [UsedImplicitly] public Vector3 Kd;
+
+        //[UsedImplicitly] public Vector3 Kd ;
         public Vector3 Ks;
+
         public Vector3 Ke;
-        [UsedImplicitly] public float Ni;
+
+        //[UsedImplicitly] public float Ni ;
         public float d;
-        [UsedImplicitly] public float illum;
+
+        //[UsedImplicitly] public float illum ;
         public string map_Kd;
         public string map_Bump;
     }
     // ReSharper enable file InconsistentNaming
 
-
-    private static bool TryReadObjectFile(string path, out ObjectFile obj)
+    private static bool TryReadObjectAndCorrespondingMaterialFiles(
+        string directoryPath, string filename, out ObjectFile objFile)
     {
-        obj = new ObjectFile();
+        objFile = new ObjectFile();
+
+        var pathCache = Path.Combine(directoryPath, "../../../ModelsCache");
+
+        if (!Directory.Exists(pathCache))
+        {
+            Directory.CreateDirectory(pathCache);
+        }
+
+        var cacheFile = Path.Combine(pathCache, $"{filename}.cache");
+
+        if (Deserialize(cacheFile, ref objFile))
+        {
+            Main.Info($"Read {filename} from cache.");
+
+            return true;
+        }
+
+        var pathObj = Path.Combine(directoryPath, $"{filename}.obj");
 
         try
         {
-            var lines = File.ReadAllLines(path);
+            var lines = File.ReadAllLines(pathObj);
 
-            obj.usemtl = [];
-            obj.v = [];
-            obj.vn = [];
-            obj.vt = [];
-            obj.f = [];
+            objFile.usemtl = [];
+            objFile.v = [];
+            objFile.vn = [];
+            objFile.vt = [];
+            objFile.f = [];
 
             foreach (var line in lines)
             {
@@ -354,29 +378,29 @@ public static class CustomModels
                 switch (token[0])
                 {
                     case "o":
-                        obj.o = token[1];
+                        objFile.o = token[1];
                         break;
                     case "mtllib":
-                        obj.mtllib = token[1];
+                        objFile.mtllib = token[1];
                         break;
                     case "usemtl":
-                        obj.usemtl.Add(token[1]);
-                        obj.f.Add([]);
+                        objFile.usemtl.Add(token[1]);
+                        objFile.f.Add([]);
                         break;
                     case "v":
-                        obj.v.Add(new Vector3(
+                        objFile.v.Add(new Vector3(
                             float.Parse(token[1]),
                             float.Parse(token[2]),
                             float.Parse(token[3])));
                         break;
                     case "vn":
-                        obj.vn.Add(new Vector3(
+                        objFile.vn.Add(new Vector3(
                             float.Parse(token[1]),
                             float.Parse(token[2]),
                             float.Parse(token[3])));
                         break;
                     case "vt":
-                        obj.vt.Add(new Vector3(
+                        objFile.vt.Add(new Vector3(
                             float.Parse(token[1]),
                             float.Parse(token[2])));
                         break;
@@ -385,30 +409,37 @@ public static class CustomModels
                         {
                             var triplet = Array.ConvertAll(token[i].Split('/'),
                                 x => string.IsNullOrEmpty(x) ? 0 : int.Parse(x));
-                            obj.f[obj.f.Count - 1].Add(triplet);
+                            objFile.f[objFile.f.Count - 1].Add(triplet);
                         }
 
                         break;
                 }
             }
 
+            if (!TryReadMaterialFile(directoryPath, filename, objFile.Materials))
+            {
+                return false;
+            }
+
+            Serialize(objFile, cacheFile);
+
             return true;
         }
         catch
         {
-            Main.Error($"Failed to read object file {path}");
+            Main.Error($"Failed to read object file {pathObj}");
 
             return false;
         }
     }
 
-    private static bool TryReadMaterialFile(string path, out MaterialFile mtl)
+    private static bool TryReadMaterialFile(string directoryPath, string filename, List<NewMtl> materials)
     {
-        mtl = new MaterialFile();
+        var pathMtl = Path.Combine(directoryPath, $"{filename}.mtl");
 
         try
         {
-            var lines = File.ReadAllLines(path);
+            var lines = File.ReadAllLines(pathMtl);
 
             foreach (var line in lines)
             {
@@ -422,41 +453,41 @@ public static class CustomModels
                 switch (token[0])
                 {
                     case "newmtl":
-                        mtl.Materials.Add(new NewMtl { newmtl = token[1] });
+                        materials.Add(new NewMtl { newmtl = token[1] });
                         break;
                     case "Ns":
-                        mtl.Materials[mtl.Materials.Count - 1].Ns = float.Parse(token[1]);
+                        materials[materials.Count - 1].Ns = float.Parse(token[1]);
                         break;
                     case "Ka":
-                        mtl.Materials[mtl.Materials.Count - 1].Ka =
+                        materials[materials.Count - 1].Ka =
                             new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                         break;
                     case "Kd":
-                        mtl.Materials[mtl.Materials.Count - 1].Kd =
-                            new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
+                        // materials[materials.Count - 1].Kd =
+                        //     new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                         break;
                     case "Ks":
-                        mtl.Materials[mtl.Materials.Count - 1].Ks =
+                        materials[materials.Count - 1].Ks =
                             new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                         break;
                     case "Ke":
-                        mtl.Materials[mtl.Materials.Count - 1].Ke =
+                        materials[materials.Count - 1].Ke =
                             new Vector3(float.Parse(token[1]), float.Parse(token[2]), float.Parse(token[3]));
                         break;
                     case "Ni":
-                        mtl.Materials[mtl.Materials.Count - 1].Ni = float.Parse(token[1]);
+                        // materials[materials.Count - 1].Ni = float.Parse(token[1]);
                         break;
                     case "d":
-                        mtl.Materials[mtl.Materials.Count - 1].d = float.Parse(token[1]);
+                        materials[materials.Count - 1].d = float.Parse(token[1]);
                         break;
                     case "ileum":
-                        mtl.Materials[mtl.Materials.Count - 1].illum = float.Parse(token[1]);
+                        // materials[materials.Count - 1].illum = float.Parse(token[1]);
                         break;
                     case "map_Kd":
-                        mtl.Materials[mtl.Materials.Count - 1].map_Kd = token[1];
+                        materials[materials.Count - 1].map_Kd = token[1];
                         break;
                     case "map_Bump":
-                        mtl.Materials[mtl.Materials.Count - 1].map_Bump = token[1];
+                        materials[materials.Count - 1].map_Bump = token[1];
                         break;
                 }
             }
@@ -465,9 +496,108 @@ public static class CustomModels
         }
         catch
         {
-            Main.Error($"Failed to read material file {path}");
+            Main.Error($"Failed to read material file {pathMtl}");
 
             return false;
+        }
+    }
+
+    private static void Serialize(ObjectFile objFile, string path)
+    {
+        try
+        {
+            var file = File.Create(path);
+            var bf = GetBinaryFormatter();
+
+            bf.Serialize(file, objFile);
+            file.Close();
+        }
+        catch (Exception e)
+        {
+            Main.Error($"Failed to serialize {path} {e.Message}");
+        }
+    }
+
+    private static bool Deserialize(string path, ref ObjectFile objFile)
+    {
+        try
+        {
+            var file = File.Open(path, FileMode.Open);
+            var bf = GetBinaryFormatter();
+
+            objFile = (ObjectFile)bf.Deserialize(file);
+            file.Close();
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private static BinaryFormatter GetBinaryFormatter()
+    {
+        var bf = new BinaryFormatter();
+        var surrogateSelector = new SurrogateSelector();
+        var vector2SS = new Vector2SerializationSurrogate();
+        var vector3SS = new Vector3SerializationSurrogate();
+
+        surrogateSelector.AddSurrogate(
+            typeof(Vector2), new StreamingContext(StreamingContextStates.All), vector2SS);
+        surrogateSelector.AddSurrogate(
+            typeof(Vector3), new StreamingContext(StreamingContextStates.All), vector3SS);
+
+        bf.SurrogateSelector = surrogateSelector;
+
+        return bf;
+    }
+
+    private sealed class Vector2SerializationSurrogate : ISerializationSurrogate
+    {
+        public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
+        {
+            var v2 = (Vector2)obj;
+
+            info.AddValue("x", v2.x);
+            info.AddValue("y", v2.y);
+        }
+
+        public object SetObjectData(
+            object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
+        {
+            var v2 = (Vector2)obj;
+
+            v2.x = (float)info.GetValue("x", typeof(float));
+            v2.y = (float)info.GetValue("y", typeof(float));
+            obj = v2;
+
+            return obj;
+        }
+    }
+
+    private sealed class Vector3SerializationSurrogate : ISerializationSurrogate
+    {
+        public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
+        {
+            var v3 = (Vector3)obj;
+
+            info.AddValue("x", v3.x);
+            info.AddValue("y", v3.y);
+            info.AddValue("z", v3.z);
+        }
+
+        public object SetObjectData(
+            object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
+        {
+            var v3 = (Vector3)obj;
+
+            v3.x = (float)info.GetValue("x", typeof(float));
+            v3.y = (float)info.GetValue("y", typeof(float));
+            v3.z = (float)info.GetValue("z", typeof(float));
+            obj = v3;
+
+            return obj;
         }
     }
 

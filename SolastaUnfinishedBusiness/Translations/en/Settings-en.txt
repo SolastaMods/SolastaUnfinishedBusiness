@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Enable <color=#D89555>Instinctive Po
 ModUi/&EnableBarbarianPersistentRage2024=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
 ModUi/&EnableBarbarianPrimalKnowledge2024=Enable <color=#D89555>Primal Knowledge</color> at level 3
 ModUi/&EnableBarbarianReckless2024=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
 ModUi/&EnableBarbarianRelentlessRage2024=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
+ModUi/&EnableClericDivineIntervention2024=Swap <color=#D89555>Divine Intervention</color> and <color=#D89555>Improved Divine Intervention</color> with 5e 2024 version <i><color=#F0DAA0>[gain spell slot up to a certain level]</color></i>
+ModUi/&EnableClericDivineOrder2024=Enable <color=#D89555>Divine Order</color> at level 1 <i><color=#F0DAA0>[choice between heavy armor/martial weapons prof. or bonus cantrip and some INT checks]</color></i>
+ModUi/&EnableClericSearUndead2024=Enable <color=#D89555>Sear Undead</color> to replace <color=#D89555>Destroy Undead</color> at level 5
+ModUi/&EnableClericToLearnDomainAtLevel3=Enable <color=#D89555>Domain</color> at level 3 instead of 1
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDruidMetalArmor2024=Remove <color=#D89555>Metal Armor</color> restrictions
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Enable <color=#D89555>Spare the Dying</col
 ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5e 2024 spell version <i><color=#F0DAA0>[+1 target per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Enable <color=#D89555>Lay on Hands</color> as bonus action
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Enable <color=#D89555>Smite</color> as bonus action
+ModUi/&EnablePaladinAbjureFoes2024=Enable <color=#D89555>Abjure Foes</color> at level 9
+ModUi/&EnablePaladinChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Enable <color=#D89555>Lay on Hands</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Enable <color=#D89555>Restoring Touch</color> to replace <color=#D89555>Cleansing Touch</color> at level 14
+ModUi/&EnablePaladinSmite2024=Enable <color=#D89555>Divine Smite</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=Enable drinking <color=#D89555>Potions</colo
 ModUi/&EnablePreparedSpellsTables2024=Enable all <color=#D89555>Casters</color> to use new prepared spells tables <i><color=#F0DAA0>[Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard]</color></i>
 ModUi/&EnableProneAction=Enable the <color=#D89555>Fall Prone</color> action <i><color=#F0DAA0>[you can fall prone at no cost]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Enable push and pull motion effects to also work on up/down axis
-ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> feature at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerDeftExplorer2024=Enable <color=#D89555>Deft Explorer</color> at level 2 <i><color=#F0DAA0>[get one expertise on Ranger skills, and learn 2 languages]</color></i>
+ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at level 9 <i><color=#F0DAA0>[get two expertises on Ranger skills]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Swap <color=#D89555>Favored Enemy</color>, and <color=#D89555>Favored Terrain</color> with <color=#D89555>Favored Enemy</color> 5e 2024 version
+ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color> with 5e 2024 version <i><color=#F0DAA0>[get 30ft blindsight]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color> with 5e 2024 version <i><color=#F0DAA0>[increase Hunter's Mark die to d10]</color></i>
+ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17 <i><color=#F0DAA0>[advantage against creatures marked by Hunter]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Enable <color=#D89555>Relentless Hunter</color> at level 13 <i><color=#F0DAA0>[no concentration lost on Hunter's Mark]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Remove concentration requirements from Hunter's Mark instead</i>
+ModUi/&EnableRangerRoving2024=Enable <color=#D89555>Roving</color> at level 6 <i><color=#F0DAA0>[get 10ft movement when not using Heavy Armor, and same climb speed]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
+ModUi/&EnableRangerTireless2024=Enable <color=#D89555>Tireless</color> to replace <color=#D89555>Hide in Plain Sight</color> at level 10 <i><color=#F0DAA0>[get temporary hit points]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespecAction=Enable the <color=#D89555>RESPEC</color> after rest action <i><color=#F0DAA0>[don't use RESPEC during a multiplayer session]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Enable <color=#D89555>Ritual</color> casting on all casters
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Enable <color=#D89555>
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSorcererSorcerousRestoration2024=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Enable <color=#D89555>Origin</color> at level 3 instead of 1
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
 ModUi/&EnableSpeechActorHelp=• Select an actor
@@ -237,7 +256,7 @@ ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><c
 ModUi/&FixEldritchBlastRange=Use 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
 ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1 HP per 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
-ModUi/&ForceModSpeechOnNpcs=<i>+Force voice auto assignment on all NPCs instead of campaign mapping</i>
+ModUi/&ForceModSpeechOnNpcs=<i>+ Force voice auto assignment on all NPCs instead of campaign mapping</i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
 ModUi/&FormationHelp1=• Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Remove <color=#D89555>Magical Secret</color> 
 ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
+ModUi/&RemoveRangerVanish2024=Remove <color=#D89555>Vanish</color> at level 14
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
 ModUi/&RemoveRogueBlindSense2024=Remove <color=#D89555>Blind Sense</color> at level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <b>Shadowcaster</b>

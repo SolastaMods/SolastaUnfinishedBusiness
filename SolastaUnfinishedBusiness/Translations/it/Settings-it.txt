@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istinti
 ModUi/&EnableBarbarianPersistentRage2024=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Abilita <color=#D89555>Conoscenza primordiale</color> al livello 3
 ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
 ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
+ModUi/&EnableClericDivineIntervention2024=Sostituisci <color=#D89555>Intervento divino</color> e <color=#D89555>Intervento divino migliorato</color> con la versione 5e 2024 <i><color=#F0DAA0>[guadagna slot incantesimo fino a un certo livello]</color></i>
+ModUi/&EnableClericDivineOrder2024=Abilita <color=#D89555>Ordine Divino</color> al livello 1 <i><color=#F0DAA0>[scelta tra armatura pesante/armi da guerra prof. o trucchetto bonus e alcuni controlli INT]</color></i>
+ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color> per sostituire <color=#D89555>Distruggi Non Morti</color> al livello 5
+ModUi/&EnableClericToLearnDomainAtLevel3=Abilita <color=#D89555>Dominio</color> al livello 3 invece che 1
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Posiziona i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, chiamate con il nome dell'eroe <i><color=#F0DAA0>[ad esempio: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[utilizza GIMP per risultati migliori]</color></i>
 ModUi/&EnableDruidMetalArmor2024=Rimuovi le restrizioni per <color=#D89555>Armatura metallica</color>
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Abilita <color=#D89555>Risparmia i morenti
 ModUi/&EnableOneDndSpiderClimbSpell=Abilita <color=#D89555>Spider Climb</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[+1 bersaglio per upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Abilita <color=#D89555>Imposizione delle mani</color> come azione bonus
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Abilita <color=#D89555>Colpisci</color> come azione bonus
+ModUi/&EnablePaladinAbjureFoes2024=Abilita <color=#D89555>Abjura i nemici</color> al livello 9
+ModUi/&EnablePaladinChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Abilita <color=#D89555>Imposizione delle mani</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Abilita <color=#D89555>Ripristino del tocco</color> per sostituire <color=#D89555>Tocco purificatore</color> al livello 14
+ModUi/&EnablePaladinSmite2024=Abilita <color=#D89555>Colpo divino</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=Abilita bere <color=#D89555>Pozioni</color> 
 ModUi/&EnablePreparedSpellsTables2024=Abilita tutti i <color=#D89555>incantatori</color> a usare le nuove tabelle degli incantesimi preparati <i><color=#F0DAA0>[Bardo, Chierico, Druido, Paladino, Ranger, Stregone, Mago]</color></i>
 ModUi/&EnableProneAction=Abilita l'azione <color=#D89555>Cadi prono</color> <i><color=#F0DAA0>[puoi cadere prono senza alcun costo]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Abilita gli effetti di movimento push e pull per funzionare anche sull'asse su/giù
+ModUi/&EnableRangerDeftExplorer2024=Abilita <color=#D89555>Esploratore esperto</color> al livello 2 <i><color=#F0DAA0>[ottieni una competenza nelle abilità Ranger e impara 2 lingue]</color></i>
+ModUi/&EnableRangerExpertise2024=Abilita <color=#D89555>Competenza</color> al livello 9 <i><color=#F0DAA0>[ottieni due competenze sulle abilità Ranger]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Sostituisci <color=#D89555>Nemico preferito</color> e <color=#D89555>Terreno preferito</color> con <color=#D89555>Nemico preferito</color> versione 5e 2024
+ModUi/&EnableRangerFeralSenses2024=Sostituisci <color=#D89555>Sensi selvaggi</color> con la versione 5e 2024 <i><color=#F0DAA0>[ottieni vista cieca a 30 piedi]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Sostituisci <color=#D89555>Foe Slayer</color> con la versione 5e 2024 <i><color=#F0DAA0>[aumenta il dado del Marchio del Cacciatore a d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Abilita la funzione <color=#D89555>Velo della Natura</color> al livello 14 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Abilita <color=#D89555>Cacciatore Preciso</color> al livello 17 <i><color=#F0DAA0>[vantaggio contro le creature contrassegnate dal Cacciatore]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Abilita <color=#D89555>Cacciatore implacabile</color> al livello 13 <i><color=#F0DAA0>[nessuna perdita di concentrazione sul Marchio del cacciatore]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Rimuovi invece i requisiti di concentrazione dal Marchio del cacciatore</i>
+ModUi/&EnableRangerRoving2024=Abilita <color=#D89555>Vagabondare</color> al livello 6 <i><color=#F0DAA0>[ottieni 10 piedi di movimento quando non usi un'armatura pesante e la stessa velocità di salita]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
+ModUi/&EnableRangerTireless2024=Abilita <color=#D89555>Instancabile</color> per sostituire <color=#D89555>Nasconditi in bella vista</color> al livello 10 <i><color=#F0DAA0>[ottieni punti ferita temporanei]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespecAction=Abilita <color=#D89555>RESPEC</color> dopo l'azione di riposo <i><color=#F0DAA0>[non usare RESPEC durante una sessione multigiocatore]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Abilita il lancio di <color=#D89555>Rituale</color> su tutti gli incantatori
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Abilita <color=#D89555
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSorcererSorcerousRestoration2024=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Rimuovi <color=#D89555>Segreto magico</color>
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
+ModUi/&RemoveRangerVanish2024=Rimuovi <color=#D89555>Svanisci</color> al livello 14
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
 ModUi/&RemoveRogueBlindSense2024=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <b>Shadowcaster</b>

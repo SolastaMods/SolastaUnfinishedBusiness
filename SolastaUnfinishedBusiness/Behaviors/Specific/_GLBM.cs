@@ -989,7 +989,7 @@ internal static class GLBM
                         };
 
                         // One DnD only allow smites as bonus action
-                        if (Main.Settings.EnablePaladinSmiteAsBonusAction2024 &&
+                        if (Main.Settings.EnablePaladinSmite2024 &&
                             isDivineSmite &&
                             !ValidatorsCharacter.HasAvailableBonusAction(attacker.RulesetCharacter))
                         {
@@ -1062,7 +1062,7 @@ internal static class GLBM
                             validTrigger = reactionParams.ReactionValidated;
 
                             // One DnD only allow smites as bonus action
-                            if (Main.Settings.EnablePaladinSmiteAsBonusAction2024 && isDivineSmite && validTrigger)
+                            if (Main.Settings.EnablePaladinSmite2024 && isDivineSmite && validTrigger)
                             {
                                 attacker.SpendActionType(ActionDefinitions.ActionType.Bonus);
                             }

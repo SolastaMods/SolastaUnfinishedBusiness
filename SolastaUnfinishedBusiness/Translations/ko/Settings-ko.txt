@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=레벨 7에서 <color=#D89555>본능
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBarbarianPrimalKnowledge2024=레벨 3에서 <color=#D89555>원시 지식</color>을 활성화합니다.
 ModUi/&EnableBarbarianReckless2024=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=1레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=1레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[생명력이 클래스 레벨의 1배가 아닌 2배로 설정됨]</color></i>
 ModUi/&EnableBardCounterCharm2024=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore2024=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재�
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
+ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
+ModUi/&EnableClericDivineIntervention2024=<color=#D89555>신성한 개입</color>과 <color=#D89555>개선된 신성 개입</color>을 5e 2024 버전 <i><color=#F0DAA0>[특정 레벨까지 주문 슬롯 획득]</color></i>과 교환하세요.
+ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
+ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.
+ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>죽음을 막아라</color>
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>거미 등반</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[업캐스트당 대상 +1개]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=<color=#D89555>안수</color>를 보너스 액션으로 활성화합니다.
-ModUi/&EnablePaladinSmiteAsBonusAction2024=<color=#D89555>Smite</color>를 보너스 액션으로 활성화합니다.
+ModUi/&EnablePaladinAbjureFoes2024=레벨 9에서 <color=#D89555>적을 배척</color>할 수 있습니다.
+ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
+ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>안수</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=레벨 14에서 <color=#D89555>클렌징 터치</color>를 대체하기 위해 <color=#D89555>터치 복원</color>을 활성화합니다.
+ModUi/&EnablePaladinSmite2024=<color=#D89555>신성한 일격</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=보너스 액션으로 <color=#D89555>물약
 ModUi/&EnablePreparedSpellsTables2024=모든 <color=#D89555>주문자</color>가 새로 준비된 주문표 <i><color=#F0DAA0>[바드, 성직자, 드루이드, 성기사, 레인저, 마법사, 마법사]</color></i>를 사용할 수 있도록 합니다.
 ModUi/&EnableProneAction=<color=#D89555>엎드려 넘어짐</color> 동작을 활성화하세요 <i><color=#F0DAA0>[비용 없이 엎드려 넘어질 수 있습니다]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=위/아래 축에서도 푸시 및 풀 모션 효과를 작동하도록 설정
+ModUi/&EnableRangerDeftExplorer2024=레벨 2에서 <color=#D89555>탐험가 기민함</color> 활성화 <i><color=#F0DAA0>[레인저 기술 전문 지식 1개 획득, 언어 2개 학습]</color></i>
+ModUi/&EnableRangerExpertise2024=레벨 9에서 <color=#D89555>전문성</color>을 활성화하세요 <i><color=#F0DAA0>[레인저 기술 전문성 2개 획득]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=<color=#D89555>선호하는 적</color>과 <color=#D89555>선호하는 지형</color>을 <color=#D89555>선호하는 적</color> 5e 2024 버전으로 바꾸세요.
+ModUi/&EnableRangerFeralSenses2024=<color=#D89555>야생의 감각</color>을 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[30피트 실명 시야 확보]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=<color=#D89555>적 처치자</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[사냥꾼의 표식 주사위를 d10으로 증가]</color></i>
 ModUi/&EnableRangerNatureShroud2024=레벨 14에서 <color=#D89555>자연의 베일</color> 기능을 활성화합니다. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법으로 투명해질 수 있습니다.]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=레벨 17에서 <color=#D89555>정밀 사냥꾼</color>을 활성화합니다. <i><color=#F0DAA0>[사냥꾼이 표시한 생물에 대한 이점]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=레벨 13에서 <color=#D89555>끈질긴 사냥꾼</color> 활성화 <i><color=#F0DAA0>[사냥꾼의 표식에 집중력 잃지 않음]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 대신 사냥꾼의 표식에서 집중력 요구 사항을 제거합니다.</i>
+ModUi/&EnableRangerRoving2024=레벨 6에서 <color=#D89555>이동</color> 가능 <i><color=#F0DAA0>[중갑옷을 착용하지 않을 때 10피트 이동 가능, 동일한 등반 속도]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
+ModUi/&EnableRangerTireless2024=레벨 10에서 <color=#D89555>Hide in Plain Sight</color>를 대체하기 위해 <color=#D89555>Tireless</color>를 활성화하세요 <i><color=#F0DAA0>[임시 생명력 획득]</color></i>
 ModUi/&EnableRelearnSpells=다른 출처에서 이미 배운 주문이나 주문 선택 가능
 ModUi/&EnableRespecAction=휴식 동작 후 <color=#D89555>RESPEC</color> 활성화 <i><color=#F0DAA0>[멀티플레이어 세션 동안 RESPEC 사용하지 마세요]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=모든 시전자에 <color=#D89555>의식</color> 시전 활성화
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=레벨 1과 7에서 <c
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법의 안내</color>를 활성화합니다.
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSorcererSorcerousRestoration2024=레벨 5에서 <color=#D89555>마법 회복</color>을 활성화합니다.
+ModUi/&EnableSorcererToLearnOriginAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>Origins</color> 활성화
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableSpeech=사용자 정의 캠페인에서 음성 활성화 <i><color=#F0DAA0>[내레이션 및 영웅만]</color></i>
 ModUi/&EnableSpeechActorHelp=• 배우를 선택하세요
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=레벨 14와 18에서 <color=#D89555>마법�
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
+ModUi/&RemoveRangerVanish2024=레벨 14에서 <color=#D89555>사라짐</color> 제거
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
 ModUi/&RemoveRogueBlindSense2024=레벨 14에서 <color=#D89555>맹감각</color> 제거
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>섀도우캐스터</b>에서 학교 제한을 제거하세요

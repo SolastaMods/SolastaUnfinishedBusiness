@@ -54,6 +54,7 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation("Condition/&ConditionStudiedAttacksTitle", Gui.NoLocalization)
             .SetSituationalContext(
                 (SituationalContext)ExtraSituationalContext.IsConditionSource, ConditionStudiedAttacks)
+            .DisableAutoFormatDescription()
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 

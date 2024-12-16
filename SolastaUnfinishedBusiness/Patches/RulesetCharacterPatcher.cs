@@ -22,6 +22,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -1648,14 +1649,28 @@ public static class RulesetCharacterPatcher
         }
 
         [UsedImplicitly]
-        public static void Prefix(RestType restType)
+        public static void Prefix(RulesetCharacter __instance, RestType restType)
         {
+            // invert used channel divinity sign if any 2024 setting enabled and a short rest to avoid double dip
+            if (restType == RestType.ShortRest &&
+                (Main.Settings.EnablePaladinChannelDivinity2024 || Main.Settings.EnableClericChannelDivinity2024))
+            {
+                __instance.UsedChannelDivinity = -__instance.UsedChannelDivinity;
+            }
+
             SwitchBindChainPowers(restType, RechargeRate.LongRest);
         }
 
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RestType restType, bool simulate)
         {
+            // put back used channel divinity sign if any 2024 setting enabled and a short rest to avoid double dip
+            if (restType == RestType.ShortRest &&
+                (Main.Settings.EnablePaladinChannelDivinity2024 || Main.Settings.EnableClericChannelDivinity2024))
+            {
+                __instance.UsedChannelDivinity = -__instance.UsedChannelDivinity;
+            }
+
             SwitchBindChainPowers(restType, RechargeRate.BindChain);
 
             //PATCH: update usage for power pools
@@ -1685,10 +1700,13 @@ public static class RulesetCharacterPatcher
             }
 
             //TODO: time to make this an interface to support scenarios like below
+            if (restType != RestType.ShortRest)
+            {
+                return;
+            }
 
             //PATCH: support for Barbarians to regain one rage point at short rests from level 7
-            if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest &&
-                restType == RestType.ShortRest &&
+            if (Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024 &&
                 __instance.GetClassLevel(Barbarian) >= 1 &&
                 __instance.UsedRagePoints > 0)
             {
@@ -1703,27 +1721,50 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: support for Fighters to regain one second wind usage at short rests
-            var fighterClassLevel = __instance.GetClassLevel(Fighter);
-
-            // ReSharper disable once InvertIf
-            if (Main.Settings.EnableFighterSecondWind2024 &&
-                restType == RestType.ShortRest &&
-                fighterClassLevel >= 1)
+            if (Main.Settings.EnableFighterSecondWind2024 && __instance.GetClassLevel(Fighter) >= 1)
             {
                 var usablePower = PowerProvider.Get(PowerFighterSecondWind, __instance);
                 var maxUses = __instance.GetMaxUsesOfPower(usablePower);
                 var remainingUses = __instance.GetRemainingUsesOfPower(usablePower);
 
-                // ReSharper disable once InvertIf
-                if (remainingUses != maxUses)
+                if (remainingUses < maxUses)
                 {
                     if (!simulate)
                     {
-                        // cannot call RepayUse() here as a dynamic pool
-                        usablePower.remainingUses++;
+                        usablePower.remainingUses++; // cannot call RepayUse() here as a dynamic pool
                     }
 
                     __instance.recoveredFeatures.Add(PowerFighterSecondWind);
+                }
+            }
+
+            //PATCH: support for Paladins to regain one channel divinity usage at short rests
+            if (Main.Settings.EnablePaladinChannelDivinity2024 && __instance.GetClassLevel(Paladin) >= 3)
+            {
+                if (__instance.UsedChannelDivinity > 0)
+                {
+                    if (!simulate)
+                    {
+                        __instance.UsedChannelDivinity -= 1;
+                    }
+
+                    __instance.recoveredFeatures.Add(AttributeModifierPaladinChannelDivinity);
+                }
+            }
+
+            //PATCH: support for Clerics to regain one channel divinity usage at short rests
+            // ReSharper disable once InvertIf
+            if (Main.Settings.EnableClericChannelDivinity2024 && __instance.GetClassLevel(Cleric) >= 2)
+            {
+                // ReSharper disable once InvertIf
+                if (__instance.UsedChannelDivinity > 0)
+                {
+                    if (!simulate)
+                    {
+                        __instance.UsedChannelDivinity -= 1;
+                    }
+
+                    __instance.recoveredFeatures.Add(AttributeModifierClericChannelDivinity);
                 }
             }
         }

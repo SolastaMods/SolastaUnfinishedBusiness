@@ -18,6 +18,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -115,12 +116,6 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPower PowerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
-        .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
-        .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
-        .AddToDB();
-
     internal static readonly FeatureDefinitionPower PowerSorcerousRestoration = FeatureDefinitionPowerBuilder
         .Create(PowerSorcerousRestorationName)
         .SetGuiPresentation("PowerSorcererSorcerousRestoration", Category.Feature)
@@ -132,6 +127,40 @@ internal static class Level20Context
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build())
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
+        .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionSense SenseRangerFeralSenses = FeatureDefinitionSenseBuilder
+        .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
+        .SetGuiPresentation(Category.Feature)
+        .SetSense(SenseMode.Type.DetectInvisibility, 6)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionSense SenseRangerFeralSenses2024 = FeatureDefinitionSenseBuilder
+        .Create(SenseSeeInvisible12, "SenseRangerFeralSenses2024")
+        .SetGuiPresentation(Category.Feature)
+        .SetSense(SenseMode.Type.Blindsight, 6)
+        .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureFoeSlayer = FeatureDefinitionBuilder
+        .Create("FeatureRangerFoeSlayer")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer())
+        .AddToDB();
+
+    internal static readonly FeatureDefinition FeatureFoeSlayer2024 = FeatureDefinitionBuilder
+        .Create("FeatureRangerFoeSlayer2024")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new ModifyAdditionalDamageRangerFoeSlayer2024())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerClericTurnUndead17 = FeatureDefinitionPowerBuilder
+        .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
         .AddToDB();
 
     internal static void Load()
@@ -273,18 +302,10 @@ internal static class Level20Context
 
     private static void ClericLoad()
     {
-        var effectPowerClericTurnUndead17 = new EffectDescription();
-
-        effectPowerClericTurnUndead17.Copy(PowerClericTurnUndead14.EffectDescription);
-        effectPowerClericTurnUndead17.EffectForms[0].KillForm.challengeRating = 4;
-
-        var powerClericTurnUndead17 = FeatureDefinitionPowerBuilder
-            .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
-            .SetEffectDescription(effectPowerClericTurnUndead17)
-            .AddToDB();
+        PowerClericTurnUndead17.EffectDescription.EffectForms[0].KillForm.challengeRating = 4;
 
         Cleric.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(powerClericTurnUndead17, 17),
+            new FeatureUnlockByLevel(PowerClericTurnUndead17, 17),
             new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
         );
@@ -407,23 +428,10 @@ internal static class Level20Context
 
     private static void RangerLoad()
     {
-        var senseRangerFeralSenses = FeatureDefinitionSenseBuilder
-            .Create(SenseSeeInvisible12, "SenseRangerFeralSenses")
-            .SetGuiPresentation(Category.Feature)
-            .SetSense(SenseMode.Type.DetectInvisibility, 6)
-            .AddToDB();
-
-        var featureFoeSlayer = FeatureDefinitionBuilder
-            .Create("FeatureRangerFoeSlayer")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureFoeSlayer.AddCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
-
         Ranger.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(senseRangerFeralSenses, 18),
+            new FeatureUnlockByLevel(SenseRangerFeralSenses, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(featureFoeSlayer, 20)
+            new FeatureUnlockByLevel(FeatureFoeSlayer, 20)
         );
 
         EnumerateSlotsPerLevel(
@@ -1026,8 +1034,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
-        : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer : IModifyWeaponAttackMode
     {
         public void ModifyWeaponAttackMode(
             RulesetCharacter character,
@@ -1047,8 +1054,28 @@ internal static class Level20Context
 
             damage.BonusDamage += wisdomModifier;
             damage.DamageBonusTrends.Add(
-                new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
-                    featureDefinition.Name, featureDefinition));
+                new TrendInfo(
+                    wisdomModifier, FeatureSourceType.CharacterFeature, FeatureFoeSlayer.Name, FeatureFoeSlayer));
+        }
+    }
+
+    private sealed class ModifyAdditionalDamageRangerFoeSlayer2024 : IModifyAdditionalDamage
+    {
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
+        {
+            if (featureDefinitionAdditionalDamage != AdditionalDamageHuntersMark ||
+                attacker.RulesetCharacter.GetClassLevel(Ranger) < 20)
+            {
+                return;
+            }
+
+            damageForm.dieType = DieType.D10;
         }
     }
 

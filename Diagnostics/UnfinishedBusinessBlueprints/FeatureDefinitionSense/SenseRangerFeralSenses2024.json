@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "Blindsight",
+  "senseRange": 6,
+  "stealthBreakerRange": 0,
+  "revealsHiddenObjects": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&SenseRangerFeralSenses2024Title",
+    "description": "Feature/&SenseRangerFeralSenses2024Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d936a702-2010-5b6e-b7d9-b4111f780a19",
+  "contentPack": 9999,
+  "name": "SenseRangerFeralSenses2024"
+}

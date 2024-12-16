@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=Aktiviere <color=#D89555>Instinktive
 ModUi/&EnableBarbarianPersistentRage2024=Tauschen Sie <color=#D89555>Persistent Rage</color> gegen die Version 5e 2024 aus.
 ModUi/&EnableBarbarianPrimalKnowledge2024=Aktiviere <color=#D89555>Urwissen</color> auf Stufe 3.
 ModUi/&EnableBarbarianReckless2024=Aktivieren Sie den Buff und Debuff von <color=#D89555>Reckless Attack</color>, um ihn zu Beginn der nächsten Runde zu beenden.
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 1
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Aktiviere die Wiedererlangung einer <color=#D89555>Wut</color>-Anwendung während einer kurzen Pause auf Level 1
 ModUi/&EnableBarbarianRelentlessRage2024=Tauschen Sie <color=#D89555>Relentless Rage</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Ihre Trefferpunkte werden auf das Zweifache Ihrer Klassenstufe statt auf 1 gesetzt]</color></i>
 ModUi/&EnableBardCounterCharm2024=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt auf 3 und 10.
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustar
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
+ModUi/&EnableClericDivineIntervention2024=Tauschen Sie <color=#D89555>Divine Intervention</color> und <color=#D89555>Improved Divine Intervention</color> gegen die Version 5e 2024 aus <i><color=#F0DAA0>[Zauberplatz bis zu einem bestimmten Level erhalten]</color></i>
+ModUi/&EnableClericDivineOrder2024=Aktiviere <color=#D89555>Göttliche Ordnung</color> auf Stufe 1 <i><color=#F0DAA0>[Auswahl zwischen schwerer Rüstung/Kampfwaffen-Profi oder Bonus-Zauberspruch und einigen INT-Checks]</color></i>
+ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</color>, um <color=#D89555>Untote zerstören</color> auf Level 5 zu ersetzen.
+ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=Aktiviere die Zauberversion <color=#D89555
 ModUi/&EnableOneDndSpiderClimbSpell=Aktiviere <color=#D89555>Spider Climb</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[+1 Ziel pro Upcast]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=Aktiviere <color=#D89555>Steinhaut</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[bietet auch Widerstand gegen magisches B/P/S]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Aktiviere <color=#D89555>True Strike</color> 5e 2024 Cantrip-Version <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Angriff nutzt deine Zauberfähigkeit für den Angriffswurf und Schadensbonus sowie zusätzlichen Strahlungsschaden ab Level 5]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=Aktiviere <color=#D89555>Handauflegen</color> als Bonusaktion
-ModUi/&EnablePaladinSmiteAsBonusAction2024=Aktiviere <color=#D89555>Smite</color> als Bonusaktion
+ModUi/&EnablePaladinAbjureFoes2024=Aktiviere <color=#D89555>Feinde abschwören</color> auf Level 9.
+ModUi/&EnablePaladinChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Aktivieren Sie <color=#D89555>Handauflegen</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=Aktiviere <color=#D89555>Restoring Touch</color>, um <color=#D89555>Cleansing Touch</color> auf Level 14 zu ersetzen.
+ModUi/&EnablePaladinSmite2024=Aktivieren Sie <color=#D89555>Divine Smite</color> 5e 2024 Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Aktivieren Sie das Auftragen von <color=#D89555>Giften</color> auf Waffen als Bonusaktion.
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=Aktivieren Sie das Trinken von <color=#D8955
 ModUi/&EnablePreparedSpellsTables2024=Ermöglichen Sie allen <color=#D89555>Zauberern</color> die Verwendung neuer vorbereiteter Zaubertabellen <i><color=#F0DAA0>[Barde, Kleriker, Druide, Paladin, Waldläufer, Zauberer, Magier]</color></i>
 ModUi/&EnableProneAction=Aktivieren Sie die Aktion <color=#D89555>In die Hocke gehen</color> <i><color=#F0DAA0>[Sie können kostenlos in die Hocke gehen]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=Aktivieren Sie Push- und Pull-Bewegungseffekte, damit diese auch auf der Auf-/Ab-Achse funktionieren
+ModUi/&EnableRangerDeftExplorer2024=Aktiviere <color=#D89555>Geschickter Entdecker</color> auf Level 2 <i><color=#F0DAA0>[erwerbe eine Expertise in Ranger-Fähigkeiten und lerne 2 Sprachen]</color></i>
+ModUi/&EnableRangerExpertise2024=Aktiviere <color=#D89555>Expertise</color> auf Level 9 <i><color=#F0DAA0>[erhalte zwei Expertisen für Ranger-Fertigkeiten]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=Tauschen Sie <color=#D89555>Bevorzugter Feind</color> und <color=#D89555>Bevorzugtes Gelände</color> mit <color=#D89555>Bevorzugter Feind</color> 5e 2024-Version aus
+ModUi/&EnableRangerFeralSenses2024=Tauschen Sie <color=#D89555>Wilde Sinne</color> gegen die 5e-Version von 2024 aus <i><color=#F0DAA0>[erhalten Sie 30 Fuß Blindsicht]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=Tauschen Sie <color=#D89555>Foe Slayer</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Hunter's Mark-Würfel auf d10 erhöhen]</color></i>
 ModUi/&EnableRangerNatureShroud2024=Aktivieren Sie die Funktion <color=#D89555>Nature's Veil</color> auf Stufe 14 <i><color=#F0DAA0>[als Bonusaktion können Sie bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=Aktiviere <color=#D89555>Precise Hunter</color> auf Level 17 <i><color=#F0DAA0>[Vorteil gegenüber von Hunter markierten Kreaturen]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=Aktiviere <color=#D89555>Relentless Hunter</color> auf Level 13 <i><color=#F0DAA0>[keine Konzentration verloren bei Hunter's Mark]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Entfernen Sie stattdessen die Konzentrationsanforderungen von Hunter's Mark</i>
+ModUi/&EnableRangerRoving2024=Aktivieren Sie <color=#D89555>Umherziehen</color> auf Stufe 6 <i><color=#F0DAA0>[erhalten Sie 10 Fuß Bewegung, wenn Sie keine schwere Rüstung verwenden, und dieselbe Klettergeschwindigkeit]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
+ModUi/&EnableRangerTireless2024=Aktiviere <color=#D89555>Tireless</color>, um <color=#D89555>Hide in Plain Sight</color> auf Level 10 zu ersetzen <i><color=#F0DAA0>[temporäre Trefferpunkte erhalten]</color></i>
 ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Zaubersprüchen oder Zaubersprüchen, die Sie bereits aus anderen Quellen gelernt haben.
 ModUi/&EnableRespecAction=Aktivieren Sie <color=#D89555>RESPEC</color> nach der Rest-Aktion <i><color=#F0DAA0>[RESPEC nicht während einer Multiplayer-Sitzung verwenden]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=Aktivieren Sie das Wirken von <color=#D89555>Ritualen</color> für alle Zauberer.
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Aktiviere <color=#D895
 ModUi/&EnableSorcererMagicalGuidance=Aktiviere <color=#D89555>Magische Führung</color> auf Stufe 5.
 ModUi/&EnableSorcererQuickenedAction=Aktivieren Sie die Aktion <color=#D89555>Beschleunigter Zauber</color>, um das Wirken des Hauptaktionszaubers mit angewandter beschleunigter Metamagie zu ermöglichen.
 ModUi/&EnableSorcererSorcerousRestoration2024=Aktiviere <color=#D89555>Zauberhafte Wiederherstellung</color> auf Stufe 5.
+ModUi/&EnableSorcererToLearnOriginAtLevel3=Aktiviere <color=#D89555>Origins</color> auf Level 3 statt auf Level 1.
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Sortierung von Assets im Dungeon Maker-Editor.
 ModUi/&EnableSpeech=Aktivieren Sie die Sprachausgabe in benutzerdefinierten Kampagnen <i><color=#F0DAA0>[nur Erzählung und Helden]</color></i>
 ModUi/&EnableSpeechActorHelp=• Wählen Sie einen Schauspieler
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Entferne <color=#D89555>Magisches Geheimnis</
 ModUi/&RemoveBardSongOfRest2024=Entferne <color=#D89555>Song of Rest</color> auf Level 2
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Greuelhaftes Gelächter</color> entfernen
+ModUi/&RemoveRangerVanish2024=Entferne <color=#D89555>Verschwinden</color> auf Stufe 14
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Verstricken</color>-Effekt nur beim Zaubern an und erzwinge außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien.
 ModUi/&RemoveRogueBlindSense2024=Entferne <color=#D89555>Blind Sense</color> auf Level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen von <b>Shadowcaster</b> entfernen

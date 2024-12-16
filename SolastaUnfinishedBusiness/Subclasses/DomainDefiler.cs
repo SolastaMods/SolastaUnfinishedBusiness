@@ -197,7 +197,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 actionAffinityDyingLightToggle,
                 autoPreparedSpellsDyingLight)
             .AddFeaturesAtLevel(20,
-                Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
+                Level20SubclassesContext.PowerClericDivineInterventionImprovementPaladin)
             .AddToDB();
     }
 

@@ -669,15 +669,15 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
 
-            rulesetCharacter.UsablePowers.Remove(usablePower);
-            usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
-
             yield return actingCharacter.MyReactToSpendPowerBundle(
                 usablePower,
                 [actingCharacter],
                 actingCharacter,
                 "BorrowedKnowledge",
                 reactionValidated: ReactionValidated);
+
+            rulesetCharacter.UsablePowers.Remove(usablePower);
+            usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
 
             yield break;
 

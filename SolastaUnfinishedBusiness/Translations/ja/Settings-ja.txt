@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=レベル 7 で <color=#D89555>本�
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBarbarianPrimalKnowledge2024=レベル3で<color=#D89555>原始の知識</color>を有効にする
 ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます
 ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><co
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
+ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
+ModUi/&EnableClericDivineIntervention2024=<color=#D89555>Divine Intervention</color> と <color=#D89555>Improved Divine Intervention</color> を 5e 2024 バージョン <i><color=#F0DAA0>[特定のレベルまでの呪文スロットを獲得]</color></i> と入れ替えます
+ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
+ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッドの焼却</color> を <color=#D89555>アンデッドの破壊</color> と置き換えます
+ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>金属装甲</color>の制限を解除
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=<color=#D89555>Spare the Dying</color> 5e 
 ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>スパイダークライム</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[アップキャストごとにターゲット +1]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=ボーナスアクションとして<color=#D89555>手を置く</color>を有効にする
-ModUi/&EnablePaladinSmiteAsBonusAction2024=ボーナスアクションとして<color=#D89555>スマイト</color>を有効にする
+ModUi/&EnablePaladinAbjureFoes2024=レベル 9 で <color=#D89555>敵の拒絶</color> を有効にする
+ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
+ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=レベル14で<color=#D89555>浄化のタッチ</color>の代わりに<color=#D89555>回復のタッチ</color>を有効にする
+ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=ボーナスアクションとして<color=#
 ModUi/&EnablePreparedSpellsTables2024=すべての <color=#D89555>キャスター</color> が新しい準備済み呪文テーブル <i><color=#F0DAA0>[吟遊詩人、聖職者、ドルイド、パラディン、レンジャー、ソーサラー、ウィザード]</color></i> を使用できるようにします。
 ModUi/&EnableProneAction=<color=#D89555>うつ伏せになる</color>アクションを有効にする <i><color=#F0DAA0>[コストをかけずにうつ伏せになることができます]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=プッシュとプルのモーション効果を上下軸でも有効にします
+ModUi/&EnableRangerDeftExplorer2024=レベル 2 で <color=#D89555>Deft Explorer</color> を有効にする <i><color=#F0DAA0>[レンジャー スキルの専門知識を 1 つ取得し、言語を 2 つ習得します]</color></i>
+ModUi/&EnableRangerExpertise2024=レベル 9 で <color=#D89555>専門知識</color> を有効にする <i><color=#F0DAA0>[レンジャー スキルに関する専門知識を 2 つ取得]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=<color=#D89555>得意な敵</color>と<color=#D89555>得意な地形</color>を<color=#D89555>得意な敵</color> 5e 2024バージョンと入れ替えます
+ModUi/&EnableRangerFeralSenses2024=<color=#D89555>Feral Senses</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[30 フィートの盲視力を得る]</color></i> と入れ替えます
+ModUi/&EnableRangerFoeSlayers2024=<color=#D89555>Foe Slayer</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[Hunter's Mark ダイスを d10 に増加]</color></i> と入れ替えます
 ModUi/&EnableRangerNatureShroud2024=レベル 14 で <color=#D89555>自然のベール</color> 機能を有効にします <i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法で透明になることができます]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=レベル 17 で <color=#D89555>精密ハンター</color> を有効にする <i><color=#F0DAA0>[ハンターによってマークされたクリーチャーに対して有利]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=レベル 13 で <color=#D89555>執拗なハンター</color> を有効にする <i><color=#F0DAA0>[ハンターのマークへの集中力が失われない]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 代わりにハンターズマークの集中力要件を削除します</i>
+ModUi/&EnableRangerRoving2024=レベル 6 で <color=#D89555>移動</color> を有効にする <i><color=#F0DAA0>[重装甲を使用していないときに 10 フィート移動し、同じ登攀速度を得る]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
+ModUi/&EnableRangerTireless2024=レベル 10 で <color=#D89555>不屈の精神</color> を <color=#D89555>隠れた視界</color> と置き換えて有効にします <i><color=#F0DAA0>[一時的にヒット ポイントを獲得]</color></i>
 ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップや呪文を選択できるようにする
 ModUi/&EnableRespecAction=休憩アクション後に <color=#D89555>RESPEC</color> を有効にします <i><color=#F0DAA0>[マルチプレイヤーセッション中は RESPEC を使用しないでください]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=すべてのキャスターに<color=#D89555>儀式</color>の詠唱を有効にする
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=レベル 1 と 7 で 
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcererSorcerousRestoration2024=レベル5で<color=#D89555>魔法による回復</color>を有効にする
+ModUi/&EnableSorcererToLearnOriginAtLevel3=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=レベル14と18で<color=#D89555>魔法の�
 ModUi/&RemoveBardSongOfRest2024=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します
+ModUi/&RemoveRangerVanish2024=レベル14で<color=#D89555>Vanish</color>を削除します
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>絡みつく</color>効果は詠唱時にのみ適用され、蔓から逃れるには筋力チェックも強制される。
 ModUi/&RemoveRogueBlindSense2024=レベル14で<color=#D89555>ブラインドセンス</color>を削除します
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>Shadowcaster</b> から学校制限を削除します

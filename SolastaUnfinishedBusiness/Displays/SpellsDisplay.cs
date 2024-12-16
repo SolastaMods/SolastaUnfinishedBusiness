@@ -146,7 +146,7 @@ internal static class SpellsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRitualOnAllCasters2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRitualOnAllCasters2024 = toggle;
-            Tabletop2024Context.SwitchSpellRitualOnAllCasters();
+            Tabletop2024Context.SwitchOneDndSpellRitualOnAllCasters();
         }
 
         UI.Label();

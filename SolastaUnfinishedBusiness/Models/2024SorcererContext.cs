@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -12,6 +14,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -78,6 +81,59 @@ internal static partial class Tabletop2024Context
         .SetOrUpdateGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
+
+    internal static void SwitchSorcererOriginLearningLevel()
+    {
+        var origins = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(x => x.Name.StartsWith("Sorcerous"))
+            .ToList();
+
+        var fromLevel = 3;
+        var toLevel = 1;
+
+        if (Main.Settings.EnableSorcererToLearnOriginAtLevel3)
+        {
+            fromLevel = 1;
+            toLevel = 3;
+        }
+
+        foreach (var featureUnlock in origins
+                     .SelectMany(school => school.FeatureUnlocks
+                         .Where(featureUnlock => featureUnlock.level == fromLevel)))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        // handle level 2 grants
+        var featuresGrantedAt2 = new[]
+        {
+            ("SorcerousManaPainter", "PowerSorcererManaPainterDrain"),
+            ("SorcerousChildRift", "PowerSorcererChildRiftDeflection"),
+            ("SorcerousSpellBlade", "FeatureSetSorcerousSpellBladeManaShield")
+        };
+
+        var level = Main.Settings.EnableSorcererToLearnOriginAtLevel3 ? 3 : 2;
+
+        foreach (var (subClassName, featureName) in featuresGrantedAt2)
+        {
+            var subClass = DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(subClassName);
+            var feature = DatabaseHelper.GetDefinition<FeatureDefinition>(featureName);
+
+            subClass.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == feature)!.level = level;
+        }
+
+        // change spell casting level on Sorcerer itself
+        Sorcerer.FeatureUnlocks
+            .FirstOrDefault(x =>
+                x.FeatureDefinition == SubclassChoiceSorcerousOrigin)!.level = toLevel;
+
+        foreach (var origin in origins)
+        {
+            origin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
 
     internal static void SwitchSorcererArcaneApotheosis()
     {
@@ -160,7 +216,7 @@ internal static partial class Tabletop2024Context
             (SpellSlotsForm.EffectType)ExtraEffectType.RecoverSorceryHalfLevelDown;
     }
 
-    internal static void SwitchSorcerousRestorationAtLevel5()
+    internal static void SwitchSorcererSorcerousRestorationAtLevel5()
     {
         Sorcerer.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerSorcerousRestoration);
 
