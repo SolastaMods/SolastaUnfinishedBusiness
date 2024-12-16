@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -8,6 +10,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -35,14 +39,12 @@ internal static partial class Tabletop2024Context
                     FeatureDefinitionProficiencyBuilder
                         .Create("ProficiencyClericProtectorArmor")
                         .SetGuiPresentationNoContent(true)
-                        .SetProficiencies(RuleDefinitions.ProficiencyType.Armor,
-                            EquipmentDefinitions.HeavyArmorCategory)
+                        .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
                         .AddToDB(),
                     FeatureDefinitionProficiencyBuilder
                         .Create("ProficiencyClericProtectorWeapons")
                         .SetGuiPresentationNoContent(true)
-                        .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
-                            EquipmentDefinitions.MartialWeaponCategory)
+                        .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
                         .AddToDB())
                 .AddToDB())
         .AddToDB();
@@ -58,6 +60,38 @@ internal static partial class Tabletop2024Context
             .Create("FeatureSetClericDivineInterventionImproved")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+    private static readonly FeatureDefinition FeatureClericSearUndead = FeatureDefinitionBuilder
+        .Create("FeatureClericSearUndead")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemySearUndead())
+        .AddToDB();
+
+    internal static void SwitchClericSearUndead()
+    {
+        Cleric.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == FeatureClericSearUndead ||
+                x.FeatureDefinition == PowerClericTurnUndead5 ||
+                x.FeatureDefinition == PowerClericTurnUndead11 ||
+                x.FeatureDefinition == PowerClericTurnUndead14 ||
+                x.FeatureDefinition == Level20Context.PowerClericTurnUndead17);
+
+        if (Main.Settings.EnableClericSearUndead2024)
+        {
+            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureClericSearUndead, 5));
+        }
+        else
+        {
+            Cleric.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerClericTurnUndead5, 5),
+                new FeatureUnlockByLevel(PowerClericTurnUndead11, 11),
+                new FeatureUnlockByLevel(PowerClericTurnUndead14, 14),
+                new FeatureUnlockByLevel(Level20Context.PowerClericTurnUndead17, 17));
+        }
+
+        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
 
     internal static void SwitchClericDivineIntervention()
     {
@@ -88,9 +122,10 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == power ||
                 x.FeatureDefinition == FeatureSetClericDivineIntervention);
 
-            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineOrder2024
-                ? new FeatureUnlockByLevel(FeatureSetClericDivineIntervention, 10)
-                : new FeatureUnlockByLevel(power, 10));
+            subClass.FeatureUnlocks.Add(
+                Main.Settings.EnableClericDivineIntervention2024
+                    ? new FeatureUnlockByLevel(FeatureSetClericDivineIntervention, 10)
+                    : new FeatureUnlockByLevel(power, 10));
         }
 
         foreach (var (subclassName, powerName) in divineInterventions)
@@ -103,7 +138,7 @@ internal static partial class Tabletop2024Context
                 x.FeatureDefinition == improvementPower ||
                 x.FeatureDefinition == FeatureSetClericDivineInterventionImproved);
 
-            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineOrder2024
+            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineIntervention2024
                 ? new FeatureUnlockByLevel(FeatureSetClericDivineInterventionImproved, 20)
                 : new FeatureUnlockByLevel(improvementPower, 20));
         }
@@ -207,6 +242,37 @@ internal static partial class Tabletop2024Context
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal sealed class MagicEffectBeforeHitConfirmedOnEnemySearUndead : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect.SourceDefinition != PowerClericTurnUndead)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var diceNumber = Math.Max(wisMod, 1);
+            var effectForm = EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates)
+                .SetDamageForm(DamageTypeRadiant, diceNumber, DieType.D8)
+                .Build();
+
+            actualEffectForms.Insert(0, effectForm);
+        }
+    }
+
     private sealed class ModifyAbilityCheckThaumaturge : IModifyAbilityCheck
     {
         public void MinRoll(
@@ -214,8 +280,8 @@ internal static partial class Tabletop2024Context
             int baseBonus,
             string abilityScoreName,
             string proficiencyName,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
-            List<RuleDefinitions.TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
             ref int rollModifier, ref int minRoll)
         {
             if (abilityScoreName is not AttributeDefinitions.Intelligence ||
@@ -230,8 +296,8 @@ internal static partial class Tabletop2024Context
 
             rollModifier += modifier;
 
-            modifierTrends.Add(new RuleDefinitions.TrendInfo(modifier,
-                RuleDefinitions.FeatureSourceType.CharacterFeature,
+            modifierTrends.Add(new TrendInfo(modifier,
+                FeatureSourceType.CharacterFeature,
                 PointPoolClericThaumaturgeCantrip.Name, PointPoolClericThaumaturgeCantrip));
         }
     }

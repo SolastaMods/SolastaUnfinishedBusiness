@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen<
 ModUi/&EnableClericChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnableClericDivineIntervention2024=Tauschen Sie <color=#D89555>Divine Intervention</color> und <color=#D89555>Improved Divine Intervention</color> gegen die Version 5e 2024 aus <i><color=#F0DAA0>[Zauberplatz bis zu einem bestimmten Level erhalten]</color></i>
 ModUi/&EnableClericDivineOrder2024=Aktiviere <color=#D89555>Göttliche Ordnung</color> auf Stufe 1 <i><color=#F0DAA0>[Auswahl zwischen schwerer Rüstung/Kampfwaffen-Profi oder Bonus-Zauberspruch und einigen INT-Checks]</color></i>
+ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</color>, um <color=#D89555>Untote zerstören</color> auf Level 5 zu ersetzen.
 ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>

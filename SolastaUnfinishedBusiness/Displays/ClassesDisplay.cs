@@ -160,6 +160,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchClericDomainLearningLevel();
         }
 
+        toggle = Main.Settings.EnableClericSearUndead2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericSearUndead2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericSearUndead2024 = toggle;
+            Tabletop2024Context.SwitchClericSearUndead();
+        }
+
         toggle = Main.Settings.EnableClericDivineIntervention2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineIntervention2024"), ref toggle, UI.AutoWidth()))
         {

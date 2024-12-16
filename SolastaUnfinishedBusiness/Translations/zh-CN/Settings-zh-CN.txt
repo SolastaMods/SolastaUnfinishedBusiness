@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色�
 ModUi/&EnableClericChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnableClericDivineIntervention2024=将<color=#D89555>神圣干预</color>和<color=#D89555>改进的神圣干预</color>与 5e 2024 版本交换<i><color=#F0DAA0>[获得法术位达到一定等级]</color></i>
 ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
+ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
 ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>

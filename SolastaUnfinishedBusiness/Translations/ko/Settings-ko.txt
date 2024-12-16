@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
 ModUi/&EnableClericDivineIntervention2024=<color=#D89555>신성한 개입</color>과 <color=#D89555>개선된 신성 개입</color>을 5e 2024 버전 <i><color=#F0DAA0>[특정 레벨까지 주문 슬롯 획득]</color></i>과 교환하세요.
 ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
+ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>

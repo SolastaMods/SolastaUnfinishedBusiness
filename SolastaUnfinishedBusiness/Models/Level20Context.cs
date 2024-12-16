@@ -159,6 +159,10 @@ internal static class Level20Context
         .AddCustomSubFeatures(new ModifyAdditionalDamageRangerFoeSlayer2024())
         .AddToDB();
 
+    internal static readonly FeatureDefinitionPower PowerClericTurnUndead17 = FeatureDefinitionPowerBuilder
+        .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
+        .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -298,18 +302,10 @@ internal static class Level20Context
 
     private static void ClericLoad()
     {
-        var effectPowerClericTurnUndead17 = new EffectDescription();
-
-        effectPowerClericTurnUndead17.Copy(PowerClericTurnUndead14.EffectDescription);
-        effectPowerClericTurnUndead17.EffectForms[0].KillForm.challengeRating = 4;
-
-        var powerClericTurnUndead17 = FeatureDefinitionPowerBuilder
-            .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
-            .SetEffectDescription(effectPowerClericTurnUndead17)
-            .AddToDB();
+        PowerClericTurnUndead17.EffectDescription.EffectForms[0].KillForm.challengeRating = 4;
 
         Cleric.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(powerClericTurnUndead17, 17),
+            new FeatureUnlockByLevel(PowerClericTurnUndead17, 17),
             new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
         );

@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</
 ModUi/&EnableClericChannelDivinity2024=Habilitar <color=#D89555>Canal Divinidad</color> versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnableClericDivineIntervention2024=Intercambia <color=#D89555>Intervención divina</color> e <color=#D89555>Intervención divina mejorada</color> con la versión 5e 2024 <i><color=#F0DAA0>[gana espacio de hechizo hasta cierto nivel]</color></i>
 ModUi/&EnableClericDivineOrder2024=Habilita <color=#D89555>Orden Divina</color> en el nivel 1 <i><color=#F0DAA0>[elección entre armadura pesada/armas marciales, truco profesional o adicional y algunas pruebas de INT]</color></i>
+ModUi/&EnableClericSearUndead2024=Habilita <color=#D89555>Quemar no muertos</color> para reemplazar <color=#D89555>Destruir no muertos</color> en el nivel 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Habilitar <color=#D89555>Dominio</color> en el nivel 3 en lugar del 1
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloca tus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, nombradas como el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Usa imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[usa GIMP para obtener mejores resultados]</color></i>

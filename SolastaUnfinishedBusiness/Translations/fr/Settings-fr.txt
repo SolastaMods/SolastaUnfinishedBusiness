@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</
 ModUi/&EnableClericChannelDivinity2024=Activer <color=#D89555>Channel Divinity</color> 5e version 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
 ModUi/&EnableClericDivineIntervention2024=Échangez <color=#D89555>Intervention divine</color> et <color=#D89555>Intervention divine améliorée</color> avec la version 5e 2024 <i><color=#F0DAA0>[gagne un emplacement de sort jusqu'à un certain niveau]</color></i>
 ModUi/&EnableClericDivineOrder2024=Activer <color=#D89555>Ordre divin</color> au niveau 1 <i><color=#F0DAA0>[choix entre armure lourde/prof. armes martiales ou tour de passe-passe bonus et quelques tests d'INT]</color></i>
+ModUi/&EnableClericSearUndead2024=Activez <color=#D89555>Sear Undead</color> pour remplacer <color=#D89555>Destroy Undead</color> au niveau 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Activer le <color=#D89555>Domaine</color> au niveau 3 au lieu de 1
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nommés d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>

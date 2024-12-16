@@ -118,6 +118,7 @@ ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキ�
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
 ModUi/&EnableClericDivineIntervention2024=<color=#D89555>Divine Intervention</color> と <color=#D89555>Improved Divine Intervention</color> を 5e 2024 バージョン <i><color=#F0DAA0>[特定のレベルまでの呪文スロットを獲得]</color></i> と入れ替えます
 ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
+ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッドの焼却</color> を <color=#D89555>アンデッドの破壊</color> と置き換えます
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>

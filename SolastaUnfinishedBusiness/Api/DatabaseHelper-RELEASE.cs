@@ -1167,7 +1167,7 @@ internal static partial class DatabaseHelper
     internal static class FeatureDefinitionAttributeModifiers
     {
         internal static FeatureDefinitionAttributeModifier AttributeModifierClericChannelDivinity { get; } =
-            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierClericChannelDivinity"); 
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierClericChannelDivinity");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinChannelDivinity { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinChannelDivinity");
@@ -1937,6 +1937,15 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard");
+
+        internal static FeatureDefinitionPower PowerClericTurnUndead { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead");
+
+        internal static FeatureDefinitionPower PowerClericTurnUndead5 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead5");
+
+        internal static FeatureDefinitionPower PowerClericTurnUndead11 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead11");
 
         internal static FeatureDefinitionPower PowerClericTurnUndead14 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14");
