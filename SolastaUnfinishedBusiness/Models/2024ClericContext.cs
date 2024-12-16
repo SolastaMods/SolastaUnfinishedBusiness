@@ -1,7 +1,9 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Interfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -11,6 +13,53 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    private static readonly FeatureDefinitionPointPool PointPoolClericThaumaturgeCantrip =
+        FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolClericThaumaturgeCantrip")
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, SpellListDefinitions.SpellListCleric,
+                "Thaumaturge")
+            .AddCustomSubFeatures(new ModifyAbilityCheckThaumaturge())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetClericDivineOrder = FeatureDefinitionFeatureSetBuilder
+        .Create("FeatureSetClericDivineOrder")
+        .SetGuiPresentation(Category.Feature)
+        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+        .SetFeatureSet(
+            PointPoolClericThaumaturgeCantrip,
+            FeatureDefinitionFeatureSetBuilder
+                .Create("FeatureSetClericProtector")
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(
+                    FeatureDefinitionProficiencyBuilder
+                        .Create("ProficiencyClericProtectorArmor")
+                        .SetGuiPresentationNoContent(true)
+                        .SetProficiencies(RuleDefinitions.ProficiencyType.Armor,
+                            EquipmentDefinitions.HeavyArmorCategory)
+                        .AddToDB(),
+                    FeatureDefinitionProficiencyBuilder
+                        .Create("ProficiencyClericProtectorWeapons")
+                        .SetGuiPresentationNoContent(true)
+                        .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
+                            EquipmentDefinitions.MartialWeaponCategory)
+                        .AddToDB())
+                .AddToDB())
+        .AddToDB();
+
+    internal static void SwitchClericDivineOrder()
+    {
+        Cleric.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == FeatureSetClericDivineOrder);
+
+        if (Main.Settings.EnablePaladinAbjureFoes2024)
+        {
+            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericDivineOrder, 1));
+        }
+
+        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchClericChannelDivinity()
     {
         if (Main.Settings.EnableClericChannelDivinity2024)
@@ -18,14 +67,12 @@ internal static partial class Tabletop2024Context
             AttributeModifierClericChannelDivinity.modifierValue = 2;
             AttributeModifierClericChannelDivinity.GuiPresentation.description =
                 "Feature/&PaladinChannelDivinityDescription";
-            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierClericChannelDivinityAdd, 18));
         }
         else
         {
             AttributeModifierClericChannelDivinity.modifierValue = 1;
             AttributeModifierClericChannelDivinity.GuiPresentation.description =
                 "Feature/&ClericChannelDivinityDescription";
-            Cleric.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == AttributeModifierClericChannelDivinityAdd && x.Level == 18);
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -94,5 +141,34 @@ internal static partial class Tabletop2024Context
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class ModifyAbilityCheckThaumaturge : IModifyAbilityCheck
+    {
+        public void MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends,
+            ref int rollModifier, ref int minRoll)
+        {
+            if (abilityScoreName is not AttributeDefinitions.Intelligence ||
+                proficiencyName is not (SkillDefinitions.Arcana or SkillDefinitions.Religion))
+            {
+                return;
+            }
+
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var modifier = Math.Max(wisMod, 1);
+
+            rollModifier += modifier;
+
+            modifierTrends.Add(new RuleDefinitions.TrendInfo(modifier,
+                RuleDefinitions.FeatureSourceType.CharacterFeature,
+                PointPoolClericThaumaturgeCantrip.Name, PointPoolClericThaumaturgeCantrip));
+        }
     }
 }

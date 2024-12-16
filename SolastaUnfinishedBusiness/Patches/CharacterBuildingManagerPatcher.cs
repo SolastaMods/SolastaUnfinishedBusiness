@@ -296,6 +296,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: grants cantrip that for whatever reason vanilla has a hard time granting ;-)
+            GrantCantripFromCustomAcquiredPool(hero, "Thaumaturge");
             GrantCantripFromCustomAcquiredPool(hero, "DomainNature");
             GrantCantripFromCustomAcquiredPool(hero, "PactTome");
             GrantCantripFromCustomAcquiredPool(hero, "PrimalOrder");

@@ -408,6 +408,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchClericChannelDivinity();
         }
 
+        toggle = Main.Settings.EnableClericDivineOrder2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericDivineOrder2024 = toggle;
+            Tabletop2024Context.SwitchClericDivineOrder();
+        }
+
         toggle = Main.Settings.EnableClericToLearnDomainAtLevel3;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericToLearnDomainAtLevel3"), ref toggle, UI.AutoWidth()))
         {

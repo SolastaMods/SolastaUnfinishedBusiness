@@ -692,6 +692,9 @@
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
     <EnableBarbarianRegainOneRageAtShortRest2024>true</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
+    <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
+    <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
+    <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
@@ -712,8 +715,10 @@
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
     <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
+    <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>
     <EnablePaladinLayOnHands2024>true</EnablePaladinLayOnHands2024>
+    <EnablePaladinRestoringTouch2024>true</EnablePaladinRestoringTouch2024>
     <EnablePaladinSmite2024>true</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -1885,8 +1890,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

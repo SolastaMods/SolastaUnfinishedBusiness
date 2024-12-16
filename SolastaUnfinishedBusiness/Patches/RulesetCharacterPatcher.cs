@@ -1741,6 +1741,21 @@ public static class RulesetCharacterPatcher
 
                 __instance.recoveredFeatures.Add(AttributeModifierPaladinChannelDivinity);
             }
+
+            //PATCH: support for Clerics to regain one channel divinity usage at short rests
+            // ReSharper disable once InvertIf
+            if (Main.Settings.EnableClericChannelDivinity2024 &&
+                restType == RestType.ShortRest &&
+                __instance.GetClassLevel(Cleric) >= 2 &&
+                __instance.UsedChannelDivinity > 0)
+            {
+                if (!simulate)
+                {
+                    __instance.UsedChannelDivinity -= 1;
+                }
+
+                __instance.recoveredFeatures.Add(AttributeModifierClericChannelDivinity);
+            }
         }
 
         [UsedImplicitly]
