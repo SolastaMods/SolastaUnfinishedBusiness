@@ -5,6 +5,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -83,14 +84,16 @@ internal static partial class Tabletop2024Context
     {
         PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
 
+        var powers = new List<FeatureDefinitionPower>();
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var condition in RestoringTouchConditions)
         {
             var conditionTitle = condition.FormatTitle();
             var title = "PowerPaladinRestoringTouchSubPowerTitle".Formatted(Category.Feature, conditionTitle);
             var description =
                 "PowerPaladinRestoringTouchSubPowerDescription".Formatted(Category.Feature, conditionTitle);
-
-            _ = FeatureDefinitionPowerSharedPoolBuilder
+            var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerPaladinRestoringTouch{condition.Name}")
                 .SetGuiPresentation(title, description)
                 .SetSharedPool(ActivationTime.NoCost, PowerPaladinRestoringTouch, 5)
@@ -105,7 +108,11 @@ internal static partial class Tabletop2024Context
                                 .Build())
                         .Build())
                 .AddToDB();
+
+            powers.Add(power);
         }
+
+        PowerBundle.RegisterPowerBundle(PowerPaladinRestoringTouch, false, [.. powers]);
     }
 
     internal static void SwitchPaladinSpellCastingAtOne()

@@ -47,12 +47,76 @@ internal static partial class Tabletop2024Context
                 .AddToDB())
         .AddToDB();
 
+    private static readonly FeatureDefinitionFeatureSet FeatureSetClericDivineIntervention =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetClericDivineIntervention")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetClericDivineInterventionImproved =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetClericDivineInterventionImproved")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+    internal static void SwitchClericDivineIntervention()
+    {
+        var divineInterventions = new[]
+        {
+            ("DomainBattle", "PowerClericDivineInterventionPaladin"), //
+            ("DomainDefiler", "PowerClericDivineInterventionPaladin"), // UB
+            ("DomainElementalCold", "PowerClericDivineInterventionWizard"), //
+            ("DomainElementalFire", "PowerClericDivineInterventionWizard"), //
+            ("DomainElementalLighting", "PowerClericDivineInterventionWizard"), //
+            ("DomainInsight", "PowerClericDivineInterventionCleric"), //
+            ("DomainLaw", "PowerClericDivineInterventionPaladin"), //
+            ("DomainLife", "PowerClericDivineInterventionCleric"), //
+            ("DomainMischief", "PowerClericDivineInterventionWizard"), //
+            ("DomainNature", "PowerClericDivineInterventionWizard"), // UB
+            ("DomainOblivion", "PowerClericDivineInterventionCleric"), //
+            ("DomainSmith", "PowerClericDivineInterventionPaladin"), // UB
+            ("DomainSun", "PowerClericDivineInterventionWizard"), //
+            ("DomainTempest", "PowerClericDivineInterventionPaladin") // UB
+        };
+
+        foreach (var (subclassName, powerName) in divineInterventions)
+        {
+            var subClass = GetDefinition<CharacterSubclassDefinition>(subclassName);
+            var power = GetDefinition<FeatureDefinitionPower>(powerName);
+
+            subClass.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == power ||
+                x.FeatureDefinition == FeatureSetClericDivineIntervention);
+
+            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineOrder2024
+                ? new FeatureUnlockByLevel(FeatureSetClericDivineIntervention, 10)
+                : new FeatureUnlockByLevel(power, 10));
+        }
+
+        foreach (var (subclassName, powerName) in divineInterventions)
+        {
+            var subClass = GetDefinition<CharacterSubclassDefinition>(subclassName);
+            var improvementPowerName = powerName.Replace("Intervention", "InterventionImprovement");
+            var improvementPower = GetDefinition<FeatureDefinitionPower>(improvementPowerName);
+
+            subClass.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == improvementPower ||
+                x.FeatureDefinition == FeatureSetClericDivineInterventionImproved);
+
+            subClass.FeatureUnlocks.Add(Main.Settings.EnableClericDivineOrder2024
+                ? new FeatureUnlockByLevel(FeatureSetClericDivineInterventionImproved, 20)
+                : new FeatureUnlockByLevel(improvementPower, 20));
+        }
+
+        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchClericDivineOrder()
     {
         Cleric.FeatureUnlocks
             .RemoveAll(x => x.FeatureDefinition == FeatureSetClericDivineOrder);
 
-        if (Main.Settings.EnablePaladinAbjureFoes2024)
+        if (Main.Settings.EnableClericDivineOrder2024)
         {
             Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericDivineOrder, 1));
         }

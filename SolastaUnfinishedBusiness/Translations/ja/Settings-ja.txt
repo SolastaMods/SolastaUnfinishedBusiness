@@ -116,6 +116,7 @@ ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャン
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
+ModUi/&EnableClericDivineIntervention2024=<color=#D89555>Divine Intervention</color> と <color=#D89555>Improved Divine Intervention</color> を 5e 2024 バージョン <i><color=#F0DAA0>[特定のレベルまでの呪文スロットを獲得]</color></i> と入れ替えます
 ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする

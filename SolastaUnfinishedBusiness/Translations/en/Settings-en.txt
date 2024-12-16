@@ -116,6 +116,7 @@ ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse 
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
+ModUi/&EnableClericDivineIntervention2024=Swap <color=#D89555>Divine Intervention</color> and <color=#D89555>Improved Divine Intervention</color> with 5e 2024 version <i><color=#F0DAA0>[gain spell slot up to a certain level]</color></i>
 ModUi/&EnableClericDivineOrder2024=Enable <color=#D89555>Divine Order</color> at level 1 <i><color=#F0DAA0>[choice between heavy armor/martial weapons prof. or bonus cantrip and some INT checks]</color></i>
 ModUi/&EnableClericToLearnDomainAtLevel3=Enable <color=#D89555>Domain</color> at level 3 instead of 1
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>

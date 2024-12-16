@@ -287,6 +287,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
     public bool EnableClericChannelDivinity2024 { get; set; }
+    public bool EnableClericDivineIntervention2024 { get; set; }
     public bool EnableClericDivineOrder2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
