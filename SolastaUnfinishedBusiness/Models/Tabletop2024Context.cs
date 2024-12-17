@@ -26,6 +26,7 @@ internal static partial class Tabletop2024Context
         LoadBarbarianInstinctivePounce();
         LoadBarbarianPersistentRage();
         LoadBardCounterCharm();
+        LoadClericChannelDivinity();
         LoadClericSearUndead();
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
@@ -52,7 +53,7 @@ internal static partial class Tabletop2024Context
         SwitchBardSuperiorInspiration();
         SwitchBardWordsOfCreation();
         SwitchClericChannelDivinity();
-        SwitchClericDivineIntervention();
+        // SwitchClericDivineIntervention();
         SwitchClericDivineOrder();
         SwitchClericDomainLearningLevel();
         SwitchClericSearUndead();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -49,6 +50,7 @@ internal static partial class Tabletop2024Context
                 .AddToDB())
         .AddToDB();
 
+#if false
     private static readonly FeatureDefinitionFeatureSet FeatureSetClericDivineIntervention =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetClericDivineIntervention")
@@ -60,10 +62,17 @@ internal static partial class Tabletop2024Context
             .Create("FeatureSetClericDivineInterventionImproved")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+#endif
 
     private static readonly FeatureDefinition FeatureClericSearUndead = FeatureDefinitionBuilder
         .Create("FeatureClericSearUndead")
         .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerClericDivineSpark = FeatureDefinitionPowerBuilder
+        .Create("PowerClericDivineSpark")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
         .AddToDB();
 
     private static readonly EffectForm SearUndeadDamageForm = EffectFormBuilder
@@ -72,38 +81,99 @@ internal static partial class Tabletop2024Context
         .SetDamageForm(DamageTypeRadiant, 0, DieType.D8)
         .Build();
 
+    private static void LoadClericChannelDivinity()
+    {
+        var powerDivineSparkHeal = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerClericDivineSparkHeal")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
+                            .SetHealingForm(
+                                HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDivineSparkDamageNecrotic = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerClericDivineSparkDamageNecrotic")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDivineSparkDamageRadiant = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerClericDivineSparkDamageRadiant")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
+                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(PowerClericDivineSpark, false,
+            powerDivineSparkHeal, powerDivineSparkDamageNecrotic, powerDivineSparkDamageRadiant);
+    }
+
     private static void LoadClericSearUndead()
     {
         PowerClericTurnUndead.EffectDescription.EffectForms.Insert(0, SearUndeadDamageForm);
         PowerClericTurnUndead.AddCustomSubFeatures(new ModifyEffectDescriptionPowerTurnUndead());
     }
 
-    internal static void SwitchClericSearUndead()
+    internal static void SwitchClericChannelDivinity()
     {
         Cleric.FeatureUnlocks
-            .RemoveAll(x =>
-                x.FeatureDefinition == FeatureClericSearUndead ||
-                x.FeatureDefinition == PowerClericTurnUndead5 ||
-                x.FeatureDefinition == PowerClericTurnUndead11 ||
-                x.FeatureDefinition == PowerClericTurnUndead14 ||
-                x.FeatureDefinition == Level20Context.PowerClericTurnUndead17);
+            .RemoveAll(x => x.FeatureDefinition == PowerClericDivineSpark);
 
-        if (Main.Settings.EnableClericSearUndead2024)
+        if (Main.Settings.EnableClericChannelDivinity2024)
         {
-            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureClericSearUndead, 5));
+            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineSpark, 2));
+            AttributeModifierClericChannelDivinity.modifierValue = 2;
+            AttributeModifierClericChannelDivinity.GuiPresentation.description =
+                "Feature/&ClericChannelDivinityExtendedDescription";
         }
         else
         {
-            Cleric.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(PowerClericTurnUndead5, 5),
-                new FeatureUnlockByLevel(PowerClericTurnUndead11, 11),
-                new FeatureUnlockByLevel(PowerClericTurnUndead14, 14),
-                new FeatureUnlockByLevel(Level20Context.PowerClericTurnUndead17, 17));
+            AttributeModifierClericChannelDivinity.modifierValue = 1;
+            AttributeModifierClericChannelDivinity.GuiPresentation.description =
+                "Feature/&ClericChannelDivinityDescription";
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+#if false
     internal static void SwitchClericDivineIntervention()
     {
         var divineInterventions = new[]
@@ -163,6 +233,7 @@ internal static partial class Tabletop2024Context
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
+#endif
 
     internal static void SwitchClericDivineOrder()
     {
@@ -172,24 +243,6 @@ internal static partial class Tabletop2024Context
         if (Main.Settings.EnableClericDivineOrder2024)
         {
             Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetClericDivineOrder, 1));
-        }
-
-        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchClericChannelDivinity()
-    {
-        if (Main.Settings.EnableClericChannelDivinity2024)
-        {
-            AttributeModifierClericChannelDivinity.modifierValue = 2;
-            AttributeModifierClericChannelDivinity.GuiPresentation.description =
-                "Feature/&ClericChannelDivinityExtendedDescription";
-        }
-        else
-        {
-            AttributeModifierClericChannelDivinity.modifierValue = 1;
-            AttributeModifierClericChannelDivinity.GuiPresentation.description =
-                "Feature/&ClericChannelDivinityDescription";
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -255,6 +308,32 @@ internal static partial class Tabletop2024Context
         foreach (var domain in domains)
         {
             domain.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+
+        Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchClericSearUndead()
+    {
+        Cleric.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == FeatureClericSearUndead ||
+                x.FeatureDefinition == PowerClericTurnUndead5 ||
+                x.FeatureDefinition == PowerClericTurnUndead11 ||
+                x.FeatureDefinition == PowerClericTurnUndead14 ||
+                x.FeatureDefinition == Level20Context.PowerClericTurnUndead17);
+
+        if (Main.Settings.EnableClericSearUndead2024)
+        {
+            Cleric.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureClericSearUndead, 5));
+        }
+        else
+        {
+            Cleric.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerClericTurnUndead5, 5),
+                new FeatureUnlockByLevel(PowerClericTurnUndead11, 11),
+                new FeatureUnlockByLevel(PowerClericTurnUndead14, 14),
+                new FeatureUnlockByLevel(Level20Context.PowerClericTurnUndead17, 17));
         }
 
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
