@@ -80,7 +80,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionStunned",
           "conditionDefinition": "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0",
-          "operation": "RemoveDetrimentalAll",
+          "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",

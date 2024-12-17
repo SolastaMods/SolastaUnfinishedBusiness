@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPsychicWhipNoMain:915ca36e-0a6f-5453-8c86-041c2430888f"
+    "Definition:ActionAffinityNoBonus:81e6f315-1513-5810-b767-72b81f41b175"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ccc00964-9d8a-5bbb-a5ea-102706e85f80",
+  "guid": "d8b8edc1-5dd0-5411-84ed-a9dc8812df44",
   "contentPack": 9999,
-  "name": "ConditionPsychicWhipNoMain"
+  "name": "ConditionNoBonus"
 }

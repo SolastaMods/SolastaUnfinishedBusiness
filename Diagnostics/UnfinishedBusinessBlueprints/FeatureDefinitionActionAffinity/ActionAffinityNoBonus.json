@@ -2,8 +2,8 @@
   "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
   "allowedActionTypes": [
     true,
-    true,
     false,
+    true,
     true,
     true,
     true
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b6f650a8-c774-58bb-91c6-04f383fa7d54",
+  "guid": "81e6f315-1513-5810-b767-72b81f41b175",
   "contentPack": 9999,
-  "name": "ActionAffinityPsychicWhipNoMove"
+  "name": "ActionAffinityNoBonus"
 }
