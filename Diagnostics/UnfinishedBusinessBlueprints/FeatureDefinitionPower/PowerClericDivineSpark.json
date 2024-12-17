@@ -179,7 +179,7 @@
     "description": "Feature/&PowerClericDivineSparkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "6c1e944a-33eb-5e38-b221-c68b20b9b111",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

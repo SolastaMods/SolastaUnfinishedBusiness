@@ -9,6 +9,8 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -139,6 +141,7 @@ public static class CursorLocationSelectTargetPatcher
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
             CursorMotionHelper.Activate(__instance);
+
             if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var modifyTeleportEffectBehavior))
             {
                 return;
@@ -351,6 +354,7 @@ public static class CursorLocationSelectTargetPatcher
 
             bool canProceed;
             var enforceFullSelection = false;
+
             if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower })
             {
                 var filterTargetingCharacter =
@@ -450,7 +454,9 @@ public static class CursorLocationSelectTargetPatcher
                     return false;
                 }
 
-                __instance.GameLocationSelectionService.SelectTarget(__instance.targetedCharacter);
+                var targetedCharacter = __instance.targetedCharacter;
+
+                __instance.GameLocationSelectionService.SelectTarget(targetedCharacter);
                 __instance.actionModifiersList.Add(__instance.actionModifier.Clone());
 
                 if (__instance.maxTargets > 0)
@@ -500,8 +506,10 @@ public static class CursorLocationSelectTargetPatcher
 
                             if (__instance.ActionParams.activeEffect is RulesetEffectPower rulesetEffect)
                             {
-                                if (rulesetEffect.PowerDefinition.RechargeRate == RechargeRate.HealingPool &&
-                                    rulesetEffect.PowerDefinition.CostPerUse <= 0)
+                                var powerDefinition = rulesetEffect.PowerDefinition;
+
+                                if (powerDefinition.RechargeRate == RechargeRate.HealingPool &&
+                                    powerDefinition.CostPerUse <= 0)
                                 {
                                     if (__instance.effectDescription.EffectForms.Any(effectForm =>
                                             effectForm.FormType == EffectForm.EffectFormType.Healing &&
@@ -510,12 +518,28 @@ public static class CursorLocationSelectTargetPatcher
                                     {
                                         flag3 = false;
 
-                                        var num = Mathf.Min(rulesetEffect.UsablePower.SpentPoints,
-                                            __instance.targetedCharacter.RulesetCharacter.MissingHitPoints);
+                                        var rulesetTarget = targetedCharacter.RulesetCharacter;
+                                        var minValue = 1;
+                                        var maxValue = Mathf.Min(
+                                            rulesetEffect.UsablePower.SpentPoints, rulesetTarget.MissingHitPoints);
 
-                                        Gui.GuiService.GetScreen<NumberSelectionModal>()
-                                            .ShowPower(rulesetEffect.PowerDefinition, 1, num, num,
-                                                rulesetEffect.UsablePower);
+                                        //PATCH: support lay on hands special case
+                                        if (Main.Settings.EnablePaladinRestoringTouch2024 &&
+                                            powerDefinition == PowerPaladinLayOnHands &&
+                                            rulesetTarget.HasAnyConditionOfTypeOrSubType(Tabletop2024Context
+                                                .RestoringTouchConditionNames))
+                                        {
+                                            var paladinLevel = rulesetTarget.GetClassLevel(Paladin);
+
+                                            if (paladinLevel >= 14)
+                                            {
+                                                minValue = 0;
+                                            }
+                                        }
+                                        //END PATCH
+
+                                        Gui.GuiService.GetScreen<NumberSelectionModal>().ShowPower(
+                                            powerDefinition, minValue, maxValue, maxValue, rulesetEffect.UsablePower);
                                     }
                                 }
                             }

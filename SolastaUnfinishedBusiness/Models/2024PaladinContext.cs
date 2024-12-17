@@ -82,6 +82,9 @@ internal static partial class Tabletop2024Context
         ConditionDefinitions.ConditionStunned
     ];
 
+    internal static readonly string[] RestoringTouchConditionNames =
+        RestoringTouchConditions.Select(c => c.Name).ToArray();
+
     private static void LoadPaladinRestoringTouch()
     {
         PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
@@ -239,6 +242,7 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
+            var aborted = false;
             var caster = action.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
             var target = action.ActionParams.TargetCharacters[0];
@@ -256,7 +260,7 @@ internal static partial class Tabletop2024Context
                         continue;
                     }
 
-                    var power = GetDefinition<FeatureDefinitionPowerSharedPool>(
+                    var power = GetDefinition<FeatureDefinitionPower>(
                         $"PowerPaladinRestoringTouch{condition.Name}");
                     var usablePower = PowerProvider.Get(power, rulesetCaster);
 
@@ -273,11 +277,24 @@ internal static partial class Tabletop2024Context
                     usablePowerPool,
                     [target],
                     caster,
-                    "RestoringTouch");
+                    "RestoringTouch",
+                    reactionNotValidated: ReactionNotValidated);
 
                 foreach (var usablePower in usablePowers)
                 {
                     rulesetCaster.UsablePowers.Remove(usablePower);
+                }
+
+                if (aborted)
+                {
+                    yield break;
+                }
+
+                continue;
+
+                void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
+                {
+                    aborted = true;
                 }
             }
         }

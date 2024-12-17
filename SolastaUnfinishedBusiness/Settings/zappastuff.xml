@@ -693,7 +693,9 @@
     <EnableBarbarianRegainOneRageAtShortRest2024>true</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
     <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
+    <EnableClericDivineIntervention2024>false</EnableClericDivineIntervention2024>
     <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
+    <EnableClericSearUndead2024>true</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
