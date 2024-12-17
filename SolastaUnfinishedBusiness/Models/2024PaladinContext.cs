@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -61,12 +64,13 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerPaladinRestoringTouch = FeatureDefinitionPowerBuilder
         .Create("PowerPaladinRestoringTouch")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.HealingPool, 5)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.HealingPool, 5)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .Build())
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     private static readonly ConditionDefinition[] RestoringTouchConditions =
@@ -80,6 +84,8 @@ internal static partial class Tabletop2024Context
 
     private static void LoadPaladinRestoringTouch()
     {
+        PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
+
         var powers = new List<FeatureDefinitionPower>();
 
         // ReSharper disable once LoopCanBeConvertedToQuery
@@ -92,7 +98,7 @@ internal static partial class Tabletop2024Context
             var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerPaladinRestoringTouch{condition.Name}")
                 .SetGuiPresentation(title, description)
-                .SetSharedPool(ActivationTime.BonusAction, PowerPaladinRestoringTouch, 5)
+                .SetSharedPool(ActivationTime.NoCost, PowerPaladinRestoringTouch, 5)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -182,6 +188,9 @@ internal static partial class Tabletop2024Context
         PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
             ? ActivationTime.BonusAction
             : ActivationTime.Action;
+        PowerPaladinNeutralizePoison.activationTime = Main.Settings.EnablePaladinLayOnHands2024
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
     }
 
     internal static void SwitchPaladinRestoringTouch()
@@ -218,6 +227,59 @@ internal static partial class Tabletop2024Context
             effectDescription.targetParameter = targets;
 
             return effectDescription;
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeRestoringTouch : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!Main.Settings.EnablePaladinRestoringTouch2024)
+            {
+                yield break;
+            }
+
+            var caster = action.ActingCharacter;
+            var rulesetCaster = caster.RulesetCharacter;
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
+            var usablePowerPool = PowerProvider.Get(PowerPaladinRestoringTouch, rulesetCaster);
+
+            while (rulesetCaster.GetRemainingUsesOfPower(usablePowerPool) > 0)
+            {
+                var usablePowers = new List<RulesetUsablePower>();
+
+                foreach (var condition in RestoringTouchConditions)
+                {
+                    if (!rulesetTarget.HasConditionOfTypeOrSubType(condition.Name))
+                    {
+                        continue;
+                    }
+
+                    var power = GetDefinition<FeatureDefinitionPowerSharedPool>(
+                        $"PowerPaladinRestoringTouch{condition.Name}");
+                    var usablePower = PowerProvider.Get(power, rulesetCaster);
+
+                    usablePowers.Add(usablePower);
+                    rulesetCaster.UsablePowers.Add(usablePower);
+                }
+
+                if (usablePowers.Count == 0)
+                {
+                    yield break;
+                }
+
+                yield return caster.MyReactToSpendPowerBundle(
+                    usablePowerPool,
+                    [target],
+                    caster,
+                    "RestoringTouch");
+
+                foreach (var usablePower in usablePowers)
+                {
+                    rulesetCaster.UsablePowers.Remove(usablePower);
+                }
+            }
         }
     }
 }

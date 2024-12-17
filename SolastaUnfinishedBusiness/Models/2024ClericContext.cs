@@ -6,13 +6,16 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -71,7 +74,8 @@ internal static partial class Tabletop2024Context
 
     private static readonly FeatureDefinitionPower PowerClericDivineSpark = FeatureDefinitionPowerBuilder
         .Create("PowerClericDivineSpark")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerFarStep", Resources.PowerDivineSpark, 256, 128))
         .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
         .AddToDB();
 
@@ -87,6 +91,7 @@ internal static partial class Tabletop2024Context
             .Create("PowerClericDivineSparkHeal")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -94,10 +99,12 @@ internal static partial class Tabletop2024Context
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
+                    .SetParticleEffectParameters(CureWounds)
                     .Build())
             .AddToDB();
 
@@ -105,6 +112,7 @@ internal static partial class Tabletop2024Context
             .Create("PowerClericDivineSparkDamageNecrotic")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -114,10 +122,13 @@ internal static partial class Tabletop2024Context
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
                             .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
                             .Build())
+                    .SetCasterEffectParameters(FalseLife)
+                    .SetImpactEffectParameters(PowerWightLordRetaliate)
                     .Build())
             .AddToDB();
 
@@ -125,6 +136,7 @@ internal static partial class Tabletop2024Context
             .Create("PowerClericDivineSparkDamageRadiant")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.Action, PowerClericDivineSpark)
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -134,10 +146,13 @@ internal static partial class Tabletop2024Context
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (13, 2), (18, 3))
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
                             .Build())
+                    .SetCasterEffectParameters(ShadowArmor)
+                    .SetImpactEffectParameters(PowerDomainBattleDecisiveStrike)
                     .Build())
             .AddToDB();
 
