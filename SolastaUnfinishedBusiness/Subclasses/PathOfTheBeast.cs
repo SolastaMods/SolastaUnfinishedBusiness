@@ -220,14 +220,14 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class ActionFinishedByMeBeastForm(FeatureDefinitionPower powerPool) : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionCombatRageStart)
+            if (action is not CharacterActionCombatRageStart)
             {
                 yield break;
             }
 
-            var character = characterAction.ActingCharacter;
+            var character = action.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
 
@@ -813,13 +813,13 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
 internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFinishedByMe
 {
-    public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+    public IEnumerator OnActionFinishedByMe(CharacterAction action)
     {
-        var character = characterAction.ActingCharacter;
+        var character = action.ActingCharacter;
         var rulesetCharacter = character.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
-        if (characterAction is not CharacterActionCombatRageStart ||
+        if (action is not CharacterActionCombatRageStart ||
             rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
         {
             yield break;

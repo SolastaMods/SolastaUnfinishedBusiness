@@ -1621,12 +1621,12 @@ internal static partial class SpellBuilders
 
     private sealed class ActionFinishedByMeApproach(ConditionDefinition conditionApproach) : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var actingCharacter = characterAction.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (characterAction.ActionId != Id.TacticalMove ||
+            if (action.ActionId != Id.TacticalMove ||
                 actingCharacter.MovingToDestination ||
                 !actingCharacter.IsMyTurn() ||
                 !rulesetCharacter.TryGetConditionOfCategoryAndType(

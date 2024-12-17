@@ -466,19 +466,19 @@ internal static class CustomConditionsContext
 
     private sealed class ActionFinishedByMeTaunter : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (Gui.Battle == null)
             {
                 yield break;
             }
 
-            if (characterAction is not CharacterActionMove or CharacterActionDash or CharacterActionAttack)
+            if (action is not CharacterActionMove or CharacterActionDash or CharacterActionAttack)
             {
                 yield break;
             }
 
-            var actingCharacter = characterAction.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
             var targets = Gui.Battle.GetContenders(actingCharacter);
 
             foreach (var target in targets)
@@ -508,14 +508,14 @@ internal static class CustomConditionsContext
 
     private sealed class CustomBehaviorTaunted : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionMove or CharacterActionDash)
+            if (action is not CharacterActionMove or CharacterActionDash)
             {
                 yield break;
             }
 
-            var actingCharacter = characterAction.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             // need ToArray to avoid enumerator issues with RemoveCondition

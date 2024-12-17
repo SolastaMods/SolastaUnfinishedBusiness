@@ -6,5 +6,5 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IActionFinishedByMe
 {
     [UsedImplicitly]
-    public IEnumerator OnActionFinishedByMe(CharacterAction characterAction);
+    public IEnumerator OnActionFinishedByMe(CharacterAction action);
 }

@@ -136,28 +136,28 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     private class WildSurgeAfterRage(WildSurgeHandler handler, ConditionDefinition conditionWildSurgeReroll)
         : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionCombatRageStart)
+            if (action is not CharacterActionCombatRageStart)
             {
                 yield break;
             }
 
-            characterAction.ActingCharacter.RulesetCharacter.InflictCondition(
+            action.ActingCharacter.RulesetCharacter.InflictCondition(
                 conditionWildSurgeReroll.Name,
                 DurationType.Minute,
                 1,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
-                characterAction.ActingCharacter.RulesetCharacter.Guid,
-                characterAction.ActingCharacter.RulesetCharacter.CurrentFaction.Name,
+                action.ActingCharacter.RulesetCharacter.Guid,
+                action.ActingCharacter.RulesetCharacter.CurrentFaction.Name,
                 1,
                 conditionWildSurgeReroll.Name,
                 0,
                 0,
                 0);
 
-            yield return handler.HandleWildSurge(characterAction.ActingCharacter);
+            yield return handler.HandleWildSurge(action.ActingCharacter);
         }
     }
 
