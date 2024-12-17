@@ -429,12 +429,14 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchClericSearUndead();
         }
 
+#if false
         toggle = Main.Settings.EnableClericDivineIntervention2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineIntervention2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableClericDivineIntervention2024 = toggle;
             Tabletop2024Context.SwitchClericDivineIntervention();
         }
+#endif
 
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");

@@ -669,14 +669,14 @@ internal static partial class Tabletop2024Context
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not (CharacterActionMove or CharacterActionDash))
+            if (action is not (CharacterActionMove or CharacterActionDash))
             {
                 yield break;
             }
 
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
                 conditionDazedOnlyMovement.Name,

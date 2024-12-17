@@ -30,6 +30,14 @@ internal static partial class Tabletop2024Context
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ChannelDivinityNumber, 1)
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionFrightenedByAbjureFoes = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
+        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+        .SetSpecialInterruptions(ConditionInterruption.Damaged)
+        .SetFeatures()
+        .AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove())
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerPaladinAbjureFoes = FeatureDefinitionPowerBuilder
         .Create("PowerPaladinAbjureFoes")
         .SetGuiPresentation(Category.Feature,
@@ -46,14 +54,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
-                                .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-                                .SetSpecialInterruptions(ConditionInterruption.Damaged)
-                                .SetFeatures()
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(ConditionFrightenedByAbjureFoes, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetCasterEffectParameters(PowerClericTurnUndead)
                 .Build())
@@ -105,7 +106,7 @@ internal static partial class Tabletop2024Context
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
-                                .SetConditionForm(condition, ConditionForm.ConditionOperation.RemoveDetrimentalAll)
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Remove)
                                 .Build())
                         .Build())
                 .AddToDB();
@@ -149,27 +150,6 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchPaladinLayOnHand()
-    {
-        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
-            ? ActivationTime.BonusAction
-            : ActivationTime.Action;
-    }
-
-    internal static void SwitchPaladinRestoringTouch()
-    {
-        Paladin.FeatureUnlocks
-            .RemoveAll(x =>
-                x.FeatureDefinition == PowerPaladinRestoringTouch ||
-                x.FeatureDefinition == PowerPaladinCleansingTouch);
-
-        Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
-            ? new FeatureUnlockByLevel(PowerPaladinRestoringTouch, 14)
-            : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
-
-        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
     internal static void SwitchPaladinAbjureFoes()
     {
         Paladin.FeatureUnlocks
@@ -199,6 +179,30 @@ internal static partial class Tabletop2024Context
                 "Feature/&ClericChannelDivinityDescription";
             Paladin.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == AttributeModifierPaladinChannelDivinity11);
         }
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchPaladinLayOnHand()
+    {
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+        PowerPaladinNeutralizePoison.activationTime = Main.Settings.EnablePaladinLayOnHands2024
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+    }
+
+    internal static void SwitchPaladinRestoringTouch()
+    {
+        Paladin.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == PowerPaladinRestoringTouch ||
+                x.FeatureDefinition == PowerPaladinCleansingTouch);
+
+        Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
+            ? new FeatureUnlockByLevel(PowerPaladinRestoringTouch, 14)
+            : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
 
         Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }

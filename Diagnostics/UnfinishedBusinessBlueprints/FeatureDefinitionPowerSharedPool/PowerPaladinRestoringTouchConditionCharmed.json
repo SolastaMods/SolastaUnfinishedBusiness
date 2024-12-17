@@ -80,7 +80,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionCharmed",
           "conditionDefinition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
-          "operation": "RemoveDetrimentalAll",
+          "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",

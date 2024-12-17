@@ -1116,14 +1116,14 @@ internal static class RaceFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition feature) : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionDodge)
+            if (action is not CharacterActionDodge)
             {
                 yield break;
             }
 
-            var attacker = characterAction.ActingCharacter;
+            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetHero = rulesetAttacker.GetOriginalHero();
 
