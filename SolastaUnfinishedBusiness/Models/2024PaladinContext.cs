@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -30,6 +27,14 @@ internal static partial class Tabletop2024Context
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ChannelDivinityNumber, 1)
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionFrightenedByAbjureFoes = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
+        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+        .SetSpecialInterruptions(ConditionInterruption.Damaged)
+        .SetFeatures()
+        .AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove())
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerPaladinAbjureFoes = FeatureDefinitionPowerBuilder
         .Create("PowerPaladinAbjureFoes")
         .SetGuiPresentation(Category.Feature,
@@ -46,14 +51,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
-                                .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-                                .SetSpecialInterruptions(ConditionInterruption.Damaged)
-                                .SetFeatures()
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(ConditionFrightenedByAbjureFoes, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetCasterEffectParameters(PowerClericTurnUndead)
                 .Build())
@@ -63,13 +61,12 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerPaladinRestoringTouch = FeatureDefinitionPowerBuilder
         .Create("PowerPaladinRestoringTouch")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.HealingPool, 5)
+        .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.HealingPool, 5)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     private static readonly ConditionDefinition[] RestoringTouchConditions =
@@ -83,8 +80,6 @@ internal static partial class Tabletop2024Context
 
     private static void LoadPaladinRestoringTouch()
     {
-        PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
-
         var powers = new List<FeatureDefinitionPower>();
 
         // ReSharper disable once LoopCanBeConvertedToQuery
@@ -97,7 +92,7 @@ internal static partial class Tabletop2024Context
             var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerPaladinRestoringTouch{condition.Name}")
                 .SetGuiPresentation(title, description)
-                .SetSharedPool(ActivationTime.NoCost, PowerPaladinRestoringTouch, 5)
+                .SetSharedPool(ActivationTime.BonusAction, PowerPaladinRestoringTouch, 5)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -105,7 +100,7 @@ internal static partial class Tabletop2024Context
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
-                                .SetConditionForm(condition, ConditionForm.ConditionOperation.RemoveDetrimentalAll)
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Remove)
                                 .Build())
                         .Build())
                 .AddToDB();
@@ -149,27 +144,6 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchPaladinLayOnHand()
-    {
-        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
-            ? ActivationTime.BonusAction
-            : ActivationTime.Action;
-    }
-
-    internal static void SwitchPaladinRestoringTouch()
-    {
-        Paladin.FeatureUnlocks
-            .RemoveAll(x =>
-                x.FeatureDefinition == PowerPaladinRestoringTouch ||
-                x.FeatureDefinition == PowerPaladinCleansingTouch);
-
-        Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
-            ? new FeatureUnlockByLevel(PowerPaladinRestoringTouch, 14)
-            : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
-
-        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
     internal static void SwitchPaladinAbjureFoes()
     {
         Paladin.FeatureUnlocks
@@ -203,6 +177,27 @@ internal static partial class Tabletop2024Context
         Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchPaladinLayOnHand()
+    {
+        PowerPaladinLayOnHands.activationTime = Main.Settings.EnablePaladinLayOnHands2024
+            ? ActivationTime.BonusAction
+            : ActivationTime.Action;
+    }
+
+    internal static void SwitchPaladinRestoringTouch()
+    {
+        Paladin.FeatureUnlocks
+            .RemoveAll(x =>
+                x.FeatureDefinition == PowerPaladinRestoringTouch ||
+                x.FeatureDefinition == PowerPaladinCleansingTouch);
+
+        Paladin.FeatureUnlocks.Add(Main.Settings.EnablePaladinRestoringTouch2024
+            ? new FeatureUnlockByLevel(PowerPaladinRestoringTouch, 14)
+            : new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14));
+
+        Paladin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     private sealed class ModifyEffectDescriptionPowerPaladinAbjureFoes : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -223,59 +218,6 @@ internal static partial class Tabletop2024Context
             effectDescription.targetParameter = targets;
 
             return effectDescription;
-        }
-    }
-
-    private sealed class PowerOrSpellFinishedByMeRestoringTouch : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (!Main.Settings.EnablePaladinRestoringTouch2024)
-            {
-                yield break;
-            }
-
-            var caster = action.ActingCharacter;
-            var rulesetCaster = caster.RulesetCharacter;
-            var target = action.ActionParams.TargetCharacters[0];
-            var rulesetTarget = target.RulesetCharacter;
-            var usablePowerPool = PowerProvider.Get(PowerPaladinRestoringTouch, rulesetCaster);
-
-            while (rulesetCaster.GetRemainingUsesOfPower(usablePowerPool) > 0)
-            {
-                var usablePowers = new List<RulesetUsablePower>();
-
-                foreach (var condition in RestoringTouchConditions)
-                {
-                    if (!rulesetTarget.HasConditionOfTypeOrSubType(condition.Name))
-                    {
-                        continue;
-                    }
-
-                    var power = GetDefinition<FeatureDefinitionPowerSharedPool>(
-                        $"PowerPaladinRestoringTouch{condition.Name}");
-                    var usablePower = PowerProvider.Get(power, rulesetCaster);
-
-                    usablePowers.Add(usablePower);
-                    rulesetCaster.UsablePowers.Add(usablePower);
-                }
-
-                if (usablePowers.Count == 0)
-                {
-                    yield break;
-                }
-
-                yield return caster.MyReactToSpendPowerBundle(
-                    usablePowerPool,
-                    [target],
-                    caster,
-                    "RestoringTouch");
-
-                foreach (var usablePower in usablePowers)
-                {
-                    rulesetCaster.UsablePowers.Remove(usablePower);
-                }
-            }
         }
     }
 }
