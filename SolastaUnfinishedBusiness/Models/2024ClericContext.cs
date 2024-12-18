@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -100,17 +101,14 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder
                             .Create()
                             .SetBonusMode(AddBonusMode.AbilityBonus)
-                            // this doesn't seem to work with healing forms reason why the custom behavior
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 2), (13, 3), (18, 4))
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
                     .SetParticleEffectParameters(CureWounds)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
-
-        powerDivineSparkHeal.AddCustomSubFeatures(
-            new ModifyEffectDescriptionPowerDivineSparkHeal(powerDivineSparkHeal));
 
         var powerDivineSparkDamageNecrotic = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerClericDivineSparkDamageNecrotic")
@@ -134,6 +132,7 @@ internal static partial class Tabletop2024Context
                     .SetCasterEffectParameters(FalseLife)
                     .SetImpactEffectParameters(PowerWightLordRetaliate)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         var powerDivineSparkDamageRadiant = FeatureDefinitionPowerSharedPoolBuilder
@@ -158,6 +157,7 @@ internal static partial class Tabletop2024Context
                     .SetCasterEffectParameters(ShadowArmor)
                     .SetImpactEffectParameters(PowerDomainBattleDecisiveStrike)
                     .Build())
+            .AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(PowerClericDivineSpark, false,
@@ -358,35 +358,6 @@ internal static partial class Tabletop2024Context
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private sealed class ModifyEffectDescriptionPowerDivineSparkHeal(FeatureDefinitionPower powerDivineSparkHeal)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDivineSparkHeal;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var level = character.GetClassLevel(Cleric);
-            var diceNumber = level switch
-            {
-                >= 18 => 4,
-                >= 13 => 3,
-                >= 7 => 2,
-                _ => 1
-            };
-
-            effectDescription.EffectForms[0].HealingForm.diceNumber = diceNumber;
-
-            return effectDescription;
-        }
-    }
-
     private sealed class ModifyEffectDescriptionPowerTurnUndead : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -445,7 +416,7 @@ internal static partial class Tabletop2024Context
     {
         var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
         var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-        
+
         return Math.Max(wisMod, 1);
     }
 }

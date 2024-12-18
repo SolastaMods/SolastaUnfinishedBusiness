@@ -82,9 +82,6 @@ internal static partial class Tabletop2024Context
         ConditionDefinitions.ConditionStunned
     ];
 
-    internal static readonly string[] RestoringTouchConditionNames =
-        RestoringTouchConditions.Select(c => c.Name).ToArray();
-
     private static void LoadPaladinRestoringTouch()
     {
         PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
@@ -249,52 +246,33 @@ internal static partial class Tabletop2024Context
             var rulesetTarget = target.RulesetCharacter;
             var usablePowerPool = PowerProvider.Get(PowerPaladinRestoringTouch, rulesetCaster);
 
-            while (rulesetCaster.GetRemainingUsesOfPower(usablePowerPool) > 0)
+            while (!aborted && rulesetCaster.GetRemainingUsesOfPower(usablePowerPool) > 0)
             {
-                var usablePowers = new List<RulesetUsablePower>();
+                var usablePowers = RestoringTouchConditions
+                    .Where(x => rulesetTarget.HasConditionOfTypeOrSubType(x.Name))
+                    .Select(x =>
+                        PowerProvider.Get(
+                            GetDefinition<FeatureDefinitionPower>($"PowerPaladinRestoringTouch{x.Name}"),
+                            rulesetCaster))
+                    .ToArray();
 
-                foreach (var condition in RestoringTouchConditions)
-                {
-                    if (!rulesetTarget.HasConditionOfTypeOrSubType(condition.Name))
-                    {
-                        continue;
-                    }
-
-                    var power = GetDefinition<FeatureDefinitionPower>(
-                        $"PowerPaladinRestoringTouch{condition.Name}");
-                    var usablePower = PowerProvider.Get(power, rulesetCaster);
-
-                    usablePowers.Add(usablePower);
-                    rulesetCaster.UsablePowers.Add(usablePower);
-                }
-
-                if (usablePowers.Count == 0)
+                if (usablePowers.Length == 0)
                 {
                     yield break;
                 }
+
+                rulesetCaster.UsablePowers.AddRange(usablePowers);
 
                 yield return caster.MyReactToSpendPowerBundle(
                     usablePowerPool,
                     [target],
                     caster,
                     "RestoringTouch",
-                    reactionNotValidated: ReactionNotValidated);
+                    reactionNotValidated: _ => aborted = true);
 
                 foreach (var usablePower in usablePowers)
                 {
                     rulesetCaster.UsablePowers.Remove(usablePower);
-                }
-
-                if (aborted)
-                {
-                    yield break;
-                }
-
-                continue;
-
-                void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
-                {
-                    aborted = true;
                 }
             }
         }
