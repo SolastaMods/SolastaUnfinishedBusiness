@@ -1,7 +1,7 @@
 1.5.97.42:
 
-- added Cleric, Paladin, Ranger, and Sorcerer tabletop 2024 settings
-- fixed custom models rendering, and off-hand Katanas
+- added new Cleric, Paladin, Ranger, and Sorcerer tabletop 2024 settings
+- fixed custom models rendering on map, and katana models size / texture
 
 KNOWN ISSUES:
 
