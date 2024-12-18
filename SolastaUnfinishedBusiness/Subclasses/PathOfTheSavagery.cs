@@ -256,14 +256,14 @@ public sealed class PathOfTheSavagery : AbstractSubclass
 
     private sealed class ActionFinishedByMeWrathAndFury : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionRecklessAttack)
+            if (action is not CharacterActionRecklessAttack)
             {
                 yield break;
             }
 
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {

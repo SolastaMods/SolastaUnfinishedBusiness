@@ -1,23 +1,12 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    false,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ChannelDivinityNumber",
+  "modifierOperation": "Additive",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -42,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b6f650a8-c774-58bb-91c6-04f383fa7d54",
+  "guid": "ddcca514-6e5e-5891-9f9d-9f08d7dc3701",
   "contentPack": 9999,
-  "name": "ActionAffinityPsychicWhipNoMove"
+  "name": "AttributeModifierPaladinChannelDivinity11"
 }

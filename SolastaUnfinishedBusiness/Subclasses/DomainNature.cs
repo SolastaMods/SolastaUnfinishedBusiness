@@ -247,7 +247,7 @@ public sealed class DomainNature : AbstractSubclass
             .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionWizard)
             .AddFeaturesAtLevel(17, featureSetMasterOfNature)
-            .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementCleric)
+            .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
             .AddToDB();
     }
 

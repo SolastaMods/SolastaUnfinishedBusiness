@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ public static class CharacterInspectionScreenPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
         {
+            //PATCH: enable custom models renderer
+            CustomModels.SwitchRenderer(true);
+
             //PATCH: sets the inspection context for MC heroes
             Global.InspectedHero = heroCharacter;
 
@@ -64,6 +68,9 @@ public static class CharacterInspectionScreenPatcher
         [UsedImplicitly]
         public static void Prefix()
         {
+            //PATCH: disable custom models renderer
+            CustomModels.SwitchRenderer(false);
+
             //PATCH: resets the inspection context for MC heroes
             Global.InspectedHero = null;
         }

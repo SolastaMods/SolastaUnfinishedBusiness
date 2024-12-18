@@ -82,7 +82,7 @@ internal static partial class Tabletop2024Context
             ConditionForm.ConditionOperation.Add)
         .Build();
 
-    internal static void SwitchSpellRitualOnAllCasters()
+    internal static void SwitchOneDndSpellRitualOnAllCasters()
     {
         var subclasses = SharedSpellsContext.SubclassCasterType.Keys.Select(GetDefinition<CharacterSubclassDefinition>);
 
@@ -375,7 +375,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private static void LoadOneDndTrueStrike()
+    private static void LoadOneDndSpellTrueStrike()
     {
         if (!Main.Settings.EnableOneDndTrueStrikeCantrip)
         {

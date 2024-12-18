@@ -9,7 +9,7 @@ internal static class UnsafeForceCast
 
     internal static Func<TInput, TOutput> GetDelegate<TInput, TOutput>()
     {
-        Func<TInput, TOutput> cache = default;
+        Func<TInput, TOutput> cache = null;
 
         if (Cache.TryGetValue(typeof(TInput), typeof(TOutput), out var weakRef))
         {

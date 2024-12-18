@@ -773,13 +773,6 @@ Starting at 10th level, while you are dual-wielding melee weapons, increase the 
 Starting at 14th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
 
 
-### Level 15
-
-* Persistent Rage
-
-You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
-
-
 
 ## 11. Path of the Stone [SOL]
 

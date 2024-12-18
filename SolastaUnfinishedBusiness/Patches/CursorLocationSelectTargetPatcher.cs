@@ -139,6 +139,7 @@ public static class CursorLocationSelectTargetPatcher
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
             CursorMotionHelper.Activate(__instance);
+
             if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var modifyTeleportEffectBehavior))
             {
                 return;
@@ -351,6 +352,7 @@ public static class CursorLocationSelectTargetPatcher
 
             bool canProceed;
             var enforceFullSelection = false;
+
             if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower })
             {
                 var filterTargetingCharacter =

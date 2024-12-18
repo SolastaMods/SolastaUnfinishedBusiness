@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>13</LangVersion>
     <TargetFramework>net481</TargetFramework>
-    <AssemblyVersion>1.5.97.41</AssemblyVersion>
+    <AssemblyVersion>1.5.97.42</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -55,16 +55,6 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>portable</DebugType>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
-    <PackageReference Include="Fody" Version="6.9.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="System.Collections"/>

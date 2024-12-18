@@ -1,23 +1,14 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    false,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Expertise",
+  "poolAmount": 1,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -42,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52bc1435-b0d7-5869-883b-4afe038cd8e8",
+  "guid": "266db548-2f6d-54fd-8279-a4d8c46af385",
   "contentPack": 9999,
-  "name": "ActionAffinityPsychicWhipNoBonus"
+  "name": "PointPoolRangerDeftExplorerSkills"
 }

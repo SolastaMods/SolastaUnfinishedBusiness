@@ -314,7 +314,7 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchBarbarianRegainOneRageAtShortRest()
     {
-        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
+        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024
             ? "Feature/&FeatureSetRageExtendedDescription"
             : "Feature/&FeatureSetRageDescription";
     }

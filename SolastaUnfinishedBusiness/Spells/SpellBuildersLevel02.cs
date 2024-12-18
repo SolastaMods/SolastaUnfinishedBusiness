@@ -498,6 +498,67 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Psychic Whip
+
+    internal static SpellDefinition BuildPsychicWhip()
+    {
+        const string NAME = "PsychicWhip";
+
+        var actionAffinityPsychicWhipNoReaction = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoReaction")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false)
+            .AddToDB();
+
+        var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
+            .Create(ConditionConfused, $"Condition{NAME}NoReaction")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(actionAffinityPsychicWhipNoReaction)
+            .AddToDB();
+
+        conditionPsychicWhipNoReaction.AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove());
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicWhip, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPsychicWhipNoReaction, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(GravitySlam)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Mirror Image
 
     internal static readonly ConditionDefinition ConditionMirrorImageMark = ConditionDefinitionBuilder
@@ -669,15 +730,15 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
 
-            rulesetCharacter.UsablePowers.Remove(usablePower);
-            usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
-
             yield return actingCharacter.MyReactToSpendPowerBundle(
                 usablePower,
                 [actingCharacter],
                 actingCharacter,
                 "BorrowedKnowledge",
                 reactionValidated: ReactionValidated);
+
+            rulesetCharacter.UsablePowers.Remove(usablePower);
+            usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
 
             yield break;
 
@@ -757,188 +818,6 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
-    }
-
-    #endregion
-
-    #region Psychic Whip
-
-    internal static SpellDefinition BuildPsychicWhip()
-    {
-        const string NAME = "PsychicWhip";
-
-        var actionAffinityPsychicWhipNoBonus = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}NoBonus")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(bonus: false)
-            .AddToDB();
-
-        var conditionPsychicWhipNoBonus = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}NoBonus")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(actionAffinityPsychicWhipNoBonus)
-            .AddToDB();
-
-        var actionAffinityPsychicWhipNoMove = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}NoMove")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(move: false)
-            .AddToDB();
-
-        var conditionPsychicWhipNoMove = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}NoMove")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(actionAffinityPsychicWhipNoMove)
-            .AddToDB();
-
-        var actionAffinityPsychicWhipNoMain = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}NoMain")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(false)
-            .AddToDB();
-
-        var conditionPsychicWhipNoMain = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}NoMain")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(actionAffinityPsychicWhipNoMain)
-            .AddToDB();
-
-        var actionAffinityPsychicWhipNoReaction = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}NoReaction")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(reaction: false)
-            .AddToDB();
-
-        var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
-            .Create(ConditionConfused, $"Condition{NAME}NoReaction")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(actionAffinityPsychicWhipNoReaction)
-            .AddToDB();
-
-        conditionPsychicWhipNoReaction.AddCustomSubFeatures(new ActionFinishedByMePsychicWhip(
-            conditionPsychicWhipNoBonus,
-            conditionPsychicWhipNoMain,
-            conditionPsychicWhipNoMove,
-            conditionPsychicWhipNoReaction));
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicWhip, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .SetSpellLevel(2)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTargetsPerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPsychicWhipNoReaction, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .SetParticleEffectParameters(GravitySlam)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    private sealed class ActionFinishedByMePsychicWhip(
-        ConditionDefinition conditionNoBonus,
-        ConditionDefinition conditionNoMain,
-        ConditionDefinition conditionNoMove,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionNoReaction)
-        : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            var actionType = characterAction.ActionType;
-            var conditions = new List<ConditionDefinition>();
-
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (actionType)
-            {
-                case ActionDefinitions.ActionType.Main:
-                    conditions.Add(conditionNoMove);
-                    conditions.Add(conditionNoBonus);
-                    break;
-                case ActionDefinitions.ActionType.Bonus:
-                    conditions.Add(conditionNoMain);
-                    conditions.Add(conditionNoMove);
-                    break;
-                case ActionDefinitions.ActionType.Move:
-                    conditions.Add(conditionNoBonus);
-                    conditions.Add(conditionNoMain);
-                    break;
-            }
-
-            if (characterAction.ActingCharacter.RulesetCharacter is not
-                { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
-            {
-                yield break;
-            }
-
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionNoReaction.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-
-            if (caster is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            // game freezes when enemy tries to Dash so best we can do here is allow this exception on the spell
-            if (characterAction is CharacterActionDash)
-            {
-                conditions.Remove(conditionNoMove);
-            }
-
-            if (characterAction.ActingCharacter.RulesetCharacter is
-                { IsDeadOrDyingOrUnconscious: false })
-            {
-                conditions.ForEach(condition =>
-                    rulesetCharacter.InflictCondition(
-                        condition.Name,
-                        DurationType.Round,
-                        0,
-                        TurnOccurenceType.EndOfSourceTurn,
-                        AttributeDefinitions.TagEffect,
-                        caster.guid,
-                        caster.CurrentFaction.Name,
-                        1,
-                        condition.Name,
-                        0,
-                        0,
-                        0));
-            }
-        }
     }
 
     #endregion

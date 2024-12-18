@@ -648,8 +648,13 @@
     <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>false</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
+    <EnableBarbarianRegainOneRageAtShortRest2024>false</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
+    <EnableClericChannelDivinity2024>false</EnableClericChannelDivinity2024>
+    <EnableClericDivineIntervention2024>false</EnableClericDivineIntervention2024>
+    <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
+    <EnableClericSearUndead2024>false</EnableClericSearUndead2024>
+    <EnableClericToLearnDomainAtLevel3>false</EnableClericToLearnDomainAtLevel3>
     <EnableDruidMetalArmor2024>false</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>false</EnableDruidWeaponProficiency2024>
@@ -658,9 +663,6 @@
     <EnableFighterSecondWind2024>false</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
-    <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
-    <EnableRangerNatureShroud2024>false</EnableRangerNatureShroud2024>
-    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>false
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
@@ -673,10 +675,27 @@
     <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
     <EnableMonkUnarmoredDieTypeProgression2024>false</EnableMonkUnarmoredDieTypeProgression2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-    <EnablePaladinLayOnHandsAsBonusAction2024>false</EnablePaladinLayOnHandsAsBonusAction2024>
-    <EnablePaladinSmiteAsBonusAction2024>false</EnablePaladinSmiteAsBonusAction2024>
+    <EnablePaladinAbjureFoes2024>false</EnablePaladinAbjureFoes2024>
+    <EnablePaladinChannelDivinity2024>false</EnablePaladinChannelDivinity2024>
+    <EnablePaladinLayOnHands2024>false</EnablePaladinLayOnHands2024>
+    <EnablePaladinRestoringTouch2024>false</EnablePaladinRestoringTouch2024>
+    <EnablePaladinSmite2024>false</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
+    <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
+    <EnableRangerDeftExplorer2024>false</EnableRangerDeftExplorer2024>
+    <EnableRangerExpertise2024>false</EnableRangerExpertise2024>
+    <EnableRangerFavoredEnemy2024>false</EnableRangerFavoredEnemy2024>
+    <EnableRangerNatureShroud2024>false</EnableRangerNatureShroud2024>
+    <EnableRangerPreciseHunter2024>false</EnableRangerPreciseHunter2024>
+    <EnableRangerRelentlessHunter2024>false</EnableRangerRelentlessHunter2024>
+    <EnableRangerRelentlessHunter2024AsNoConcentration>false</EnableRangerRelentlessHunter2024AsNoConcentration>
+    <EnableRangerRoving2024>false</EnableRangerRoving2024>
+    <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
+    <EnableRangerTireless2024>false</EnableRangerTireless2024>
+    <EnableRangerFeralSenses2024>false</EnableRangerFeralSenses2024>
+    <EnableRangerFoeSlayers2024>false</EnableRangerFoeSlayers2024>
+    <RemoveRangerVanish2024>false</RemoveRangerVanish2024>
     <EnableRogueCunningStrike2024>false</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>false</EnableRogueReliableTalent2024>
@@ -689,6 +708,7 @@
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>false</EnableSorcererSorcerousRestoration2024>
+    <EnableSorcererToLearnOriginAtLevel3>false</EnableSorcererToLearnOriginAtLevel3>
     <EnableWarlockInvocationProgression2024>false</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>false
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>
@@ -1158,4 +1178,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

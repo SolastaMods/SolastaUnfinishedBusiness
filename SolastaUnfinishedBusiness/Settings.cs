@@ -284,8 +284,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianPersistentRage2024 { get; set; }
     public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
     public bool EnableBarbarianReckless2024 { get; set; }
-    public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
+    public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
+    public bool EnableClericChannelDivinity2024 { get; set; }
+    public bool EnableClericDivineIntervention2024 { get; set; }
+    public bool EnableClericDivineOrder2024 { get; set; }
+    public bool EnableClericSearUndead2024 { get; set; }
+    public bool EnableClericToLearnDomainAtLevel3 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }
     public bool EnableDruidWeaponProficiency2024 { get; set; }
@@ -294,9 +299,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterSecondWind2024 { get; set; }
     public bool EnableFighterStudiedAttacks2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
-    public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerNatureShroud2024 { get; set; }
-    public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
     public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
@@ -308,10 +310,27 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkBodyAndMind2024 { get; set; }
     public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool EnablePaladinLayOnHandsAsBonusAction2024 { get; set; }
-    public bool EnablePaladinSmiteAsBonusAction2024 { get; set; }
+    public bool EnablePaladinAbjureFoes2024 { get; set; }
+    public bool EnablePaladinChannelDivinity2024 { get; set; }
+    public bool EnablePaladinLayOnHands2024 { get; set; }
+    public bool EnablePaladinRestoringTouch2024 { get; set; }
+    public bool EnablePaladinSmite2024 { get; set; }
     public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
+    public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    public bool EnableRangerDeftExplorer2024 { get; set; }
+    public bool EnableRangerExpertise2024 { get; set; }
+    public bool EnableRangerFavoredEnemy2024 { get; set; }
+    public bool EnableRangerNatureShroud2024 { get; set; }
+    public bool EnableRangerPreciseHunter2024 { get; set; }
+    public bool EnableRangerRelentlessHunter2024 { get; set; }
+    public bool EnableRangerRelentlessHunter2024AsNoConcentration { get; set; }
+    public bool EnableRangerRoving2024 { get; set; }
+    public bool EnableRangerSpellCastingAtLevel1 { get; set; }
+    public bool EnableRangerTireless2024 { get; set; }
+    public bool EnableRangerFeralSenses2024 { get; set; }
+    public bool EnableRangerFoeSlayers2024 { get; set; }
+    public bool RemoveRangerVanish2024 { get; set; }
     public bool EnableRogueCunningStrike2024 { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueReliableTalent2024 { get; set; }
@@ -324,6 +343,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
     public bool EnableSorcererSorcerousRestoration2024 { get; set; }
+    public bool EnableSorcererToLearnOriginAtLevel3 { get; set; }
     public bool EnableWarlockInvocationProgression2024 { get; set; }
     public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }

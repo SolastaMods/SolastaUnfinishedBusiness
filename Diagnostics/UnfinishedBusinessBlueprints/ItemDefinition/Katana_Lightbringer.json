@@ -5,10 +5,12 @@
   "weight": 3.0,
   "slotTypes": [
     "MainHandSlot",
+    "OffHandSlot",
     "ContainerSlot"
   ],
   "slotsWhereActive": [
-    "MainHandSlot"
+    "MainHandSlot",
+    "OffHandSlot"
   ],
   "activeOnGround": false,
   "destroyedWhenUnequiped": false,
@@ -543,7 +545,7 @@
     "description": "Item/&Katana_Lightbringer_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "11807fd3-bfbb-5e5e-8ef4-916abc72b5f2",
+      "m_AssetGUID": "326b4211-2373-5bdd-b62a-c4127ddd0d9f",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

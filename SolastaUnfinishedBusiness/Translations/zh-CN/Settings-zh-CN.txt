@@ -103,7 +103,7 @@ ModUi/&EnableBarbarianInstinctivePounce2024=在第 7 级启用<color=#D89555>本
 ModUi/&EnableBarbarianPersistentRage2024=将 <color=#D89555>Persistent Rage</color> 与 5e 2024 版本交换
 ModUi/&EnableBarbarianPrimalKnowledge2024=在第 3 级启用<color=#D89555>原始知识</color>
 ModUi/&EnableBarbarianReckless2024=启用<color=#D89555>鲁莽攻击</color>增益效果和减益效果，在下一回合开始时结束
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
+ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=在第 1 级时，允许在短暂休息后恢复一次<color=#D89555>怒气</color>
 ModUi/&EnableBarbarianRelentlessRage2024=将<color=#D89555>无情之怒</color>与 5e 2024 版本交换<i><color=#F0DAA0>[你的生命值设置为你的职业等级的 2 倍而不是 1 倍]</color></i>
 ModUi/&EnableBardCounterCharm2024=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore2024=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
@@ -115,6 +115,11 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
+ModUi/&EnableClericChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
+ModUi/&EnableClericDivineIntervention2024=将<color=#D89555>神圣干预</color>和<color=#D89555>改进的神圣干预</color>与 5e 2024 版本交换<i><color=#F0DAA0>[获得法术位达到一定等级]</color></i>
+ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
+ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
+ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
 ModUi/&EnableDruidMetalArmor2024=删除<color=#D89555>金属装甲</color>限制
@@ -170,8 +175,11 @@ ModUi/&EnableOneDndSpareTheDyingSpell=启用<color=#D89555>Spare the Dying</colo
 ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e 2024 法术版本<i><color=#F0DAA0>[每次施法 +1 个目标]</color></i>
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
-ModUi/&EnablePaladinLayOnHandsAsBonusAction2024=启用<color=#D89555>圣疗术</color>作为奖励行动
-ModUi/&EnablePaladinSmiteAsBonusAction2024=启用 <color=#D89555>Smite</color> 作为奖励行动
+ModUi/&EnablePaladinAbjureFoes2024=在 9 级时启用<color=#D89555>Abjure Foes</color>
+ModUi/&EnablePaladinChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=启用<color=#D89555>圣疗术</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinRestoringTouch2024=在第 14 级启用<color=#D89555>恢复之触</color>来替换<color=#D89555>清洁之触</color>
+ModUi/&EnablePaladinSmite2024=启用<color=#D89555>Divine Smite</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
@@ -179,8 +187,18 @@ ModUi/&EnablePotionsBonusAction2024=启用饮用<color=#D89555>药水</color>作
 ModUi/&EnablePreparedSpellsTables2024=允许所有<color=#D89555>施法者</color>使用新的准备好的法术表<i><color=#F0DAA0>[吟游诗人、牧师、德鲁伊、圣骑士、游侠、术士、魔法师]</color></i>
 ModUi/&EnableProneAction=启用<color=#D89555>倒地</color>动作<i><color=#F0DAA0>[你可以无代价倒地]</color></i>
 ModUi/&EnablePullPushOnVerticalDirection=使推拉运动效果也适用于上/下轴
+ModUi/&EnableRangerDeftExplorer2024=在 2 级时启用 <color=#D89555>Deft Explorer</color> <i><color=#F0DAA0>[获得一项游侠技能专长，并学习 2 种语言]</color></i>
+ModUi/&EnableRangerExpertise2024=在 9 级启用<color=#D89555>专业知识</color> <i><color=#F0DAA0>[获得两项游侠技能专业知识]</color></i>
+ModUi/&EnableRangerFavoredEnemy2024=将<color=#D89555>偏好敌人</color>和<color=#D89555>偏好地形</color>与<color=#D89555>偏好敌人</color> 5e 2024 版本交换
+ModUi/&EnableRangerFeralSenses2024=将 <color=#D89555>Feral Senses</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得 30 英尺盲视]</color></i>
+ModUi/&EnableRangerFoeSlayers2024=将 <color=#D89555>Foe Slayer</color> 与 5e 2024 版本交换 <i><color=#F0DAA0>[将 Hunter's Mark 骰子增加至 d10]</color></i>
 ModUi/&EnableRangerNatureShroud2024=在 14 级时启用<color=#D89555>自然面纱</color>功能<i><color=#F0DAA0>[作为奖励行动，你可以神奇地隐身，直到下一回合开始]</color></i>
+ModUi/&EnableRangerPreciseHunter2024=在 17 级时启用<color=#D89555>精准猎手</color> <i><color=#F0DAA0>[对抗被猎人标记的生物的优势]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024=在 13 级时启用<color=#D89555>无情猎手</color> <i><color=#F0DAA0>[猎人印记不会影响专注力]</color></i>
+ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ 移除猎人印记的专注要求</i>
+ModUi/&EnableRangerRoving2024=在 6 级时启用<color=#D89555>漫游</color> <i><color=#F0DAA0>[不使用重型装甲时可移动 10 英尺，且爬升速度相同]</color></i>
 ModUi/&EnableRangerSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
+ModUi/&EnableRangerTireless2024=在 10 级时启用<color=#D89555>不知疲倦</color>来替代<color=#D89555>隐藏在众目睽睽之下</color> <i><color=#F0DAA0>[获得临时生命值]</color></i>
 ModUi/&EnableRelearnSpells=可以选择已从其他来源学到的戏法或法术
 ModUi/&EnableRespecAction=休息操作后启用 <color=#D89555>RESPEC</color> <i><color=#F0DAA0>[在多人游戏会话期间不要使用 RESPEC]</color></i>
 ModUi/&EnableRitualOnAllCasters2024=对所有施法者启用<color=#D89555>仪式</color>施法
@@ -196,6 +214,7 @@ ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=在 1 级和 7 级时�
 ModUi/&EnableSorcererMagicalGuidance=在 5 级时启用<color=#D89555>魔法指引</color>
 ModUi/&EnableSorcererQuickenedAction=启用<color=#D89555>加速法术</color>动作以允许施放应用了加速超魔法的主要动作法术
 ModUi/&EnableSorcererSorcerousRestoration2024=在第 5 级启用<color=#D89555>魔法恢复</color>
+ModUi/&EnableSorcererToLearnOriginAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Origins</color>
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableSpeech=在自定义战役中启用语音<i><color=#F0DAA0>[仅限旁白和英雄]</color></i>
 ModUi/&EnableSpeechActorHelp=• 选择演员
@@ -307,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=删除 14 级和 18 级的<color=#D89555>魔�
 ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
+ModUi/&RemoveRangerVanish2024=删除 14 级的 <color=#D89555>消失</color>
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
 ModUi/&RemoveRogueBlindSense2024=移除 14 级的<color=#D89555>盲感</color>
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<b>Shadowcaster</b>的学校限制
