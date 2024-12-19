@@ -101,7 +101,6 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder
                             .Create()
                             .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 2), (13, 3), (18, 4))
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
@@ -110,6 +109,9 @@ internal static partial class Tabletop2024Context
             .AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
+        powerDivineSparkHeal.AddCustomSubFeatures(
+            new ModifyEffectDescriptionPowerDivineSparkHeal(powerDivineSparkHeal));
+        
         var powerDivineSparkDamageNecrotic = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerClericDivineSparkDamageNecrotic")
             .SetGuiPresentation(Category.Feature)
@@ -358,6 +360,35 @@ internal static partial class Tabletop2024Context
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private sealed class ModifyEffectDescriptionPowerDivineSparkHeal(FeatureDefinitionPower powerDivineSparkHeal)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDivineSparkHeal;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var levels = character.GetClassLevel(Cleric);
+            var diceNumber = levels switch
+            {
+                >= 18 => 4,
+                >= 13 => 3,
+                >= 7 => 2,
+                _ => 1
+            };
+
+            effectDescription.EffectForms[0].HealingForm.diceNumber = diceNumber;
+
+            return effectDescription;
+        }
+    }
+    
     private sealed class ModifyEffectDescriptionPowerTurnUndead : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
