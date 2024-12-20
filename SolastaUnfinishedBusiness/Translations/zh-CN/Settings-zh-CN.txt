@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=在 10 级时启用<color=#D89555>增�
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
 ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来替换 18 级时的<color=#D89555>空虚之身</color>
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=启用<color=#D89555>徒手攻击</color>以使用 5e 2024 骰子类型进程
-ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>、<color=#D89555>棱镜喷射</color>。以及<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的伤害]</color></i>

@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=レベル 10 で <color=#D89555>代謝
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
 ModUi/&EnableMonkSuperiorDefense2024=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=<color=#D89555>非武装攻撃</color>を有効にすると、5e 2024 ダイスタイプの進行が使用可能になります。
-ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[選択した武器の種類がモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>アーケイン ソード</color>、<color=#D89555>サークル オブ デス</color>、<color=#D89555>フレイム ストライク</color>、<color=#D89555>アイス ストーム</color>、<color=#D89555>プリズマティック スプレー</color>、<color=#D89555>ヴィシャス モッカリー</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[ダメージ向上]</color></i>

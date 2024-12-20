@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 to AC.
+Condition/&ConditionAcidClawsTitle=Acid Burn
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 to AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroded
 Condition/&ConditionInnovationVitriolistMiserableDescription=Recurrent damage.

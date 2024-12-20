@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=Aktiviere <color=#D89555>Erhöhter Sto
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Verbesserte ungepanzerte Bewegung</color>, um sich an vertikalen Oberflächen zu bewegen, ohne zu fallen.
 ModUi/&EnableMonkSuperiorDefense2024=Aktiviere <color=#D89555>Überlegene Verteidigung</color>, um <color=#D89555>Leeren Körper</color> auf Level 18 zu ersetzen.
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Aktivieren Sie <color=#D89555>Unbewaffneter Angriff</color>, um die Würfeltyp-Progression von 5e 2024 zu verwenden
-ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Waffenspezialisierung</color> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color>, <color=#D89555>Prismatischer Sprühnebel</color>. und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>

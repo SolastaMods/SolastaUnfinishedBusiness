@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 КД.
+Condition/&ConditionAcidClawsTitle=Кислотный ожог
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 к КД.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Разъеден
 Condition/&ConditionInnovationVitriolistMiserableDescription=Периодический урон.

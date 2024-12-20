@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=Abilita <color=#D89555>Metabolismo ele
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Movimento senza armatura migliorato</color> per muoverti lungo le superfici verticali senza cadere
 ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Abilita <color=#D89555>Attacco disarmato</color> per usare la progressione del tipo di dado 5e 2024
-ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</color>, <color=#D89555>Cerchio della Morte</color>, <color=#D89555>Colpo di Fiamma</color>, <color=#D89555>Tempesta di Ghiaccio</color>, <color=#D89555>Spruzzo Prismatico</color> e <color=#D89555>Scherno Vizioso</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[danni migliori]</color></i>

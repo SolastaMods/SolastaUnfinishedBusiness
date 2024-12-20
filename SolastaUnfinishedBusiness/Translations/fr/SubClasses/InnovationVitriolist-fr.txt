@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 à AC.
+Condition/&ConditionAcidClawsTitle=Brûlures acides
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 à AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corrodé
 Condition/&ConditionInnovationVitriolistMiserableDescription=Dommages récurrents.

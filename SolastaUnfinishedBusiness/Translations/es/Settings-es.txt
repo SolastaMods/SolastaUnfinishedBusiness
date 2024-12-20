@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=Habilita <color=#D89555>Metabolismo ac
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
 ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Habilite <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado 5e 2024
-ModUi/&EnableMonkWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar la versión del hechizo <color=#D89555>Corteza</color> 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilita los hechizos <color=#D89555>Espada arcana</color>, <color=#D89555>Círculo de la muerte</color>, <color=#D89555>Golpe de llamas</color>, <color=#D89555>Tormenta de hielo</color>, <color=#D89555>Rociado prismático</color> y <color=#D89555>Burla cruel</color> versión 5e 2024 <i><color=#F0DAA0>[mejor daño]</color></i>

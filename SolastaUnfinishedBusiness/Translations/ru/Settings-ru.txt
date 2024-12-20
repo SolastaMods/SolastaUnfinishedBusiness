@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=Включить <color=#D89555>Пов
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Позволить использовать <color=#D89555>Улучшенное движение без доспехов</color> для перемещения по вертикальным поверхностям, не падая во время движения
 ModUi/&EnableMonkSuperiorDefense2024=Включить <color=#D89555>Превосходную защиту</color> вместо <color=#D89555>Пустого тела</color> на уровне 18
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Включить прогрессию типа кости <color=#D89555>Безоружной атаки</color> по версии 5e 2024
-ModUi/&EnableMonkWeaponSpecialization=Включить <color=#D89555>Специализацию на оружии</color> на уровнях 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить <color=#D89555>мультиклассирование</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Включить версию заклинания <color=#D89555>Дубовая кора</color> из 5e 2024 <i><color=#F0DAA0>[бонусное действие, не требует концентрации, КД на 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Включить версии заклинаний <color=#D89555>Магический меч</color>, <color=#D89555>Круг смерти</color>, <color=#D89555>Огненный удар</color>, <color=#D89555>Град</color>, <color=#D89555>Радужные брызги</color>  и <color=#D89555>Злая насмешка</color> из 5e 2024 <i><color=#F0DAA0>[больше урона]</color></i>

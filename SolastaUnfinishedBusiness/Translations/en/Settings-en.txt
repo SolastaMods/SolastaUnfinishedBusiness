@@ -158,7 +158,6 @@ ModUi/&EnableMonkHeightenedMetabolism2024=Enable <color=#D89555>Heightened Metab
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
 ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
-ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>

@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 a CA.
+Condition/&ConditionAcidClawsTitle=Quemadura por ácido
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 a CA.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroído
 Condition/&ConditionInnovationVitriolistMiserableDescription=Daño recurrente.
