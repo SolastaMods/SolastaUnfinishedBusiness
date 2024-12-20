@@ -116,7 +116,6 @@ ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
-ModUi/&EnableClericDivineIntervention2024=Sostituisci <color=#D89555>Intervento divino</color> e <color=#D89555>Intervento divino migliorato</color> con la versione 5e 2024 <i><color=#F0DAA0>[guadagna slot incantesimo fino a un certo livello]</color></i>
 ModUi/&EnableClericDivineOrder2024=Abilita <color=#D89555>Ordine Divino</color> al livello 1 <i><color=#F0DAA0>[scelta tra armatura pesante/armi da guerra prof. o trucchetto bonus e alcuni controlli INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color> per sostituire <color=#D89555>Distruggi Non Morti</color> al livello 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Abilita <color=#D89555>Dominio</color> al livello 3 invece che 1

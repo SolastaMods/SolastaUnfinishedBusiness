@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 a CA.
-Condition/&ConditionAcidClawsTitle=Ustione da acido
 Condition/&ConditionBoomingBladeSheathedDescription=Sei avvolto in un'energia rimbombante. Se ti sposti volontariamente di 5 piedi o più, subisci danni da tuono.
 Condition/&ConditionBoomingBladeSheathedTitle=Guainata
 Condition/&ConditionGuidanceAcrobaticsDescription=Aggiungi 1d4 alle prove di Acrobazia per un massimo di 1 minuto.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} brucia {1} con la Lama Fiamma
 Feedback/&AdditionalDamageSunlightBladeFormat=Lama illuminata dal sole!
 Feedback/&AdditionalDamageSunlightBladeLine={0} illumina {1} con la Lama Illuminata dal Sole! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Falò
-Spell/&AcidClawsDescription=Le tue unghie si affilano, pronte a sferrare un attacco corrosivo. Effettua un attacco con incantesimo in mischia contro una creatura entro 1,5 metri da te. In caso di colpo, il bersaglio subisce 1d8 danni da acido e ha la CA ridotta di 1 per 1 round (non cumulabile).
-Spell/&AcidClawsTitle=Artigli acidi
 Spell/&AirBlastDescription=Spara un getto d'aria concentrato sul tuo bersaglio.
 Spell/&AirBlastTitle=Raffica
 Spell/&BladeWardDescription=Allunghi la mano e tracci un sigillo di protezione nell'aria. Fino alla fine del tuo prossimo turno, hai resistenza contro danni contundenti, perforanti e taglienti inflitti da attacchi con armi.

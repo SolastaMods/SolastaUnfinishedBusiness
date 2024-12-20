@@ -116,7 +116,6 @@ ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
-ModUi/&EnableClericDivineIntervention2024=<color=#D89555>신성한 개입</color>과 <color=#D89555>개선된 신성 개입</color>을 5e 2024 버전 <i><color=#F0DAA0>[특정 레벨까지 주문 슬롯 획득]</color></i>과 교환하세요.
 ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
 ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.

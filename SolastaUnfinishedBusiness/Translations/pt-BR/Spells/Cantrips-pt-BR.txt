@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 para CA.
-Condition/&ConditionAcidClawsTitle=Queimadura ácida
 Condition/&ConditionBoomingBladeSheathedDescription=Você está envolto em energia estrondosa. Se você se mover voluntariamente 5 pés ou mais, você recebe dano de trovão.
 Condition/&ConditionBoomingBladeSheathedTitle=Embainhado
 Condition/&ConditionGuidanceAcrobaticsDescription=Adicione 1d4 aos testes de Acrobacia por até 1 minuto.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} queima {1} com Lâmina de Cha
 Feedback/&AdditionalDamageSunlightBladeFormat=Lâmina iluminada pelo sol!
 Feedback/&AdditionalDamageSunlightBladeLine={0} ilumina {1} com Sunlit Blade! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Fogueira
-Spell/&AcidClawsDescription=Suas unhas afiam, prontas para desferir um ataque corrosivo. Faça um ataque de magia corpo a corpo contra uma criatura a até 5 pés de você. Em um acerto, o alvo recebe 1d8 de dano ácido e tem CA reduzida em 1 por 1 rodada (não acumula).
-Spell/&AcidClawsTitle=Garras Ácidas
 Spell/&AirBlastDescription=Dispare uma rajada de ar concentrada em seu alvo.
 Spell/&AirBlastTitle=Rajada
 Spell/&BladeWardDescription=Você estende sua mão e traça um sigilo de proteção no ar. Até o final do seu próximo turno, você tem resistência contra dano contundente, perfurante e cortante causado por ataques de arma.

@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 à AC.
-Condition/&ConditionAcidClawsTitle=Brûlures acides
 Condition/&ConditionBoomingBladeSheathedDescription=Vous êtes enveloppé d'une énergie tonitruante. Si vous vous déplacez volontairement de 1,50 m ou plus, vous subissez des dégâts de foudre.
 Condition/&ConditionBoomingBladeSheathedTitle=Gainé
 Condition/&ConditionGuidanceAcrobaticsDescription=Ajoutez 1d4 aux tests d'acrobatie pendant 1 minute maximum.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} brûle {1} avec la Lame de Fl
 Feedback/&AdditionalDamageSunlightBladeFormat=Lame ensoleillée !
 Feedback/&AdditionalDamageSunlightBladeLine={0} illumine {1} avec Sunlit Blade ! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Feu
-Spell/&AcidClawsDescription=Vos ongles s'aiguisent, prêts à délivrer une attaque corrosive. Lancez une attaque de sort au corps à corps contre une créature à 1,50 m de vous. En cas de succès, la cible subit 1d8 dégâts d'acide et voit sa CA diminuée de 1 pendant 1 round (non cumulable).
-Spell/&AcidClawsTitle=Griffes acides
 Spell/&AirBlastDescription=Tirez une bouffée d'air concentrée sur votre cible.
 Spell/&AirBlastTitle=Rafale
 Spell/&BladeWardDescription=Vous étendez votre main et tracez un sceau de protection dans les airs. Jusqu'à la fin de votre prochain tour, vous bénéficiez d'une résistance contre les dégâts contondants, perforants et tranchants infligés par les attaques d'armes.

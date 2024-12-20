@@ -116,7 +116,6 @@ ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick a
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Aktivieren Sie <color=#D89555>Channel Divinity</color> 5e 2024 Version <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
-ModUi/&EnableClericDivineIntervention2024=Tauschen Sie <color=#D89555>Divine Intervention</color> und <color=#D89555>Improved Divine Intervention</color> gegen die Version 5e 2024 aus <i><color=#F0DAA0>[Zauberplatz bis zu einem bestimmten Level erhalten]</color></i>
 ModUi/&EnableClericDivineOrder2024=Aktiviere <color=#D89555>Göttliche Ordnung</color> auf Stufe 1 <i><color=#F0DAA0>[Auswahl zwischen schwerer Rüstung/Kampfwaffen-Profi oder Bonus-Zauberspruch und einigen INT-Checks]</color></i>
 ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</color>, um <color=#D89555>Untote zerstören</color> auf Level 5 zu ersetzen.
 ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.

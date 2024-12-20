@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 bis AC.
-Condition/&ConditionAcidClawsTitle=Säure brennen
 Condition/&ConditionBoomingBladeSheathedDescription=Du bist von dröhnender Energie umgeben. Wenn du dich freiwillig 1,5 Meter oder mehr bewegst, erleidest du Donnerschaden.
 Condition/&ConditionBoomingBladeSheathedTitle=Ummantelt
 Condition/&ConditionGuidanceAcrobaticsDescription=Füge bis zu 1 Minute lang 1W4 zu Akrobatikprüfungen hinzu.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} verbrennt {1} mit Grünflamme
 Feedback/&AdditionalDamageSunlightBladeFormat=Sonnenbeschienene Klinge!
 Feedback/&AdditionalDamageSunlightBladeLine={0} erleuchtet {1} mit sonnenbeschienener Klinge! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Feuer
-Spell/&AcidClawsDescription=Ihre Fingernägel schärfen sich, bereit für einen ätzenden Angriff. Führen Sie einen Nahkampf-Zauberangriff gegen eine Kreatur innerhalb von 1,5 m um Sie herum aus. Bei einem Treffer erleidet das Ziel 1W8 Säureschaden und seine RK wird 1 Runde lang um 1 gesenkt (nicht stapelbar).
-Spell/&AcidClawsTitle=Säureklauen
 Spell/&AirBlastDescription=Feuern Sie einen konzentrierten Luftstoß auf Ihr Ziel ab.
 Spell/&AirBlastTitle=Böen
 Spell/&BladeWardDescription=Du streckst deine Hand aus und zeichnest ein Schutzzeichen in die Luft. Bis zum Ende deines nächsten Zuges bist du resistent gegen Schlag-, Stich- und Schnittschaden durch Waffenangriffe.

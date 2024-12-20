@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 to AC.
-Condition/&ConditionAcidClawsTitle=Acid Burn
 Condition/&ConditionBoomingBladeSheathedDescription=You are sheathed in booming energy. If you willingly move 5 ft or more, you take thunder damage.
 Condition/&ConditionBoomingBladeSheathedTitle=Sheathed
 Condition/&ConditionGuidanceAcrobaticsDescription=Add 1d4 to Acrobatics checks for up to 1 minute.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} burns {1} with Green-Flame Bl
 Feedback/&AdditionalDamageSunlightBladeFormat=Sunlit Blade!
 Feedback/&AdditionalDamageSunlightBladeLine={0} illuminates {1} with Sunlit Blade! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Bonfire
-Spell/&AcidClawsDescription=Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has AC lowered by 1 for 1 round (not stacking).
-Spell/&AcidClawsTitle=Acid Claws
 Spell/&AirBlastDescription=Fire a blast of focused air at your target.
 Spell/&AirBlastTitle=Gust
 Spell/&BladeWardDescription=You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.

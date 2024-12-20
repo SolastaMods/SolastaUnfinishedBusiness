@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 КД.
-Condition/&ConditionAcidClawsTitle=Кислотный ожог
 Condition/&ConditionBoomingBladeSheathedDescription=Вы окутаны бушующей энергией. Если вы добровольно переместитесь на 5 футов и более, вы получите урон звуком.
 Condition/&ConditionBoomingBladeSheathedTitle=Окутан громом
 Condition/&ConditionGuidanceAcrobaticsDescription=Вы добавляете 1d4 к проверкам Акробатики на срок до 1 минуты.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} обжигает {1} Клин
 Feedback/&AdditionalDamageSunlightBladeFormat=Освещённый солнцем клинок!
 Feedback/&AdditionalDamageSunlightBladeLine={0} озаряет {1} Освещённым солнцем клинком! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Костёр
-Spell/&AcidClawsDescription=Ваши ногти заостряются, и вы готовитесь совершить едкую атаку. Совершите рукопашную атаку заклинанием по одному существу в радиусе 5 футов от вас. При попадании цель получает 1d8 урона кислотой, а её КД снижается на 1 в течение одного раунда (не стакается).
-Spell/&AcidClawsTitle=Кислотные когти
 Spell/&AirBlastDescription=Выстрелите в цель сфокусированным потоком воздуха.
 Spell/&AirBlastTitle=Шквал
 Spell/&BladeWardDescription=Вы протягиваете руку и рисуете в воздухе ограждающий знак. Вы получаете до конца своего следующего хода сопротивление дробящему, колющему и рубящему урону, причиненному атаками оружием.
