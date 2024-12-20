@@ -26,9 +26,6 @@ internal static class RangedCombatFeats
         var featRangedExpert = BuildRangedExpert();
         var featZenArcher = BuildZenArcher();
 
-        // kept for backward compatibility
-        _ = BuildCrossbowMastery(featBowMastery);
-
         feats.AddRange(
             featBowMastery, featDeadEye, featRangedExpert, featZenArcher);
 
@@ -104,28 +101,9 @@ internal static class RangedCombatFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildCrossbowMastery(FeatDefinition featBowMastery)
-    {
-        const string NAME = "FeatCrossbowMastery";
-
-        var feat = FeatDefinitionBuilder
-            .Create(featBowMastery, NAME)
-            .AddToDB();
-
-        feat.GuiPresentation.hidden = true;
-
-        return feat;
-    }
-
     private static FeatDefinition BuildDeadEye()
     {
         const string Name = "FeatDeadeye";
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
 
         var actionAffinityDeadEyeToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityDeadEyeToggle")

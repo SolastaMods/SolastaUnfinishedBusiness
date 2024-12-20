@@ -53,14 +53,6 @@ public sealed class DomainNature : AbstractSubclass
 
         // LEVEL 01 - Acolyte of Nature
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, $"CastSpell{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
-            .SetSpellList(SpellListDefinitions.SpellListDruid)
-            .AddToDB();
-
         var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
             .Create($"PointPool{Name}Cantrip")
             .SetGuiPresentationNoContent(true)
