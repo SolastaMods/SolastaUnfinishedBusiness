@@ -110,7 +110,7 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=Aktivieren Sie <color=#D89555>Exper
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
 ModUi/&EnableBardSuperiorInspiration2024=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
 ModUi/&EnableBardWordsOfCreation2024=Aktiviere <color=#D89555>Worte der Schöpfung</color> auf Level 20
-ModUi/&EnableBardicInspiration2024=Ändern Sie die Dauer von <color=#D89555>Bardic Inspiration</color> auf 1 Stunde statt 10 Minuten.
+ModUi/&EnableBardicInspiration2024=Tauschen Sie <color=#D89555>Bardic Inspiration</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Dauer beträgt 1 Stunde statt 10 Minuten]</color></i>
 ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
@@ -150,14 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokol
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestfähigkeitswerte für die Teilnahme und den Abschluss von Vorbedingungen durchsetzen</i>
 ModUi/&EnableMonkAbundantKi=Aktiviere <color=#D89555>Reichlich Ki</color> auf Level 2 <i><color=#F0DAA0>[erhalte zusätzliches Ki in Höhe der Hälfte des aufgerundeten Kompetenzbonus]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Aktiviere <color=#D89555>Körper und Geist</color>, um <color=#D89555>Perfektes Selbst</color> auf Stufe 20 zu ersetzen.
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Aktivieren Sie <color=#D89555>Kampfkunst – Bonus für unbewaffnete Schläge</color>, damit vor der Verwendung keine Angriffsaktion erforderlich ist.
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Aktivieren Sie <color=#D89555>Schlaghagel</color>, damit vor der Verwendung keine Angriffsaktion erforderlich ist.
 ModUi/&EnableMonkFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Aktivieren Sie <color=#D89555>Handwickel</color> und <color=#D89555>Stulpen</color>, damit sie im Stulpenschlitz funktionieren.
-ModUi/&EnableMonkHeightenedMetabolism2024=Aktiviere <color=#D89555>Erhöhter Stoffwechsel</color> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung</b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Verbesserte ungepanzerte Bewegung</color>, um sich an vertikalen Oberflächen zu bewegen, ohne zu fallen.
+ModUi/&EnableMonkFocus2024=Tauschen Sie <color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color> und <color=#D89555>Step of the Wind</color> mit der 5e 2024-Version aus <i><color=#F0DAA0>[verwendet nach Belieben Ki-Punkte für zusätzliche Effekte]</color></i>
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=Aktivieren Sie <color=#D89555>Handwickel</color> und <color=#D89555>Stulpen</color>, damit sie im Stulpenschlitz funktionieren.
+ModUi/&EnableMonkHeightenedFocus2024=Aktiviere <color=#D89555>Erhöhte Konzentration</color> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung</b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=Aktivieren Sie <color=#D89555>Verbesserte ungepanzerte Bewegung</color>, um sich an vertikalen Oberflächen zu bewegen, ohne zu fallen.
+ModUi/&EnableMonkKatanaSpecialization=Verleihen Sie <b>Mönchen</b> die Katana-<color=#D89555>Waffenspezialisierung</color>
+ModUi/&EnableMonkMartialArts2024=Tauschen Sie <color=#D89555>Kampfkünste</color> gegen die Version 5e 2024 aus <i><color=#F0DAA0>[verbesserte unbewaffnete Würfelprogression und keine Anforderungen an die Bonusaktion für unbewaffnete Schläge]</color></i>
+ModUi/&EnableMonkStunningStrike2024=Tauschen Sie <color=#D89555>Betäubender Schlag</color> mit der Version 5e 2024 aus <i><color=#F0DAA0>[zusätzliche Effekte, wenn das Ziel beim Speichern erfolgreich ist]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Aktiviere <color=#D89555>Überlegene Verteidigung</color>, um <color=#D89555>Leeren Körper</color> auf Level 18 zu ersetzen.
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Aktivieren Sie <color=#D89555>Unbewaffneter Angriff</color>, um die Würfeltyp-Progression von 5e 2024 zu verwenden
+ModUi/&EnableMonkUncannyMetabolism2024=Aktivieren Sie die Option <color=#D89555>Unheimlicher Stoffwechsel</color> auf Stufe 2.
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color>, <color=#D89555>Prismatischer Sprühnebel</color>. und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>
@@ -267,7 +269,6 @@ ModUi/&FullyControlConjurations=Vollständige Kontrolle über Beschwörungen <i>
 ModUi/&Gameplay=Spielablauf
 ModUi/&General=<color=#F0DAA0>Allgemeines:</color>
 ModUi/&GeneralMenu=Allgemein
-ModUi/&GrantKatanaSpecializationToMonk=Verleihen Sie <b>Mönchen</b> die Katana-<color=#D89555>Waffenspezialisierung</color>
 ModUi/&GrantScimitarSpecializationToBardRogue=Verleiht <b>Barden</b> und <b>Schurken</b> die <color=#D89555>Waffenspezialisierung</color> mit dem Krummsäbel
 ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Rasterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecke die visuellen Effekte von Ausgängen und Teleportern, falls sie noch nicht entdeckt wurden

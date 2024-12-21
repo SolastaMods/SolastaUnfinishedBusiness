@@ -270,7 +270,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool GrantKatanaSpecializationToMonk { get; set; }
     public bool EnableBardicInspiration2024 { get; set; }
     public bool EnableBardCounterCharm2024 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
@@ -287,7 +286,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
     public bool EnableClericChannelDivinity2024 { get; set; }
-    public bool EnableClericDivineIntervention2024 { get; set; }
     public bool EnableClericDivineOrder2024 { get; set; }
     public bool EnableClericSearUndead2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
@@ -300,15 +298,17 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterStudiedAttacks2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
-    public bool EnableMonkFightingStyle { get; set; }
-    public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
-    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
-    public bool EnableMonkHeightenedMetabolism2024 { get; set; }
-    public bool EnableMonkSuperiorDefense2024 { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }
-    public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
+    public bool EnableMonkFightingStyle { get; set; }
+    public bool EnableMonkFocus2024 { get; set; }
+    public bool EnableMonkHandwrapsOnGauntletSlot { get; set; }
+    public bool EnableMonkHeightenedFocus2024 { get; set; }
+    public bool EnableMonkImprovedUnarmoredMovement { get; set; }
+    public bool EnableMonkKatanaSpecialization { get; set; }
+    public bool EnableMonkMartialArts2024 { get; set; }
+    public bool EnableMonkStunningStrike2024 { get; set; }
+    public bool EnableMonkSuperiorDefense2024 { get; set; }
+    public bool EnableMonkUncannyMetabolism2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinAbjureFoes2024 { get; set; }
     public bool EnablePaladinChannelDivinity2024 { get; set; }

@@ -110,7 +110,7 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=Enable <color=#D89555>Expertise</co
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
 ModUi/&EnableBardSuperiorInspiration2024=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
 ModUi/&EnableBardWordsOfCreation2024=Enable <color=#D89555>Words of Creation</color> at level 20
-ModUi/&EnableBardicInspiration2024=Change <color=#D89555>Bardic Inspiration</color> duration to 1hr instead of 10 minutes
+ModUi/&EnableBardicInspiration2024=Swap <color=#D89555>Bardic Inspiration</color> with 5e 2024 version <i><color=#F0DAA0>[duration is 1hr instead of 10 minutes]</color></i>
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
@@ -150,14 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid refe
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Abundant Ki</color> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Enable <color=#D89555>Body and Mind</color> to replace <color=#D89555>Perfect Self</color> at level 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Enable <color=#D89555>Martial Arts - Bonus Unarmed Strikes</color> to not require an attack action before usage
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Enable <color=#D89555>Flurry of Blows</color> to not require an attack action before usage
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Enable <color=#D89555>Handwraps</color> and <color=#D89555>Gauntlets</color> to work in gauntlet slot
-ModUi/&EnableMonkHeightenedMetabolism2024=Enable <color=#D89555>Heightened Metabolism</color> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
+ModUi/&EnableMonkFocus2024=Swap <color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, and <color=#D89555>Step of the Wind</color> with 5e 2024 version <i><color=#F0DAA0>[at will uses, ki points for additional effects]</color></i>
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=Enable <color=#D89555>Handwraps</color> and <color=#D89555>Gauntlets</color> to work in gauntlet slot
+ModUi/&EnableMonkHeightenedFocus2024=Enable <color=#D89555>Heightened Focus</color> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional effects]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
+ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color> to <b>Monks</b>
+ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
+ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Enable <color=#D89555>Unarmed Attack</color> to use 5e 2024 die type progression
+ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> choice at level 2
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>
@@ -267,7 +269,6 @@ ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[an
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantKatanaSpecializationToMonk=Grant Katana <color=#D89555>Weapon Specialization</color> to <b>Monks</b>
 ModUi/&GrantScimitarSpecializationToBardRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet

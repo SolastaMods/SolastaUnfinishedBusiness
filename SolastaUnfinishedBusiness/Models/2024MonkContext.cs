@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -22,50 +20,34 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    private static readonly FeatureDefinition FeatureMonkHeightenedMetabolism = FeatureDefinitionBuilder
-        .Create("FeatureMonkHeightenedMetabolism")
+    private static readonly FeatureDefinition FeatureMonkHeightenedFocus = FeatureDefinitionBuilder
+        .Create("FeatureMonkHeightenedFocus")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
-            new CustomBehaviorHeightenedMetabolism(
+            new CustomBehaviorHeightenedFocus(
                 ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsHeightenedMetabolism")
+                    .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedFocus")
                             .SetUnarmedStrike(3)
                             .AddToDB())
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedMetabolism")
+                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedFocus")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedMetabolism")
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus")
                             .SetUnarmedStrike(4)
                             .AddToDB())
                     .AddToDB()))
         .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerMonkStepOfTheWindHeightenedMetabolism =
-        FeatureDefinitionPowerBuilder
-            .Create("PowerMonkStepOfTheWindHeightenedMetabolism")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerStepOfTheWind", Resources.PowerStepOfTheWind, 256, 128))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PowerMonkStepOfTheWindDash)
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .AddEffectForms(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0])
-                    .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
-                    .Build())
-            .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
         .Create("PowerMonkSuperiorDefense")
@@ -143,40 +125,49 @@ internal static partial class Tabletop2024Context
         new() { dieType = DieType.D12, rank = 20 }
     ];
 
-    private static void LoadMonkHeightenedMetabolism()
+    internal static void SwitchMonkFocus()
     {
-        var validatePower = new ValidatorsValidatePowerUse(c =>
-            !Main.Settings.EnableMonkHeightenedMetabolism2024 || c.GetClassLevel(Monk) < 10);
-
-        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(validatePower);
-        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(validatePower);
-    }
-
-    internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
-    {
-        FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
-            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry2024
-                ? "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription"
-                : "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
-    }
-
-    internal static void SwitchMonkUnarmedDieTypeProgression()
-    {
-        AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
-            Main.Settings.EnableMonkUnarmoredDieTypeProgression2024
-                ? MonkUnarmedDieTypeByRank2024
-                : MonkUnarmedDieTypeByRank;
-
-        AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
-            Main.Settings.EnableMonkUnarmoredDieTypeProgression2024
-                ? "Feature/&AttackModifierMonkMartialArtsExtendedDescription"
-                : "Feature/&AttackModifierMonkMartialArtsDescription";
-    }
-
-    internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()
-    {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024)
+        if (Main.Settings.EnableMonkFocus2024)
         {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
+            PowerMonkPatientDefense.GuiPresentation.description =
+                "Feature/&AlternatePatientDefenseDescription";
+            FeatureSetMonkStepOfTheWind.GuiPresentation.description =
+                "Feature/&AlternateFeatureSetMonkStepOfTheWindDescription";
+
+            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = true;
+            PowerMonkPatientDefense.rechargeRate = RechargeRate.AtWill;
+            PowerMonkPatientDefenseSurvival3.rechargeRate = RechargeRate.AtWill;
+            PowerMonkPatientDefenseSurvival6.rechargeRate = RechargeRate.AtWill;
+            PowerMonkStepOfTheWindDash.rechargeRate = RechargeRate.AtWill;
+        }
+        else
+        {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+                "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
+            PowerMonkPatientDefense.GuiPresentation.description =
+                "Feature/&PatientDefenseDescription";
+            FeatureSetMonkStepOfTheWind.GuiPresentation.description =
+                "Feature/&FeatureSetMonkStepOfTheWindDescription";
+            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = false;
+
+            PowerMonkPatientDefense.rechargeRate = RechargeRate.KiPoints;
+            PowerMonkPatientDefenseSurvival3.rechargeRate = RechargeRate.KiPoints;
+            PowerMonkPatientDefenseSurvival6.rechargeRate = RechargeRate.KiPoints;
+            PowerMonkStepOfTheWindDash.rechargeRate = RechargeRate.KiPoints;
+            PowerMonkStepOftheWindDisengage.rechargeRate = RechargeRate.KiPoints;
+        }
+    }
+
+    internal static void SwitchMonkMartialArts()
+    {
+        if (Main.Settings.EnableMonkMartialArts2024)
+        {
+            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
+                MonkUnarmedDieTypeByRank2024;
+            AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
+                "Feature/&AttackModifierMonkMartialArtsExtendedDescription";
             PowerMonkMartialArts.GuiPresentation.description =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             PowerMonkMartialArts.GuiPresentation.title =
@@ -186,29 +177,31 @@ internal static partial class Tabletop2024Context
         }
         else
         {
-            PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
-            PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
+                MonkUnarmedDieTypeByRank;
+            AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
+                "Feature/&AttackModifierMonkMartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.description =
+                "Action/&MartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.title =
+                "Action/&MartialArtsTitle";
             PowerMonkMartialArts.GuiPresentation.hidden = false;
             PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024)
+        if (Main.Settings.EnableMonkMartialArts2024)
         {
             Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
-    internal static void SwitchMonkHeightenedMetabolism()
+    internal static void SwitchMonkHeightenedFocus()
     {
-        Monk.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == FeatureMonkHeightenedMetabolism ||
-            x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism);
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkHeightenedFocus);
 
-        if (Main.Settings.EnableMonkHeightenedMetabolism2024)
+        if (Main.Settings.EnableMonkHeightenedFocus2024)
         {
-            Monk.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10),
-                new FeatureUnlockByLevel(PowerMonkStepOfTheWindHeightenedMetabolism, 10));
+            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkHeightenedFocus, 10));
         }
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -228,6 +221,16 @@ internal static partial class Tabletop2024Context
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchMonkUncannyMetabolism()
+    {
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchMonkStunningStrike()
+    {
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchMonkBodyAndMind()
     {
         Monk.FeatureUnlocks.RemoveAll(x =>
@@ -242,16 +245,16 @@ internal static partial class Tabletop2024Context
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private sealed class CustomBehaviorHeightenedMetabolism(
-        ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism,
-        ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedMetabolism)
+    private sealed class CustomBehaviorHeightenedFocus(
+        ConditionDefinition conditionFlurryOfBlowsHeightenedFocus,
+        ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedFocus)
         : IModifyEffectDescription, IMagicEffectFinishedByMe
     {
         private readonly EffectForm _effectForm =
-            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedMetabolism);
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedFocus);
 
         private readonly EffectForm _effectFormFreedom =
-            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedMetabolism);
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedFocus);
 
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterAction action,
@@ -277,7 +280,7 @@ internal static partial class Tabletop2024Context
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return Main.Settings.EnableMonkHeightenedMetabolism2024 &&
+            return Main.Settings.EnableMonkHeightenedFocus2024 &&
                    character.GetClassLevel(Monk) >= 10 &&
                    (definition == PowerMonkFlurryOfBlows ||
                     definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement ||

@@ -69,7 +69,7 @@ internal static class CustomWeaponsContext
         BuildThunderGauntlet();
         BuildLightningLauncher();
         BuildUnarmedStrikeClaws();
-        UpdateHandWrapsUseGauntletSlot();
+        LoadMonkHandwrapsOnGauntletSlot();
     }
 
     [NotNull]
@@ -842,7 +842,7 @@ internal static class CustomWeaponsContext
         );
     }
 
-    private static void UpdateHandWrapsUseGauntletSlot()
+    private static void LoadMonkHandwrapsOnGauntletSlot()
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
@@ -853,7 +853,7 @@ internal static class CustomWeaponsContext
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
+            if (Main.Settings.EnableMonkHandwrapsOnGauntletSlot)
             {
                 item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
                 item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
@@ -866,11 +866,15 @@ internal static class CustomWeaponsContext
         }
     }
 
-    internal static void ModifyUnarmedAttackWithGauntlet(RulesetCharacterHero hero, ref ItemDefinition itemDefinition,
-        ref WeaponDescription weaponDescription, ref RulesetItem weapon)
+    internal static void ModifyUnarmedAttackWithGauntlet(
+        RulesetCharacterHero hero,
+        ref ItemDefinition itemDefinition,
+        ref WeaponDescription weaponDescription,
+        ref RulesetItem weapon)
     {
-        if (!Main.Settings.EnableMonkHandwrapsUseGauntletSlot
-            || weapon != null || itemDefinition != ItemDefinitions.UnarmedStrikeBase)
+        if (!Main.Settings.EnableMonkHandwrapsOnGauntletSlot
+            || weapon != null ||
+            itemDefinition != ItemDefinitions.UnarmedStrikeBase)
         {
             return;
         }

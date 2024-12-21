@@ -295,13 +295,6 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableBardicInspiration2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardicInspiration2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBardicInspiration2024 = toggle;
-            Tabletop2024Context.SwitchBardBardicInspiration();
-        }
-
         toggle = Main.Settings.EnableBardCounterCharm2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardCounterCharm2024"), ref toggle, UI.AutoWidth()))
         {
@@ -342,6 +335,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.RemoveBardSongOfRest2024 = toggle;
             Tabletop2024Context.SwitchBardSongOfRest();
+        }
+
+        toggle = Main.Settings.EnableBardicInspiration2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardicInspiration2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardicInspiration2024 = toggle;
+            Tabletop2024Context.SwitchBardBardicInspiration();
         }
 
         UI.Label();
@@ -515,28 +515,12 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkBodyAndMind();
         }
 
-        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024"), ref toggle,
+        toggle = Main.Settings.EnableMonkHeightenedFocus2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedFocus2024"), ref toggle,
                 UI.AutoWidth()))
         {
-            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry2024 = toggle;
-            Tabletop2024Context.SwitchMonkDoNotRequireAttackActionForFlurry();
-        }
-
-        toggle = Main.Settings.EnableMonkHeightenedMetabolism2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism2024"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkHeightenedMetabolism2024 = toggle;
-            Tabletop2024Context.SwitchMonkHeightenedMetabolism();
-        }
-
-        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 = toggle;
-            Tabletop2024Context.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+            Main.Settings.EnableMonkHeightenedFocus2024 = toggle;
+            Tabletop2024Context.SwitchMonkHeightenedFocus();
         }
 
         toggle = Main.Settings.EnableMonkSuperiorDefense2024;
@@ -547,11 +531,26 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkSuperiorDefense();
         }
 
-        toggle = Main.Settings.EnableMonkUnarmoredDieTypeProgression2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUnarmoredDieTypeProgression2024"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableMonkFocus2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFocus2024"), ref toggle,
+                UI.AutoWidth()))
         {
-            Main.Settings.EnableMonkUnarmoredDieTypeProgression2024 = toggle;
-            Tabletop2024Context.SwitchMonkUnarmedDieTypeProgression();
+            Main.Settings.EnableMonkFocus2024 = toggle;
+            Tabletop2024Context.SwitchMonkFocus();
+        }
+
+        toggle = Main.Settings.EnableMonkMartialArts2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkMartialArts2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkMartialArts2024 = toggle;
+            Tabletop2024Context.SwitchMonkMartialArts();
+        }
+
+        toggle = Main.Settings.EnableMonkStunningStrike2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkStunningStrike2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkStunningStrike2024 = toggle;
+            Tabletop2024Context.SwitchMonkStunningStrike();
         }
 
         UI.Label();

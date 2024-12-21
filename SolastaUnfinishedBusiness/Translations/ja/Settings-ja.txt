@@ -110,7 +110,7 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
 ModUi/&EnableBardSuperiorInspiration2024=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
 ModUi/&EnableBardWordsOfCreation2024=レベル20で<color=#D89555>創造の言葉</color>を有効にする
-ModUi/&EnableBardicInspiration2024=<color=#D89555>吟遊詩人のインスピレーション</color>の持続時間を10分から1時間に変更
+ModUi/&EnableBardicInspiration2024=<color=#D89555>バード インスピレーション</color> を 5e 2024 バージョン <i><color=#F0DAA0>[持続時間は 10 分ではなく 1 時間]</color></i> と入れ替えます
 ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
@@ -150,14 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタムキャンペー
 ModUi/&EnableMinInOutAttributes=<i>+ 入退室の前提条件として最低限の能力値を適用する</i>
 ModUi/&EnableMonkAbundantKi=レベル 2 で <color=#D89555>豊富な気力</color> を有効にする <i><color=#F0DAA0>[熟練度ボーナスの半分に等しい気力を追加で獲得]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=レベル20で<color=#D89555>肉体と精神</color>を<color=#D89555>完璧な自分</color>と置き換えます
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=<color=#D89555>格闘技 - ボーナス素手攻撃</color>を有効にすると、使用前に攻撃アクションが不要になります
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=<color=#D89555>連打</color>を有効にすると、使用前に攻撃アクションが不要になります
 ModUi/&EnableMonkFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>ハンドラップ</color>と<color=#D89555>ガントレット</color>をガントレットスロットで機能させる
-ModUi/&EnableMonkHeightenedMetabolism2024=レベル 10 で <color=#D89555>代謝の強化</color> を有効にする <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風のステップ</b> が追加のメリットを得る]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
+ModUi/&EnableMonkFocus2024=<color=#D89555>連打</color>、<color=#D89555>忍耐強い防御</color>、<color=#D89555>風の足取り</color>を 5e 2024 バージョンの <i><color=#F0DAA0>[自由に使用、追加効果には気ポイント]</color></i> と入れ替えます
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>ハンドラップ</color>と<color=#D89555>ガントレット</color>をガントレットスロットで機能させる
+ModUi/&EnableMonkHeightenedFocus2024=レベル 10 で <color=#D89555>集中力の強化</color> を有効にする <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風の足取り</b> が追加の効果を得る]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
+ModUi/&EnableMonkKatanaSpecialization=<b>僧侶</b>に刀の<color=#D89555>武器特化</color>を付与します
+ModUi/&EnableMonkMartialArts2024=<color=#D89555>Martial Arts</color> を 5e 2024 バージョン <i><color=#F0DAA0>[素手ダイスの進行が改善され、素手打撃ボーナス アクションの要件がなくなりました]</color></i> と入れ替えます
+ModUi/&EnableMonkStunningStrike2024=<color=#D89555>スタンニングストライク</color>を5e 2024バージョンの<i><color=#F0DAA0>[ターゲットがセーヴに成功した場合の追加効果]</color></i>と入れ替えます
 ModUi/&EnableMonkSuperiorDefense2024=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=<color=#D89555>非武装攻撃</color>を有効にすると、5e 2024 ダイスタイプの進行が使用可能になります。
+ModUi/&EnableMonkUncannyMetabolism2024=レベル2で<color=#D89555>超人的な新陳代謝</color>の選択を有効にする
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>アーケイン ソード</color>、<color=#D89555>サークル オブ デス</color>、<color=#D89555>フレイム ストライク</color>、<color=#D89555>アイス ストーム</color>、<color=#D89555>プリズマティック スプレー</color>、<color=#D89555>ヴィシャス モッカリー</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[ダメージ向上]</color></i>
@@ -267,7 +269,6 @@ ModUi/&FullyControlConjurations=召喚を完全に制御します <i><color=#F0D
 ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>一般:</color>
 ModUi/&GeneralMenu=一般的な
-ModUi/&GrantKatanaSpecializationToMonk=<b>僧侶</b>に刀の<color=#D89555>武器特化</color>を付与します
 ModUi/&GrantScimitarSpecializationToBardRogue=シミターの<color=#D89555>武器特化</color>を<b>吟遊詩人</b>と<b>盗賊</b>に付与します
 ModUi/&GridSelectedColor=動きの<b><color=$$$$$$>グリッドの色</color></b>を変更します
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は出口とテレポーターの視覚効果を非表示にします

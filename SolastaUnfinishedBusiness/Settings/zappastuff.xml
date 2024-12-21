@@ -676,7 +676,7 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <GrantKatanaSpecializationToMonk>false</GrantKatanaSpecializationToMonk>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
@@ -706,16 +706,16 @@
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
-    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>true
-    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
-    <EnableMonkDoNotRequireAttackActionForFlurry2024>true</EnableMonkDoNotRequireAttackActionForFlurry2024>
+    <EnableMonkUnarmoredStrike2024>true
+    </EnableMonkUnarmoredStrike2024>
+    <EnableMonkFocus2024>true</EnableMonkFocus2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
-    <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
-    <EnableMonkHeightenedMetabolism2024>true</EnableMonkHeightenedMetabolism2024>
+    <EnableMonkImprovedUnarmoredMovement>true</EnableMonkImprovedUnarmoredMovement>
+    <EnableMonkHandwrapsOnGauntletSlot>true</EnableMonkHandwrapsOnGauntletSlot>
+    <EnableMonkHeightenedFocus2024>true</EnableMonkHeightenedFocus2024>
     <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
-    <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
+    <EnableMonkMartialArts2024>true</EnableMonkMartialArts2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>

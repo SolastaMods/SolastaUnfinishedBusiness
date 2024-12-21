@@ -110,7 +110,7 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=Habilitar <color=#D89555>Experienci
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> en descanso largo
 ModUi/&EnableBardSuperiorInspiration2024=Habilita <color=#D89555>Inspiración superior</color> en el nivel 18 en lugar de 20 y también otorga dos recargas en lugar de 1.
 ModUi/&EnableBardWordsOfCreation2024=Habilita <color=#D89555>Palabras de creación</color> en el nivel 20
-ModUi/&EnableBardicInspiration2024=Cambiar la duración de <color=#D89555>Inspiración bárdica</color> a 1 hora en lugar de 10 minutos
+ModUi/&EnableBardicInspiration2024=Intercambia <color=#D89555>Inspiración bárdica</color> con la versión 5e 2024 <i><color=#F0DAA0>[la duración es 1 hora en lugar de 10 minutos]</color></i>
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen un ataque adicional adicional de <color=#D89555>Magia de guerra</color>
@@ -150,14 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de re
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos mínimos de puntuación de habilidad para entrar y salir</i>
 ModUi/&EnableMonkAbundantKi=Habilita <color=#D89555>Ki abundante</color> en el nivel 2 <i><color=#F0DAA0>[obtienes Ki adicional equivalente a la mitad de la bonificación de competencia redondeada hacia arriba]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Habilita <color=#D89555>Cuerpo y Mente</color> para reemplazar a <color=#D89555>Perfección Personal</color> en el nivel 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Habilitar <color=#D89555>Artes marciales: golpes sin armas adicionales</color> para que no requieran una acción de ataque antes de su uso
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Habilitar <color=#D89555>Ráfaga de golpes</color> para que no requiera una acción de ataque antes de su uso
 ModUi/&EnableMonkFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Habilitar <color=#D89555>Manos</color> y <color=#D89555>Guanteletes</color> para que funcionen en la ranura de guantelete
-ModUi/&EnableMonkHeightenedMetabolism2024=Habilita <color=#D89555>Metabolismo acelerado</color> en el nivel 10. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen beneficios adicionales]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
+ModUi/&EnableMonkFocus2024=Intercambia <color=#D89555>Ráfaga de golpes</color>, <color=#D89555>Defensa paciente</color> y <color=#D89555>Paso del viento</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos a voluntad, puntos de ki para efectos adicionales]</color></i>
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=Habilitar <color=#D89555>Manos</color> y <color=#D89555>Guanteletes</color> para que funcionen en la ranura de guantelete
+ModUi/&EnableMonkHeightenedFocus2024=Habilita <color=#D89555>Concentración aumentada</color> en el nivel 10. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen beneficios adicionales]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
+ModUi/&EnableMonkKatanaSpecialization=Otorgar la <color=#D89555>especialización en armas</color> a los <b>monjes</b>
+ModUi/&EnableMonkMartialArts2024=Intercambia <color=#D89555>Artes marciales</color> con la versión 5e 2024 <i><color=#F0DAA0>[progresión de dados desarmado mejorada y sin requisitos en la acción adicional de ataque desarmado]</color></i>
+ModUi/&EnableMonkStunningStrike2024=Intercambia <color=#D89555>Golpe aturdidor</color> con la versión 5e 2024 <i><color=#F0DAA0>[efectos adicionales cuando el objetivo tiene éxito en la tirada de salvación]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Habilite <color=#D89555>Ataque desarmado</color> para usar la progresión de tipo de dado 5e 2024
+ModUi/&EnableMonkUncannyMetabolism2024=Habilitar la opción <color=#D89555>Metabolismo sobrenatural</color> en el nivel 2
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar la versión del hechizo <color=#D89555>Corteza</color> 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilita los hechizos <color=#D89555>Espada arcana</color>, <color=#D89555>Círculo de la muerte</color>, <color=#D89555>Golpe de llamas</color>, <color=#D89555>Tormenta de hielo</color>, <color=#D89555>Rociado prismático</color> y <color=#D89555>Burla cruel</color> versión 5e 2024 <i><color=#F0DAA0>[mejor daño]</color></i>
@@ -267,7 +269,6 @@ ModUi/&FullyControlConjurations=Controla completamente los conjuros <i><color=#F
 ModUi/&Gameplay=Jugabilidad
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantKatanaSpecializationToMonk=Otorgar la <color=#D89555>especialización en armas</color> a los <b>monjes</b>
 ModUi/&GrantScimitarSpecializationToBardRogue=Otorga la <color=#D89555>especialización en armas</color> a los <b>bardos</b> y a los <b>pícaros</b>
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar los efectos visuales de las salidas y los teletransportadores si aún no se han descubierto

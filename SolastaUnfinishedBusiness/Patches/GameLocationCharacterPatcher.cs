@@ -396,8 +396,8 @@ public static class GameLocationCharacterPatcher
             //PATCH: support grapple
             GrappleContext.ValidateActionAvailability(__instance, ref __result, actionId);
 
-            //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry2024`
-            if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry2024 &&
+            //PATCH: support `EnableMonkFocus2024`
+            if (Main.Settings.EnableMonkFocus2024 &&
                 actionId
                     is ActionDefinitions.Id.FlurryOfBlows
                     or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
