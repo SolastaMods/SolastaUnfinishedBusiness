@@ -31,6 +31,8 @@ internal static partial class Tabletop2024Context
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
+        LoadMonkFocus();
+        LoadMonkStunningStrike();
         LoadOneDndSpellGuidanceSubspells();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndSpellTrueStrike();
