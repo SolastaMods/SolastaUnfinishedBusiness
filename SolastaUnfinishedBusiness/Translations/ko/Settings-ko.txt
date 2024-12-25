@@ -110,13 +110,12 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=레벨 3과 10 대신 레벨 2와 9
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
 ModUi/&EnableBardSuperiorInspiration2024=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
 ModUi/&EnableBardWordsOfCreation2024=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
-ModUi/&EnableBardicInspiration2024=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
+ModUi/&EnableBardicInspiration2024=<color=#D89555>Bardic Inspiration</color>을 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[기간은 10분이 아닌 1시간입니다]</color></i>
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
-ModUi/&EnableClericDivineIntervention2024=<color=#D89555>신성한 개입</color>과 <color=#D89555>개선된 신성 개입</color>을 5e 2024 버전 <i><color=#F0DAA0>[특정 레벨까지 주문 슬롯 획득]</color></i>과 교환하세요.
 ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
 ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
@@ -151,15 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 정의 캠페인�
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 입출력 전제 조건 능력치 적용</i>
 ModUi/&EnableMonkAbundantKi=2레벨에서 <color=#D89555>풍부한 기</color>를 활성화합니다. <i><color=#F0DAA0>[숙련도 보너스의 절반에 해당하는 추가 기를 얻습니다(올림)]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=레벨 20에서 <color=#D89555>완벽한 자아</color>를 대체하기 위해 <color=#D89555>신체와 정신</color>을 활성화합니다.
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=<color=#D89555>무술 - 보너스 비무장 타격</color>을 활성화하면 사용 전에 공격 동작이 필요하지 않습니다.
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=사용 전에 공격 동작이 필요하지 않도록 <color=#D89555>Flurry of Blows</color>를 활성화합니다.
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
-ModUi/&EnableMonkHeightenedMetabolism2024=레벨 10에서 <color=#D89555>높아진 신진대사</color> 활성화 <i><color=#F0DAA0>[<b>연타격</b>, <b>환자 방어</b>, <b>바람의 발걸음</b>이 추가 혜택을 얻습니다]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>개선된 비무장 이동</color>을 활성화하여 떨어지지 않고 수직 표면을 따라 이동합니다.
+ModUi/&EnableMonkFocus2024=<color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, <color=#D89555>Step of the Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[원하는 대로 사용 가능, 추가 효과를 위한 기 포인트]</color></i>과 교환하세요.
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
+ModUi/&EnableMonkHeightenedFocus2024=레벨 10에서 <color=#D89555>강화된 집중력</color>을 활성화합니다. <i><color=#F0DAA0>[<b>연타격</b>, <b>인내 방어</b>, <b>바람의 발걸음</b>이 추가 혜택을 얻습니다]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>개선된 비무장 이동</color>을 활성화하여 떨어지지 않고 수직 표면을 따라 이동합니다.
+ModUi/&EnableMonkKatanaSpecialization=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
+ModUi/&EnableMonkMartialArts2024=<color=#D89555>무술</color>을 5e 2024 버전으로 교체 <i><color=#F0DAA0>[개선된 비무장 주사위 진행 및 비무장 타격 보너스 액션에 대한 요구 사항 없음]</color></i>
+ModUi/&EnableMonkStunningStrike2024=<color=#D89555>Stunning Strike</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[대상이 저장에 성공하면 추가 효과가 적용됩니다]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 대체하기 위해 <color=#D89555>우수한 방어력</color>을 활성화합니다.
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=<color=#D89555>비무장 공격</color>을 활성화하여 5e 2024 주사위 유형 진행을 사용합니다.
-ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color> 선택 가능
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>프리즘 스프레이</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 나은 데미지]</color></i>을 활성화합니다.
@@ -269,7 +269,6 @@ ModUi/&FullyControlConjurations=<i><color=#F0DAA0>[동물, 정령 등]</color></
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
-ModUi/&GrantKatanaSpecializationToMonk=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&GrantScimitarSpecializationToBardRogue=<b>바드</b>와 <b>도적</b>에게 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&GridSelectedColor=움직임 변경 <b><color=$$$$$$>격자 색상</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않았다면 출구와 텔레포터 시각 효과를 숨깁니다.

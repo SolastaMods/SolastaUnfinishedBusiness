@@ -38,16 +38,16 @@ internal static class ClassesContext
 
         LoadMonkWeaponSpecialization();
         SwitchBarbarianFightingStyle();
-        SwitchKatanaWeaponSpecialization();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
-        SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+        SwitchMonkHandwrapsGauntletSlot();
+        SwitchMonkImprovedUnarmoredMovement();
+        SwitchMonkKatanaSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRogueFightingStyle();
         SwitchRogueStrSaving();
         SwitchScimitarWeaponSpecialization();
         SwitchSorcererMagicalGuidance();
-        UpdateHandWrapsUseGauntletSlot();
     }
 
     #region Ranger
@@ -72,11 +72,11 @@ internal static class ClassesContext
 
     #region _General
 
-    internal static void SwitchKatanaWeaponSpecialization()
+    internal static void SwitchMonkKatanaSpecialization()
     {
         ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
 
-        if (Main.Settings.GrantKatanaSpecializationToMonk)
+        if (Main.Settings.EnableMonkKatanaSpecialization)
         {
             ProficiencyMonkWeapon.Proficiencies.Add(CustomWeaponsContext.KatanaWeaponType.Name);
         }
@@ -267,9 +267,9 @@ internal static class ClassesContext
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    internal static void SwitchMonkImprovedUnarmoredMovement()
     {
-        if (Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall)
+        if (Main.Settings.EnableMonkImprovedUnarmoredMovement)
         {
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
                 "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
@@ -314,7 +314,7 @@ internal static class ClassesContext
     }
 #endif
 
-    internal static void UpdateHandWrapsUseGauntletSlot()
+    internal static void SwitchMonkHandwrapsGauntletSlot()
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
@@ -325,7 +325,7 @@ internal static class ClassesContext
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
+            if (Main.Settings.EnableMonkHandwrapsOnGauntletSlot)
             {
                 item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
                 item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);

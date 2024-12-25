@@ -64,117 +64,11 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Healing",
-        "addBonusMode": "None",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 0,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 1,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 2,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 3,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 4,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 5,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 6,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 7,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 8,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 9,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 10,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 11,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 12,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 13,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 14,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 15,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 17,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 18,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 19,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 20,
-            "diceNumber": 3
-          }
-        ],
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -221,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "34f0dc03c444b7d4b9cda7f2fedb34e6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -245,7 +139,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ed804b962d30d5d4594418ac573ccc5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -421,7 +315,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Wisdom",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,

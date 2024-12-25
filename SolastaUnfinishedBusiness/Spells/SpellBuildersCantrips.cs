@@ -13,7 +13,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -30,58 +29,6 @@ internal static partial class SpellBuilders
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
         (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray), (DamageTypeThunder, Shatter)
     ];
-
-    #region Acid Claws
-
-    internal static SpellDefinition BuildAcidClaw()
-    {
-        const string NAME = "AcidClaws";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128), hidden: true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(0)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVerboseComponent(false)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create("ConditionAcidClaws")
-                                    .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
-                                    .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(
-                                        FeatureDefinitionAttributeModifierBuilder
-                                            .Create("AttributeModifierAcidClawsACDebuff")
-                                            .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
-                                            .SetModifier(AttributeModifierOperation.Additive,
-                                                AttributeDefinitions.ArmorClass, -1)
-                                            .AddToDB())
-                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(AcidSplash)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
 
     #region Air Blast
 

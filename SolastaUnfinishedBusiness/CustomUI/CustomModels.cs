@@ -334,31 +334,33 @@ public static class CustomModels
     // ReSharper enable file InconsistentNaming
 
     private static bool TryReadObjectAndCorrespondingMaterialFiles(
-        string directoryPath, string filename, out ObjectFile objFile)
+        string pathModel, string filename, out ObjectFile objFile)
     {
         objFile = new ObjectFile();
 
-        var pathCache = Path.Combine(directoryPath, "../../../ModelsCache");
+        var pathCache = Path.Combine(pathModel, "../../../ModelsCache");
 
         if (!Directory.Exists(pathCache))
         {
             Directory.CreateDirectory(pathCache);
         }
 
-        var cacheFile = Path.Combine(pathCache, $"{filename}.cache");
+        var pathObjFile = Path.Combine(pathModel, $"{filename}.obj");
+        var pathCacheFile = Path.Combine(pathCache, $"{filename}.cache");
 
-        if (Deserialize(cacheFile, ref objFile))
+        if (File.Exists(pathObjFile) &&
+            File.Exists(pathCacheFile) &&
+            File.GetLastWriteTime(pathCacheFile) >= File.GetLastWriteTime(pathObjFile) &&
+            Deserialize(pathCacheFile, ref objFile))
         {
             Main.Info($"Read {filename} from cache.");
 
             return true;
         }
 
-        var pathObj = Path.Combine(directoryPath, $"{filename}.obj");
-
         try
         {
-            var lines = File.ReadAllLines(pathObj);
+            var lines = File.ReadAllLines(pathObjFile);
 
             objFile.usemtl = [];
             objFile.v = [];
@@ -416,26 +418,26 @@ public static class CustomModels
                 }
             }
 
-            if (!TryReadMaterialFile(directoryPath, filename, objFile.Materials))
+            if (!TryReadMaterialFile(pathModel, filename, objFile.Materials))
             {
                 return false;
             }
 
-            Serialize(objFile, cacheFile);
+            Serialize(objFile, pathCacheFile);
 
             return true;
         }
         catch
         {
-            Main.Error($"Failed to read object file {pathObj}");
+            Main.Error($"Failed to read object file {pathObjFile}");
 
             return false;
         }
     }
 
-    private static bool TryReadMaterialFile(string directoryPath, string filename, List<NewMtl> materials)
+    private static bool TryReadMaterialFile(string modelPath, string filename, List<NewMtl> materials)
     {
-        var pathMtl = Path.Combine(directoryPath, $"{filename}.mtl");
+        var pathMtl = Path.Combine(modelPath, $"{filename}.mtl");
 
         try
         {

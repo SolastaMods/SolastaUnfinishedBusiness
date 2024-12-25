@@ -40,7 +40,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
         // remove regular WS action
 
-        // kept this name for compatibility reasons
+        // kept name for backward compatibility
         var actionAffinityWildshape = FeatureDefinitionActionAffinityBuilder
             .Create("OnAfterActionWildShape")
             .SetGuiPresentationNoContent(true)

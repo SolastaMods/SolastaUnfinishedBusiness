@@ -585,7 +585,7 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildAuraOfVitality()
     {
-        // kept this name for backward compatibility reasons
+        // kept name for backward compatibility
         const string NAME = "AuraOfLife";
 
         var sprite = Sprites.GetSprite(NAME, Resources.AuraOfVitality, 128);

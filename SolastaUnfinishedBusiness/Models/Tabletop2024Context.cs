@@ -31,7 +31,6 @@ internal static partial class Tabletop2024Context
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
-        LoadMonkHeightenedMetabolism();
         LoadOneDndSpellGuidanceSubspells();
         LoadOneDndSpellSpareTheDying();
         LoadOneDndSpellTrueStrike();
@@ -53,7 +52,6 @@ internal static partial class Tabletop2024Context
         SwitchBardSuperiorInspiration();
         SwitchBardWordsOfCreation();
         SwitchClericChannelDivinity();
-        // SwitchClericDivineIntervention();
         SwitchClericDivineOrder();
         SwitchClericDomainLearningLevel();
         SwitchClericSearUndead();
@@ -66,11 +64,12 @@ internal static partial class Tabletop2024Context
         SwitchFighterStudiedAttacks();
         SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMind();
-        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
-        SwitchMonkDoNotRequireAttackActionForFlurry();
-        SwitchMonkHeightenedMetabolism();
+        SwitchMonkFocus();
+        SwitchMonkHeightenedFocus();
+        SwitchMonkMartialArts();
+        SwitchMonkStunningStrike();
         SwitchMonkSuperiorDefense();
-        SwitchMonkUnarmedDieTypeProgression();
+        SwitchMonkUncannyMetabolism();
         SwitchOneDndDamagingSpellsUpgrade();
         SwitchOneDndHealingSpellsUpgrade();
         SwitchOneDndPreparedSpellsTables();
@@ -103,8 +102,8 @@ internal static partial class Tabletop2024Context
         SwitchRangerRelentlessHunter();
         SwitchRangerRoving();
         SwitchRangerSpellCastingAtOne();
-        SwitchRangerVanish();
         SwitchRangerTireless();
+        SwitchRangerVanish();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
         SwitchRogueReliableTalent();

@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=护甲等级降低 1。
-Condition/&ConditionAcidClawsTitle=强酸灼伤
 Condition/&ConditionBoomingBladeSheathedDescription=你被轰隆隆的能量所笼罩。如果你主动移动 5 英尺或以上，你就会受到雷击伤害。
 Condition/&ConditionBoomingBladeSheathedTitle=被笼罩
 Condition/&ConditionGuidanceAcrobaticsDescription=将 1d4 添加到杂技检查中，最长可持续 1 分钟。
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} 用绿焰剑灼烧 {1}！(+{2
 Feedback/&AdditionalDamageSunlightBladeFormat=耀阳剑！
 Feedback/&AdditionalDamageSunlightBladeLine={0} 用耀阳剑照亮 {1}！ (+{2})
 Proxy/&ProxyCreateBonfireTitle=篝火
-Spell/&AcidClawsDescription=你的指甲变尖了，准备好进行腐蚀性攻击。对距离你 5 尺以内的一个生物进行一次近战法术攻击。命中时，目标会受到 1d8 强酸伤害，并且护甲等级降低 1，持续 1 轮（不叠加）。
-Spell/&AcidClawsTitle=酸爪
 Spell/&AirBlastDescription=向你的目标发射一股聚焦空气。
 Spell/&AirBlastTitle=舞风术
 Spell/&BladeWardDescription=你伸出手，在空中划出一个守护印记。在你的下一个回合结束之前，你对武器攻击造成的钝击、穿刺和挥砍伤害具有抗性。

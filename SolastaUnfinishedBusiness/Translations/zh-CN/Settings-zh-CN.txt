@@ -110,13 +110,12 @@ ModUi/&EnableBardExpertiseOneLevelBefore2024=在 2 级和 9 级（而不是 3 �
 ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<b>希望学院</b> <color=#D89555>治愈之歌</color>
 ModUi/&EnableBardSuperiorInspiration2024=在 18 级（而非 20 级）启用<color=#D89555>卓越灵感</color>，并且授予 2 次充能（而非 1 次）
 ModUi/&EnableBardWordsOfCreation2024=在 20 级时启用<color=#D89555>创世圣言</color>
-ModUi/&EnableBardicInspiration2024=将<color=#D89555>吟游诗人灵感</color>的持续时间从 10 分钟改为 1 小时
+ModUi/&EnableBardicInspiration2024=将 <color=#D89555>Bardic Inspiration</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[持续时间为 1 小时而不是 10 分钟]</color></i>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
 ModUi/&EnableClericChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
-ModUi/&EnableClericDivineIntervention2024=将<color=#D89555>神圣干预</color>和<color=#D89555>改进的神圣干预</color>与 5e 2024 版本交换<i><color=#F0DAA0>[获得法术位达到一定等级]</color></i>
 ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
 ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
 ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
@@ -151,15 +150,16 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义广告系列中
 ModUi/&EnableMinInOutAttributes=<i>+ 强制执行能力得分最低进出先决条件</i>
 ModUi/&EnableMonkAbundantKi=在 2 级时启用<color=#D89555>充沛的气</color> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=启用<color=#D89555>武术 - 额外徒手攻击</color>，在使用前无需采取攻击行动
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=启用<color=#D89555>Flurry of Blows</color>，在使用前无需采取攻击行动
 ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
-ModUi/&EnableMonkHeightenedMetabolism2024=在 10 级时启用<color=#D89555>增强新陈代谢</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
+ModUi/&EnableMonkFocus2024=将<color=#D89555>Flurry of Blows</color>、<color=#D89555>Patient Defense</color>和<color=#D89555>Step of the Wind</color>与 5e 2024 版本交换<i><color=#F0DAA0>[随意使用，气点可获得额外效果]</color></i>
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
+ModUi/&EnableMonkHeightenedFocus2024=在 10 级时启用<color=#D89555>高度专注</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
+ModUi/&EnableMonkKatanaSpecialization=授予<b>僧侣</b>武士刀<color=#D89555>武器专长</color>
+ModUi/&EnableMonkMartialArts2024=将<color=#D89555>武术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[改进了徒手掷骰子进程，并且对徒手打击奖励行动没有任何要求]</color></i>
+ModUi/&EnableMonkStunningStrike2024=将<color=#D89555>Stunning Strike</color>与 5e 2024 版本交换<i><color=#F0DAA0>[目标成功保存时产生的附加效果]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来替换 18 级时的<color=#D89555>空虚之身</color>
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=启用<color=#D89555>徒手攻击</color>以使用 5e 2024 骰子类型进程
-ModUi/&EnableMonkWeaponSpecialization=在 2 级和 11 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[所选武器类型将成为你的武僧武器]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=在第 2 级启用<color=#D89555>不可思议的新陈代谢</color>选项
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>、<color=#D89555>棱镜喷射</color>。以及<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的伤害]</color></i>
@@ -269,7 +269,6 @@ ModUi/&FullyControlConjurations=完全控制召唤术<i><color=#F0DAA0>[动物�
 ModUi/&Gameplay=游戏玩法
 ModUi/&General=<color=#F0DAA0>常规：</color>
 ModUi/&GeneralMenu=一般的
-ModUi/&GrantKatanaSpecializationToMonk=授予<b>僧侣</b>武士刀<color=#D89555>武器专长</color>
 ModUi/&GrantScimitarSpecializationToBardRogue=授予<b>吟游诗人</b>和<b>盗贼</b>弯刀<color=#D89555>武器专长</color>
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器的视觉效果

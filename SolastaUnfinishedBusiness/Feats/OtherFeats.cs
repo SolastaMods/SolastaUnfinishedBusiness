@@ -2024,8 +2024,6 @@ internal static class OtherFeats
                 .GetDatabase<FightingStyleDefinition>()
                 .Where(x =>
                     !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
-                    // backward compatibility
-                    x.Name != FightingStyleContext.PugilistName &&
                     // these should only be offered to Paladins or Rangers as FS
                     // was also lazy to implement cantrips learning under this scenario ;-)
                     x.Name != BlessedWarrior.Name &&

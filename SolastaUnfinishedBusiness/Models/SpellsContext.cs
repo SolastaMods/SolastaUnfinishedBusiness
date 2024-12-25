@@ -252,9 +252,6 @@ internal static class SpellsContext
             RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
         }
 
-        // kept for backward compatibility
-        _ = BuildAcidClaw();
-
         // cantrips
         RegisterSpell(AirBlast, 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);

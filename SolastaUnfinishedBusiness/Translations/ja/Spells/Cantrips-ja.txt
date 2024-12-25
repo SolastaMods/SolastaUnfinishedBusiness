@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=アーマークラスが1下がります。
-Condition/&ConditionAcidClawsTitle=アシッドバーン
 Condition/&ConditionBoomingBladeSheathedDescription=あなたは轟くエネルギーに包まれています。あなたが自発的に 5 フィート以上移動すると、雷のダメージを受けます。
 Condition/&ConditionBoomingBladeSheathedTitle=鞘付き
 Condition/&ConditionGuidanceAcrobaticsDescription=最大 1 分間、アクロバット判定に 1d4 を追加します。
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine={0} はグリーンフレイム�
 Feedback/&AdditionalDamageSunlightBladeFormat=陽光の刃！
 Feedback/&AdditionalDamageSunlightBladeLine={0} がサンリット ブレードで {1} を照らします! (+{2})
 Proxy/&ProxyCreateBonfireTitle=焚き火
-Spell/&AcidClawsDescription=あなたの爪は鋭くなり、腐食攻撃を仕掛ける準備が整います。あなたの周囲 5 フィート以内にいる 1 体のクリーチャーに対して近接呪文攻撃を行います。命中すると、ターゲットは 1d8 の酸ダメージを受け、1 ラウンドの間、アーマー クラスが 1 低下します (重複しません)。
-Spell/&AcidClawsTitle=アシッドクロー
 Spell/&AirBlastDescription=ターゲットに向かって集中した空気を発射します。
 Spell/&AirBlastTitle=ガスト
 Spell/&BladeWardDescription=あなたは手を伸ばし、空中に防御の印章をなぞります。次のターンの終わりまで、あなたは武器攻撃によって与えられる殴打、突き刺し、斬撃のダメージに対する耐性を持ちます。

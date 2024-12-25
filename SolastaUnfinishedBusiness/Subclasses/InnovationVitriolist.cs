@@ -113,7 +113,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionCorroded))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            // required as in a feature set
+            .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Misery
@@ -155,6 +156,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionMiserable))
                     .Build())
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
@@ -187,6 +189,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .Build())
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 
@@ -214,6 +217,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHindered))
                     .Build())
+            // required as in a feature set
             .AddCustomSubFeatures(ClassHolder.Inventor, ModifyPowerVisibility.Hidden)
             .AddToDB();
 

@@ -1,5 +1,3 @@
-Condition/&ConditionAcidClawsDescription=-1 a CA.
-Condition/&ConditionAcidClawsTitle=Quemadura por ácido
 Condition/&ConditionBoomingBladeSheathedDescription=Estás envuelto en una energía explosiva. Si te mueves voluntariamente 1,5 m o más, recibirás daño por trueno.
 Condition/&ConditionBoomingBladeSheathedTitle=Envainado
 Condition/&ConditionGuidanceAcrobaticsDescription=Añade 1d4 a las pruebas de Acrobacias durante hasta 1 minuto.
@@ -53,8 +51,6 @@ Feedback/&AdditionalDamageResonatingStrikeLine=¡{0} quema a {1} con la Espada d
 Feedback/&AdditionalDamageSunlightBladeFormat=¡Espada iluminada por el sol!
 Feedback/&AdditionalDamageSunlightBladeLine=¡{0} ilumina a {1} con Sunlit Blade! (+{2})
 Proxy/&ProxyCreateBonfireTitle=Hoguera
-Spell/&AcidClawsDescription=Tus uñas se afilan, listas para lanzar un ataque corrosivo. Realiza un ataque con hechizo cuerpo a cuerpo contra una criatura a 5 pies de ti. Con un golpe, el objetivo sufre 1d8 de daño por ácido y su CA se reduce en 1 durante 1 ronda (no se acumula).
-Spell/&AcidClawsTitle=Garras ácidas
 Spell/&AirBlastDescription=Dispara una ráfaga de aire concentrada hacia tu objetivo.
 Spell/&AirBlastTitle=Ráfaga
 Spell/&BladeWardDescription=Extiendes tu mano y trazas un sigilo de protección en el aire. Hasta el final de tu siguiente turno, tienes resistencia contra el daño contundente, perforante y cortante infligido por ataques con armas.
