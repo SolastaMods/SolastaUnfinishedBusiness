@@ -111,7 +111,7 @@ internal static partial class Tabletop2024Context
 
         powerDivineSparkHeal.AddCustomSubFeatures(
             new ModifyEffectDescriptionPowerDivineSparkHeal(powerDivineSparkHeal));
-        
+
         var powerDivineSparkDamageNecrotic = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerClericDivineSparkDamageNecrotic")
             .SetGuiPresentation(Category.Feature)
@@ -388,7 +388,7 @@ internal static partial class Tabletop2024Context
             return effectDescription;
         }
     }
-    
+
     private sealed class ModifyEffectDescriptionPowerTurnUndead : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

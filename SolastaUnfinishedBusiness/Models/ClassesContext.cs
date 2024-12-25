@@ -193,7 +193,8 @@ internal static class ClassesContext
             WeaponTypeDefinitions.ScimitarType,
             WeaponTypeDefinitions.ShortbowType,
             WeaponTypeDefinitions.WarhammerType,
-            CustomWeaponsContext.HandXbowWeaponType
+            CustomWeaponsContext.HandXbowWeaponType,
+            CustomWeaponsContext.KatanaWeaponType
         };
 
         foreach (var weaponTypeDefinition in weaponTypeDefinitions)
@@ -286,33 +287,6 @@ internal static class ClassesContext
             MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = false;
         }
     }
-
-#if false
-    internal static void SwitchMonkWeaponSpecialization()
-    {
-        var levels = new[] { 2, 11 };
-
-        if (Main.Settings.EnableMonkWeaponSpecialization)
-        {
-            foreach (var level in levels)
-            {
-                Monk.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(InvocationPoolMonkWeaponSpecialization, level));
-            }
-        }
-        else
-        {
-            foreach (var level in levels)
-            {
-                Monk.FeatureUnlocks
-                    .RemoveAll(x => x.level == level &&
-                                    x.FeatureDefinition == InvocationPoolMonkWeaponSpecialization);
-            }
-        }
-
-        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-#endif
 
     internal static void SwitchMonkHandwrapsGauntletSlot()
     {
