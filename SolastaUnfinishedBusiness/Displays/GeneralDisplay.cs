@@ -531,6 +531,14 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkSuperiorDefense();
         }
 
+        toggle = Main.Settings.EnableMonkUncannyMetabolism2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUncannyMetabolism2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkUncannyMetabolism2024 = toggle;
+            Tabletop2024Context.SwitchMonkUncannyMetabolism();
+        }
+
         toggle = Main.Settings.EnableMonkFocus2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFocus2024"), ref toggle,
                 UI.AutoWidth()))

@@ -308,8 +308,14 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionDodgingPatientDefense { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDodgingPatientDefense");
+
         internal static ConditionDefinition ConditionBerserkerFrenzy { get; } =
             GetDefinition<ConditionDefinition>("ConditionBerserkerFrenzy");
+
+        internal static ConditionDefinition ConditionDisengagingStepOfTheWind { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDisengagingStepOfTheWind");
 
         internal static ConditionDefinition ConditionBerserkerMindlessRage { get; } =
             GetDefinition<ConditionDefinition>("ConditionBerserkerMindlessRage");

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -125,14 +128,39 @@ internal static partial class Tabletop2024Context
         new() { dieType = DieType.D12, rank = 20 }
     ];
 
+    private static readonly FeatureDefinitionPower PowerMonkUncannyMetabolism = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkUncannyMetabolism")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetShowCasting(false)
+        .AddCustomSubFeatures(new InitiativeEndListenerUncannyMetabolism())
+        .AddToDB();
+
+    private static void LoadMonkFocus()
+    {
+        PowerMonkPatientDefense.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeFocus("PatientDefense", ConditionDodgingPatientDefense));
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(
+            new PowerOrSpellFinishedByMeFocus("StepOfTheWind", ConditionDisengagingStepOfTheWind));
+    }
+
+    private static void LoadMonkStunningStrike()
+    {
+        PowerMonkStunningStrike.AddCustomSubFeatures(new PowerOrSpellFinishedByMeStunningStrike());
+    }
+
     internal static void SwitchMonkFocus()
     {
         if (Main.Settings.EnableMonkFocus2024)
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
+
             PowerMonkPatientDefense.GuiPresentation.description =
                 "Feature/&AlternatePatientDefenseDescription";
+            PowerMonkPatientDefense.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionDisengagingStepOfTheWind;
+
             FeatureSetMonkStepOfTheWind.GuiPresentation.description =
                 "Feature/&AlternateFeatureSetMonkStepOfTheWindDescription";
 
@@ -146,17 +174,20 @@ internal static partial class Tabletop2024Context
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
+
             PowerMonkPatientDefense.GuiPresentation.description =
                 "Feature/&PatientDefenseDescription";
+            PowerMonkPatientDefense.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionDodgingPatientDefense;
+
             FeatureSetMonkStepOfTheWind.GuiPresentation.description =
                 "Feature/&FeatureSetMonkStepOfTheWindDescription";
-            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = false;
 
+            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = false;
             PowerMonkPatientDefense.rechargeRate = RechargeRate.KiPoints;
             PowerMonkPatientDefenseSurvival3.rechargeRate = RechargeRate.KiPoints;
             PowerMonkPatientDefenseSurvival6.rechargeRate = RechargeRate.KiPoints;
             PowerMonkStepOfTheWindDash.rechargeRate = RechargeRate.KiPoints;
-            PowerMonkStepOftheWindDisengage.rechargeRate = RechargeRate.KiPoints;
         }
     }
 
@@ -189,10 +220,7 @@ internal static partial class Tabletop2024Context
             PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 
-        if (Main.Settings.EnableMonkMartialArts2024)
-        {
-            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkHeightenedFocus()
@@ -223,12 +251,22 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchMonkUncannyMetabolism()
     {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkUncannyMetabolism);
+
+        if (Main.Settings.EnableMonkUncannyMetabolism2024)
+        {
+            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerMonkUncannyMetabolism, 2));
+        }
+
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkStunningStrike()
     {
-        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        PowerMonkStunningStrike.GuiPresentation.Description =
+            Main.Settings.EnableMonkStunningStrike2024
+                ? "Feature/&MonkAlternateStunningStrikeDescription"
+                : "Feature/&MonkStunningStrikeDescription";
     }
 
     internal static void SwitchMonkBodyAndMind()
@@ -243,6 +281,19 @@ internal static partial class Tabletop2024Context
                 : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class PowerOrSpellFinishedByMeStunningStrike : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.SaveOutcome != RollOutcome.Failure)
+            {
+                yield break;
+            }
+
+            //TODO: implement behavior
+        }
     }
 
     private sealed class CustomBehaviorHeightenedFocus(
@@ -324,6 +375,85 @@ internal static partial class Tabletop2024Context
             hero.ModifyAttributeAndMax(AttributeDefinitions.Dexterity, -4);
             hero.ModifyAttributeAndMax(AttributeDefinitions.Wisdom, -4);
             hero.RefreshAll();
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeFocus(string type, ConditionDefinition conditionDefinition)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!Main.Settings.EnableMonkFocus2024 ||
+                rulesetCharacter.RemainingKiPoints == 0)
+            {
+                yield break;
+            }
+
+            yield return actingCharacter.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                actingCharacter,
+                type,
+                $"CustomReaction{type}Description".Localized(Category.Reaction),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                rulesetCharacter.ForceKiPointConsumption(1);
+                rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+                rulesetCharacter.InflictCondition(
+                    conditionDefinition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionDefinition.Name,
+                    0,
+                    0,
+                    0);
+            }
+        }
+    }
+
+    private sealed class InitiativeEndListenerUncannyMetabolism : IInitiativeEndListener
+    {
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
+        {
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerMonkUncannyMetabolism, rulesetCharacter);
+
+            if (rulesetCharacter.UsedRagePoints == 0 ||
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            yield return character.MyReactToDoNothing(
+                ExtraActionId.DoNothingFree,
+                character,
+                "UncannyMetabolism",
+                "CustomReactionUncannyMetabolismDescription"
+                    .Formatted(Category.Reaction, rulesetCharacter.UsedKiPoints),
+                ReactionValidated);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                // be silent on combat log
+                usablePower.remainingUses--;
+                rulesetCharacter.UsedKiPoints = 0;
+                rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+                EffectHelpers.StartVisualEffect(
+                    character, character, PowerDefilerEatFriends, EffectHelpers.EffectType.Caster);
+            }
         }
     }
 }
