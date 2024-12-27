@@ -47,7 +47,8 @@ internal static partial class Tabletop2024Context
                 .AddToDB())
         .AddToDB();
 
-    private static readonly List<string> DruidWeaponsCategories = [.. ProficiencyDruidWeapon.Proficiencies];
+    private static readonly List<string> DruidWeaponsCategories =
+        [.. ProficiencyDruidWeapon.Proficiencies, "ConjuredWeaponType"];
 
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")

@@ -889,7 +889,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainSprite)
             .AddFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin,
-                FeatureDefinitionCombatAffinitys.CombatAffinityBlurred)
+                FeatureDefinitionCombatAffinitys.CombatAffinityBlinded)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 

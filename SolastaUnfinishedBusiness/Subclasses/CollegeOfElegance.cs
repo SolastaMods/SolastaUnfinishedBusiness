@@ -91,13 +91,16 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .AddToDB();
 
         var powerDodge = FeatureDefinitionPowerBuilder
-            .Create(PowerMonkPatientDefense, $"Power{Name}Dodge")
+            .Create($"Power{Name}Dodge")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerEleganceDodge", Resources.PowerEleganceDodge, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerMonkPatientDefense)
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDodging))
                     .SetCasterEffectParameters(PowerBardHeroismAtRoadsEnd)
                     .Build())
             .AddCustomSubFeatures(validator)
