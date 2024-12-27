@@ -3685,6 +3685,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerPatientDefenseNoCost {
+            get {
+                object obj = ResourceManager.GetObject("PowerPatientDefenseNoCost", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerPerniciousCloak {
             get {
                 object obj = ResourceManager.GetObject("PowerPerniciousCloak", resourceCulture);
@@ -3828,6 +3838,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerSteadyAim {
             get {
                 object obj = ResourceManager.GetObject("PowerSteadyAim", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerStepOfTheWindNoCost {
+            get {
+                object obj = ResourceManager.GetObject("PowerStepOfTheWindNoCost", resourceCulture);
                 return ((byte[])(obj));
             }
         }

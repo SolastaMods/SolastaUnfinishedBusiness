@@ -688,6 +688,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerPatientDefenseNoCost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerPatientDefenseNoCost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerStepOfTheWindNoCost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerStepOfTheWindNoCost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerFullMoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerFullMoon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
