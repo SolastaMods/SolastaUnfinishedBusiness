@@ -633,38 +633,45 @@
         <string>Battleaxe</string>
         <string>LightCrossbow</string>
         <string>HeavyCrossbow</string>
+        <string>Dagger</string>
         <string>Greataxe</string>
         <string>Greatsword</string>
         <string>CEHalberd</string>
         <string>Handaxe</string>
         <string>CEHandXbow</string>
+        <string>Katana</string>
+        <string>Longbow</string>
+        <string>Longsword</string>
         <string>CELongMace</string>
+        <string>Mace</string>
+        <string>Morningstar</string>
         <string>CEPike</string>
         <string>Quarterstaff</string>
         <string>Rapier</string>
         <string>Scimitar</string>
+        <string>Shortbow</string>
+        <string>Shortsword</string>
         <string>Spear</string>
         <string>Javelin</string>
         <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
         <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
         <string>ClothesWizard</string>
+        <string>MonkArmor</string>
+        <string>PaddedLeather</string>
+        <string>Shield_Wooden</string>
+        <string>SorcererArmor</string>
+        <string>Warlock_Armor</string>
+        <string>Breastplate</string>
+        <string>ChainMail</string>
+        <string>ChainShirt</string>
+        <string>HalfPlate</string>
+        <string>HideArmor</string>
+        <string>Leather</string>
+        <string>LeatherDruid</string>
+        <string>Plate</string>
+        <string>ScaleMail</string>
+        <string>Shield</string>
+        <string>StuddedLeather</string>
     </CraftingInStore>
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
@@ -1891,4 +1898,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
