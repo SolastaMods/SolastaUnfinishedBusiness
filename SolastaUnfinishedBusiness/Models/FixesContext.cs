@@ -104,6 +104,12 @@ internal static class FixesContext
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
         AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
 
+        // remove null features from conditions
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
+        {
+            condition.Features.RemoveAll(x => !x);
+        }
+
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
