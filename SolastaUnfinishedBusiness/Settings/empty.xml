@@ -634,7 +634,6 @@
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
     <EnableBardicInspiration2024>false</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>false</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
@@ -651,7 +650,6 @@
     <EnableBarbarianRegainOneRageAtShortRest2024>false</EnableBarbarianRegainOneRageAtShortRest2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
     <EnableClericChannelDivinity2024>false</EnableClericChannelDivinity2024>
-    <EnableClericDivineIntervention2024>false</EnableClericDivineIntervention2024>
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>false</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>false</EnableClericToLearnDomainAtLevel3>
@@ -664,16 +662,17 @@
     <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
-    <EnableMonkUnarmoredStrike2024>false
-    </EnableMonkUnarmoredStrike2024>
-    <EnableMonkFocus2024>false</EnableMonkFocus2024>
+    <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkImprovedUnarmoredMovement>false</EnableMonkImprovedUnarmoredMovement>
+    <EnableMonkFocus2024>false</EnableMonkFocus2024>
     <EnableMonkHandwrapsOnGauntletSlot>false</EnableMonkHandwrapsOnGauntletSlot>
     <EnableMonkHeightenedFocus2024>false</EnableMonkHeightenedFocus2024>
-    <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
-    <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
+    <EnableMonkImprovedUnarmoredMovement>false</EnableMonkImprovedUnarmoredMovement>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
     <EnableMonkMartialArts2024>false</EnableMonkMartialArts2024>
+    <EnableMonkStunningStrike2024>false</EnableMonkStunningStrike2024>
+    <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
+    <EnableMonkUncannyMetabolism2024>false</EnableMonkUncannyMetabolism2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>false</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>false</EnablePaladinChannelDivinity2024>
@@ -1178,8 +1177,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

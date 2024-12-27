@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierBarkskin:5a071f498c38a0042bc3dc3c3099e692",
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5"
+    "Definition:AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus:7beddd56-d6e4-59a9-93fb-668a0a547d75"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -130,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionAbilitySpriteTitle",
-    "description": "Condition/&ConditionAbilitySpriteDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "25d954ddaafbcbe45a5983627d8338a2",
-      "m_SubObjectName": "ConditionPactChainImp",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -152,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "12beb58a-6c02-54cf-b840-00765f41b0bd",
+  "guid": "f292ae1f-0a54-539d-a834-75da9320a00c",
   "contentPack": 9999,
-  "name": "ConditionAbilitySprite"
+  "name": "ConditionMonkFlurryOfBlowsFreedomHeightenedFocus"
 }

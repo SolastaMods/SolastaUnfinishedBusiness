@@ -1,10 +1,20 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMonkPatientDefense:24fa05ec9f3efcf4d86e6a0833c6281b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureMonkHeightenedMetabolismTitle",
-    "description": "Feature/&FeatureMonkHeightenedMetabolismDescription",
+    "title": "Feature/&PatientDefenseTitle",
+    "description": "Feature/&PatientDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4a54e95e-b93a-51d0-afe1-86204357ade5",
+  "guid": "54517bdd-5028-5088-8490-fc2199f4e9a9",
   "contentPack": 9999,
-  "name": "FeatureMonkHeightenedMetabolism"
+  "name": "FeatureSetMonkPatientDefense"
 }

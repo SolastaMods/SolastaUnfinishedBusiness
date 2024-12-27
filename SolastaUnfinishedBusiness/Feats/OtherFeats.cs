@@ -401,7 +401,7 @@ internal static class OtherFeats
             .Create("FeatMonkInitiate")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                PowerMonkPatientDefense,
+                Tabletop2024Context.FeatureSetMonkPatientDefense,
                 FeatureSetMonkStepOfTheWind,
                 FeatureSetMonkFlurryOfBlows,
                 FeatureDefinitionAttributeModifierBuilder

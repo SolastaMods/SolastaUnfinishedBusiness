@@ -4,12 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierBarkskin:5a071f498c38a0042bc3dc3c3099e692",
     "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -18,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacked"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -131,12 +132,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionAbilitySpriteTitle",
-    "description": "Condition/&ConditionAbilitySpriteDescription",
+    "title": "Condition/&ConditionStunningStrikeAdvantageTitle",
+    "description": "Condition/&ConditionStunningStrikeAdvantageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "25d954ddaafbcbe45a5983627d8338a2",
-      "m_SubObjectName": "ConditionPactChainImp",
+      "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
+      "m_SubObjectName": "ConditionBlinded",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -152,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "12beb58a-6c02-54cf-b840-00765f41b0bd",
+  "guid": "87f6e918-cb7f-5036-8946-0e43e5eedf65",
   "contentPack": 9999,
-  "name": "ConditionAbilitySprite"
+  "name": "ConditionStunningStrikeAdvantage"
 }
