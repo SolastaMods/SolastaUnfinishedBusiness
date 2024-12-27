@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=You release the grappled target.
 Action/&ActionDisableGrappleTitle=Disable Grapple
 Action/&ActionGrappleDescription=You can replace one of your main attacks to initiate a grapple, targeting a creature within your reach and no more than one size larger than you. You make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check.
+Action/&ActionGrappleNoCostDescription=You can target an ally within 5 ft, to initiate a grapple until the end of your turn.
+Action/&ActionGrappleNoCostTitle=Step of the Wind: Grapple
 Action/&ActionGrappleTitle=Grapple
 Action/&BrutalStrikeToggleDescription=Activate/deactivate Brutal Strike
 Action/&BrutalStrikeToggleTitle=Brutal Strike
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Can't perform attack on this target
 Failure/&FailureFlagCannotTargetUndead=Cannot target Undead creatures
 Failure/&FailureFlagMaterialComponentHandsFull=No free hand to use material spell components.
 Failure/&FailureFlagMustKnowLanguage=You must be proficient in {0} language to command this creature
+Failure/&FailureFlagTargetIsNotAnAlly=Target is not an ally.
 Failure/&FailureFlagTargetMustNotBeSurprised=Target must not be surprised
 Failure/&FailureFlagTargetMustUnderstandYou=Target must understand your command
 Failure/&SecondTargetNotWithinRange=Can't select this target as not within range of first

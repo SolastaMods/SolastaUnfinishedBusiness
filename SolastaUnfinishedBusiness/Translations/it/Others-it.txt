@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=Rilasci il bersaglio afferrato.
 Action/&ActionDisableGrappleTitle=Disattivare la presa
 Action/&ActionGrappleDescription=Puoi sostituire uno dei tuoi attacchi principali per iniziare una lotta, prendendo di mira una creatura entro la tua portata e non più grande di una taglia rispetto a te. Esegui una prova di Forza (Atletica) contrastata dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio.
+Action/&ActionGrappleNoCostDescription=Puoi scegliere come bersaglio un alleato entro 1,5 metri per iniziare una lotta fino alla fine del tuo turno.
+Action/&ActionGrappleNoCostTitle=Passo del vento: Afferrare
 Action/&ActionGrappleTitle=Afferrare
 Action/&BrutalStrikeToggleDescription=Attiva/disattiva Brutal Strike
 Action/&BrutalStrikeToggleTitle=Colpo Brutale
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Non è possibile eseguire l'attacco su questo bersag
 Failure/&FailureFlagCannotTargetUndead=Non può prendere di mira le creature non morte
 Failure/&FailureFlagMaterialComponentHandsFull=Non c'è mano libera per usare componenti materiali per incantesimi.
 Failure/&FailureFlagMustKnowLanguage=Devi essere competente nella lingua {0} per comandare questa creatura
+Failure/&FailureFlagTargetIsNotAnAlly=Il bersaglio non è un alleato.
 Failure/&FailureFlagTargetMustNotBeSurprised=Il bersaglio non deve essere sorpreso
 Failure/&FailureFlagTargetMustUnderstandYou=Il bersaglio deve capire il tuo comando
 Failure/&SecondTargetNotWithinRange=Impossibile selezionare questo bersaglio perché non è nel raggio del primo

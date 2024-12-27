@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=Vous relâchez la cible agrippée.
 Action/&ActionDisableGrappleTitle=Désactiver le grappin
 Action/&ActionGrappleDescription=Vous pouvez remplacer l'une de vos attaques principales par une lutte contre une créature à votre portée et pas plus grande qu'elle. Vous effectuez un test de Force (Athlétisme) contesté par le test de Force (Athlétisme) ou de Dextérité (Acrobaties) de la cible.
+Action/&ActionGrappleNoCostDescription=Vous pouvez cibler un allié à moins de 5 pieds pour initier une lutte jusqu'à la fin de votre tour.
+Action/&ActionGrappleNoCostTitle=Le pas du vent : Grappin
 Action/&ActionGrappleTitle=Grappin
 Action/&BrutalStrikeToggleDescription=Activer/désactiver Brutal Strike
 Action/&BrutalStrikeToggleTitle=Grève brutale
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Impossible d'effectuer une attaque sur cette cible
 Failure/&FailureFlagCannotTargetUndead=Ne peut pas cibler les créatures mortes-vivantes
 Failure/&FailureFlagMaterialComponentHandsFull=Pas de main libre pour utiliser les composants matériels des sorts.
 Failure/&FailureFlagMustKnowLanguage=Vous devez maîtriser la langue {0} pour commander cette créature
+Failure/&FailureFlagTargetIsNotAnAlly=La cible n'est pas un allié.
 Failure/&FailureFlagTargetMustNotBeSurprised=La cible ne doit pas être surprise
 Failure/&FailureFlagTargetMustUnderstandYou=La cible doit comprendre votre commande
 Failure/&SecondTargetNotWithinRange=Impossible de sélectionner cette cible car elle n'est pas à portée de la première

@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=Sie lassen das gepackte Ziel los.
 Action/&ActionDisableGrappleTitle=Grapple deaktivieren
 Action/&ActionGrappleDescription=Sie können einen Ihrer Hauptangriffe ersetzen, um einen Ringkampf zu beginnen. Dabei zielen Sie auf eine Kreatur in Ihrer Reichweite, die höchstens eine Größe größer ist als Sie. Sie führen einen Stärke- (Athletik-)Wurf durch, der durch den Stärke- (Athletik-) oder Geschicklichkeits- (Akrobatik-)Wurf des Ziels angefochten wird.
+Action/&ActionGrappleNoCostDescription=Sie können bis zum Ende Ihres Zuges einen Verbündeten im Umkreis von 1,5 m anvisieren, um einen Ringkampf zu beginnen.
+Action/&ActionGrappleNoCostTitle=Schritt des Windes: Greifer
 Action/&ActionGrappleTitle=Greifer
 Action/&BrutalStrikeToggleDescription=Brutaler Schlag aktivieren/deaktivieren
 Action/&BrutalStrikeToggleTitle=Brutaler Schlag
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Angriff auf dieses Ziel kann nicht durchgeführt wer
 Failure/&FailureFlagCannotTargetUndead=Untote Kreaturen können nicht als Ziel gewählt werden.
 Failure/&FailureFlagMaterialComponentHandsFull=Keine freie Hand, materielle Zauberkomponenten zu verwenden.
 Failure/&FailureFlagMustKnowLanguage=Du musst die Sprache {0} beherrschen, um diese Kreatur zu befehligen
+Failure/&FailureFlagTargetIsNotAnAlly=Das Ziel ist kein Verbündeter.
 Failure/&FailureFlagTargetMustNotBeSurprised=Das Ziel darf nicht überrascht werden
 Failure/&FailureFlagTargetMustUnderstandYou=Das Ziel muss Ihren Befehl verstehen
 Failure/&SecondTargetNotWithinRange=Dieses Ziel kann nicht ausgewählt werden, da es sich nicht in Reichweite des ersten befindet.

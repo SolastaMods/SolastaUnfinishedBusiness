@@ -1041,7 +1041,7 @@ internal static class OtherFeats
             {
                 attacker.SetSpecialFeatureUses(FeatGrappler.Name, 0);
                 rulesetAttacker.DisableToggle((Id)ExtraActionId.GrappleOnUnarmedToggle);
-                GrappleContext.CustomBehaviorGrapple.ExecuteGrapple(attacker, defender).ExecuteUntilDone();
+                GrappleContext.CustomBehaviorGrapple.ExecuteGrapple(false, attacker, defender).ExecuteUntilDone();
             }
         }
     }

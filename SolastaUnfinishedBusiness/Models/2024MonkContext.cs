@@ -11,6 +11,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -27,10 +29,27 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    private static readonly FeatureDefinition FeatureMonkHeightenedFocus = FeatureDefinitionBuilder
+    private static readonly ConditionDefinition ConditionGrappleNoCost = ConditionDefinitionBuilder
+        .Create("ConditionGrappleNoCost")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddToDB();
+
+    internal static readonly ConditionDefinition ConditionGrappleNoCostUsed = ConditionDefinitionBuilder
+        .Create("ConditionGrappleNoCostUsed")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddCustomSubFeatures(new OnConditionAddedOrRemovedGrappleNoCostUsed())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMonkHeightenedFocus = FeatureDefinitionActionAffinityBuilder
         .Create("FeatureMonkHeightenedFocus")
         .SetGuiPresentation(Category.Feature)
+        .SetAuthorizedActions((Id)ExtraActionId.GrappleNoCost)
         .AddCustomSubFeatures(
+            new ValidateDefinitionApplication(
+                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleNoCost.Name),
+                ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleNoCostUsed.Name)),
             new CustomBehaviorHeightenedFocus(
                 ConditionDefinitionBuilder
                     .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
@@ -274,9 +293,9 @@ internal static partial class Tabletop2024Context
 
     private static readonly ConditionDefinition ConditionStunningStrikeAdvantage = ConditionDefinitionBuilder
         .Create("ConditionStunningStrikeAdvantage")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlinded)
+        .SetGuiPresentation(Category.Condition, ConditionPossessed)
         .SetConditionType(ConditionType.Detrimental)
-        .SetFeatures(CombatAffinityBlinded)
+        .SetFeatures(CombatAffinityStunnedAdvantage)
         .SetSpecialInterruptions(ConditionInterruption.Attacked)
         .AddToDB();
 
@@ -436,6 +455,21 @@ internal static partial class Tabletop2024Context
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private sealed class OnConditionAddedOrRemovedGrappleNoCostUsed : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            glc.BreakGrapple();
+        }
+    }
+
     private sealed class MagicEffectFinishedByMeStunningStrike : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
@@ -498,6 +532,7 @@ internal static partial class Tabletop2024Context
             List<GameLocationCharacter> targets)
         {
             var definition = action.ActionParams.activeEffect.SourceDefinition;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (definition == PowerMonkPatientDefense ||
                 definition == PowerMonkPatientDefenseSurvival3 ||
@@ -509,7 +544,6 @@ internal static partial class Tabletop2024Context
                 definition == PowerMonkPatientDefense2024Survival6Ki ||
                 definition == PowerMonkPatientDefense2024Survival6AtWill)
             {
-                var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
                 var dieType = rulesetCharacter.GetMonkDieType();
                 var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
 
@@ -521,7 +555,19 @@ internal static partial class Tabletop2024Context
                      definition == PowerMonkStepOfTheWind2024Ki ||
                      definition == PowerMonkStepOfTheWind2024AtWill)
             {
-                //TODO: allow use grapple without consuming an attack
+                rulesetCharacter.InflictCondition(
+                    ConditionGrappleNoCost.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    ConditionGrappleNoCost.Name,
+                    0,
+                    0,
+                    0);
             }
 
             yield break;

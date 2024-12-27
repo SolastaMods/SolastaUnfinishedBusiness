@@ -213,6 +213,19 @@ internal static class GrappleContext
             .RequiresAuthorization()
             .AddToDB();
 
+        // Monk Heightened Focus
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Grapple}NoCost")
+            .SetGuiPresentation(Category.Action, AttackFree)
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(PowerGrapple)
+            .SetActionId(ExtraActionId.GrappleNoCost)
+            .SetActionScope(ActionDefinitions.ActionScope.All)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .RequiresAuthorization()
+            .AddToDB();
+
         // these monsters are immune to grapple
         var conditionAffinityGrappleTarget = FeatureDefinitionConditionAffinityBuilder
             .Create("ConditionAffinityGrappleTarget")
@@ -281,7 +294,10 @@ internal static class GrappleContext
              (hasGrappleSource ||
               !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
               !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
-            (extraActionId == ExtraActionId.DisableGrapple && !hasGrappleSource))
+            (extraActionId == ExtraActionId.DisableGrapple && !hasGrappleSource) ||
+            (extraActionId == ExtraActionId.GrappleNoCost &&
+             rulesetCharacter.HasConditionOfCategoryAndType(
+                 AttributeDefinitions.TagEffect, Tabletop2024Context.ConditionGrappleNoCostUsed.Name)))
         {
             __result = ActionDefinitions.ActionStatus.Unavailable;
         }
@@ -393,21 +409,26 @@ internal static class GrappleContext
 
             var actingCharacter = __instance.ActionParams.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var isValid =
-                rulesetCharacter.SizeDefinition.WieldingSize - rulesetTarget.SizeDefinition.WieldingSize >= -1;
 
-            if (!isValid)
+            if (rulesetCharacter.SizeDefinition.WieldingSize - rulesetTarget.SizeDefinition.WieldingSize < -1)
             {
                 __instance.actionModifier.FailureFlags.Add("Failure/&TargetMustBeNoMoreThanOneSizeLarger");
 
                 return false;
             }
 
-            var allowedRange = GetUnarmedReachRange(actingCharacter);
+            var isHeightenedFocus = __instance.ActionParams.ActionDefinition.Name == $"Action{Grapple}NoCost";
 
-            isValid = actingCharacter.IsWithinRange(target, allowedRange);
+            if (isHeightenedFocus && target.Side != Side.Ally)
+            {
+                __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagTargetIsNotAnAlly");
 
-            if (isValid)
+                return false;
+            }
+            
+            var allowedRange = isHeightenedFocus ? 1 : GetUnarmedReachRange(actingCharacter);
+
+            if ( actingCharacter.IsWithinRange(target, allowedRange))
             {
                 return true;
             }
@@ -421,21 +442,32 @@ internal static class GrappleContext
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
+            var isHeightenedFocus = action.ActionType == ActionDefinitions.ActionType.NoCost;
 
-            attacker.BurnOneMainAttack();
+            // grapple no cost from monk Heightened Focus 
+            if (!isHeightenedFocus)
+            {
+                attacker.BurnOneMainAttack();
+            }
 
-            yield return ExecuteGrapple(attacker, defender);
+            yield return ExecuteGrapple(isHeightenedFocus, attacker, defender);
         }
 
-        public static IEnumerator ExecuteGrapple(GameLocationCharacter attacker, GameLocationCharacter defender)
+        public static IEnumerator ExecuteGrapple(
+            bool isHeightenedFocus, GameLocationCharacter attacker, GameLocationCharacter defender)
         {
-            var abilityCheckData = new AbilityCheckData();
+            var success = true;
 
-            yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+            if (!isHeightenedFocus)
+            {
+                var abilityCheckData = new AbilityCheckData();
 
-            var success =
-                abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+                yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
+                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+
+                success =
+                    abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+            }
 
             if (!success)
             {
@@ -476,6 +508,23 @@ internal static class GrappleContext
                 0,
                 0,
                 0);
+
+            if (isHeightenedFocus)
+            {
+                rulesetAttacker.InflictCondition(
+                    Tabletop2024Context.ConditionGrappleNoCostUsed.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    Tabletop2024Context.ConditionGrappleNoCostUsed.Name,
+                    0,
+                    0,
+                    0);
+            }
 
             // apply new grappled condition
             rulesetDefender.InflictCondition(

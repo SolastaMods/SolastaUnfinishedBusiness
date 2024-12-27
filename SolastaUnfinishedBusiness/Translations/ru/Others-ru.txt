@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=Вы отпускаете захваченную цель.
 Action/&ActionDisableGrappleTitle=Отпустить захват
 Action/&ActionGrappleDescription=Вы можете заменить одну атаку основным действием на особую рукопашную атаку, захват. Цель вашего захвата должна быть не более чем на одну категорию больше вас, и она должна находиться в пределах вашей досягаемости. Вы совершаете проверку Силы (Атлетика), противопоставленную проверке Силы (Атлетика) или Ловкости (Акробатика) цели.
+Action/&ActionGrappleNoCostDescription=Вы можете выбрать союзника в радиусе 5 футов, чтобы начать захват до конца вашего хода.
+Action/&ActionGrappleNoCostTitle=Шаг ветра: захват
 Action/&ActionGrappleTitle=Захват
 Action/&BrutalStrikeToggleDescription=Активировать/деактивировать Жестокий удар
 Action/&BrutalStrikeToggleTitle=Жестокий удар
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Невозможно произвести атаку
 Failure/&FailureFlagCannotTargetUndead=Нежить не может быть целью
 Failure/&FailureFlagMaterialComponentHandsFull=Нет свободной руки для использования материальных компонентов заклинаний.
 Failure/&FailureFlagMustKnowLanguage=Вы должны владеть языком {0}, чтобы приказывать этому существу
+Failure/&FailureFlagTargetIsNotAnAlly=Цель не союзник.
 Failure/&FailureFlagTargetMustNotBeSurprised=Цель не должна быть застигнута врасплох
 Failure/&FailureFlagTargetMustUnderstandYou=Цель должна понимать ваш приказ
 Failure/&SecondTargetNotWithinRange=Невозможно выбрать эту цель, поскольку она находится вне досягаемости

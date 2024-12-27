@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=Você solta o alvo agarrado.
 Action/&ActionDisableGrappleTitle=Desabilitar Grapple
 Action/&ActionGrappleDescription=Você pode substituir um dos seus ataques principais para iniciar um agarrar, mirando em uma criatura dentro do seu alcance e não mais do que um tamanho maior que você. Você faz um teste de Força (Atletismo) contestado pelo teste de Força (Atletismo) ou Destreza (Acrobacia) do alvo.
+Action/&ActionGrappleNoCostDescription=Você pode mirar em um aliado a até 1,5 m para iniciar um agarramento até o final do seu turno.
+Action/&ActionGrappleNoCostTitle=Passo do Vento: Grapple
 Action/&ActionGrappleTitle=Agarrar
 Action/&BrutalStrikeToggleDescription=Ativar/desativar Ataque Brutal
 Action/&BrutalStrikeToggleTitle=Ataque Brutal
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=Não é possível executar ataque neste alvo
 Failure/&FailureFlagCannotTargetUndead=Não é possível mirar em criaturas mortas-vivas
 Failure/&FailureFlagMaterialComponentHandsFull=Não há liberdade para usar componentes materiais da magia.
 Failure/&FailureFlagMustKnowLanguage=Você deve ser proficiente em {0} idioma para comandar esta criatura
+Failure/&FailureFlagTargetIsNotAnAlly=A Target não é uma aliada.
 Failure/&FailureFlagTargetMustNotBeSurprised=O alvo não deve ser surpreendido
 Failure/&FailureFlagTargetMustUnderstandYou=O alvo deve entender seu comando
 Failure/&SecondTargetNotWithinRange=Não é possível selecionar este alvo porque ele não está dentro do alcance do primeiro

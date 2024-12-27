@@ -905,6 +905,19 @@ internal static class FixesContext
                 yield break;
             }
 
+            // support Stunning Strike 2024 behavior
+            if (Main.Settings.EnableMonkStunningStrike2024)
+            {
+                if (attacker.OncePerTurnIsValid(PowerMonkStunningStrike.Name))
+                {
+                    attacker.SetSpecialFeatureUses(PowerMonkStunningStrike.Name, 0);
+                }
+                else
+                {
+                    yield break;
+                }
+            }
+
             // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
             if (attacker.UsedSpecialFeatures.ContainsKey(WayOfZenArchery.HailOfArrowsAttack))
             {

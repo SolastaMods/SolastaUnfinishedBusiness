@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=你放开了被擒抱的目标。
 Action/&ActionDisableGrappleTitle=禁用抓钩
 Action/&ActionGrappleDescription=你可以用一次主要攻击来代替擒抱，以你触手可及的范围内且体型不大于你一号的生物为目标。你进行力量（运动）检定，并与目标的力量（运动）或敏捷（杂技）检定进行对抗。
+Action/&ActionGrappleNoCostDescription=你可以瞄准 5 英尺内的盟友，在你的回合结束前发起擒抱。
+Action/&ActionGrappleNoCostTitle=风之步伐：擒抱
 Action/&ActionGrappleTitle=抓钩
 Action/&BrutalStrikeToggleDescription=激活/停用凶蛮打击
 Action/&BrutalStrikeToggleTitle=凶蛮打击
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=无法对该目标进行攻击
 Failure/&FailureFlagCannotTargetUndead=无法以亡灵生物为目标
 Failure/&FailureFlagMaterialComponentHandsFull=无法自由地使用材料法术成分。
 Failure/&FailureFlagMustKnowLanguage=你必须精通{0}语言才能指挥这个生物
+Failure/&FailureFlagTargetIsNotAnAlly=目标不是盟友。
 Failure/&FailureFlagTargetMustNotBeSurprised=目标不能感到惊讶
 Failure/&FailureFlagTargetMustUnderstandYou=目标必须理解你的命令
 Failure/&SecondTargetNotWithinRange=无法选择此目标，因为不在第一个范围内

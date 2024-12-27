@@ -1,6 +1,8 @@
 Action/&ActionDisableGrappleDescription=붙잡힌 타겟을 놓습니다.
 Action/&ActionDisableGrappleTitle=그래플 비활성화
 Action/&ActionGrappleDescription=당신은 주요 공격 중 하나를 대체하여 그래플을 시작할 수 있으며, 당신의 손이 닿는 범위 내에 있고 당신보다 한 사이즈 이상 크지 않은 생물을 대상으로 합니다. 당신은 대상의 힘(운동) 또는 민첩성(곡예) 검사에 의해 경합되는 힘(운동) 검사를 합니다.
+Action/&ActionGrappleNoCostDescription=5피트 이내에 있는 아군을 대상으로 하여 턴이 끝날 때까지 씨름을 시작할 수 있습니다.
+Action/&ActionGrappleNoCostTitle=바람의 걸음: 그래플
 Action/&ActionGrappleTitle=잡다
 Action/&BrutalStrikeToggleDescription=잔혹한 일격 활성화/비활성화
 Action/&BrutalStrikeToggleTitle=잔인한 일격
@@ -86,6 +88,7 @@ Failure/&CannotAttackTarget=이 대상에 공격을 수행할 수 없습니다
 Failure/&FailureFlagCannotTargetUndead=언데드 생물을 대상으로 할 수 없습니다.
 Failure/&FailureFlagMaterialComponentHandsFull=재료 주문 구성 요소를 자유롭게 사용할 수 없습니다.
 Failure/&FailureFlagMustKnowLanguage=이 생물을 지휘하려면 {0} 언어에 능통해야 합니다.
+Failure/&FailureFlagTargetIsNotAnAlly=타겟은 동맹이 아닙니다.
 Failure/&FailureFlagTargetMustNotBeSurprised=타겟은 놀라지 않아야 합니다.
 Failure/&FailureFlagTargetMustUnderstandYou=타겟은 당신의 명령을 이해해야 합니다
 Failure/&SecondTargetNotWithinRange=첫 번째 범위 내에 있지 않으므로 이 대상을 선택할 수 없습니다.
