@@ -12,12 +12,16 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -136,12 +140,140 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new InitiativeEndListenerUncannyMetabolism())
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024AtWill = FeatureDefinitionPowerBuilder
+        .Create(PowerMonkPatientDefense, "PowerMonkPatientDefense2024AtWill")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.BonusAction)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(PowerMonkPatientDefense)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerMonkPatientDefenseSurvival3, "PowerMonkPatientDefense2024Survival3AtWill")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetOverriddenPower(PowerMonkPatientDefense2024AtWill)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkPatientDefenseSurvival3)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                        EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
+                    .Build())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerMonkPatientDefenseSurvival6, "PowerMonkPatientDefense2024Survival6AtWill")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetOverriddenPower(PowerMonkPatientDefense2024Survival3AtWill)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkPatientDefenseSurvival6)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                        EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
+                    .Build())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
+        .Create(PowerMonkStepOfTheWindDash, "PowerMonkStepOfTheWind2024AtWill")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.BonusAction)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(PowerMonkStepOfTheWindDash)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
+        .Create(PowerMonkPatientDefense, "PowerMonkPatientDefense2024Ki")
+        .SetGuiPresentation(Category.Feature)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(PowerMonkPatientDefense)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                    EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerMonkPatientDefenseSurvival3, "PowerMonkPatientDefense2024Survival3Ki")
+            .SetGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerMonkPatientDefense2024Ki)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkPatientDefenseSurvival3)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                        EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
+                        EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
+                    .Build())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
+        FeatureDefinitionPowerBuilder
+            .Create(PowerMonkPatientDefenseSurvival6, "PowerMonkPatientDefense2024Survival6Ki")
+            .SetGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerMonkPatientDefense2024Survival3Ki)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkPatientDefenseSurvival6)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                        EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
+                        EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
+                    .Build())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
+        .Create(PowerMonkStepOfTheWindDash, "PowerMonkStepOfTheWind2024Ki")
+        .SetGuiPresentation(Category.Feature)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(PowerMonkStepOfTheWindDash)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
+                    EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
+                .Build())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetMonkPatientDefense =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMonkPatientDefense")
+            .SetGuiPresentation("PatientDefense", Category.Feature)
+            .SetFeatureSet(PowerMonkPatientDefense)
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
+        .Create("ConditionStunningStrikeHalfMove")
+        .SetGuiPresentation(Category.Condition, ConditionSlowed)
+        .SetFeatures(MovementAffinityConditionSlowed)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionStunningStrikeAdvantage = ConditionDefinitionBuilder
+        .Create("ConditionStunningStrikeAdvantage")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlinded)
+        .SetFeatures(CombatAffinityBlinded)
+        .SetSpecialInterruptions(ConditionInterruption.Attacked)
+        .AddToDB();
+
     private static void LoadMonkFocus()
     {
-        PowerMonkPatientDefense.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeFocus("PatientDefense", ConditionDodgingPatientDefense));
-        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(
-            new PowerOrSpellFinishedByMeFocus("StepOfTheWind", ConditionDisengagingStepOfTheWind));
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
+        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
     }
 
     private static void LoadMonkStunningStrike()
@@ -156,38 +288,51 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
 
-            PowerMonkPatientDefense.GuiPresentation.description =
+            FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&AlternatePatientDefenseDescription";
-            PowerMonkPatientDefense.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionDisengagingStepOfTheWind;
+            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+                PowerMonkPatientDefense2024AtWill,
+                PowerMonkPatientDefense2024Ki);
+
+            FeatureSetTraditionSurvivalDefensiveStance.FeatureSet.SetRange(
+                AttributeModifierTraditionSurvivalDefensiveStance,
+                PowerMonkPatientDefense2024Survival3AtWill,
+                PowerMonkPatientDefense2024Survival3Ki);
+
+            FeatureSetTraditionSurvivalUnbreakableBody.FeatureSet.SetRange(
+                PowerTraditionSurvivalUnbreakableBody,
+                PowerMonkPatientDefense2024Survival6AtWill,
+                PowerMonkPatientDefense2024Survival6Ki);
 
             FeatureSetMonkStepOfTheWind.GuiPresentation.description =
                 "Feature/&AlternateFeatureSetMonkStepOfTheWindDescription";
-
-            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = true;
-            PowerMonkPatientDefense.rechargeRate = RechargeRate.AtWill;
-            PowerMonkPatientDefenseSurvival3.rechargeRate = RechargeRate.AtWill;
-            PowerMonkPatientDefenseSurvival6.rechargeRate = RechargeRate.AtWill;
-            PowerMonkStepOfTheWindDash.rechargeRate = RechargeRate.AtWill;
+            FeatureSetMonkStepOfTheWind.FeatureSet.SetRange(
+                PowerMonkStepOfTheWind2024AtWill,
+                PowerMonkStepOfTheWind2024Ki);
         }
         else
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
 
-            PowerMonkPatientDefense.GuiPresentation.description =
+            FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&PatientDefenseDescription";
-            PowerMonkPatientDefense.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionDodgingPatientDefense;
+            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+                PowerMonkPatientDefense);
+
+            FeatureSetTraditionSurvivalDefensiveStance.FeatureSet.SetRange(
+                AttributeModifierTraditionSurvivalDefensiveStance,
+                PowerMonkPatientDefenseSurvival3);
+
+            FeatureSetTraditionSurvivalUnbreakableBody.FeatureSet.SetRange(
+                PowerTraditionSurvivalUnbreakableBody,
+                PowerMonkPatientDefenseSurvival6);
 
             FeatureSetMonkStepOfTheWind.GuiPresentation.description =
                 "Feature/&FeatureSetMonkStepOfTheWindDescription";
-
-            PowerMonkStepOftheWindDisengage.GuiPresentation.hidden = false;
-            PowerMonkPatientDefense.rechargeRate = RechargeRate.KiPoints;
-            PowerMonkPatientDefenseSurvival3.rechargeRate = RechargeRate.KiPoints;
-            PowerMonkPatientDefenseSurvival6.rechargeRate = RechargeRate.KiPoints;
-            PowerMonkStepOfTheWindDash.rechargeRate = RechargeRate.KiPoints;
+            FeatureSetMonkStepOfTheWind.FeatureSet.SetRange(
+                PowerMonkStepOfTheWindDash,
+                PowerMonkStepOftheWindDisengage);
         }
     }
 
@@ -195,10 +340,10 @@ internal static partial class Tabletop2024Context
     {
         if (Main.Settings.EnableMonkMartialArts2024)
         {
-            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
-                MonkUnarmedDieTypeByRank2024;
+            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable = MonkUnarmedDieTypeByRank2024;
             AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
                 "Feature/&AttackModifierMonkMartialArtsExtendedDescription";
+
             PowerMonkMartialArts.GuiPresentation.description =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             PowerMonkMartialArts.GuiPresentation.title =
@@ -208,14 +353,12 @@ internal static partial class Tabletop2024Context
         }
         else
         {
-            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable =
-                MonkUnarmedDieTypeByRank;
+            AttackModifierMonkMartialArtsImprovedDamage.dieTypeByRankTable = MonkUnarmedDieTypeByRank;
             AttackModifierMonkMartialArtsImprovedDamage.GuiPresentation.Description =
                 "Feature/&AttackModifierMonkMartialArtsDescription";
-            PowerMonkMartialArts.GuiPresentation.description =
-                "Action/&MartialArtsDescription";
-            PowerMonkMartialArts.GuiPresentation.title =
-                "Action/&MartialArtsTitle";
+
+            PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
             PowerMonkMartialArts.GuiPresentation.hidden = false;
             PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
@@ -292,7 +435,36 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            //TODO: implement behavior
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                ConditionStunningStrikeHalfMove.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionStunningStrikeHalfMove.Name,
+                0,
+                0,
+                0);
+
+            rulesetDefender.InflictCondition(
+                ConditionStunningStrikeAdvantage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionStunningStrikeAdvantage.Name,
+                0,
+                0,
+                0);
         }
     }
 
@@ -316,7 +488,13 @@ internal static partial class Tabletop2024Context
 
             if (definition != PowerMonkPatientDefense &&
                 definition != PowerMonkPatientDefenseSurvival3 &&
-                definition != PowerMonkPatientDefenseSurvival6)
+                definition != PowerMonkPatientDefenseSurvival6 &&
+                definition != PowerMonkPatientDefense2024Ki &&
+                definition != PowerMonkPatientDefense2024AtWill &&
+                definition != PowerMonkPatientDefense2024Survival3Ki &&
+                definition != PowerMonkPatientDefense2024Survival3AtWill &&
+                definition != PowerMonkPatientDefense2024Survival6Ki &&
+                definition != PowerMonkPatientDefense2024Survival6AtWill)
             {
                 yield break;
             }
@@ -378,50 +556,6 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private sealed class PowerOrSpellFinishedByMeFocus(string type, ConditionDefinition conditionDefinition)
-        : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            if (!Main.Settings.EnableMonkFocus2024 ||
-                rulesetCharacter.RemainingKiPoints == 0)
-            {
-                yield break;
-            }
-
-            yield return actingCharacter.MyReactToDoNothing(
-                ExtraActionId.DoNothingFree,
-                actingCharacter,
-                type,
-                $"CustomReaction{type}Description".Localized(Category.Reaction),
-                ReactionValidated);
-
-            yield break;
-
-            void ReactionValidated()
-            {
-                rulesetCharacter.ForceKiPointConsumption(1);
-                rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
-                rulesetCharacter.InflictCondition(
-                    conditionDefinition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionDefinition.Name,
-                    0,
-                    0,
-                    0);
-            }
-        }
-    }
-
     private sealed class InitiativeEndListenerUncannyMetabolism : IInitiativeEndListener
     {
         public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
@@ -429,7 +563,7 @@ internal static partial class Tabletop2024Context
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerMonkUncannyMetabolism, rulesetCharacter);
 
-            if (rulesetCharacter.UsedRagePoints == 0 ||
+            if (rulesetCharacter.UsedKiPoints == 0 ||
                 rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;

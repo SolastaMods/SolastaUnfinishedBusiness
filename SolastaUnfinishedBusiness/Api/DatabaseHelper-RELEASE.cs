@@ -308,6 +308,12 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalDefensiveStance");
+
+        internal static ConditionDefinition ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved");
+
         internal static ConditionDefinition ConditionDodgingPatientDefense { get; } =
             GetDefinition<ConditionDefinition>("ConditionDodgingPatientDefense");
 
@@ -1172,6 +1178,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAttributeModifiers
     {
+        internal static FeatureDefinitionAttributeModifier AttributeModifierTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTraditionSurvivalDefensiveStance");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierClericChannelDivinity { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierClericChannelDivinity");
 
@@ -1338,9 +1347,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlinded { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlinded");
-
-        internal static FeatureDefinitionCombatAffinity CombatAffinityBlurred { get; } =
-            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlurred");
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityDisengaging { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityDisengaging");
@@ -1587,6 +1593,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalUnbreakableBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalUnbreakableBody");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalDefensiveStance { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalDefensiveStance");
+
         internal static FeatureDefinitionFeatureSet FeatureSetPactSelection { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactSelection");
 
