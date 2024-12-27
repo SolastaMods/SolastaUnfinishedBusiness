@@ -25,6 +25,19 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 {
     internal const string Name = "OathOfDemonHunter";
 
+    internal static readonly IsWeaponValidHandler IsOathOfDemonHunterWeapon = (mode, item, character) =>
+    {
+        var levels = character.GetSubclassLevel(CharacterClassDefinitions.Paladin, Name);
+
+        return levels switch
+        {
+            >= 3 => ValidatorsWeapon
+                .IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType)
+                (mode, item, character),
+            _ => false
+        };
+    };
+
     public OathOfDemonHunter()
     {
         //
@@ -174,9 +187,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static IsWeaponValidHandler IsOathOfDemonHunterWeapon { get; } =
-        ValidatorsWeapon.IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
-
     private sealed class PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(
         ConditionDefinition conditionTrialMark,
         FeatureDefinitionPower powerTrialMark)
@@ -196,7 +206,9 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            if (!IsOathOfDemonHunterWeapon(attackMode, null, null))
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!IsOathOfDemonHunterWeapon(attackMode, null, rulesetAttacker))
             {
                 yield break;
             }
@@ -209,7 +221,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
 
             if (rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
@@ -234,7 +245,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             RulesetItem weapon,
             bool canAddAbilityDamageBonus)
         {
-            if (!IsOathOfDemonHunterWeapon(attackMode, null, null))
+            if (!IsOathOfDemonHunterWeapon(attackMode, null, character))
             {
                 return;
             }
