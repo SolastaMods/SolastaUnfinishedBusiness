@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedMetabolism:8d954034-4de8-58ba-8063-4b642b27b5bd"
+    "Definition:MovementAffinityConditionSlowed:d1cc31d667617454e9751c34328770d4"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -129,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionStunningStrikeHalfMoveTitle",
+    "description": "Condition/&ConditionStunningStrikeHalfMoveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "5d503f63f4583dd4a9bd2460a783a470",
+      "m_SubObjectName": "ConditionSlowed",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c6595a0-25fa-52e5-b6d7-20b3d92baf2e",
+  "guid": "c441cb67-2185-54af-b717-34afd6540a79",
   "contentPack": 9999,
-  "name": "ConditionMonkFlurryOfBlowsFreedomHeightenedMetabolism"
+  "name": "ConditionStunningStrikeHalfMove"
 }
