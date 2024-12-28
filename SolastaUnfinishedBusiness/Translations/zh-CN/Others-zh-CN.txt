@@ -159,6 +159,7 @@ Feature/&FeatureSetDruidPrimalOrderTitle=原始秩序
 Feature/&FeatureSetDruidPrimalOrderWardenDescription=经过战斗训练，您可以熟练使用军用武器并接受中型盔甲训练。
 Feature/&FeatureSetDruidPrimalOrderWardenTitle=典狱长
 Feature/&FeatureSetMonkAlternateDeflectMissilesDescription=当武器或徒手攻击击中您时，其伤害包括钝击、穿刺或砍击，您可以采取反应来减少攻击对您的总伤害。减少量等于 1d10 加上您的敏捷调整值和武僧等级。如果您将伤害降低到 0，并且攻击者在 60 英尺以内，您可以消耗 1 点气点将部分攻击力量转移回生物。如果您这样做，生物必须成功进行敏捷豁免检定，否则将受到相当于您的两次武术骰子加上您的敏捷调整值的伤害。伤害类型与攻击造成的伤害相同。
+Feature/&FeatureSetMonkAlternateDeflectMissilesTitle=偏转攻击
 Feature/&FeatureSetRageExtendedDescription=在战斗中，你会以原始的凶猛进行战斗。在你的回合中，你可以输入狂怒作为附赠动作。这使你在力量豁免和检定上获得优势，近战攻击伤害初始 +2 加值，以及对挥砍、钝击和穿刺伤害的抗性。仅当你不穿着重甲时你才能获得这些好处。持续 1 分钟，如果自上回合以来你没有攻击或受到伤害，则结束。\n你以 2 点怒气开始，在长休后恢复。 7 级时，短休后你会恢复 1 点怒气。
 Feature/&FeatureSetRangerDeftExplorerDescription=通过旅行，您将获得以下好处。\n• 专业知识。选择一项您不擅长的技能。您将获得该技能的专业知识。\n• 语言。您掌握 2 种您选择的语言。
 Feature/&FeatureSetRangerDeftExplorerTitle=灵巧的探险家

@@ -343,12 +343,16 @@ internal static partial class Tabletop2024Context
     {
         if (Main.Settings.EnableMonkDeflectAttacks2024)
         {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkAlternateDeflectMissilesTitle";
             FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
                 "Feature/&FeatureSetMonkAlternateDeflectMissilesDescription";
             FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(PowerMonkReturnAttacks);
         }
         else
         {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkDeflectMissilesTitle";
             FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
                 "Feature/&FeatureSetMonkDeflectMissilesDescription";
             FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(

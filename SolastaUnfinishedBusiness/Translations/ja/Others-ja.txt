@@ -159,6 +159,7 @@ Feature/&FeatureSetDruidPrimalOrderTitle=原始秩序
 Feature/&FeatureSetDruidPrimalOrderWardenDescription=戦闘の訓練を受け、あなたは格闘武器の熟練度と中型鎧の訓練を習得します。
 Feature/&FeatureSetDruidPrimalOrderWardenTitle=ウォーデン
 Feature/&FeatureSetMonkAlternateDeflectMissilesDescription=武器または素手攻撃があなたに命中し、そのダメージに殴打、刺突、または斬撃が含まれる場合、あなたは反応を行って攻撃によるあなたへの総ダメージを減らすことができます。この減少は 1d10 プラスあなたの敏捷性修正値とモンク レベルに等しくなります。ダメージを 0 に減らし、攻撃者が 60 フィート以内にいる場合、1 気ポイントを消費して攻撃の力の一部をクリーチャーに戻すことができます。そうした場合、クリーチャーは敏捷性セーヴィング スローに成功しなければ、あなたの武術ダイス 2 個と敏捷性修正値に等しいダメージを受けます。このダメージは攻撃によって与えられたものと同じ種類です。
+Feature/&FeatureSetMonkAlternateDeflectMissilesTitle=攻撃をかわす
 Feature/&FeatureSetRageExtendedDescription=戦闘では、根源的な凶暴性で戦います。自分のターンでは、ボーナス アクションとして激怒を入力できます。これにより、体力のセーブとチェックで有利になり、近接攻撃のダメージに最初の +2 ボーナスが与えられ、斬撃、殴打、突き刺しのダメージに対する耐性が得られます。これらの利点は、重装備を着用していない場合にのみ得られます。 1 分間持続するか、最後のターン以降に攻撃やダメージを受けていない場合は終了します。\n 2 つの激怒から始まり、長い休息の後に更新されます。レベル 7 では、短い休憩の後、怒りポイントが 1 回復します。
 Feature/&FeatureSetRangerDeftExplorerDescription=旅のおかげで、あなたは以下の利益を得ます。\n• 専門知識。あなたが熟達していないスキルの 1 つを選択します。そのスキルの専門知識を得ます。\n• 言語。あなたが選択した 2 つの言語を習得します。
 Feature/&FeatureSetRangerDeftExplorerTitle=巧みな探検家
