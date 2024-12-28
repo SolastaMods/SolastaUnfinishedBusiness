@@ -712,6 +712,7 @@
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
+    <EnableMonkDeflectAttacks2024>true</EnableMonkDeflectAttacks2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkFocus2024>true</EnableMonkFocus2024>
     <EnableMonkHandwrapsOnGauntletSlot>true</EnableMonkHandwrapsOnGauntletSlot>
@@ -1898,8 +1899,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

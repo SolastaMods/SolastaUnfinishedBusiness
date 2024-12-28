@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "623efe782aaa3a84fbd91053c5fd1b39",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,7 +332,7 @@
     "description": "Feature/&PowerMonkPatientDefense2024AtWillDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "b3da8127-17de-5464-9ffa-15e01abe4f72",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

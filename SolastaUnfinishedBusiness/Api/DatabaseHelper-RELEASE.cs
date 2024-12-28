@@ -1011,6 +1011,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMonkDeflectMissiles");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
 
@@ -1596,6 +1599,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDeflectMissiles");
+
         internal static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalUnbreakableBody");
 
@@ -1869,6 +1875,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerMonkReturnMissile { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkReturnMissile");
+
         internal static FeatureDefinitionPower PowerDefilerEatFriends { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerEatFriends");
 

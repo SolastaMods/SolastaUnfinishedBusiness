@@ -142,7 +142,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "623efe782aaa3a84fbd91053c5fd1b39",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -359,9 +359,9 @@
     "description": "Feature/&PowerMonkPatientDefense2024Survival3AtWillDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "af9d07858e9c30649a612fc1e1087035",
+      "m_SubObjectName": "PatientDefense",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

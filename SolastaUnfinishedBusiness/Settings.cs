@@ -299,6 +299,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }
+    public bool EnableMonkDeflectAttacks2024 { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkFocus2024 { get; set; }
     public bool EnableMonkHandwrapsOnGauntletSlot { get; set; }

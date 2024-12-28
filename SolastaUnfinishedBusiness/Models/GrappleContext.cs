@@ -14,6 +14,7 @@ using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -29,12 +30,15 @@ internal static class GrappleContext
     private const string ConditionGrappleTargetName = $"Condition{Grapple}Target";
     private const string ConditionGrappleSourceName = $"Condition{Grapple}Source";
 
+    private const string ConditionGrappleSourceFromHeightenedName = $"Condition{Grapple}SourceFromHeightened";
+
     internal const string ConditionGrappleSourceWithGrapplerName = $"Condition{Grapple}SourceWithGrappler";
     internal const string ConditionGrappleSourceWithGrapplerLargerName = $"Condition{Grapple}SourceWithGrapplerLarger";
 
     private static readonly string[] AllSourceGrappleConditionNames =
     [
         ConditionGrappleSourceName,
+        ConditionGrappleSourceFromHeightenedName,
         ConditionGrappleSourceWithGrapplerName,
         ConditionGrappleSourceWithGrapplerLargerName
     ];
@@ -123,7 +127,7 @@ internal static class GrappleContext
 
         var conditionGrappleTarget = ConditionDefinitionBuilder
             .Create(ConditionGrappleTargetName)
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHindered)
+            .SetGuiPresentation(Category.Condition, ConditionHindered)
             .SetConditionType(ConditionType.Detrimental)
             .SetFixedAmount((int)AiHelpers.BreakFreeType.DoStrengthOrDexterityContestCheckAgainstStrengthAthletics)
             .SetBrain(battlePackage, true)
@@ -162,9 +166,25 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
-            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+                    x.IsSubtypeOf(RuleDefinitions.ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionCharmedByHypnoticPattern)
+            .SetConditionParticleReference(ConditionSlowed)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionGrappleSourceFromHeightenedName)
+            .SetGuiPresentation(
+                "ConditionGrappleSource", Category.Condition, ConditionDefinitions.ConditionEncumbered)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
+                combatAffinityGrappleSource)
+            .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
+            .SetCancellingConditions(
+                DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
+                    x.IsSubtypeOf(RuleDefinitions.ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionCharmedByHypnoticPattern)
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
@@ -178,14 +198,13 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
-            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+                    x.IsSubtypeOf(RuleDefinitions.ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionCharmedByHypnoticPattern)
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
             .Create(ConditionGrappleSourceWithGrapplerLargerName)
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
+            .SetGuiPresentation(Category.Condition, ConditionSlowed)
             .SetConditionType(ConditionType.Neutral)
             .SetFeatures(
                 MovementAffinityNoClimb,
@@ -195,9 +214,9 @@ internal static class GrappleContext
             .AddCustomSubFeatures(CustomBehaviorConditionGrappleSource.Marker)
             .SetCancellingConditions(
                 DatabaseRepository.GetDatabase<ConditionDefinition>().Where(x =>
-                    x.IsSubtypeOf(ConditionIncapacitated)).ToArray())
-            .AddCancellingConditions(ConditionDefinitions.ConditionCharmedByHypnoticPattern)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionSlowed)
+                    x.IsSubtypeOf(RuleDefinitions.ConditionIncapacitated)).ToArray())
+            .AddCancellingConditions(ConditionCharmedByHypnoticPattern)
+            .SetConditionParticleReference(ConditionSlowed)
             .AddToDB();
 
         // Brawler feat
@@ -296,8 +315,10 @@ internal static class GrappleContext
               !ValidatorsCharacter.HasMainAttackAvailable(rulesetCharacter))) ||
             (extraActionId == ExtraActionId.DisableGrapple && !hasGrappleSource) ||
             (extraActionId == ExtraActionId.GrappleNoCost &&
-             rulesetCharacter.HasConditionOfCategoryAndType(
-                 AttributeDefinitions.TagEffect, Tabletop2024Context.ConditionGrappleNoCostUsed.Name)))
+             (hasGrappleSource ||
+              !ValidatorsCharacter.HasFreeHand(rulesetCharacter) ||
+              rulesetCharacter.HasConditionOfCategoryAndType(
+                  AttributeDefinitions.TagEffect, Tabletop2024Context.ConditionGrappleNoCostUsed.Name))))
         {
             __result = ActionDefinitions.ActionStatus.Unavailable;
         }
@@ -332,12 +353,11 @@ internal static class GrappleContext
 
     internal static bool HasGrappleSource(RulesetCharacter rulesetCharacter)
     {
-        return rulesetCharacter.HasConditionOfCategoryAndType(
-                   AttributeDefinitions.TagEffect, ConditionGrappleSourceName) ||
-               rulesetCharacter.HasConditionOfCategoryAndType(
-                   AttributeDefinitions.TagEffect, ConditionGrappleSourceWithGrapplerName) ||
-               rulesetCharacter.HasConditionOfCategoryAndType(
-                   AttributeDefinitions.TagEffect, ConditionGrappleSourceWithGrapplerLargerName);
+        return rulesetCharacter.HasAnyConditionOfType(
+            ConditionGrappleSourceName,
+            ConditionGrappleSourceFromHeightenedName,
+            ConditionGrappleSourceWithGrapplerName,
+            ConditionGrappleSourceWithGrapplerLargerName);
     }
 
     private static bool GetGrappledActor(
@@ -425,10 +445,10 @@ internal static class GrappleContext
 
                 return false;
             }
-            
+
             var allowedRange = isHeightenedFocus ? 1 : GetUnarmedReachRange(actingCharacter);
 
-            if ( actingCharacter.IsWithinRange(target, allowedRange))
+            if (actingCharacter.IsWithinRange(target, allowedRange))
             {
                 return true;
             }
@@ -442,7 +462,7 @@ internal static class GrappleContext
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
-            var isHeightenedFocus = action.ActionType == ActionDefinitions.ActionType.NoCost;
+            var isHeightenedFocus = action.ActionDefinition.Name == $"Action{Grapple}NoCost";
 
             // grapple no cost from monk Heightened Focus 
             if (!isHeightenedFocus)
@@ -489,7 +509,8 @@ internal static class GrappleContext
             }
 
             // apply new grappler condition
-            var sourceConditionName = ConditionGrappleSourceName;
+            var sourceConditionName =
+                isHeightenedFocus ? ConditionGrappleSourceFromHeightenedName : ConditionGrappleSourceName;
 
             // factor in Grappler feat
             OtherFeats.MaybeChangeGrapplerConditionForGrappleFeatBehavior(
@@ -561,13 +582,6 @@ internal static class GrappleContext
 
     private sealed class OnConditionAddedOrRemovedConditionGrappleTarget : IOnConditionAddedOrRemoved
     {
-        private static readonly string[] PossibleConditionsToRemove =
-        [
-            ConditionGrappleSourceName,
-            ConditionGrappleSourceWithGrapplerName,
-            ConditionGrappleSourceWithGrapplerLargerName
-        ];
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -578,7 +592,7 @@ internal static class GrappleContext
             // should remove source tracker condition as well
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            foreach (var conditionName in PossibleConditionsToRemove)
+            foreach (var conditionName in AllSourceGrappleConditionNames)
             {
                 if (rulesetSource.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionName, out var activeConditionSource) &&

@@ -66,6 +66,7 @@ internal static partial class Tabletop2024Context
         SwitchFighterStudiedAttacks();
         SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMind();
+        SwitchMonkDeflectAttacks();
         SwitchMonkFocus();
         SwitchMonkHeightenedFocus();
         SwitchMonkMartialArts();

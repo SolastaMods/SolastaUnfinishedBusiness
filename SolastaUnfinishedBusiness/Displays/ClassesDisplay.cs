@@ -269,6 +269,14 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchMonkBodyAndMind();
         }
 
+        toggle = Main.Settings.EnableMonkDeflectAttacks2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDeflectAttacks2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDeflectAttacks2024 = toggle;
+            Tabletop2024Context.SwitchMonkDeflectAttacks();
+        }
+
         toggle = Main.Settings.EnableMonkFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
         {

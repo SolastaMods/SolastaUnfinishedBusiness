@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione de
 ModUi/&EnableMinInOutAttributes=<i>+ Applica i punteggi minimi di abilità in entrata e in uscita dai prerequisiti</i>
 ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Ki abbondante</color> al livello 2 <i><color=#F0DAA0>[guadagna Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Abilita <color=#D89555>Corpo e Mente</color> per sostituire <color=#D89555>Sé Perfetto</color> al livello 20
+ModUi/&EnableMonkDeflectAttacks2024=Abilita <color=#D89555>Devia attacchi</color> per sostituire <color=#D89555>Devia missili</color> al livello 3 <i><color=#F0DAA0>[può anche deviare mischia]</color></i>
 ModUi/&EnableMonkFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
 ModUi/&EnableMonkFocus2024=Sostituisci <color=#D89555>Raffica di colpi</color>, <color=#D89555>Difesa paziente</color> e <color=#D89555>Passo del vento</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi a piacimento, punti ki per effetti aggiuntivi]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Abilita <color=#D89555>Fasce per le mani</color> e <color=#D89555>Guanti</color> per funzionare nello slot dei guanti
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=Abilita <color=#D89555>Movimento senz
 ModUi/&EnableMonkKatanaSpecialization=Concedi Katana <color=#D89555>Specializzazione in arma</color> ai <b>monaci</b>
 ModUi/&EnableMonkMartialArts2024=Sostituisci <color=#D89555>Arti marziali</color> con la versione 5e 2024 <i><color=#F0DAA0>[migliorata progressione del dado senz'armi e nessun requisito per l'azione bonus di colpo senz'armi]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Sostituisci <color=#D89555>Colpo Sbalorditivo</color> con la versione 5e 2024 <i><color=#F0DAA0>[effetti aggiuntivi quando il bersaglio riesce nel salvataggio]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18
-ModUi/&EnableMonkUncannyMetabolism2024=Abilita la scelta <color=#D89555>Metabolismo Straniero</color> al livello 2
+ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18 <i><color=#F0DAA0>[resistenza ai danni]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Abilita <color=#D89555>Metabolismo Straniero</color> al livello 2 <i><color=#F0DAA0>[recupera Ki all'iniziativa]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</color>, <color=#D89555>Cerchio della Morte</color>, <color=#D89555>Colpo di Fiamma</color>, <color=#D89555>Tempesta di Ghiaccio</color>, <color=#D89555>Spruzzo Prismatico</color> e <color=#D89555>Scherno Vizioso</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[danni migliori]</color></i>

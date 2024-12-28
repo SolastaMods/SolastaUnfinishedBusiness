@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义广告系列中
 ModUi/&EnableMinInOutAttributes=<i>+ 强制执行能力得分最低进出先决条件</i>
 ModUi/&EnableMonkAbundantKi=在 2 级时启用<color=#D89555>充沛的气</color> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
+ModUi/&EnableMonkDeflectAttacks2024=在 3 级时启用<color=#D89555>偏转攻击</color>来取代<color=#D89555>偏转导弹</color> <i><color=#F0DAA0>[也可以偏转近战]</color></i>
 ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableMonkFocus2024=将<color=#D89555>Flurry of Blows</color>、<color=#D89555>Patient Defense</color>和<color=#D89555>Step of the Wind</color>与 5e 2024 版本交换<i><color=#F0DAA0>[随意使用，气点可获得额外效果]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=启用<color=#D89555>改进的无装�
 ModUi/&EnableMonkKatanaSpecialization=授予<b>僧侣</b>武士刀<color=#D89555>武器专长</color>
 ModUi/&EnableMonkMartialArts2024=将<color=#D89555>武术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[改进了徒手掷骰子进程，并且对徒手打击奖励行动没有任何要求]</color></i>
 ModUi/&EnableMonkStunningStrike2024=将<color=#D89555>Stunning Strike</color>与 5e 2024 版本交换<i><color=#F0DAA0>[目标成功保存时产生的附加效果]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来替换 18 级时的<color=#D89555>空虚之身</color>
-ModUi/&EnableMonkUncannyMetabolism2024=在第 2 级启用<color=#D89555>不可思议的新陈代谢</color>选项
+ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来取代 18 级时的<color=#D89555>空虚之身</color> <i><color=#F0DAA0>[抗伤害]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=启用<color=#D89555>不可思议的新陈代谢</color>至 2 级<i><color=#F0DAA0>[主动恢复气]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>、<color=#D89555>棱镜喷射</color>。以及<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的伤害]</color></i>

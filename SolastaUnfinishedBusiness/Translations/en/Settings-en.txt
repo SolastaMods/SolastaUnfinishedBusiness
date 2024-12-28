@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid refe
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Abundant Ki</color> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Enable <color=#D89555>Body and Mind</color> to replace <color=#D89555>Perfect Self</color> at level 20
+ModUi/&EnableMonkDeflectAttacks2024=Enable <color=#D89555>Deflect Attacks</color> to replace <color=#D89555>Deflect Missiles</color> at level 3 <i><color=#F0DAA0>[can also deflect melee]</color></i>
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Fighting Style</color> choice at level 2
 ModUi/&EnableMonkFocus2024=Swap <color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, and <color=#D89555>Step of the Wind</color> with 5e 2024 version <i><color=#F0DAA0>[at will uses, ki points for additional effects]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Enable <color=#D89555>Handwraps</color> and <color=#D89555>Gauntlets</color> to work in gauntlet slot
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmo
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color> to <b>Monks</b>
 ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18
-ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> choice at level 2
+ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18 <i><color=#F0DAA0>[resistance to damage]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> at level 2 <i><color=#F0DAA0>[recover Ki on initiative]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>

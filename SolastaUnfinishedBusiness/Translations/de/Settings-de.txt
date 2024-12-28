@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokol
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestfähigkeitswerte für die Teilnahme und den Abschluss von Vorbedingungen durchsetzen</i>
 ModUi/&EnableMonkAbundantKi=Aktiviere <color=#D89555>Reichlich Ki</color> auf Level 2 <i><color=#F0DAA0>[erhalte zusätzliches Ki in Höhe der Hälfte des aufgerundeten Kompetenzbonus]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Aktiviere <color=#D89555>Körper und Geist</color>, um <color=#D89555>Perfektes Selbst</color> auf Stufe 20 zu ersetzen.
+ModUi/&EnableMonkDeflectAttacks2024=Aktivieren Sie <color=#D89555>Angriffe abwehren</color>, um <color=#D89555>Raketen abwehren</color> auf Stufe 3 zu ersetzen <i><color=#F0DAA0>[kann auch Nahkampf abwehren]</color></i>
 ModUi/&EnableMonkFightingStyle=Aktiviere die Auswahl <color=#D89555>Kampfstil</color> auf Stufe 2.
 ModUi/&EnableMonkFocus2024=Tauschen Sie <color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color> und <color=#D89555>Step of the Wind</color> mit der 5e 2024-Version aus <i><color=#F0DAA0>[verwendet nach Belieben Ki-Punkte für zusätzliche Effekte]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Aktivieren Sie <color=#D89555>Handwickel</color> und <color=#D89555>Stulpen</color>, damit sie im Stulpenschlitz funktionieren.
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=Aktivieren Sie <color=#D89555>Verbess
 ModUi/&EnableMonkKatanaSpecialization=Verleihen Sie <b>Mönchen</b> die Katana-<color=#D89555>Waffenspezialisierung</color>
 ModUi/&EnableMonkMartialArts2024=Tauschen Sie <color=#D89555>Kampfkünste</color> gegen die Version 5e 2024 aus <i><color=#F0DAA0>[verbesserte unbewaffnete Würfelprogression und keine Anforderungen an die Bonusaktion für unbewaffnete Schläge]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Tauschen Sie <color=#D89555>Betäubender Schlag</color> mit der Version 5e 2024 aus <i><color=#F0DAA0>[zusätzliche Effekte, wenn das Ziel beim Speichern erfolgreich ist]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=Aktiviere <color=#D89555>Überlegene Verteidigung</color>, um <color=#D89555>Leeren Körper</color> auf Level 18 zu ersetzen.
-ModUi/&EnableMonkUncannyMetabolism2024=Aktivieren Sie die Option <color=#D89555>Unheimlicher Stoffwechsel</color> auf Stufe 2.
+ModUi/&EnableMonkSuperiorDefense2024=Aktivieren Sie <color=#D89555>Überlegene Verteidigung</color>, um <color=#D89555>Leeren Körper</color> auf Stufe 18 zu ersetzen <i><color=#F0DAA0>[Resistenz gegen Schaden]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Aktiviere <color=#D89555>Unheimlichen Stoffwechsel</color> auf Stufe 2 <i><color=#F0DAA0>[Ki durch Initiative wiederherstellen]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color>, <color=#D89555>Prismatischer Sprühnebel</color>. und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>

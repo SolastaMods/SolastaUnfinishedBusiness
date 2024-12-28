@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 정의 캠페인�
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 입출력 전제 조건 능력치 적용</i>
 ModUi/&EnableMonkAbundantKi=2레벨에서 <color=#D89555>풍부한 기</color>를 활성화합니다. <i><color=#F0DAA0>[숙련도 보너스의 절반에 해당하는 추가 기를 얻습니다(올림)]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=레벨 20에서 <color=#D89555>완벽한 자아</color>를 대체하기 위해 <color=#D89555>신체와 정신</color>을 활성화합니다.
+ModUi/&EnableMonkDeflectAttacks2024=레벨 3에서 <color=#D89555>미사일 반사</color>를 대체하여 <color=#D89555>공격 반사</color>를 활성화합니다. <i><color=#F0DAA0>[근접 공격 반사도 가능]</color></i>
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableMonkFocus2024=<color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, <color=#D89555>Step of the Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[원하는 대로 사용 가능, 추가 효과를 위한 기 포인트]</color></i>과 교환하세요.
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>개선된 비무장 �
 ModUi/&EnableMonkKatanaSpecialization=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&EnableMonkMartialArts2024=<color=#D89555>무술</color>을 5e 2024 버전으로 교체 <i><color=#F0DAA0>[개선된 비무장 주사위 진행 및 비무장 타격 보너스 액션에 대한 요구 사항 없음]</color></i>
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>Stunning Strike</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[대상이 저장에 성공하면 추가 효과가 적용됩니다]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 대체하기 위해 <color=#D89555>우수한 방어력</color>을 활성화합니다.
-ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color> 선택 가능
+ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 <color=#D89555>최고 방어력</color>으로 대체합니다. <i><color=#F0DAA0>[피해 저항력]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color>를 활성화합니다. <i><color=#F0DAA0>[이니셔티브 시 기 회복]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>프리즘 스프레이</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 나은 데미지]</color></i>을 활성화합니다.

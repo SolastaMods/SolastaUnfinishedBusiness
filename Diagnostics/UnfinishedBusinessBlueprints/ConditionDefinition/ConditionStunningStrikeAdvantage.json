@@ -2,9 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5"
+    "Definition:CombatAffinityStunnedAdvantage:9807e50c4ca97b24da1e0d66d7cf4431"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -136,8 +136,8 @@
     "description": "Condition/&ConditionStunningStrikeAdvantageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
-      "m_SubObjectName": "ConditionBlinded",
+      "m_AssetGUID": "5e96eb4d8d8193a4cbddbf7477990f88",
+      "m_SubObjectName": "ConditionPossessed",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

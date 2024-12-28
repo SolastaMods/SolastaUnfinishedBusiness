@@ -515,6 +515,14 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkBodyAndMind();
         }
 
+        toggle = Main.Settings.EnableMonkDeflectAttacks2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDeflectAttacks2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDeflectAttacks2024 = toggle;
+            Tabletop2024Context.SwitchMonkDeflectAttacks();
+        }
+
         toggle = Main.Settings.EnableMonkHeightenedFocus2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedFocus2024"), ref toggle,
                 UI.AutoWidth()))

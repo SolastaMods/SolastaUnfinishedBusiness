@@ -150,6 +150,7 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de re
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos mínimos de puntuación de habilidad para entrar y salir</i>
 ModUi/&EnableMonkAbundantKi=Habilita <color=#D89555>Ki abundante</color> en el nivel 2 <i><color=#F0DAA0>[obtienes Ki adicional equivalente a la mitad de la bonificación de competencia redondeada hacia arriba]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Habilita <color=#D89555>Cuerpo y Mente</color> para reemplazar a <color=#D89555>Perfección Personal</color> en el nivel 20
+ModUi/&EnableMonkDeflectAttacks2024=Habilita <color=#D89555>Desviar ataques</color> para reemplazar <color=#D89555>Desviar misiles</color> en el nivel 3 <i><color=#F0DAA0>[también puede desviar ataques cuerpo a cuerpo]</color></i>
 ModUi/&EnableMonkFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableMonkFocus2024=Intercambia <color=#D89555>Ráfaga de golpes</color>, <color=#D89555>Defensa paciente</color> y <color=#D89555>Paso del viento</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos a voluntad, puntos de ki para efectos adicionales]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Habilitar <color=#D89555>Manos</color> y <color=#D89555>Guanteletes</color> para que funcionen en la ranura de guantelete
@@ -158,8 +159,8 @@ ModUi/&EnableMonkImprovedUnarmoredMovement=Habilite <color=#D89555>Movimiento si
 ModUi/&EnableMonkKatanaSpecialization=Otorgar la <color=#D89555>especialización en armas</color> a los <b>monjes</b>
 ModUi/&EnableMonkMartialArts2024=Intercambia <color=#D89555>Artes marciales</color> con la versión 5e 2024 <i><color=#F0DAA0>[progresión de dados desarmado mejorada y sin requisitos en la acción adicional de ataque desarmado]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Intercambia <color=#D89555>Golpe aturdidor</color> con la versión 5e 2024 <i><color=#F0DAA0>[efectos adicionales cuando el objetivo tiene éxito en la tirada de salvación]</color></i>
-ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18
-ModUi/&EnableMonkUncannyMetabolism2024=Habilitar la opción <color=#D89555>Metabolismo sobrenatural</color> en el nivel 2
+ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18 <i><color=#F0DAA0>[resistencia al daño]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Habilita <color=#D89555>Metabolismo sobrenatural</color> en el nivel 2 <i><color=#F0DAA0>[recupera Ki con iniciativa]</color></i>
 ModUi/&EnableMulticlass=Habilitar <color=#D89555>multiclase</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Habilitar la versión del hechizo <color=#D89555>Corteza</color> 5e 2024 <i><color=#F0DAA0>[acción adicional, sin concentración, CA establecida en 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Habilita los hechizos <color=#D89555>Espada arcana</color>, <color=#D89555>Círculo de la muerte</color>, <color=#D89555>Golpe de llamas</color>, <color=#D89555>Tormenta de hielo</color>, <color=#D89555>Rociado prismático</color> y <color=#D89555>Burla cruel</color> versión 5e 2024 <i><color=#F0DAA0>[mejor daño]</color></i>

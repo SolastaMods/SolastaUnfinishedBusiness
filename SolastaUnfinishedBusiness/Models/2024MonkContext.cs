@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -17,6 +18,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
@@ -73,6 +75,33 @@ internal static partial class Tabletop2024Context
                             .SetUnarmedStrike(4)
                             .AddToDB())
                     .AddToDB()))
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkReturnAttacks")
+        .SetGuiPresentation(Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetDamageForm(diceNumber: 2)
+                        .Build())
+                .Build())
+        .AddCustomSubFeatures(new CustomBehaviorMonkDeflectAttacks())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionMonkReturnAttacks = ConditionDefinitionBuilder
+        .Create("ConditionMonkReturnAttacks")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(0)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
@@ -310,6 +339,23 @@ internal static partial class Tabletop2024Context
         PowerMonkStunningStrike.AddCustomSubFeatures(new MagicEffectFinishedByMeStunningStrike());
     }
 
+    internal static void SwitchMonkDeflectAttacks()
+    {
+        if (Main.Settings.EnableMonkDeflectAttacks2024)
+        {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkAlternateDeflectMissilesDescription";
+            FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(PowerMonkReturnAttacks);
+        }
+        else
+        {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkDeflectMissilesDescription";
+            FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(
+                ActionAffinityMonkDeflectMissiles, PowerMonkReturnMissile);
+        }
+    }
+
     internal static void SwitchMonkFocus()
     {
         if (Main.Settings.EnableMonkFocus2024)
@@ -435,10 +481,9 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchMonkStunningStrike()
     {
-        PowerMonkStunningStrike.GuiPresentation.Description =
-            Main.Settings.EnableMonkStunningStrike2024
-                ? "Feature/&MonkAlternateStunningStrikeDescription"
-                : "Feature/&MonkStunningStrikeDescription";
+        PowerMonkStunningStrike.GuiPresentation.Description = Main.Settings.EnableMonkStunningStrike2024
+            ? "Feature/&MonkAlternateStunningStrikeDescription"
+            : "Feature/&MonkStunningStrikeDescription";
     }
 
     internal static void SwitchMonkBodyAndMind()
@@ -453,6 +498,126 @@ internal static partial class Tabletop2024Context
                 : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class CustomBehaviorMonkDeflectAttacks
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe, IModifyEffectDescription
+    {
+        private static readonly string[] AllowedDamages =
+            [DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing];
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerMonkReturnAttacks;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.EffectForms[0].DamageForm;
+
+            damageForm.dieType = character.GetMonkDieType();
+
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            damageForm.damageType = AllowedDamages[activeCondition.Amount];
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var damageForm = actualEffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Damage && AllowedDamages.Contains(x.DamageForm.DamageType));
+
+            if (damageForm == null || !defender.CanReact())
+            {
+                yield break;
+            }
+
+            yield return defender.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "DeflectAttacks",
+                "CustomReactionDeflectAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+                var damageIndex = Array.IndexOf(AllowedDamages, damageForm.DamageForm.DamageType);
+                var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+                var reductionAmount =
+                    RollDie(DieType.D10, AdvantageType.None, out _, out _) +
+                    AttributeDefinitions.ComputeAbilityScoreModifier(dexterity) +
+                    rulesetDefender.GetClassLevel(Monk);
+
+                actionModifier.damageRollReduction += reductionAmount;
+                rulesetDefender.DamageReduced.Invoke(rulesetDefender, FeatureSetMonkDeflectMissiles, reductionAmount);
+                rulesetDefender.InflictCondition(
+                    ConditionMonkReturnAttacks.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    ConditionMonkReturnAttacks.Name,
+                    damageIndex,
+                    0,
+                    0);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
+
+            if (damageAmount > 0)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
+
+            defender.MyExecuteActionSpendPower(usablePower, attacker);
+        }
     }
 
     private sealed class OnConditionAddedOrRemovedGrappleNoCostUsed : IOnConditionAddedOrRemoved
