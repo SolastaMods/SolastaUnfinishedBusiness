@@ -1,17 +1,18 @@
 1.5.97.43:
 
-ATTENTION: 
-
-- RESPEC required on anyone with Acid Claws, Crossbow Mastery, Pugilist
-- RESPEC might be required on Cleaving Attack, Deadeye, Power Attack, Domain Defiler, Domain Nature, Battle Master
-
 CHANGES:
 
 - added new Monk tabletop 2024 settings
 - fixed Cleric divine spark healing dice progression
-- fixed Gift of the Gem Dragon reaction crashing under zh-CN
+- fixed Gift of the Gem Dragon reaction crashing under Chinese
 - fixed Paladin Divine Smite triggering with thrown attacks without 2024 setting on
-- removed backward compatibility support from previously demoted blueprints [read ATTENTION block]
+- removed backward compatibility support from previously demoted blueprints [ATTENTION block]
+
+ATTENTION: 
+
+- RESPEC required on anyone with Acid Claws, Crossbow Mastery, or Pugilist
+- RESPEC might be required on anyone with Cleaving Attack, Deadeye, or Power Attack feats
+- RESPEC might be required on Domain Defiler, Domain Nature, or Battle Master subclasses
 
 KNOWN ISSUES:
 
