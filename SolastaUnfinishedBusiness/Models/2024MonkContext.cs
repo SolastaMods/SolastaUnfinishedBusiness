@@ -340,6 +340,12 @@ internal static partial class Tabletop2024Context
         .SetSpecialInterruptions(ConditionInterruption.Attacked)
         .AddToDB();
 
+    private static readonly FeatureDefinition FeatureMonkSelfRestoration = FeatureDefinitionBuilder
+        .Create("FeatureMonkSelfRestoration")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CharacterBeforeTurnEndListenerSelfRestoration())
+        .AddToDB();
+
     private static void LoadMonkFocus()
     {
         Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
@@ -441,18 +447,6 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchMonkStillnessOfMind()
-    {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetMonkStillnessOfMind);
-
-        if (!Main.Settings.RemoveMonkStillnessOfMind2024)
-        {
-            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkStillnessOfMind, 7));
-        }
-
-        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
     internal static void SwitchMonkMartialArts()
     {
         if (Main.Settings.EnableMonkMartialArts2024)
@@ -503,20 +497,17 @@ internal static partial class Tabletop2024Context
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-    
-    private static readonly FeatureDefinition FeatureMonkSelfRestoration = FeatureDefinitionBuilder
-        .Create("FeatureMonkSelfRestoration")
-        .SetGuiPresentation(Category.Feature)
-        .AddToDB();
-    
+
     internal static void SwitchMonkSelfRestoration()
     {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkSelfRestoration);
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureMonkSelfRestoration ||
+            x.FeatureDefinition == FeatureSetMonkStillnessOfMind);
 
-        if (Main.Settings.EnableMonkSelfRestoration2024)
-        {
-            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkSelfRestoration, 10));
-        }
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureMonkSelfRestoration, 10)
+                : new FeatureUnlockByLevel(FeatureSetMonkStillnessOfMind, 7));
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
@@ -534,7 +525,7 @@ internal static partial class Tabletop2024Context
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-    
+
     internal static void SwitchMonkUncannyMetabolism()
     {
         Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkUncannyMetabolism);
@@ -934,6 +925,36 @@ internal static partial class Tabletop2024Context
 
                 rulesetCharacter.UsedKiPoints -= 4 - rulesetCharacter.RemainingKiPoints;
                 rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+            }
+        }
+    }
+
+    private sealed class CharacterBeforeTurnEndListenerSelfRestoration : ICharacterBeforeTurnEndListener
+    {
+        // doing one-by-one so we can prioritize remove charmed first instead of getting them randomly
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var conditionsToRemove = new[]
+            {
+                RuleDefinitions.ConditionCharmed, //
+                RuleDefinitions.ConditionFrightened, //
+                RuleDefinitions.ConditionPoisoned //
+            };
+
+            foreach (var conditionToRemove in conditionsToRemove)
+            {
+                var activeCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition.IsSubtypeOf(conditionToRemove));
+
+                if (activeCondition == null)
+                {
+                    continue;
+                }
+
+                rulesetCharacter.RemoveCondition(activeCondition);
+
+                return;
             }
         }
     }

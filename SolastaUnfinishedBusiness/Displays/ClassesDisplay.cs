@@ -139,13 +139,6 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableClericChannelDivinity2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericChannelDivinity2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableClericChannelDivinity2024 = toggle;
-            Tabletop2024Context.SwitchClericChannelDivinity();
-        }
-
         toggle = Main.Settings.EnableClericDivineOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
         {
@@ -165,6 +158,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableClericSearUndead2024 = toggle;
             Tabletop2024Context.SwitchClericSearUndead();
+        }
+
+        toggle = Main.Settings.EnableClericChannelDivinity2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericChannelDivinity2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericChannelDivinity2024 = toggle;
+            Tabletop2024Context.SwitchClericChannelDivinity();
         }
 
 #if false
@@ -206,13 +206,6 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableFighterIndomitableSaving2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterIndomitableSaving2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFighterIndomitableSaving2024 = toggle;
-            Tabletop2024Context.SwitchFighterIndomitableSaving();
-        }
-
         toggle = Main.Settings.EnableFighterSkillOptions2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSkillOptions2024"), ref toggle, UI.AutoWidth()))
         {
@@ -229,13 +222,6 @@ internal static class ClassesDisplay
         }
 #endif
 
-        toggle = Main.Settings.EnableFighterSecondWind2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSecondWind2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFighterSecondWind2024 = toggle;
-            Tabletop2024Context.SwitchFighterSecondWind();
-        }
-
         toggle = Main.Settings.EnableFighterStudiedAttacks2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterStudiedAttacks2024"), ref toggle, UI.AutoWidth()))
         {
@@ -248,6 +234,20 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableFighterTacticalProgression2024 = toggle;
             Tabletop2024Context.SwitchFighterTacticalProgression();
+        }
+
+        toggle = Main.Settings.EnableFighterIndomitableSaving2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterIndomitableSaving2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterIndomitableSaving2024 = toggle;
+            Tabletop2024Context.SwitchFighterIndomitableSaving();
+        }
+
+        toggle = Main.Settings.EnableFighterSecondWind2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterSecondWind2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterSecondWind2024 = toggle;
+            Tabletop2024Context.SwitchFighterSecondWind();
         }
 
         UI.Label();
@@ -311,7 +311,7 @@ internal static class ClassesDisplay
             Main.Settings.EnableMonkImprovedUnarmoredMovement = toggle;
             ClassesContext.SwitchMonkImprovedUnarmoredMovement();
         }
-        
+
         toggle = Main.Settings.EnableMonkSelfRestoration2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSelfRestoration2024"), ref toggle,
                 UI.AutoWidth()))
@@ -327,7 +327,7 @@ internal static class ClassesDisplay
             Main.Settings.EnableMonkSuperiorDefense2024 = toggle;
             Tabletop2024Context.SwitchMonkSuperiorDefense();
         }
-        
+
         toggle = Main.Settings.EnableMonkUncannyMetabolism2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUncannyMetabolism2024"), ref toggle,
                 UI.AutoWidth()))
@@ -341,14 +341,6 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableMonkKatanaSpecialization = toggle;
             ClassesContext.SwitchMonkKatanaSpecialization();
-        }
-
-        toggle = Main.Settings.RemoveMonkStillnessOfMind2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveMonkStillnessOfMind2024"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.RemoveMonkStillnessOfMind2024 = toggle;
-            Tabletop2024Context.SwitchMonkStillnessOfMind();
         }
 
         toggle = Main.Settings.EnableMonkFocus2024;
@@ -390,26 +382,6 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchPaladinAbjureFoes();
         }
 
-        toggle = Main.Settings.EnablePaladinChannelDivinity2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinChannelDivinity2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePaladinChannelDivinity2024 = toggle;
-            Tabletop2024Context.SwitchPaladinChannelDivinity();
-        }
-
-        toggle = Main.Settings.EnablePaladinSmite2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmite2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePaladinSmite2024 = toggle;
-        }
-
-        toggle = Main.Settings.EnablePaladinLayOnHands2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHands2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePaladinLayOnHands2024 = toggle;
-            Tabletop2024Context.SwitchPaladinLayOnHand();
-        }
-
         toggle = Main.Settings.EnablePaladinRestoringTouch2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinRestoringTouch2024"), ref toggle, UI.AutoWidth()))
         {
@@ -428,6 +400,26 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+        }
+
+        toggle = Main.Settings.EnablePaladinChannelDivinity2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinChannelDivinity2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinChannelDivinity2024 = toggle;
+            Tabletop2024Context.SwitchPaladinChannelDivinity();
+        }
+
+        toggle = Main.Settings.EnablePaladinSmite2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinSmite2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinSmite2024 = toggle;
+        }
+
+        toggle = Main.Settings.EnablePaladinLayOnHands2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinLayOnHands2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinLayOnHands2024 = toggle;
+            Tabletop2024Context.SwitchPaladinLayOnHand();
         }
 
         UI.Label();
@@ -510,13 +502,6 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableRangerTireless2024 = toggle;
             Tabletop2024Context.SwitchRangerTireless();
-        }
-
-        toggle = Main.Settings.RemoveRangerVanish2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRangerVanish2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRangerVanish2024 = toggle;
-            Tabletop2024Context.SwitchRangerVanish();
         }
 
         toggle = Main.Settings.EnableRangerFavoredEnemy2024;

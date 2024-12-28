@@ -5,8 +5,8 @@ CHANGES:
 - added new Monk tabletop 2024 settings
 - fixed Cleric divine spark healing dice progression
 - fixed Gift of the Gem Dragon reaction crashing under Chinese
-- fixed Paladin Divine Smite thrown attacks triggering without 2024 setting on
-- removed backward compatibility support from Acid Claws, Crossbow Mastery, or Pugilist [RESPEC required]
+- fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
 
 KNOWN ISSUES:
 

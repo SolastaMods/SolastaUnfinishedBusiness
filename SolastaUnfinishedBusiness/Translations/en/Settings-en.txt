@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
-ModUi/&EnableClericChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Swap <color=#D89555>Channel Divinity</color> with 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnableClericDivineOrder2024=Enable <color=#D89555>Divine Order</color> at level 1 <i><color=#F0DAA0>[choice between heavy armor/martial weapons prof. or bonus cantrip and some INT checks]</color></i>
 ModUi/&EnableClericSearUndead2024=Enable <color=#D89555>Sear Undead</color> to replace <color=#D89555>Destroy Undead</color> at level 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Enable <color=#D89555>Domain</color> at level 3 instead of 1
@@ -129,8 +129,8 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at levels 6 and 14
-ModUi/&EnableFighterIndomitableSaving2024=Add the class level as a bonus to <color=#D89555>Indomitable Resistance</color> saving throw reroll
-ModUi/&EnableFighterSecondWind2024=Enable <color=#D89555>Second Wind</color> to use 5e 2024 usages progression
+ModUi/&EnableFighterIndomitableSaving2024=Swap <color=#D89555>Indomitable Resistance</color> with 5e 2024 version <i><color=#F0DAA0>[add the class level as a bonus to the saving throw reroll]</color></i>
+ModUi/&EnableFighterSecondWind2024=Swap <color=#D89555>Second Wind</color> with 5e 2024 version <i><color=#F0DAA0>[different usages progression]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Add <color=#D89555>Persuasion</color> to skill options at level 1
 ModUi/&EnableFighterStudiedAttacks2024=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
@@ -158,7 +158,7 @@ ModUi/&EnableMonkHeightenedFocus2024=Enable <color=#D89555>Heightened Focus</col
 ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color>
 ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
-ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10
+ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10 to replace <color=#D89555>Stillness of Mind</color> at level 7
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18 <i><color=#F0DAA0>[resistance to damage]</color></i>
 ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> at level 2 <i><color=#F0DAA0>[recover Ki on initiative]</color></i>
@@ -178,10 +178,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=Enable <color=#D89555>Spider Climb</color> 5
 ModUi/&EnableOneDndStoneSkinSpell=Enable <color=#D89555>Stone Skin</color> 5e 2024 spell version <i><color=#F0DAA0>[provides resistance to magical B/P/S as well]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5e 2024 cantrip version <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[attack uses your spellcasting ability for the attack roll and damage bonus, and additional radiant damage from level 5]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=Enable <color=#D89555>Abjure Foes</color> at level 9
-ModUi/&EnablePaladinChannelDivinity2024=Enable <color=#D89555>Channel Divinity</color> 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
-ModUi/&EnablePaladinLayOnHands2024=Enable <color=#D89555>Lay on Hands</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=Swap <color=#D89555>Channel Divinity</color> with 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Swap <color=#D89555>Lay on Hands</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinRestoringTouch2024=Enable <color=#D89555>Restoring Touch</color> to replace <color=#D89555>Cleansing Touch</color> at level 14
-ModUi/&EnablePaladinSmite2024=Enable <color=#D89555>Divine Smite</color> 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
+ModUi/&EnablePaladinSmite2024=Swap <color=#D89555>Divine Smite</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Enable applying <color=#D89555>Poisons</color> to weapons as a bonus action
@@ -194,7 +194,7 @@ ModUi/&EnableRangerExpertise2024=Enable <color=#D89555>Expertise</color> at leve
 ModUi/&EnableRangerFavoredEnemy2024=Swap <color=#D89555>Favored Enemy</color>, and <color=#D89555>Favored Terrain</color> with <color=#D89555>Favored Enemy</color> 5e 2024 version
 ModUi/&EnableRangerFeralSenses2024=Swap <color=#D89555>Feral Senses</color> with 5e 2024 version <i><color=#F0DAA0>[get 30ft blindsight]</color></i>
 ModUi/&EnableRangerFoeSlayers2024=Swap <color=#D89555>Foe Slayer</color> with 5e 2024 version <i><color=#F0DAA0>[increase Hunter's Mark die to d10]</color></i>
-ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroud2024=Enable <color=#D89555>Nature's Veil</color> to replace <color=#D89555>Vanish</color> at level 14 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRangerPreciseHunter2024=Enable <color=#D89555>Precise Hunter</color> at level 17 <i><color=#F0DAA0>[advantage against creatures marked by Hunter]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024=Enable <color=#D89555>Relentless Hunter</color> at level 13 <i><color=#F0DAA0>[no concentration lost on Hunter's Mark]</color></i>
 ModUi/&EnableRangerRelentlessHunter2024AsNoConcentration=<i>+ Remove concentration requirements from Hunter's Mark instead</i>
@@ -327,8 +327,6 @@ ModUi/&RemoveBardMagicalSecret2024=Remove <color=#D89555>Magical Secret</color> 
 ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
-ModUi/&RemoveMonkStillnessOfMind2024=Remove <color=#D89555>Stillness of Mind</color> at level 7
-ModUi/&RemoveRangerVanish2024=Remove <color=#D89555>Vanish</color> at level 14
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
 ModUi/&RemoveRogueBlindSense2024=Remove <color=#D89555>Blind Sense</color> at level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <b>Shadowcaster</b>

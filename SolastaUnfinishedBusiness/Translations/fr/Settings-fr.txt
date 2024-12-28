@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Néces
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
-ModUi/&EnableClericChannelDivinity2024=Activer <color=#D89555>Channel Divinity</color> 5e version 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Échangez <color=#D89555>Channel Divinity</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
 ModUi/&EnableClericDivineOrder2024=Activer <color=#D89555>Ordre divin</color> au niveau 1 <i><color=#F0DAA0>[choix entre armure lourde/prof. armes martiales ou tour de passe-passe bonus et quelques tests d'INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Activez <color=#D89555>Sear Undead</color> pour remplacer <color=#D89555>Destroy Undead</color> au niveau 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Activer le <color=#D89555>Domaine</color> au niveau 3 au lieu de 1
@@ -129,8 +129,8 @@ ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau des compétences étendues <i><color=#F0DAA0>[Tirs des arcanes, Infusions, Manœuvres et Polyvalence]</color></i>\n<b><i><color=#C04040E0>[baisse des performances lors de l'inspection des personnages. À utiliser à vos risques et périls]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 6 et 14
-ModUi/&EnableFighterIndomitableSaving2024=Ajoutez le niveau de classe comme bonus à la relance du jet de sauvegarde de <color=#D89555>Résistance indomptable</color>
-ModUi/&EnableFighterSecondWind2024=Activez <color=#D89555>Second Wind</color> pour utiliser la progression des utilisations 5e 2024
+ModUi/&EnableFighterIndomitableSaving2024=Échangez <color=#D89555>Résistance indomptable</color> avec la version 5e 2024 <i><color=#F0DAA0>[ajoutez le niveau de classe comme bonus à la relance du jet de sauvegarde]</color></i>
+ModUi/&EnableFighterSecondWind2024=Échangez <color=#D89555>Second Wind</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes progressions d'utilisation]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Ajoutez <color=#D89555>Persuasion</color> aux options de compétence au niveau 1
 ModUi/&EnableFighterStudiedAttacks2024=Activer les <color=#D89555>attaques étudiées</color> au niveau 13 <i><color=#F0DAA0>[avantage si l'attaque précédente du tour contre la créature a été manquée]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Activez <color=#D89555>Tactical Mind</color> et <color=#D89555>Tactical Shift</color> aux niveaux 2 et 5 <i><color=#F0DAA0>[augmentez les scénarios de second souffle]</color></i>
@@ -158,7 +158,7 @@ ModUi/&EnableMonkHeightenedFocus2024=Activez <color=#D89555>Concentration renfor
 ModUi/&EnableMonkImprovedUnarmoredMovement=Activez <color=#D89555>Mouvement sans armure amélioré</color> pour vous déplacer le long des surfaces verticales sans tomber
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Spécialisation des armes</color>
 ModUi/&EnableMonkMartialArts2024=Échangez <color=#D89555>Arts martiaux</color> avec la version 5e 2024 <i><color=#F0DAA0>[amélioration de la progression des dés à mains nues et aucune exigence sur l'action bonus de frappe à mains nues]</color></i>
-ModUi/&EnableMonkSelfRestoration2024=Activer l'<color=#D89555>Auto-restauration</color> au niveau 10
+ModUi/&EnableMonkSelfRestoration2024=Activez <color=#D89555>Auto-restauration</color> au niveau 10 pour remplacer <color=#D89555>Calme de l'esprit</color> au niveau 7
 ModUi/&EnableMonkStunningStrike2024=Remplacez <color=#D89555>Frappe étourdissante</color> par la version 5e 2024 <i><color=#F0DAA0>[effets supplémentaires lorsque la cible réussit sa sauvegarde]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Activez la <color=#D89555>Défense supérieure</color> pour remplacer le <color=#D89555>Corps vide</color> au niveau 18 <i><color=#F0DAA0>[résistance aux dégâts]</color></i>
 ModUi/&EnableMonkUncannyMetabolism2024=Activer <color=#D89555>Métabolisme étrange</color> au niveau 2 <i><color=#F0DAA0>[récupérer le Ki à l'initiative]</color></i>
@@ -178,10 +178,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=Activer <color=#D89555>Spider Climb</color> 
 ModUi/&EnableOneDndStoneSkinSpell=Activer la version du sort <color=#D89555>Stone Skin</color> 5e 2024 <i><color=#F0DAA0>[offre également une résistance aux B/P/S magiques]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Activer <color=#D89555>True Strike</color> 5e 2024 version du tour de passe-passe <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[L'attaque utilise votre capacité de lancement de sorts pour le jet d'attaque et le bonus de dégâts, ainsi que des dégâts radiants supplémentaires à partir du niveau 5]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=Activez <color=#D89555>Abjurer les ennemis</color> au niveau 9
-ModUi/&EnablePaladinChannelDivinity2024=Activer <color=#D89555>Channel Divinity</color> 5e version 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
-ModUi/&EnablePaladinLayOnHands2024=Activer <color=#D89555>Imposition des mains</color> 5e version 2024 <i><color=#F0DAA0>[action bonus]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=Échangez <color=#D89555>Channel Divinity</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Échangez <color=#D89555>Imposition des mains</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>
 ModUi/&EnablePaladinRestoringTouch2024=Activez <color=#D89555>Restauration du toucher</color> pour remplacer <color=#D89555>Nettoyage du toucher</color> au niveau 14
-ModUi/&EnablePaladinSmite2024=Activer <color=#D89555>Divine Smite</color> version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>
+ModUi/&EnablePaladinSmite2024=Échangez <color=#D89555>Divine Smite</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Activer l'application de <color=#D89555>Poisons</color> aux armes en tant qu'action bonus
@@ -327,8 +327,6 @@ ModUi/&RemoveBardMagicalSecret2024=Supprimez le <color=#D89555>secret magique</c
 ModUi/&RemoveBardSongOfRest2024=Supprimez <color=#D89555>Chant de repos</color> au niveau 2
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>
-ModUi/&RemoveMonkStillnessOfMind2024=Supprimez <color=#D89555>l'immobilité de l'esprit</color> au niveau 7
-ModUi/&RemoveRangerVanish2024=Supprimez <color=#D89555>Vanish</color> au niveau 14
 ModUi/&RemoveRecurringEffectOnEntangle=Appliquez uniquement l'effet <color=#D89555>Enchevêtrement</color> au moment de l'incantation et forcez également un test de force pour vous libérer des vignes
 ModUi/&RemoveRogueBlindSense2024=Supprimez <color=#D89555>Blind Sense</color> au niveau 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <b>Shadowcaster</b>

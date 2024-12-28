@@ -308,7 +308,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkSuperiorDefense2024 { get; set; }
     public bool EnableMonkUncannyMetabolism2024 { get; set; }
     public bool EnableMonkKatanaSpecialization { get; set; }
-    public bool RemoveMonkStillnessOfMind2024 { get; set; }
     public bool EnableMonkFocus2024 { get; set; }
     public bool EnableMonkMartialArts2024 { get; set; }
     public bool EnableMonkStunningStrike2024 { get; set; }
@@ -333,7 +332,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRangerTireless2024 { get; set; }
     public bool EnableRangerFeralSenses2024 { get; set; }
     public bool EnableRangerFoeSlayers2024 { get; set; }
-    public bool RemoveRangerVanish2024 { get; set; }
     public bool EnableRogueCunningStrike2024 { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueReliableTalent2024 { get; set; }

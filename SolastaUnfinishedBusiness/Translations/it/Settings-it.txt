@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
-ModUi/&EnableClericChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
 ModUi/&EnableClericDivineOrder2024=Abilita <color=#D89555>Ordine Divino</color> al livello 1 <i><color=#F0DAA0>[scelta tra armatura pesante/armi da guerra prof. o trucchetto bonus e alcuni controlli INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color> per sostituire <color=#D89555>Distruggi Non Morti</color> al livello 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Abilita <color=#D89555>Dominio</color> al livello 3 invece che 1
@@ -129,8 +129,8 @@ ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Colpi arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni ridotte durante l'ispezione del personaggio. Usa a tuo rischio e pericolo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 6 e 14
-ModUi/&EnableFighterIndomitableSaving2024=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <color=#D89555>Resistenza indomabile</color>.
-ModUi/&EnableFighterSecondWind2024=Abilita <color=#D89555>Second Wind</color> per usare la progressione di utilizzo 5e 2024
+ModUi/&EnableFighterIndomitableSaving2024=Sostituisci <color=#D89555>Resistenza indomabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[aggiungi il livello di classe come bonus al tiro salvezza]</color></i>
+ModUi/&EnableFighterSecondWind2024=Sostituisci <color=#D89555>Second Wind</color> con la versione 5e 2024 <i><color=#F0DAA0>[progressione di utilizzo diverso]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Aggiungi <color=#D89555>Persuasione</color> alle opzioni delle abilità al livello 1
 ModUi/&EnableFighterStudiedAttacks2024=Abilita <color=#D89555>Attacchi studiati</color> al livello 13 <i><color=#F0DAA0>[vantaggio se l'attacco precedente nel round contro una creatura è fallito]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Abilita <color=#D89555>Mente tattica</color> e <color=#D89555>Cambio tattico</color> ai livelli 2 e 5 <i><color=#F0DAA0>[aumenta gli scenari di seconda ventata]</color></i>
@@ -158,7 +158,7 @@ ModUi/&EnableMonkHeightenedFocus2024=Abilita <color=#D89555>Focus accresciuto</c
 ModUi/&EnableMonkImprovedUnarmoredMovement=Abilita <color=#D89555>Movimento senza armatura migliorato</color> per muoverti lungo le superfici verticali senza cadere
 ModUi/&EnableMonkKatanaSpecialization=Concedi Katana <color=#D89555>Specializzazione in arma</color>
 ModUi/&EnableMonkMartialArts2024=Sostituisci <color=#D89555>Arti marziali</color> con la versione 5e 2024 <i><color=#F0DAA0>[migliorata progressione del dado senz'armi e nessun requisito per l'azione bonus di colpo senz'armi]</color></i>
-ModUi/&EnableMonkSelfRestoration2024=Abilita <color=#D89555>Auto-ripristino</color> al livello 10
+ModUi/&EnableMonkSelfRestoration2024=Abilita <color=#D89555>Auto-ripristino</color> al livello 10 per sostituire <color=#D89555>Immobilismo mentale</color> al livello 7
 ModUi/&EnableMonkStunningStrike2024=Sostituisci <color=#D89555>Colpo Sbalorditivo</color> con la versione 5e 2024 <i><color=#F0DAA0>[effetti aggiuntivi quando il bersaglio riesce nel salvataggio]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18 <i><color=#F0DAA0>[resistenza ai danni]</color></i>
 ModUi/&EnableMonkUncannyMetabolism2024=Abilita <color=#D89555>Metabolismo Straniero</color> al livello 2 <i><color=#F0DAA0>[recupera Ki all'iniziativa]</color></i>
@@ -178,10 +178,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=Abilita <color=#D89555>Spider Climb</color> 
 ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=Abilita <color=#D89555>Abjura i nemici</color> al livello 9
-ModUi/&EnablePaladinChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
-ModUi/&EnablePaladinLayOnHands2024=Abilita <color=#D89555>Imposizione delle mani</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Sostituisci <color=#D89555>Imposizione delle mani</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinRestoringTouch2024=Abilita <color=#D89555>Ripristino del tocco</color> per sostituire <color=#D89555>Tocco purificatore</color> al livello 14
-ModUi/&EnablePaladinSmite2024=Abilita <color=#D89555>Colpo divino</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinSmite2024=Sostituisci <color=#D89555>Colpo divino</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
@@ -327,8 +327,6 @@ ModUi/&RemoveBardMagicalSecret2024=Rimuovi <color=#D89555>Segreto magico</color>
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
-ModUi/&RemoveMonkStillnessOfMind2024=Rimuovi <color=#D89555>Immobilismo mentale</color> al livello 7
-ModUi/&RemoveRangerVanish2024=Rimuovi <color=#D89555>Svanisci</color> al livello 14
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
 ModUi/&RemoveRogueBlindSense2024=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <b>Shadowcaster</b>

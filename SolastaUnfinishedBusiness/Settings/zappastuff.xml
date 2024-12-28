@@ -717,10 +717,10 @@
     <EnableMonkHandwrapsOnGauntletSlot>true</EnableMonkHandwrapsOnGauntletSlot>
     <EnableMonkHeightenedFocus2024>true</EnableMonkHeightenedFocus2024>
     <EnableMonkImprovedUnarmoredMovement>true</EnableMonkImprovedUnarmoredMovement>
+    <EnableMonkSelfRestoration2024>true</EnableMonkSelfRestoration2024>
     <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
     <EnableMonkUncannyMetabolism2024>true</EnableMonkUncannyMetabolism2024>
     <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
-    <RemoveMonkStillnessOfMind2024>true</RemoveMonkStillnessOfMind2024>
     <EnableMonkFocus2024>true</EnableMonkFocus2024>
     <EnableMonkMartialArts2024>true</EnableMonkMartialArts2024>
     <EnableMonkStunningStrike2024>true</EnableMonkStunningStrike2024>
@@ -745,7 +745,6 @@
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
-    <RemoveRangerVanish2024>true</RemoveRangerVanish2024>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>

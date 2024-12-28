@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
-ModUi/&EnableClericChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
+ModUi/&EnableClericChannelDivinity2024=将 <color=#D89555>Channel Divinity</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
 ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
 ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
@@ -129,8 +129,8 @@ ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><col
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练度面板显示<i><color=#F0DAA0>[奥术射击、灌注、操控和多功能性]</color></i>\n<b><i><color=#C04040E0>[角色检查时性能受到影响。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在 2、10 和 18 级启用<color=#D89555>专长</color>选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级时启用<color=#D89555>专长</color>选择
-ModUi/&EnableFighterIndomitableSaving2024=将职业等级作为奖励添加到<color=#D89555>不屈抵抗</color>豁免检定重掷中
-ModUi/&EnableFighterSecondWind2024=启用 <color=#D89555>Second Wind</color> 以使用 5e 2024 使用进度
+ModUi/&EnableFighterIndomitableSaving2024=将<color=#D89555>Indomitable Resistance</color>与 5e 2024 版本交换<i><color=#F0DAA0>[将职业等级作为豁免重掷的奖励]</color></i>
+ModUi/&EnableFighterSecondWind2024=将 <color=#D89555>Second Wind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法进展]</color></i>
 ModUi/&EnableFighterSkillOptions2024=将<color=#D89555>说服</color>添加到 1 级技能选项中
 ModUi/&EnableFighterStudiedAttacks2024=在 13 级时启用<color=#D89555>学习攻击</color> <i><color=#F0DAA0>[如果本轮中对生物的上一次攻击失败则获得优势]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=在 2 级和 5 级时启用<color=#D89555>战术思维</color>和<color=#D89555>战术转变</color><i><color=#F0DAA0>[增强第二风场景]</color></i>
@@ -158,7 +158,7 @@ ModUi/&EnableMonkHeightenedFocus2024=在 10 级和 15 级时启用<color=#D89555
 ModUi/&EnableMonkImprovedUnarmoredMovement=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
 ModUi/&EnableMonkKatanaSpecialization=授予武士刀<color=#D89555>武器专长</color>
 ModUi/&EnableMonkMartialArts2024=将<color=#D89555>武术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[改进了徒手掷骰子进程，并且对徒手打击奖励行动没有任何要求]</color></i>
-ModUi/&EnableMonkSelfRestoration2024=在第 10 级启用<color=#D89555>自我修复</color>
+ModUi/&EnableMonkSelfRestoration2024=启用 10 级的<color=#D89555>自我恢复</color>来替换 7 级的<color=#D89555>心灵宁静</color>
 ModUi/&EnableMonkStunningStrike2024=将<color=#D89555>Stunning Strike</color>与 5e 2024 版本交换<i><color=#F0DAA0>[目标成功保存时产生的附加效果]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来取代 18 级时的<color=#D89555>空虚之身</color> <i><color=#F0DAA0>[抗伤害]</color></i>
 ModUi/&EnableMonkUncannyMetabolism2024=启用<color=#D89555>不可思议的新陈代谢</color>至 2 级<i><color=#F0DAA0>[主动恢复气]</color></i>
@@ -178,10 +178,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=启用<color=#D89555>蜘蛛攀爬</color> 5e
 ModUi/&EnableOneDndStoneSkinSpell=启用<color=#D89555>石肤</color> 5e 2024 法术版本<i><color=#F0DAA0>[同时提供对魔法 B/P/S 的抵抗力]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5e 2024 法术版本 <b><i><color=#C04040E0>[需要重启]</color></i></b>{99><i><color=#F0DAA0>[攻击使用你的施法能力进行攻击掷骰和伤害加成，并从 5 级开始造成额外的辐射伤害]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=在 9 级时启用<color=#D89555>Abjure Foes</color>
-ModUi/&EnablePaladinChannelDivinity2024=启用 <color=#D89555>Channel Divinity</color> 5e 2024 版本 <i><color=#F0DAA0>[不同用法]</color></i>
-ModUi/&EnablePaladinLayOnHands2024=启用<color=#D89555>圣疗术</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=将 <color=#D89555>Channel Divinity</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=将<color=#D89555>圣疗术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinRestoringTouch2024=在第 14 级启用<color=#D89555>恢复之触</color>来替换<color=#D89555>清洁之触</color>
-ModUi/&EnablePaladinSmite2024=启用<color=#D89555>Divine Smite</color> 5e 2024 版本<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinSmite2024=将<color=#D89555>Divine Smite</color>与 5e 2024 版本交换<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
 ModUi/&EnablePcgRandom=启用更好的随机生成器算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=启用将<color=#D89555>毒药</color>应用于武器作为奖励行动
@@ -327,8 +327,6 @@ ModUi/&RemoveBardMagicalSecret2024=删除 14 级和 18 级的<color=#D89555>魔�
 ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
-ModUi/&RemoveMonkStillnessOfMind2024=删除第 7 级的<color=#D89555>心灵宁静</color>
-ModUi/&RemoveRangerVanish2024=删除 14 级的 <color=#D89555>消失</color>
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
 ModUi/&RemoveRogueBlindSense2024=移除 14 级的<color=#D89555>盲感</color>
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<b>Shadowcaster</b>的学校限制
