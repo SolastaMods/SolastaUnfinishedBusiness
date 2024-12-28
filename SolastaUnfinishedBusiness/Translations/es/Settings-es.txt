@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de re
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos mínimos de puntuación de habilidad para entrar y salir</i>
 ModUi/&EnableMonkAbundantKi=Habilita <color=#D89555>Ki abundante</color> en el nivel 2 <i><color=#F0DAA0>[obtienes Ki adicional equivalente a la mitad de la bonificación de competencia redondeada hacia arriba]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Habilita <color=#D89555>Cuerpo y Mente</color> para reemplazar a <color=#D89555>Perfección Personal</color> en el nivel 20
-ModUi/&EnableMonkDeflectAttacks2024=Habilita <color=#D89555>Desviar ataques</color> para reemplazar <color=#D89555>Desviar misiles</color> en el nivel 3 <i><color=#F0DAA0>[también puede desviar ataques cuerpo a cuerpo]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=Habilita <color=#D89555>Desviar ataques</color> y <color=#D89555>Desviar energía</color> para reemplazar <color=#D89555>Desviar misiles</color> y <color=#D89555>Lengua del sol y la luna</color> en los niveles 3 y 13. <i><color=#F0DAA0>[también puede desviar ataques cuerpo a cuerpo en el nivel 3 y cualquier tipo de daño en el nivel 13]</color></i>
 ModUi/&EnableMonkFightingStyle=Habilitar la opción <color=#D89555>Estilo de lucha</color> en el nivel 2
 ModUi/&EnableMonkFocus2024=Intercambia <color=#D89555>Ráfaga de golpes</color>, <color=#D89555>Defensa paciente</color> y <color=#D89555>Paso del viento</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos a voluntad, puntos de ki para efectos adicionales]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Habilitar <color=#D89555>Manos</color> y <color=#D89555>Guanteletes</color> para que funcionen en la ranura de guantelete
-ModUi/&EnableMonkHeightenedFocus2024=Habilita <color=#D89555>Concentración aumentada</color> en el nivel 10. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen beneficios adicionales]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=Habilita <color=#D89555>Enfoque aumentado</color> y <color=#D89555>Enfoque perfecto</color> para reemplazar <color=#D89555>Pureza corporal</color> y <color=#D89555>Cuerpo atemporal</color> en los niveles 10 y 15. <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa paciente</b> y <b>Paso del viento</b> obtienen efectos adicionales en el nivel 10 y recuperan puntos de Ki en el nivel 15]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Habilite <color=#D89555>Movimiento sin armadura mejorado</color> para moverse por superficies verticales sin caerse
-ModUi/&EnableMonkKatanaSpecialization=Otorgar la <color=#D89555>especialización en armas</color> a los <b>monjes</b>
+ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Especialización en armas</color>
 ModUi/&EnableMonkMartialArts2024=Intercambia <color=#D89555>Artes marciales</color> con la versión 5e 2024 <i><color=#F0DAA0>[progresión de dados desarmado mejorada y sin requisitos en la acción adicional de ataque desarmado]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Intercambia <color=#D89555>Golpe aturdidor</color> con la versión 5e 2024 <i><color=#F0DAA0>[efectos adicionales cuando el objetivo tiene éxito en la tirada de salvación]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Habilita <color=#D89555>Defensa superior</color> para reemplazar <color=#D89555>Cuerpo vacío</color> en el nivel 18 <i><color=#F0DAA0>[resistencia al daño]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Elimina <color=#D89555>Secreto mágico</color
 ModUi/&RemoveBardSongOfRest2024=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
+ModUi/&RemoveMonkStillnessOfMind2024=Elimina <color=#D89555>Quietud mental</color> en el nivel 7
 ModUi/&RemoveRangerVanish2024=Eliminar <color=#D89555>Desaparecer</color> en el nivel 14
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.
 ModUi/&RemoveRogueBlindSense2024=Elimina el <color=#D89555>Sentido ciego</color> en el nivel 14

@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタムキャンペー
 ModUi/&EnableMinInOutAttributes=<i>+ 入退室の前提条件として最低限の能力値を適用する</i>
 ModUi/&EnableMonkAbundantKi=レベル 2 で <color=#D89555>豊富な気力</color> を有効にする <i><color=#F0DAA0>[熟練度ボーナスの半分に等しい気力を追加で獲得]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=レベル20で<color=#D89555>肉体と精神</color>を<color=#D89555>完璧な自分</color>と置き換えます
-ModUi/&EnableMonkDeflectAttacks2024=レベル 3 で <color=#D89555>ミサイルの反射</color> の代わりに <color=#D89555>攻撃の反射</color> を有効にします <i><color=#F0DAA0>[近接攻撃の反射も可能]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=レベル 3 と 13 で、<color=#D89555>ミサイルの反射</color>と<color=#D89555>太陽と月の舌</color>の代わりに、<color=#D89555>攻撃の反射</color>と<color=#D89555>エネルギーの反射</color>を有効にします <i><color=#F0DAA0>[レベル 3 では近接攻撃も反射でき、レベル 13 ではあらゆるタイプのダメージも反射できます]</color></i>
 ModUi/&EnableMonkFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableMonkFocus2024=<color=#D89555>連打</color>、<color=#D89555>忍耐強い防御</color>、<color=#D89555>風の足取り</color>を 5e 2024 バージョンの <i><color=#F0DAA0>[自由に使用、追加効果には気ポイント]</color></i> と入れ替えます
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>ハンドラップ</color>と<color=#D89555>ガントレット</color>をガントレットスロットで機能させる
-ModUi/&EnableMonkHeightenedFocus2024=レベル 10 で <color=#D89555>集中力の強化</color> を有効にする <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風の足取り</b> が追加の効果を得る]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=レベル 10 と 15 で、<color=#D89555>高まる集中力</color>と<color=#D89555>完璧な集中力</color>を有効にして、<color=#D89555>純粋な肉体</color>と<color=#D89555>永遠の肉体</color>を置き換えます <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風の歩み</b>はレベル 10 で追加効果を獲得し、気力ポイントはレベル 15 で回復します]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
-ModUi/&EnableMonkKatanaSpecialization=<b>僧侶</b>に刀の<color=#D89555>武器特化</color>を付与します
+ModUi/&EnableMonkKatanaSpecialization=カタナに<color=#D89555>武器特化</color>を付与
 ModUi/&EnableMonkMartialArts2024=<color=#D89555>Martial Arts</color> を 5e 2024 バージョン <i><color=#F0DAA0>[素手ダイスの進行が改善され、素手打撃ボーナス アクションの要件がなくなりました]</color></i> と入れ替えます
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>スタンニングストライク</color>を5e 2024バージョンの<i><color=#F0DAA0>[ターゲットがセーヴに成功した場合の追加効果]</color></i>と入れ替えます
 ModUi/&EnableMonkSuperiorDefense2024=レベル 18 で <color=#D89555>空っぽの体</color> の代わりに <color=#D89555>優れた防御</color> を有効にします <i><color=#F0DAA0>[ダメージ耐性]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=レベル14と18で<color=#D89555>魔法の�
 ModUi/&RemoveBardSongOfRest2024=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します
+ModUi/&RemoveMonkStillnessOfMind2024=レベル7で<color=#D89555>心の静けさ</color>を削除します
 ModUi/&RemoveRangerVanish2024=レベル14で<color=#D89555>Vanish</color>を削除します
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>絡みつく</color>効果は詠唱時にのみ適用され、蔓から逃れるには筋力チェックも強制される。
 ModUi/&RemoveRogueBlindSense2024=レベル14で<color=#D89555>ブラインドセンス</color>を削除します

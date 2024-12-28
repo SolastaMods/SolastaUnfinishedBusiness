@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer la journalisation d
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum dans et hors des prérequis</i>
 ModUi/&EnableMonkAbundantKi=Activez <color=#D89555>Ki abondant</color> au niveau 2 <i><color=#F0DAA0>[gagnez du Ki supplémentaire égal à la moitié du bonus de maîtrise arrondi au supérieur]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Activez <color=#D89555>Corps et esprit</color> pour remplacer <color=#D89555>Soi parfait</color> au niveau 20
-ModUi/&EnableMonkDeflectAttacks2024=Activez <color=#D89555>Dévier les attaques</color> pour remplacer <color=#D89555>Dévier les missiles</color> au niveau 3 <i><color=#F0DAA0>[peut également dévier les attaques au corps à corps]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=Activez <color=#D89555>Dévier les attaques</color> et <color=#D89555>Dévier l'énergie</color> pour remplacer <color=#D89555>Dévier les missiles</color> et <color=#D89555>Langue du soleil et de la lune</color> aux niveaux 3 et 13 <i><color=#F0DAA0>[peut également dévier les attaques de mêlée au niveau 3 et tout type de dégâts au niveau 13]</color></i>
 ModUi/&EnableMonkFightingStyle=Activer le choix du <color=#D89555>Style de combat</color> au niveau 2
 ModUi/&EnableMonkFocus2024=Remplacez <color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color> et <color=#D89555>Step of the Wind</color> avec la version 5e 2024 <i><color=#F0DAA0>[à volonté, points de ki pour des effets supplémentaires]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Activer les <color=#D89555>bandages</color> et les <color=#D89555>gantelets</color> pour fonctionner dans l'emplacement du gantelet
-ModUi/&EnableMonkHeightenedFocus2024=Activez <color=#D89555>Focus renforcé</color> au niveau 10 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense patiente</b> et <b>Pas du vent</b> gagnent des avantages supplémentaires]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=Activez <color=#D89555>Concentration renforcée</color> et <color=#D89555>Concentration parfaite</color> pour remplacer <color=#D89555>Pureté du corps</color> et <color=#D89555>Corps intemporel</color> aux niveaux 10 et 15 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense patiente</b> et <b>Pas du vent</b> gagnent des effets supplémentaires au niveau 10, et récupèrent des points de Ki au niveau 15]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Activez <color=#D89555>Mouvement sans armure amélioré</color> pour vous déplacer le long des surfaces verticales sans tomber
-ModUi/&EnableMonkKatanaSpecialization=Accorder la <color=#D89555>spécialisation d'arme Katana</color> aux <b>moines</b>
+ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Spécialisation des armes</color>
 ModUi/&EnableMonkMartialArts2024=Échangez <color=#D89555>Arts martiaux</color> avec la version 5e 2024 <i><color=#F0DAA0>[amélioration de la progression des dés à mains nues et aucune exigence sur l'action bonus de frappe à mains nues]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Remplacez <color=#D89555>Frappe étourdissante</color> par la version 5e 2024 <i><color=#F0DAA0>[effets supplémentaires lorsque la cible réussit sa sauvegarde]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Activez la <color=#D89555>Défense supérieure</color> pour remplacer le <color=#D89555>Corps vide</color> au niveau 18 <i><color=#F0DAA0>[résistance aux dégâts]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Supprimez le <color=#D89555>secret magique</c
 ModUi/&RemoveBardSongOfRest2024=Supprimez <color=#D89555>Chant de repos</color> au niveau 2
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des modèles ressemblant à des ours dans le jeu <i><color=#F0DAA0>[arachnophobie]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laugher</color>
+ModUi/&RemoveMonkStillnessOfMind2024=Supprimez <color=#D89555>l'immobilité de l'esprit</color> au niveau 7
 ModUi/&RemoveRangerVanish2024=Supprimez <color=#D89555>Vanish</color> au niveau 14
 ModUi/&RemoveRecurringEffectOnEntangle=Appliquez uniquement l'effet <color=#D89555>Enchevêtrement</color> au moment de l'incantation et forcez également un test de force pour vous libérer des vignes
 ModUi/&RemoveRogueBlindSense2024=Supprimez <color=#D89555>Blind Sense</color> au niveau 14

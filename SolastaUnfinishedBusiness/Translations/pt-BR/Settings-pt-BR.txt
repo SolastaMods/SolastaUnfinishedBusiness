@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar registro de refer
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações de habilidade mínimas dentro e fora dos pré-requisitos</i>
 ModUi/&EnableMonkAbundantKi=Habilitar <color=#D89555>Ki Abundante</color> no nível 2 <i><color=#F0DAA0>[ganhe Ki adicional igual à metade do bônus de proficiência arredondado para cima]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Habilitar <color=#D89555>Corpo e Mente</color> para substituir <color=#D89555>Eu Perfeito</color> no nível 20
-ModUi/&EnableMonkDeflectAttacks2024=Habilite <color=#D89555>Defletir Ataques</color> para substituir <color=#D89555>Defletir Mísseis</color> no nível 3 <i><color=#F0DAA0>[também pode desviar ataques corpo a corpo]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=Habilite <color=#D89555>Defletir Ataques</color> e <color=#D89555>Defletir Energia</color> para substituir <color=#D89555>Defletir Mísseis</color> e <color=#D89555>Língua do Sol e da Lua</color> nos níveis 3 e 13 <i><color=#F0DAA0>[também pode desviar corpo a corpo no 3º e qualquer tipo de dano no 13º]</color></i>
 ModUi/&EnableMonkFightingStyle=Habilitar a escolha <color=#D89555>Estilo de luta</color> no nível 2
 ModUi/&EnableMonkFocus2024=Troque <color=#D89555>Rajada de Golpes</color>, <color=#D89555>Defesa Paciente</color> e <color=#D89555>Passo do Vento</color> pela versão 5e 2024 <i><color=#F0DAA0>[usos à vontade, pontos de ki para efeitos adicionais]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=Habilitar <color=#D89555>Handwraps</color> e <color=#D89555>Gauntlets</color> para funcionar no slot de manopla
-ModUi/&EnableMonkHeightenedFocus2024=Habilite <color=#D89555>Foco Elevado</color> no nível 10 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa Paciente</b> e <b>Passo do Vento</b> ganham benefícios adicionais]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=Habilite <color=#D89555>Foco Elevado</color> e <color=#D89555>Foco Perfeito</color> para substituir <color=#D89555>Pureza do Corpo</color> e <color=#D89555>Corpo Atemporal</color> nos níveis 10 e 15 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa Paciente</b> e <b>Passo do Vento</b> ganham efeitos adicionais no 10º, e pontos de Ki recuperam no 15º]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Habilitar <color=#D89555>Movimento sem armadura aprimorado</color> para se mover em superfícies verticais sem cair
-ModUi/&EnableMonkKatanaSpecialization=Conceda Katana <color=#D89555>Especialização em Armas</color> aos <b>Monges</b>
+ModUi/&EnableMonkKatanaSpecialization=Conceda Katana <color=#D89555>Especialização em Armas</color>
 ModUi/&EnableMonkMartialArts2024=Troque <color=#D89555>Artes Marciais</color> pela versão 5e 2024 <i><color=#F0DAA0>[progressão de dados desarmados aprimorada e sem requisitos para ação bônus de ataque desarmado]</color></i>
 ModUi/&EnableMonkStunningStrike2024=Troque <color=#D89555>Golpe Atordoante</color> pela versão 5e 2024 <i><color=#F0DAA0>[efeitos adicionais quando o alvo obtém sucesso na defesa]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Habilitar <color=#D89555>Defesa Superior</color> para substituir <color=#D89555>Corpo Vazio</color> no nível 18 <i><color=#F0DAA0>[resistência a danos]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=Remova <color=#D89555>Segredo Mágico</color>
 ModUi/&RemoveBardSongOfRest2024=Remova <color=#D89555>Canção do Descanso</color> no nível 2
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Risada Hedionda</color>
+ModUi/&RemoveMonkStillnessOfMind2024=Remova <color=#D89555>Quietude da Mente</color> no nível 7
 ModUi/&RemoveRangerVanish2024=Remova <color=#D89555>Vanish</color> no nível 14
 ModUi/&RemoveRecurringEffectOnEntangle=Aplique o efeito <color=#D89555>Entangle</color> somente no momento do lançamento e também force um teste de força para se libertar das videiras
 ModUi/&RemoveRogueBlindSense2024=Remova <color=#D89555>Sentido Cego</color> no nível 14

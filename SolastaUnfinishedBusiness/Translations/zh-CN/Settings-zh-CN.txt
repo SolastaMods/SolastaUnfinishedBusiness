@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义广告系列中
 ModUi/&EnableMinInOutAttributes=<i>+ 强制执行能力得分最低进出先决条件</i>
 ModUi/&EnableMonkAbundantKi=在 2 级时启用<color=#D89555>充沛的气</color> <i><color=#F0DAA0>[获得额外的气，等于熟练度奖励的一半，向上取整]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=在 20 级时启用<color=#D89555>身心</color>来替代<color=#D89555>完美自我</color>
-ModUi/&EnableMonkDeflectAttacks2024=在 3 级时启用<color=#D89555>偏转攻击</color>来取代<color=#D89555>偏转导弹</color> <i><color=#F0DAA0>[也可以偏转近战]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=启用<color=#D89555>偏转攻击</color>和<color=#D89555>偏转能量</color>来替换<color=#D89555>偏转导弹</color>和<color=#D89555>日月之舌</color>（等级 3 和 13）<i><color=#F0DAA0>[等级 3 时还可偏转近战攻击，等级 13 时可偏转任意伤害类型]</color></i>
 ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>战斗风格</color>选择
 ModUi/&EnableMonkFocus2024=将<color=#D89555>Flurry of Blows</color>、<color=#D89555>Patient Defense</color>和<color=#D89555>Step of the Wind</color>与 5e 2024 版本交换<i><color=#F0DAA0>[随意使用，气点可获得额外效果]</color></i>
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=使<color=#D89555>手套</color>和<color=#D89555>护手</color>能够在护手槽中发挥作用
-ModUi/&EnableMonkHeightenedFocus2024=在 10 级时启用<color=#D89555>高度专注</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>获得额外好处]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=在 10 级和 15 级时启用<color=#D89555>高度专注</color>和<color=#D89555>完美专注</color>来取代<color=#D89555>身体纯净</color>和<color=#D89555>永恒之躯</color> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之脚步</b>在 10 级时获得额外效果，并且气点在 15 级时恢复]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=启用<color=#D89555>改进的无装甲移动</color>以沿垂直表面移动而不会掉落
-ModUi/&EnableMonkKatanaSpecialization=授予<b>僧侣</b>武士刀<color=#D89555>武器专长</color>
+ModUi/&EnableMonkKatanaSpecialization=授予武士刀<color=#D89555>武器专长</color>
 ModUi/&EnableMonkMartialArts2024=将<color=#D89555>武术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[改进了徒手掷骰子进程，并且对徒手打击奖励行动没有任何要求]</color></i>
 ModUi/&EnableMonkStunningStrike2024=将<color=#D89555>Stunning Strike</color>与 5e 2024 版本交换<i><color=#F0DAA0>[目标成功保存时产生的附加效果]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来取代 18 级时的<color=#D89555>空虚之身</color> <i><color=#F0DAA0>[抗伤害]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=删除 14 级和 18 级的<color=#D89555>魔�
 ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器
+ModUi/&RemoveMonkStillnessOfMind2024=删除第 7 级的<color=#D89555>心灵宁静</color>
 ModUi/&RemoveRangerVanish2024=删除 14 级的 <color=#D89555>消失</color>
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果，并强制进行力量检查以摆脱藤蔓
 ModUi/&RemoveRogueBlindSense2024=移除 14 级的<color=#D89555>盲感</color>

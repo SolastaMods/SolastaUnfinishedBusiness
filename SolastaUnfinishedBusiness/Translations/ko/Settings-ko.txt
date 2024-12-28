@@ -150,13 +150,13 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 정의 캠페인�
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 입출력 전제 조건 능력치 적용</i>
 ModUi/&EnableMonkAbundantKi=2레벨에서 <color=#D89555>풍부한 기</color>를 활성화합니다. <i><color=#F0DAA0>[숙련도 보너스의 절반에 해당하는 추가 기를 얻습니다(올림)]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=레벨 20에서 <color=#D89555>완벽한 자아</color>를 대체하기 위해 <color=#D89555>신체와 정신</color>을 활성화합니다.
-ModUi/&EnableMonkDeflectAttacks2024=레벨 3에서 <color=#D89555>미사일 반사</color>를 대체하여 <color=#D89555>공격 반사</color>를 활성화합니다. <i><color=#F0DAA0>[근접 공격 반사도 가능]</color></i>
+ModUi/&EnableMonkDeflectAttacks2024=<color=#D89555>공격 반사</color>와 <color=#D89555>에너지 반사</color>를 활성화하여 레벨 3과 13에서 <color=#D89555>미사일 반사</color>와 <color=#D89555>태양과 달의 혀</color>를 대체합니다. <i><color=#F0DAA0>[3레벨에서는 근접 공격을 반사할 수 있고, 13레벨에서는 모든 유형의 피해를 반사할 수 있습니다]</color></i>
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
 ModUi/&EnableMonkFocus2024=<color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, <color=#D89555>Step of the Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[원하는 대로 사용 가능, 추가 효과를 위한 기 포인트]</color></i>과 교환하세요.
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
-ModUi/&EnableMonkHeightenedFocus2024=레벨 10에서 <color=#D89555>강화된 집중력</color>을 활성화합니다. <i><color=#F0DAA0>[<b>연타격</b>, <b>인내 방어</b>, <b>바람의 발걸음</b>이 추가 혜택을 얻습니다]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=<color=#D89555>강화된 집중력</color>과 <color=#D89555>완벽한 집중력</color>을 활성화하여 레벨 10과 15에서 <color=#D89555>신체의 순수성</color>과 <color=#D89555>영원한 신체</color>를 대체합니다. <i><color=#F0DAA0>[<b>연타의 폭풍</b>, <b>인내의 방어</b>, <b>바람의 발걸음</b>은 10레벨에서 추가 효과를 얻고, 15레벨에서 기 포인트를 회복합니다]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>개선된 비무장 이동</color>을 활성화하여 떨어지지 않고 수직 표면을 따라 이동합니다.
-ModUi/&EnableMonkKatanaSpecialization=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
+ModUi/&EnableMonkKatanaSpecialization=그랜트 카타나 <color=#D89555>무기 전문화</color>
 ModUi/&EnableMonkMartialArts2024=<color=#D89555>무술</color>을 5e 2024 버전으로 교체 <i><color=#F0DAA0>[개선된 비무장 주사위 진행 및 비무장 타격 보너스 액션에 대한 요구 사항 없음]</color></i>
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>Stunning Strike</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[대상이 저장에 성공하면 추가 효과가 적용됩니다]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 <color=#D89555>최고 방어력</color>으로 대체합니다. <i><color=#F0DAA0>[피해 저항력]</color></i>
@@ -326,6 +326,7 @@ ModUi/&RemoveBardMagicalSecret2024=레벨 14와 18에서 <color=#D89555>마법�
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
+ModUi/&RemoveMonkStillnessOfMind2024=레벨 7에서 <color=#D89555>정신의 고요함</color>을 제거합니다.
 ModUi/&RemoveRangerVanish2024=레벨 14에서 <color=#D89555>사라짐</color> 제거
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
 ModUi/&RemoveRogueBlindSense2024=레벨 14에서 <color=#D89555>맹감각</color> 제거
