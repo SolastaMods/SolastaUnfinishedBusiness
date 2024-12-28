@@ -665,15 +665,16 @@
     <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
     <EnableMonkDeflectAttacks2024>false</EnableMonkDeflectAttacks2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkFocus2024>false</EnableMonkFocus2024>
     <EnableMonkHandwrapsOnGauntletSlot>false</EnableMonkHandwrapsOnGauntletSlot>
     <EnableMonkHeightenedFocus2024>false</EnableMonkHeightenedFocus2024>
     <EnableMonkImprovedUnarmoredMovement>false</EnableMonkImprovedUnarmoredMovement>
-    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
-    <EnableMonkMartialArts2024>false</EnableMonkMartialArts2024>
-    <EnableMonkStunningStrike2024>false</EnableMonkStunningStrike2024>
     <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
     <EnableMonkUncannyMetabolism2024>false</EnableMonkUncannyMetabolism2024>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
+    <RemoveMonkStillnessOfMind2024>false</RemoveMonkStillnessOfMind2024>
+    <EnableMonkFocus2024>false</EnableMonkFocus2024>
+    <EnableMonkMartialArts2024>false</EnableMonkMartialArts2024>
+    <EnableMonkStunningStrike2024>false</EnableMonkStunningStrike2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>false</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>false</EnablePaladinChannelDivinity2024>
@@ -1178,8 +1179,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

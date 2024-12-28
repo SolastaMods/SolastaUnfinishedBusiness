@@ -1599,6 +1599,18 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkTimelessBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTimelessBody");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkPurityOfBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkPurityOfBody");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkTongueSunMoon { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTongueSunMoon");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkStillnessOfMind { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStillnessOfMind");
+
         internal static FeatureDefinitionFeatureSet FeatureSetMonkDeflectMissiles { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDeflectMissiles");
 
@@ -2334,6 +2346,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionProficiencys
     {
+        internal static FeatureDefinitionProficiency ProficiencyAllLanguagesButCode { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyAllLanguagesButCode");
+
         internal static FeatureDefinitionProficiency ProficiencyMonkWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkWeapon");
 

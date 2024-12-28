@@ -70,7 +70,9 @@ internal static partial class Tabletop2024Context
         SwitchMonkFocus();
         SwitchMonkHeightenedFocus();
         SwitchMonkMartialArts();
+        SwitchMonkStillnessOfMind();
         SwitchMonkStunningStrike();
+        SwitchMonkSelfRestoration();
         SwitchMonkSuperiorDefense();
         SwitchMonkUncannyMetabolism();
         SwitchOneDndDamagingSpellsUpgrade();

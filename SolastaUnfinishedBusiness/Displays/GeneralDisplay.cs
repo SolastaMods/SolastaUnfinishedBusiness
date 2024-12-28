@@ -523,6 +523,8 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkDeflectAttacks();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableMonkHeightenedFocus2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedFocus2024"), ref toggle,
                 UI.AutoWidth()))
@@ -531,6 +533,16 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkHeightenedFocus();
         }
 
+        UI.Label();
+
+        toggle = Main.Settings.EnableMonkSuperiorDefense2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefense2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSuperiorDefense2024 = toggle;
+            Tabletop2024Context.SwitchMonkSuperiorDefense();
+        }
+        
         toggle = Main.Settings.EnableMonkSuperiorDefense2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefense2024"), ref toggle,
                 UI.AutoWidth()))
@@ -545,6 +557,14 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableMonkUncannyMetabolism2024 = toggle;
             Tabletop2024Context.SwitchMonkUncannyMetabolism();
+        }
+
+        toggle = Main.Settings.RemoveMonkStillnessOfMind2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveMonkStillnessOfMind2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.RemoveMonkStillnessOfMind2024 = toggle;
+            Tabletop2024Context.SwitchMonkStillnessOfMind();
         }
 
         toggle = Main.Settings.EnableMonkFocus2024;

@@ -714,15 +714,16 @@
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
     <EnableMonkDeflectAttacks2024>true</EnableMonkDeflectAttacks2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkFocus2024>true</EnableMonkFocus2024>
     <EnableMonkHandwrapsOnGauntletSlot>true</EnableMonkHandwrapsOnGauntletSlot>
     <EnableMonkHeightenedFocus2024>true</EnableMonkHeightenedFocus2024>
     <EnableMonkImprovedUnarmoredMovement>true</EnableMonkImprovedUnarmoredMovement>
-    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
-    <EnableMonkMartialArts2024>true</EnableMonkMartialArts2024>
-    <EnableMonkStunningStrike2024>true</EnableMonkStunningStrike2024>
     <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
     <EnableMonkUncannyMetabolism2024>true</EnableMonkUncannyMetabolism2024>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
+    <RemoveMonkStillnessOfMind2024>true</RemoveMonkStillnessOfMind2024>
+    <EnableMonkFocus2024>true</EnableMonkFocus2024>
+    <EnableMonkMartialArts2024>true</EnableMonkMartialArts2024>
+    <EnableMonkStunningStrike2024>true</EnableMonkStunningStrike2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>

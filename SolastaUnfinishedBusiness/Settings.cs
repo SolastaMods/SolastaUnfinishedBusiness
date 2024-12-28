@@ -301,15 +301,17 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkBodyAndMind2024 { get; set; }
     public bool EnableMonkDeflectAttacks2024 { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
-    public bool EnableMonkFocus2024 { get; set; }
     public bool EnableMonkHandwrapsOnGauntletSlot { get; set; }
     public bool EnableMonkHeightenedFocus2024 { get; set; }
     public bool EnableMonkImprovedUnarmoredMovement { get; set; }
-    public bool EnableMonkKatanaSpecialization { get; set; }
-    public bool EnableMonkMartialArts2024 { get; set; }
-    public bool EnableMonkStunningStrike2024 { get; set; }
+    public bool EnableMonkSelfRestoration2024 { get; set; }
     public bool EnableMonkSuperiorDefense2024 { get; set; }
     public bool EnableMonkUncannyMetabolism2024 { get; set; }
+    public bool EnableMonkKatanaSpecialization { get; set; }
+    public bool RemoveMonkStillnessOfMind2024 { get; set; }
+    public bool EnableMonkFocus2024 { get; set; }
+    public bool EnableMonkMartialArts2024 { get; set; }
+    public bool EnableMonkStunningStrike2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinAbjureFoes2024 { get; set; }
     public bool EnablePaladinChannelDivinity2024 { get; set; }

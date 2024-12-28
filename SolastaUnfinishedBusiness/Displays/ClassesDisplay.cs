@@ -277,6 +277,8 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchMonkDeflectAttacks();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableMonkFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
         {
@@ -300,12 +302,22 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchMonkHeightenedFocus();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableMonkImprovedUnarmoredMovement;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkImprovedUnarmoredMovement"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkImprovedUnarmoredMovement = toggle;
             ClassesContext.SwitchMonkImprovedUnarmoredMovement();
+        }
+        
+        toggle = Main.Settings.EnableMonkSelfRestoration2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSelfRestoration2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSelfRestoration2024 = toggle;
+            Tabletop2024Context.SwitchMonkSelfRestoration();
         }
 
         toggle = Main.Settings.EnableMonkSuperiorDefense2024;
@@ -315,7 +327,7 @@ internal static class ClassesDisplay
             Main.Settings.EnableMonkSuperiorDefense2024 = toggle;
             Tabletop2024Context.SwitchMonkSuperiorDefense();
         }
-
+        
         toggle = Main.Settings.EnableMonkUncannyMetabolism2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkUncannyMetabolism2024"), ref toggle,
                 UI.AutoWidth()))
@@ -329,6 +341,14 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableMonkKatanaSpecialization = toggle;
             ClassesContext.SwitchMonkKatanaSpecialization();
+        }
+
+        toggle = Main.Settings.RemoveMonkStillnessOfMind2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveMonkStillnessOfMind2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.RemoveMonkStillnessOfMind2024 = toggle;
+            Tabletop2024Context.SwitchMonkStillnessOfMind();
         }
 
         toggle = Main.Settings.EnableMonkFocus2024;

@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -44,38 +45,45 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new OnConditionAddedOrRemovedGrappleNoCostUsed())
         .AddToDB();
 
-    private static readonly FeatureDefinition FeatureMonkHeightenedFocus = FeatureDefinitionActionAffinityBuilder
-        .Create("FeatureMonkHeightenedFocus")
-        .SetGuiPresentation(Category.Feature)
-        .SetAuthorizedActions((Id)ExtraActionId.GrappleNoCost)
-        .AddCustomSubFeatures(
-            new ValidateDefinitionApplication(
-                ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleNoCost.Name),
-                ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleNoCostUsed.Name)),
-            new CustomBehaviorHeightenedFocus(
-                ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedFocus")
-                            .SetUnarmedStrike(3)
-                            .AddToDB())
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedFocus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus")
-                            .SetUnarmedStrike(4)
-                            .AddToDB())
-                    .AddToDB()))
-        .AddToDB();
+    private static readonly FeatureDefinitionActionAffinity FeatureMonkHeightenedFocus =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("FeatureMonkHeightenedFocus")
+            .SetGuiPresentation(Category.Feature)
+            .SetAuthorizedActions((Id)ExtraActionId.GrappleNoCost)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleNoCost.Name),
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleNoCostUsed.Name)),
+                new CustomBehaviorHeightenedFocus(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAttackModifierBuilder
+                                .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+                                    "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedFocus")
+                                .SetUnarmedStrike(3)
+                                .AddToDB())
+                        .AddToDB(),
+                    ConditionDefinitionBuilder
+                        .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedFocus")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAttackModifierBuilder
+                                .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+                                    "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus")
+                                .SetUnarmedStrike(4)
+                                .AddToDB())
+                        .AddToDB()))
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMonkPerfectFocus =
+        FeatureDefinitionBuilder
+            .Create("FeatureMonkPerfectFocus")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
         .Create("PowerMonkReturnAttacks")
@@ -352,6 +360,12 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
                 "Feature/&FeatureSetMonkAlternateDeflectMissilesDescription";
             FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(PowerMonkReturnAttacks);
+
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkAlternateTongueSunMoonTitle";
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkAlternateTongueSunMoonDescription";
+            FeatureSetMonkTongueSunMoon.FeatureSet.Clear();
         }
         else
         {
@@ -361,7 +375,15 @@ internal static partial class Tabletop2024Context
                 "Feature/&FeatureSetMonkDeflectMissilesDescription";
             FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(
                 ActionAffinityMonkDeflectMissiles, PowerMonkReturnMissile);
+
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkTongueSunMoonTitle";
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkTongueSunMoonDescription";
+            FeatureSetMonkTongueSunMoon.FeatureSet.SetRange(ProficiencyAllLanguagesButCode);
         }
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkFocus()
@@ -419,6 +441,18 @@ internal static partial class Tabletop2024Context
         }
     }
 
+    internal static void SwitchMonkStillnessOfMind()
+    {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetMonkStillnessOfMind);
+
+        if (!Main.Settings.RemoveMonkStillnessOfMind2024)
+        {
+            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkStillnessOfMind, 7));
+        }
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchMonkMartialArts()
     {
         if (Main.Settings.EnableMonkMartialArts2024)
@@ -451,11 +485,37 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchMonkHeightenedFocus()
     {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkHeightenedFocus);
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureMonkHeightenedFocus ||
+            x.FeatureDefinition == FeatureMonkPerfectFocus ||
+            x.FeatureDefinition == FeatureSetMonkPurityOfBody ||
+            x.FeatureDefinition == FeatureSetMonkTimelessBody);
 
-        if (Main.Settings.EnableMonkHeightenedFocus2024)
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureMonkHeightenedFocus, 10)
+                : new FeatureUnlockByLevel(FeatureSetMonkPurityOfBody, 10));
+
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureSetMonkTimelessBody, 15)
+                : new FeatureUnlockByLevel(FeatureMonkPerfectFocus, 15));
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+    
+    private static readonly FeatureDefinition FeatureMonkSelfRestoration = FeatureDefinitionBuilder
+        .Create("FeatureMonkSelfRestoration")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+    
+    internal static void SwitchMonkSelfRestoration()
+    {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkSelfRestoration);
+
+        if (Main.Settings.EnableMonkSelfRestoration2024)
         {
-            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkHeightenedFocus, 10));
+            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkSelfRestoration, 10));
         }
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -474,7 +534,7 @@ internal static partial class Tabletop2024Context
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-
+    
     internal static void SwitchMonkUncannyMetabolism()
     {
         Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkUncannyMetabolism);
@@ -512,6 +572,9 @@ internal static partial class Tabletop2024Context
         : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe,
             IModifyEffectDescription, IMagicEffectFinishedByMe
     {
+        private static readonly string[] AllDamages =
+            DatabaseRepository.GetDatabase<DamageDefinition>().Select(x => x.Name).ToArray();
+
         private static readonly string[] AllowedDamages =
             [DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing];
 
@@ -551,7 +614,7 @@ internal static partial class Tabletop2024Context
                 return effectDescription;
             }
 
-            damageForm.damageType = AllowedDamages[activeCondition.Amount];
+            damageForm.damageType = AllDamages[activeCondition.Amount];
 
             return effectDescription;
         }
@@ -568,8 +631,10 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
+            var classLevel = defender.RulesetCharacter.GetClassLevel(Monk);
             var damageForm = actualEffectForms.FirstOrDefault(x =>
-                x.FormType == EffectForm.EffectFormType.Damage && AllowedDamages.Contains(x.DamageForm.DamageType));
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
 
             if (damageForm == null || !defender.CanReact())
             {
@@ -589,13 +654,15 @@ internal static partial class Tabletop2024Context
             void ReactionValidated()
             {
                 var rulesetDefender = defender.RulesetCharacter;
-                var damageIndex = Array.IndexOf(AllowedDamages, damageForm.DamageForm.DamageType);
+                var damageIndex = Array.IndexOf(AllDamages, damageForm.DamageForm.DamageType);
                 var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
                 var reductionAmount =
                     RollDie(DieType.D10, AdvantageType.None, out _, out _) +
                     AttributeDefinitions.ComputeAbilityScoreModifier(dexterity) +
                     rulesetDefender.GetClassLevel(Monk);
 
+                EffectHelpers.StartVisualEffect(defender, attacker, PowerMonkReturnMissile,
+                    EffectHelpers.EffectType.Caster);
                 actionModifier.damageRollReduction += reductionAmount;
                 rulesetDefender.DamageReduced.Invoke(rulesetDefender, FeatureSetMonkDeflectMissiles, reductionAmount);
                 rulesetDefender.InflictCondition(
@@ -643,7 +710,7 @@ internal static partial class Tabletop2024Context
                 [attacker],
                 attacker,
                 "ReturnAttacks",
-                "SpendPowerReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
         }
     }
 
@@ -824,6 +891,8 @@ internal static partial class Tabletop2024Context
             if ((rulesetCharacter.UsedKiPoints == 0 && rulesetCharacter.MissingHitPoints == 0) ||
                 rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
+                HandlePerfectFocus();
+
                 yield break;
             }
 
@@ -833,7 +902,8 @@ internal static partial class Tabletop2024Context
                 "UncannyMetabolism",
                 "CustomReactionUncannyMetabolismDescription"
                     .Formatted(Category.Reaction, rulesetCharacter.UsedKiPoints),
-                ReactionValidated);
+                ReactionValidated,
+                HandlePerfectFocus);
 
             yield break;
 
@@ -851,6 +921,19 @@ internal static partial class Tabletop2024Context
                 rulesetCharacter.ReceiveHealing(healing, true, rulesetCharacter.Guid);
                 EffectHelpers.StartVisualEffect(
                     character, character, PowerTraditionOpenHandWholenessOfBody, EffectHelpers.EffectType.Caster);
+            }
+
+            void HandlePerfectFocus()
+            {
+                if (!Main.Settings.EnableMonkHeightenedFocus2024 ||
+                    rulesetCharacter.GetClassLevel(Monk) < 15 ||
+                    rulesetCharacter.RemainingKiPoints >= 4)
+                {
+                    return;
+                }
+
+                rulesetCharacter.UsedKiPoints -= 4 - rulesetCharacter.RemainingKiPoints;
+                rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
             }
         }
     }
