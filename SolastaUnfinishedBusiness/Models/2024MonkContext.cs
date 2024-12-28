@@ -80,7 +80,9 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
         .Create("PowerMonkReturnAttacks")
         .SetGuiPresentation(Category.Feature, hidden: true)
-        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+        .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -90,9 +92,11 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetDamageForm(diceNumber: 2)
                         .Build())
+                .SetImpactEffectParameters(PowerRoguishHoodlumDirtyFighting)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorMonkDeflectAttacks())
         .AddToDB();
@@ -505,10 +509,26 @@ internal static partial class Tabletop2024Context
     }
 
     private sealed class CustomBehaviorMonkDeflectAttacks
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe, IModifyEffectDescription
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe,
+            IModifyEffectDescription, IMagicEffectFinishedByMe
     {
         private static readonly string[] AllowedDamages =
             [DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing];
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerMonkReturnAttacks ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
+        }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
@@ -605,22 +625,25 @@ internal static partial class Tabletop2024Context
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            rulesetDefender.RemoveCondition(activeCondition);
-
-            if (damageAmount > 0)
+            if (damageAmount > 0 ||
+                rulesetDefender.RemainingKiPoints == 0 ||
+                !defender.CanAct() ||
+                !defender.CanPerceiveTarget(attacker) ||
+                !rulesetDefender.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name))
             {
                 yield break;
             }
 
             var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
 
-            defender.MyExecuteActionSpendPower(usablePower, attacker);
+            yield return defender.MyReactToUsePower(
+                Id.PowerNoCost,
+                usablePower,
+                [attacker],
+                attacker,
+                "ReturnAttacks",
+                "SpendPowerReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
         }
     }
 
