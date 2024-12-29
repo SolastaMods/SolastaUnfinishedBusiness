@@ -915,6 +915,7 @@ internal static partial class Tabletop2024Context
 
                 rulesetCharacter.UsedKiPoints -= 4 - rulesetCharacter.RemainingKiPoints;
                 rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+                rulesetCharacter.LogCharacterUsedFeature(FeatureMonkPerfectFocus);
             }
         }
     }
