@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
@@ -35,11 +34,12 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
         // Flurry of Arrows
 
-        var featureFlurryOfArrows = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var featureFlurryOfArrows = FeatureDefinitionProficiencyBuilder
             .Create($"Feature{Name}FlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.Weapon, WeaponTypeDefinitions.LongbowType.Name)
             .AddCustomSubFeatures(
-                new ModifyWeaponAttackModeFlurryOfArrows(),
                 new AddExtraRangedAttack(
                     ActionDefinitions.ActionType.Bonus,
                     ValidatorsWeapon.AlwaysValid,
@@ -54,7 +54,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 .Create($"Proficiency{Name}OneWithTheBow")
                 .SetGuiPresentation(Category.Feature)
                 .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
-                .AddCustomSubFeatures(new CustomLevelUpLogicOneWithTheBow())
                 .AddToDB();
 
         // Zen Shot
@@ -127,7 +126,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
         var powerHailOfArrows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HailOfArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 3, 3)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4, 4)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -172,61 +171,14 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    //
-    // Flurry of Arrows
-    //
-
-    // set attacks number to 2 to allow a mix of unarmed / bow attacks otherwise game engine will consume bonus action
-    // once at least one bonus attack is used this check fails and everything gets back to normal
-    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks
-    // when attack tags have a proper hide tag
-    private sealed class ModifyWeaponAttackModeFlurryOfArrows : IModifyWeaponAttackMode
+    internal static bool IsZenArcheryWeapon(RulesetActor rulesetActor, WeaponDescription weaponDescription)
     {
-        public void ModifyWeaponAttackMode(
-            RulesetCharacter rulesetCharacter,
-            RulesetAttackMode attackMode,
-            RulesetItem weapon,
-            bool canAddAbilityDamageBonus)
-        {
-            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-
-            if (character is not { UsedBonusAttacks: 0 } ||
-                attackMode.ActionType != ActionDefinitions.ActionType.Bonus ||
-                !rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
-                !ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType, WeaponTypeDefinitions.ShortbowType)(
-                    attackMode, null, null))
-            {
-                return;
-            }
-
-            attackMode.AddAttackTagAsNeeded(
-                CharacterActionItemFormPatcher.Refresh_Patch.HideAttacksNumberOnActionPanel);
-            attackMode.AttacksNumber = 2;
-        }
-    }
-
-    //
-    // One with the Bow
-    //
-
-    private sealed class CustomLevelUpLogicOneWithTheBow : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            const string PREFIX = "CustomInvocationMonkWeaponSpecialization";
-
-            var heroBuildingData = hero.GetHeroBuildingData();
-            var invocationShortbowType = GetDefinition<InvocationDefinition>($"{PREFIX}ShortbowType");
-            var invocationLongbowType = GetDefinition<InvocationDefinition>($"{PREFIX}LongbowType");
-
-            heroBuildingData.LevelupTrainedInvocations.Add(tag, [invocationShortbowType, invocationLongbowType]);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
+        return
+            weaponDescription != null &&
+            rulesetActor is RulesetCharacter rulesetCharacter &&
+            (weaponDescription.WeaponTypeDefinition == WeaponTypeDefinitions.ShortbowType ||
+             weaponDescription.WeaponTypeDefinition == WeaponTypeDefinitions.LongbowType) &&
+            rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Monk, Name) >= 3;
     }
 
     //
@@ -291,11 +243,10 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 return;
             }
 
-            var proficiencyBonus = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var bonus = proficiencyBonus / 2;
+            const int BONUS = 2;
 
-            attackMode.ToHitBonus += bonus;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
+            attackMode.ToHitBonus += BONUS;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(BONUS, FeatureSourceType.CharacterFeature,
                 featureUnerringPrecision.Name, featureUnerringPrecision));
 
             var damage = attackMode.EffectDescription.FindFirstDamageForm();
@@ -305,8 +256,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 return;
             }
 
-            damage.BonusDamage += bonus;
-            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
+            damage.BonusDamage += BONUS;
+            damage.DamageBonusTrends.Add(new TrendInfo(BONUS, FeatureSourceType.CharacterFeature,
                 featureUnerringPrecision.Name, featureUnerringPrecision));
         }
     }

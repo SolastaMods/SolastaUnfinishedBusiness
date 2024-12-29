@@ -8,7 +8,8 @@ CHANGES:
 - fixed damage roll reduction calculation when more than one damage form is present [VANILLA]
 - fixed Gift of the Gem Dragon reaction crashing under Chinese
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
-- fixed True Strike 2024 not using spell casting ability on attack roll 
+- fixed True Strike 2024 not using spell casting ability on attack roll
+- nerfed Way of Zen Archery flurry of arrows, unerring precision, and hail of arrows features
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
 
 KNOWN ISSUES:
