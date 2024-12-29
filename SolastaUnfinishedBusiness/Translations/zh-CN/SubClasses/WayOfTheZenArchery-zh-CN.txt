@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=当你没有穿着盔甲时，你可以使用奖励行动进行弓箭攻击。
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=弓箭连击
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=迅捷射击
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=当您没有穿着盔甲时，您的弓箭攻击会被视为魔法攻击，以克服对非魔法攻击和伤害的抵抗力和免疫力，并且您现在可以将“震撼打击”功能与弓箭攻击结合使用。
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=气赋能箭
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=当你没有穿着盔甲时，你使用弓箭进行的所有攻击和伤害掷骰将获得 +2 加值。

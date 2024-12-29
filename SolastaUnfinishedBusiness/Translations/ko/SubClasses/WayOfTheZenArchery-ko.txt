@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=갑옷을 착용하지 않은 경우 보너스 액션을 사용하여 활 공격을 할 수 있습니다.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=화살의 질풍
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=스위프트 샷
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=방어구를 착용하지 않은 경우, 활 공격은 비마법적 공격과 피해에 대한 저항력과 면역성을 극복하는 데 있어 마법적 공격으로 간주되며, 이제 활 공격과 함께 스턴닝 스트라이크 기능을 사용할 수 있습니다.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=기 강화 화살
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=방어구를 착용하지 않을 경우 활을 사용한 모든 공격과 피해 굴림에 +2의 보너스를 얻습니다.

@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Пока вы не носите доспехи, вы можете использовать бонусное действие, чтобы совершить атаку из лука.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Быстрый выстрел
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Пока вы не носите доспехи, ваши атаки из лука считаются магическими с целью преодоления сопротивления и иммунитета к немагическим атакам и урону, и теперь вы можете использовать свою способность «Оглушающий удар» с атаками из лука.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Энергетические стрелы
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Пока вы не носите доспехи, вы получаете бонус +2 ко всем броскам атаки и урона с помощью луков.

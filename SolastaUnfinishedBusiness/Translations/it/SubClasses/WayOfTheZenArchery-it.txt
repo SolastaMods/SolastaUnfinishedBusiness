@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Quando non indossi l'armatura, puoi usare la tua azione bonus per effettuare un attacco con l'arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Raffica di frecce
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Colpo rapido
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Quando non indossi un'armatura, i tuoi attacchi con l'arco sono considerati magici ai fini del superamento della resistenza e dell'immunità agli attacchi e ai danni non magici, e ora puoi usare la tua caratteristica Colpo Stordente con gli attacchi con l'arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Frecce potenziate dal Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Finché non indossi l'armatura, ottieni un bonus di +2 a tutti i tiri per colpire e per i danni con gli archi.

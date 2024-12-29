@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Lorsque vous ne portez pas d'armure, vous pouvez utiliser votre action bonus pour effectuer une attaque à l'arc.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Une rafale de flèches
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Tir rapide
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Lorsque vous ne portez pas d'armure, vos attaques à l'arc comptent comme magiques pour surmonter la résistance et l'immunité aux attaques et dégâts non magiques, et vous pouvez désormais utiliser votre fonction Frappe étourdissante avec les attaques à l'arc.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flèches renforcées par le Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Lorsque vous ne portez pas d'armure, vous obtenez un bonus de +2 à tous les jets d'attaque et de dégâts avec les arcs.

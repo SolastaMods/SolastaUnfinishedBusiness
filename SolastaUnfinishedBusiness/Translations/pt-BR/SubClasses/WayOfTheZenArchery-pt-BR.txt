@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Enquanto você não estiver usando armadura, você pode usar sua ação bônus para fazer um ataque com arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Tiro rápido
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Enquanto você não estiver usando armadura, seus ataques de arco contam como mágicos para superar resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Ataque Atordoante com ataques de arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas Fortalecidas com Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Enquanto você não estiver usando armadura, você ganha +2 de bônus em todas as jogadas de ataque e dano com arcos.

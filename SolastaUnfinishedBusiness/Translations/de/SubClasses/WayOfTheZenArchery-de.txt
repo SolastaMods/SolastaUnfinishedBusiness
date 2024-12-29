@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Wenn Sie keine Rüstung tragen, können Sie Ihre Bonusaktion für einen Bogenangriff nutzen.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Pfeilhagel
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Schneller Schuss
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Wenn Sie keine Rüstung tragen, gelten Ihre Bogenangriffe als magisch, wenn es darum geht, Widerstand und Immunität gegen nicht magische Angriffe und Schäden zu überwinden. Zudem können Sie jetzt bei Bogenangriffen die Funktion „Betäubender Schlag“ verwenden.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-verstärkte Pfeile
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Wenn Sie keine Rüstung tragen, erhalten Sie einen Bonus von +2 auf alle Angriffs- und Schadenswürfe mit Bögen.

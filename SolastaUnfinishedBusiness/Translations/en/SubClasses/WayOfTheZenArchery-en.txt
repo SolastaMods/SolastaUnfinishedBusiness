@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=While you aren't wearing armor, you can use your bonus action to make a bow attack.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Flurry of Arrows
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Swift Shot
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=While you aren't wearing armor, your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-Empowered Arrows
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=While you aren't wearing armor, you gain +2 bonus to all attack and damage rolls with bows.

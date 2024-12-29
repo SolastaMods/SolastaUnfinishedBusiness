@@ -1,5 +1,5 @@
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Mientras no lleves armadura, puedes usar tu acción adicional para realizar un ataque con arco.
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Ráfaga de flechas
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Disparo rápido
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Mientras no uses armadura, tus ataques con arco cuentan como mágicos a los efectos de superar la resistencia e inmunidad a ataques y daños no mágicos, y ahora puedes usar tu característica Golpe aturdidor con ataques con arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas potenciadas con Ki
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Mientras no lleves armadura, obtienes una bonificación de +2 a todas las tiradas de ataque y daño con arcos.
