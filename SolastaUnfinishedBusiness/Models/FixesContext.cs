@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -45,6 +46,13 @@ internal static class FixesContext
     internal static readonly DecisionDefinition DecisionMoveAfraid =
         DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
 
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetMonkPatientDefense =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMonkPatientDefense")
+            .SetGuiPresentation("PatientDefense", Category.Feature)
+            .SetFeatureSet(PowerMonkPatientDefense)
+            .AddToDB();
+
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
@@ -63,6 +71,7 @@ internal static class FixesContext
         ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
 
         AddAdditionalActionTitles();
+        FixMonkPatientDefenseToAFeatureSet();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
         FixAdditionalDamageRogueSneakAttack();
@@ -104,8 +113,20 @@ internal static class FixesContext
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
         AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
 
+        // remove null features from conditions
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
+        {
+            condition.Features.RemoveAll(x => !x);
+        }
+
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixMonkPatientDefenseToAFeatureSet()
+    {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
+        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
     }
 
     private static void NoTwinnedBladeCantrips()
@@ -750,19 +771,15 @@ internal static class FixesContext
     private static void FixCriticalThresholdModifiers()
     {
         //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
-        var modifier = AttributeModifierMartialChampionImprovedCritical;
-        modifier.modifierOperation = AttributeModifierOperation.Set;
+        AttributeModifierMartialChampionImprovedCritical.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes Champion's Superior Critical to set crit threshold to 18, instead of forcing if worse - fixes stacking with feats
-        modifier = AttributeModifierMartialChampionSuperiorCritical;
-        modifier.modifierOperation = AttributeModifierOperation.Set;
+        AttributeModifierMartialChampionSuperiorCritical.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes critical threshold of Sudden Death dagger to set
-        modifier = AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
-
-        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB, we fixed those original issues, so making it to SET to not break stacking
-        modifier.modifierOperation = AttributeModifierOperation.Set;
-        modifier.modifierValue = 18;
+        AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3.modifierOperation =
+            AttributeModifierOperation.Set;
+        AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3.modifierValue = 18;
     }
 
     private static void FixEagerForBattleTexts()
@@ -934,6 +951,29 @@ internal static class FixesContext
             {
                 yield break;
             }
+
+            // support Stunning Strike 2024 behavior
+            var stunningMark = Tabletop2024Context.ConditionStunningStrikeMark.Name;
+
+            if (Main.Settings.EnableMonkStunningStrike2024 &&
+                rulesetAttacker.HasConditionOfCategoryAndType(TagEffect, stunningMark))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                stunningMark,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                stunningMark,
+                0,
+                0,
+                0);
 
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }

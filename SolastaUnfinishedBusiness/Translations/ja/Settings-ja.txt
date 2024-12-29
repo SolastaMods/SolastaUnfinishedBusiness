@@ -102,12 +102,13 @@ ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイ�
 ModUi/&EnableBarbarianInstinctivePounce2024=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBarbarianPrimalKnowledge2024=レベル3で<color=#D89555>原始の知識</color>を有効にする
-ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBarbarianRage2024=<color=#D89555>Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[短い休憩で 1 回の使用回数を回復]</color></i> と入れ替えます
+ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>を5e 2024バージョン<i><color=#F0DAA0>[次のターンの開始時にバフとデバフが終了]</color></i>と入れ替えます
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます
 ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
+ModUi/&EnableBardMagicalSecrets2024=<color=#D89555>Magical Secrets</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBardSuperiorInspiration2024=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
 ModUi/&EnableBardWordsOfCreation2024=レベル20で<color=#D89555>創造の言葉</color>を有効にする
 ModUi/&EnableBardicInspiration2024=<color=#D89555>バード インスピレーション</color> を 5e 2024 バージョン <i><color=#F0DAA0>[持続時間は 10 分ではなく 1 時間]</color></i> と入れ替えます
@@ -115,7 +116,7 @@ ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><co
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
-ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
+ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
 ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッドの焼却</color> を <color=#D89555>アンデッドの破壊</color> と置き換えます
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
@@ -129,8 +130,8 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネルの表示を有効にする <i><color=#F0DAA0>[アーケイン ショット、インフュージョン、マニューバ、および汎用性]</color></i>\n<b><i><color=#C04040E0>[キャラクター検査時にパフォーマンスが低下します。自己責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル2、10、18で<color=#D89555>特技</color>選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=レベル6と14で<color=#D89555>特技</color>選択を有効にする
-ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>不屈の抵抗</color>セーヴィングスローの再ロールにクラスレベルをボーナスとして追加します
-ModUi/&EnableFighterSecondWind2024=<color=#D89555>セカンドウィンド</color>を有効にして、5e 2024の使用状況の進行を使用します
+ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>Indomitable Resistance</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[セーヴィング スローの再ロールにクラス レベルをボーナスとして追加]</color></i> と入れ替えます
+ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color> を 5e 2024 バージョン <i><color=#F0DAA0>[異なる使用法の進行]</color></i> と入れ替えます
 ModUi/&EnableFighterSkillOptions2024=レベル1のスキルオプションに<color=#D89555>説得</color>を追加します
 ModUi/&EnableFighterStudiedAttacks2024=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
@@ -150,16 +151,18 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタムキャンペー
 ModUi/&EnableMinInOutAttributes=<i>+ 入退室の前提条件として最低限の能力値を適用する</i>
 ModUi/&EnableMonkAbundantKi=レベル 2 で <color=#D89555>豊富な気力</color> を有効にする <i><color=#F0DAA0>[熟練度ボーナスの半分に等しい気力を追加で獲得]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=レベル20で<color=#D89555>肉体と精神</color>を<color=#D89555>完璧な自分</color>と置き換えます
+ModUi/&EnableMonkDeflectAttacks2024=レベル 3 と 13 で、<color=#D89555>ミサイルの反射</color>と<color=#D89555>太陽と月の舌</color>の代わりに、<color=#D89555>攻撃の反射</color>と<color=#D89555>エネルギーの反射</color>を有効にします{99><i><color=#F0DAA0>[レベル 3 では近接攻撃の反射も可能、レベル 13 ではあらゆるタイプのダメージの反射も可能]</color></i>
 ModUi/&EnableMonkFightingStyle=レベル2で<color=#D89555>戦闘スタイル</color>の選択を有効にする
 ModUi/&EnableMonkFocus2024=<color=#D89555>連打</color>、<color=#D89555>忍耐強い防御</color>、<color=#D89555>風の足取り</color>を 5e 2024 バージョンの <i><color=#F0DAA0>[自由に使用、追加効果には気ポイント]</color></i> と入れ替えます
 ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>ハンドラップ</color>と<color=#D89555>ガントレット</color>をガントレットスロットで機能させる
-ModUi/&EnableMonkHeightenedFocus2024=レベル 10 で <color=#D89555>集中力の強化</color> を有効にする <i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風の足取り</b> が追加の効果を得る]</color></i>
+ModUi/&EnableMonkHeightenedFocus2024=レベル 10 と 15 で、<color=#D89555>高まる集中力</color>と<color=#D89555>完璧な集中力</color>を、<color=#D89555>純粋な肉体</color>と<color=#D89555>永遠の肉体</color>の代わりに有効にします{99><i><color=#F0DAA0>[<b>連打</b>、<b>忍耐強い防御</b>、<b>風の歩み</b>はレベル 10 で追加効果を獲得し、気力ポイントはレベル 15 で回復します]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>非装甲移動の強化</color>を有効にすると、落下せずに垂直面に沿って移動できます。
-ModUi/&EnableMonkKatanaSpecialization=<b>僧侶</b>に刀の<color=#D89555>武器特化</color>を付与します
+ModUi/&EnableMonkKatanaSpecialization=カタナに<color=#D89555>武器特化</color>を付与
 ModUi/&EnableMonkMartialArts2024=<color=#D89555>Martial Arts</color> を 5e 2024 バージョン <i><color=#F0DAA0>[素手ダイスの進行が改善され、素手打撃ボーナス アクションの要件がなくなりました]</color></i> と入れ替えます
+ModUi/&EnableMonkSelfRestoration2024=レベル 10 で <color=#D89555>自己回復</color> を有効にして、レベル 7 の <color=#D89555>精神の静けさ</color> を置き換えます。
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>スタンニングストライク</color>を5e 2024バージョンの<i><color=#F0DAA0>[ターゲットがセーヴに成功した場合の追加効果]</color></i>と入れ替えます
-ModUi/&EnableMonkSuperiorDefense2024=レベル18で<color=#D89555>優れた防御力</color>を有効にして<color=#D89555>空の体</color>を置き換えます
-ModUi/&EnableMonkUncannyMetabolism2024=レベル2で<color=#D89555>超人的な新陳代謝</color>の選択を有効にする
+ModUi/&EnableMonkSuperiorDefense2024=レベル 18 で <color=#D89555>空っぽの体</color> の代わりに <color=#D89555>優れた防御</color> を有効にします <i><color=#F0DAA0>[ダメージ耐性]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=レベル 2 で <color=#D89555>超新陳代謝</color> を有効にする <i><color=#F0DAA0>[イニシアチブ ロールで気力と HP を回復]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>アーケイン ソード</color>、<color=#D89555>サークル オブ デス</color>、<color=#D89555>フレイム ストライク</color>、<color=#D89555>アイス ストーム</color>、<color=#D89555>プリズマティック スプレー</color>、<color=#D89555>ヴィシャス モッカリー</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[ダメージ向上]</color></i>
@@ -176,10 +179,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>スパイダークライム</
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>ストーンスキン</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[魔法の B/P/S に対する耐性も付与します]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク</color> 5e 2024 キャントリップ バージョンを有効にします <b><i><color=#C04040E0>[再起動が必要]</color></i></b>{99><i><color=#F0DAA0>[攻撃は、攻撃ロールとダメージ ボーナスに呪文発動能力を使用し、レベル 5 から追加の光ダメージを与えます]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=レベル 9 で <color=#D89555>敵の拒絶</color> を有効にする
-ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> 5e 2024 バージョン <i><color=#F0DAA0>[さまざまな使用法]</color></i> を有効にする
-ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
+ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
 ModUi/&EnablePaladinRestoringTouch2024=レベル14で<color=#D89555>浄化のタッチ</color>の代わりに<color=#D89555>回復のタッチ</color>を有効にする
-ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> 5e 2024 バージョンを有効にする <i><color=#F0DAA0>[ボーナス アクション]</color></i>
+ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=ボーナスアクションとして武器に<color=#D89555>毒</color>を適用できるようにする
@@ -209,12 +212,13 @@ ModUi/&EnableRogueSlipperyMind2024=<color=#D89555>Slippery Mind</color> を 5e 2
 ModUi/&EnableRogueSteadyAim2024=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=20で<color=#D89555>アーケイン・アポセオシス</color>を有効にする
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
+ModUi/&EnableSorcererArcaneApotheosis2024=レベル20で<color=#D89555>魔法による回復</color>の代わりに<color=#D89555>秘術による神格化</color>を有効にする
+ModUi/&EnableSorcererInnateSorcery2024=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
+ModUi/&EnableSorcererMetamagic2024=<color=#D89555>メタマジック</color>をレベル3ではなくレベル2で有効にする
+ModUi/&EnableSorcererOrigin2024=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcererSorcerousRestoration2024=レベル5で<color=#D89555>魔法による回復</color>を有効にする
-ModUi/&EnableSorcererToLearnOriginAtLevel3=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択
@@ -321,11 +325,9 @@ ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RefreshVoice=ボイスリストを更新
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=レベル14と18で<color=#D89555>魔法の秘密</color>を削除します
 ModUi/&RemoveBardSongOfRest2024=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します
-ModUi/&RemoveRangerVanish2024=レベル14で<color=#D89555>Vanish</color>を削除します
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>絡みつく</color>効果は詠唱時にのみ適用され、蔓から逃れるには筋力チェックも強制される。
 ModUi/&RemoveRogueBlindSense2024=レベル14で<color=#D89555>ブラインドセンス</color>を削除します
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>Shadowcaster</b> から学校制限を削除します

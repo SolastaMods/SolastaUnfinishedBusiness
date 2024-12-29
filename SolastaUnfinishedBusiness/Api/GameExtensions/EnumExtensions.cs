@@ -82,6 +82,7 @@ internal enum ExtraActionId
     DeadEyeToggle,
     OverChannelToggle,
     GravityWellToggle,
+    GrappleNoCost,
     PrioritizeAction = 10000
 }
 

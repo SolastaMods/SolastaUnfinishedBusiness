@@ -312,9 +312,9 @@ internal static partial class Tabletop2024Context
             : "Action/&RecklessAttackDescription";
     }
 
-    internal static void SwitchBarbarianRegainOneRageAtShortRest()
+    internal static void SwitchBarbarianRage()
     {
-        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024
+        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRage2024
             ? "Feature/&FeatureSetRageExtendedDescription"
             : "Feature/&FeatureSetRageDescription";
     }

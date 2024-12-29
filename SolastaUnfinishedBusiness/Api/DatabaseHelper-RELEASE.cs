@@ -1011,6 +1011,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMonkDeflectMissiles");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
 
@@ -1342,6 +1345,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionCombatAffinitys
     {
+        internal static FeatureDefinitionCombatAffinity CombatAffinityStunnedAdvantage { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStunnedAdvantage");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityAdamantinePlateArmor { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor");
 
@@ -1593,6 +1599,21 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkTimelessBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTimelessBody");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkPurityOfBody { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkPurityOfBody");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkTongueSunMoon { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTongueSunMoon");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkStillnessOfMind { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStillnessOfMind");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetMonkDeflectMissiles { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDeflectMissiles");
+
         internal static FeatureDefinitionFeatureSet FeatureSetTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionSurvivalUnbreakableBody");
 
@@ -1803,6 +1824,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolBarbarianrSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBarbarianrSkillPoints");
 
+        internal static FeatureDefinitionPointPool PointPoolBardMagicalSecrets10 { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBardMagicalSecrets10");
+
         internal static FeatureDefinitionPointPool PointPoolBardMagicalSecrets14 { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBardMagicalSecrets14");
 
@@ -1845,6 +1869,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolRogueSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolRogueSkillPoints");
 
+        internal static FeatureDefinitionPointPool PointPoolSorcererMetamagic { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererMetamagic");
+
         internal static FeatureDefinitionPointPool PointPoolSorcererAdditionalMetamagic { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererAdditionalMetamagic");
 
@@ -1866,6 +1893,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerMonkReturnMissile { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkReturnMissile");
+
         internal static FeatureDefinitionPower PowerDefilerEatFriends { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerEatFriends");
 
@@ -2322,6 +2352,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionProficiencys
     {
+        internal static FeatureDefinitionProficiency ProficiencyAllLanguagesButCode { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyAllLanguagesButCode");
+
         internal static FeatureDefinitionProficiency ProficiencyMonkWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyMonkWeapon");
 

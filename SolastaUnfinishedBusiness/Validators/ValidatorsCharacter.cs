@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -317,10 +318,11 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
     {
-        var monkWeaponSpecializations = character.GetSubFeaturesByType<ClassesContext.MonkWeaponSpecialization>();
+        var monkWeaponSpecializations = character.GetSubFeaturesByType<WayOfBlade.WeaponSpecialization>();
 
         return weaponDescription == null ||
                weaponDescription.IsMonkWeaponOrUnarmed() ||
+               WayOfZenArchery.IsZenArcheryWeapon(character, weaponDescription) ||
                monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
     }
 

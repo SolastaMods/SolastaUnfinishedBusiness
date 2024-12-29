@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>false</DisplayTabletop2024>
+    <DisplayTabletop2024>true</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -639,7 +639,7 @@
     <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
     <EnableBardSuperiorInspiration2024>false</EnableBardSuperiorInspiration2024>
     <EnableBardWordsOfCreation2024>false</EnableBardWordsOfCreation2024>
-    <RemoveBardMagicalSecret2024>false</RemoveBardMagicalSecret2024>
+    <EnableBardMagicalSecrets2024>false</EnableBardMagicalSecrets2024>
     <RemoveBardSongOfRest2024>false</RemoveBardSongOfRest2024>
     <EnableBarbarianBrutalStrike2024>false</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
@@ -647,7 +647,7 @@
     <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>false</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest2024>false</EnableBarbarianRegainOneRageAtShortRest2024>
+    <EnableBarbarianRage2024>false</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
     <EnableClericChannelDivinity2024>false</EnableClericChannelDivinity2024>
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
@@ -663,16 +663,18 @@
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>
+    <EnableMonkDeflectAttacks2024>false</EnableMonkDeflectAttacks2024>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkFocus2024>false</EnableMonkFocus2024>
     <EnableMonkHandwrapsOnGauntletSlot>false</EnableMonkHandwrapsOnGauntletSlot>
     <EnableMonkHeightenedFocus2024>false</EnableMonkHeightenedFocus2024>
     <EnableMonkImprovedUnarmoredMovement>false</EnableMonkImprovedUnarmoredMovement>
-    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
-    <EnableMonkMartialArts2024>false</EnableMonkMartialArts2024>
-    <EnableMonkStunningStrike2024>false</EnableMonkStunningStrike2024>
+    <EnableMonkSelfRestoration2024>false</EnableMonkSelfRestoration2024>
     <EnableMonkSuperiorDefense2024>false</EnableMonkSuperiorDefense2024>
     <EnableMonkUncannyMetabolism2024>false</EnableMonkUncannyMetabolism2024>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
+    <EnableMonkFocus2024>false</EnableMonkFocus2024>
+    <EnableMonkMartialArts2024>false</EnableMonkMartialArts2024>
+    <EnableMonkStunningStrike2024>false</EnableMonkStunningStrike2024>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>false</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>false</EnablePaladinChannelDivinity2024>
@@ -694,7 +696,6 @@
     <EnableRangerTireless2024>false</EnableRangerTireless2024>
     <EnableRangerFeralSenses2024>false</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>false</EnableRangerFoeSlayers2024>
-    <RemoveRangerVanish2024>false</RemoveRangerVanish2024>
     <EnableRogueCunningStrike2024>false</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>false</EnableRogueReliableTalent2024>
@@ -702,12 +703,13 @@
     <EnableRogueSteadyAim2024>false</EnableRogueSteadyAim2024>
     <RemoveRogueBlindSense2024>false</RemoveRogueBlindSense2024>
     <EnableSorcererArcaneApotheosis2024>false</EnableSorcererArcaneApotheosis2024>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>false</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
+    <EnableSorcererInnateSorcery2024>false</EnableSorcererInnateSorcery2024>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>false</EnableSorcererSorcerousRestoration2024>
-    <EnableSorcererToLearnOriginAtLevel3>false</EnableSorcererToLearnOriginAtLevel3>
+    <EnableSorcererMetamagic2024>false</EnableSorcererMetamagic2024>
+    <EnableSorcererOrigin2024>false</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>false</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>false
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>

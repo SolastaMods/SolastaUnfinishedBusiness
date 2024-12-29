@@ -61,7 +61,7 @@ public static class CharacterActionItemFormPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
-            //PATCH: supports Way of Zen Archery flurry of arrows to not display max attack numbers on action button
+            //PATCH: supports hiding attack numbers on action panel
             if (__instance.currentAttackMode.AttackTags.Contains(HideAttacksNumberOnActionPanel))
             {
                 __instance.attacksNumberGroup.gameObject.SetActive(false);

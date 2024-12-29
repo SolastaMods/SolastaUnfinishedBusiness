@@ -12,6 +12,8 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
@@ -82,6 +84,31 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
+
+    internal static void SwitchSorcererArcaneApotheosis()
+    {
+        Sorcerer.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSorcererArcaneApotheosis ||
+            x.FeatureDefinition == Level20Context.PowerSorcerousRestoration);
+
+        Sorcerer.FeatureUnlocks.Add(
+            Main.Settings.EnableSorcererArcaneApotheosis2024
+                ? new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20)
+                : new FeatureUnlockByLevel(Level20Context.PowerSorcerousRestoration, 20));
+
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchSorcererMetamagic()
+    {
+        var level = Main.Settings.EnableSorcererMetamagic2024 ? 2 : 3;
+
+        Sorcerer.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == PointPoolSorcererMetamagic)!.level = level;
+        Sorcerer.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == ActionAffinitySorcererMetamagicToggle)!
+            .level = level;
+        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     internal static void SwitchSorcererOriginLearningLevel()
     {
         var origins = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
@@ -91,7 +118,7 @@ internal static partial class Tabletop2024Context
         var fromLevel = 3;
         var toLevel = 1;
 
-        if (Main.Settings.EnableSorcererToLearnOriginAtLevel3)
+        if (Main.Settings.EnableSorcererOrigin2024)
         {
             fromLevel = 1;
             toLevel = 3;
@@ -112,7 +139,7 @@ internal static partial class Tabletop2024Context
             ("SorcerousSpellBlade", "FeatureSetSorcerousSpellBladeManaShield")
         };
 
-        var level = Main.Settings.EnableSorcererToLearnOriginAtLevel3 ? 3 : 2;
+        var level = Main.Settings.EnableSorcererOrigin2024 ? 3 : 2;
 
         foreach (var (subClassName, featureName) in featuresGrantedAt2)
         {
@@ -131,20 +158,6 @@ internal static partial class Tabletop2024Context
         {
             origin.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
-
-        Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchSorcererArcaneApotheosis()
-    {
-        Sorcerer.FeatureUnlocks.RemoveAll(x =>
-            x.FeatureDefinition == FeatureSorcererArcaneApotheosis ||
-            x.FeatureDefinition == Level20Context.PowerSorcerousRestoration);
-
-        Sorcerer.FeatureUnlocks.Add(
-            Main.Settings.EnableSorcererArcaneApotheosis2024
-                ? new FeatureUnlockByLevel(FeatureSorcererArcaneApotheosis, 20)
-                : new FeatureUnlockByLevel(Level20Context.PowerSorcerousRestoration, 20));
 
         Sorcerer.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
@@ -192,7 +205,7 @@ internal static partial class Tabletop2024Context
             x.FeatureDefinition == PowerSorcererInnateSorcery ||
             x.FeatureDefinition == FeatureSetSorcererSorceryIncarnate);
 
-        if (Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate2024)
+        if (Main.Settings.EnableSorcererInnateSorcery2024)
         {
             Sorcerer.FeatureUnlocks.AddRange(
                 new FeatureUnlockByLevel(PowerSorcererInnateSorcery, 1),

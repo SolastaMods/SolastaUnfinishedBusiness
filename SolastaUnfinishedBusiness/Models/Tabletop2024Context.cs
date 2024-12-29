@@ -31,7 +31,6 @@ internal static partial class Tabletop2024Context
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
         LoadFighterTacticalProgression();
-        LoadMonkFocus();
         LoadMonkStunningStrike();
         LoadOneDndSpellGuidanceSubspells();
         LoadOneDndSpellSpareTheDying();
@@ -44,7 +43,7 @@ internal static partial class Tabletop2024Context
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianPersistentRage();
         SwitchBarbarianReckless();
-        SwitchBarbarianRegainOneRageAtShortRest();
+        SwitchBarbarianRage();
         SwitchBarbarianRelentlessRage();
         SwitchBardBardMagicalSecrets();
         SwitchBardBardicInspiration();
@@ -66,10 +65,12 @@ internal static partial class Tabletop2024Context
         SwitchFighterStudiedAttacks();
         SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMind();
+        SwitchMonkDeflectAttacks();
         SwitchMonkFocus();
         SwitchMonkHeightenedFocus();
         SwitchMonkMartialArts();
         SwitchMonkStunningStrike();
+        SwitchMonkSelfRestoration();
         SwitchMonkSuperiorDefense();
         SwitchMonkUncannyMetabolism();
         SwitchOneDndDamagingSpellsUpgrade();
@@ -105,7 +106,6 @@ internal static partial class Tabletop2024Context
         SwitchRangerRoving();
         SwitchRangerSpellCastingAtOne();
         SwitchRangerTireless();
-        SwitchRangerVanish();
         SwitchRogueBlindSense();
         SwitchRogueCunningStrike();
         SwitchRogueReliableTalent();
@@ -113,6 +113,7 @@ internal static partial class Tabletop2024Context
         SwitchRogueSteadyAim();
         SwitchSorcererArcaneApotheosis();
         SwitchSorcererInnateSorcery();
+        SwitchSorcererMetamagic();
         SwitchSorcererOriginLearningLevel();
         SwitchSorcererSorcerousRestorationAtLevel5();
         SwitchSurprisedEnforceDisadvantage();

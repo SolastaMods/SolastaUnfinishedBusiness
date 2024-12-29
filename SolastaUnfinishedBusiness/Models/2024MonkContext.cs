@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -11,10 +12,14 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
@@ -22,38 +27,101 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    private static readonly FeatureDefinition FeatureMonkHeightenedFocus = FeatureDefinitionBuilder
-        .Create("FeatureMonkHeightenedFocus")
-        .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(
-            new CustomBehaviorHeightenedFocus(
-                ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedFocus")
-                            .SetUnarmedStrike(3)
-                            .AddToDB())
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedFocus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
-                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus")
-                            .SetUnarmedStrike(4)
-                            .AddToDB())
-                    .AddToDB()))
+    internal static readonly ConditionDefinition ConditionStunningStrikeMark = ConditionDefinitionBuilder
+        .Create("ConditionStunningStrikeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionGrappleNoCost = ConditionDefinitionBuilder
+        .Create("ConditionGrappleNoCost")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddToDB();
+
+    internal static readonly ConditionDefinition ConditionGrappleNoCostUsed = ConditionDefinitionBuilder
+        .Create("ConditionGrappleNoCostUsed")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddCustomSubFeatures(new OnConditionAddedOrRemovedGrappleNoCostUsed())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity FeatureMonkHeightenedFocus =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("FeatureMonkHeightenedFocus")
+            .SetGuiPresentation(Category.Feature)
+            .SetAuthorizedActions((Id)ExtraActionId.GrappleNoCost)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionGrappleNoCost.Name),
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionGrappleNoCostUsed.Name)),
+                new CustomBehaviorHeightenedFocus(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionMonkFlurryOfBlowsHeightenedFocus")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAttackModifierBuilder
+                                .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+                                    "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedFocus")
+                                .SetUnarmedStrike(3)
+                                .AddToDB())
+                        .AddToDB(),
+                    ConditionDefinitionBuilder
+                        .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedFocus")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAttackModifierBuilder
+                                .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+                                    "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedFocus")
+                                .SetUnarmedStrike(4)
+                                .AddToDB())
+                        .AddToDB()))
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMonkPerfectFocus =
+        FeatureDefinitionBuilder
+            .Create("FeatureMonkPerfectFocus")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkReturnAttacks")
+        .SetGuiPresentation(Category.Feature, hidden: true)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+        .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetDamageForm(diceNumber: 2)
+                        .Build())
+                .SetImpactEffectParameters(PowerRoguishHoodlumDirtyFighting)
+                .Build())
+        .AddCustomSubFeatures(new CustomBehaviorMonkDeflectAttacks())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionMonkReturnAttacks = ConditionDefinitionBuilder
+        .Create("ConditionMonkReturnAttacks")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFixedAmount(0)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
@@ -137,24 +205,29 @@ internal static partial class Tabletop2024Context
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .SetShowCasting(false)
-        .AddCustomSubFeatures(new InitiativeEndListenerUncannyMetabolism())
+        .AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new InitiativeEndListenerUncannyMetabolism())
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024AtWill = FeatureDefinitionPowerBuilder
         .Create(PowerMonkPatientDefense, "PowerMonkPatientDefense2024AtWill")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerPatientDefenseNoCost", Resources.PowerPatientDefenseNoCost, 256, 128))
         .SetUsesFixed(ActivationTime.BonusAction)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(PowerMonkPatientDefense)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
+                .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
         FeatureDefinitionPowerBuilder
             .Create(PowerMonkPatientDefenseSurvival3, "PowerMonkPatientDefense2024Survival3AtWill")
-            .SetGuiPresentation(Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetOverriddenPower(PowerMonkPatientDefense2024AtWill)
             .SetEffectDescription(
@@ -163,13 +236,15 @@ internal static partial class Tabletop2024Context
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
+                    .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
         FeatureDefinitionPowerBuilder
             .Create(PowerMonkPatientDefenseSurvival6, "PowerMonkPatientDefense2024Survival6AtWill")
-            .SetGuiPresentation(Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetOverriddenPower(PowerMonkPatientDefense2024Survival3AtWill)
             .SetEffectDescription(
@@ -180,23 +255,28 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance),
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
+                    .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
         .Create(PowerMonkStepOfTheWindDash, "PowerMonkStepOfTheWind2024AtWill")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerStepOfTheWindNoCost", Resources.PowerStepOfTheWindNoCost, 256, 128))
         .SetUsesFixed(ActivationTime.BonusAction)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(PowerMonkStepOfTheWindDash)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
+                .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
         .Create(PowerMonkPatientDefense, "PowerMonkPatientDefense2024Ki")
-        .SetGuiPresentation(Category.Feature)
+        .SetOrUpdateGuiPresentation(Category.Feature)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(PowerMonkPatientDefense)
@@ -204,12 +284,13 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                     EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
                 .Build())
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
         FeatureDefinitionPowerBuilder
             .Create(PowerMonkPatientDefenseSurvival3, "PowerMonkPatientDefense2024Survival3Ki")
-            .SetGuiPresentation(Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerMonkPatientDefense2024Ki)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -219,12 +300,13 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .Build())
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
         FeatureDefinitionPowerBuilder
             .Create(PowerMonkPatientDefenseSurvival6, "PowerMonkPatientDefense2024Survival6Ki")
-            .SetGuiPresentation(Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerMonkPatientDefense2024Survival3Ki)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -236,11 +318,12 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .Build())
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
         .Create(PowerMonkStepOfTheWindDash, "PowerMonkStepOfTheWind2024Ki")
-        .SetGuiPresentation(Category.Feature)
+        .SetOrUpdateGuiPresentation(Category.Feature)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(PowerMonkStepOfTheWindDash)
@@ -248,37 +331,68 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
                     EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
                 .Build())
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
-
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetMonkPatientDefense =
-        FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMonkPatientDefense")
-            .SetGuiPresentation("PatientDefense", Category.Feature)
-            .SetFeatureSet(PowerMonkPatientDefense)
-            .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
         .Create("ConditionStunningStrikeHalfMove")
         .SetGuiPresentation(Category.Condition, ConditionSlowed)
+        .SetConditionType(ConditionType.Detrimental)
         .SetFeatures(MovementAffinityConditionSlowed)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeAdvantage = ConditionDefinitionBuilder
         .Create("ConditionStunningStrikeAdvantage")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlinded)
-        .SetFeatures(CombatAffinityBlinded)
+        .SetGuiPresentation(Category.Condition, ConditionPossessed)
+        .SetConditionType(ConditionType.Detrimental)
+        .SetFeatures(CombatAffinityStunnedAdvantage)
         .SetSpecialInterruptions(ConditionInterruption.Attacked)
         .AddToDB();
 
-    private static void LoadMonkFocus()
-    {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
-        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
-    }
+    private static readonly FeatureDefinition FeatureMonkSelfRestoration = FeatureDefinitionBuilder
+        .Create("FeatureMonkSelfRestoration")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CharacterBeforeTurnEndListenerSelfRestoration())
+        .AddToDB();
 
     private static void LoadMonkStunningStrike()
     {
-        PowerMonkStunningStrike.AddCustomSubFeatures(new PowerOrSpellFinishedByMeStunningStrike());
+        PowerMonkStunningStrike.AddCustomSubFeatures(new MagicEffectFinishedByMeStunningStrike());
+    }
+
+    internal static void SwitchMonkDeflectAttacks()
+    {
+        if (Main.Settings.EnableMonkDeflectAttacks2024)
+        {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkAlternateDeflectMissilesTitle";
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkAlternateDeflectMissilesDescription";
+            FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(PowerMonkReturnAttacks);
+
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkAlternateTongueSunMoonTitle";
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkAlternateTongueSunMoonDescription";
+            FeatureSetMonkTongueSunMoon.FeatureSet.Clear();
+        }
+        else
+        {
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkDeflectMissilesTitle";
+            FeatureSetMonkDeflectMissiles.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkDeflectMissilesDescription";
+            FeatureSetMonkDeflectMissiles.FeatureSet.SetRange(
+                ActionAffinityMonkDeflectMissiles, PowerMonkReturnMissile);
+
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Title =
+                "Feature/&FeatureSetMonkTongueSunMoonTitle";
+            FeatureSetMonkTongueSunMoon.GuiPresentation.Description =
+                "Feature/&FeatureSetMonkTongueSunMoonDescription";
+            FeatureSetMonkTongueSunMoon.FeatureSet.SetRange(ProficiencyAllLanguagesButCode);
+        }
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchMonkFocus()
@@ -288,9 +402,9 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
 
-            FeatureSetMonkPatientDefense.GuiPresentation.description =
+            FixesContext.FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&AlternatePatientDefenseDescription";
-            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+            FixesContext.FeatureSetMonkPatientDefense.FeatureSet.SetRange(
                 PowerMonkPatientDefense2024AtWill,
                 PowerMonkPatientDefense2024Ki);
 
@@ -315,9 +429,9 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
 
-            FeatureSetMonkPatientDefense.GuiPresentation.description =
+            FixesContext.FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&PatientDefenseDescription";
-            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+            FixesContext.FeatureSetMonkPatientDefense.FeatureSet.SetRange(
                 PowerMonkPatientDefense);
 
             FeatureSetTraditionSurvivalDefensiveStance.FeatureSet.SetRange(
@@ -368,12 +482,35 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchMonkHeightenedFocus()
     {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkHeightenedFocus);
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureMonkHeightenedFocus ||
+            x.FeatureDefinition == FeatureMonkPerfectFocus ||
+            x.FeatureDefinition == FeatureSetMonkPurityOfBody ||
+            x.FeatureDefinition == FeatureSetMonkTimelessBody);
 
-        if (Main.Settings.EnableMonkHeightenedFocus2024)
-        {
-            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkHeightenedFocus, 10));
-        }
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureMonkHeightenedFocus, 10)
+                : new FeatureUnlockByLevel(FeatureSetMonkPurityOfBody, 10));
+
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureMonkPerfectFocus, 15)
+                : new FeatureUnlockByLevel(FeatureSetMonkTimelessBody, 15));
+
+        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchMonkSelfRestoration()
+    {
+        Monk.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureMonkSelfRestoration ||
+            x.FeatureDefinition == FeatureSetMonkStillnessOfMind);
+
+        Monk.FeatureUnlocks.Add(
+            Main.Settings.EnableMonkHeightenedFocus2024
+                ? new FeatureUnlockByLevel(FeatureMonkSelfRestoration, 10)
+                : new FeatureUnlockByLevel(FeatureSetMonkStillnessOfMind, 7));
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
@@ -406,10 +543,9 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchMonkStunningStrike()
     {
-        PowerMonkStunningStrike.GuiPresentation.Description =
-            Main.Settings.EnableMonkStunningStrike2024
-                ? "Feature/&MonkAlternateStunningStrikeDescription"
-                : "Feature/&MonkStunningStrikeDescription";
+        PowerMonkStunningStrike.GuiPresentation.Description = Main.Settings.EnableMonkStunningStrike2024
+            ? "Feature/&MonkAlternateStunningStrikeDescription"
+            : "Feature/&MonkStunningStrikeDescription";
     }
 
     internal static void SwitchMonkBodyAndMind()
@@ -426,11 +562,204 @@ internal static partial class Tabletop2024Context
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private sealed class PowerOrSpellFinishedByMeStunningStrike : IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorMonkDeflectAttacks
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe,
+            IModifyEffectDescription, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        private static readonly string[] AllDamages =
+            DatabaseRepository.GetDatabase<DamageDefinition>().Select(x => x.Name).ToArray();
+
+        private static readonly string[] AllowedDamages =
+            [DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing];
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
         {
-            if (action.SaveOutcome != RollOutcome.Failure)
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerMonkReturnAttacks ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerMonkReturnAttacks || definition == WayOfBlade.PowerAgileParrySave;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.EffectForms[0].DamageForm;
+
+            damageForm.dieType = character.GetMonkDieType();
+
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            damageForm.damageType = AllDamages[activeCondition.Amount];
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+            var classLevel = rulesetDefender.GetClassLevel(Monk);
+            var damageForm = actualEffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
+
+            if (damageForm == null || !defender.CanReact())
+            {
+                yield break;
+            }
+
+            yield return defender.MyReactToDoNothing(
+                ExtraActionId.DoNothingReaction,
+                attacker,
+                "DeflectAttacks",
+                "CustomReactionDeflectAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name),
+                ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated()
+            {
+                var damageIndex = Array.IndexOf(AllDamages, damageForm.DamageForm.DamageType);
+                var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+                var reductionAmount =
+                    RollDie(DieType.D10, AdvantageType.None, out _, out _) +
+                    AttributeDefinitions.ComputeAbilityScoreModifier(dexterity) +
+                    rulesetDefender.GetClassLevel(Monk);
+
+                EffectHelpers.StartVisualEffect(defender, attacker, PowerMonkReturnMissile,
+                    EffectHelpers.EffectType.Caster);
+                actionModifier.DamageRollReduction += reductionAmount;
+                rulesetDefender.DamageReduced.Invoke(rulesetDefender, FeatureSetMonkDeflectMissiles, reductionAmount);
+                rulesetDefender.InflictCondition(
+                    ConditionMonkReturnAttacks.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    ConditionMonkReturnAttacks.Name,
+                    damageIndex,
+                    0,
+                    0);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (damageAmount > 0 ||
+                rulesetDefender.RemainingKiPoints == 0 ||
+                !defender.CanAct() ||
+                !defender.CanPerceiveTarget(attacker) ||
+                !rulesetDefender.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name))
+            {
+                yield break;
+            }
+
+            var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, WayOfBlade.Name);
+
+            if (wayOfBladeLevel >= 6)
+            {
+                if (Main.Settings.EnableMonkDeflectAttacks2024)
+                {
+                    var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParry, rulesetDefender);
+
+                    yield return defender.MyReactToSpendPowerBundle(
+                        usablePower,
+                        [attacker],
+                        attacker,
+                        "ReturnAttacks",
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                }
+                else
+                {
+                    var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParryAttack, rulesetDefender);
+
+                    yield return defender.MyReactToUsePower(
+                        Id.PowerNoCost,
+                        usablePower,
+                        [attacker],
+                        attacker,
+                        "ReturnAttacks",
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                }
+            }
+            else
+            {
+                var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
+
+                yield return defender.MyReactToUsePower(
+                    Id.PowerNoCost,
+                    usablePower,
+                    [attacker],
+                    attacker,
+                    "ReturnAttacks",
+                    "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+            }
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedGrappleNoCostUsed : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            GameLocationCharacter.GetFromActor(target).BreakGrapple();
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeStunningStrike : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            if (!Main.Settings.EnableMonkStunningStrike2024 ||
+                action.ActionParams.RulesetEffect?.SourceDefinition != PowerMonkStunningStrike ||
+                action.SaveOutcome == RollOutcome.Failure)
             {
                 yield break;
             }
@@ -441,8 +770,8 @@ internal static partial class Tabletop2024Context
             rulesetDefender.InflictCondition(
                 ConditionStunningStrikeHalfMove.Name,
                 DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
+                1,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -455,8 +784,8 @@ internal static partial class Tabletop2024Context
             rulesetDefender.InflictCondition(
                 ConditionStunningStrikeAdvantage.Name,
                 DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
+                1,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -485,26 +814,34 @@ internal static partial class Tabletop2024Context
             List<GameLocationCharacter> targets)
         {
             var definition = action.ActionParams.activeEffect.SourceDefinition;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (definition != PowerMonkPatientDefense &&
-                definition != PowerMonkPatientDefenseSurvival3 &&
-                definition != PowerMonkPatientDefenseSurvival6 &&
-                definition != PowerMonkPatientDefense2024Ki &&
-                definition != PowerMonkPatientDefense2024AtWill &&
-                definition != PowerMonkPatientDefense2024Survival3Ki &&
-                definition != PowerMonkPatientDefense2024Survival3AtWill &&
-                definition != PowerMonkPatientDefense2024Survival6Ki &&
-                definition != PowerMonkPatientDefense2024Survival6AtWill)
+            if (definition.Name.StartsWith("PowerMonkPatientDefense"))
             {
-                yield break;
+                var tempHp = rulesetCharacter.RollDiceAndSum(
+                    rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 2, []);
+
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            }
+            else if (definition.Name.StartsWith("PowerMonkStepOfTheWind"))
+            {
+                rulesetCharacter.InflictCondition(
+                    ConditionGrappleNoCost.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    ConditionGrappleNoCost.Name,
+                    0,
+                    0,
+                    0);
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var dieType = rulesetCharacter.GetMonkDieType();
-            var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
-
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            yield break;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -522,11 +859,8 @@ internal static partial class Tabletop2024Context
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition == PowerMonkFlurryOfBlows)
-            {
-                effectDescription.EffectForms.TryAdd(_effectForm);
-            }
-            else if (definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
+            if (definition == PowerMonkFlurryOfBlows ||
+                definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
             {
                 effectDescription.EffectForms.TryAdd(_effectForm);
             }
@@ -563,9 +897,11 @@ internal static partial class Tabletop2024Context
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerMonkUncannyMetabolism, rulesetCharacter);
 
-            if (rulesetCharacter.UsedKiPoints == 0 ||
+            if ((rulesetCharacter.UsedKiPoints == 0 && rulesetCharacter.MissingHitPoints == 0) ||
                 rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
             {
+                HandlePerfectFocus();
+
                 yield break;
             }
 
@@ -575,18 +911,68 @@ internal static partial class Tabletop2024Context
                 "UncannyMetabolism",
                 "CustomReactionUncannyMetabolismDescription"
                     .Formatted(Category.Reaction, rulesetCharacter.UsedKiPoints),
-                ReactionValidated);
+                ReactionValidated,
+                HandlePerfectFocus);
 
             yield break;
 
             void ReactionValidated()
             {
+                var classLevel = rulesetCharacter.GetClassLevel(Monk);
+                var healing = classLevel + rulesetCharacter.RollDiceAndSum(
+                    rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 1, []);
+
                 // be silent on combat log
                 usablePower.remainingUses--;
                 rulesetCharacter.UsedKiPoints = 0;
                 rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+                rulesetCharacter.ReceiveHealing(healing, true, rulesetCharacter.Guid);
                 EffectHelpers.StartVisualEffect(
-                    character, character, PowerDefilerEatFriends, EffectHelpers.EffectType.Caster);
+                    character, character, PowerTraditionOpenHandWholenessOfBody, EffectHelpers.EffectType.Caster);
+            }
+
+            void HandlePerfectFocus()
+            {
+                if (!Main.Settings.EnableMonkHeightenedFocus2024 ||
+                    rulesetCharacter.GetClassLevel(Monk) < 15 ||
+                    rulesetCharacter.RemainingKiPoints >= 4)
+                {
+                    return;
+                }
+
+                rulesetCharacter.UsedKiPoints -= 4 - rulesetCharacter.RemainingKiPoints;
+                rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
+                rulesetCharacter.LogCharacterUsedFeature(FeatureMonkPerfectFocus);
+            }
+        }
+    }
+
+    private sealed class CharacterBeforeTurnEndListenerSelfRestoration : ICharacterBeforeTurnEndListener
+    {
+        // doing one-by-one so we can prioritize remove charmed first instead of getting them randomly
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var conditionsToRemove = new[]
+            {
+                RuleDefinitions.ConditionCharmed, //
+                RuleDefinitions.ConditionFrightened, //
+                RuleDefinitions.ConditionPoisoned //
+            };
+
+            foreach (var conditionToRemove in conditionsToRemove)
+            {
+                var activeCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition.IsSubtypeOf(conditionToRemove));
+
+                if (activeCondition == null)
+                {
+                    continue;
+                }
+
+                rulesetCharacter.RemoveCondition(activeCondition);
+
+                break;
             }
         }
     }

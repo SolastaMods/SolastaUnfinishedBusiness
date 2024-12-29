@@ -636,6 +636,8 @@ public static class GameLocationCharacterExtensions
                !character.IsCharging &&
                !character.MoveStepInProgress &&
                !rulesetCharacter.IsIncapacitated &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionCharmed) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);

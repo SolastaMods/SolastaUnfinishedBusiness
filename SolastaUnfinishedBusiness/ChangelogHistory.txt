@@ -1,18 +1,26 @@
 1.5.97.43:
 
-- added new Monk tabletop 2024 settings
+CHANGES:
+
+- added Monk tabletop 2024 settings, and Way of Blade subclass
+- fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing dice progression
-- fixed Gift of the Gem Dragon reaction crashing under zh-CN
-
-1.5.97.42:
-
-- added new Cleric, Paladin, Ranger, and Sorcerer tabletop 2024 settings
-- fixed custom models rendering on map, and katana models size / texture
+- fixed damage roll reduction calculation when more than one damage form is present [VANILLA]
+- fixed Gift of the Gem Dragon reaction crashing under Chinese
+- fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
+- fixed True Strike 2024 not using spell casting ability on attack roll
+- nerfed Way of Zen Archery flurry of arrows [now swift shot], unerring precision, and hail of arrows features
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
 
 KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
 - Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
+1.5.97.42:
+
+- added new Cleric, Paladin, Ranger, and Sorcerer tabletop 2024 settings
+- fixed custom models rendering on map, and katana models size / texture
 
 1.5.97.41:
 

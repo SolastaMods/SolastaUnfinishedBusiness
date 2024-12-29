@@ -23,7 +23,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class OathOfThunder : AbstractSubclass
 {
-    internal const string Name = "OathOfThunder";
+    private const string Name = "OathOfThunder";
 
     internal static readonly IsWeaponValidHandler IsOathOfThunderWeapon = (mode, item, character) =>
     {
@@ -288,14 +288,14 @@ public sealed class OathOfThunder : AbstractSubclass
             new(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon);
 
         public void OnAttackComputeModifier(
-            RulesetCharacter myself,
+            RulesetCharacter attacker,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || IsOathOfThunderWeapon(attackMode, null, myself))
+            if (attackMode == null || IsOathOfThunderWeapon(attackMode, null, attacker))
             {
                 return;
             }

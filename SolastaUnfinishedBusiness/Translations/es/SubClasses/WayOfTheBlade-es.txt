@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription=Mientras sostienes un arma de monje cuerpo a cuerpo y no tienes escudo, obtienes una bonificación de +2 a la CA y puedes reemplazar uno de tus ataques de acción adicional para realizar un ataque con tu arma de monje.
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle=Uno con la espada
+Feature/&FeatureSetWayOfBladeAgileParryDescription=Cuando estás a punto de ser golpeado por un ataque cuerpo a cuerpo mientras empuñas un arma de monje cuerpo a cuerpo, puedes usar tu reacción para reducir el daño recibido en 1d10 + modificador de Destreza + nivel de monje. Si el daño se redujo a 0 y la criatura atacante está dentro del alcance de tu arma de monje, puedes gastar 1 ki como parte de la misma reacción para atacar a la criatura con el arma de monje.
+Feature/&FeatureSetWayOfBladeAgileParryTitle=Parada ágil
+Feature/&FeatureWayOfBladeMasterOfTheBladeDescription=Una vez por ronda, cuando fallas un ataque con arma de monje cuerpo a cuerpo, puedes volver a atacar a la criatura inmediatamente.
+Feature/&FeatureWayOfBladeMasterOfTheBladeTitle=Maestro de la espada
+Feature/&FeatureWayOfBladeSwiftStrikeDescription=Siempre que uses Paso del viento o Defensa paciente, puedes realizar un ataque con un arma de monje como parte de esa acción adicional.
+Feature/&FeatureWayOfBladeSwiftStrikeTitle=Golpe veloz
+Feature/&InvocationPoolWayOfBladePathOfTheBladeDescription=Puedes elegir dos tipos de armas cuerpo a cuerpo no pesadas para que cuenten como armas de monje. Puedes elegir un tipo de arma adicional siguiendo los criterios antes mencionados para convertirte en un arma de monje en los niveles 6, 11 y 17.
+Feature/&InvocationPoolWayOfBladePathOfTheBladeTitle=Camino de la espada
+Subclass/&WayOfBladeDescription=Los monjes del Camino de la Espada entrenan incansablemente con sus armas, hasta el punto de que estas se convierten en una extensión del cuerpo. La tradición, que se basa en el dominio de la lucha con espada, se ha expandido para incluir muchas armas diferentes.
+Subclass/&WayOfBladeTitle=Camino de la Espada

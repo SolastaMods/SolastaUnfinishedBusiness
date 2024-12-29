@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription=Lorsque vous tenez une arme de moine au corps à corps et aucun bouclier, vous obtenez un bonus de +2 à la CA et vous pouvez remplacer l'une de vos attaques d'action bonus par une attaque avec votre arme de moine.
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle=Un avec la lame
+Feature/&FeatureSetWayOfBladeAgileParryDescription=Lorsque vous êtes sur le point d'être touché par une attaque au corps à corps alors que vous utilisez une arme de moine au corps à corps, vous pouvez utiliser votre réaction pour réduire les dégâts subis de 1d10 + modificateur de Dextérité + niveau de moine. Si les dégâts ont été réduits à 0 et que la créature attaquante est à portée de votre arme de moine, vous pouvez dépenser 1 ki dans le cadre de la même réaction pour attaquer la créature avec l'arme de moine.
+Feature/&FeatureSetWayOfBladeAgileParryTitle=Défilé agile
+Feature/&FeatureWayOfBladeMasterOfTheBladeDescription=Une fois par tour, lorsque vous ratez une attaque d'arme de moine au corps à corps, vous pouvez immédiatement attaquer à nouveau la créature.
+Feature/&FeatureWayOfBladeMasterOfTheBladeTitle=Maître de la lame
+Feature/&FeatureWayOfBladeSwiftStrikeDescription=À chaque fois que vous utilisez Pas du vent ou Défense patiente, vous pouvez effectuer une attaque avec une arme de moine dans le cadre de cette action bonus.
+Feature/&FeatureWayOfBladeSwiftStrikeTitle=Frappe rapide
+Feature/&InvocationPoolWayOfBladePathOfTheBladeDescription=Vous pouvez choisir deux types d'armes de mêlée non lourdes qui compteront comme armes de moine pour vous. Vous pouvez choisir un type d'arme supplémentaire en suivant les critères susmentionnés pour devenir une arme de moine aux niveaux 6, 11 et 17.
+Feature/&InvocationPoolWayOfBladePathOfTheBladeTitle=Le chemin de la lame
+Subclass/&WayOfBladeDescription=Les moines de la Voie de la Lame s'entraînent sans relâche avec leurs armes, au point que l'arme devient comme une extension du corps. Fondée sur la maîtrise du combat à l'épée, la tradition s'est étendue pour inclure de nombreuses armes différentes.
+Subclass/&WayOfBladeTitle=La voie de la lame
