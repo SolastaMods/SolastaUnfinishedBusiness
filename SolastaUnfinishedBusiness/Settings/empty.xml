@@ -639,7 +639,7 @@
     <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
     <EnableBardSuperiorInspiration2024>false</EnableBardSuperiorInspiration2024>
     <EnableBardWordsOfCreation2024>false</EnableBardWordsOfCreation2024>
-    <RemoveBardMagicalSecret2024>false</RemoveBardMagicalSecret2024>
+    <EnableBardMagicalSecrets2024>false</EnableBardMagicalSecrets2024>
     <RemoveBardSongOfRest2024>false</RemoveBardSongOfRest2024>
     <EnableBarbarianBrutalStrike2024>false</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
@@ -1178,4 +1178,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

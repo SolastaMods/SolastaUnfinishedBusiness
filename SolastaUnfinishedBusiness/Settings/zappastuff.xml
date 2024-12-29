@@ -688,7 +688,7 @@
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
     <EnableBardSuperiorInspiration2024>true</EnableBardSuperiorInspiration2024>
     <EnableBardWordsOfCreation2024>true</EnableBardWordsOfCreation2024>
-    <RemoveBardMagicalSecret2024>true</RemoveBardMagicalSecret2024>
+    <EnableBardMagicalSecrets2024>true</EnableBardMagicalSecrets2024>
     <RemoveBardSongOfRest2024>true</RemoveBardSongOfRest2024>
     <EnableBarbarianBrutalStrike2024>true</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>

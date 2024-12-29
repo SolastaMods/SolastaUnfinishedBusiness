@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=Troque <color=#D89555>Relentless Rage</
 ModUi/&EnableBardCounterCharm2024=Habilitar <color=#D89555>Contrafeitiço</color> no nível 7 como uma reação em vez do nível 6 como uma ação
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Habilitar <color=#D89555>Expertise</color> nos níveis 2 e 9 em vez de 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Habilitar <b>College of Hope</b> <color=#D89555>Healing Ballad</color> em descanso longo
+ModUi/&EnableBardMagicalSecrets2024=Troque <color=#D89555>Segredos Mágicos</color> pela versão 5e 2024
 ModUi/&EnableBardSuperiorInspiration2024=Habilita <color=#D89555>Inspiração Superior</color> no nível 18 em vez de 20 e também concede duas recargas em vez de 1
 ModUi/&EnableBardWordsOfCreation2024=Habilitar <color=#D89555>Palavras de Criação</color> no nível 20
 ModUi/&EnableBardicInspiration2024=Troque <color=#D89555>Inspiração Bárdica</color> pela versão 5e 2024 <i><color=#F0DAA0>[a duração é de 1 hora em vez de 10 minutos]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RefreshVoice=Atualizar lista de vozes
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remover requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=Remova <color=#D89555>Segredo Mágico</color> nos níveis 14 e 18
 ModUi/&RemoveBardSongOfRest2024=Remova <color=#D89555>Canção do Descanso</color> no nível 2
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Risada Hedionda</color>

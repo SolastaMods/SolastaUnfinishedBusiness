@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color>�
 ModUi/&EnableBardCounterCharm2024=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore2024=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
+ModUi/&EnableBardMagicalSecrets2024=<color=#D89555>Magical Secrets</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBardSuperiorInspiration2024=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
 ModUi/&EnableBardWordsOfCreation2024=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
 ModUi/&EnableBardicInspiration2024=<color=#D89555>Bardic Inspiration</color>을 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[기간은 10분이 아닌 1시간입니다]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>레시피 비용</color>
 ModUi/&RefreshVoice=음성 목록 새로 고침
 ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=레벨 14와 18에서 <color=#D89555>마법의 비밀</color>을 제거하세요
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요

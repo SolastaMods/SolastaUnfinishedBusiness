@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color> 
 ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
 ModUi/&EnableBardHealingBalladOnLongRest=長い休息時に<b>希望の大学</b> <color=#D89555>癒しのバラード</color>を有効にする
+ModUi/&EnableBardMagicalSecrets2024=<color=#D89555>Magical Secrets</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBardSuperiorInspiration2024=<color=#D89555>優れたインスピレーション</color>をレベル20ではなくレベル18で有効化し、リチャージ回数を1回ではなく2回付与する
 ModUi/&EnableBardWordsOfCreation2024=レベル20で<color=#D89555>創造の言葉</color>を有効にする
 ModUi/&EnableBardicInspiration2024=<color=#D89555>バード インスピレーション</color> を 5e 2024 バージョン <i><color=#F0DAA0>[持続時間は 10 分ではなく 1 時間]</color></i> と入れ替えます
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RefreshVoice=ボイスリストを更新
 ModUi/&RelicForgeries=遺物の偽造
 ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=レベル14と18で<color=#D89555>魔法の秘密</color>を削除します
 ModUi/&RemoveBardSongOfRest2024=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します

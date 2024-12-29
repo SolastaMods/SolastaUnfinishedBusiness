@@ -323,13 +323,6 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchBardWordsOfCreation();
         }
 
-        toggle = Main.Settings.RemoveBardMagicalSecret2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardMagicalSecret2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveBardMagicalSecret2024 = toggle;
-            Tabletop2024Context.SwitchBardBardMagicalSecrets();
-        }
-
         toggle = Main.Settings.RemoveBardSongOfRest2024;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBardSongOfRest2024"), ref toggle, UI.AutoWidth()))
         {
@@ -342,6 +335,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableBardicInspiration2024 = toggle;
             Tabletop2024Context.SwitchBardBardicInspiration();
+        }
+
+        toggle = Main.Settings.EnableBardMagicalSecrets2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardMagicalSecrets2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardMagicalSecrets2024 = toggle;
+            Tabletop2024Context.SwitchBardBardMagicalSecrets();
         }
 
         UI.Label();

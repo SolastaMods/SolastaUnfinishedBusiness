@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=将<color=#D89555>无情之怒</color>�
 ModUi/&EnableBardCounterCharm2024=在 7 级启用 <color=#D89555>Countercharm</color> 作为反应，而不是在 6 级启用作为动作
 ModUi/&EnableBardExpertiseOneLevelBefore2024=在 2 级和 9 级（而不是 3 级和 10 级）启用<color=#D89555>专业知识</color>
 ModUi/&EnableBardHealingBalladOnLongRest=长时间休息时启用<b>希望学院</b> <color=#D89555>治愈之歌</color>
+ModUi/&EnableBardMagicalSecrets2024=将 <color=#D89555>Magical Secrets</color> 与 5e 2024 版本交换
 ModUi/&EnableBardSuperiorInspiration2024=在 18 级（而非 20 级）启用<color=#D89555>卓越灵感</color>，并且授予 2 次充能（而非 1 次）
 ModUi/&EnableBardWordsOfCreation2024=在 20 级时启用<color=#D89555>创世圣言</color>
 ModUi/&EnableBardicInspiration2024=将 <color=#D89555>Bardic Inspiration</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[持续时间为 1 小时而不是 10 分钟]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>食谱成本</color>
 ModUi/&RefreshVoice=刷新语音列表
 ModUi/&RelicForgeries=文物伪造
 ModUi/&RemoveAttunementRequirements=删除调谐要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=删除 14 级和 18 级的<color=#D89555>魔法秘密</color>
 ModUi/&RemoveBardSongOfRest2024=删除 2 级的<color=#D89555>休息之歌</color>
 ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=删除<color=#D89555>Hideous Laughter</color>上的人形过滤器

@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=Swap <color=#D89555>Relentless Rage</co
 ModUi/&EnableBardCounterCharm2024=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
 ModUi/&EnableBardHealingBalladOnLongRest=Enable <b>College of Hope</b> <color=#D89555>Healing Ballad</color> on long rest
+ModUi/&EnableBardMagicalSecrets2024=Swap <color=#D89555>Magical Secrets</color> with 5e 2024 version
 ModUi/&EnableBardSuperiorInspiration2024=Enable <color=#D89555>Superior Inspiration</color> at level 18 instead of 20 and also grant two recharges instead of 1
 ModUi/&EnableBardWordsOfCreation2024=Enable <color=#D89555>Words of Creation</color> at level 20
 ModUi/&EnableBardicInspiration2024=Swap <color=#D89555>Bardic Inspiration</color> with 5e 2024 version <i><color=#F0DAA0>[duration is 1hr instead of 10 minutes]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RefreshVoice=Refresh Voices List
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=Remove <color=#D89555>Magical Secret</color> at levels 14 and 18
 ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>

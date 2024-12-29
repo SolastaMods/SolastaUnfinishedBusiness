@@ -275,7 +275,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
     public bool EnableBardSuperiorInspiration2024 { get; set; }
     public bool EnableBardWordsOfCreation2024 { get; set; }
-    public bool RemoveBardMagicalSecret2024 { get; set; }
+    public bool EnableBardMagicalSecrets2024 { get; set; }
     public bool RemoveBardSongOfRest2024 { get; set; }
     public bool EnableBarbarianBrutalStrike2024 { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }

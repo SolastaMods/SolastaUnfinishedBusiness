@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=Tauschen Sie <color=#D89555>Relentless 
 ModUi/&EnableBardCounterCharm2024=Aktiviere <color=#D89555>Gegenzauber</color> auf Stufe 7 als Reaktion statt auf Stufe 6 als Aktion
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Aktivieren Sie <color=#D89555>Expertise</color> auf den Stufen 2 und 9 statt auf 3 und 10.
 ModUi/&EnableBardHealingBalladOnLongRest=Aktivieren Sie <b>College of Hope</b> <color=#D89555>Healing Ballad</color> bei langer Pause
+ModUi/&EnableBardMagicalSecrets2024=Tauschen Sie <color=#D89555>Magische Geheimnisse</color> mit der 5e-Version von 2024 aus.
 ModUi/&EnableBardSuperiorInspiration2024=Aktiviere <color=#D89555>Überlegene Inspiration</color> auf Level 18 statt 20 und gewähre außerdem zwei Aufladungen statt einer
 ModUi/&EnableBardWordsOfCreation2024=Aktiviere <color=#D89555>Worte der Schöpfung</color> auf Level 20
 ModUi/&EnableBardicInspiration2024=Tauschen Sie <color=#D89555>Bardic Inspiration</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Dauer beträgt 1 Stunde statt 10 Minuten]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RefreshVoice=Stimmenliste aktualisieren
 ModUi/&RelicForgeries=Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=Entferne <color=#D89555>Magisches Geheimnis</color> auf den Ebenen 14 und 18
 ModUi/&RemoveBardSongOfRest2024=Entferne <color=#D89555>Song of Rest</color> auf Level 2
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Greuelhaftes Gelächter</color> entfernen

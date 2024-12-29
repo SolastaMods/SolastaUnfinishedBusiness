@@ -108,6 +108,7 @@ ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia impla
 ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Abilita <b>College of Hope</b> <color=#D89555>Ballata curativa</color> durante il riposo lungo
+ModUi/&EnableBardMagicalSecrets2024=Sostituisci <color=#D89555>Segreti magici</color> con la versione 5e 2024
 ModUi/&EnableBardSuperiorInspiration2024=Abilita <color=#D89555>Ispirazione superiore</color> al livello 18 invece che 20 e concedi anche due ricariche invece di 1
 ModUi/&EnableBardWordsOfCreation2024=Abilita <color=#D89555>Parole di Creazione</color> al livello 20
 ModUi/&EnableBardicInspiration2024=Sostituisci <color=#D89555>Ispirazione bardica</color> con la versione 5e 2024 <i><color=#F0DAA0>[la durata è di 1 ora invece di 10 minuti]</color></i>
@@ -323,7 +324,6 @@ ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RefreshVoice=Aggiorna elenco voci
 ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=Rimuovi <color=#D89555>Segreto magico</color> ai livelli 14 e 18
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
