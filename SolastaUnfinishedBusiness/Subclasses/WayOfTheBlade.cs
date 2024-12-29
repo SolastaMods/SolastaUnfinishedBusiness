@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -14,64 +13,122 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-public sealed class WayOfSwordSaint : AbstractSubclass
+public sealed class WayOfBlade : AbstractSubclass
 {
-    private const string Name = "WayOfSwordSaint";
+    internal const string Name = "WayOfBlade";
 
-    public WayOfSwordSaint()
+    internal static readonly FeatureDefinitionPower PowerAgileParry = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}AgileParry")
+        .SetGuiPresentationNoContent(true)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParryAttack =
+        FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}AgileParryAttack")
+            .SetGuiPresentation($"FeatureSet{Name}AgileParry", Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeAgileParryAttack())
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParrySave =
+        FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}AgileParrySave")
+            .SetGuiPresentation("PowerMonkReturnAttacks", Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
+            .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(diceNumber: 2)
+                            .Build())
+                    .SetImpactEffectParameters(PowerRoguishHoodlumDirtyFighting)
+                    .Build())
+            .AddToDB();
+
+    private static readonly EffectForm ConditionFormSwiftBlade = EffectFormBuilder.ConditionForm(
+        ConditionDefinitionBuilder
+            .Create($"Condition{Name}SwiftBlade")
+            .SetGuiPresentation($"Feature{Name}SwiftStrike", Category.Feature)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalAction{Name}SwiftBlade")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionType.Main)
+                    .SetRestrictedActions(Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB())
+            .AddToDB());
+
+    public WayOfBlade()
     {
         //
         // LEVEL 03
         //
-
-        // Path of The Sword Saint
-
-        var invocationPoolPathOfTheSwordSaint = CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPool{Name}PathOfTheSwordSaint")
-            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization, 2)
-            .AddToDB();
-
-        var invocationPoolMonkWeaponSpecializationAddOne = CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPool{Name}PathOfTheSwordSaintAddOne")
-            .SetGuiPresentationNoContent(true)
-            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
-            .AddToDB();
-
-        LoadMonkWeaponSpecialization();
 
         // One With The Blade
 
         var attributeModifierOneWithTheBlade = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}OneWithTheBlade")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ArmorClass, 2)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand)
             .AddCustomSubFeatures(
                 new ModifyWeaponAttackModeOneWithTheBlade(),
                 new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
+                    ActionType.Bonus,
                     ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionMonkMartialArtsUnarmedStrikeBonus)))
             .AddToDB();
+
+        // Path of the Blade
+
+        var invocationPoolPathOfTheBlade = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}PathOfTheBlade")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization, 2)
+            .AddToDB();
+
+        var invocationPoolMonkWeaponSpecializationAddOne = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}PathOfTheBladeAddOne")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+            .AddToDB();
+
+        LoadMonkWeaponSpecialization();
 
         //
         // LEVEL 06
         //
 
-        // Deft Strike
+        // Agile Parry
 
-        var featureDeftStrike = FeatureDefinitionBuilder
-            .Create($"Feature{Name}DeftStrike")
+        PowerBundle.RegisterPowerBundle(PowerAgileParry, false, PowerAgileParryAttack, PowerAgileParrySave);
+
+        var featureSetAgileParry = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AgileParry")
             .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
+                PowerAgileParry, PowerAgileParryAttack, PowerAgileParrySave, Tabletop2024Context.PowerMonkReturnAttacks)
             .AddToDB();
 
         //
@@ -84,6 +141,11 @@ public sealed class WayOfSwordSaint : AbstractSubclass
             .Create($"Feature{Name}SwiftStrike")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+        // Monk 2024 powers are handled directly on 2024MonkContext
+        PowerMonkPatientDefense.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
+        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
 
         //
         // LEVEL 17
@@ -103,9 +165,9 @@ public sealed class WayOfSwordSaint : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSwordSaint, 256))
-            .AddFeaturesAtLevel(3, invocationPoolPathOfTheSwordSaint, attributeModifierOneWithTheBlade)
-            .AddFeaturesAtLevel(6, featureDeftStrike, invocationPoolMonkWeaponSpecializationAddOne)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheBlade, 256))
+            .AddFeaturesAtLevel(3, attributeModifierOneWithTheBlade, invocationPoolPathOfTheBlade)
+            .AddFeaturesAtLevel(6, featureSetAgileParry, invocationPoolMonkWeaponSpecializationAddOne)
             .AddFeaturesAtLevel(11, featureSwiftStrike, invocationPoolMonkWeaponSpecializationAddOne)
             .AddFeaturesAtLevel(17, featureMasterOfTheBlade, invocationPoolMonkWeaponSpecializationAddOne)
             .AddToDB();
@@ -169,8 +231,54 @@ public sealed class WayOfSwordSaint : AbstractSubclass
         }
     }
 
+    private static void ExecuteNoCostMainAttack(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
+        var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+        attackModeCopy.Copy(attackMode);
+        attackModeCopy.ActionType = ActionType.NoCost;
+
+        attacker.MyExecuteActionAttack(
+            Id.AttackFree,
+            defender,
+            attackModeCopy,
+            new ActionModifier());
+    }
+
     //
-    // Path of the Sword Saint
+    // One With The Blade
+    //
+
+    // set attacks number to 2 to allow a mix of unarmed / melee weapon attacks otherwise game engine will consume bonus action
+    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks with a proper hide tag
+    private sealed class ModifyWeaponAttackModeOneWithTheBlade : IModifyWeaponAttackMode
+    {
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter rulesetCharacter,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            if (character is not { UsedBonusAttacks: 0 } ||
+                attackMode.ActionType != ActionType.Bonus ||
+                !rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
+                !rulesetCharacter.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition))
+            {
+                return;
+            }
+
+            attackMode.AttacksNumber = 2;
+            attackMode.AddAttackTagAsNeeded(
+                CharacterActionItemFormPatcher.Refresh_Patch.HideAttacksNumberOnActionPanel);
+        }
+    }
+
+    //
+    // Path of the Blade
     //
 
     internal sealed class WeaponSpecialization
@@ -205,37 +313,6 @@ public sealed class WayOfSwordSaint : AbstractSubclass
     }
 
     //
-    // One With The Blade
-    //
-
-    // set attacks number to 2 to allow a mix of unarmed / melee weapon attacks otherwise game engine will consume bonus action
-    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks with a proper hide tag
-    private sealed class ModifyWeaponAttackModeOneWithTheBlade : IModifyWeaponAttackMode
-    {
-        public void ModifyWeaponAttackMode(
-            RulesetCharacter rulesetCharacter,
-            RulesetAttackMode attackMode,
-            RulesetItem weapon,
-            bool canAddAbilityDamageBonus)
-        {
-            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-
-            if (character is not { UsedBonusAttacks: 0 } ||
-                attackMode.ActionType != ActionDefinitions.ActionType.Bonus ||
-                !rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
-                !rulesetCharacter.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition))
-            {
-                return;
-            }
-
-            attackMode.AttacksNumber = 2;
-            attackMode.AddAttackTagAsNeeded(
-                CharacterActionItemFormPatcher.Refresh_Patch.HideAttacksNumberOnActionPanel);
-        }
-    }
-
-    //
     // Master of the Blade
     //
 
@@ -265,7 +342,7 @@ public sealed class WayOfSwordSaint : AbstractSubclass
             rulesetAttacker.LogCharacterUsedFeature(featureMasterOfTheBlade);
 
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
+                Id.AttackFree,
                 defender,
                 attackMode,
                 action.ActionParams.ActionModifiers[0]);
@@ -310,17 +387,7 @@ public sealed class WayOfSwordSaint : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms
-                .Where(x => x.FormType == EffectForm.EffectFormType.Condition)
-                .Do(x =>
-                {
-                    x.ConditionForm.forceOnSelf = true;
-                    x.ConditionForm.applyToSelf = true;
-                });
-
-            effectDescription.rangeType = RangeType.Distance;
-            effectDescription.rangeParameter = 12;
-            effectDescription.targetType = TargetType.IndividualsUnique;
+            effectDescription.EffectForms.Add(ConditionFormSwiftBlade);
 
             return effectDescription;
         }
@@ -331,29 +398,19 @@ public sealed class WayOfSwordSaint : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var subclassLevel = rulesetAttacker.GetSubclassLevel(CharacterClassDefinitions.Monk, Name);
 
-            if (subclassLevel <= 11 ||
-                action.ActionParams.TargetCharacters.Count == 0)
+            if (subclassLevel < 11 || action.ActionParams.TargetCharacters.Count == 0)
             {
                 yield break;
             }
 
             var defender = action.ActionParams.TargetCharacters[0];
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
-            attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
-                defender,
-                attackModeCopy,
-                new ActionModifier());
+            ExecuteNoCostMainAttack(attacker, defender);
         }
 
         private static bool CanAttack([NotNull] GameLocationCharacter attacker, GameLocationCharacter defender)
         {
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
 
             if (attackMode == null)
             {
@@ -370,6 +427,26 @@ public sealed class WayOfSwordSaint : AbstractSubclass
                 attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
 
             return battleService.CanAttack(evalParams);
+        }
+    }
+
+    //
+    // Agile Parry Attack
+    //
+
+    private sealed class PowerOrSpellFinishedByMeAgileParryAttack : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerAgileParryAttack)
+            {
+                yield break;
+            }
+
+            var defender = targets[0];
+
+            ExecuteNoCostMainAttack(attacker, defender);
         }
     }
 }

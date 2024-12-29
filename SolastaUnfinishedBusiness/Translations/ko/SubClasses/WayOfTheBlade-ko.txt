@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription=근접 공격용 몽크 무기를 들고 방패를 들지 않은 경우, AC에 +2의 보너스를 얻고, 보너스 액션 공격 중 하나를 몽크 무기로 공격하는 것으로 대체할 수 있습니다.
+Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle=블레이드와 하나
+Feature/&FeatureSetWayOfBladeAgileParryDescription=근접 몽크 무기를 휘두르면서 근접 공격을 받을 때, 반응을 사용하여 받는 피해를 1d10 + 민첩성 수정치 + 몽크 레벨만큼 줄일 수 있습니다. 피해가 0으로 감소했고 공격하는 생물이 몽크 무기 범위 내에 있는 경우, 동일한 반응의 일부로 1기를 소모하여 몽크 무기로 생물을 공격할 수 있습니다.
+Feature/&FeatureSetWayOfBladeAgileParryTitle=민첩한 파리
+Feature/&FeatureWayOfBladeMasterOfTheBladeDescription=라운드당 한 번, 근접 수도사 무기 공격이 빗나갔을 때, 즉시 해당 생물을 다시 공격할 수 있습니다.
+Feature/&FeatureWayOfBladeMasterOfTheBladeTitle=블레이드의 마스터
+Feature/&FeatureWayOfBladeSwiftStrikeDescription=바람의 걸음이나 인내심 있는 방어를 사용할 때마다 보너스 액션의 일부로 수도사 무기로 공격을 한 번 할 수 있습니다.
+Feature/&FeatureWayOfBladeSwiftStrikeTitle=스위프트 스트라이크
+Feature/&InvocationPoolWayOfBladePathOfTheBladeDescription=당신은 두 가지 비무거운 근접 무기 유형을 선택하여 몽크 무기로 간주할 수 있습니다. 앞서 언급한 기준에 따라 추가 무기 유형을 선택하여 6, 11, 17레벨에서 몽크 무기가 될 수 있습니다.
+Feature/&InvocationPoolWayOfBladePathOfTheBladeTitle=칼날의 길
+Subclass/&WayOfBladeDescription=칼날의 길의 승려들은 무기를 끊임없이 훈련하여 무기가 신체의 연장선처럼 됩니다. 칼싸움에 대한 숙달을 바탕으로 이 전통은 다양한 무기를 포함하도록 확장되었습니다.
+Subclass/&WayOfBladeTitle=블레이드의 길

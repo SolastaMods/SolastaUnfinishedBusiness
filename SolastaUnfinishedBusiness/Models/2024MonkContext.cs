@@ -93,7 +93,7 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinitionPower PowerMonkReturnAttacks = FeatureDefinitionPowerBuilder
         .Create("PowerMonkReturnAttacks")
         .SetGuiPresentation(Category.Feature, hidden: true)
         .SetShowCasting(false)
@@ -221,7 +221,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
@@ -238,7 +238,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
@@ -257,7 +257,7 @@ internal static partial class Tabletop2024Context
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
@@ -271,7 +271,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
@@ -284,7 +284,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                     EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
                 .Build())
-        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
@@ -300,7 +300,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .Build())
-            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
@@ -318,7 +318,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .Build())
-            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
@@ -331,7 +331,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
                     EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
                 .Build())
-        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
@@ -589,7 +589,7 @@ internal static partial class Tabletop2024Context
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == PowerMonkReturnAttacks;
+            return definition == PowerMonkReturnAttacks || definition == WayOfBlade.PowerAgileParrySave;
         }
 
         public EffectDescription GetEffectDescription(
@@ -625,7 +625,8 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
-            var classLevel = defender.RulesetCharacter.GetClassLevel(Monk);
+            var rulesetDefender = defender.RulesetCharacter;
+            var classLevel = rulesetDefender.GetClassLevel(Monk);
             var damageForm = actualEffectForms.FirstOrDefault(x =>
                 x.FormType == EffectForm.EffectFormType.Damage &&
                 (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
@@ -647,7 +648,6 @@ internal static partial class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var rulesetDefender = defender.RulesetCharacter;
                 var damageIndex = Array.IndexOf(AllDamages, damageForm.DamageForm.DamageType);
                 var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
                 var reductionAmount =
@@ -696,15 +696,46 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
+            var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, WayOfBlade.Name);
 
-            yield return defender.MyReactToUsePower(
-                Id.PowerNoCost,
-                usablePower,
-                [attacker],
-                attacker,
-                "ReturnAttacks",
-                "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+            if (wayOfBladeLevel >= 6)
+            {
+                if (Main.Settings.EnableMonkDeflectAttacks2024)
+                {
+                    var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParry, rulesetDefender);
+
+                    yield return defender.MyReactToSpendPowerBundle(
+                        usablePower,
+                        [attacker],
+                        attacker,
+                        "ReturnAttacks",
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                }
+                else
+                {
+                    var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParryAttack, rulesetDefender);
+
+                    yield return defender.MyReactToUsePower(
+                        Id.PowerNoCost,
+                        usablePower,
+                        [attacker],
+                        attacker,
+                        "ReturnAttacks",
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                }
+            }
+            else
+            {
+                var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
+
+                yield return defender.MyReactToUsePower(
+                    Id.PowerNoCost,
+                    usablePower,
+                    [attacker],
+                    attacker,
+                    "ReturnAttacks",
+                    "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+            }
         }
     }
 
