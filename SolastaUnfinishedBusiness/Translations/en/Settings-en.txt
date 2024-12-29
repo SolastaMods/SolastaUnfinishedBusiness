@@ -102,8 +102,8 @@ ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Fighting Style</color>
 ModUi/&EnableBarbarianInstinctivePounce2024=Enable <color=#D89555>Instinctive Pounce</color> at level 7
 ModUi/&EnableBarbarianPersistentRage2024=Swap <color=#D89555>Persistent Rage</color> with 5e 2024 version
 ModUi/&EnableBarbarianPrimalKnowledge2024=Enable <color=#D89555>Primal Knowledge</color> at level 3
-ModUi/&EnableBarbarianReckless2024=Enable <color=#D89555>Reckless Attack</color> buff and debuff to finish at start of next turn
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Enable regain one <color=#D89555>Rage</color> use over a short rest at level 1
+ModUi/&EnableBarbarianRage2024=Swap <color=#D89555>Rage</color> with 5e 2024 version <i><color=#F0DAA0>[regain one use over a short rest]</color></i>
+ModUi/&EnableBarbarianReckless2024=Swap <color=#D89555>Reckless Attack</color> with 5e 2024 version <i><color=#F0DAA0>[buff and debuff finish at start of next turn]</color></i>
 ModUi/&EnableBarbarianRelentlessRage2024=Swap <color=#D89555>Relentless Rage</color> with 5e 2024 version <i><color=#F0DAA0>[your hit points is set to 2x your class level instead of 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Enable <color=#D89555>Countercharm</color> at level 7 as a reaction instead of level 6 as an action
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Enable <color=#D89555>Expertise</color> at levels 2 and 9 instead of 3 and 10
@@ -212,12 +212,13 @@ ModUi/&EnableRogueSlipperyMind2024=Swap <color=#D89555>Slippery Mind</color> wit
 ModUi/&EnableRogueSteadyAim2024=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=Enable <color=#D89555>Arcane Apotheosis</color> at 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Enable <color=#D89555>Arcane Apotheosis</color> to replace <color=#D89555>Sorcerous Restoration</color> at level 20
+ModUi/&EnableSorcererInnateSorcery2024=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
 ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Magical Guidance</color> at level 5
+ModUi/&EnableSorcererMetamagic2024=Enable <color=#D89555>Metamagic</color> at level 2 instead of 3
+ModUi/&EnableSorcererOrigin2024=Enable <color=#D89555>Origin</color> at level 3 instead of 1
 ModUi/&EnableSorcererQuickenedAction=Enable <color=#D89555>Quickened Spell</color> action to allow cast main action spell with quickened metamagic applied
 ModUi/&EnableSorcererSorcerousRestoration2024=Enable <color=#D89555>Sorcerous Restoration</color> at level 5
-ModUi/&EnableSorcererToLearnOriginAtLevel3=Enable <color=#D89555>Origin</color> at level 3 instead of 1
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableSpeech=Enable speech on custom campaigns <i><color=#F0DAA0>[narration and heroes only]</color></i>
 ModUi/&EnableSpeechActorHelp=• Select an actor

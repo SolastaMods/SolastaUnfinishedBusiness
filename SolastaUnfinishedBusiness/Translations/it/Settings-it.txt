@@ -102,8 +102,8 @@ ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di co
 ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianPersistentRage2024=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Abilita <color=#D89555>Conoscenza primordiale</color> al livello 3
-ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
+ModUi/&EnableBarbarianRage2024=Sostituisci <color=#D89555>Rabbia</color> con la versione 5e 2024 <i><color=#F0DAA0>[recupera un utilizzo durante un breve riposo]</color></i>
+ModUi/&EnableBarbarianReckless2024=Sostituisci <color=#D89555>Attacco sconsiderato</color> con la versione 5e 2024 <i><color=#F0DAA0>[finitura buff e debuff all'inizio del turno successivo]</color></i>
 ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
@@ -212,12 +212,13 @@ ModUi/&EnableRogueSlipperyMind2024=Sostituisci <color=#D89555>Mente Sfuggente</c
 ModUi/&EnableRogueSteadyAim2024=Abilita <color=#D89555>Mira Fissa</color> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=Abilita <color=#D89555>Apoteosi Arcana</color> a 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Abilita <color=#D89555>Apoteosi Arcana</color> per sostituire <color=#D89555>Restauro Stregonesco</color> al livello 20
+ModUi/&EnableSorcererInnateSorcery2024=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
+ModUi/&EnableSorcererMetamagic2024=Abilita <color=#D89555>Metamagia</color> al livello 2 invece che 3
+ModUi/&EnableSorcererOrigin2024=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSorcererSorcerousRestoration2024=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
-ModUi/&EnableSorcererToLearnOriginAtLevel3=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore

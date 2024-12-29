@@ -107,25 +107,25 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchBarbarianPrimalKnowledge();
         }
 
-        toggle = Main.Settings.EnableBarbarianReckless2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianReckless2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianReckless2024 = toggle;
-            Tabletop2024Context.SwitchBarbarianReckless();
-        }
-
-        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianRegainOneRageAtShortRest2024 = toggle;
-            Tabletop2024Context.SwitchBarbarianRegainOneRageAtShortRest();
-        }
-
         toggle = Main.Settings.EnableBarbarianPersistentRage2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianPersistentRage2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianPersistentRage2024 = toggle;
             Tabletop2024Context.SwitchBarbarianPersistentRage();
+        }
+
+        toggle = Main.Settings.EnableBarbarianRage2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRage2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRage2024 = toggle;
+            Tabletop2024Context.SwitchBarbarianRage();
+        }
+
+        toggle = Main.Settings.EnableBarbarianReckless2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianReckless2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianReckless2024 = toggle;
+            Tabletop2024Context.SwitchBarbarianReckless();
         }
 
         toggle = Main.Settings.EnableBarbarianRelentlessRage2024;
@@ -582,11 +582,11 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchSorcererArcaneApotheosis();
         }
 
-        toggle = Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024"), ref toggle,
+        toggle = Main.Settings.EnableSorcererInnateSorcery2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererInnateSorcery2024"), ref toggle,
                 UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcererInnateSorceryAndSorceryIncarnate2024 = toggle;
+            Main.Settings.EnableSorcererInnateSorcery2024 = toggle;
             Tabletop2024Context.SwitchSorcererInnateSorcery();
         }
 
@@ -612,10 +612,17 @@ internal static class ClassesDisplay
             }
         }
 
-        toggle = Main.Settings.EnableSorcererToLearnOriginAtLevel3;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererToLearnOriginAtLevel3"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSorcererMetamagic2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMetamagic2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSorcererToLearnOriginAtLevel3 = toggle;
+            Main.Settings.EnableSorcererMetamagic2024 = toggle;
+            Tabletop2024Context.SwitchSorcererMetamagic();
+        }
+
+        toggle = Main.Settings.EnableSorcererOrigin2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererOrigin2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererOrigin2024 = toggle;
             Tabletop2024Context.SwitchSorcererOriginLearningLevel();
         }
 

@@ -44,7 +44,7 @@ internal static partial class Tabletop2024Context
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianPersistentRage();
         SwitchBarbarianReckless();
-        SwitchBarbarianRegainOneRageAtShortRest();
+        SwitchBarbarianRage();
         SwitchBarbarianRelentlessRage();
         SwitchBardBardMagicalSecrets();
         SwitchBardBardicInspiration();
@@ -114,6 +114,7 @@ internal static partial class Tabletop2024Context
         SwitchRogueSteadyAim();
         SwitchSorcererArcaneApotheosis();
         SwitchSorcererInnateSorcery();
+        SwitchSorcererMetamagic();
         SwitchSorcererOriginLearningLevel();
         SwitchSorcererSorcerousRestorationAtLevel5();
         SwitchSurprisedEnforceDisadvantage();

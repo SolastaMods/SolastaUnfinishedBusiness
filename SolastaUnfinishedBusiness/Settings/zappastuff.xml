@@ -696,7 +696,7 @@
     <EnableBarbarianPersistentRage2024>true</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>true</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest2024>true</EnableBarbarianRegainOneRageAtShortRest2024>
+    <EnableBarbarianRage2024>true</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
     <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
     <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
@@ -752,12 +752,12 @@
     <EnableRogueSteadyAim2024>true</EnableRogueSteadyAim2024>
     <RemoveRogueBlindSense2024>true</RemoveRogueBlindSense2024>
     <EnableSorcererArcaneApotheosis2024>true</EnableSorcererArcaneApotheosis2024>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>true</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
+    <EnableSorcererInnateSorcery2024>true</EnableSorcererInnateSorcery2024>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
-    <EnableSorcererToLearnOriginAtLevel3>true</EnableSorcererToLearnOriginAtLevel3>
+    <EnableSorcererOrigin2024>true</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>

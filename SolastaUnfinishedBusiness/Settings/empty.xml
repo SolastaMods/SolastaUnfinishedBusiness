@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>false</DisplayTabletop2024>
+    <DisplayTabletop2024>true</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -647,7 +647,7 @@
     <EnableBarbarianPersistentRage2024>false</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>false</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest2024>false</EnableBarbarianRegainOneRageAtShortRest2024>
+    <EnableBarbarianRage2024>false</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
     <EnableClericChannelDivinity2024>false</EnableClericChannelDivinity2024>
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
@@ -703,12 +703,13 @@
     <EnableRogueSteadyAim2024>false</EnableRogueSteadyAim2024>
     <RemoveRogueBlindSense2024>false</RemoveRogueBlindSense2024>
     <EnableSorcererArcaneApotheosis2024>false</EnableSorcererArcaneApotheosis2024>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>false</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
+    <EnableSorcererInnateSorcery2024>false</EnableSorcererInnateSorcery2024>
     <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>false</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>false</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>false</EnableSorcererSorcerousRestoration2024>
-    <EnableSorcererToLearnOriginAtLevel3>false</EnableSorcererToLearnOriginAtLevel3>
+    <EnableSorcererMetamagic2024>false</EnableSorcererMetamagic2024>
+    <EnableSorcererOrigin2024>false</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>false</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>false
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>
@@ -1178,8 +1179,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

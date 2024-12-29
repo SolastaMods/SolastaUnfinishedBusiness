@@ -283,7 +283,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianPersistentRage2024 { get; set; }
     public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
     public bool EnableBarbarianReckless2024 { get; set; }
-    public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
+    public bool EnableBarbarianRage2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
     public bool EnableClericChannelDivinity2024 { get; set; }
     public bool EnableClericDivineOrder2024 { get; set; }
@@ -339,12 +339,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueSteadyAim2024 { get; set; }
     public bool RemoveRogueBlindSense2024 { get; set; }
     public bool EnableSorcererArcaneApotheosis2024 { get; set; }
-    public bool EnableSorcererInnateSorceryAndSorceryIncarnate2024 { get; set; }
+    public bool EnableSorcererInnateSorcery2024 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
     public bool EnableSorcererSorcerousRestoration2024 { get; set; }
-    public bool EnableSorcererToLearnOriginAtLevel3 { get; set; }
+    public bool EnableSorcererMetamagic2024 { get; set; }
+    public bool EnableSorcererOrigin2024 { get; set; }
     public bool EnableWarlockInvocationProgression2024 { get; set; }
     public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }

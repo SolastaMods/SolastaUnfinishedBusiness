@@ -102,8 +102,8 @@ ModUi/&EnableBarbarianFightingStyle=レベル2で<color=#D89555>戦闘スタイ�
 ModUi/&EnableBarbarianInstinctivePounce2024=レベル 7 で <color=#D89555>本能的な飛びかかり</color> を有効にする
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color> を 5e 2024 バージョンと入れ替える
 ModUi/&EnableBarbarianPrimalKnowledge2024=レベル3で<color=#D89555>原始の知識</color>を有効にする
-ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>の強化と弱体化を有効にして、次のターンの開始時に終了します
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=レベル 1 で、短い休憩中に 1 回の <color=#D89555>Rage</color> 使用を回復できるようになります。
+ModUi/&EnableBarbarianRage2024=<color=#D89555>Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[短い休憩で 1 回の使用回数を回復]</color></i> と入れ替えます
+ModUi/&EnableBarbarianReckless2024=<color=#D89555>無謀な攻撃</color>を5e 2024バージョン<i><color=#F0DAA0>[次のターンの開始時にバフとデバフが終了]</color></i>と入れ替えます
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ヒット ポイントはクラス レベルの 1 倍ではなく 2 倍に設定されます]</color></i> と入れ替えます
 ModUi/&EnableBardCounterCharm2024=<color=#D89555>カウンターチャーム</color>をレベル6のアクションではなく、レベル7のリアクションとして有効にします
 ModUi/&EnableBardExpertiseOneLevelBefore2024=<color=#D89555>エキスパート</color>をレベル3と10ではなくレベル2と9で有効にする
@@ -212,12 +212,13 @@ ModUi/&EnableRogueSlipperyMind2024=<color=#D89555>Slippery Mind</color> を 5e 2
 ModUi/&EnableRogueSteadyAim2024=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=20で<color=#D89555>アーケイン・アポセオシス</color>を有効にする
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
+ModUi/&EnableSorcererArcaneApotheosis2024=レベル20で<color=#D89555>魔法による回復</color>の代わりに<color=#D89555>秘術による神格化</color>を有効にする
+ModUi/&EnableSorcererInnateSorcery2024=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
 ModUi/&EnableSorcererMagicalGuidance=レベル5で<color=#D89555>魔法のガイダンス</color>を有効にする
+ModUi/&EnableSorcererMetamagic2024=<color=#D89555>メタマジック</color>をレベル3ではなくレベル2で有効にする
+ModUi/&EnableSorcererOrigin2024=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>クイック呪文</color>アクションを有効にすると、クイック呪文メタマジックを適用したメインアクション呪文をキャストできるようになります。
 ModUi/&EnableSorcererSorcerousRestoration2024=レベル5で<color=#D89555>魔法による回復</color>を有効にする
-ModUi/&EnableSorcererToLearnOriginAtLevel3=<color=#D89555>オリジン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableSortingDungeonMakerAssets=ダンジョンメーカーエディタでアセットの並べ替えを有効にする
 ModUi/&EnableSpeech=カスタム キャンペーンでスピーチを有効にする <i><color=#F0DAA0>[ナレーションとヒーローのみ]</color></i>
 ModUi/&EnableSpeechActorHelp=• 俳優を選択

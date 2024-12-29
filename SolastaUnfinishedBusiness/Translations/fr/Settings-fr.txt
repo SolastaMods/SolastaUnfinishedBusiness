@@ -102,8 +102,8 @@ ModUi/&EnableBarbarianFightingStyle=Activer le choix du <color=#D89555>Style de 
 ModUi/&EnableBarbarianInstinctivePounce2024=Activez <color=#D89555>Pounce instinctif</color> au niveau 7
 ModUi/&EnableBarbarianPersistentRage2024=Échangez <color=#D89555>Persistent Rage</color> avec la version 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Activer la <color=#D89555>connaissance primordiale</color> au niveau 3
-ModUi/&EnableBarbarianReckless2024=Activez le buff et le debuff <color=#D89555>Attaque imprudente</color> pour qu'ils se terminent au début du prochain tour
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Permet de récupérer une utilisation de <color=#D89555>Rage</color> sur un repos court au niveau 1
+ModUi/&EnableBarbarianRage2024=Échangez <color=#D89555>Rage</color> avec la version 5e 2024 <i><color=#F0DAA0>[récupérez une utilisation sur un repos court]</color></i>
+ModUi/&EnableBarbarianReckless2024=Remplacez <color=#D89555>Attaque imprudente</color> par la version 5e 2024 <i><color=#F0DAA0>[le buff et le debuff se terminent au début du prochain tour]</color></i>
 ModUi/&EnableBarbarianRelentlessRage2024=Remplacez <color=#D89555>Rage implacable</color> par la version 5e 2024 <i><color=#F0DAA0>[vos points de vie sont fixés à 2x votre niveau de classe au lieu de 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Activez <color=#D89555>Contre-charme</color> au niveau 7 en tant que réaction au lieu du niveau 6 en tant qu'action
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Activer l'<color=#D89555>Expertise</color> aux niveaux 2 et 9 au lieu de 3 et 10
@@ -212,12 +212,13 @@ ModUi/&EnableRogueSlipperyMind2024=Échangez <color=#D89555>Slippery Mind</color
 ModUi/&EnableRogueSteadyAim2024=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=Activer <color=#D89555>Apothéose des arcanes</color> à 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Activez <color=#D89555>Apothéose arcanique</color> pour remplacer <color=#D89555>Restauration magique</color> au niveau 20
+ModUi/&EnableSorcererInnateSorcery2024=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
 ModUi/&EnableSorcererMagicalGuidance=Activer la <color=#D89555>guidance magique</color> au niveau 5
+ModUi/&EnableSorcererMetamagic2024=Activer <color=#D89555>Metamagic</color> au niveau 2 au lieu de 3
+ModUi/&EnableSorcererOrigin2024=Activer <color=#D89555>Origines</color> au niveau 3 au lieu de 1
 ModUi/&EnableSorcererQuickenedAction=Activez l'action <color=#D89555>Sort accéléré</color> pour permettre de lancer le sort d'action principal avec la métamagie accélérée appliquée
 ModUi/&EnableSorcererSorcerousRestoration2024=Activer la <color=#D89555>Restauration magique</color> au niveau 5
-ModUi/&EnableSorcererToLearnOriginAtLevel3=Activer <color=#D89555>Origines</color> au niveau 3 au lieu de 1
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableSpeech=Activer la parole dans les campagnes personnalisées <i><color=#F0DAA0>[narration et héros uniquement]</color></i>
 ModUi/&EnableSpeechActorHelp=• Sélectionnez un acteur
