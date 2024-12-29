@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Mientras sostienes un arma de monje cuerpo a cuerpo y no tienes escudo, obtienes una bonificación de +2 a la CA y puedes reemplazar uno de tus ataques de acción adicional para realizar un ataque con tu arma de monje.
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Uno con la espada
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=Puedes elegir dos tipos de armas cuerpo a cuerpo no pesadas para que cuenten como armas de monje. Puedes elegir un tipo de arma adicional siguiendo los criterios antes mencionados para convertirte en un arma de monje en los niveles 6, 11 y 17.
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Camino del Santo de la Espada
+Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Cuando golpeas a un objetivo con un arma de un Santo de la Espada, puedes gastar 1 punto de Ki para hacer que el arma inflija daño adicional al objetivo igual a tu dado de Artes Marciales. Puedes usar esta característica una vez en tu turno.
+Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Golpe hábil
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Una vez por ronda, cuando fallas un ataque con arma de monje cuerpo a cuerpo, puedes volver a atacar a la criatura inmediatamente.
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeTitle=Maestro de la espada
+Feature/&FeatureWayOfSwordSaintSwiftStrikeDescription=Siempre que uses Paso del viento o Defensa paciente, puedes realizar un ataque con un arma de monje como parte de esa acción adicional.
+Feature/&FeatureWayOfSwordSaintSwiftStrikeTitle=Golpe veloz
+Subclass/&WayOfSwordSaintDescription=Los monjes del Camino de la Espada entrenan incansablemente con sus armas, hasta el punto de que estas se convierten en una extensión del cuerpo. La tradición, que se basa en el dominio de la lucha con espada, se ha expandido para incluir muchas armas diferentes.
+Subclass/&WayOfSwordSaintTitle=Camino de la Espada

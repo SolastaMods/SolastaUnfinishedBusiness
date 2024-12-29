@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Lorsque vous tenez une arme de moine au corps à corps et aucun bouclier, vous obtenez un bonus de +2 à la CA et vous pouvez remplacer l'une de vos attaques d'action bonus par une attaque avec votre arme de moine.
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Un avec la lame
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=Vous pouvez choisir deux types d'armes de mêlée non lourdes qui compteront comme armes de moine pour vous. Vous pouvez choisir un type d'arme supplémentaire en suivant les critères susmentionnés pour devenir une arme de moine aux niveaux 6, 11 et 17.
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Le chemin du Saint de l'Épée
+Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Lorsque vous touchez une cible avec une arme de Saint Épée, vous pouvez dépenser 1 point de ki pour que l'arme inflige des dégâts supplémentaires à la cible égaux à votre dé d'Arts Martiaux. Vous ne pouvez utiliser cette fonction qu'une fois lors de votre tour.
+Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Frappe habile
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Une fois par tour, lorsque vous ratez une attaque d'arme de moine au corps à corps, vous pouvez immédiatement attaquer à nouveau la créature.
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeTitle=Maître de la lame
+Feature/&FeatureWayOfSwordSaintSwiftStrikeDescription=À chaque fois que vous utilisez Pas du vent ou Défense patiente, vous pouvez effectuer une attaque avec une arme de moine dans le cadre de cette action bonus.
+Feature/&FeatureWayOfSwordSaintSwiftStrikeTitle=Frappe rapide
+Subclass/&WayOfSwordSaintDescription=Les moines de la Voie de la Lame s'entraînent sans relâche avec leurs armes, au point que l'arme devient comme une extension du corps. Fondée sur la maîtrise du combat à l'épée, la tradition s'est étendue pour inclure de nombreuses armes différentes.
+Subclass/&WayOfSwordSaintTitle=La voie de la lame

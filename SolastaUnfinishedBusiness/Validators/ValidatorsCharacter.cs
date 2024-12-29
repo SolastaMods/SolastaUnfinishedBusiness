@@ -318,7 +318,7 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
     {
-        var monkWeaponSpecializations = character.GetSubFeaturesByType<ClassesContext.MonkWeaponSpecialization>();
+        var monkWeaponSpecializations = character.GetSubFeaturesByType<WayOfSwordSaint.WeaponSpecialization>();
 
         return weaponDescription == null ||
                weaponDescription.IsMonkWeaponOrUnarmed() ||

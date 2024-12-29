@@ -1,0 +1,12 @@
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=While you are holding a melee monk weapon and no shield, your gain +2 bonus to AC and you can replace one of your bonus action attacks to instead make an attack with your monk weapon.
+Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=One with the Blade
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=You can choose two non-heavy melee weapon types to count as monk weapons for you. You can choose an additional weapon type following aforementioned criteria to become a monk weapon at 6th, 11th and 17th level. 
+Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Path of the Sword Saint 
+Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=When you hit a target with a Sword Saint weapon, you can spend 1 ki point to cause the weapon to deal extra damage to the target equal to your Martial Arts die. You can use this feature once in your turn.
+Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Deft Strike
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Once per round when you miss with a melee monk weapon attack, you can immediately attack the creature again.
+Feature/&FeatureWayOfSwordSaintMasterOfTheBladeTitle=Master of the Blade
+Feature/&FeatureWayOfSwordSaintSwiftStrikeDescription=Whenever you use Step of the Wind or Patient Defense, you can make one attack with a monk weapon as a part of that bonus action.
+Feature/&FeatureWayOfSwordSaintSwiftStrikeTitle=Swift Strike
+Subclass/&WayOfSwordSaintDescription=Monks of the Way of Blade train relentlessly with their weapons, to the point that the weapon becomes like an extension of the body. Founded on a mastery of sword fighting, the tradition has expanded to include many different weapons.
+Subclass/&WayOfSwordSaintTitle=Way of Blade
