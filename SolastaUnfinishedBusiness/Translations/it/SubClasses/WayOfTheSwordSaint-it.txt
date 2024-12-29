@@ -1,12 +1,12 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Finché impugni un'arma da monaco da mischia e non hai scudo, ottieni un bonus di +2 alla CA e puoi sostituire uno dei tuoi attacchi con azione bonus con un attacco con la tua arma da monaco.
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Uno con la lama
-Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Puoi scegliere due tipi di armi da mischia non pesanti da contare come armi da monaco per te. Puoi scegliere un tipo di arma aggiuntivo seguendo i criteri sopra menzionati per diventare un'arma da monaco al 6°, 11° e 17° livello.
-Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Sentiero del Santo della Spada
-Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Quando colpisci un bersaglio con un'arma Sword Saint, puoi spendere 1 punto ki per far sì che l'arma infligga danni extra al bersaglio pari al tuo dado di Arti Marziali. Puoi usare questa caratteristica una volta nel tuo turno.
-Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Colpo abile
+Feature/&FeatureSetWayOfSwordSaintAgileParryDescription=Quando stai per essere colpito da un attacco in mischia mentre impugni un'arma da monaco in mischia, puoi usare la tua reazione per ridurre i danni subiti di 1d10 + modificatore di Destrezza + livello da monaco. Se i danni sono stati ridotti a 0 e la creatura attaccante è entro la portata della tua arma da monaco, puoi spendere 1 ki come parte della stessa reazione per attaccare la creatura con l'arma da monaco.
+Feature/&FeatureSetWayOfSwordSaintAgileParryTitle=Parata agile
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Una volta per round, quando manchi un attacco con arma da mischia del monaco, puoi immediatamente attaccare di nuovo la creatura.
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeTitle=Maestro della lama
 Feature/&FeatureWayOfSwordSaintSwiftStrikeDescription=Ogni volta che usi Passo del vento o Difesa paziente, puoi effettuare un attacco con un'arma da monaco come parte di quell'azione bonus.
 Feature/&FeatureWayOfSwordSaintSwiftStrikeTitle=Colpo rapido
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Puoi scegliere due tipi di armi da mischia non pesanti da contare come armi da monaco per te. Puoi scegliere un tipo di arma aggiuntivo seguendo i criteri sopra menzionati per diventare un'arma da monaco al 6°, 11° e 17° livello.
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Sentiero della Lama
 Subclass/&WayOfSwordSaintDescription=I monaci della Via della Lama si allenano senza sosta con le loro armi, al punto che l'arma diventa come un'estensione del corpo. Fondata sulla padronanza del combattimento con la spada, la tradizione si è espansa fino a includere molte armi diverse.
 Subclass/&WayOfSwordSaintTitle=Via della Lama

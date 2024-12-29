@@ -1,12 +1,12 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Пока вы держите в руках оружие монаха ближнего боя и не имеете щита, вы получаете бонус +2 к AC и можете заменить одну из своих бонусных атак действием, чтобы вместо этого провести атаку оружием монаха.
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Один с клинком
-Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Вы можете выбрать два нетяжелых типа оружия ближнего боя, которые будут считаться для вас оружием монаха. Вы можете выбрать дополнительный тип оружия, следуя вышеупомянутым критериям, чтобы стать оружием монаха на 6-м, 11-м и 17-м уровнях.
-Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Путь Святого Меча
-Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Когда вы поражаете цель оружием Святого Меча, вы можете потратить 1 очко ки, чтобы оружие нанесло цели дополнительный урон, равный вашему кубику Боевых Искусств. Вы можете использовать эту функцию один раз за свой ход.
-Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Ловкий удар
+Feature/&FeatureSetWayOfSwordSaintAgileParryDescription=Когда вы собираетесь получить удар в ближнем бою, используя оружие монаха ближнего боя, вы можете использовать свою реакцию, чтобы уменьшить получаемый урон на 1d10 + модификатор ловкости + уровень монаха. Если урон был уменьшен до 0, а атакующее существо находится в пределах досягаемости вашего оружия монаха, вы можете потратить 1 ки как часть той же реакции, чтобы атаковать существо оружием монаха.
+Feature/&FeatureSetWayOfSwordSaintAgileParryTitle=Ловкое парирование
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Один раз за раунд, если вы промахнулись атакой оружием монаха ближнего боя, вы можете немедленно атаковать существо снова.
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeTitle=Мастер клинка
 Feature/&FeatureWayOfSwordSaintSwiftStrikeDescription=Всякий раз, когда вы используете «Шаг ветра» или «Терпеливая защита», вы можете совершить одну атаку оружием монаха как часть этого бонусного действия.
 Feature/&FeatureWayOfSwordSaintSwiftStrikeTitle=Стремительный удар
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Вы можете выбрать два нетяжелых типа оружия ближнего боя, которые будут считаться для вас оружием монаха. Вы можете выбрать дополнительный тип оружия, следуя вышеупомянутым критериям, чтобы стать оружием монаха на 6-м, 11-м и 17-м уровнях.
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Путь Клинка
 Subclass/&WayOfSwordSaintDescription=Монахи Пути Клинка неустанно тренируются с оружием, до такой степени, что оно становится продолжением тела. Основанная на мастерстве боя на мечах, традиция расширилась, включив в себя множество различных видов оружия.
 Subclass/&WayOfSwordSaintTitle=Путь Клинка
