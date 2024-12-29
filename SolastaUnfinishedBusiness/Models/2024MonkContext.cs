@@ -654,7 +654,7 @@ internal static partial class Tabletop2024Context
 
                 EffectHelpers.StartVisualEffect(defender, attacker, PowerMonkReturnMissile,
                     EffectHelpers.EffectType.Caster);
-                actionModifier.damageRollReduction += reductionAmount;
+                actionModifier.DamageRollReduction += reductionAmount;
                 rulesetDefender.DamageReduced.Invoke(rulesetDefender, FeatureSetMonkDeflectMissiles, reductionAmount);
                 rulesetDefender.InflictCondition(
                     ConditionMonkReturnAttacks.Name,
@@ -714,9 +714,7 @@ internal static partial class Tabletop2024Context
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var glc = GameLocationCharacter.GetFromActor(target);
-
-            glc.BreakGrapple();
+            GameLocationCharacter.GetFromActor(target).BreakGrapple();
         }
     }
 
@@ -784,26 +782,15 @@ internal static partial class Tabletop2024Context
             var definition = action.ActionParams.activeEffect.SourceDefinition;
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (definition == PowerMonkPatientDefense ||
-                definition == PowerMonkPatientDefenseSurvival3 ||
-                definition == PowerMonkPatientDefenseSurvival6 ||
-                definition == PowerMonkPatientDefense2024Ki ||
-                definition == PowerMonkPatientDefense2024AtWill ||
-                definition == PowerMonkPatientDefense2024Survival3Ki ||
-                definition == PowerMonkPatientDefense2024Survival3AtWill ||
-                definition == PowerMonkPatientDefense2024Survival6Ki ||
-                definition == PowerMonkPatientDefense2024Survival6AtWill)
+            if (definition.Name.StartsWith("PowerMonkPatientDefense"))
             {
-                var dieType = rulesetCharacter.GetMonkDieType();
-                var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
+                var tempHp = rulesetCharacter.RollDiceAndSum(
+                    rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 2, []);
 
                 rulesetCharacter.ReceiveTemporaryHitPoints(
                     tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
-            else if (definition == PowerMonkStepOfTheWindDash ||
-                     definition == PowerMonkStepOftheWindDisengage ||
-                     definition == PowerMonkStepOfTheWind2024Ki ||
-                     definition == PowerMonkStepOfTheWind2024AtWill)
+            else if (definition.Name.StartsWith("PowerMonkStepOfTheWind"))
             {
                 rulesetCharacter.InflictCondition(
                     ConditionGrappleNoCost.Name,
@@ -838,11 +825,8 @@ internal static partial class Tabletop2024Context
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition == PowerMonkFlurryOfBlows)
-            {
-                effectDescription.EffectForms.TryAdd(_effectForm);
-            }
-            else if (definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
+            if (definition == PowerMonkFlurryOfBlows ||
+                definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
             {
                 effectDescription.EffectForms.TryAdd(_effectForm);
             }
@@ -900,15 +884,14 @@ internal static partial class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var dieType = rulesetCharacter.GetMonkDieType();
                 var classLevel = rulesetCharacter.GetClassLevel(Monk);
-                var healing = classLevel + rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 1, []);
+                var healing = classLevel + rulesetCharacter.RollDiceAndSum(
+                    rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 1, []);
 
                 // be silent on combat log
                 usablePower.remainingUses--;
                 rulesetCharacter.UsedKiPoints = 0;
                 rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
-
                 rulesetCharacter.ReceiveHealing(healing, true, rulesetCharacter.Guid);
                 EffectHelpers.StartVisualEffect(
                     character, character, PowerTraditionOpenHandWholenessOfBody, EffectHelpers.EffectType.Caster);
@@ -954,7 +937,7 @@ internal static partial class Tabletop2024Context
 
                 rulesetCharacter.RemoveCondition(activeCondition);
 
-                return;
+                break;
             }
         }
     }

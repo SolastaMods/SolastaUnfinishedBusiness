@@ -756,19 +756,15 @@ internal static class FixesContext
     private static void FixCriticalThresholdModifiers()
     {
         //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
-        var modifier = AttributeModifierMartialChampionImprovedCritical;
-        modifier.modifierOperation = AttributeModifierOperation.Set;
+        AttributeModifierMartialChampionImprovedCritical.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes Champion's Superior Critical to set crit threshold to 18, instead of forcing if worse - fixes stacking with feats
-        modifier = AttributeModifierMartialChampionSuperiorCritical;
-        modifier.modifierOperation = AttributeModifierOperation.Set;
+        AttributeModifierMartialChampionSuperiorCritical.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes critical threshold of Sudden Death dagger to set
-        modifier = AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
-
-        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB, we fixed those original issues, so making it to SET to not break stacking
-        modifier.modifierOperation = AttributeModifierOperation.Set;
-        modifier.modifierValue = 18;
+        AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3.modifierOperation =
+            AttributeModifierOperation.Set;
+        AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3.modifierValue = 18;
     }
 
     private static void FixEagerForBattleTexts()
@@ -905,19 +901,6 @@ internal static class FixesContext
                 yield break;
             }
 
-            // support Stunning Strike 2024 behavior
-            if (Main.Settings.EnableMonkStunningStrike2024)
-            {
-                if (attacker.OncePerTurnIsValid(PowerMonkStunningStrike.Name))
-                {
-                    attacker.SetSpecialFeatureUses(PowerMonkStunningStrike.Name, 0);
-                }
-                else
-                {
-                    yield break;
-                }
-            }
-
             // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
             if (attacker.UsedSpecialFeatures.ContainsKey(WayOfZenArchery.HailOfArrowsAttack))
             {
@@ -952,6 +935,19 @@ internal static class FixesContext
             if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
             {
                 yield break;
+            }
+
+            // support Stunning Strike 2024 behavior
+            if (Main.Settings.EnableMonkStunningStrike2024)
+            {
+                if (attacker.OncePerTurnIsValid(PowerMonkStunningStrike.Name))
+                {
+                    attacker.SetSpecialFeatureUses(PowerMonkStunningStrike.Name, 0);
+                }
+                else
+                {
+                    yield break;
+                }
             }
 
             attacker.MyExecuteActionSpendPower(usablePower, defender);

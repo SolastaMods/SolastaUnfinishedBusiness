@@ -7,6 +7,7 @@ CHANGES:
 - fixed Cleric divine spark healing dice progression
 - fixed Gift of the Gem Dragon reaction crashing under Chinese
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
+- fixed True Strike 2024 not using spell casting ability on attack roll 
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
 
 KNOWN ISSUES:
