@@ -1,12 +1,12 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=While you aren't wearing armor, you can use your bonus action to make a bow attack.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=While you are unarmored, you can use your bonus action to make a bow attack.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Swift Shot
-Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=While you aren't wearing armor, your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=While you are unarmored, your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-Empowered Arrows
-Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=While you aren't wearing armor, you gain +2 bonus to all attack and damage rolls with bows.
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=While you are unarmored, you gain +2 bonus to all attack and damage rolls with bows.
 Feature/&FeatureWayOfZenArcheryUnerringPrecisionTitle=Unerring Precision
 Feature/&PowerWayOfZenArcheryHailOfArrowsDescription=You can use your action and spend 4 ki to fire a barrage of arrows. You make one bow attack against each enemy creature you can see in a 45-foot-cone.
 Feature/&PowerWayOfZenArcheryHailOfArrowsTitle=Hail of Arrows
-Feature/&PowerWayOfZenArcheryZenShotDescription=While you aren't wearing armor, and you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
+Feature/&PowerWayOfZenArcheryZenShotDescription=While you are unarmored, and you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
 Feature/&PowerWayOfZenArcheryZenShotTitle=Zen Shot
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=You become proficient with bows. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=One with the Bow
