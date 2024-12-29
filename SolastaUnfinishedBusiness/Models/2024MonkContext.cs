@@ -32,6 +32,13 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    internal static readonly ConditionDefinition ConditionStunningStrikeMark = ConditionDefinitionBuilder
+        .Create("ConditionStunningStrikeMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionGrappleNoCost = ConditionDefinitionBuilder
         .Create("ConditionGrappleNoCost")
         .SetGuiPresentationNoContent(true)
@@ -492,8 +499,8 @@ internal static partial class Tabletop2024Context
 
         Monk.FeatureUnlocks.Add(
             Main.Settings.EnableMonkHeightenedFocus2024
-                ? new FeatureUnlockByLevel(FeatureSetMonkTimelessBody, 15)
-                : new FeatureUnlockByLevel(FeatureMonkPerfectFocus, 15));
+                ? new FeatureUnlockByLevel(FeatureMonkPerfectFocus, 15)
+                : new FeatureUnlockByLevel(FeatureSetMonkTimelessBody, 15));
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }

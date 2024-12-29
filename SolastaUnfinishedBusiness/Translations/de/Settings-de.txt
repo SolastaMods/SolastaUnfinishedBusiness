@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=Tauschen Sie <color=#D89555>Kampfkünste</color
 ModUi/&EnableMonkSelfRestoration2024=Aktiviere <color=#D89555>Selbstwiederherstellung</color> auf Stufe 10, um <color=#D89555>Stille des Geistes</color> auf Stufe 7 zu ersetzen.
 ModUi/&EnableMonkStunningStrike2024=Tauschen Sie <color=#D89555>Betäubender Schlag</color> mit der Version 5e 2024 aus <i><color=#F0DAA0>[zusätzliche Effekte, wenn das Ziel beim Speichern erfolgreich ist]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Aktivieren Sie <color=#D89555>Überlegene Verteidigung</color>, um <color=#D89555>Leeren Körper</color> auf Stufe 18 zu ersetzen <i><color=#F0DAA0>[Resistenz gegen Schaden]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=Aktiviere <color=#D89555>Unheimlichen Stoffwechsel</color> auf Stufe 2 <i><color=#F0DAA0>[Ki durch Initiative wiederherstellen]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Aktiviere <color=#D89555>Unheimlichen Stoffwechsel</color> auf Stufe 2 <i><color=#F0DAA0>[Ki und HP bei Initiativewurf wiederherstellen]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie <color=#D89555>Multiclass</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Aktiviere <color=#D89555>Barkskin</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[Bonusaktion, keine Konzentration, AC auf 17 gesetzt]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Aktiviere <color=#D89555>Arkanes Schwert</color>, <color=#D89555>Kreis des Todes</color>, <color=#D89555>Flammenschlag</color>, <color=#D89555>Eissturm</color>, <color=#D89555>Prismatischer Sprühnebel</color>. und <color=#D89555>Bösartige Verhöhnung</color> 5e 2024 Zauberversion <i><color=#F0DAA0>[besserer Schaden]</color></i>

@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=将<color=#D89555>武术</color>与 5e 2024 版
 ModUi/&EnableMonkSelfRestoration2024=启用 10 级的<color=#D89555>自我恢复</color>来替换 7 级的<color=#D89555>心灵宁静</color>
 ModUi/&EnableMonkStunningStrike2024=将<color=#D89555>Stunning Strike</color>与 5e 2024 版本交换<i><color=#F0DAA0>[目标成功保存时产生的附加效果]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=启用<color=#D89555>超级防御</color>来取代 18 级时的<color=#D89555>空虚之身</color> <i><color=#F0DAA0>[抗伤害]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=启用<color=#D89555>不可思议的新陈代谢</color>至 2 级<i><color=#F0DAA0>[主动恢复气]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=在 2 级时启用<color=#D89555>不可思议的新陈代谢</color> <i><color=#F0DAA0>[在主动掷骰中恢复气和生命值]</color></i>
 ModUi/&EnableMulticlass=启用<color=#D89555>多类</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=启用 <color=#D89555>Barkskin</color> 5e 2024 法术版本 <i><color=#F0DAA0>[奖励行动，无专注，AC 设置为 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=启用<color=#D89555>奥术之剑</color>、<color=#D89555>死亡之环</color>、<color=#D89555>烈焰打击</color>、<color=#D89555>冰风暴</color>、<color=#D89555>棱镜喷射</color>。以及<color=#D89555>恶毒嘲讽</color> 5e 2024 法术版本 <i><color=#F0DAA0>[更好的伤害]</color></i>

@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5
 ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10 to replace <color=#D89555>Stillness of Mind</color> at level 7
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18 <i><color=#F0DAA0>[resistance to damage]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> at level 2 <i><color=#F0DAA0>[recover Ki on initiative]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Enable <color=#D89555>Uncanny Metabolism</color> at level 2 <i><color=#F0DAA0>[recover Ki and HP on initiative roll]</color></i>
 ModUi/&EnableMulticlass=Enable <color=#D89555>multiclass</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Enable <color=#D89555>Barkskin</color> 5e 2024 spell version <i><color=#F0DAA0>[bonus action, no concentration, AC set to 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Enable <color=#D89555>Arcane Sword</color>, <color=#D89555>Circle of Death</color>, <color=#D89555>Flame Strike</color>, <color=#D89555>Ice Storm</color>, <color=#D89555>Prismatic Spray</color>. and <color=#D89555>Vicious Mockery</color> 5e 2024 spells version <i><color=#F0DAA0>[better damage]</color></i>

@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=Échangez <color=#D89555>Arts martiaux</color> 
 ModUi/&EnableMonkSelfRestoration2024=Activez <color=#D89555>Auto-restauration</color> au niveau 10 pour remplacer <color=#D89555>Calme de l'esprit</color> au niveau 7
 ModUi/&EnableMonkStunningStrike2024=Remplacez <color=#D89555>Frappe étourdissante</color> par la version 5e 2024 <i><color=#F0DAA0>[effets supplémentaires lorsque la cible réussit sa sauvegarde]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Activez la <color=#D89555>Défense supérieure</color> pour remplacer le <color=#D89555>Corps vide</color> au niveau 18 <i><color=#F0DAA0>[résistance aux dégâts]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=Activer <color=#D89555>Métabolisme étrange</color> au niveau 2 <i><color=#F0DAA0>[récupérer le Ki à l'initiative]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Activer <color=#D89555>Métabolisme étrange</color> au niveau 2 <i><color=#F0DAA0>[récupérer Ki et HP sur jet d'initiative]</color></i>
 ModUi/&EnableMulticlass=Activer <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Activer <color=#D89555>Écorce</color> 5e 2024 version du sort <i><color=#F0DAA0>[action bonus, pas de concentration, CA fixée à 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Activez les sorts <color=#D89555>Épée arcanique</color>, <color=#D89555>Cercle de la mort</color>, <color=#D89555>Frappe de flammes</color>, <color=#D89555>Tempête de glace</color>, <color=#D89555>Vaporisation prismatique</color> et <color=#D89555>Moquerie vicieuse</color> 5e version 2024 <i><color=#F0DAA0>[meilleurs dégâts]</color></i>

@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=<color=#D89555>Martial Arts</color> を 5e 2024
 ModUi/&EnableMonkSelfRestoration2024=レベル 10 で <color=#D89555>自己回復</color> を有効にして、レベル 7 の <color=#D89555>精神の静けさ</color> を置き換えます。
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>スタンニングストライク</color>を5e 2024バージョンの<i><color=#F0DAA0>[ターゲットがセーヴに成功した場合の追加効果]</color></i>と入れ替えます
 ModUi/&EnableMonkSuperiorDefense2024=レベル 18 で <color=#D89555>空っぽの体</color> の代わりに <color=#D89555>優れた防御</color> を有効にします <i><color=#F0DAA0>[ダメージ耐性]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=レベル 2 で <color=#D89555>超新陳代謝</color> を有効にする <i><color=#F0DAA0>[イニシアチブ時に気力を回復]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=レベル 2 で <color=#D89555>超新陳代謝</color> を有効にする <i><color=#F0DAA0>[イニシアチブ ロールで気力と HP を回復]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>マルチクラス</color>を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>樹皮の皮</color> 5e 2024 呪文バージョンを有効にする <i><color=#F0DAA0>[ボーナスアクション、集中力なし、AC を 17 に設定]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>アーケイン ソード</color>、<color=#D89555>サークル オブ デス</color>、<color=#D89555>フレイム ストライク</color>、<color=#D89555>アイス ストーム</color>、<color=#D89555>プリズマティック スプレー</color>、<color=#D89555>ヴィシャス モッカリー</color> 5e 2024 呪文バージョンを有効にします <i><color=#F0DAA0>[ダメージ向上]</color></i>

@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=Заменить <color=#D89555>Боевые и
 ModUi/&EnableMonkSelfRestoration2024=Включите <color=#D89555>Самовосстановление</color> на уровне 10, чтобы заменить <color=#D89555>Неподвижность разума</color> на уровне 7.
 ModUi/&EnableMonkStunningStrike2024=Заменить <color=#D89555>Ошеломляющий удар</color> на версию из 5e 2024 <i><color=#F0DAA0>[дополнительные эффекты при успешном спасброске цели]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Включить <color=#D89555>Превосходную защиту</color> вместо <color=#D89555>Пустого тела</color> на уровне 18
-ModUi/&EnableMonkUncannyMetabolism2024=Включить возможность выбора <color=#D89555>Феноменального метаболизма</color> на уровне 2
+ModUi/&EnableMonkUncannyMetabolism2024=Включить <color=#D89555>Сверхъестественный метаболизм</color> на уровне 2 <i><color=#F0DAA0>[восстанавливает Ки и HP при броске инициативы]</color></i>
 ModUi/&EnableMulticlass=Включить <color=#D89555>мультиклассирование</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Включить версию заклинания <color=#D89555>Дубовая кора</color> из 5e 2024 <i><color=#F0DAA0>[бонусное действие, не требует концентрации, КД на 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Включить версии заклинаний <color=#D89555>Магический меч</color>, <color=#D89555>Круг смерти</color>, <color=#D89555>Огненный удар</color>, <color=#D89555>Град</color>, <color=#D89555>Радужные брызги</color>  и <color=#D89555>Злая насмешка</color> из 5e 2024 <i><color=#F0DAA0>[больше урона]</color></i>

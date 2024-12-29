@@ -511,8 +511,14 @@ internal static partial class Tabletop2024Context
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null ||
-                !attacker.CanCastSpell(TrueStrike, false, out var spellRepertoire))
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            var repertoire = attacker.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(TrueStrike));
+
+            if (repertoire == null)
             {
                 return;
             }
@@ -525,7 +531,7 @@ internal static partial class Tabletop2024Context
             }
 
             var oldAttribute = attackMode.AbilityScore;
-            var newAttribute = spellRepertoire.SpellCastingAbility;
+            var newAttribute = repertoire.SpellCastingAbility;
 
             CanUseAttribute.ChangeAttackModeAttributeIfBetter(
                 attacker, attackMode, oldAttribute, newAttribute, true);

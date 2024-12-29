@@ -938,17 +938,27 @@ internal static class FixesContext
             }
 
             // support Stunning Strike 2024 behavior
-            if (Main.Settings.EnableMonkStunningStrike2024)
+            var stunningMark = Tabletop2024Context.ConditionStunningStrikeMark.Name;
+
+            if (Main.Settings.EnableMonkStunningStrike2024 &&
+                rulesetAttacker.HasConditionOfCategoryAndType(TagEffect, stunningMark))
             {
-                if (attacker.OncePerTurnIsValid(PowerMonkStunningStrike.Name))
-                {
-                    attacker.SetSpecialFeatureUses(PowerMonkStunningStrike.Name, 0);
-                }
-                else
-                {
-                    yield break;
-                }
+                yield break;
             }
+
+            rulesetAttacker.InflictCondition(
+                stunningMark,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                stunningMark,
+                0,
+                0,
+                0);
 
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }

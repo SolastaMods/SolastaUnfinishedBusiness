@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=<color=#D89555>무술</color>을 5e 2024 버전
 ModUi/&EnableMonkSelfRestoration2024=레벨 7의 <color=#D89555>정신의 고요함</color>을 대체하기 위해 레벨 10에서 <color=#D89555>자기 회복</color>을 활성화합니다.
 ModUi/&EnableMonkStunningStrike2024=<color=#D89555>Stunning Strike</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[대상이 저장에 성공하면 추가 효과가 적용됩니다]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 <color=#D89555>최고 방어력</color>으로 대체합니다. <i><color=#F0DAA0>[피해 저항력]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color>를 활성화합니다. <i><color=#F0DAA0>[이니셔티브 시 기 회복]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color>를 활성화합니다. <i><color=#F0DAA0>[이니셔티브 롤에서 기와 체력 회복]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>프리즘 스프레이</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 나은 데미지]</color></i>을 활성화합니다.

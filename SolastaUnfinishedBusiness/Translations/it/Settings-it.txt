@@ -162,7 +162,7 @@ ModUi/&EnableMonkMartialArts2024=Sostituisci <color=#D89555>Arti marziali</color
 ModUi/&EnableMonkSelfRestoration2024=Abilita <color=#D89555>Auto-ripristino</color> al livello 10 per sostituire <color=#D89555>Immobilismo mentale</color> al livello 7
 ModUi/&EnableMonkStunningStrike2024=Sostituisci <color=#D89555>Colpo Sbalorditivo</color> con la versione 5e 2024 <i><color=#F0DAA0>[effetti aggiuntivi quando il bersaglio riesce nel salvataggio]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18 <i><color=#F0DAA0>[resistenza ai danni]</color></i>
-ModUi/&EnableMonkUncannyMetabolism2024=Abilita <color=#D89555>Metabolismo Straniero</color> al livello 2 <i><color=#F0DAA0>[recupera Ki all'iniziativa]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Abilita <color=#D89555>Metabolismo Straniero</color> al livello 2 <i><color=#F0DAA0>[recupera Ki e HP al tiro di iniziativa]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</color>, <color=#D89555>Cerchio della Morte</color>, <color=#D89555>Colpo di Fiamma</color>, <color=#D89555>Tempesta di Ghiaccio</color>, <color=#D89555>Spruzzo Prismatico</color> e <color=#D89555>Scherno Vizioso</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[danni migliori]</color></i>
