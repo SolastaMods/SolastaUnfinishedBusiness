@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -31,27 +33,19 @@ public sealed class WayOfSwordSaint : AbstractSubclass
 
         // Path of The Sword Saint
 
-        // kept name for backward compatibility
-        var invocationPoolMonkWeaponSpecialization = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolMonkWeaponSpecialization")
+        var invocationPoolPathOfTheSwordSaint = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}PathOfTheSwordSaint")
             .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization, 2)
             .AddToDB();
 
-        // kept name for backward compatibility
-        var invocationPoolMonkWeaponSpecializationAdd = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolMonkWeaponSpecializationAdd")
+        var invocationPoolMonkWeaponSpecializationAddOne = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}PathOfTheSwordSaintAddOne")
             .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
             .AddToDB();
-        
-        LoadMonkWeaponSpecialization();
 
-        var featureSetPathOfTheSwordSaint = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PathOfTheSwordSaint")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(invocationPoolMonkWeaponSpecialization)
-            .AddToDB();
+        LoadMonkWeaponSpecialization();
 
         // One With The Blade
 
@@ -110,10 +104,10 @@ public sealed class WayOfSwordSaint : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSwordSaint, 256))
-            .AddFeaturesAtLevel(3, featureSetPathOfTheSwordSaint, attributeModifierOneWithTheBlade)
-            .AddFeaturesAtLevel(6, featureDeftStrike, invocationPoolMonkWeaponSpecializationAdd)
-            .AddFeaturesAtLevel(11, featureSwiftStrike, invocationPoolMonkWeaponSpecializationAdd)
-            .AddFeaturesAtLevel(17, featureMasterOfTheBlade, invocationPoolMonkWeaponSpecializationAdd)
+            .AddFeaturesAtLevel(3, invocationPoolPathOfTheSwordSaint, attributeModifierOneWithTheBlade)
+            .AddFeaturesAtLevel(6, featureDeftStrike, invocationPoolMonkWeaponSpecializationAddOne)
+            .AddFeaturesAtLevel(11, featureSwiftStrike, invocationPoolMonkWeaponSpecializationAddOne)
+            .AddFeaturesAtLevel(17, featureMasterOfTheBlade, invocationPoolMonkWeaponSpecializationAddOne)
             .AddToDB();
     }
 
@@ -151,12 +145,12 @@ public sealed class WayOfSwordSaint : AbstractSubclass
                 .AddCustomSubFeatures(new WeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
 
-                featureMonkWeaponSpecialization.AddCustomSubFeatures(
-                    new AddTagToWeapon(
-                        TagsDefinitions.WeaponTagFinesse,
-                        TagsDefinitions.Criticity.Important,
-                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition))
-                );
+            featureMonkWeaponSpecialization.AddCustomSubFeatures(
+                new AddTagToWeapon(
+                    TagsDefinitions.WeaponTagFinesse,
+                    TagsDefinitions.Criticity.Important,
+                    ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition))
+            );
 
             // ensure we get dice upgrade on these
             AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
@@ -275,6 +269,107 @@ public sealed class WayOfSwordSaint : AbstractSubclass
                 defender,
                 attackMode,
                 action.ActionParams.ActionModifiers[0]);
+        }
+    }
+
+    //
+    // Swift Strike
+    //
+
+    internal sealed class CustomBehaviorSwiftStrike
+        : IModifyEffectDescription, IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    {
+        internal static readonly CustomBehaviorSwiftStrike Marker = new();
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (CanAttack(__instance.ActionParams.ActingCharacter, target))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
+
+            return false;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            var subclassLevel = character.GetSubclassLevel(CharacterClassDefinitions.Monk, Name);
+
+            return subclassLevel >= 11 &&
+                   (definition.Name.StartsWith("PowerMonkPatientDefense") ||
+                    definition.Name.StartsWith("PowerMonkStepOfTheWind"));
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Condition)
+                .Do(x =>
+                {
+                    x.ConditionForm.forceOnSelf = true;
+                    x.ConditionForm.applyToSelf = true;
+                });
+
+            effectDescription.rangeType = RangeType.Distance;
+            effectDescription.rangeParameter = 12;
+            effectDescription.targetType = TargetType.IndividualsUnique;
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var subclassLevel = rulesetAttacker.GetSubclassLevel(CharacterClassDefinitions.Monk, Name);
+
+            if (subclassLevel <= 11 ||
+                action.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var defender = action.ActionParams.TargetCharacters[0];
+            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackFree,
+                defender,
+                attackModeCopy,
+                new ActionModifier());
+        }
+
+        private static bool CanAttack([NotNull] GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var attackModifier = new ActionModifier();
+            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+            var attackerPosition = attacker.LocationPosition;
+            var defenderPosition = defender.LocationPosition;
+
+            evalParams.FillForPhysicalReachAttack(
+                attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
+
+            return battleService.CanAttack(evalParams);
         }
     }
 }

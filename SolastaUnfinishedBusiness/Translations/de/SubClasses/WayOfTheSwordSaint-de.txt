@@ -1,7 +1,7 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Wenn Sie eine Nahkampf-Mönchswaffe und keinen Schild halten, erhalten Sie einen Bonus von +2 auf die RK und können einen Ihrer Bonus-Aktionsangriffe durch einen Angriff mit Ihrer Mönchswaffe ersetzen.
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Eins mit der Klinge
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=Sie können zwei nicht schwere Nahkampfwaffentypen auswählen, die für Sie als Mönchswaffen gelten. Sie können einen zusätzlichen Waffentyp gemäß den oben genannten Kriterien auswählen, um auf der 6., 11. und 17. Stufe eine Mönchswaffe zu werden.
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Pfad des Schwertheiligen
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Sie können zwei nicht schwere Nahkampfwaffentypen auswählen, die für Sie als Mönchswaffen gelten. Sie können einen zusätzlichen Waffentyp gemäß den oben genannten Kriterien auswählen, um auf der 6., 11. und 17. Stufe eine Mönchswaffe zu werden.
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Pfad des Schwertheiligen
 Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Wenn du ein Ziel mit einer Sword Saint-Waffe triffst, kannst du 1 Ki-Punkt ausgeben, damit die Waffe dem Ziel zusätzlichen Schaden in Höhe deines Kampfkunstwürfels zufügt. Du kannst diese Funktion einmal in deinem Zug verwenden.
 Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Geschickter Schlag
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Einmal pro Runde können Sie die Kreatur sofort erneut angreifen, wenn Ihr Nahkampfangriff mit einer Mönchswaffe daneben geht.

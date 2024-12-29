@@ -1,7 +1,7 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=当你手持近战武僧武器且没有盾牌时，你的 AC 会获得 +2 加值，并且你可以用武僧武器代替你的一个加值行动攻击进行攻击。
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=刀锋一号
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=你可以选择两种非重型近战武器类型作为你的武僧武器。你可以按照上述标准选择一种额外的武器类型，以便在 6 级、11 级和 17 级成为武僧武器。
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=剑圣之路
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=你可以选择两种非重型近战武器类型作为你的武僧武器。你可以按照上述标准选择一种额外的武器类型，以便在 6 级、11 级和 17 级成为武僧武器。
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=剑圣之路
 Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=当您使用剑圣武器击中目标时，您可以花费 1 点气值，使该武器对目标造成额外伤害，伤害值等于您的武术骰子。您可以在您的回合中使用此功能一次。
 Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=灵巧出击
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=每轮一次，当你使用近战武僧武器攻击失败时，你可以立即再次攻击该生物。

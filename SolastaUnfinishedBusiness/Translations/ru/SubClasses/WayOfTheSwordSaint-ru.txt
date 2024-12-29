@@ -1,7 +1,7 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Пока вы держите в руках оружие монаха ближнего боя и не имеете щита, вы получаете бонус +2 к AC и можете заменить одну из своих бонусных атак действием, чтобы вместо этого провести атаку оружием монаха.
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Один с клинком
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=Вы можете выбрать два нетяжелых типа оружия ближнего боя, которые будут считаться для вас оружием монаха. Вы можете выбрать дополнительный тип оружия, следуя вышеупомянутым критериям, чтобы стать оружием монаха на 6-м, 11-м и 17-м уровнях.
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Путь Святого Меча
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Вы можете выбрать два нетяжелых типа оружия ближнего боя, которые будут считаться для вас оружием монаха. Вы можете выбрать дополнительный тип оружия, следуя вышеупомянутым критериям, чтобы стать оружием монаха на 6-м, 11-м и 17-м уровнях.
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Путь Святого Меча
 Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Когда вы поражаете цель оружием Святого Меча, вы можете потратить 1 очко ки, чтобы оружие нанесло цели дополнительный урон, равный вашему кубику Боевых Искусств. Вы можете использовать эту функцию один раз за свой ход.
 Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Ловкий удар
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Один раз за раунд, если вы промахнулись атакой оружием монаха ближнего боя, вы можете немедленно атаковать существо снова.

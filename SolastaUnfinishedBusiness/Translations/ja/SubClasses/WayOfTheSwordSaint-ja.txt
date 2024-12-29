@@ -1,7 +1,7 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=近接戦闘用のモンク武器を持ち、シールドを持っていない間、AC に +2 のボーナスが得られ、ボーナス アクション攻撃の 1 つをモンク武器による攻撃に置き換えることができます。
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=刃と一体
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=非重近接武器タイプを 2 つ選択して、モンク武器としてカウントできます。前述の基準に従って追加の武器タイプを選択し、レベル 6、11、17 でモンク武器にすることができます。
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=剣聖の道
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=非重近接武器タイプを 2 つ選択して、モンク武器としてカウントできます。前述の基準に従って追加の武器タイプを選択し、レベル 6、11、17 でモンク武器にすることができます。
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=剣聖の道
 Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=剣聖の武器でターゲットを攻撃すると、1 気ポイントを消費して、その武器がターゲットに武術ダイスに等しい追加ダメージを与えるようにすることができます。この機能は、自分のターンに 1 回使用できます。
 Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=巧みな一撃
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=ラウンドごとに 1 回、近接モンク武器攻撃が失敗した場合、すぐにそのクリーチャーを再度攻撃できます。

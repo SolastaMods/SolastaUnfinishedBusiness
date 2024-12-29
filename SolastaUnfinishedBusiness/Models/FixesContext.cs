@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -45,6 +46,13 @@ internal static class FixesContext
     internal static readonly DecisionDefinition DecisionMoveAfraid =
         DatabaseRepository.GetDatabase<DecisionDefinition>().GetElement("Move_Afraid");
 
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetMonkPatientDefense =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMonkPatientDefense")
+            .SetGuiPresentation("PatientDefense", Category.Feature)
+            .SetFeatureSet(PowerMonkPatientDefense)
+            .AddToDB();
+
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
@@ -63,6 +71,7 @@ internal static class FixesContext
         ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
 
         AddAdditionalActionTitles();
+        FixMonkPatientDefenseToAFeatureSet();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
         FixAdditionalDamageRogueSneakAttack();
@@ -112,6 +121,12 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixMonkPatientDefenseToAFeatureSet()
+    {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
+        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
     }
 
     private static void NoTwinnedBladeCantrips()

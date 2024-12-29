@@ -1,7 +1,7 @@
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeDescription=Enquanto estiver segurando uma arma corpo a corpo de monge e nenhum escudo, você ganha +2 de bônus na CA e pode substituir um dos seus ataques de ação bônus para fazer um ataque com sua arma de monge.
 Feature/&AttributeModifierWayOfSwordSaintOneWithTheBladeTitle=Um com a lâmina
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintDescription=Você pode escolher dois tipos de armas corpo a corpo não pesadas para contar como armas de monge para você. Você pode escolher um tipo de arma adicional seguindo os critérios acima mencionados para se tornar uma arma de monge no 6º, 11º e 17º nível.
-Feature/&FeatureSetWayOfSwordSaintPathOfTheSwordSaintTitle=Caminho do Santo da Espada
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintDescription=Você pode escolher dois tipos de armas corpo a corpo não pesadas para contar como armas de monge para você. Você pode escolher um tipo de arma adicional seguindo os critérios acima mencionados para se tornar uma arma de monge no 6º, 11º e 17º nível.
+Feature/&InvocationPoolWayOfSwordSaintPathOfTheSwordSaintTitle=Caminho do Santo da Espada
 Feature/&FeatureWayOfSwordSaintDeftStrikeDescription=Quando você acerta um alvo com uma arma Sword Saint, você pode gastar 1 ponto de ki para fazer com que a arma cause dano extra ao alvo igual ao seu dado de Artes Marciais. Você pode usar esse recurso uma vez no seu turno.
 Feature/&FeatureWayOfSwordSaintDeftStrikeTitle=Ataque hábil
 Feature/&FeatureWayOfSwordSaintMasterOfTheBladeDescription=Uma vez por rodada, quando você erra um ataque corpo a corpo de uma arma de monge, você pode atacar a criatura imediatamente novamente.

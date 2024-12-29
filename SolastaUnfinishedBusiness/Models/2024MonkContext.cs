@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -220,6 +221,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
+        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
@@ -236,6 +238,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
+            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
@@ -254,6 +257,7 @@ internal static partial class Tabletop2024Context
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
+            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
@@ -267,6 +271,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
+        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
@@ -279,6 +284,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                     EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
                 .Build())
+        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
@@ -294,6 +300,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .Build())
+            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
@@ -311,6 +318,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .Build())
+            .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
@@ -323,14 +331,8 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
                     EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
                 .Build())
+        .AddCustomSubFeatures(WayOfSwordSaint.CustomBehaviorSwiftStrike.Marker)
         .AddToDB();
-
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetMonkPatientDefense =
-        FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetMonkPatientDefense")
-            .SetGuiPresentation("PatientDefense", Category.Feature)
-            .SetFeatureSet(PowerMonkPatientDefense)
-            .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
         .Create("ConditionStunningStrikeHalfMove")
@@ -352,12 +354,6 @@ internal static partial class Tabletop2024Context
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new CharacterBeforeTurnEndListenerSelfRestoration())
         .AddToDB();
-
-    private static void LoadMonkFocus()
-    {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PowerMonkPatientDefense);
-        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
-    }
 
     private static void LoadMonkStunningStrike()
     {
@@ -406,9 +402,9 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
 
-            FeatureSetMonkPatientDefense.GuiPresentation.description =
+            FixesContext.FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&AlternatePatientDefenseDescription";
-            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+            FixesContext.FeatureSetMonkPatientDefense.FeatureSet.SetRange(
                 PowerMonkPatientDefense2024AtWill,
                 PowerMonkPatientDefense2024Ki);
 
@@ -433,9 +429,9 @@ internal static partial class Tabletop2024Context
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
                 "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
 
-            FeatureSetMonkPatientDefense.GuiPresentation.description =
+            FixesContext.FeatureSetMonkPatientDefense.GuiPresentation.description =
                 "Feature/&PatientDefenseDescription";
-            FeatureSetMonkPatientDefense.FeatureSet.SetRange(
+            FixesContext.FeatureSetMonkPatientDefense.FeatureSet.SetRange(
                 PowerMonkPatientDefense);
 
             FeatureSetTraditionSurvivalDefensiveStance.FeatureSet.SetRange(
