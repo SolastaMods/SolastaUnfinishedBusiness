@@ -7,6 +7,7 @@ CHANGES:
 - added Way of Blade subclass
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing dice progression
+- fixed Command: Grove spell not ending target turn after prone
 - fixed damage roll reduction calculation when more than one damage form is present [VANILLA]
 - fixed Disheartening Performance / Hideous Laughter interaction crash
 - fixed Gift of the Gem Dragon reaction crash under Chinese language

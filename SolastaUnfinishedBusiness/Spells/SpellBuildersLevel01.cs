@@ -1653,12 +1653,14 @@ internal static partial class SpellBuilders
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var commandService = ServiceRepository.GetService<ICommandService>();
             var actionParams = new CharacterActionParams(locationCharacter, Id.DropProne)
             {
                 CanBeAborted = false, CanBeCancelled = false
             };
 
             actionService.ExecuteAction(actionParams, null, false);
+            commandService.EndTurn();
         }
     }
 
