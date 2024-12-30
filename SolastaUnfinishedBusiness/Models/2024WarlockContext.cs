@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.InvocationDefinitions;
@@ -34,7 +35,11 @@ internal static partial class Tabletop2024Context
         .SetGuiPresentation(FeatureSetPactBlade.GuiPresentation)
         .SetGrantedFeature(FeatureSetPactBlade)
         .AddCustomSubFeatures(
-            new CanUseAttribute(AttributeDefinitions.Charisma, PatronSoulBlade.CanWeaponBeEmpowered))
+            new CanUseAttribute(
+                CanUseAttribute.SpellCastingAbilityTag, (mode, _, _) =>
+                mode.ActionType != ActionDefinitions.ActionType.Bonus &&
+                ValidatorsWeapon.IsMelee(mode) &&
+                !ValidatorsWeapon.IsTwoHanded(mode)))
         .AddToDB();
 
     private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder
@@ -171,6 +176,8 @@ internal static partial class Tabletop2024Context
             OneWithShadows.grantedSpell = Invisibility;
             OneWithShadows.grantedFeature = null;
             OneWithShadows.longRestRecharge = true;
+
+            FeatureSetPactBlade.GuiPresentation.description = "Feature/&FeatureSetPactBladeAlternateDescription";
         }
         else
         {
@@ -202,6 +209,8 @@ internal static partial class Tabletop2024Context
             OneWithShadows.grantedSpell = null;
             OneWithShadows.grantedFeature = LightAffinityInvocationOneWithShadows;
             OneWithShadows.longRestRecharge = false;
+
+            FeatureSetPactBlade.GuiPresentation.description = "Feature/&FeatureSetPactBladeDescription";
         }
 
         GuiWrapperContext.RecacheInvocations();

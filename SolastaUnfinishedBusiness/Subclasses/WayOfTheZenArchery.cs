@@ -92,8 +92,11 @@ public sealed class WayOfZenArchery : AbstractSubclass
         var featureKiEmpoweredArrows = FeatureDefinitionBuilder
             .Create($"Feature{Name}KiEmpoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new AddTagToWeaponWeaponAttack(
-                TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid, ValidatorsCharacter.HasBowWithoutArmor))
+            .AddCustomSubFeatures(
+                new AddTagToWeaponWeaponAttack(
+                    TagsDefinitions.MagicalWeapon,
+                    ValidatorsWeapon.AlwaysValid,
+                    ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         //

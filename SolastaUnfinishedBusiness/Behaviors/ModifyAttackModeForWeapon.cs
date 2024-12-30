@@ -12,7 +12,7 @@ internal delegate int CustomModifierProvider(RulesetCharacter rulesetCharacter);
 
 internal class CanUseAttribute : IModifyWeaponAttackMode
 {
-    private const string SpellCastingAbilityTag = "SpellCastingAbility";
+    internal const string SpellCastingAbilityTag = "SpellCastingAbility";
 
     internal static readonly CanUseAttribute SpellCastingAbility = new(SpellCastingAbilityTag);
 

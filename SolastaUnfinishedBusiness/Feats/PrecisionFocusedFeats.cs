@@ -5,8 +5,8 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -19,11 +19,14 @@ internal static class PrecisionFocusedFeats
         const string PrecisionFocused = "PrecisionFocused";
 
         // Arcane Precision
-        var attackModifierArcanePrecision = FeatureDefinitionAttackModifierBuilder
+
+        // kept name for backward compatibility
+        var attackModifierArcanePrecision = FeatureDefinitionBuilder
             .Create("AttackModifierArcanePrecision")
-            .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .AddCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence))
-            .SetMagicalWeapon()
+            .SetGuiPresentation("FeatArcanePrecision", Category.Feat)
+            .AddCustomSubFeatures(
+                new CanUseAttribute(AttributeDefinitions.Intelligence),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
         var powerArcanePrecision = FeatureDefinitionPowerBuilder
@@ -57,11 +60,14 @@ internal static class PrecisionFocusedFeats
             .AddToDB();
 
         // Charismatic Precision
-        var attackModifierCharismaticPrecision = FeatureDefinitionAttackModifierBuilder
+
+        // kept name for backward compatibility
+        var attackModifierCharismaticPrecision = FeatureDefinitionBuilder
             .Create("AttackModifierCharismaticPrecision")
-            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
-            .AddCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Charisma))
-            .SetMagicalWeapon()
+            .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat)
+            .AddCustomSubFeatures(
+                new CanUseAttribute(AttributeDefinitions.Charisma),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
         var powerCharismaticPrecision = FeatureDefinitionPowerBuilder
@@ -95,11 +101,14 @@ internal static class PrecisionFocusedFeats
             .AddToDB();
 
         // Wise Precision
-        var attackModifierWisePrecision = FeatureDefinitionAttackModifierBuilder
+
+        // kept name for backward compatibility
+        var attackModifierWisePrecision = FeatureDefinitionBuilder
             .Create("AttackModifierWisePrecision")
-            .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .AddCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Wisdom))
-            .SetMagicalWeapon()
+            .SetGuiPresentation("FeatWisePrecision", Category.Feat)
+            .AddCustomSubFeatures(
+                new CanUseAttribute(AttributeDefinitions.Wisdom),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
         var powerWisePrecision = FeatureDefinitionPowerBuilder
