@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>エレメンタル召�
 ModUi/&EnableVariablePlaceholdersOnTexts=説明に変数プレースホルダーを有効にする <i><color=#F0DAA0>[プレースホルダーとして {VARIABLE_NAME} を使用する]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>ポーション</color>と<color=#D89555>巻物</color>を持ち運んで弾薬スロットで使用できるようにします
 ModUi/&EnableVersatileOffHandSlot=<color=#D89555>ポーション</color>と<color=#D89555>巻物</color>をオフハンド武器スロットに持ち運んで使用できるようにします
-ModUi/&EnableWarlockInvocationProgression2024=5e 2024の進行状況を使用するには、<color=#D89555>Invocations</color>を有効にします
+ModUi/&EnableWarlockInvocationProgression2024=<color=#D89555>Invocations</color> を 5e 2024 <i><color=#F0DAA0>[異なる進行と調整された Invocations]</color></i> と入れ替えます
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にし、レベル20で<color=#D89555>エルドリッチマスター</color>を向上させる
 ModUi/&EnableWarlockMagicalCunningAtLevel2=レベル2で<color=#D89555>魔法の狡猾さ</color>を有効にする
 ModUi/&EnableWarlockToLearnPatronAtLevel3=<color=#D89555>パトロン</color>をレベル1ではなくレベル3で有効にする

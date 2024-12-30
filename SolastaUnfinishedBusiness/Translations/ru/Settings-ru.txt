@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Включить возможност�
 ModUi/&EnableVariablePlaceholdersOnTexts=Включить заглушки для переменных описаний <i><color=#F0DAA0>[использовать {VARIABLE_NAME} в качесте заглушки]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Разрешить переносить и использовать <color=#D89555>Зелья</color> и <color=#D89555>Свитки</color> в слотах боеприпасов
 ModUi/&EnableVersatileOffHandSlot=Разрешить переносить и использовать <color=#D89555>Зелья</color> и <color=#D89555>Свитки</color> в слоте для дополнительного оружия
-ModUi/&EnableWarlockInvocationProgression2024=Поменять прогрессию <color=#D89555>Воззваний</color> на версию 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Поменять местами <color=#D89555>Призывы</color> с 5e 2024 <i><color=#F0DAA0>[другая прогрессия и измененные призывы]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Включить <color=#D89555>Магическую хитрость</color> на уровне 2 и улучшить <color=#D89555>Таинственного мастера</color> на уровне 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Включить <color=#D89555>Магическую хитрость</color> на уровне 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Включить выбор <color=#D89555>Покровителя</color> на 3-м уровне вместо 1-го

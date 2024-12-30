@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Aktiviere Upcast von <color=#D89555>El
 ModUi/&EnableVariablePlaceholdersOnTexts=Aktivieren Sie variable Platzhalter in Beschreibungen <i><color=#F0DAA0>[verwenden Sie {VARIABLE_NAME} als Platzhalter]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Erlaubt das Tragen und Verwenden von <color=#D89555>Tränken</color> und <color=#D89555>Schriftrollen</color> in den Munitionsfächern
 ModUi/&EnableVersatileOffHandSlot=Erlaubt das Tragen und Verwenden von <color=#D89555>Tränken</color> und <color=#D89555>Schriftrollen</color> im Nebenwaffenslot
-ModUi/&EnableWarlockInvocationProgression2024=Aktivieren Sie <color=#D89555>Anrufe</color>, um die 5e 2024-Progression zu nutzen
+ModUi/&EnableWarlockInvocationProgression2024=Tauschen Sie <color=#D89555>Anrufungen</color> mit 5e 2024 aus <i><color=#F0DAA0>[anderer Ablauf und optimierte Anrufungen]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Aktiviere <color=#D89555>Magische List</color> auf Level 2 und verbessere <color=#D89555>Eldritch Master</color> auf 20.
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Aktiviere <color=#D89555>Magische List</color> auf Stufe 2.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Aktivieren Sie <color=#D89555>Patron</color> auf Stufe 3 statt auf Stufe 1.

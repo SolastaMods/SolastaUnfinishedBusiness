@@ -1,3 +1,4 @@
+=VACÍO
 Action/&ActionDisableGrappleDescription=Sueltas el objetivo agarrado.
 Action/&ActionDisableGrappleTitle=Deshabilitar Grapple
 Action/&ActionGrappleDescription=Puedes reemplazar uno de tus ataques principales para iniciar un agarrón, apuntando a una criatura que esté dentro de tu alcance y que no sea más grande que tú. Realizas una prueba de Fuerza (Atletismo) que se enfrenta a la prueba de Fuerza (Atletismo) o Destreza (Acrobacia) del objetivo.
@@ -348,6 +349,7 @@ Feedback/&TrueSightAndIllusionSpells={0} tiene Visión Verdadera y no se ve afec
 Format/&LevelAndExperienceFormat=Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
 Format/&LevelAndExperienceMaxedFormat=Nivel: {0}\nExperiencia: {1}\nNivel máximo alcanzado
 Invocation/&DevilsSightExtendedDescription=Puedes ver normalmente en la oscuridad, tanto mágica como no mágica, hasta una distancia de 80 pies.
+Invocation/&OneWithShadowsAlternateDescription
 Message/&CharacterExportDuplicateNameErrorDescription=Exportación cancelada:\nYa existe un héroe con este nombre en el grupo.\nPrueba con un nombre diferente.
 Message/&CharacterExportEmptyNameErrorDescription=Exportación cancelada:\nIntente con un nombre que no esté vacío.
 Message/&CharacterExportModalContentDescription=Introduzca el nombre del héroe a exportar:

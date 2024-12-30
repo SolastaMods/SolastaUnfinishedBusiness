@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammunition slots
 ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Off-hand Weapon slot
-ModUi/&EnableWarlockInvocationProgression2024=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
+ModUi/&EnableWarlockInvocationProgression2024=Swap <color=#D89555>Invocations</color> with 5e 2024 <i><color=#F0DAA0>[different progression, and tweaked invocations]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1

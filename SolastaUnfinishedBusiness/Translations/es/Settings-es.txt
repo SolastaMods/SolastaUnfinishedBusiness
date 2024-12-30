@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Habilitar la conversión ascendente de
 ModUi/&EnableVariablePlaceholdersOnTexts=Habilitar marcadores de posición de variables en las descripciones <i><color=#F0DAA0>[use {VARIABLE_NAME} como marcador de posición]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y utilicen en las ranuras de munición.
 ModUi/&EnableVersatileOffHandSlot=Permitir que <color=#D89555>Pociones</color> y <color=#D89555>Pergaminos</color> se lleven y usen en la ranura de Arma Secundaria
-ModUi/&EnableWarlockInvocationProgression2024=Habilitar <color=#D89555>Invocaciones</color> para usar la progresión 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Intercambia <color=#D89555>Invocaciones</color> con 5e 2024 <i><color=#F0DAA0>[progresión diferente e invocaciones modificadas]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2 y mejora <color=#D89555>Maestro sobrenatural</color> en el nivel 20.
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Habilita <color=#D89555>Astucia mágica</color> en el nivel 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Habilitar <color=#D89555>Patron</color> en el nivel 3 en lugar del 1

@@ -1,3 +1,4 @@
+=VUOTO
 Action/&ActionDisableGrappleDescription=Rilasci il bersaglio afferrato.
 Action/&ActionDisableGrappleTitle=Disattivare la presa
 Action/&ActionGrappleDescription=Puoi sostituire uno dei tuoi attacchi principali per iniziare una lotta, prendendo di mira una creatura entro la tua portata e non più grande di una taglia rispetto a te. Esegui una prova di Forza (Atletica) contrastata dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio.
@@ -348,6 +349,7 @@ Feedback/&TrueSightAndIllusionSpells={0} ha la Vista Vera e non è influenzato d
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti necessari per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nLivello massimo raggiunto
 Invocation/&DevilsSightExtendedDescription=Puoi vedere normalmente nell'oscurità, sia magica che non magica, fino a una distanza di 24 metri.
+Invocation/&OneWithShadowsAlternateDescription
 Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\nUn eroe con questo nome esiste già nel pool.\nProva un nome diverso.
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\nProva un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:

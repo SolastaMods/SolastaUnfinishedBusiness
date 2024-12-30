@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elementa
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并将其放入弹药槽中使用
 ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并在副手武器槽中使用
-ModUi/&EnableWarlockInvocationProgression2024=启用 <color=#D89555>Invocations</color> 以使用 5e 2024 进程
+ModUi/&EnableWarlockInvocationProgression2024=将<color=#D89555>Invocations</color>与 5e 2024 交换<i><color=#F0DAA0>[不同的进展和调整后的调用]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>

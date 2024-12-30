@@ -196,6 +196,7 @@ Feature/&InvocationPoolFeatWeaponMasterChoiceLearnDescription=Select new weapon 
 Feature/&InvocationPoolFeatWeaponMasterChoiceLearnTitle=Weapon Master
 Feature/&InvocationPoolKindredSpiritChoiceLearnDescription=Select a Kindred Spirit for your Druid.
 Feature/&InvocationPoolKindredSpiritChoiceLearnTitle=Kindred Spirit
+Invocation/&OneWithShadowsAlternateDescription
 Feature/&InvocationPoolMonkWeaponSpecializationLearnDescription=Select a new weapon type to become a Way of Blade weapon for you.
 Feature/&InvocationPoolMonkWeaponSpecializationLearnTitle=Way of Blade Weapon Specialization
 Feature/&InvocationPoolPathClawDraconicChoiceLearnDescription=Select a Path of the Claw draconic ancestry.

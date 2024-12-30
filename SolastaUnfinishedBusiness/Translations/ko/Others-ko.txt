@@ -1,3 +1,4 @@
+=비어 있는
 Action/&ActionDisableGrappleDescription=붙잡힌 타겟을 놓습니다.
 Action/&ActionDisableGrappleTitle=그래플 비활성화
 Action/&ActionGrappleDescription=당신은 주요 공격 중 하나를 대체하여 그래플을 시작할 수 있으며, 당신의 손이 닿는 범위 내에 있고 당신보다 한 사이즈 이상 크지 않은 생물을 대상으로 합니다. 당신은 대상의 힘(운동) 또는 민첩성(곡예) 검사에 의해 경합되는 힘(운동) 검사를 합니다.
@@ -348,6 +349,7 @@ Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있�
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: {3} 레벨에 도달하려면 {1}\n{2} 포인트가 필요합니다.
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달
 Invocation/&DevilsSightExtendedDescription=당신은 일반적으로 어둠 속에서 마법적이든 비마법적이든 80피트 거리까지 볼 수 있습니다.
+Invocation/&OneWithShadowsAlternateDescription
 Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n동일한 이름을 가진 히어로가 이미 풀에 존재합니다.\n다른 이름을 사용해 보세요.
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n비어 있지 않은 이름을 사용해 보세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력하세요:

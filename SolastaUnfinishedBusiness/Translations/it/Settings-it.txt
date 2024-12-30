@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evo
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Consenti il trasporto e l'utilizzo di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> negli slot Munizioni
 ModUi/&EnableVersatileOffHandSlot=Consenti il trasporto e l'uso di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> nello slot dell'arma secondaria
-ModUi/&EnableWarlockInvocationProgression2024=Abilita <color=#D89555>Invocazioni</color> per usare la progressione 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Sostituisci <color=#D89555>Invocazioni</color> con 5e 2024 <i><color=#F0DAA0>[progressione diversa e invocazioni modificate]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Abilita <color=#D89555>Astuzia magica</color> al livello 2 e migliora <color=#D89555>Maestro eldritch</color> al livello 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Abilita <color=#D89555>Patron</color> al livello 3 invece che 1

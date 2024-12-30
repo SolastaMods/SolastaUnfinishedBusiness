@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Activer la conversion ascendante de <c
 ModUi/&EnableVariablePlaceholdersOnTexts=Activer les espaces réservés aux variables dans les descriptions <i><color=#F0DAA0>[utiliser {VARIABLE_NAME} comme espace réservé]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Autoriser le transport et l'utilisation de <color=#D89555>potions</color> et de <color=#D89555>parchemins</color> dans les emplacements de munitions
 ModUi/&EnableVersatileOffHandSlot=Autoriser le transport et l'utilisation de <color=#D89555>potions</color> et de <color=#D89555>parchemins</color> dans l'emplacement d'arme secondaire
-ModUi/&EnableWarlockInvocationProgression2024=Activez les <color=#D89555>invocations</color> pour utiliser la progression 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Échangez <color=#D89555>les invocations</color> avec 5e 2024 <i><color=#F0DAA0>[progression différente et invocations modifiées]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Activez la <color=#D89555>ruse magique</color> au niveau 2 et améliorez le <color=#D89555>maître eldritch</color> à 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Activer la <color=#D89555>ruse magique</color> au niveau 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Activer <color=#D89555>Patron</color> au niveau 3 au lieu de 1

@@ -238,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>�
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 탄약 슬롯에 넣고 운반하고 사용할 수 있습니다.
 ModUi/&EnableVersatileOffHandSlot=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 보조 무기 슬롯에 휴대하고 사용할 수 있습니다.
-ModUi/&EnableWarlockInvocationProgression2024=5e 2024 진행을 사용하려면 <color=#D89555>호출</color>을 활성화하세요.
+ModUi/&EnableWarlockInvocationProgression2024=<color=#D89555>호출</color>을 5e 2024 <i><color=#F0DAA0>[다른 진행 및 조정된 호출]</color></i>로 바꾸세요
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화
