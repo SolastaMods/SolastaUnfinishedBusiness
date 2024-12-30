@@ -296,7 +296,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
         var powerCommandSpirit = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CommandSpirit")
-            .SetGuiPresentation(Category.Feature, Command)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Command)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetShowCasting(false)
             .SetEffectDescription(

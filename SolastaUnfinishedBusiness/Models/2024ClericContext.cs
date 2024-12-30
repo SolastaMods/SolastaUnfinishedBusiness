@@ -376,6 +376,7 @@ internal static partial class Tabletop2024Context
             ("DomainLife", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike", DamageTypePsychic),
             ("DomainNature", "FeatureSetDomainNatureNatureStrikes", DamageTypeCold),
+            ("DomainOrder", "AdditionalDamageDomainOrderDivineStrike", string.Empty),
             ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike", DamageTypeFire),
             ("DomainSun", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike", DamageTypeThunder)
