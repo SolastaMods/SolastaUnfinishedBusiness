@@ -17,6 +17,7 @@ using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -25,7 +26,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WayOfBlade : AbstractSubclass
 {
-    internal const string Name = "WayOfBlade";
+    private const string Name = "WayOfBlade";
 
     internal static readonly FeatureDefinitionPower PowerAgileParry = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}AgileParry")
@@ -127,6 +128,7 @@ public sealed class WayOfBlade : AbstractSubclass
         var featureSetAgileParry = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AgileParry")
             .SetGuiPresentation(Category.Feature)
+            // most of the logic is already implemented at Tabletop2024Context.PowerMonkReturnAttacks
             .SetFeatureSet(
                 PowerAgileParry, PowerAgileParryAttack, PowerAgileParrySave, Tabletop2024Context.PowerMonkReturnAttacks)
             .AddToDB();
@@ -173,7 +175,7 @@ public sealed class WayOfBlade : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
+    internal override CharacterClassDefinition Klass => Monk;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -182,6 +184,23 @@ public sealed class WayOfBlade : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static bool IsAgileParryValid(
+        GameLocationCharacter defender, GameLocationCharacter attacker)
+    {
+        var rulesetDefender = defender.RulesetCharacter;
+        var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, Name);
+
+        if (wayOfBladeLevel < 6 ||
+            !ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand(rulesetDefender))
+        {
+            return false;
+        }
+
+        var defenderAttackMode = defender.FindActionAttackMode(Id.AttackMain);
+
+        return defender.IsWithinRange(attacker, defenderAttackMode?.ReachRange ?? 1);
+    }
 
     private static void LoadMonkWeaponSpecialization()
     {
@@ -374,7 +393,7 @@ public sealed class WayOfBlade : AbstractSubclass
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            var subclassLevel = character.GetSubclassLevel(CharacterClassDefinitions.Monk, Name);
+            var subclassLevel = character.GetSubclassLevel(Monk, Name);
 
             return subclassLevel >= 11 &&
                    (definition.Name.StartsWith("PowerMonkPatientDefense") ||
@@ -396,7 +415,7 @@ public sealed class WayOfBlade : AbstractSubclass
         {
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var subclassLevel = rulesetAttacker.GetSubclassLevel(CharacterClassDefinitions.Monk, Name);
+            var subclassLevel = rulesetAttacker.GetSubclassLevel(Monk, Name);
 
             if (subclassLevel < 11 || action.ActionParams.TargetCharacters.Count == 0)
             {
