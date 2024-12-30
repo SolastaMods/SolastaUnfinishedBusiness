@@ -27,13 +27,13 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
-        LoadMonkKatanaSpecialization();
         SwitchBarbarianFightingStyle();
         SwitchBardScimitarSpecialization();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkHandwrapsGauntletSlot();
         SwitchMonkImprovedUnarmoredMovement();
+        SwitchMonkKatanaSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRogueFightingStyle();
         SwitchRogueScimitarSpecialization();
@@ -195,31 +195,15 @@ internal static class ClassesContext
         }
     }
 
-    private static void LoadMonkKatanaSpecialization()
+    internal static void SwitchMonkKatanaSpecialization()
     {
-        ProficiencyMonkWeapon.AddCustomSubFeatures(new CustomLevelUpLogicMonkKatanaSpecialization());
-    }
-
-    private sealed class CustomLevelUpLogicMonkKatanaSpecialization : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        if (Main.Settings.EnableMonkKatanaSpecialization)
         {
-            if (!Main.Settings.EnableMonkKatanaSpecialization)
-            {
-                return;
-            }
-
-            const string PREFIX = "CustomInvocationMonkWeaponSpecialization";
-
-            var heroBuildingData = hero.GetHeroBuildingData();
-            var invocationKatanaType = GetDefinition<InvocationDefinition>($"{PREFIX}KatanaWeaponType");
-
-            heroBuildingData.LevelupTrainedInvocations.Add(tag, [invocationKatanaType]);
+            ProficiencyMonkWeapon.Proficiencies.TryAdd(CustomWeaponsContext.KatanaWeaponType.Name);
         }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        else
         {
-            // empty
+            ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
         }
     }
 

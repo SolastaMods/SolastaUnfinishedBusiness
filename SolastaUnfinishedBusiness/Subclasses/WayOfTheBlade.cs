@@ -32,21 +32,29 @@ public sealed class WayOfBlade : AbstractSubclass
         .Create($"Power{Name}AgileParry")
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+        .SetShowCasting(false)
         .AddToDB();
 
     internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParryAttack =
         FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}AgileParryAttack")
-            .SetGuiPresentation($"FeatureSet{Name}AgileParry", Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}AgileParry", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeAgileParryAttack())
             .AddToDB();
 
     internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParrySave =
         FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}AgileParrySave")
-            .SetGuiPresentation("PowerMonkReturnAttacks", Category.Feature)
+            .SetGuiPresentation("PowerMonkReturnAttacks", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
+            .SetShowCasting(false)
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -398,7 +406,6 @@ public sealed class WayOfBlade : AbstractSubclass
             }
 
             var defender = targets[0];
-
             var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
             var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
@@ -406,7 +413,7 @@ public sealed class WayOfBlade : AbstractSubclass
             attackModeCopy.ActionType = ActionType.NoCost;
 
             attacker.MyExecuteActionAttack(
-                Id.AttackFree,
+                Id.AttackOpportunity,
                 defender,
                 attackModeCopy,
                 new ActionModifier());

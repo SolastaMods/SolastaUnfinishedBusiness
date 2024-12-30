@@ -1,6 +1,6 @@
 Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription=近接戦闘用のモンク武器を持ち、シールドを持っていない間、AC に +2 のボーナスが得られ、ボーナス アクション攻撃の 1 つをモンク武器による攻撃に置き換えることができます。
 Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle=刃と一体
-Feature/&FeatureSetWayOfBladeAgileParryDescription=近接攻撃用のモンク武器を装備しているときに近接攻撃を受けそうになった場合、反応を使用して受けるダメージを 1d10 + 敏捷性修正値 + モンク レベルだけ軽減できます。ダメージが 0 に軽減され、攻撃クリーチャーがモンク武器の届く範囲内にいる場合、同じ反応の一部として 1 気を消費して、モンク武器でクリーチャーを攻撃できます。
+Feature/&FeatureSetWayOfBladeAgileParryDescription=近接モンク武器を装備しているときに、殴打、刺突、または斬撃ダメージを含む近接攻撃を受けそうになったとき、反応を使用して受けるダメージを 1d10 + 敏捷性修正値 + モンク レベルだけ軽減できます。ダメージが 0 に軽減され、攻撃クリーチャーがモンク武器の射程内にいる場合、同じ反応の一部として 1 気を消費して、モンク武器を持つクリーチャーに対して機会攻撃を行うことができます。このクラスのレベルが 13 に達すると、ダメージ タイプの制限は解除されます。
 Feature/&FeatureSetWayOfBladeAgileParryTitle=アジャイルパリー
 Feature/&FeatureWayOfBladeMasterOfTheBladeDescription=ラウンドごとに 1 回、近接モンク武器攻撃が失敗した場合、すぐにそのクリーチャーを再度攻撃できます。
 Feature/&FeatureWayOfBladeMasterOfTheBladeTitle=剣の達人

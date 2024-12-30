@@ -1,6 +1,6 @@
 Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription=当你手持近战武僧武器且没有盾牌时，你的 AC 会获得 +2 加值，并且你可以用武僧武器代替你的一个加值行动攻击进行攻击。
 Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle=刀锋一号
-Feature/&FeatureSetWayOfBladeAgileParryDescription=当你手持近战武僧武器，即将受到近战攻击时，你可以使用你的反应减少 1d10 + 敏捷调整值 + 武僧等级的伤害。如果伤害减少到 0，并且攻击生物在你的武僧武器范围之内，你可以花费 1 气作为相同反应的一部分，用武僧武器攻击该生物。
+Feature/&FeatureSetWayOfBladeAgileParryDescription=当您手持近战武僧武器，即将受到包括钝击、穿刺或挥砍伤害的近战攻击时，您可以使用您的反应减少 1d10 + 敏捷调整值 + 武僧等级的伤害。如果伤害减少到 0，并且攻击生物在您的武僧武器范围之内，您可以在同一反应中消耗 1 气，对手持武僧武器的生物发动借机攻击。当您达到该职业的 13 级时，伤害类型限制将被解除。
 Feature/&FeatureSetWayOfBladeAgileParryTitle=敏捷招架
 Feature/&FeatureWayOfBladeMasterOfTheBladeDescription=每轮一次，当你使用近战武僧武器攻击失败时，你可以立即再次攻击该生物。
 Feature/&FeatureWayOfBladeMasterOfTheBladeTitle=剑术大师

@@ -158,7 +158,6 @@ ModUi/&EnableMonkHandwrapsOnGauntletSlot=Enable <color=#D89555>Handwraps</color>
 ModUi/&EnableMonkHeightenedFocus2024=Enable <color=#D89555>Heightened Focus</color>, and <color=#D89555>Perfect Focus</color> to replace <color=#D89555>Purity of Body</color>, and <color=#D89555>Timeless Body</color> at levels 10 and 15\n<i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional effects at 10th, and Ki points regain at 15th]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color>
-ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Weapon Specialization</color>
 ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
 ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10 to replace <color=#D89555>Stillness of Mind</color> at level 7
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
@@ -212,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Enable <color=#D89555>Reliable Talent</colo
 ModUi/&EnableRogueSlipperyMind2024=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Weapon Specialization</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Enable <color=#D89555>Arcane Apotheosis</color> to replace <color=#D89555>Sorcerous Restoration</color> at level 20
 ModUi/&EnableSorcererInnateSorcery2024=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7

@@ -338,6 +338,7 @@ internal static class ClassesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkKatanaSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkKatanaSpecialization = toggle;
+            ClassesContext.SwitchMonkKatanaSpecialization();
         }
 
         toggle = Main.Settings.EnableMonkFocus2024;

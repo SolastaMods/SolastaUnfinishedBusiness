@@ -634,15 +634,13 @@ internal static partial class Tabletop2024Context
             var rulesetDefender = defender.RulesetCharacter;
             var classLevel = rulesetDefender.GetClassLevel(Monk);
 
-            // need to also check the setting as this behavior can be leveraged by Way of Blade
-            var damageForm = Main.Settings.EnableMonkDeflectAttacks2024
-                ? actualEffectForms.FirstOrDefault(x =>
+            var damageForm = actualEffectForms.FirstOrDefault(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
-                    (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)))
-                : null;
+                    (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
 
-            // deflect attacks is invalid with a null damage form
-            if (damageForm == null && !WayOfBlade.IsAgileParryValid(defender, attacker))
+            // deflect attacks or agile parry are invalid with a null damage form
+            // and agile parry also has melee weapon and reach requirements
+            if (damageForm == null || !WayOfBlade.IsAgileParryValid(defender, attacker))
             {
                 yield break;
             }
