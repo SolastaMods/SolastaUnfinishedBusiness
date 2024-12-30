@@ -2,7 +2,8 @@
 
 CHANGES:
 
-- added Monk tabletop 2024 settings
+- added Monk, Sorcerer, and Warlock tabletop 2024 settings
+- added Devouring Blade, and One with Shadows 2024 invocations
 - added Way of Blade subclass
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing dice progression
@@ -10,8 +11,9 @@ CHANGES:
 - fixed Disheartening Performance / Hideous Laughter interaction crash
 - fixed Gift of the Gem Dragon reaction crash under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
+- fixed soft lock scenario when target cannot move, and AI decision is dash [VANILLA] 
 - fixed True Strike 2024 not using spell casting ability on attack roll
-- nerfed Way of Archery flurry of arrows, unerring precision, and hail of arrows features [RESPEC req.]
+- nerfed Way of Zen Archery flurry of arrows, unerring precision, and hail of arrows features [RESPEC req.]
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, Monk Weapons, and Pugilist [RESPEC req.]
 
 KNOWN ISSUES:
