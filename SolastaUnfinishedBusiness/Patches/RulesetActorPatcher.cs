@@ -502,6 +502,7 @@ public static class RulesetActorPatcher
     [UsedImplicitly]
     public static class ProcessConditionsMatchingInterruption_Patch
     {
+#if false
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
@@ -548,6 +549,196 @@ public static class RulesetActorPatcher
                 ref outcome,
                 ref outcomeDelta,
                 effectForms);
+        }
+#endif
+
+        [UsedImplicitly]
+        public static bool Prefix(RulesetActor __instance, ConditionInterruption interruption, int amount)
+        {
+            ProcessConditionsMatchingInterruption(__instance, interruption, amount);
+
+            return false;
+        }
+
+        private static void ProcessConditionsMatchingInterruption(
+            RulesetActor __instance, ConditionInterruption interruption, int amount = 0)
+        {
+            if (__instance.matchingInterruption)
+            {
+                return;
+            }
+
+            __instance.matchingInterruption = true;
+            __instance.matchingInterruptionConditions.Clear();
+
+            //PATCH: avoid enumeration issues with ToArray
+            //reported interaction between Disheartening Performance and Hideous Laughter
+            foreach (var rulesetCondition in __instance.conditionsByCategory.SelectMany(x => x.Value).ToArray())
+            {
+                if (!rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(interruption) ||
+                    __instance.matchingInterruptionConditions.Contains(rulesetCondition) ||
+                    (interruption == ConditionInterruption.NoAttackOrDamagedInTurn &&
+                     rulesetCondition.FirstRound) ||
+                    (amount < rulesetCondition.ConditionDefinition.InterruptionDamageThreshold &&
+                     interruption
+                         is ConditionInterruption.Damaged
+                         or ConditionInterruption.AttacksAndDamages
+                         or ConditionInterruption.DamagedByFriendly))
+                {
+                    continue;
+                }
+
+                var matched = false;
+
+                if (rulesetCondition.ConditionDefinition.InterruptionRequiresSavingThrow &&
+                    (!string.IsNullOrEmpty(rulesetCondition.SaveOverrideAbilityScoreName) ||
+                     rulesetCondition.ConditionDefinition.InterruptionSavingThrowComputationMethod !=
+                     InterruptionSavingThrowComputationMethod.SaveOverride))
+                {
+                    var effectModifier = new ActionModifier();
+                    var abilityScoreName = string.Empty;
+                    var saveDC = 0;
+                    var savingThrowAffinity =
+                        rulesetCondition.ConditionDefinition.InterruptionSavingThrowAffinity;
+                    var schoolOfMagic = string.Empty;
+                    var empty1 = string.Empty;
+                    var empty2 = string.Empty;
+
+                    // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                    switch (rulesetCondition.ConditionDefinition.InterruptionSavingThrowComputationMethod)
+                    {
+                        case InterruptionSavingThrowComputationMethod.SaveOverride:
+                            abilityScoreName = rulesetCondition.SaveOverrideAbilityScoreName;
+                            saveDC = rulesetCondition.SaveOverrideDC;
+                            break;
+                        case InterruptionSavingThrowComputationMethod.LikeConcentration:
+                        {
+                            abilityScoreName = rulesetCondition.ConditionDefinition.InterruptionSavingThrowAbility;
+                            saveDC = Mathf.FloorToInt(amount / 2f);
+                            if (saveDC < 10)
+                            {
+                                saveDC = 10;
+                            }
+
+                            break;
+                        }
+                    }
+
+                    BaseDefinition sourceDefinition = null;
+
+                    if (DatabaseRepository.GetDatabase<SpellDefinition>()
+                        .TryGetElement(rulesetCondition.SaveOverrideSourceName, out var result1))
+                    {
+                        sourceDefinition = result1;
+                        schoolOfMagic = result1.SchoolOfMagic;
+                    }
+                    else if (DatabaseRepository.GetDatabase<FeatureDefinition>()
+                             .TryGetElement(rulesetCondition.SaveOverrideSourceName, out var result2))
+                    {
+                        sourceDefinition = result2;
+                    }
+                    else if (rulesetCondition.EffectDefinitionName != null)
+                    {
+                        if (DatabaseRepository.GetDatabase<SpellDefinition>()
+                            .TryGetElement(rulesetCondition.EffectDefinitionName, out result1))
+                        {
+                            sourceDefinition = result1;
+                            schoolOfMagic = result1.SchoolOfMagic;
+                        }
+                        else if (DatabaseRepository.GetDatabase<FeatureDefinition>()
+                                 .TryGetElement(rulesetCondition.EffectDefinitionName, out result2))
+                        {
+                            sourceDefinition = result2;
+                        }
+                    }
+
+                    var savingThrowBonus =
+                        __instance.ComputeBaseSavingThrowBonus(abilityScoreName, effectModifier.SavingThrowModifierTrends);
+                    __instance.ComputeSavingThrowModifier(abilityScoreName, EffectForm.EffectFormType.Condition, empty1,
+                        schoolOfMagic, string.Empty, rulesetCondition.ConditionDefinition.Name, empty2,
+                        effectModifier, __instance.accountedProviders);
+                    __instance.accountedProviders.Clear();
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (savingThrowAffinity)
+                    {
+                        case AdvantageType.Advantage:
+                            effectModifier.SavingThrowAdvantageTrends.Add(new TrendInfo(1,
+                                FeatureSourceType.Spell, rulesetCondition.EffectDefinitionName, __instance));
+                            break;
+                        case AdvantageType.Disadvantage:
+                            effectModifier.SavingThrowAdvantageTrends.Add(new TrendInfo(-1,
+                                FeatureSourceType.Spell, rulesetCondition.EffectDefinitionName, __instance));
+                            break;
+                    }
+
+                    //BEGIN PATCH
+                    // __instance.RollSavingThrow(savingThrowBonus, str, sourceDefinition,
+                    //     effectModifier.SavingThrowModifierTrends, effectModifier.SavingThrowAdvantageTrends,
+                    //     effectModifier.GetSavingThrowModifier(str), saveDC, false, out var outcome,
+                    //     out _);
+                    var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+                    var effectForms = new List<EffectForm>();
+                    var outcomeDelta = 0;
+                    var outcome = RollOutcome.Failure;
+
+                    rulesetCondition.BuildDummyEffectForms(effectForms);
+                    __instance.MyRollSavingThrow(
+                        caster,
+                        savingThrowBonus,
+                        abilityScoreName,
+                        sourceDefinition,
+                        effectModifier.SavingThrowModifierTrends,
+                        effectModifier.SavingThrowAdvantageTrends,
+                        effectModifier.GetSavingThrowModifier(abilityScoreName),
+                        saveDC,
+                        false,
+                        ref outcome,
+                        ref outcomeDelta,
+                        effectForms);
+                    //END PATCH
+
+                    if (outcome == RollOutcome.Success ==
+                        !rulesetCondition.ConditionDefinition.KeepConditionIfSavingThrowSucceeds)
+                    {
+                        matched = true;
+                    }
+                }
+                else
+                {
+                    matched = true;
+                }
+
+                if (!matched)
+                {
+                    continue;
+                }           
+
+                __instance.matchingInterruptionConditions.Add(rulesetCondition);
+
+                if (rulesetCondition.ConditionDefinition.RecurrentEffectForms.All(x =>
+                        x.FormType != EffectForm.EffectFormType.TemporaryHitPoints))
+                {
+                    continue;
+                }
+
+                //PATCH: avoid enumeration issues with ToArray
+                foreach (var condition in __instance.ConditionsByCategory.SelectMany(x => x.Value).ToArray())
+                {
+                    if (condition.ConditionDefinition.IsSubtypeOf("ConditionTemporaryHitPoints"))
+                    {
+                        __instance.matchingInterruptionConditions.TryAdd(condition);
+                    }
+                }
+            }
+
+            for (var index = __instance.matchingInterruptionConditions.Count - 1; index >= 0; --index)
+            {
+                __instance.RemoveCondition(__instance.matchingInterruptionConditions[index]);
+            }
+
+            __instance.matchingInterruptionConditions.Clear();
+            __instance.matchingInterruption = false;
         }
     }
 

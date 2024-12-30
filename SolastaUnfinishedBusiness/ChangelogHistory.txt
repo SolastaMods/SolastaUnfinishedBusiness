@@ -6,10 +6,11 @@ CHANGES:
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing dice progression
 - fixed damage roll reduction calculation when more than one damage form is present [VANILLA]
-- fixed Gift of the Gem Dragon reaction crashing under Chinese
+- fixed Disheartening Performance interaction with Hideous Laughter crashing combat
+- fixed Gift of the Gem Dragon reaction crashing under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed True Strike 2024 not using spell casting ability on attack roll
-- nerfed Way of Zen Archery flurry of arrows [now swift shot], unerring precision, and hail of arrows features
+- nerfed Way of Archery flurry of arrows [now swift shot], unerring precision, and hail of arrows features
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
 
 KNOWN ISSUES:
