@@ -120,10 +120,7 @@ public static class InventoryPanelPatcher
                 __instance.GuiCharacter.GameLocationCharacter.GetActionTypeStatus(ActionType.FreeOnce) ==
                 ActionStatus.Available)
             {
-                ServiceRepository.GetService<ICommandService>()?.SpendCharacterAction(
-                    __instance.GuiCharacter.GameLocationCharacter,
-                    ActionType.FreeOnce);
-
+                __instance.GuiCharacter.GameLocationCharacter.SpendActionType(ActionType.FreeOnce);
                 __result = true;
 
                 return false;
