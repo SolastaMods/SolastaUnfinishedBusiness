@@ -12,5 +12,5 @@ Feature/&PowerWayOfTheStormSoulTempestFuryDescription=You can spend 1 ki to repl
 Feature/&PowerWayOfTheStormSoulTempestFuryTitle=Tempest's Fury
 Feedback/&AdditionalDamageDiscipleOfStormsFormat=Disciple of Storms!
 Feedback/&AdditionalDamageDiscipleOfStormsLine={0} strikes {1} with lightning (+{2})
-Subclass/&WayOfTheStormSoulDescription=Monks of the Way of the Storm Soul live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them.
-Subclass/&WayOfTheStormSoulTitle=Way of Storm Soul
+Subclass/&WayOfTheStormSoulDescription=Monks of the Way of Storm live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them.
+Subclass/&WayOfTheStormSoulTitle=Way of Storm

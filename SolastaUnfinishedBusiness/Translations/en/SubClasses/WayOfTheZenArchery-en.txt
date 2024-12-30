@@ -10,5 +10,5 @@ Feature/&PowerWayOfZenArcheryZenShotDescription=While you are unarmored, and you
 Feature/&PowerWayOfZenArcheryZenShotTitle=Zen Shot
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=You become proficient with bows. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
 Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=One with the Bow
-Subclass/&WayOfZenArcheryDescription=A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
-Subclass/&WayOfZenArcheryTitle=Way of Zen Archery
+Subclass/&WayOfZenArcheryDescription=A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
+Subclass/&WayOfZenArcheryTitle=Way of Archery
