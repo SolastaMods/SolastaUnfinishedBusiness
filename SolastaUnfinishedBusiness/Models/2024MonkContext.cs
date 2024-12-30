@@ -625,13 +625,23 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
             var classLevel = rulesetDefender.GetClassLevel(Monk);
-            var damageForm = actualEffectForms.FirstOrDefault(x =>
-                x.FormType == EffectForm.EffectFormType.Damage &&
-                (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
 
-            if (damageForm == null || !defender.CanReact())
+            // need to also check the setting as this behavior can be leveraged by Way of Blade
+            var damageForm = Main.Settings.EnableMonkDeflectAttacks2024
+                ? actualEffectForms.FirstOrDefault(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)))
+                : null;
+
+            // deflect attacks is invalid with a null damage form
+            if (damageForm == null && !WayOfBlade.IsAgileParryValid(defender, attacker))
             {
                 yield break;
             }
@@ -648,15 +658,13 @@ internal static partial class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var damageIndex = Array.IndexOf(AllDamages, damageForm.DamageForm.DamageType);
+                var damageIndex = Array.IndexOf(AllDamages, damageForm?.DamageForm.DamageType ?? string.Empty);
                 var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-                var reductionAmount =
-                    RollDie(DieType.D10, AdvantageType.None, out _, out _) +
-                    AttributeDefinitions.ComputeAbilityScoreModifier(dexterity) +
-                    rulesetDefender.GetClassLevel(Monk);
+                var dexMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
+                var reductionAmount = RollDie(DieType.D10, AdvantageType.None, out _, out _) + dexMod + classLevel;
 
-                EffectHelpers.StartVisualEffect(defender, attacker, PowerMonkReturnMissile,
-                    EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(
+                    defender, attacker, PowerMonkReturnMissile, EffectHelpers.EffectType.Caster);
                 actionModifier.DamageRollReduction += reductionAmount;
                 rulesetDefender.DamageReduced.Invoke(rulesetDefender, FeatureSetMonkDeflectMissiles, reductionAmount);
                 rulesetDefender.InflictCondition(
@@ -690,17 +698,18 @@ internal static partial class Tabletop2024Context
                 rulesetDefender.RemainingKiPoints == 0 ||
                 !defender.CanAct() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                !rulesetDefender.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name))
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
             {
                 yield break;
             }
 
-            var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, WayOfBlade.Name);
+            var isAgileParryValid = WayOfBlade.IsAgileParryValid(defender, attacker);
 
-            if (wayOfBladeLevel >= 6)
+            // condition amount only carries an index under valid 2024 deflect attacks scenarios
+            switch (activeCondition.Amount >= 0)
             {
-                if (Main.Settings.EnableMonkDeflectAttacks2024)
+                case true when isAgileParryValid:
                 {
                     var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParry, rulesetDefender);
 
@@ -710,8 +719,22 @@ internal static partial class Tabletop2024Context
                         attacker,
                         "ReturnAttacks",
                         "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                    break;
                 }
-                else
+                case true:
+                {
+                    var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
+
+                    yield return defender.MyReactToUsePower(
+                        Id.PowerNoCost,
+                        usablePower,
+                        [attacker],
+                        attacker,
+                        "ReturnAttacks",
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                    break;
+                }
+                default:
                 {
                     var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParryAttack, rulesetDefender);
 
@@ -722,19 +745,8 @@ internal static partial class Tabletop2024Context
                         attacker,
                         "ReturnAttacks",
                         "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                    break;
                 }
-            }
-            else
-            {
-                var usablePower = PowerProvider.Get(PowerMonkReturnAttacks, rulesetDefender);
-
-                yield return defender.MyReactToUsePower(
-                    Id.PowerNoCost,
-                    usablePower,
-                    [attacker],
-                    attacker,
-                    "ReturnAttacks",
-                    "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
             }
         }
     }
