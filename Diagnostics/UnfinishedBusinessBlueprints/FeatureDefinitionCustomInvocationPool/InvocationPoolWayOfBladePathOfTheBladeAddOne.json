@@ -1,10 +1,5 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "LongbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "400a98a9-be89-5696-9391-33fb65fe8f88",
+  "guid": "0284ab66-ec16-5f45-9643-56db5df18856",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationLongbowType"
+  "name": "InvocationPoolWayOfBladePathOfTheBladeAddOne"
 }

@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "LightCrossbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureWayOfBladeMasterOfTheBladeTitle",
+    "description": "Feature/&FeatureWayOfBladeMasterOfTheBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "746c6f30-53ea-504a-b980-fbe59659b940",
+  "guid": "15be5d2a-109d-510d-a4b4-111a84335644",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationLightCrossbowType"
+  "name": "FeatureWayOfBladeMasterOfTheBlade"
 }

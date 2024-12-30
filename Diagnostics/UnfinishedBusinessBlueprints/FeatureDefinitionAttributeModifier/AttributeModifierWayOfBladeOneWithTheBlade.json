@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Additive",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": 9003,
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle",
-    "description": "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription",
+    "title": "Feature/&AttributeModifierWayOfBladeOneWithTheBladeTitle",
+    "description": "Feature/&AttributeModifierWayOfBladeOneWithTheBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa397331-7988-5d0d-bfca-a75061378755",
+  "guid": "d7652989-6170-5e85-9f1d-19b89289bf38",
   "contentPack": 9999,
-  "name": "FeatureWayOfZenArcheryFlurryOfArrows"
+  "name": "AttributeModifierWayOfBladeOneWithTheBlade"
 }

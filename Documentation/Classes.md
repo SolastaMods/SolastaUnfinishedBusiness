@@ -1049,9 +1049,12 @@ Starting at level 14, your mastery of Ki grants you proficiency in all saving th
 
 ### Level 15
 
-* Perfect Focus
+* Timeless Body
 
-When you roll Initiative and don't use Uncanny Metabolism, you regain expended Focus Points until you have 4 if you have 3 or fewer.
+At the 15th level, you gain the following benefits:
+  - Resistance to necrotic damage
+  - Advantage on saving throws against being Life Drained
+  - You don't require a food ration anymore to take a long rest
 
 
 ### Level 16

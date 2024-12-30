@@ -757,6 +757,7 @@
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
+    <EnableSorcererMetamagic2024>false</EnableSorcererMetamagic2024>
     <EnableSorcererOrigin2024>true</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
@@ -1773,11 +1774,11 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>WayOfBlade</string>
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
                     <string>WayOfSilhouette</string>
                     <string>WayOfTheStormSoul</string>
-                    <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>
             </value>

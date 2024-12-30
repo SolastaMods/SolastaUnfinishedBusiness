@@ -30,7 +30,7 @@ internal static class CreditsDisplay
             "Ranger Fey Wanderer, Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, Sorcerous Wild Magic, " +
-            "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
+            "Way of Archery, Way of Blade, Way of Discordance, Way of Shadow, Way of Storm, " +
             "Wizard Bladesinging, Wizard Deadmaster, Wizard Evocation, Wizard War Magic, " +
             "Level 20, Lighting and Obscurement, Multiclass, Variant Spell Rules"),
 
@@ -44,7 +44,7 @@ internal static class CreditsDisplay
             "Patron Moonlit, " +
             "Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Psion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
-            "Way of Discordance, Way of Dragon, Way of Shadow, Way of Storm Soul, Way of Zen Archery]"),
+            "Way of Archery, Way of Blade, Way of Discordance, Way of Dragon, Way of Shadow, Way of Storm]"),
 
         ("TPABOBAP",
             "behaviors, game UI, infrastructure, gameplay, quality of life, rules, " +
@@ -79,7 +79,7 @@ internal static class CreditsDisplay
         ("Earandil",
             "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior, Ranger Survivalist]"),
         ("DemonicDuck",
-            "homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+            "homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath]"),
         ("Taco", "sprites, homebrew design [Roguish Acrobat, Domain Defiler, Oath of Altruism]"),
         ("DubhHerder", "quality of life, homebrew design [Patron Elementalist, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),

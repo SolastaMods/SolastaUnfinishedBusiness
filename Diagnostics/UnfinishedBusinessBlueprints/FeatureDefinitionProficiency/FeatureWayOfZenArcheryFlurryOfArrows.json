@@ -1,10 +1,15 @@
 {
-  "$type": "FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "LongbowType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolMonkWeaponSpecializationLearnTitle",
-    "description": "Feature/&InvocationPoolMonkWeaponSpecializationLearnDescription",
+    "title": "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle",
+    "description": "Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "41aa0151-f6f1-53fc-9179-3b346fd72575",
+  "guid": "aa397331-7988-5d0d-bfca-a75061378755",
   "contentPack": 9999,
-  "name": "InvocationPoolMonkWeaponSpecialization"
+  "name": "FeatureWayOfZenArcheryFlurryOfArrows"
 }

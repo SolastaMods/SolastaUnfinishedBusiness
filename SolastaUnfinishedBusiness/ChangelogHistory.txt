@@ -10,8 +10,8 @@ CHANGES:
 - fixed Gift of the Gem Dragon reaction crashing under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed True Strike 2024 not using spell casting ability on attack roll
-- nerfed Way of Archery flurry of arrows [now swift shot], unerring precision, and hail of arrows features
-- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC required]
+- nerfed Way of Archery flurry of arrows [now swift shot], unerring precision, and hail of arrows features [RESPEC req.]
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, Monk Weapons, and Pugilist [RESPEC req.]
 
 KNOWN ISSUES:
 

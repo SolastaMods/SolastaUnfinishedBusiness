@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerWayOfBladeAgileParryAttack:bbcee748-26ba-5a6e-948d-1ab2a7ffa956",
+    "Definition:PowerWayOfBladeAgileParry:8bc8d304-5f29-5658-9137-28586750d8b7",
+    "Definition:PowerWayOfBladeAgileParrySave:23bc1883-1c06-504e-9899-380c4ceda738",
+    "Definition:PowerMonkReturnAttacks:53fb2e08-8b84-5472-8450-5b2fda2ab68f"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfBladeAgileParryTitle",
+    "description": "Feature/&FeatureSetWayOfBladeAgileParryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0756113f-1e5a-5dcc-b8f4-9efafa9589bd",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfBladeAgileParry"
+}

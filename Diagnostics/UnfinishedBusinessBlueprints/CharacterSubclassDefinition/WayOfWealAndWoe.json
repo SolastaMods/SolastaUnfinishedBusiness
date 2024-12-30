@@ -31,7 +31,7 @@
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Subclass/&WayOfWealAndWoeTitle",
     "description": "Subclass/&WayOfWealAndWoeDescription",
     "spriteReference": {
