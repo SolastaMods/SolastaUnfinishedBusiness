@@ -369,6 +369,7 @@ public static class GameLocationCharacterExtensions
         string stringParameter,
         string stringParameter2 = "",
         Action reactionValidated = null,
+        Action reactionNotValidated = null,
         GameLocationBattleManager battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -400,6 +401,10 @@ public static class GameLocationCharacterExtensions
         if (actionParams.ReactionValidated)
         {
             reactionValidated?.Invoke();
+        }
+        else
+        {
+            reactionNotValidated?.Invoke();
         }
     }
 

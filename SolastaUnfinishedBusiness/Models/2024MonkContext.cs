@@ -221,7 +221,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
@@ -238,7 +238,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
@@ -257,7 +257,7 @@ internal static partial class Tabletop2024Context
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
@@ -271,7 +271,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
@@ -284,7 +284,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                     EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
@@ -300,7 +300,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
@@ -318,7 +318,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
@@ -331,7 +331,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
                     EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.CustomBehaviorSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
@@ -576,8 +576,9 @@ internal static partial class Tabletop2024Context
             List<GameLocationCharacter> targets)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
+            var sourceDefinition = action.ActionParams.RulesetEffect.SourceDefinition;
 
-            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerMonkReturnAttacks ||
+            if ((sourceDefinition != PowerMonkReturnAttacks && sourceDefinition != WayOfBlade.PowerAgileParryAttack) ||
                 !rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
             {
@@ -718,7 +719,8 @@ internal static partial class Tabletop2024Context
                         [attacker],
                         attacker,
                         "ReturnAttacks",
-                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name),
+                        reactionNotValidated: ReactionNotValidated);
                     break;
                 }
                 case true:
@@ -731,7 +733,8 @@ internal static partial class Tabletop2024Context
                         [attacker],
                         attacker,
                         "ReturnAttacks",
-                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name),
+                        reactionNotValidated: ReactionNotValidatedPower);
                     break;
                 }
                 default:
@@ -744,8 +747,29 @@ internal static partial class Tabletop2024Context
                         [attacker],
                         attacker,
                         "ReturnAttacks",
-                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name));
+                        "UseReturnAttacksDescription".Formatted(Category.Reaction, attacker.Name, defender.Name),
+                        reactionNotValidated: ReactionNotValidatedPower);
                     break;
+                }
+            }
+
+            yield break;
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequestSpendBundlePower)
+            {
+                if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var condition))
+                {
+                    rulesetDefender.RemoveCondition(condition);
+                }
+            }
+
+            void ReactionNotValidatedPower()
+            {
+                if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var condition))
+                {
+                    rulesetDefender.RemoveCondition(condition);
                 }
             }
         }

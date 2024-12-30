@@ -27,13 +27,13 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
+        LoadMonkKatanaSpecialization();
         SwitchBarbarianFightingStyle();
         SwitchBardScimitarSpecialization();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkHandwrapsGauntletSlot();
         SwitchMonkImprovedUnarmoredMovement();
-        SwitchMonkKatanaSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRogueFightingStyle();
         SwitchRogueScimitarSpecialization();
@@ -116,12 +116,6 @@ internal static class ClassesContext
             .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
-    private static readonly FeatureDefinition FeatureMonkKatanaSpecialization = FeatureDefinitionBuilder
-        .Create("FeatureMonkKatanaSpecialization")
-        .SetGuiPresentationNoContent(true)
-        .AddCustomSubFeatures(new CustomLevelUpLogicMonkKatanaSpecialization())
-        .AddToDB();
-
     internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceMonk =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceMonk")
@@ -201,24 +195,20 @@ internal static class ClassesContext
         }
     }
 
-    internal static void SwitchMonkKatanaSpecialization()
+    private static void LoadMonkKatanaSpecialization()
     {
-        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureMonkKatanaSpecialization);
-        ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
-
-        if (!Main.Settings.EnableMonkKatanaSpecialization)
-        {
-            return;
-        }
-
-        ProficiencyMonkWeapon.Proficiencies.Add(CustomWeaponsContext.KatanaWeaponType.Name);
-        Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureMonkKatanaSpecialization, 1));
+        ProficiencyMonkWeapon.AddCustomSubFeatures(new CustomLevelUpLogicMonkKatanaSpecialization());
     }
 
     private sealed class CustomLevelUpLogicMonkKatanaSpecialization : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
+            if (!Main.Settings.EnableMonkKatanaSpecialization)
+            {
+                return;
+            }
+
             const string PREFIX = "CustomInvocationMonkWeaponSpecialization";
 
             var heroBuildingData = hero.GetHeroBuildingData();
