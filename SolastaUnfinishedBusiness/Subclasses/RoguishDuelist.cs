@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -54,7 +55,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
+            .SetAuthorizedActions(Id.SwirlingDance)
             .AddToDB();
 
         // LEVEL 09
@@ -238,13 +239,19 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             rulesetDefender.RemoveCondition(activeCondition);
 
-            var attackModeMain = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeMain = attacker.FindActionAttackMode(Id.AttackMain);
+
+            //get copy to be sure we don't break existing mode
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackModeMain);
+            attackModeCopy.ActionType = ActionType.NoCost;
 
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
+                Id.AttackFree,
                 defender,
-                attackModeMain,
-                action.ActionParams.ActionModifiers[0]);
+                attackModeCopy,
+                new ActionModifier());
         }
     }
 

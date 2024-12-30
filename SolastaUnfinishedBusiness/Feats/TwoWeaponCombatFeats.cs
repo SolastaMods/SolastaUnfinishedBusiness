@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -74,7 +75,7 @@ internal static class TwoWeaponCombatFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus ||
+            if (action.ActionType != ActionType.Bonus ||
                 !attackMode.IsOneHandedWeapon() ||
                 !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) ||
                 defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
@@ -82,11 +83,16 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionType.NoCost;
+
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
+                Id.AttackFree,
                 defender,
-                attackMode,
-                action.ActionParams.ActionModifiers[0]);
+                attackModeCopy,
+                new ActionModifier());
         }
     }
 }
