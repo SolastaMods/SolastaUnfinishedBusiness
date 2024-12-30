@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=레벨 11 대신 레벨 7에서 <color=#D89
 ModUi/&EnableRogueSlipperyMind2024=<color=#D89555>Slippery Mind</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[지혜 외에도 카리스마 세이빙 스로우에 능숙해짐]</color></i>
 ModUi/&EnableRogueSteadyAim2024=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
+ModUi/&EnableScimitarSpecialization=그랜트 스키미터 <color=#D89555>무기 전문화</color>
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주문</color>을 준비할 수 있게 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=레벨 20에서 <color=#D89555>마법의 회복</color>을 대체하기 위해 <color=#D89555>비전의 신격화</color>를 활성화합니다.
 ModUi/&EnableSorcererInnateSorcery2024=레벨 1과 7에서 <color=#D89555>선천적 마법</color>과 <color=#D89555>마법의 화신</color>을 활성화합니다.
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=<i><color=#F0DAA0>[동물, 정령 등]</color></
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
-ModUi/&GrantScimitarSpecializationToBardRogue=<b>바드</b>와 <b>도적</b>에게 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&GridSelectedColor=움직임 변경 <b><color=$$$$$$>격자 색상</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않았다면 출구와 텔레포터 시각 효과를 숨깁니다.
 ModUi/&HideMonsterHitPoints=정확한 체력 대신 25% / 50% / 75% / 100% 단계로 몬스터의 체력을 표시합니다.

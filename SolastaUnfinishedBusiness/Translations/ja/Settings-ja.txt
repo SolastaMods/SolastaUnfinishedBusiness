@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=<color=#D89555>信頼できる才能</color
 ModUi/&EnableRogueSlipperyMind2024=<color=#D89555>Slippery Mind</color> を 5e 2024 版と入れ替えます <i><color=#F0DAA0>[知恵に加えて、カリスマ セーヴィング スローの熟練度も得られます]</color></i>
 ModUi/&EnableRogueSteadyAim2024=レベル 3 で <color=#D89555>Steady Aim</color> を有効にします <i><color=#F0DAA0>[ボーナス アクションにより、まだ移動していない場合、現在のターンの次の攻撃ロールにアドバンテージが与えられます]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>狡猾な一撃/悪巧みの一撃</color>に<b>悪党</b>のDEXまたはSTR修飾子を有効にする
+ModUi/&EnableScimitarSpecialization=グラントシミター <color=#D89555>武器特化</color>
 ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>シグネチャー スペル</color> を、長い休憩ごとに準備できるようにします <i><color=#F0DAA0>[レベル 20 で 1 回ではなく]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=レベル20で<color=#D89555>魔法による回復</color>の代わりに<color=#D89555>秘術による神格化</color>を有効にする
 ModUi/&EnableSorcererInnateSorcery2024=レベル 1 と 7 で <color=#D89555>生来の魔術</color> と <color=#D89555>魔術の化身</color> を有効にします
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=召喚を完全に制御します <i><color=#F0D
 ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>一般:</color>
 ModUi/&GeneralMenu=一般的な
-ModUi/&GrantScimitarSpecializationToBardRogue=シミターの<color=#D89555>武器特化</color>を<b>吟遊詩人</b>と<b>盗賊</b>に付与します
 ModUi/&GridSelectedColor=動きの<b><color=$$$$$$>グリッドの色</color></b>を変更します
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は出口とテレポーターの視覚効果を非表示にします
 ModUi/&HideMonsterHitPoints=モンスターの体力を正確なヒットポイントではなく、25% / 50% / 75% / 100% の単位で表示します。

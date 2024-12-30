@@ -682,7 +682,7 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBardScimitarSpecialization>true</EnableBardScimitarSpecialization>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
@@ -745,6 +745,7 @@
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
+    <EnableRogueScimitarSpecialization>true</EnableRogueScimitarSpecialization>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>
@@ -757,7 +758,7 @@
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
-    <EnableSorcererMetamagic2024>false</EnableSorcererMetamagic2024>
+    <EnableSorcererMetamagic2024>true</EnableSorcererMetamagic2024>
     <EnableSorcererOrigin2024>true</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true

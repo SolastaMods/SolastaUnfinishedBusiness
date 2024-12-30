@@ -633,7 +633,7 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBardScimitarSpecialization>false</EnableBardScimitarSpecialization>
     <EnableBardicInspiration2024>false</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>false</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>false</EnableBardExpertiseOneLevelBefore2024>
@@ -696,6 +696,7 @@
     <EnableRangerTireless2024>false</EnableRangerTireless2024>
     <EnableRangerFeralSenses2024>false</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>false</EnableRangerFoeSlayers2024>
+    <EnableRogueScimitarSpecialization>false</EnableRogueScimitarSpecialization>
     <EnableRogueCunningStrike2024>false</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>false</EnableRogueReliableTalent2024>
@@ -1179,8 +1180,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

@@ -158,6 +158,7 @@ ModUi/&EnableMonkHandwrapsOnGauntletSlot=Enable <color=#D89555>Handwraps</color>
 ModUi/&EnableMonkHeightenedFocus2024=Enable <color=#D89555>Heightened Focus</color>, and <color=#D89555>Perfect Focus</color> to replace <color=#D89555>Purity of Body</color>, and <color=#D89555>Timeless Body</color> at levels 10 and 15\n<i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional effects at 10th, and Ki points regain at 15th]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Weapon Specialization</color>
 ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
 ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10 to replace <color=#D89555>Stillness of Mind</color> at level 7
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[an
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBardRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points

@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Activer le <color=#D89555>talent fiable</co
 ModUi/&EnableRogueSlipperyMind2024=Échangez <color=#D89555>Slippery Mind</color> avec la version 5e 2024 <i><color=#F0DAA0>[vous obtenez également la maîtrise des jets de sauvegarde de charisme en plus de la sagesse]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Activez la <color=#D89555>Visée constante</color> au niveau 3 <i><color=#F0DAA0>[l'action bonus donne un avantage sur votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activer les modificateurs DEX ou STR de <b>Hoodlum</b> sur <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Spécialisation en arme</color>
 ModUi/&EnableSignatureSpellsRelearn=Activer les <color=#D89555>sorts signatures</color> pour qu'ils soient préparés à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Activez <color=#D89555>Apothéose arcanique</color> pour remplacer <color=#D89555>Restauration magique</color> au niveau 20
 ModUi/&EnableSorcererInnateSorcery2024=Activez la <color=#D89555>Sorcellerie innée</color> et la <color=#D89555>Sorcellerie incarnée</color> aux niveaux 1 et 7
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><col
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
-ModUi/&GrantScimitarSpecializationToBardRogue=Accorder la <color=#D89555>spécialisation en arme Cimeterre</color> aux <b>bardes</b> et aux <b>voleurs</b>
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille de mouvement</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts

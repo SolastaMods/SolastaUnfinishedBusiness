@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Habilite <color=#D89555>Talento Confiável<
 ModUi/&EnableRogueSlipperyMind2024=Troque <color=#D89555>Mente Escorregadia</color> pela versão 5e 2024 <i><color=#F0DAA0>[você também ganha proficiência em testes de resistência de carisma, além de sabedoria]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Habilite <color=#D89555>Miração Firme</color> no nível 3 <i><color=#F0DAA0>[ação bônus dá vantagem na sua próxima jogada de ataque no turno atual se você ainda não se moveu]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar modificadores de DEX ou FOR de <b>Hoodlum</b> em <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableScimitarSpecialization=Conceder Cimitarra <color=#D89555>Especialização em Armas</color>
 ModUi/&EnableSignatureSpellsRelearn=Habilitar <color=#D89555>Feitiços de Assinatura</color> para serem preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Habilitar <color=#D89555>Apoteose Arcana</color> para substituir <color=#D89555>Restauração Feiticeira</color> no nível 20
 ModUi/&EnableSorcererInnateSorcery2024=Habilitar <color=#D89555>Feitiçaria Inata</color> e <color=#D89555>Feitiçaria Encarnada</color> nos níveis 1 e 7
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Controle total de conjurações <i><color=#F0DAA
 ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
-ModUi/&GrantScimitarSpecializationToBardRogue=Conceda <color=#D89555>Especialização em Armas</color> de Cimitarra para <b>Bardos</b> e <b>Ladinos</b>
 ModUi/&GridSelectedColor=Alterar o movimento <b><color=$$$$$$>cor da grade</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar saídas e efeitos visuais de teletransporte se ainda não foram descobertos
 ModUi/&HideMonsterHitPoints=Exibir a saúde dos monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos

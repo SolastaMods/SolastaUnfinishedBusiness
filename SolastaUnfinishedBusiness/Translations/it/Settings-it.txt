@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Abilita <color=#D89555>Talento affidabile</
 ModUi/&EnableRogueSlipperyMind2024=Sostituisci <color=#D89555>Mente Sfuggente</color> con la versione 5e 2024 <i><color=#F0DAA0>[oltre alla saggezza, ottieni anche competenza nei tiri salvezza sul Carisma]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Abilita <color=#D89555>Mira Fissa</color> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Specializzazione in arma</color>
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Abilita <color=#D89555>Apoteosi Arcana</color> per sostituire <color=#D89555>Restauro Stregonesco</color> al livello 20
 ModUi/&EnableSorcererInnateSorcery2024=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Controllo completo delle evocazioni <i><color=#F
 ModUi/&Gameplay=Modalità di gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
-ModUi/&GrantScimitarSpecializationToBardRogue=Concedi Scimitar <color=#D89555>Specializzazione nelle armi</color> a <b>bardi</b> e <b>ladri</b>
 ModUi/&GridSelectedColor=Cambia il colore della griglia del movimento <b><color=$$$$$$>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non sono ancora stati scoperti
 ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25% / 50% / 75% / 100% invece dei punti ferita esatti

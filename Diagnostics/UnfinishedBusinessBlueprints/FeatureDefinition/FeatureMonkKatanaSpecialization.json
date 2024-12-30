@@ -1,14 +1,10 @@
 {
-  "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
-  "fightingStyles": [
-    "Archery",
-    "Dueling"
-  ],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&FighterFightingStyleTitle",
-    "description": "Feature/&FighterFightingStyleDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "25cc70ca-bdd8-5615-8a39-2b8317c19f76",
+  "guid": "f4b86fd0-47ed-5442-9b80-ceb736f4b67f",
   "contentPack": 9999,
-  "name": "FightingStyleChoiceMonk"
+  "name": "FeatureMonkKatanaSpecialization"
 }

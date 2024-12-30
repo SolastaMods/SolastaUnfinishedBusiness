@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Aktiviere <color=#D89555>Zuverlässiges Tal
 ModUi/&EnableRogueSlipperyMind2024=Tauschen Sie <color=#D89555>Slippery Mind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Sie erhalten neben Weisheit auch Kenntnisse in Charismarettungswürfen]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Aktivieren Sie <color=#D89555>Zielen ohne Unterbrechung</color> auf Stufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sich noch nicht bewegt haben]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <b>Hoodlum</b> DEX- oder STR-Modifikatoren bei <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableScimitarSpecialization=Gewähre Krummsäbel <color=#D89555>Waffenspezialisierung</color>
 ModUi/&EnableSignatureSpellsRelearn=Aktiviere, dass <color=#D89555>Signaturzauber</color> bei jeder langen Pause vorbereitet werden <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Aktiviere <color=#D89555>Arkane Apotheose</color>, um <color=#D89555>Zauberhafte Wiederherstellung</color> auf Level 20 zu ersetzen.
 ModUi/&EnableSorcererInnateSorcery2024=Aktiviere <color=#D89555>Innate Sorcery</color> und <color=#D89555>Sorcery Incarnate</color> auf Level 1 und 7.
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Vollständige Kontrolle über Beschwörungen <i>
 ModUi/&Gameplay=Spielablauf
 ModUi/&General=<color=#F0DAA0>Allgemeines:</color>
 ModUi/&GeneralMenu=Allgemein
-ModUi/&GrantScimitarSpecializationToBardRogue=Verleiht <b>Barden</b> und <b>Schurken</b> die <color=#D89555>Waffenspezialisierung</color> mit dem Krummsäbel
 ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Rasterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecke die visuellen Effekte von Ausgängen und Teleportern, falls sie noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % an, statt in exakten Trefferpunkten.

@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Habilitar <color=#D89555>Talento confiable<
 ModUi/&EnableRogueSlipperyMind2024=Intercambia <color=#D89555>Mente resbaladiza</color> con la versión 5e 2024 <i><color=#F0DAA0>[además de sabiduría, también obtienes competencia en tiradas de salvación de carisma]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Habilita <color=#D89555>Apunta firme</color> en el nivel 3 <i><color=#F0DAA0>[la acción adicional otorga ventaja en tu próxima tirada de ataque en el turno actual si aún no te has movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilitar los modificadores DEX o STR de <b>Hoodlum</b> en <color=#D89555>Golpe astuto/desviado</color>
+ModUi/&EnableScimitarSpecialization=Cimitarra de concesión <color=#D89555>Especialización en armas</color>
 ModUi/&EnableSignatureSpellsRelearn=Permite que los <color=#D89555>hechizos exclusivos</color> se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Habilita <color=#D89555>Apoteosis arcana</color> para reemplazar <color=#D89555>Restauración hechicera</color> en el nivel 20
 ModUi/&EnableSorcererInnateSorcery2024=Habilita <color=#D89555>Hechicería innata</color> y <color=#D89555>Hechicería encarnada</color> en los niveles 1 y 7
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Controla completamente los conjuros <i><color=#F
 ModUi/&Gameplay=Jugabilidad
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBardRogue=Otorga la <color=#D89555>especialización en armas</color> a los <b>bardos</b> y a los <b>pícaros</b>
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar los efectos visuales de las salidas y los teletransportadores si aún no se han descubierto
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25% / 50% / 75% / 100% en lugar de puntos de vida exactos.
