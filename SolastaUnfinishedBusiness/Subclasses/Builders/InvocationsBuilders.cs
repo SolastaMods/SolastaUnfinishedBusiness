@@ -628,6 +628,30 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildDevouringBlade()
+    {
+        const string NAME = "InvocationDevouringBlade";
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.ThirstingBlade)
+            .SetGrantedFeature(InvocationDefinitions.ThirstingBlade.GrantedFeature)
+            .SetRequirements(12)
+            .SetValidators(Validate)
+            .AddToDB();
+
+        static (bool, string) Validate(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
+        {
+            var hasThirstingBlade = hero.TrainedInvocations.Any(x => x == InvocationDefinitions.ThirstingBlade)
+                                    || hero.GetHeroBuildingData().LevelupTrainedInvocations.Any(x =>
+                                        x.Value.Any(y => y == InvocationDefinitions.ThirstingBlade));
+
+            var guiFormat = Gui.Localize("Failure/&MustHaveThirstingBlade");
+
+            return !hasThirstingBlade ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        }
+    }
+
     #region Burning Hex
 
     internal static InvocationDefinition BuildBurningHex()

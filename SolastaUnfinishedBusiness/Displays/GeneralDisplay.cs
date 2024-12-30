@@ -805,13 +805,6 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableWarlockInvocationProgression2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockInvocationProgression2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockInvocationProgression2024 = toggle;
-            Tabletop2024Context.SwitchWarlockInvocationsProgression();
-        }
-
         toggle = Main.Settings.EnableWarlockMagicalCunningAndImprovedEldritchMaster2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024"),
                 ref toggle, UI.AutoWidth()))
@@ -825,6 +818,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
             Tabletop2024Context.SwitchWarlockPatronLearningLevel();
+        }
+
+        toggle = Main.Settings.EnableWarlockInvocationProgression2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockInvocationProgression2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockInvocationProgression2024 = toggle;
+            Tabletop2024Context.SwitchWarlockInvocationsProgression();
         }
 
         UI.Label();

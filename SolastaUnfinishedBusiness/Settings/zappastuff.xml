@@ -964,9 +964,11 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>AstralReach</string>
+        <string>BlessedWarrior</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
+        <string>DruidicWarrior</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
@@ -986,6 +988,7 @@
         <string>InvocationPerniciousCloak</string>
         <string>InvocationCorrosiveBlast</string>
         <string>InvocationSpectralShield</string>
+        <string>InvocationDevouringBlade</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>

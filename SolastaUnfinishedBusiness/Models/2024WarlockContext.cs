@@ -11,7 +11,9 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.InvocationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionLightAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -153,7 +155,7 @@ internal static partial class Tabletop2024Context
             foreach (var invocation in DatabaseRepository.GetDatabase<InvocationDefinition>()
                          .Where(x =>
                              x.requiredLevel == 1 &&
-                             x != InvocationDefinitions.ArmorOfShadows &&
+                             x != ArmorOfShadows &&
                              x != InvocationsBuilders.EldritchMind &&
                              (InvocationsContext.Invocations.Contains(x) ||
                               x.ContentPack != CeContentPackContext.CeContentPack)))
@@ -164,6 +166,11 @@ internal static partial class Tabletop2024Context
             InvocationPactBlade.GuiPresentation.hidden = false;
             InvocationPactChain.GuiPresentation.hidden = false;
             InvocationPactTome.GuiPresentation.hidden = false;
+
+            OneWithShadows.GuiPresentation.description = "Invocation/&OneWithShadowsAlternateDescription";
+            OneWithShadows.grantedSpell = Invisibility;
+            OneWithShadows.grantedFeature = null;
+            OneWithShadows.longRestRecharge = true;
         }
         else
         {
@@ -177,7 +184,7 @@ internal static partial class Tabletop2024Context
             foreach (var invocation in DatabaseRepository.GetDatabase<InvocationDefinition>()
                          .Where(x =>
                              x.requiredLevel == 2 &&
-                             x != InvocationDefinitions.ArmorOfShadows &&
+                             x != ArmorOfShadows &&
                              x != InvocationsBuilders.EldritchMind &&
                              (InvocationsContext.Invocations.Contains(x) ||
                               x.ContentPack != CeContentPackContext.CeContentPack)))
@@ -190,6 +197,11 @@ internal static partial class Tabletop2024Context
             InvocationPactTome.GuiPresentation.hidden = true;
 
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetPactSelection, 3));
+
+            OneWithShadows.GuiPresentation.description = "Invocation/&OneWithShadowsDescription";
+            OneWithShadows.grantedSpell = null;
+            OneWithShadows.grantedFeature = LightAffinityInvocationOneWithShadows;
+            OneWithShadows.longRestRecharge = false;
         }
 
         GuiWrapperContext.RecacheInvocations();
