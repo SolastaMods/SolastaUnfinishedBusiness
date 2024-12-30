@@ -1,4 +1,3 @@
-=VAZIO
 Action/&ActionDisableGrappleDescription=Você solta o alvo agarrado.
 Action/&ActionDisableGrappleTitle=Desabilitar Grapple
 Action/&ActionGrappleDescription=Você pode substituir um dos seus ataques principais para iniciar um agarrar, mirando em uma criatura dentro do seu alcance e não mais do que um tamanho maior que você. Você faz um teste de Força (Atletismo) contestado pelo teste de Força (Atletismo) ou Destreza (Acrobacia) do alvo.
@@ -340,7 +339,6 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Você não pode usar o
 Feedback/&PrimalKnowledgeCheckToHitRoll={0} usou {1}, adiciona {2} ao teste, altera o resultado e consome Fúria
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Raça pequena
-Feedback/&TacticalMindCheckToHitRoll={0} usou {1} e adicionou {2} ao teste
 Feedback/&TacticalMindCheckToHitRollFailure={0} usou {1}, adiciona {2} ao teste, mas não o suficiente para mudar o resultado
 Feedback/&TacticalMindCheckToHitRollSuccess={0} usou {1}, adiciona {2} ao teste, altera o resultado e consome Segundo Fôlego
 Feedback/&TriggerFeatureLine={0} gatilhos {1}
@@ -349,7 +347,7 @@ Feedback/&TrueSightAndIllusionSpells={0} tem Visão Verdadeira e não é afetado
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nNível máximo atingido
 Invocation/&DevilsSightExtendedDescription=Você pode enxergar normalmente na escuridão, tanto mágica quanto não mágica, a uma distância de até 24 metros.
-Invocation/&OneWithShadowsAlternateDescription
+Invocation/&OneWithShadowsAlternateDescription=Enquanto estiver em uma área de Penumbra ou Escuridão, você pode lançar Invisibilidade em si mesmo sem gastar um espaço de magia.
 Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\nUm herói com este nome já existe no pool.\nTente um nome diferente.
 Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\nTente um nome que não seja vazio.
 Message/&CharacterExportModalContentDescription=Digite o nome do herói para exportar:

@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 12,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AttributeModifierThirstingBladeExtraAttack:c8fdab391be03a149b811bc58ff75512",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationDevouringBladeTitle",
+    "description": "Invocation/&InvocationDevouringBladeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "40c265fd-15f8-54e4-98ce-32b079a16a79",
+  "contentPack": 9999,
+  "name": "InvocationDevouringBlade"
+}

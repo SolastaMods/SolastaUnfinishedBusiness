@@ -165,7 +165,7 @@
   "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMonkReturnAttacksTitle",
     "description": "Feature/&PowerMonkReturnAttacksDescription",
     "spriteReference": {

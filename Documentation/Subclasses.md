@@ -3531,49 +3531,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 # Monk
 
-## 1. Way of Archery [UB]
-
-A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
-
-
-### Level 3
-
-* One with the Bow
-
-You become proficient with bows. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
-
-* Swift Shot
-
-While you are unarmored, you can use your bonus action to make a bow attack.
-
-* Zen Shot
-
-While you are unarmored, and you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
-
-
-### Level 6
-
-* Ki-Empowered Arrows
-
-While you are unarmored, your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
-
-
-### Level 11
-
-* Unerring Precision
-
-While you are unarmored, you gain +2 bonus to all attack and damage rolls with bows.
-
-
-### Level 17
-
-* Hail of Arrows
-
-You can use your action and spend 4 ki to fire a barrage of arrows. You make one bow attack against each enemy creature you can see in a 45-foot-cone.
-
-
-
-## 2. Way of Blade [UB]
+## 1. Way of Blade [UB]
 
 Monks of the Way of Blade train relentlessly with their weapons, to the point that the weapon becomes like an extension of the body. Founded on a mastery of sword fighting, the tradition has expanded to include many different weapons.
 
@@ -3593,7 +3551,7 @@ You can choose two non-heavy melee weapon types to count as monk weapons for you
 
 * Agile Parry
 
-When you are about to be hit by a melee attack while wielding a melee monk weapon, you can use your reaction to reduce damage taken by 1d10 + Dexterity modifier + monk level. If damage was reduced to 0, and the attacking creature is within your monk weapon reach, you can expend 1 ki as a part of the same reaction to attack the creature with the monk weapon.
+When you are about to be hit by a melee attack that includes Bludgeoning, Piercing, or Slashing damage while wielding a melee monk weapon, you can use your reaction to reduce damage taken by 1d10 + Dexterity modifier + monk level. If damage was reduced to 0, and the attacking creature is within your monk weapon reach, you can expend 1 ki as a part of the same reaction to make an attack of opportunity against the creature with the monk weapon. When you reach 13th level in this class, the damage type restriction is lifted.
 
 
 ### Level 11
@@ -3611,7 +3569,7 @@ Once per round when you miss with a melee monk weapon attack, you can immediatel
 
 
 
-## 3. Way of Discordance [UB]
+## 2. Way of Discordance [UB]
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -3653,7 +3611,7 @@ Starting at 17th level, when a creature you can see within 30 feet of you is aff
 
 
 
-## 4. Way of Dragon [UB]
+## 3. Way of Dragon [UB]
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -3695,7 +3653,7 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-## 5. Way of Freedom [SOL]
+## 4. Way of Freedom [SOL]
 
 This style of fighting was developed by Manacalon slaves, who were forbidden weapons by their masters. Emphasizing speed and balance, the Way of Freedom lets its followers evade blows and dart inside enemy defenses.
 
@@ -3729,7 +3687,7 @@ You can attack three times, instead of twice, whenever you take the Attack actio
 
 
 
-## 6. Way of Light [SOL]
+## 5. Way of Light [SOL]
 
 The Way of Light was developed by former worshippers of Einar, who devoted their faith to the luminous aspect of the deity in his fight against darkness. After generations, the religious face of their creed disappeared leave space for the discipline of self-perfection in the purity of light.
 
@@ -3767,7 +3725,7 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-## 7. Way of Open Hand [SOL]
+## 6. Way of Open Hand [SOL]
 
 The monks of the Way of Open Hand devote themselves to the arts of combat. Dangerous with or without weapons, they throw or trip their opponents, using the mystical force of Ki to protect and heal themselves.
 
@@ -3804,7 +3762,7 @@ Starting at 17th level, you gain the ability to set up lethal vibrations in some
 
 
 
-## 8. Way of Shadow [UB]
+## 7. Way of Shadow [UB]
 
 Practitioners of the Way of Shadow follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -3842,7 +3800,7 @@ When a creature is about to hit you with an attack, you can spend 3 ki and use y
 
 
 
-## 9. Way of Storm [UB]
+## 8. Way of Storm [UB]
 
 Monks of the Way of Storm live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them.
 
@@ -3876,7 +3834,7 @@ Whenever you damage a creature with a monk weapon, unarmed attack or Lightning L
 
 
 
-## 10. Way of Survival [SOL]
+## 9. Way of Survival [SOL]
 
 In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
 
@@ -3909,6 +3867,48 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
 • When you are reduced to 0 hit points, you can pay 1 Ki to restore 1 hit point.
+
+
+
+## 10. Way of Zen Archery [UB]
+
+A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
+
+
+### Level 3
+
+* One with the Bow
+
+You become proficient with bows. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
+
+* Swift Shot
+
+While you are unarmored, you can use your bonus action to make a bow attack.
+
+* Zen Shot
+
+While you are unarmored, and you hit a creature with a bow attack during your turn, you can expend 1 ki to deal extra damage equal to your martial arts die + Wisdom modifier.
+
+
+### Level 6
+
+* Ki-Empowered Arrows
+
+While you are unarmored, your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
+
+
+### Level 11
+
+* Unerring Precision
+
+While you are unarmored, you gain +2 bonus to all attack and damage rolls with bows.
+
+
+### Level 17
+
+* Hail of Arrows
+
+You can use your action and spend 4 ki to fire a barrage of arrows. You make one bow attack against each enemy creature you can see in a 45-foot-cone.
 
 
 

@@ -196,7 +196,6 @@ Feature/&InvocationPoolFeatWeaponMasterChoiceLearnDescription=Select new weapon 
 Feature/&InvocationPoolFeatWeaponMasterChoiceLearnTitle=Weapon Master
 Feature/&InvocationPoolKindredSpiritChoiceLearnDescription=Select a Kindred Spirit for your Druid.
 Feature/&InvocationPoolKindredSpiritChoiceLearnTitle=Kindred Spirit
-Invocation/&OneWithShadowsAlternateDescription
 Feature/&InvocationPoolMonkWeaponSpecializationLearnDescription=Select a new weapon type to become a Way of Blade weapon for you.
 Feature/&InvocationPoolMonkWeaponSpecializationLearnTitle=Way of Blade Weapon Specialization
 Feature/&InvocationPoolPathClawDraconicChoiceLearnDescription=Select a Path of the Claw draconic ancestry.
@@ -348,6 +347,7 @@ Feedback/&TrueSightAndIllusionSpells={0} has True Sight and is unaffected by thi
 Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nMax level reached
 Invocation/&DevilsSightExtendedDescription=You can see normally in darkness, both magical and non-magical, to a distance of 80 feet.
+Invocation/&OneWithShadowsAlternateDescription=While you're in an area of Dim Light or Darkness, you can cast Invisibility on yourself without expending a spell slot.
 Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription=Enter the hero name to export:

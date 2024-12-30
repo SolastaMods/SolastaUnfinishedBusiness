@@ -1,4 +1,3 @@
-=VIDE
 Action/&ActionDisableGrappleDescription=Vous relâchez la cible agrippée.
 Action/&ActionDisableGrappleTitle=Désactiver le grappin
 Action/&ActionGrappleDescription=Vous pouvez remplacer l'une de vos attaques principales par une lutte contre une créature à votre portée et pas plus grande qu'elle. Vous effectuez un test de Force (Athlétisme) contesté par le test de Force (Athlétisme) ou de Dextérité (Acrobaties) de la cible.
@@ -340,7 +339,6 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Vous ne pouvez pas uti
 Feedback/&PrimalKnowledgeCheckToHitRoll={0} a utilisé {1}, ajoute {2} au jet de test, change le résultat et consomme de la Rage
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
-Feedback/&TacticalMindCheckToHitRoll={0} a utilisé {1} et ajoute {2} au jet de contrôle
 Feedback/&TacticalMindCheckToHitRollFailure={0} a utilisé {1}, ajoute {2} au jet de contrôle, mais pas suffisamment pour changer le résultat
 Feedback/&TacticalMindCheckToHitRollSuccess={0} a utilisé {1}, ajoute {2} au jet de test, change le résultat et consomme Second Wind
 Feedback/&TriggerFeatureLine={0} déclenche {1}
@@ -349,7 +347,7 @@ Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par 
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nNiveau maximum atteint
 Invocation/&DevilsSightExtendedDescription=Vous pouvez voir normalement dans l'obscurité, à la fois magique et non magique, jusqu'à une distance de 80 pieds.
-Invocation/&OneWithShadowsAlternateDescription
+Invocation/&OneWithShadowsAlternateDescription=Lorsque vous êtes dans une zone de faible lumière ou d'obscurité, vous pouvez lancer Invisibilité sur vous-même sans dépenser d'emplacement de sort.
 Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\nUn héros portant ce nom existe déjà dans le pool.\nVeuillez essayer un autre nom.
 Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription=Entrez le nom du héros à exporter :

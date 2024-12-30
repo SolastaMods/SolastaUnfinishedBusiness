@@ -74,183 +74,187 @@ You have blindsight up to 16 cells, allowing you to perceive enemies even throug
 
 You can cast Shield of Faith at will, without expending a spell slot.
 
-# 20. - Discerning Gaze [UB]
+# 20. - Devouring Blade [UB]
+
+The Extra Attack of your Thirsting Blade invocation confers two extra attacks rather than one.
+
+# 21. - Discerning Gaze [UB]
 
 You can cast Detect Evil and Good at will, without expending a spell slot.
 
-# 21. - Dreadful Word [SOL]
+# 22. - Dreadful Word [SOL]
 
 You can cast Confusion once using a warlock spell slot. You can't do so again until you finish a long rest.
 
-# 22. - *Eldritch Mind* © [UB]
+# 23. - *Eldritch Mind* © [UB]
 
 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
 
-# 23. - Eldritch Sight [SOL]
+# 24. - Eldritch Sight [SOL]
 
 You can cast Detect Magic at will, without expending a spell slot.
 
-# 24. - *Eldritch Smite* © [UB]
+# 25. - *Eldritch Smite* © [UB]
 
 Once per turn when you hit a creature with your pact weapon, you can expend a spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot, and you knock the target prone if it is Huge or smaller.
 
-# 25. - Eldritch Spear [SOL]
+# 26. - Eldritch Spear [SOL]
 
 When you cast Eldritch Blast, you ignore any cover on the targets.
 
-# 26. - Eyes of the Rune Keeper [SOL]
+# 27. - Eyes of the Rune Keeper [SOL]
 
 You understand all languages and writings.
 
-# 27. - Fiendish Vigor [SOL]
+# 28. - Fiendish Vigor [SOL]
 
 You can cast False Life on yourself at will as a 1st level spell, without expending a spell slot or material components.
 
-# 28. - Fiery Blast [UB]
+# 29. - Fiery Blast [UB]
 
 You can change the damage type of the eldritch blast to fire damage instead of force damage.
 
-# 29. - Fulminate Blast [UB]
+# 30. - Fulminate Blast [UB]
 
 You can change the damage type of the eldritch blast to lightning damage instead of force damage.
 
-# 30. - Gift of the Dispeller [UB]
+# 31. - Gift of the Dispeller [UB]
 
 You can cast Dispel Evil and Good once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 31. - *Gift of the Ever-Living Ones* © [UB]
+# 32. - *Gift of the Ever-Living Ones* © [UB]
 
 Regains the maximum number of hit points possible from any healing.
 
-# 32. - Gift of the Hunter [UB]
+# 33. - Gift of the Hunter [UB]
 
 You can cast Pass Without Trace once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 33. - *Gift of the Protectors* © [UB]
+# 34. - *Gift of the Protectors* © [UB]
 
 When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 
-# 34. - *Grasp of Hadar* © [UB]
+# 35. - *Grasp of Hadar* © [UB]
 
 When you hit a creature with Eldritch Blast, you can pull the creature up to 10 ft towards you in a straight line.
 
-# 35. - *Improved Pact Weapon* © [UB]
+# 36. - *Improved Pact Weapon* © [UB]
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 36. - *Lance of Lethargy* © [UB]
+# 37. - *Lance of Lethargy* © [UB]
 
 When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 ft until the end of your next turn.
 
-# 37. - Lifedrinker [SOL]
+# 38. - Lifedrinker [SOL]
 
 When you hit a creature with a weapon attack, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1).
 
-# 38. - *Maddening Hex* © [UB]
+# 39. - *Maddening Hex* © [UB]
 
 As a bonus action, you cause a psychic disturbance around the target cursed by your Malediction spell, Bestow Curse spell, Sign of Ill Omen invocation, or Soul Hex feature. When you do so, you deal psychic damage to the cursed target and each creature of your choice within 5 feet of it. The psychic damage equals your Charisma modifier. To use this invocation, you must be able to see the cursed target, and it must be within 30 feet of you.
 
-# 39. - Minions of Chaos [SOL]
+# 40. - Minions of Chaos [SOL]
 
 You can cast conjure elemental once using a warlock spell slot. You can't do so again until you finish a long rest.
 
-# 40. - Mire the Mind [SOL]
+# 41. - Mire the Mind [SOL]
 
 You can cast Slow once using a warlock spell slot. You can't do so again until you finish a long rest.
 
-# 41. - *Mire the Mind* © [UB]
+# 42. - *Mire the Mind* © [UB]
 
 You can cast Slow once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 42. - Necrotic Blast [UB]
+# 43. - Necrotic Blast [UB]
 
 You can change the damage type of the eldritch blast to necrotic damage instead of force damage.
 
-# 43. - One with Shadows [SOL]
+# 44. - One with Shadows [SOL]
 
 When you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction.
 
-# 44. - Otherworldly Leap [SOL]
+# 45. - Otherworldly Leap [SOL]
 
 You can cast Jump on yourself at will, without expending a spell slot or material components.
 
-# 45. - Poisonous Blast [UB]
+# 46. - Poisonous Blast [UB]
 
 You can change the damage type of the eldritch blast to poison damage instead of force damage.
 
-# 46. - Psychic Blast [UB]
+# 47. - Psychic Blast [UB]
 
 You can change the damage type of the eldritch blast to psychic damage instead of force damage.
 
-# 47. - Radiant Blast [UB]
+# 48. - Radiant Blast [UB]
 
 You can change the damage type of the eldritch blast to radiant damage instead of force damage.
 
-# 48. - *Relentless Hex* © [UB]
+# 49. - *Relentless Hex* © [UB]
 
 Your curse creates a temporary bond between you and your target. As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see within 5 feet of the target cursed by your Malediction spell, Bestow Curse spell, Sign of Ill Omen invocation, or Soul Hex feature. To teleport in this way, you must be able to see the cursed target.
 
-# 49. - Repelling Blast [SOL]
+# 50. - Repelling Blast [SOL]
 
 When you hit a creature with Eldritch Blast, you can push the creature up to 2 cells away from you in a straight line.
 
-# 50. - *Shroud of Shadow* © [UB]
+# 51. - *Shroud of Shadow* © [UB]
 
 You can cast Invisibility at will, without expending a spell slot.
 
-# 51. - Sign of Ill Omen [SOL]
+# 52. - Sign of Ill Omen [SOL]
 
 You can cast Bestow Curse once using a warlock spell slot. You can't do so again until you finish a long rest.
 
-# 52. - Spark of Kinesis [UB]
+# 53. - Spark of Kinesis [UB]
 
 You can cast Haste once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 53. - *Superior Pact Weapon* © [UB]
+# 54. - *Superior Pact Weapon* © [UB]
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 54. - Tenacious Plague [UB]
+# 55. - Tenacious Plague [UB]
 
 You can cast Insect Plague once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 55. - Thief of Five Fates [SOL]
+# 56. - Thief of Five Fates [SOL]
 
 You can cast Bane once using a warlock spell slot. You can't do so again until you finish a long rest.
 
-# 56. - Thirsting Blade [SOL]
+# 57. - Thirsting Blade [SOL]
 
 You can attack twice instead of once when you take the Attack action on your turn.
 
-# 57. - Thunder Blast [UB]
+# 58. - Thunder Blast [UB]
 
 You can change the damage type of the eldritch blast to thunder damage instead of force damage.
 
-# 58. - *Tomb of Levistus* © [UB]
+# 59. - *Tomb of Levistus* © [UB]
 
 As a reaction when you take damage, you can entomb yourself in ice, which melts away at the end of your next turn. You gain 10 temporary hit points per warlock level, which take as much of the triggering damage as possible. Immediately after you take the damage, you gain vulnerability to fire damage, your speed is reduced to 0, and you are incapacitated. These effects, including any remaining temporary hit points, all end when the ice melts. Once you use this invocation, you can't use it again until you finish a short or long rest.
 
-# 59. - *Trickster's Escape* © [UB]
+# 60. - *Trickster's Escape* © [UB]
 
 You can cast Freedom of Movement once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 60. - *Ultimate Pact Weapon* © [UB]
+# 61. - *Ultimate Pact Weapon* © [UB]
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 61. - *Undying Servitude* © [UB]
+# 62. - *Undying Servitude* © [UB]
 
 You can cast Raise Skeletal Enforcer once, without expending a spell slot. You can't do so again until you finish a long rest.
 
-# 62. - Verdant Armor [UB]
+# 63. - Verdant Armor [UB]
 
 You can cast Barkskin at will, without expending a spell slot, and without requiring concentration.
 
-# 63. - Voice of the Chain Master [SOL]
+# 64. - Voice of the Chain Master [SOL]
 
 You can bind a creature to your warlock one more time between long rests.
 
-# 64. - Witch Sight [SOL]
+# 65. - Witch Sight [SOL]
 
 You are permanently under the effect of the See Invisibility spell and all magic items that come into your possession are automatically identified.
 

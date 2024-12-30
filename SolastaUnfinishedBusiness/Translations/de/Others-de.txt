@@ -1,4 +1,3 @@
-=LEER
 Action/&ActionDisableGrappleDescription=Sie lassen das gepackte Ziel los.
 Action/&ActionDisableGrappleTitle=Grapple deaktivieren
 Action/&ActionGrappleDescription=Sie können einen Ihrer Hauptangriffe ersetzen, um einen Ringkampf zu beginnen. Dabei zielen Sie auf eine Kreatur in Ihrer Reichweite, die höchstens eine Größe größer ist als Sie. Sie führen einen Stärke- (Athletik-)Wurf durch, der durch den Stärke- (Athletik-) oder Geschicklichkeits- (Akrobatik-)Wurf des Ziels angefochten wird.
@@ -340,7 +339,6 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=Sie können nach der R
 Feedback/&PrimalKnowledgeCheckToHitRoll={0} hat {1} verwendet, fügt {2} zum Wurf hinzu, ändert das Ergebnis und verbraucht Wut
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&SmallRace=Kleines Rennen
-Feedback/&TacticalMindCheckToHitRoll={0} hat {1} verwendet und fügt {2} zur Kontrollliste hinzu
 Feedback/&TacticalMindCheckToHitRollFailure={0} hat {1} verwendet und fügt {2} zum Wurf hinzu, aber nicht genug, um das Ergebnis zu ändern.
 Feedback/&TacticalMindCheckToHitRollSuccess={0} hat {1} verwendet, fügt {2} zum Wurf hinzu, ändert das Ergebnis und verbraucht Zweiter Wind
 Feedback/&TriggerFeatureLine={0} löst {1} aus
@@ -349,7 +347,7 @@ Feedback/&TrueSightAndIllusionSpells={0} hat Wahre Sicht und ist von diesem Zaub
 Format/&LevelAndExperienceFormat=Level: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Level {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nErfahrung: {1}\nMaximales Level erreicht
 Invocation/&DevilsSightExtendedDescription=Sie können in der Dunkelheit, sowohl magisch als auch nicht magisch, bis zu einer Entfernung von 24 Metern normal sehen.
-Invocation/&OneWithShadowsAlternateDescription
+Invocation/&OneWithShadowsAlternateDescription=Während Sie sich in einem Bereich mit schwachem Licht oder Dunkelheit befinden, können Sie sich selbst unsichtbar machen, ohne einen Zauberplatz zu verbrauchen.
 Message/&CharacterExportDuplicateNameErrorDescription=Export abgebrochen:\nEin Held mit diesem Namen ist bereits im Pool vorhanden.\nBitte versuchen Sie es mit einem anderen Namen.
 Message/&CharacterExportEmptyNameErrorDescription=Export abgebrochen:\nBitte versuchen Sie es mit einem Namen, der nicht leer ist.
 Message/&CharacterExportModalContentDescription=Geben Sie den zu exportierenden Heldennamen ein:

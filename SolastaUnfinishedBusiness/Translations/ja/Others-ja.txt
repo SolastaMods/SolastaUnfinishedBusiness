@@ -1,4 +1,3 @@
-=空の
 Action/&ActionDisableGrappleDescription=掴んだターゲットを解放します。
 Action/&ActionDisableGrappleTitle=グラップルを無効にする
 Action/&ActionGrappleDescription=主な攻撃の 1 つを組みつき攻撃に置き換えることができます。組みつき攻撃は、自分の攻撃範囲内にあり、自分より 1 サイズ以内のクリーチャーをターゲットとします。ターゲットの【筋力】(運動) または【敏捷性】(軽業) 判定と競合する【筋力】(運動) 判定を行います。
@@ -340,7 +339,6 @@ Feedback/&PowerAfterRestIdentifyUsedWhileTravellingFormat=旅行中は休憩後�
 Feedback/&PrimalKnowledgeCheckToHitRoll={0}は{1}を使用し、チェックロールに{2}を追加し、結果を変更し、怒りを消費します
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
-Feedback/&TacticalMindCheckToHitRoll={0}は{1}を使用し、チェックロールに{2}を追加しました
 Feedback/&TacticalMindCheckToHitRollFailure={0} は {1} を使用し、チェック ロールに {2} を追加しましたが、結果を変えるには不十分でした。
 Feedback/&TacticalMindCheckToHitRollSuccess={0}は{1}を使用し、チェックロールに{2}を追加し、結果を変更し、セカンドウィンドを消費します
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
@@ -349,7 +347,7 @@ Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、こ�
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: レベル {3} に到達するには {1}\n{2} ポイントが必要です
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました
 Invocation/&DevilsSightExtendedDescription=暗闇の中でも、魔法のようなものもそうでないものも、80 フィートの距離まで通常見ることができます。
-Invocation/&OneWithShadowsAlternateDescription
+Invocation/&OneWithShadowsAlternateDescription=薄暗い光や暗闇のエリアにいる間、呪文スロットを消費せずに自分自身に「不可視」を唱えることができます。
 Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。
 Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n空でない名前を試してください。
 Message/&CharacterExportModalContentDescription=エクスポートするヒーロー名を入力してください:
