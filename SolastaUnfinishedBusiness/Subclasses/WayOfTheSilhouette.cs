@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -238,7 +239,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry);
 
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
+                Id.AttackFree,
                 defender,
                 attackMode,
                 action.ActionParams.ActionModifiers[0]);
@@ -276,7 +277,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             }
 
             yield return defender.MyReactToUsePower(
-                ActionDefinitions.Id.PowerReaction,
+                Id.PowerReaction,
                 usablePower,
                 [defender],
                 attacker,

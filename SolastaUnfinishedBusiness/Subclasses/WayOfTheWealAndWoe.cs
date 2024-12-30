@@ -17,7 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-public sealed class WayOfTheWealAndWoe : AbstractSubclass
+public sealed class WayOfTheWealAndWoe // : AbstractSubclass
 {
     private const string Name = "WayOfWealAndWoe";
 
@@ -119,15 +119,15 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
+    // internal CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
 
-    internal override CharacterSubclassDefinition Subclass { get; }
+    internal CharacterSubclassDefinition Subclass { get; }
 
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
+    // internal FeatureDefinitionSubclassChoice SubclassChoice =>
+    //     FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
-    internal override DeityDefinition DeityDefinition { get; }
+    // internal DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWealAndWoe(
         ConditionDefinition conditionWeal,

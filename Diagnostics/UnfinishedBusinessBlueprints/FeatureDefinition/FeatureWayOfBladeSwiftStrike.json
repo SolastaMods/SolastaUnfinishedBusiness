@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "ShortbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureWayOfBladeSwiftStrikeTitle",
+    "description": "Feature/&FeatureWayOfBladeSwiftStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b67a1cb-41b2-54db-a7be-2f18abc68efb",
+  "guid": "fc8b647d-40dd-5b5e-bd90-96ca30eec5c4",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationShortbowType"
+  "name": "FeatureWayOfBladeSwiftStrike"
 }

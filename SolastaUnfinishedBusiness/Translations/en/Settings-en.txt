@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=Enable <color=#D89555>Reliable Talent</colo
 ModUi/&EnableRogueSlipperyMind2024=Swap <color=#D89555>Slippery Mind</color> with 5e 2024 version <i><color=#F0DAA0>[you also gain proficiency in charisma saving throws in addition to wisdom]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Enable <color=#D89555>Steady Aim</color> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <b>Hoodlum</b> DEX or STR modifiers on <color=#D89555>Cunning/Devious Strike</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Weapon Specialization</color>
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Signature Spells</color> to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=Enable <color=#D89555>Arcane Apotheosis</color> to replace <color=#D89555>Sorcerous Restoration</color> at level 20
 ModUi/&EnableSorcererInnateSorcery2024=Enable <color=#D89555>Innate Sorcery</color> and <color=#D89555>Sorcery Incarnate</color> at levels 1 and 7
@@ -237,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&EnableVariablePlaceholdersOnTexts=Enable variable placeholders on descriptions <i><color=#F0DAA0>[use {VARIABLE_NAME} as placeholder]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Ammunition slots
 ModUi/&EnableVersatileOffHandSlot=Allow <color=#D89555>Potions</color> and <color=#D89555>Scrolls</color> to be carried and used in the Off-hand Weapon slot
-ModUi/&EnableWarlockInvocationProgression2024=Enable <color=#D89555>Invocations</color> to use 5e 2024 progression
+ModUi/&EnableWarlockInvocationProgression2024=Swap <color=#D89555>Invocations</color> with 5e 2024 <i><color=#F0DAA0>[different progression, and tweaked invocations]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Enable <color=#D89555>Magical Cunning</color> at level 2 and improve <color=#D89555>Eldritch Master</color> at 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Enable <color=#D89555>Magical Cunning</color> at level 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Enable <color=#D89555>Patron</color> at level 3 instead of 1
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[an
 ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&GrantScimitarSpecializationToBardRogue=Grant Scimitar <color=#D89555>Weapon Specialization</color> to <b>Bards</b> and <b>Rogues</b>
 ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points

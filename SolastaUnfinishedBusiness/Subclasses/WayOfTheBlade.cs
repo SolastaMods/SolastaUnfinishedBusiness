@@ -32,21 +32,29 @@ public sealed class WayOfBlade : AbstractSubclass
         .Create($"Power{Name}AgileParry")
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
+        .SetShowCasting(false)
         .AddToDB();
 
     internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParryAttack =
         FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}AgileParryAttack")
-            .SetGuiPresentation($"FeatureSet{Name}AgileParry", Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}AgileParry", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeAgileParryAttack())
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeAgileParryAttack())
             .AddToDB();
 
     internal static readonly FeatureDefinitionPowerSharedPool PowerAgileParrySave =
         FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}AgileParrySave")
-            .SetGuiPresentation("PowerMonkReturnAttacks", Category.Feature)
+            .SetGuiPresentation("PowerMonkReturnAttacks", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, PowerAgileParry)
+            .SetShowCasting(false)
             .SetExplicitAbilityScore(AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -129,6 +137,7 @@ public sealed class WayOfBlade : AbstractSubclass
             .Create($"FeatureSet{Name}AgileParry")
             .SetGuiPresentation(Category.Feature)
             // most of the logic is already implemented at Tabletop2024Context.PowerMonkReturnAttacks
+            // reason why re-added here in case Monk 2024 Deflect Attacks isn't checked
             .SetFeatureSet(
                 PowerAgileParry, PowerAgileParryAttack, PowerAgileParrySave, Tabletop2024Context.PowerMonkReturnAttacks)
             .AddToDB();
@@ -144,10 +153,10 @@ public sealed class WayOfBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // Monk 2024 powers are handled directly on 2024MonkContext
-        PowerMonkPatientDefense.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
-        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
-        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(CustomBehaviorSwiftStrike.Marker);
+        // Monk 2024 powers are handled directly on 2024MonkContext during their building
+        PowerMonkPatientDefense.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
+        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
 
         //
         // LEVEL 17
@@ -248,21 +257,6 @@ public sealed class WayOfBlade : AbstractSubclass
                 .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
-    }
-
-    private static void ExecuteNoCostMainAttack(GameLocationCharacter attacker, GameLocationCharacter defender)
-    {
-        var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
-        var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-        attackModeCopy.Copy(attackMode);
-        attackModeCopy.ActionType = ActionType.NoCost;
-
-        attacker.MyExecuteActionAttack(
-            Id.AttackFree,
-            defender,
-            attackModeCopy,
-            new ActionModifier());
     }
 
     //
@@ -372,24 +366,9 @@ public sealed class WayOfBlade : AbstractSubclass
     // Swift Strike
     //
 
-    internal sealed class CustomBehaviorSwiftStrike
-        : IModifyEffectDescription, IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+    internal sealed class ModifyEffectDescriptionSwiftStrike : IModifyEffectDescription
     {
-        internal static readonly CustomBehaviorSwiftStrike Marker = new();
-
-        public bool EnforceFullSelection => false;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (CanAttack(__instance.ActionParams.ActingCharacter, target))
-            {
-                return true;
-            }
-
-            __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
-
-            return false;
-        }
+        internal static readonly ModifyEffectDescriptionSwiftStrike Marker = new();
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
@@ -410,50 +389,13 @@ public sealed class WayOfBlade : AbstractSubclass
 
             return effectDescription;
         }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var subclassLevel = rulesetAttacker.GetSubclassLevel(Monk, Name);
-
-            if (subclassLevel < 11 || action.ActionParams.TargetCharacters.Count == 0)
-            {
-                yield break;
-            }
-
-            var defender = action.ActionParams.TargetCharacters[0];
-
-            ExecuteNoCostMainAttack(attacker, defender);
-        }
-
-        private static bool CanAttack([NotNull] GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var attackModifier = new ActionModifier();
-            var evalParams = new BattleDefinitions.AttackEvaluationParams();
-            var attackerPosition = attacker.LocationPosition;
-            var defenderPosition = defender.LocationPosition;
-
-            evalParams.FillForPhysicalReachAttack(
-                attacker, attackerPosition, attackMode, defender, defenderPosition, attackModifier);
-
-            return battleService.CanAttack(evalParams);
-        }
     }
 
     //
     // Agile Parry Attack
     //
 
-    private sealed class PowerOrSpellFinishedByMeAgileParryAttack : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeAgileParryAttack : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
@@ -464,8 +406,17 @@ public sealed class WayOfBlade : AbstractSubclass
             }
 
             var defender = targets[0];
+            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            ExecuteNoCostMainAttack(attacker, defender);
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionType.NoCost;
+
+            attacker.MyExecuteActionAttack(
+                Id.AttackOpportunity,
+                defender,
+                attackModeCopy,
+                new ActionModifier());
         }
     }
 }

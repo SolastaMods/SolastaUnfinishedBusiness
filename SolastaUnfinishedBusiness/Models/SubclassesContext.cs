@@ -31,6 +31,11 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
+        // kept for backward compatibility
+        var wayOfTheWealAndWoe = new WayOfTheWealAndWoe();
+
+        wayOfTheWealAndWoe.Subclass.GuiPresentation.hidden = true;
+
         RegisterClassesContext();
 
         foreach (var abstractSubClassInstance in typeof(AbstractSubclass)

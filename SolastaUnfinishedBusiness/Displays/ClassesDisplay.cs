@@ -14,19 +14,10 @@ internal static class ClassesDisplay
             () => UpdateContext.OpenDocumentation("Classes.md"), UI.Width(189f));
 
         UI.Label();
-
-        var toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBardRogue"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
-            ClassesContext.SwitchScimitarWeaponSpecialization();
-        }
-
-        UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableBardCounterCharm2024;
+        var toggle = Main.Settings.EnableBardCounterCharm2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBardCounterCharm2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBardCounterCharm2024 = toggle;
@@ -52,6 +43,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableBardWordsOfCreation2024 = toggle;
             Tabletop2024Context.SwitchBardWordsOfCreation();
+        }
+
+        toggle = Main.Settings.EnableBardScimitarSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableScimitarSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardScimitarSpecialization = toggle;
+            ClassesContext.SwitchBardScimitarSpecialization();
         }
 
         toggle = Main.Settings.RemoveBardSongOfRest2024;
@@ -557,6 +555,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchRogueReliableTalent();
         }
 
+        toggle = Main.Settings.EnableRogueScimitarSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableScimitarSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueScimitarSpecialization = toggle;
+            ClassesContext.SwitchRogueScimitarSpecialization();
+        }
+
         toggle = Main.Settings.RemoveRogueBlindSense2024;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRogueBlindSense2024"), ref toggle, UI.AutoWidth()))
         {
@@ -637,13 +642,6 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&WarlockTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableWarlockInvocationProgression2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockInvocationProgression2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockInvocationProgression2024 = toggle;
-            Tabletop2024Context.SwitchWarlockInvocationsProgression();
-        }
-
         toggle = Main.Settings.EnableWarlockMagicalCunningAndImprovedEldritchMaster2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024"),
                 ref toggle, UI.AutoWidth()))
@@ -657,6 +655,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableWarlockToLearnPatronAtLevel3 = toggle;
             Tabletop2024Context.SwitchWarlockPatronLearningLevel();
+        }
+
+        toggle = Main.Settings.EnableWarlockInvocationProgression2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockInvocationProgression2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockInvocationProgression2024 = toggle;
+            Tabletop2024Context.SwitchWarlockInvocationsProgression();
         }
 
         UI.Label();

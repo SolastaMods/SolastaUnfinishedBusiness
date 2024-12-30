@@ -1,14 +1,14 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cone",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
-    "targetParameter": 9,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -264,7 +264,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -281,12 +281,12 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "KiPoints",
-  "costPerUse": 4,
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 4,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -299,9 +299,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerWayOfZenArcheryHailOfArrowsTitle",
-    "description": "Feature/&PowerWayOfZenArcheryHailOfArrowsDescription",
+    "hidden": true,
+    "title": "Feature/&FeatureSetWayOfBladeAgileParryTitle",
+    "description": "Feature/&FeatureSetWayOfBladeAgileParryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -321,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b80f0451-b6ae-5cc8-96ad-e376adb76c79",
+  "guid": "bbcee748-26ba-5a6e-948d-1ab2a7ffa956",
   "contentPack": 9999,
-  "name": "PowerWayOfZenArcheryHailOfArrows"
+  "name": "PowerWayOfBladeAgileParryAttack"
 }

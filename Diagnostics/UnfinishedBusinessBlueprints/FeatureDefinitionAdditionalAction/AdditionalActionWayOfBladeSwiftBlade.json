@@ -1,33 +1,16 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    false,
-    true,
-    false,
-    false,
-    false,
-    false
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "DashBonus",
-    "DashMain"
-  ],
-  "authorizedActions": [
-    9020
-  ],
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
   "restrictedActions": [
-    9020
+    "AttackMain"
   ],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "maxAttacksNumber": 1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -49,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1274559b-34e5-5c07-acbe-9d51d149959e",
+  "guid": "2f21d693-221c-5b65-8d29-142f5c745153",
   "contentPack": 9999,
-  "name": "ActionAffinityCrystalWyrmkinConditionCrystalDefense"
+  "name": "AdditionalActionWayOfBladeSwiftBlade"
 }

@@ -61,15 +61,6 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
-        // fix condition UI
-        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
-
-        // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
-        ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
-        ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
-        ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
-        ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
-
         AddAdditionalActionTitles();
         FixMonkPatientDefenseToAFeatureSet();
         ExtendCharmImmunityToDemonicInfluence();
@@ -108,6 +99,22 @@ internal static class FixesContext
         FixSpikeGrowthAffectingAir();
         NoTwinnedBladeCantrips();
         FixStaffOfFireToGetFireResistance();
+
+        // avoid soft lock scenarios with game UI on any affinity that prevents movement
+        foreach (var actionAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionActionAffinity>()
+                     .Where(x => !x.AllowedActionTypes[2]))
+        {
+            actionAffinity.ForbiddenActions.AddRange(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain);
+        }
+
+        // fix condition UI
+        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
+
+        // fix demonic influence duration and combat log (conditions with ForcedBehavior should have special duration)
+        ConditionDefinitions.ConditionUnderDemonicInfluence.specialDuration = true;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationType = DurationType.Hour;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.durationParameter = 1;
+        ConditionDefinitions.ConditionUnderDemonicInfluence.possessive = true;
 
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";

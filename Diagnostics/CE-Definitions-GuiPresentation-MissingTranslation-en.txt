@@ -1,2 +1,0 @@
-InvocationPoolMonkWeaponSpecialization	Title='Feature/&InvocationPoolMonkWeaponSpecializationLearnTitle'.
-InvocationPoolMonkWeaponSpecialization	Description='Feature/&InvocationPoolMonkWeaponSpecializationLearnDescription'.

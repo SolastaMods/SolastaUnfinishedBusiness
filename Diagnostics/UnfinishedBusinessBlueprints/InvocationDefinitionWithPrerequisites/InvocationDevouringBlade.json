@@ -1,22 +1,22 @@
 {
-  "$type": "InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "$type": "InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 12,
   "requiredPact": null,
-  "grantedFeature": "Definition:FeatureMonkWeaponSpecializationLongbowType:400a98a9-be89-5696-9391-33fb65fe8f88",
+  "grantedFeature": "Definition:AttributeModifierThirstingBladeExtraAttack:c8fdab391be03a149b811bc58ff75512",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Equipment/&LongbowTypeTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": true,
+    "title": "Invocation/&InvocationDevouringBladeTitle",
+    "description": "Invocation/&InvocationDevouringBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0e6dea157a6601d458e60ddb16e9abb6",
-      "m_SubObjectName": "Longbow+3",
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a665b34c-49d7-531d-aa67-eb1cfde51450",
+  "guid": "40c265fd-15f8-54e4-98ce-32b079a16a79",
   "contentPack": 9999,
-  "name": "CustomInvocationMonkWeaponSpecializationLongbowType"
+  "name": "InvocationDevouringBlade"
 }

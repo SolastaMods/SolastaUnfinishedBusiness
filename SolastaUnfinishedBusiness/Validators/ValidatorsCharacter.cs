@@ -323,6 +323,8 @@ internal static class ValidatorsCharacter
         return weaponDescription == null ||
                weaponDescription.IsMonkWeaponOrUnarmed() ||
                WayOfZenArchery.IsZenArcheryWeapon(character, weaponDescription) ||
+               (Main.Settings.EnableMonkKatanaSpecialization &&
+                weaponDescription.WeaponTypeDefinition == CustomWeaponsContext.KatanaWeaponType) ||
                monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
     }
 

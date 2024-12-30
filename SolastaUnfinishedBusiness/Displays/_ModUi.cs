@@ -175,6 +175,7 @@ internal static class ModUi
         "InvocationBondOfTheTalisman",
         "InvocationBurningHex",
         "InvocationChillingHex",
+        "InvocationDevouringBlade",
         "InvocationEldritchMind",
         "InvocationEldritchSmite",
         "InvocationGiftOfTheEverLivingOnes",

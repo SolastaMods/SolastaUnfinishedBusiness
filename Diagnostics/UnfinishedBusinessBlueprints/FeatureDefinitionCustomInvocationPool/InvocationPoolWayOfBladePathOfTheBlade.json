@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "CEHandXbowType"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&InvocationPoolWayOfBladePathOfTheBladeTitle",
+    "description": "Feature/&InvocationPoolWayOfBladePathOfTheBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e927fb11-6c4b-5a68-bc0d-1a24052282fd",
+  "guid": "c30efb29-d411-556d-b6d5-39d15386ad39",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationCEHandXbowType"
+  "name": "InvocationPoolWayOfBladePathOfTheBlade"
 }

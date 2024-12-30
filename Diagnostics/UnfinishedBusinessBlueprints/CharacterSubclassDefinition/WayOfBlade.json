@@ -3,42 +3,42 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityZenShotToggle:a772ae30-46cd-5678-9f3f-18ebdc12d73c",
+      "featureDefinition": "Definition:AttributeModifierWayOfBladeOneWithTheBlade:d7652989-6170-5e85-9f1d-19b89289bf38",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWayOfZenArcheryOneWithTheBow:523a5d40-1c1f-517a-b44b-028d1e31f7a9",
+      "featureDefinition": "Definition:InvocationPoolWayOfBladePathOfTheBlade:c30efb29-d411-556d-b6d5-39d15386ad39",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWayOfZenArcheryFlurryOfArrows:aa397331-7988-5d0d-bfca-a75061378755",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfZenArcheryZenShot:382fe60d-e23a-5974-a564-ac8eb0db7b6a",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWayOfZenArcheryKiEmpoweredArrows:37998ef5-a3d4-5e28-ae5d-0a31bdfe6115",
+      "featureDefinition": "Definition:FeatureSetWayOfBladeAgileParry:0756113f-1e5a-5dcc-b8f4-9efafa9589bd",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWayOfZenArcheryUnerringPrecision:cc60f69d-f5bd-590f-bf6c-e74f2c1af67f",
+      "featureDefinition": "Definition:InvocationPoolWayOfBladePathOfTheBladeAddOne:0284ab66-ec16-5f45-9643-56db5df18856",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolWayOfBladePathOfTheBladeAddOne:0284ab66-ec16-5f45-9643-56db5df18856",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfZenArcheryHailOfArrows:b80f0451-b6ae-5cc8-96ad-e376adb76c79",
+      "featureDefinition": "Definition:FeatureWayOfBladeSwiftStrike:fc8b647d-40dd-5b5e-bd90-96ca30eec5c4",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfBladeMasterOfTheBlade:15be5d2a-109d-510d-a4b4-111a84335644",
       "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityWayOfZenArcheryHailOfArrows:695be6c6-8f66-5be9-9353-a935e0b70d61",
+      "featureDefinition": "Definition:InvocationPoolWayOfBladePathOfTheBladeAddOne:0284ab66-ec16-5f45-9643-56db5df18856",
       "level": 17
     }
   ],
@@ -47,11 +47,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&WayOfZenArcheryTitle",
-    "description": "Subclass/&WayOfZenArcheryDescription",
+    "title": "Subclass/&WayOfBladeTitle",
+    "description": "Subclass/&WayOfBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b06ef32d-8f8a-55c2-885e-d115221a1041",
+      "m_AssetGUID": "ac22406a-3dcc-5ef3-b675-5e68d971513b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -68,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7de09d9e-4c86-5c18-a319-a2483a7b3ec4",
+  "guid": "317e1c19-227a-5f64-908d-1b8bb6ce7a33",
   "contentPack": 9999,
-  "name": "WayOfZenArchery"
+  "name": "WayOfBlade"
 }

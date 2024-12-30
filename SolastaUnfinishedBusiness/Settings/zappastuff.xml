@@ -682,7 +682,7 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBardScimitarSpecialization>true</EnableBardScimitarSpecialization>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
@@ -745,6 +745,7 @@
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
+    <EnableRogueScimitarSpecialization>true</EnableRogueScimitarSpecialization>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>
@@ -757,6 +758,7 @@
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
+    <EnableSorcererMetamagic2024>true</EnableSorcererMetamagic2024>
     <EnableSorcererOrigin2024>true</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
@@ -962,9 +964,11 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>AstralReach</string>
+        <string>BlessedWarrior</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
+        <string>DruidicWarrior</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
@@ -984,6 +988,7 @@
         <string>InvocationPerniciousCloak</string>
         <string>InvocationCorrosiveBlast</string>
         <string>InvocationSpectralShield</string>
+        <string>InvocationDevouringBlade</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>
@@ -1773,11 +1778,11 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>WayOfBlade</string>
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
                     <string>WayOfSilhouette</string>
                     <string>WayOfTheStormSoul</string>
-                    <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>
             </value>

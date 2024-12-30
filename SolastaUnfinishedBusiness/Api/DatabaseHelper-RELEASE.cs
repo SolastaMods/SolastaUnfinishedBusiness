@@ -1292,6 +1292,12 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityElfTrance");
     }
 
+    internal static class FeatureDefinitionLightAffinitys
+    {
+        internal static FeatureDefinitionLightAffinity LightAffinityInvocationOneWithShadows { get; } =
+            GetDefinition<FeatureDefinitionLightAffinity>("LightAffinityInvocationOneWithShadows");
+    }
+
     internal static class FeatureDefinitionCastSpells
     {
         internal static FeatureDefinitionCastSpell CastSpellBard { get; } =
@@ -2747,6 +2753,9 @@ internal static partial class DatabaseHelper
 
         internal static InvocationDefinition RepellingBlast { get; } =
             GetDefinition<InvocationDefinition>("RepellingBlast");
+
+        internal static InvocationDefinition ThirstingBlade { get; } =
+            GetDefinition<InvocationDefinition>("ThirstingBlade");
 
         internal static InvocationDefinition SignIllOmen { get; } =
             GetDefinition<InvocationDefinition>("SignIllOmen");

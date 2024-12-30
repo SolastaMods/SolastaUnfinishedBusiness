@@ -211,6 +211,7 @@ ModUi/&EnableRogueReliableTalent2024=将<color=#D89555>可靠天赋</color>设�
 ModUi/&EnableRogueSlipperyMind2024=将 <color=#D89555>Slippery Mind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[除了智慧之外，你还获得了魅力豁免的熟练程度]</color></i>
 ModUi/&EnableRogueSteadyAim2024=在 3 级时启用<color=#D89555>稳定瞄准</color> <i><color=#F0DAA0>[如果您尚未移动，则奖励行动会在当前回合的下一次攻击掷骰中提供优势]</color></i>
 ModUi/&EnableRogueStrSaving=在<color=#D89555>狡猾/卑鄙的打击</color>上启用<b>Hoodlum</b> DEX 或 STR 修正
+ModUi/&EnableScimitarSpecialization=授予弯刀<color=#D89555>武器专长</color>
 ModUi/&EnableSignatureSpellsRelearn=每次长时间休息时都可准备<color=#D89555>招牌法术</color><i><color=#F0DAA0>[而不是在 20 级时准备一次]</color></i>
 ModUi/&EnableSorcererArcaneApotheosis2024=在 20 级时启用<color=#D89555>奥术神化</color>来替代<color=#D89555>魔法恢复</color>
 ModUi/&EnableSorcererInnateSorcery2024=在 1 级和 7 级时启用<color=#D89555>天生巫术</color>和<color=#D89555>巫术化身</color>
@@ -237,7 +238,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=启用 <color=#D89555>Conjure Elementa
 ModUi/&EnableVariablePlaceholdersOnTexts=在描述中启用变量占位符<i><color=#F0DAA0>[使用 {VARIABLE_NAME} 作为占位符]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并将其放入弹药槽中使用
 ModUi/&EnableVersatileOffHandSlot=允许携带<color=#D89555>药水</color>和<color=#D89555>卷轴</color>并在副手武器槽中使用
-ModUi/&EnableWarlockInvocationProgression2024=启用 <color=#D89555>Invocations</color> 以使用 5e 2024 进程
+ModUi/&EnableWarlockInvocationProgression2024=将<color=#D89555>Invocations</color>与 5e 2024 交换<i><color=#F0DAA0>[不同的进展和调整后的调用]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=在 2 级启用<color=#D89555>魔法狡猾</color>并在 20 级提升<color=#D89555>神秘大师</color>
 ModUi/&EnableWarlockMagicalCunningAtLevel2=在第 2 级启用<color=#D89555>魔法狡猾</color>
 ModUi/&EnableWarlockToLearnPatronAtLevel3=在 3 级（而非 1 级）启用 <color=#D89555>Patron</color>
@@ -273,7 +274,6 @@ ModUi/&FullyControlConjurations=完全控制召唤术<i><color=#F0DAA0>[动物�
 ModUi/&Gameplay=游戏玩法
 ModUi/&General=<color=#F0DAA0>常规：</color>
 ModUi/&GeneralMenu=一般的
-ModUi/&GrantScimitarSpecializationToBardRogue=授予<b>吟游诗人</b>和<b>盗贼</b>弯刀<color=#D89555>武器专长</color>
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器的视觉效果
 ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的生命值，而不是精确的生命值
