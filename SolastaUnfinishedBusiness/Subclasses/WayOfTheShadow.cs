@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -13,7 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -26,9 +28,9 @@ public sealed class WayOfShadow : AbstractSubclass
 
     public WayOfShadow()
     {
-        // LEVEL 03
+        var validateIsNotInBrightLight = new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight);
 
-        // Shadow Arts
+        // LEVEL 03 - Shadow Arts
 
         var powerDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
@@ -50,28 +52,24 @@ public sealed class WayOfShadow : AbstractSubclass
             .AddFeatureSet(SenseDarkvision, powerDarkness)
             .AddToDB();
 
-        // LEVEL 06
+        // LEVEL 06 - Shadow Step
 
-        // Shadow Step
-
-        var conditionShadowsStep = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ShadowsStep")
-            .SetGuiPresentation($"Power{Name}ShadowsStep", Category.Feature,
-                ConditionHeraldOfBattle)
+        var conditionShadowStep = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ShadowStep")
+            .SetGuiPresentation(
+                $"Power{Name}ShadowStep".Localized(Category.Feature),  Gui.EmptyContent, ConditionHeraldOfBattle)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{Name}ShadowsStep")
-                    .SetGuiPresentation($"Condition{Name}ShadowsStep", Category.Condition, Gui.NoLocalization)
+                    .Create($"CombatAffinity{Name}ShadowStep")
+                    .SetGuiPresentationNoContent(true)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                     .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
-        conditionShadowsStep.GuiPresentation.description = Gui.EmptyContent;
-
-        var powerShadowsStep = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ShadowsStep")
+        var powerShadowStep = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ShadowStep")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -81,21 +79,17 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
-                        EffectFormBuilder.AddConditionForm(conditionShadowsStep, true, true))
+                        EffectFormBuilder.AddConditionForm(conditionShadowStep, true, true))
                     .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
-                new FilterTargetingPositionShadowsStep())
+            .AddCustomSubFeatures(validateIsNotInBrightLight, new FilterTargetingPositionShadowsStep())
             .AddToDB();
 
-        // LEVEL 11
+        // LEVEL 11 - Improved Shadow Step
 
-        // Improved Shadow Step
-
-        var conditionImprovedShadowsStep = ConditionDefinitionBuilder
-            .Create(conditionShadowsStep, $"Condition{Name}ImprovedShadowsStep")
-            .SetParentCondition(conditionShadowsStep)
+        var conditionImprovedShadowStep = ConditionDefinitionBuilder
+            .Create(conditionShadowStep, $"Condition{Name}ImprovedShadowStep")
+            .SetParentCondition(conditionShadowStep)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}SwiftBlade")
@@ -106,8 +100,8 @@ public sealed class WayOfShadow : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var powerImprovedShadowsStep = FeatureDefinitionPowerBuilder
-            .Create(powerShadowsStep, $"Power{Name}ImprovedShadowsStep")
+        var powerImprovedShadowStep = FeatureDefinitionPowerBuilder
+            .Create(powerShadowStep, $"Power{Name}ImprovedShadowStep")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -117,23 +111,22 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
-                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowsStep, true, true))
+                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStep, true, true))
                     .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddToDB();
 
-        // LEVEL 17
-
-        // Cloak of Shadows
+        // LEVEL 17 - Cloak of Shadows
 
         var conditionCloakOfShadows = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionInvisible, ConditionCloakOfShadowsName)
             .SetParentCondition(ConditionInvisibleBase)
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower)
+            .AddCustomSubFeatures(new CustomBehaviorCloakOfShadows())
             .AddToDB();
+
+        conditionCloakOfShadows.SpecialInterruptions.Clear();
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CloakOfShadows")
@@ -141,22 +134,13 @@ public sealed class WayOfShadow : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Invisibility)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCloakOfShadows))
                     .Build())
+            .AddCustomSubFeatures(validateIsNotInBrightLight)
             .AddToDB();
-
-        powerCloakOfShadows.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight));
-
-        PowerMonkFlurryOfBlows.AddCustomSubFeatures(
-            PowerOrSpellFinishedByMeFlurryOfBlows.Marker);
-        PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement.AddCustomSubFeatures(
-            PowerOrSpellFinishedByMeFlurryOfBlows.Marker);
-        PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement.AddCustomSubFeatures(
-            PowerOrSpellFinishedByMeFlurryOfBlows.Marker);
 
         // MAIN
 
@@ -164,8 +148,8 @@ public sealed class WayOfShadow : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
             .AddFeaturesAtLevel(3, featureSetShadowArts)
-            .AddFeaturesAtLevel(6, powerShadowsStep)
-            .AddFeaturesAtLevel(11, powerImprovedShadowsStep)
+            .AddFeaturesAtLevel(6, powerShadowStep)
+            .AddFeaturesAtLevel(11, powerImprovedShadowStep)
             .AddFeaturesAtLevel(17, powerCloakOfShadows)
             .AddToDB();
     }
@@ -210,12 +194,31 @@ public sealed class WayOfShadow : AbstractSubclass
     // Cloak of Shadows
     //
 
-    private sealed class PowerOrSpellFinishedByMeFlurryOfBlows : IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorCloakOfShadows : IMagicEffectFinishedByMe, ICharacterBeforeTurnEndListener
     {
-        internal static readonly PowerOrSpellFinishedByMeFlurryOfBlows Marker = new();
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
+                rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCloakOfShadowsName, out var actionCondition))
+            {
+                rulesetCharacter.RemoveCondition(actionCondition);
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            var sourceDefinition = action.ActionParams.RulesetEffect.SourceDefinition.Name;
+
+            if (!sourceDefinition.StartsWith("PowerMonkFlurryOfBlows") &&
+                !sourceDefinition.StartsWith("PowerTraditionFreedomFlurryOfBlows"))
+            {
+                yield break;
+            }
+
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (!rulesetCharacter.HasConditionOfCategoryAndType(

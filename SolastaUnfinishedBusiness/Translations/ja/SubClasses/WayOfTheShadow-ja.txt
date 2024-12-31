@@ -1,6 +1,6 @@
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=薄暗い光の中でも、自然の暗闇でも薄暗い光の中にいるかのように、60 フィートの距離まで通常見ることができます。また、素材コンポーネントを提供せずに、1 ki を消費してアクションとして Darkness をキャストすることもできます。
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=シャドウアーツ
-Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=薄暗い光または暗闇の中に完全にいる間、ボーナス アクションとして 3 フォーカス ポイントを消費することで、無力状態になるか、明るい光でターンを終了するまで、1 分間自分自身を魔法の暗闇で覆うことができます。暗闇に包まれている間、次の利点を得ます:\n• 不可視。不可視状態になります。\n• 部分的無形。敵を通り抜けることができます。\n• 影の連打。フォーカス ポイントを消費せずに連打を使用できます。
+Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=完全に薄暗い光または暗闇の中にいる間、ボーナス アクションとして 3 気ポイントを消費することで、無力状態になるまで、または明るい光でターンを終了するまで、1 分間自分自身を魔法の暗闇で覆うことができます。暗闇に包まれている間、次の利点を得ます:\n• 不可視。不可視状態になります。\n• 部分的無形。敵を通り抜けることができます。\n• 影の連打。気ポイントを消費せずに連打を使用できます。
 Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=影のマント
 Feature/&PowerWayOfTheShadowImprovedShadowStepDescription=ボーナス アクションを使用して 1 気ポイントを消費すると、シャドウ ステップを使用するために開始および終了時に薄暗い光または暗闇でなければならないという要件が削除されます。テレポート後に非武装攻撃を行うこともできます。
 Feature/&PowerWayOfTheShadowImprovedShadowStepTitle=シャドウステップの改良

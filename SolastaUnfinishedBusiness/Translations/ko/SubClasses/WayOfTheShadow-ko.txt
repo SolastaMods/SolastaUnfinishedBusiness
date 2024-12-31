@@ -1,6 +1,6 @@
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=희미한 빛에서도 정상적으로 볼 수 있으며, 자연적인 어둠 속에서도 희미한 빛처럼 60피트 거리까지 볼 수 있습니다. 재료 구성 요소를 제공하지 않고 1ki를 사용하여 Darkness를 액션으로 시전할 수도 있습니다.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=그림자 예술
-Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Dim Light 또는 Darkness에 완전히 있는 동안 보너스 액션으로, 3개의 Focus Points를 사용하여 1분 동안 마법의 어둠으로 자신을 가릴 수 있으며, 이는 Incapacitated 상태가 될 때까지, 또는 Bright Light에서 턴을 마칠 때까지 지속됩니다. 어둠에 가려져 있는 동안 다음과 같은 혜택을 얻습니다:\n• Invisibility. Invisible 상태가 됩니다.\n• Partial Incorporeal. 적을 통과할 수 있습니다.\n• Shadow Flurry. Focus Points를 사용하지 않고 Flurry of Blows를 사용할 수 있습니다.
+Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Dim Light 또는 Darkness에 완전히 빠져 있는 동안 보너스 액션으로, 3 Ki 포인트를 사용하여 1분 동안 마법의 어둠으로 자신을 가릴 수 있으며, 이는 Incapacitated 상태가 될 때까지, 또는 Bright Light에서 턴을 마칠 때까지 지속됩니다. 어둠에 싸여 있는 동안 다음과 같은 혜택을 얻습니다:\n• Invisibility. Invisible 상태가 됩니다.\n• Partly Incorporeal. 적을 통과할 수 있습니다.\n• Shadow Flurry. Ki 포인트를 사용하지 않고 Flurry of Blows를 사용할 수 있습니다.
 Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=그림자의 망토
 Feature/&PowerWayOfTheShadowImprovedShadowStepDescription=보너스 액션을 사용하고, 1 Ki Point를 사용하여 Shadow Step을 사용하기 위해 Dim Light 또는 Darkness에서 시작하고 끝나야 하는 요구 사항을 제거할 수 있습니다. 순간이동 후 Unarmed Strike를 할 수도 있습니다.
 Feature/&PowerWayOfTheShadowImprovedShadowStepTitle=개선된 섀도우 스텝
