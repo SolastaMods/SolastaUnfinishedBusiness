@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureWayOfSilhouetteShadowFlurryTitle",
-    "description": "Feature/&FeatureWayOfSilhouetteShadowFlurryDescription",
+    "title": "Feature/&PowerCircleOfTheNightPrimalStrikeTitle",
+    "description": "Feature/&PowerCircleOfTheNightPrimalStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "56fad97f-6362-521b-9afa-4fdbd967b93a",
+  "guid": "174e3a39-0e45-5857-ba71-a4a0ba2ffcc9",
   "contentPack": 9999,
-  "name": "FeatureWayOfSilhouetteShadowFlurry"
+  "name": "PowerCircleOfTheNightPrimalStrike"
 }
