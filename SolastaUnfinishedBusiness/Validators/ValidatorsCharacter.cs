@@ -203,6 +203,10 @@ internal static class ValidatorsCharacter
         HasFreeHandWithoutTwoHandedInMain(character) &&
         HasMeleeWeaponInMainHand(character);
 
+    internal static readonly IsCharacterValidHandler HasMonkWeaponInMainHandAndFreeOffhand = character =>
+        HasFreeHand(character) &&
+        character.IsMonkWeaponOrUnarmed(character.GetMainWeapon()?.ItemDefinition);
+    
     internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>
         HasAnyOfLightingStates(
             LocationDefinitions.LightingState.Darkness,

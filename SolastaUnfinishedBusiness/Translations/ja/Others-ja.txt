@@ -463,6 +463,7 @@ Rules/&SituationalContext9015Format=鎧を着ていないか、両手のクォ�
 Rules/&SituationalContext9016Format=メインまたはオフハンドの近接武器の効果ソースではありません:
 Rules/&SituationalContext9017Format=呪文に集中しています:
 Rules/&SituationalContext9018Format=効果源:
+Rules/&SituationalContext9019Format=メインハンドにモンク武器を持ち、オフハンドはフリーです:
 Rules/&SituationalContextTargetHasConditionFormat=ターゲットには条件があります:
 Rules/&SpellSlotFormRecoverSorceryHalfLevelDownFormat=ソーサリーポイントをソーサラーレベルの半分まで回復します（切り捨て）。
 Rules/&TurnOccurenceEndOfSourceTurnFormat=ターンの終了元
