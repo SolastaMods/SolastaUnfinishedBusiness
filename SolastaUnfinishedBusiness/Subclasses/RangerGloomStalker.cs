@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -56,8 +57,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var actionAffinityDreadAmbusherMainAttack = FeatureDefinitionAdditionalActionBuilder
             .Create($"AdditionalAction{Name}DreadAmbusherMain")
             .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetActionType(ActionType.Main)
+            .SetRestrictedActions(Id.AttackMain)
             .SetMaxAttacksNumber(1)
             .AddToDB();
 
@@ -71,8 +72,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var actionAffinityDreadAmbusherBonusAttack = FeatureDefinitionAdditionalActionBuilder
             .Create($"AdditionalAction{Name}DreadAmbusherBonus")
             .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+            .SetActionType(ActionType.Bonus)
+            .SetRestrictedActions(Id.AttackOff)
             .SetMaxAttacksNumber(1)
             .AddToDB();
 
@@ -240,7 +241,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             attacker.UsedSpecialFeatures.TryAdd(conditionDreadAmbusher.Name, 1);
 
-            var condition = action.ActionType == ActionDefinitions.ActionType.Main
+            var condition = action.ActionType == ActionType.Main
                 ? conditionDreadAmbusherMainAttack
                 : conditionDreadAmbusherBonusAttack;
 
@@ -313,14 +314,26 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
+            attacker.SetSpecialFeatureUses(featureStalkersFlurry.Name, 0);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
 
+            var actionId = Id.AttackFree;
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionType.NoCost;
+
+            if (action.ActionId == Id.AttackOpportunity)
+            {
+                actionId = Id.AttackOpportunity;
+                attacker.RefundActionUse(ActionType.Reaction);
+            }
+
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackFree,
+                actionId,
                 defender,
-                attackMode,
-                action.ActionParams.ActionModifiers[0]);
+                attackModeCopy,
+                new ActionModifier());
         }
     }
 
