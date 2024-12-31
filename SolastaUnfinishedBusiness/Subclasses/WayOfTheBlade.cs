@@ -73,20 +73,20 @@ public sealed class WayOfBlade : AbstractSubclass
                     .Build())
             .AddToDB();
 
-    private static readonly EffectForm ConditionFormSwiftBlade = EffectFormBuilder.ConditionForm(
-        ConditionDefinitionBuilder
-            .Create($"Condition{Name}SwiftBlade")
-            .SetGuiPresentation($"Feature{Name}SwiftStrike", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create($"AdditionalAction{Name}SwiftBlade")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionType.Main)
-                    .SetRestrictedActions(Id.AttackMain)
-                    .SetMaxAttacksNumber(1)
-                    .AddToDB())
-            .AddToDB());
+    private static readonly ConditionDefinition ConditionSwiftStrike = ConditionDefinitionBuilder
+        .Create($"Condition{Name}SwiftStrike")
+        .SetGuiPresentation($"Feature{Name}SwiftStrike", Category.Feature, ConditionDefinitions.ConditionGuided)
+        .SetPossessive()
+        .SetFeatures(
+            FeatureDefinitionAdditionalActionBuilder
+                .Create($"AdditionalAction{Name}SwiftBlade")
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionType.Main)
+                .SetRestrictedActions(Id.AttackMain)
+                .SetMaxAttacksNumber(1)
+                .AddToDB())
+        .AddCustomSubFeatures(new OnItemEquippedSwiftStrike())
+        .AddToDB();
 
     public WayOfBlade()
     {
@@ -154,9 +154,9 @@ public sealed class WayOfBlade : AbstractSubclass
             .AddToDB();
 
         // Monk 2024 powers are handled directly on 2024MonkContext during their building
-        PowerMonkPatientDefense.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
-        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
-        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(ModifyEffectDescriptionSwiftStrike.Marker);
+        PowerMonkPatientDefense.AddCustomSubFeatures(PowerOrSpellFinishedByMeSwiftStrike.Marker);
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(PowerOrSpellFinishedByMeSwiftStrike.Marker);
+        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(PowerOrSpellFinishedByMeSwiftStrike.Marker);
 
         //
         // LEVEL 17
@@ -279,7 +279,8 @@ public sealed class WayOfBlade : AbstractSubclass
                 attackMode.ActionType != ActionType.Bonus ||
                 !rulesetCharacter.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
-                !rulesetCharacter.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition))
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !rulesetCharacter.IsMonkWeaponOrUnarmed(attackMode.SourceDefinition as ItemDefinition))
             {
                 return;
             }
@@ -345,8 +346,8 @@ public sealed class WayOfBlade : AbstractSubclass
 
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
                 !attacker.OncePerTurnIsValid(featureMasterOfTheBlade.Name) ||
-                ValidatorsWeapon.IsUnarmed(attackMode) ||
-                !rulesetAttacker.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition))
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !rulesetAttacker.IsMonkWeaponOrUnarmed(attackMode.SourceDefinition as ItemDefinition))
             {
                 yield break;
             }
@@ -354,11 +355,23 @@ public sealed class WayOfBlade : AbstractSubclass
             attacker.SetSpecialFeatureUses(featureMasterOfTheBlade.Name, 0);
             rulesetAttacker.LogCharacterUsedFeature(featureMasterOfTheBlade);
 
+            var actionId = Id.AttackFree;
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionType.NoCost;
+
+            if (action.ActionId == Id.AttackOpportunity)
+            {
+                actionId = Id.AttackOpportunity;
+                attacker.RefundActionUse(ActionType.Reaction);
+            }
+
             attacker.MyExecuteActionAttack(
-                Id.AttackFree,
+                actionId,
                 defender,
-                attackMode,
-                action.ActionParams.ActionModifiers[0]);
+                attackModeCopy,
+                new ActionModifier());
         }
     }
 
@@ -366,28 +379,47 @@ public sealed class WayOfBlade : AbstractSubclass
     // Swift Strike
     //
 
-    internal sealed class ModifyEffectDescriptionSwiftStrike : IModifyEffectDescription
+    private sealed class OnItemEquippedSwiftStrike : IOnItemEquipped
     {
-        internal static readonly ModifyEffectDescriptionSwiftStrike Marker = new();
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            var subclassLevel = character.GetSubclassLevel(Monk, Name);
-
-            return subclassLevel >= 11 &&
-                   (definition.Name.StartsWith("PowerMonkPatientDefense") ||
-                    definition.Name.StartsWith("PowerMonkStepOfTheWind"));
+            if (!ValidatorsCharacter.HasMeleeWeaponInMainHand(hero) &&
+                hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionSwiftStrike.Name, out var activeCondition))
+            {
+                hero.RemoveCondition(activeCondition);
+            }
         }
+    }
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
+    internal sealed class PowerOrSpellFinishedByMeSwiftStrike : IPowerOrSpellFinishedByMe
+    {
+        internal static readonly PowerOrSpellFinishedByMeSwiftStrike Marker = new();
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            effectDescription.EffectForms.Add(ConditionFormSwiftBlade);
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var subclassLevel = rulesetCharacter.GetSubclassLevel(Monk, Name);
 
-            return effectDescription;
+            if (subclassLevel < 11 ||
+                !ValidatorsCharacter.HasMeleeWeaponInMainHand(rulesetCharacter))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.InflictCondition(
+                ConditionSwiftStrike.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionSwiftStrike.Name,
+                0,
+                0,
+                0);
         }
     }
 

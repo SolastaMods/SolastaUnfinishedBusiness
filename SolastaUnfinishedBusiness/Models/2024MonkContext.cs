@@ -221,7 +221,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3AtWill =
@@ -238,7 +238,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6AtWill =
@@ -257,7 +257,7 @@ internal static partial class Tabletop2024Context
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .SetCasterEffectParameters(SpellDefinitions.Command)
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024AtWill = FeatureDefinitionPowerBuilder
@@ -271,7 +271,7 @@ internal static partial class Tabletop2024Context
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind))
                 .SetCasterEffectParameters(SpellDefinitions.Command)
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Ki = FeatureDefinitionPowerBuilder
@@ -284,7 +284,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
                     EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense))
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival3Ki =
@@ -300,7 +300,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(ConditionDodgingPatientDefense),
                         EffectFormBuilder.ConditionForm(ConditionTraditionSurvivalDefensiveStance))
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkPatientDefense2024Survival6Ki =
@@ -318,7 +318,7 @@ internal static partial class Tabletop2024Context
                         EffectFormBuilder.ConditionForm(
                             ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImproved))
                     .Build())
-            .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+            .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerMonkStepOfTheWind2024Ki = FeatureDefinitionPowerBuilder
@@ -331,7 +331,7 @@ internal static partial class Tabletop2024Context
                     EffectFormBuilder.ConditionForm(ConditionDashingBonusStepOfTheWind),
                     EffectFormBuilder.ConditionForm(ConditionDisengagingStepOfTheWind))
                 .Build())
-        .AddCustomSubFeatures(WayOfBlade.ModifyEffectDescriptionSwiftStrike.Marker)
+        .AddCustomSubFeatures(WayOfBlade.PowerOrSpellFinishedByMeSwiftStrike.Marker)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionStunningStrikeHalfMove = ConditionDefinitionBuilder
@@ -640,7 +640,7 @@ internal static partial class Tabletop2024Context
 
             // deflect attacks or agile parry are invalid with a null damage form
             // and agile parry also has melee weapon and reach requirements
-            if (damageForm == null && !WayOfBlade.IsAgileParryValid(defender, attacker))
+            if (damageForm == null || !WayOfBlade.IsAgileParryValid(defender, attacker))
             {
                 yield break;
             }
@@ -657,7 +657,7 @@ internal static partial class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var damageIndex = Array.IndexOf(AllDamages, damageForm?.DamageForm.DamageType ?? string.Empty);
+                var damageIndex = Array.IndexOf(AllDamages, damageForm.DamageForm.DamageType);
                 var dexterity = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity);
                 var dexMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
                 var reductionAmount = RollDie(DieType.D10, AdvantageType.None, out _, out _) + dexMod + classLevel;
@@ -697,18 +697,15 @@ internal static partial class Tabletop2024Context
                 rulesetDefender.RemainingKiPoints == 0 ||
                 !defender.CanAct() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                !rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var activeCondition))
+                !rulesetDefender.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name))
             {
                 yield break;
             }
 
-            var isAgileParryValid = WayOfBlade.IsAgileParryValid(defender, attacker);
-
-            // condition amount only carries an index under valid 2024 deflect attacks scenarios
-            switch (activeCondition.Amount >= 0)
+            switch (Main.Settings.EnableMonkDeflectAttacks2024)
             {
-                case true when isAgileParryValid:
+                case true when WayOfBlade.IsAgileParryValid(defender, attacker):
                 {
                     var usablePower = PowerProvider.Get(WayOfBlade.PowerAgileParry, rulesetDefender);
 
