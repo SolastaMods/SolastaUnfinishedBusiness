@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Você tem Vantagem no próximo ataque corpo a corpo que fizer e também pode fazer um Ataque Desarmado bônus adicional.
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Véu de Sombra Aprimorado
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=Você tem vantagem no próximo ataque corpo a corpo que fizer.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Véu de Sombra
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Você pode ver normalmente em luz fraca, e na escuridão natural como se estivesse em luz fraca, a uma distância de 60 pés. Você também pode gastar 1 ki para conjurar Escuridão como uma ação sem fornecer componentes materiais.

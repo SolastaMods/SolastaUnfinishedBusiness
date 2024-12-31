@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Tienes ventaja en el próximo ataque cuerpo a cuerpo que realices y también puedes realizar un ataque sin armas adicional.
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Velo de sombra mejorado
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=Tienes ventaja en el próximo ataque cuerpo a cuerpo que realices.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Velo de sombra
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Puedes ver normalmente en condiciones de poca luz y en la oscuridad natural como si estuvieras en condiciones de poca luz, a una distancia de 60 pies. También puedes gastar 1 ki para lanzar Oscuridad como acción sin proporcionar componentes materiales.

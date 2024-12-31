@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Sie haben einen Vorteil bei Ihrem nächsten Nahkampfangriff und können zusätzlich einen waffenlosen Schlag als Bonus ausführen.
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Verbesserter Schattenschleier
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=Sie haben einen Vorteil bei Ihrem nächsten Nahkampfangriff.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Schattenschleier
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Sie können bei schwachem Licht normal sehen und in natürlicher Dunkelheit wie bei schwachem Licht, bis zu einer Entfernung von 60 Fuß. Sie können auch 1 Ki ausgeben, um Dunkelheit als Aktion zu wirken, ohne materielle Komponenten bereitzustellen.

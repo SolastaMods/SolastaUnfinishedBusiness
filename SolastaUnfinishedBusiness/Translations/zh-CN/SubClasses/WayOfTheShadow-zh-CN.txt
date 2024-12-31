@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=您在下次近战攻击时具有优势，并且还可以进行额外的徒手攻击奖励。
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=强化暗影面纱
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=你在下一次近战攻击中占有优势。
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=暗影面纱
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=你可以在微光光照下以及在黑暗环境如同在微光光照下一样正常地看到 60 尺的距离。你也可以花费 1 点气以一个动作施放 <b>黑暗术</b> ，而不需要提供材料成分。

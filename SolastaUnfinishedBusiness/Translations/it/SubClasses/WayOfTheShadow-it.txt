@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Hai Vantaggio sul prossimo attacco in mischia che effettui e puoi anche effettuare un ulteriore Colpo Senz'Armi bonus.
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Velo d'ombra migliorato
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=Hai un Vantaggio sul prossimo attacco corpo a corpo che effettui.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Velo d'ombra
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Puoi vedere normalmente in penombra e nell'oscurità naturale come se fossi in penombra, fino a una distanza di 60 piedi. Puoi anche spendere 1 ki per lanciare Darkness come azione senza fornire componenti materiali.

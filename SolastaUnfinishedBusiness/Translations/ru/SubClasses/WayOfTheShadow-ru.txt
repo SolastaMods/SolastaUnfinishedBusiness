@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=У вас есть преимущество при следующей атаке в ближнем бою, а также вы можете совершить дополнительный бонусный безоружный удар.
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Улучшенная теневая вуаль
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=У вас есть преимущество при следующей атаке в ближнем бою.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Теневая вуаль
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Вы можете видеть нормально на расстоянии 60 футов в тусклом свете, а в естественной темноте, как при тусклом свете. Вы также можете потратить 1 очко Ци, чтобы наложить заклинание Тьма действием без требования материальных компонентов.

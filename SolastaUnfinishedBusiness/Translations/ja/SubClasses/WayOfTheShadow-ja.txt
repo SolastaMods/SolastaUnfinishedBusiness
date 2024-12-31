@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=次の近接攻撃にアドバンテージが得られ、さらにボーナスの素手攻撃も行えます。
-Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=改良されたシャドウベール
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=次に行う近接攻撃にアドバンテージを得ます。
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=シャドウベール
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=薄暗い光の中でも、自然の暗闇でも薄暗い光の中にいるかのように、60 フィートの距離まで通常見ることができます。また、素材コンポーネントを提供せずに、1 ki を消費してアクションとして Darkness をキャストすることもできます。

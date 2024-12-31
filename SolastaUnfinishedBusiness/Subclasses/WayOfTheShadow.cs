@@ -86,14 +86,7 @@ public sealed class WayOfShadow : AbstractSubclass
         // LEVEL 11 - Improved Shadow Step
 
         var conditionImprovedShadowStep = ConditionDefinitionBuilder
-            .Create(conditionShadowStep, $"Condition{Name}ImprovedShadowVeil")
-            .SetOrUpdateGuiPresentation(Category.Condition, ConditionHeraldOfBattle)
-            .SetParentCondition(conditionShadowStep)
-            .SetFeatures()
-            .AddToDB();
-
-        var conditionImprovedShadowStepExtraAttack = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ImprovedShadowVeilExtraAttack")
+            .Create($"Condition{Name}ImprovedShadowVeil")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
@@ -118,8 +111,8 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
-                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStep, true, true),
-                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStepExtraAttack, true, true))
+                        EffectFormBuilder.AddConditionForm(conditionShadowStep, true, true),
+                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStep, true, true))
                     .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddToDB();
