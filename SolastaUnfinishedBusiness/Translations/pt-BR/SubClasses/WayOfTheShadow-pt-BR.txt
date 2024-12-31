@@ -1,3 +1,7 @@
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Você tem Vantagem no próximo ataque corpo a corpo que fizer e também pode fazer um Ataque Desarmado bônus adicional.
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Véu de Sombra Aprimorado
+Condition/&ConditionWayOfTheShadowShadowVeilDescription=Você tem vantagem no próximo ataque corpo a corpo que fizer.
+Condition/&ConditionWayOfTheShadowShadowVeilTitle=Véu de Sombra
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Você pode ver normalmente em luz fraca, e na escuridão natural como se estivesse em luz fraca, a uma distância de 60 pés. Você também pode gastar 1 ki para conjurar Escuridão como uma ação sem fornecer componentes materiais.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Artes das Sombras
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Como uma Ação Bônus enquanto estiver inteiramente dentro de Dim Light ou Darkness, você pode gastar 3 Pontos de Ki para se envolver com escuridão mágica por 1 minuto, até que você tenha a condição Incapacitado, ou até que você termine seu turno em Bright Light. Enquanto estiver envolvido em escuridão, você ganha os seguintes benefícios:\n• Invisibilidade. Você tem a condição Invisível.\n• Parcialmente Incorpóreo. Você pode se mover através de inimigos.\n• Rajada de Sombras. Você pode usar sua Rajada de Golpes sem gastar nenhum Ponto de Ki.

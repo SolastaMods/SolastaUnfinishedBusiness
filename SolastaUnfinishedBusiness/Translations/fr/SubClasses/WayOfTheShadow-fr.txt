@@ -1,3 +1,7 @@
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Vous bénéficiez d'un avantage sur la prochaine attaque de mêlée que vous effectuez, et vous pouvez également effectuer une frappe à mains nues bonus supplémentaire.
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Voile d'ombre amélioré
+Condition/&ConditionWayOfTheShadowShadowVeilDescription=Vous bénéficiez d'un avantage sur la prochaine attaque de mêlée que vous effectuez.
+Condition/&ConditionWayOfTheShadowShadowVeilTitle=Voile d'ombre
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Vous pouvez voir normalement dans la pénombre et dans l'obscurité naturelle comme si vous étiez dans la pénombre, jusqu'à une distance de 18 mètres. Vous pouvez également dépenser 1 ki pour lancer Ténèbres en tant qu'action sans fournir de composants matériels.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Arts de l'ombre
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=En tant qu'action bonus, lorsque vous êtes entièrement dans la pénombre ou les ténèbres, vous pouvez dépenser 3 points de ki pour vous envelopper de ténèbres magiques pendant 1 minute, jusqu'à ce que vous soyez dans l'état Incapacité ou jusqu'à ce que vous terminiez votre tour dans la lumière vive. Lorsque vous êtes enveloppé dans les ténèbres, vous obtenez les avantages suivants :\n• Invisibilité. Vous avez l'état Invisible.\n• Partiellement incorporel. Vous pouvez vous déplacer à travers les ennemis.\n• Déluge d'ombres. Vous pouvez utiliser votre Déluge de coups sans dépenser de points de ki.

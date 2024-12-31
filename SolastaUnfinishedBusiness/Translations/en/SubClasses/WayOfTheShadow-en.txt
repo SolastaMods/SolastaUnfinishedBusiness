@@ -1,3 +1,7 @@
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=You have Advantage on the next melee attack you make, and you can also make an additional bonus Unarmed Strike.
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Improved Shadow Veil
+Condition/&ConditionWayOfTheShadowShadowVeilDescription=You have Advantage on the next melee attack you make.
+Condition/&ConditionWayOfTheShadowShadowVeilTitle=Shadow Veil
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Shadow Arts
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=As a Bonus Action while entirely within Dim Light or Darkness, you can spend 3 Ki Points to shroud yourself with magical darkness for 1 minute, until you have the Incapacitated condition, or until you end your turn in Bright Light. While shrouded in darkness, you gain the following benefits:\n• Invisibility. You have the Invisible condition.\n• Partially Incorporeal. You can move through enemies.\n• Shadow Flurry. You can use your Flurry of Blows without spending any Ki Points.

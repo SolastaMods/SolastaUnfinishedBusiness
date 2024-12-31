@@ -1,3 +1,7 @@
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilDescription=Sie haben einen Vorteil bei Ihrem nächsten Nahkampfangriff und können zusätzlich einen waffenlosen Schlag als Bonus ausführen.
+Condition/&ConditionWayOfTheShadowImprovedShadowVeilTitle=Verbesserter Schattenschleier
+Condition/&ConditionWayOfTheShadowShadowVeilDescription=Sie haben einen Vorteil bei Ihrem nächsten Nahkampfangriff.
+Condition/&ConditionWayOfTheShadowShadowVeilTitle=Schattenschleier
 Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Sie können bei schwachem Licht normal sehen und in natürlicher Dunkelheit wie bei schwachem Licht, bis zu einer Entfernung von 60 Fuß. Sie können auch 1 Ki ausgeben, um Dunkelheit als Aktion zu wirken, ohne materielle Komponenten bereitzustellen.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Schattenkünste
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Als Bonusaktion, während Sie sich vollständig in Dämmerlicht oder Dunkelheit befinden, können Sie 3 Ki-Punkte ausgeben, um sich 1 Minute lang in magische Dunkelheit zu hüllen, bis Sie in den Zustand Handlungsunfähig geraten oder bis Sie Ihren Zug in Hellem Licht beenden. Während Sie in Dunkelheit gehüllt sind, erhalten Sie die folgenden Vorteile:\n• Unsichtbarkeit. Sie haben den Zustand Unsichtbar.\n• Teilweise körperlos. Sie können sich durch Feinde hindurch bewegen.\n• Schattenwirbel. Sie können Ihren Schlaghagel verwenden, ohne Ki-Punkte auszugeben.
