@@ -1,0 +1,10 @@
+Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
+Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Shadow Arts
+Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=As a Bonus Action while entirely within Dim Light or Darkness, you can spend 3 Focus Points to shroud yourself with magical darkness for 1 minute, until you have the Incapacitated condition, or until you end your turn in Bright Light. While shrouded in darkness, you gain the following benefits:\n• Invisibility. You have the Invisible condition.\n• Partially Incorporeal. You can move through enemies.\n• Shadow Flurry. You can use your Flurry of Blows without spending any Focus Points.
+Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=Cloak of Shadows
+Feature/&PowerWayOfTheShadowImprovedShadowStepDescription=You can use a Bonus Action, and spend 1 Ki Point to remove the requirement that you must start and end in Dim Light or Darkness for the use of Shadow Step. You can also make an Unarmed Strike after the teleportation.
+Feature/&PowerWayOfTheShadowImprovedShadowStepTitle=Improved Shadow Step
+Feature/&PowerWayOfTheShadowShadowStepDescription=While entirely within Dim Light or Darkness, you can use a Bonus Action to teleport up to 60 feet to an unoccupied space you can see that is also in Dim Light or Darkness. You then have Advantage on the next melee attack you make before the end of the turn.
+Feature/&PowerWayOfTheShadowShadowStepTitle=Shadow Step
+Subclass/&WayOfTheShadowDescription=Way of Shadow monks practice stealth and subterfuge, channeling their reservoirs of power to harness the power of the Shadowfell. They are at home in darkness, able to draw gloom around themselves to hide, to leap from shadow to shadow, and even to take on a wraithlike form of living shadow.
+Subclass/&WayOfTheShadowTitle=Way of Shadow

@@ -1,0 +1,10 @@
+Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=你可以在微光光照下以及在黑暗环境如同在微光光照下一样正常地看到 60 尺的距离。你也可以花费 1 点气以一个动作施放 <b>黑暗术</b> ，而不需要提供材料成分。
+Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=暗影技艺
+Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=作为奖励行动，当完全处于昏暗或黑暗中时，您可以花费 3 点集中点，将自己笼罩在魔法黑暗中 1 分钟，直到您进入无力状态，或者直到您在明亮的光线中结束回合。当被黑暗笼罩时，您将获得以下好处：\n• 隐身。您处于隐身状态。\n• 部分虚体化。您可以穿过敌人。\n• 暗影乱舞。您无需花费任何集中点即可使用连击乱舞。
+Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=暗影斗篷
+Feature/&PowerWayOfTheShadowImprovedShadowStepDescription=您可以使用奖励行动并花费 1 点气点来消除使用暗影步时必须在昏暗或黑暗中开始和结束的要求。您也可以在传送后进行徒手攻击。
+Feature/&PowerWayOfTheShadowImprovedShadowStepTitle=强化暗影步
+Feature/&PowerWayOfTheShadowShadowStepDescription=完全处于昏暗或黑暗中时，您可以使用奖励行动传送至多 60 英尺外您能看到的、同样处于昏暗或黑暗中的未占用空间。然后，在本回合结束前，您可对下一次近战攻击获得优势。
+Feature/&PowerWayOfTheShadowShadowStepTitle=暗影步
+Subclass/&WayOfTheShadowDescription=暗影之道僧侣练习隐身和诡计，引导他们的力量储备来驾驭暗影之力。他们习惯于黑暗，能够利用黑暗来隐藏自己，在阴影之间跳跃，甚至可以变成幽灵般的活影。
+Subclass/&WayOfTheShadowTitle=暗影宗

@@ -1,0 +1,10 @@
+Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Puoi vedere normalmente in penombra e nell'oscurità naturale come se fossi in penombra, fino a una distanza di 60 piedi. Puoi anche spendere 1 ki per lanciare Darkness come azione senza fornire componenti materiali.
+Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Arti dell'ombra
+Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Come Azione Bonus mentre sei completamente in Luce Fioca o Oscurità, puoi spendere 3 Punti Focus per avvolgerti nell'oscurità magica per 1 minuto, finché non hai la condizione Incapacitato o finché non termini il tuo turno in Luce Intensa. Mentre sei avvolto nell'oscurità, ottieni i seguenti benefici:\n• Invisibilità. Hai la condizione Invisibile.\n• Parzialmente Incorporeo. Puoi muoverti attraverso i nemici.\n• Raffica d'Ombra. Puoi usare la tua Raffica di Colpi senza spendere Punti Focus.
+Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=Mantello delle Ombre
+Feature/&PowerWayOfTheShadowImprovedShadowStepDescription=Puoi usare un'Azione Bonus e spendere 1 Punto Ki per rimuovere il requisito di dover iniziare e finire in Luce Fioca o Oscurità per l'uso di Shadow Step. Puoi anche effettuare un Colpo Senz'Armi dopo il teletrasporto.
+Feature/&PowerWayOfTheShadowImprovedShadowStepTitle=Passaggio ombra migliorato
+Feature/&PowerWayOfTheShadowShadowStepDescription=Mentre sei completamente in Dim Light o Darkness, puoi usare un'Azione Bonus per teletrasportarti fino a 60 piedi in uno spazio non occupato che puoi vedere e che è anche in Dim Light o Darkness. Quindi hai Vantaggio sul prossimo attacco in mischia che effettui prima della fine del turno.
+Feature/&PowerWayOfTheShadowShadowStepTitle=Passo d'ombra
+Subclass/&WayOfTheShadowDescription=I monaci della Via dell'Ombra praticano la furtività e il sotterfugio, incanalando le loro riserve di potere per sfruttare il potere dello Shadowfell. Sono a casa nell'oscurità, capaci di attirare la tristezza intorno a sé per nascondersi, di saltare da un'ombra all'altra e persino di assumere una forma spettrale di ombra vivente.
+Subclass/&WayOfTheShadowTitle=Via dell'ombra

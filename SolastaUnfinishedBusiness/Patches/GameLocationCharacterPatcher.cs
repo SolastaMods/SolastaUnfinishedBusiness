@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
+using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
@@ -405,7 +406,8 @@ public static class GameLocationCharacterPatcher
                 __result == ActionDefinitions.ActionStatus.CannotPerform &&
                 __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
                 ActionDefinitions.ActionStatus.Available &&
-                __instance.RulesetCharacter.RemainingKiPoints > 0)
+                (__instance.RulesetCharacter.RemainingKiPoints > 0 ||
+                 __instance.RulesetCharacter.HasConditionOfType(WayOfShadow.ConditionCloakOfShadowsName)))
             {
                 __result = ActionDefinitions.ActionStatus.Available;
             }
