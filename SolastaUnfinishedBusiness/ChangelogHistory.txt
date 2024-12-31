@@ -14,8 +14,9 @@ CHANGES:
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed soft lock scenario when target cannot move, and AI decision is dash [VANILLA] 
 - fixed True Strike 2024 not using spell casting ability on attack roll
-- nerfed Way of Zen Archery flurry of arrows, unerring precision, and hail of arrows features [RESPEC req.]
-- removed backward compatibility support from Acid Claws, Crossbow Mastery, Monk Weapons, and Pugilist [RESPEC req.]
+- changed flurry of arrows [now swift shot], unerring precision, and hail of arrows on Way of Archery  [RESPEC req.]
+- changed shadow flurry [now improved shadow step], and strike the vitals [removed] on Way of Shadows
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC req.]
 
 KNOWN ISSUES:
 
