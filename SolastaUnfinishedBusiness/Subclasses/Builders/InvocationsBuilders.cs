@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -635,7 +636,12 @@ internal static class InvocationsBuilders
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.ThirstingBlade)
-            .SetGrantedFeature(InvocationDefinitions.ThirstingBlade.GrantedFeature)
+            .SetGrantedFeature(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierDevouringBladeExtraAttack")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
+                    .AddToDB())
             .SetRequirements(12)
             .SetValidators(Validate)
             .AddToDB();
