@@ -7,8 +7,8 @@ CHANGES:
 - added Devouring Blade, and One with Shadows 2024 invocations
 - added Monk, Sorcerer, and Warlock tabletop 2024 settings
 - added Way of Blade subclass [Kensei]
-- changed flurry of arrows [now swift shot], unerring precision, and hail of arrows on Way of Zen Archery [RESPEC req.]
-- changed strike the vitals [removed], shadow flurry [now improved shadow step], and Shadow Sanctuary [now Cloak of Shadows] on Way of Shadow [RESPEC req.]
+- changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC req.]
+- changed shadow flurry -> improved shadow step, and Shadow Sanctuary -> Cloak of Shadows on Way of Shadow [RESPEC req.]
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing dice progression
 - fixed Command: Grove spell not ending target turn after prone action

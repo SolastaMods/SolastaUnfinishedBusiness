@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -55,9 +54,8 @@ public sealed class WayOfShadow : AbstractSubclass
         // LEVEL 06 - Shadow Step
 
         var conditionShadowStep = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ShadowStep")
-            .SetGuiPresentation(
-                $"Power{Name}ShadowStep".Localized(Category.Feature),  Gui.EmptyContent, ConditionHeraldOfBattle)
+            .Create($"Condition{Name}ShadowVeil")
+            .SetGuiPresentation(Category.Condition, ConditionHeraldOfBattle)
             .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
@@ -88,14 +86,23 @@ public sealed class WayOfShadow : AbstractSubclass
         // LEVEL 11 - Improved Shadow Step
 
         var conditionImprovedShadowStep = ConditionDefinitionBuilder
-            .Create(conditionShadowStep, $"Condition{Name}ImprovedShadowStep")
+            .Create(conditionShadowStep, $"Condition{Name}ImprovedShadowVeil")
+            .SetOrUpdateGuiPresentation(Category.Condition, ConditionHeraldOfBattle)
             .SetParentCondition(conditionShadowStep)
+            .SetFeatures()
+            .AddToDB();
+
+        var conditionImprovedShadowStepExtraAttack = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ImprovedShadowVeilExtraAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
-                    .Create($"AdditionalAction{Name}SwiftBlade")
+                    .Create($"AdditionalAction{Name}ImprovedShadowStep")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionType.Bonus)
                     .SetRestrictedActions(Id.AttackOff)
+                    .SetForbiddenActions(Id.FlurryOfBlows, Id.FlurryOfBlowsSwiftSteps, Id.FlurryOfBlowsUnendingStrikes)
                     .SetMaxAttacksNumber(1)
                     .AddToDB())
             .AddToDB();
@@ -111,7 +118,8 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.MotionForm(MotionForm.MotionType.TeleportToDestination),
-                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStep, true, true))
+                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStep, true, true),
+                        EffectFormBuilder.AddConditionForm(conditionImprovedShadowStepExtraAttack, true, true))
                     .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddToDB();
@@ -122,6 +130,12 @@ public sealed class WayOfShadow : AbstractSubclass
             .Create(ConditionDefinitions.ConditionInvisible, ConditionCloakOfShadowsName)
             .SetParentCondition(ConditionInvisibleBase)
             .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionMoveThroughEnemyModifierBuilder
+                    .Create($"MoveThroughEnemyModifier{Name}CloakOfShadows")
+                    .SetGuiPresentationNoContent(true)
+                    .SetMinSizeDifference(0)
+                    .AddToDB())
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
             .AddCustomSubFeatures(new CustomBehaviorCloakOfShadows())
             .AddToDB();
@@ -194,8 +208,27 @@ public sealed class WayOfShadow : AbstractSubclass
     // Cloak of Shadows
     //
 
-    private sealed class CustomBehaviorCloakOfShadows : IMagicEffectFinishedByMe, ICharacterBeforeTurnEndListener
+    private sealed class CustomBehaviorCloakOfShadows
+        : IMagicEffectFinishedByMe, ICharacterBeforeTurnEndListener, IActionFinishedByMe
     {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (Gui.Battle != null ||
+                action is not CharacterActionMove ||
+                actingCharacter.MovingToDestination ||
+                ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCloakOfShadowsName, out var actionCondition))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.RemoveCondition(actionCondition);
+        }
+
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;

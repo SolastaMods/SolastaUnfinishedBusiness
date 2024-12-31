@@ -639,8 +639,13 @@ internal static partial class Tabletop2024Context
                 (classLevel >= 13 || AllowedDamages.Contains(x.DamageForm.DamageType)));
 
             // deflect attacks or agile parry are invalid with a null damage form
-            // and agile parry also has melee weapon and reach requirements
-            if (damageForm == null || !WayOfBlade.IsAgileParryValid(defender, attacker))
+            if (damageForm == null)
+            {
+                yield break;
+            }
+
+            // if deflect attacks is disabled can only offer deflect if a valid agile parry one
+            if (!Main.Settings.EnableMonkDeflectAttacks2024 && !WayOfBlade.IsAgileParryValid(defender, attacker))
             {
                 yield break;
             }
@@ -847,7 +852,12 @@ internal static partial class Tabletop2024Context
             var definition = action.ActionParams.activeEffect.SourceDefinition;
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (definition.Name.StartsWith("PowerMonkPatientDefense"))
+            if (definition == PowerMonkPatientDefense ||
+                definition == PowerMonkPatientDefenseSurvival3 ||
+                definition == PowerMonkPatientDefenseSurvival6 ||
+                definition == PowerMonkPatientDefense2024Ki ||
+                definition == PowerMonkPatientDefense2024Survival3Ki ||
+                definition == PowerMonkPatientDefense2024Survival6Ki)
             {
                 var tempHp = rulesetCharacter.RollDiceAndSum(
                     rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 2, []);
@@ -855,7 +865,9 @@ internal static partial class Tabletop2024Context
                 rulesetCharacter.ReceiveTemporaryHitPoints(
                     tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
-            else if (definition.Name.StartsWith("PowerMonkStepOfTheWind"))
+            else if (definition == PowerMonkStepOfTheWindDash ||
+                     definition == PowerMonkStepOftheWindDisengage ||
+                     definition == PowerMonkStepOfTheWind2024Ki)
             {
                 rulesetCharacter.InflictCondition(
                     ConditionGrappleNoCost.Name,

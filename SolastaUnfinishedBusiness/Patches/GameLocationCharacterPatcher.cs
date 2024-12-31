@@ -406,6 +406,13 @@ public static class GameLocationCharacterPatcher
                 __result == ActionDefinitions.ActionStatus.CannotPerform &&
                 __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
                 ActionDefinitions.ActionStatus.Available &&
+                (!__instance.ActionPerformancesByType.TryGetValue(ActionDefinitions.ActionType.Bonus,
+                     out var actionPerformanceFilters) ||
+                 actionPerformanceFilters
+                     .SelectMany(x => x.ForbiddenActions)
+                     .All(x => x is not (ActionDefinitions.Id.FlurryOfBlows
+                         or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
+                         or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes))) &&
                 (__instance.RulesetCharacter.RemainingKiPoints > 0 ||
                  __instance.RulesetCharacter.HasConditionOfType(WayOfShadow.ConditionCloakOfShadowsName)))
             {
