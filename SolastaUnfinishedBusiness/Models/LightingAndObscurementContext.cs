@@ -387,7 +387,7 @@ internal static class LightingAndObscurementContext
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);
         var targetIsNotTouchingGround = target != null && !target.RulesetActor.IsTouchingGround();
         var targetIsInvisible =
-            target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
+            target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisibleBase.Name);
 
         var senseModesToPrevent = new List<Type>();
 
