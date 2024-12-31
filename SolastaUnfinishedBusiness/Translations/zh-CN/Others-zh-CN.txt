@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
 Invocation/&DevilsSightExtendedDescription=你可以在黑暗中正常看到 80 尺的距离，无论是魔法还是非魔法。
 Invocation/&OneWithShadowsAlternateDescription=当你处于昏暗光线或黑暗区域时，你可以对自己施展隐身术，而无需消耗法术位。
+Invocation/&OneWithShadowsAlternateTitle=阴影之下
 Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池中已存在同名的英雄。\n请尝试其他名称。
 Message/&CharacterExportEmptyNameErrorDescription=导出已取消：\n\n请尝试非空名称。
 Message/&CharacterExportModalContentDescription=输入要导出的英雄名称：

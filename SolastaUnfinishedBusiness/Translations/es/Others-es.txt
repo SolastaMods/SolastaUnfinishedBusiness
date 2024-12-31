@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Nivel: {0}\nExperiencia: {1}\n{2} puntos necesa
 Format/&LevelAndExperienceMaxedFormat=Nivel: {0}\nExperiencia: {1}\nNivel máximo alcanzado
 Invocation/&DevilsSightExtendedDescription=Puedes ver normalmente en la oscuridad, tanto mágica como no mágica, hasta una distancia de 80 pies.
 Invocation/&OneWithShadowsAlternateDescription=Mientras estés en un área de luz tenue u oscuridad, puedes lanzar Invisibilidad sobre ti mismo sin gastar un espacio de hechizo.
+Invocation/&OneWithShadowsAlternateTitle=Uno con las sombras
 Message/&CharacterExportDuplicateNameErrorDescription=Exportación cancelada:\nYa existe un héroe con este nombre en el grupo.\nPrueba con un nombre diferente.
 Message/&CharacterExportEmptyNameErrorDescription=Exportación cancelada:\nIntente con un nombre que no esté vacío.
 Message/&CharacterExportModalContentDescription=Introduzca el nombre del héroe a exportar:

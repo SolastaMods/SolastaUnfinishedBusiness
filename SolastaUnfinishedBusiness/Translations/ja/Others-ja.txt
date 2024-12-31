@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: レベル {3} に到
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました
 Invocation/&DevilsSightExtendedDescription=暗闇の中でも、魔法のようなものもそうでないものも、80 フィートの距離まで通常見ることができます。
 Invocation/&OneWithShadowsAlternateDescription=薄暗い光や暗闇のエリアにいる間、呪文スロットを消費せずに自分自身に「不可視」を唱えることができます。
+Invocation/&OneWithShadowsAlternateTitle=影と一体
 Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。
 Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n空でない名前を試してください。
 Message/&CharacterExportModalContentDescription=エクスポートするヒーロー名を入力してください:

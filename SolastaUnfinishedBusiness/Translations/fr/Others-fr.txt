@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points r
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nNiveau maximum atteint
 Invocation/&DevilsSightExtendedDescription=Vous pouvez voir normalement dans l'obscurité, à la fois magique et non magique, jusqu'à une distance de 80 pieds.
 Invocation/&OneWithShadowsAlternateDescription=Lorsque vous êtes dans une zone de faible lumière ou d'obscurité, vous pouvez lancer Invisibilité sur vous-même sans dépenser d'emplacement de sort.
+Invocation/&OneWithShadowsAlternateTitle=Un avec les ombres
 Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\nUn héros portant ce nom existe déjà dans le pool.\nVeuillez essayer un autre nom.
 Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription=Entrez le nom du héros à exporter :

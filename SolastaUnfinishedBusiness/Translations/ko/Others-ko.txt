@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: {3} 레벨에 도달하
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달
 Invocation/&DevilsSightExtendedDescription=당신은 일반적으로 어둠 속에서 마법적이든 비마법적이든 80피트 거리까지 볼 수 있습니다.
 Invocation/&OneWithShadowsAlternateDescription=희미한 빛이나 어둠의 지역에 있는 동안, 주문 슬롯을 소모하지 않고도 자신에게 투명화를 시전할 수 있습니다.
+Invocation/&OneWithShadowsAlternateTitle=그림자와 하나
 Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n동일한 이름을 가진 히어로가 이미 풀에 존재합니다.\n다른 이름을 사용해 보세요.
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n비어 있지 않은 이름을 사용해 보세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력하세요:

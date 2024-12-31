@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Level: {0}\nОпыт: {1}\n{2} очков до 
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nОпыт: {1}\nдостигнут максимальный уровень
 Invocation/&DevilsSightExtendedDescription=Вы можете нормально видеть в темноте, как магической, так и немагической, на расстоянии 80 футов.
 Invocation/&OneWithShadowsAlternateDescription=Когда вы находитесь в области тусклого света или в темноте, вы можете наложить на себя Невидимость без затраты ячеек заклинаний.
+Invocation/&OneWithShadowsAlternateTitle=Один с Тенями
 Message/&CharacterExportDuplicateNameErrorDescription=Экспортирование отменено:\nГерой с таким именем уже существует.\nПожалуйста, попробуйте другое имя.
 Message/&CharacterExportEmptyNameErrorDescription=Экспортирование отменено:\nПожалуйста, укажите не пустое имя.
 Message/&CharacterExportModalContentDescription=Введите имя героя для экспортирования:

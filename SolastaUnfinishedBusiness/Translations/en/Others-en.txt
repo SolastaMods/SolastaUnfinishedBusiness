@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points require
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nMax level reached
 Invocation/&DevilsSightExtendedDescription=You can see normally in darkness, both magical and non-magical, to a distance of 80 feet.
 Invocation/&OneWithShadowsAlternateDescription=While you're in an area of Dim Light or Darkness, you can cast Invisibility on yourself without expending a spell slot.
+Invocation/&OneWithShadowsAlternateTitle=One with the Shadows
 Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription=Enter the hero name to export:

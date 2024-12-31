@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Level: {0}\nErfahrung: {1}\n{2} Punkte erforder
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nErfahrung: {1}\nMaximales Level erreicht
 Invocation/&DevilsSightExtendedDescription=Sie können in der Dunkelheit, sowohl magisch als auch nicht magisch, bis zu einer Entfernung von 24 Metern normal sehen.
 Invocation/&OneWithShadowsAlternateDescription=Während Sie sich in einem Bereich mit schwachem Licht oder Dunkelheit befinden, können Sie sich selbst unsichtbar machen, ohne einen Zauberplatz zu verbrauchen.
+Invocation/&OneWithShadowsAlternateTitle=Eins mit den Schatten
 Message/&CharacterExportDuplicateNameErrorDescription=Export abgebrochen:\nEin Held mit diesem Namen ist bereits im Pool vorhanden.\nBitte versuchen Sie es mit einem anderen Namen.
 Message/&CharacterExportEmptyNameErrorDescription=Export abgebrochen:\nBitte versuchen Sie es mit einem Namen, der nicht leer ist.
 Message/&CharacterExportModalContentDescription=Geben Sie den zu exportierenden Heldennamen ein:

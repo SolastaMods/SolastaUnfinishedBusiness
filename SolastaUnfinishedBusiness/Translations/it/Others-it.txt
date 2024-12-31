@@ -349,6 +349,7 @@ Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti necess
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nLivello massimo raggiunto
 Invocation/&DevilsSightExtendedDescription=Puoi vedere normalmente nell'oscurità, sia magica che non magica, fino a una distanza di 24 metri.
 Invocation/&OneWithShadowsAlternateDescription=Quando ti trovi in ​​un'area di Luce Pallida o di Oscurità, puoi lanciare Invisibilità su te stesso senza spendere uno slot incantesimo.
+Invocation/&OneWithShadowsAlternateTitle=Uno con le ombre
 Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\nUn eroe con questo nome esiste già nel pool.\nProva un nome diverso.
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\nProva un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:
