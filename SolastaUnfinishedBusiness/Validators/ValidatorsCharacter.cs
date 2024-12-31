@@ -316,7 +316,7 @@ internal static class ValidatorsCharacter
     //
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
+    internal static bool IsMonkWeaponOrUnarmed(this RulesetActor character, WeaponDescription weaponDescription)
     {
         var monkWeaponSpecializations = character.GetSubFeaturesByType<WayOfBlade.WeaponSpecialization>();
 
@@ -329,14 +329,14 @@ internal static class ValidatorsCharacter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
+    internal static bool IsMonkWeaponOrUnarmed(this RulesetCharacter character, ItemDefinition itemDefinition)
     {
         if (!itemDefinition)
         {
             return false;
         }
 
-        return itemDefinition.IsWeapon && character.IsMonkWeapon(itemDefinition.WeaponDescription);
+        return itemDefinition.IsWeapon && character.IsMonkWeaponOrUnarmed(itemDefinition.WeaponDescription);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
