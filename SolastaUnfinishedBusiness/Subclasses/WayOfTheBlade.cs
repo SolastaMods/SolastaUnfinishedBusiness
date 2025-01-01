@@ -101,13 +101,8 @@ public sealed class WayOfBlade : AbstractSubclass
             .Create($"AttributeModifier{Name}OneWithTheBlade")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-            .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand)
-            .AddCustomSubFeatures(
-                new ModifyWeaponAttackModeOneWithTheBlade(),
-                new AddExtraMainHandAttack(
-                    ActionType.Bonus,
-                    ModifyWeaponAttackModeOneWithTheBlade.CanUseOneWithTheBlade,
-                    ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand))
+            .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandAndFreeOffhand)
+            .AddCustomSubFeatures(new CustomBehaviorOneWithTheBlade())
             .AddToDB();
 
         // Path of the Blade
@@ -195,14 +190,12 @@ public sealed class WayOfBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool IsAgileParryValid(
-        GameLocationCharacter defender, GameLocationCharacter attacker)
+    internal static bool IsAgileParryValid(GameLocationCharacter defender, GameLocationCharacter attacker)
     {
         var rulesetDefender = defender.RulesetCharacter;
-        var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, Name);
+        var subclassLevel = rulesetDefender.GetSubclassLevel(Monk, Name);
 
-        if (wayOfBladeLevel < 6 ||
-            !ValidatorsCharacter.HasMonkWeaponInMainHandAndFreeOffhand(rulesetDefender))
+        if (subclassLevel < 6 || !ValidatorsCharacter.IsMonkMeleeWeapon(rulesetDefender))
         {
             return false;
         }
@@ -264,21 +257,10 @@ public sealed class WayOfBlade : AbstractSubclass
     // One With The Blade
     //
 
-    private sealed class ModifyWeaponAttackModeOneWithTheBlade : IModifyWeaponAttackMode, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorOneWithTheBlade : AddExtraAttackBase, IPhysicalAttackFinishedByMe
     {
-        public void ModifyWeaponAttackMode(
-            RulesetCharacter rulesetCharacter,
-            RulesetAttackMode attackMode,
-            RulesetItem weapon,
-            bool canAddAbilityDamageBonus)
+        internal CustomBehaviorOneWithTheBlade() : base(ActionType.Bonus)
         {
-            if (attackMode.ActionType != ActionType.Bonus || !CanUseOneWithTheBlade(rulesetCharacter))
-            {
-                return;
-            }
-
-            attackMode.AddAttackTagAsNeeded(OneWithTheBlade);
-            attackMode.AttacksNumber = 3;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -296,11 +278,43 @@ public sealed class WayOfBlade : AbstractSubclass
             }
 
             attacker.SetSpecialFeatureUses(OneWithTheBlade, 1);
+
+            var cursorCaptionScreen = Gui.GuiService.GetScreen<CursorCaptionScreen>();
+
+            if (cursorCaptionScreen)
+            {
+                cursorCaptionScreen.AbortCb();
+            }
         }
 
-        internal static bool CanUseOneWithTheBlade(RulesetCharacter rulesetCharacter)
+        protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
         {
-            return GameLocationCharacter.GetFromActor(rulesetCharacter)?.GetSpecialFeatureUses(OneWithTheBlade) != 1;
+            if (character is not RulesetCharacterHero hero ||
+                !ValidatorsCharacter.IsMonkMeleeWeapon(hero) ||
+                GameLocationCharacter.GetFromActor(hero)?.GetSpecialFeatureUses(OneWithTheBlade) > 0)
+            {
+                return null;
+            }
+
+            var mainWeapon = hero.GetMainWeapon();
+            var itemDefinition = mainWeapon!.ItemDefinition;
+            var attackModifiers = hero.attackModifiers;
+            var attackMode = hero.RefreshAttackMode(
+                ActionType,
+                itemDefinition,
+                itemDefinition.WeaponDescription,
+                IsFreeOffhand(hero),
+                true,
+                EquipmentDefinitions.SlotTypeMainHand,
+                attackModifiers,
+                hero.FeaturesOrigin,
+                mainWeapon
+            );
+
+            attackMode.AddAttackTagAsNeeded(OneWithTheBlade);
+            attackMode.AttacksNumber = 3; // max number of unarmed bonus attacks a Monk can have
+
+            return [attackMode];
         }
     }
 
@@ -339,6 +353,79 @@ public sealed class WayOfBlade : AbstractSubclass
     }
 
     //
+    // Agile Parry
+    //
+
+    private sealed class MagicEffectFinishedByMeAgileParryAttack : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerAgileParryAttack ||
+                !attacker.CanReact())
+            {
+                yield break;
+            }
+
+            var defender = targets[0];
+            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
+
+            attacker.MyExecuteActionAttack(
+                Id.AttackOpportunity,
+                defender,
+                attackMode,
+                new ActionModifier());
+        }
+    }
+
+    //
+    // Swift Strike
+    //
+
+    private sealed class OnItemEquippedSwiftStrike : IOnItemEquipped
+    {
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (!ValidatorsCharacter.IsMonkMeleeWeapon(hero) &&
+                hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionSwiftStrike.Name, out var activeCondition))
+            {
+                hero.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    internal sealed class PowerOrSpellFinishedByMeSwiftStrike : IPowerOrSpellFinishedByMe
+    {
+        internal static readonly PowerOrSpellFinishedByMeSwiftStrike Marker = new();
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var subclassLevel = rulesetCharacter.GetSubclassLevel(Monk, Name);
+
+            if (subclassLevel < 11 || !ValidatorsCharacter.IsMonkMeleeWeapon(rulesetCharacter))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.InflictCondition(
+                ConditionSwiftStrike.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionSwiftStrike.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    //
     // Master of the Blade
     //
 
@@ -368,10 +455,6 @@ public sealed class WayOfBlade : AbstractSubclass
             rulesetAttacker.LogCharacterUsedFeature(featureMasterOfTheBlade);
 
             var actionId = Id.AttackFree;
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
 
             if (action.ActionId == Id.AttackOpportunity)
             {
@@ -382,84 +465,7 @@ public sealed class WayOfBlade : AbstractSubclass
             attacker.MyExecuteActionAttack(
                 actionId,
                 defender,
-                attackModeCopy,
-                new ActionModifier());
-        }
-    }
-
-    //
-    // Swift Strike
-    //
-
-    private sealed class OnItemEquippedSwiftStrike : IOnItemEquipped
-    {
-        public void OnItemEquipped(RulesetCharacterHero hero)
-        {
-            if (!ValidatorsCharacter.HasMeleeWeaponInMainHand(hero) &&
-                hero.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionSwiftStrike.Name, out var activeCondition))
-            {
-                hero.RemoveCondition(activeCondition);
-            }
-        }
-    }
-
-    internal sealed class PowerOrSpellFinishedByMeSwiftStrike : IPowerOrSpellFinishedByMe
-    {
-        internal static readonly PowerOrSpellFinishedByMeSwiftStrike Marker = new();
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var subclassLevel = rulesetCharacter.GetSubclassLevel(Monk, Name);
-
-            if (subclassLevel < 11 ||
-                !ValidatorsCharacter.HasMeleeWeaponInMainHand(rulesetCharacter))
-            {
-                yield break;
-            }
-
-            rulesetCharacter.InflictCondition(
-                ConditionSwiftStrike.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                ConditionSwiftStrike.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
-    //
-    // Agile Parry Attack
-    //
-
-    private sealed class MagicEffectFinishedByMeAgileParryAttack : IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(
-            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
-        {
-            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerAgileParryAttack)
-            {
-                yield break;
-            }
-
-            var defender = targets[0];
-            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
-
-            attacker.MyExecuteActionAttack(
-                Id.AttackOpportunity,
-                defender,
-                attackModeCopy,
+                attackMode,
                 new ActionModifier());
         }
     }
