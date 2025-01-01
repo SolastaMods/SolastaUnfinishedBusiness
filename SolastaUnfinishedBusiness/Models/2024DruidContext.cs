@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -14,11 +17,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static MetricsDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    private const string ElementalFury = "ElementaFury";
+
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidPrimalOrder = FeatureDefinitionFeatureSetBuilder
         .Create("FeatureSetDruidPrimalOrder")
         .SetGuiPresentation(Category.Feature)
@@ -123,14 +129,120 @@ internal static partial class Tabletop2024Context
                 .Build())
         .AddCustomSubFeatures(new ClassFeats.SpendWildShapeUse())
         .AddToDB();
-    
+
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidArchDruid =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetDruidArchDruid")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(PowerDruidNatureMagician)
             .AddToDB();
-    
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetDruidElementalFury =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDruidElementalFury")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureDruidImprovedElementalFury =
+        FeatureDefinitionBuilder
+            .Create("FeatureDruidImprovedElementalFury")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorPotentSpellcasting())
+            .AddToDB();
+
+    private static void LoadDruidArchDruid()
+    {
+        _ = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityAdditionalSpellSlot6")
+            .SetGuiPresentationNoContent(true)
+            .SetAdditionalSlots(new AdditionalSlotsDuplet { slotLevel = 6, slotsNumber = 1 })
+            .AddToDB();
+
+        _ = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityAdditionalSpellSlot6")
+            .SetGuiPresentationNoContent(true)
+            .SetAdditionalSlots(new AdditionalSlotsDuplet { slotLevel = 8, slotsNumber = 1 })
+            .AddToDB();
+    }
+
+    private static void LoadDruidElementalFury()
+    {
+        var featurePotentSpellcasting = FeatureDefinitionBuilder
+            .Create("FeatureDruidElementalFuryPotentSpellcasting")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var damageTypes = new (string, IMagicEffect)[]
+        {
+            (DamageTypeCold, ConeOfCold), (DamageTypeLightning, LightningBolt), (DamageTypeThunder, Shatter)
+        };
+
+        var powers = new List<FeatureDefinitionPower>();
+        var powerPrimalStrike = FeatureDefinitionPowerBuilder
+            .Create("PowerDruidElementalFury")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        powerPrimalStrike.AddCustomSubFeatures(new CustomBehaviorElementalFury(powerPrimalStrike));
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var (damageType, effect) in damageTypes)
+        {
+            var additionalDamageElementalFury = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamageDruidElementalFury{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag(ElementalFury)
+                .SetDamageDice(DieType.D8, 1)
+                .SetSpecificDamageType(damageType)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+                .SetAttackModeOnly()
+                .AddCustomSubFeatures(ClassHolder.Druid)
+                .SetImpactParticleReference(effect)
+                .AddToDB();
+
+            var conditionElementalFury = ConditionDefinitionBuilder
+                .Create($"ConditionDruidElementalFury{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(additionalDamageElementalFury)
+                .AddToDB();
+
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var powerElementalFury = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerDruidElementalFury{damageType}")
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PowerDruidElementalFurySubPowerTitle", damageTitle),
+                    Gui.Format("Feature/&PowerDruidElementalFurySubPowerTitle", damageTitle))
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, powerPrimalStrike)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalFury))
+                        .Build())
+                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                .AddToDB();
+
+            powers.Add(powerElementalFury);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPrimalStrike, false, powers);
+        FeatureSetDruidElementalFury.FeatureSet.SetRange(featurePotentSpellcasting, powerPrimalStrike);
+        FeatureSetDruidElementalFury.FeatureSet.AddRange(powers);
+    }
+
     private static void LoadDruidWildshape()
     {
         PowerDruidWildShape.AddCustomSubFeatures(
@@ -155,9 +267,21 @@ internal static partial class Tabletop2024Context
 
         Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
-    
-    private static void SwitchDruidElementalFury()
+
+    internal static void SwitchDruidElementalFury()
     {
+        Druid.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSetDruidElementalFury ||
+            x.FeatureDefinition == FeatureDruidImprovedElementalFury);
+
+        if (Main.Settings.EnableDruidElementalFury2024)
+        {
+            Druid.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(FeatureSetDruidElementalFury, 7),
+                new FeatureUnlockByLevel(FeatureDruidImprovedElementalFury, 15));
+        }
+
+        Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchDruidMetalArmor()
@@ -249,6 +373,144 @@ internal static partial class Tabletop2024Context
 
             modifierTrends.Add(new TrendInfo(modifier, FeatureSourceType.CharacterFeature,
                 "FeatureSetDruidPrimalOrderMagician", null));
+        }
+    }
+
+    private sealed class CustomBehaviorElementalFury(FeatureDefinitionPower powerElementalFury)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+            IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            yield return HandleOutcome(attacker);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield return HandleOutcome(attacker);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
+        {
+            if (!attacker.OnceInMyTurnIsValid(ElementalFury))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerElementalFury, rulesetAttacker);
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [attacker],
+                attacker,
+                powerElementalFury.Name,
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                attacker.SetSpecialFeatureUses(ElementalFury, 1);
+            }
+        }
+
+        private static IEnumerator HandleOutcome(GameLocationCharacter attacker)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (attacker.GetSpecialFeatureUses(ElementalFury) == 1)
+            {
+                rulesetAttacker.RemoveAllConditionsOfType(
+                    "ConditionDruidElementalFuryDamageCold",
+                    "ConditionDruidElementalFuryDamageLightning",
+                    "ConditionDruidElementalFuryDamageThunder");
+            }
+
+            yield break;
+        }
+    }
+
+    private sealed class CustomBehaviorPotentSpellcasting : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition { SpellLevel: 0 };
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var shapeType = effectDescription.TargetType switch
+            {
+                TargetType.Line => GeometricShapeType.Line,
+                TargetType.Cone => GeometricShapeType.Cone,
+                TargetType.Cube
+                    or TargetType.CubeWithOffset => GeometricShapeType.Cube,
+                TargetType.Cylinder
+                    or TargetType.CylinderWithDiameter => GeometricShapeType.Cylinder,
+                TargetType.Sphere
+                    or TargetType.PerceivingWithinDistance
+                    or TargetType.InLineOfSightWithinDistance
+                    or TargetType.ClosestWithinDistance => GeometricShapeType.Sphere,
+                TargetType.WallLine => GeometricShapeType.WallLine,
+                TargetType.WallRing => GeometricShapeType.WallRing,
+                _ => GeometricShapeType.None
+            };
+
+            switch (shapeType)
+            {
+                case GeometricShapeType.None:
+                    effectDescription.rangeParameter *= 2;
+                    break;
+                case GeometricShapeType.Cube:
+                    effectDescription.targetParameter += 2;
+                    break;
+                case GeometricShapeType.Cone or GeometricShapeType.Cylinder or GeometricShapeType.Sphere:
+                    effectDescription.targetParameter += 1;
+                    break;
+            }
+
+            return effectDescription;
         }
     }
 }

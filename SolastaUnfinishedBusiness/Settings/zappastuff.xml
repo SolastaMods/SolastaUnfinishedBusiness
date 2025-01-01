@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>2</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -702,9 +702,13 @@
     <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>true</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
+    <EnableDruidArchDruid2024>true</EnableDruidArchDruid2024>
+    <EnableDruidElementalFury2024>true</EnableDruidElementalFury2024>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
+    <EnableDruidWildResurgence2024>true</EnableDruidWildResurgence2024>
+    <EnableDruidWildshape2024>true</EnableDruidWildshape2024>
     <EnableFighterIndomitableSaving2024>true</EnableFighterIndomitableSaving2024>
     <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
@@ -743,6 +747,7 @@
     <EnableRangerRoving2024>true</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
+    <RemoveRangerPrimevalAwareness2024>true</RemoveRangerPrimevalAwareness2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
     <EnableRogueScimitarSpecialization>true</EnableRogueScimitarSpecialization>
