@@ -701,6 +701,13 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchRangerTireless();
         }
 
+        toggle = Main.Settings.RemoveRangerPrimevalAwareness2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRangerPrimevalAwareness2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRangerPrimevalAwareness2024 = toggle;
+            Tabletop2024Context.SwitchRangerPrimevalAwareness();
+        }
+
         toggle = Main.Settings.EnableRangerFavoredEnemy2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerFavoredEnemy2024"), ref toggle, UI.AutoWidth()))
         {

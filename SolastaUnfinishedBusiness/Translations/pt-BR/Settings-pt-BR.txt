@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Remover requisitos de sintonização <b><i><
 ModUi/&RemoveBardSongOfRest2024=Remova <color=#D89555>Canção do Descanso</color> no nível 2
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Risada Hedionda</color>
+ModUi/&RemoveRangerPrimevalAwareness2024=Remova <color=#D89555>Consciência Primordial</color> no nível 3
 ModUi/&RemoveRecurringEffectOnEntangle=Aplique o efeito <color=#D89555>Entangle</color> somente no momento do lançamento e também force um teste de força para se libertar das videiras
 ModUi/&RemoveRogueBlindSense2024=Remova <color=#D89555>Sentido Cego</color> no nível 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remover restrições escolares de <b>Shadowcaster</b>

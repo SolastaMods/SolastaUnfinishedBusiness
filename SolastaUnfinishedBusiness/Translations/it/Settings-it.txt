@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
+ModUi/&RemoveRangerPrimevalAwareness2024=Rimuovi <color=#D89555>Consapevolezza Primordiale</color> al livello 3
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
 ModUi/&RemoveRogueBlindSense2024=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <b>Shadowcaster</b>

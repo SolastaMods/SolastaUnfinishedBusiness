@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=調整要件を削除します <b><i><color=
 ModUi/&RemoveBardSongOfRest2024=レベル2で<color=#D89555>安息の歌</color>を削除します
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <i><color=#F0DAA0>[クモ恐怖症]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>Hideous Laughter</color> のヒューマノイド フィルターを削除します
+ModUi/&RemoveRangerPrimevalAwareness2024=レベル3で<color=#D89555>原始の意識</color>を削除します
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>絡みつく</color>効果は詠唱時にのみ適用され、蔓から逃れるには筋力チェックも強制される。
 ModUi/&RemoveRogueBlindSense2024=レベル14で<color=#D89555>ブラインドセンス</color>を削除します
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>Shadowcaster</b> から学校制限を削除します

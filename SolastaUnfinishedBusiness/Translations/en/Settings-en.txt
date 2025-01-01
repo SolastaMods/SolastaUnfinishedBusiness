@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=
 ModUi/&RemoveBardSongOfRest2024=Remove <color=#D89555>Song of Rest</color> at level 2
 ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
+ModUi/&RemoveRangerPrimevalAwareness2024=Remove <color=#D89555>Primeval Awareness</color> at level 3
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
 ModUi/&RemoveRogueBlindSense2024=Remove <color=#D89555>Blind Sense</color> at level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <b>Shadowcaster</b>

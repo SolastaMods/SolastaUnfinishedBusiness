@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Abstimmungsanforderungen entfernen <b><i><co
 ModUi/&RemoveBardSongOfRest2024=Entferne <color=#D89555>Song of Rest</color> auf Level 2
 ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Humanoidenfilter bei <color=#D89555>Greuelhaftes Gelächter</color> entfernen
+ModUi/&RemoveRangerPrimevalAwareness2024=Entferne <color=#D89555>Urbewusstsein</color> auf Stufe 3
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Verstricken</color>-Effekt nur beim Zaubern an und erzwinge außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien.
 ModUi/&RemoveRogueBlindSense2024=Entferne <color=#D89555>Blind Sense</color> auf Level 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen von <b>Shadowcaster</b> entfernen

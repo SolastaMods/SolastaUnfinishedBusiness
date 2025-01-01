@@ -102,6 +102,7 @@ internal static partial class Tabletop2024Context
         SwitchRangerFoeSlayers();
         SwitchRangerNatureShroud();
         SwitchRangerPreciseHunter();
+        SwitchRangerPrimevalAwareness();
         SwitchRangerRelentlessHunter();
         SwitchRangerRoving();
         SwitchRangerSpellCastingAtOne();

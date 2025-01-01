@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Убрать требования настр
 ModUi/&RemoveBardSongOfRest2024=Убрать <color=#D89555>Песнь отдыха</color> на уровне 2
 ModUi/&RemoveBugVisualModels=Заменить паукообразные модельки в игре на медведеобразные <i><color=#F0DAA0>[арахнофобия]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Убрать гуманоидный фильтр на <color=#D89555>Жуткий смех</color>
+ModUi/&RemoveRangerPrimevalAwareness2024=Удалить <color=#D89555>Первобытное Осознание</color> на уровне 3
 ModUi/&RemoveRecurringEffectOnEntangle=Применять эффект <color=#D89555>Опутывания</color> только на время действия заклинания, а также принудительно совершать проверку Силы, чтобы вырваться из лоз
 ModUi/&RemoveRogueBlindSense2024=Убрать <color=#D89555>Слепое зрение</color> на уровне 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Снять ограничения по школе заклинаний с <b>Заклинателя теней</b>
