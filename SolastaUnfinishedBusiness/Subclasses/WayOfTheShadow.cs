@@ -25,6 +25,11 @@ public sealed class WayOfShadow : AbstractSubclass
 
     internal const string ConditionCloakOfShadowsName = $"Condition{Name}CloakOfShadows";
 
+    internal static readonly SpellDefinition SpellDarkness = SpellDefinitionBuilder
+        .Create(Darkness, $"Spell{Name}Darkness")
+        .SetMaterialComponent(MaterialComponentType.None)
+        .AddToDB();
+    
     public WayOfShadow()
     {
         var validateIsNotInBrightLight = new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight);
@@ -39,16 +44,11 @@ public sealed class WayOfShadow : AbstractSubclass
             .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
-        var spellDarkness = SpellDefinitionBuilder
-            .Create(Darkness, $"Spell{Name}Darkness")
-            .SetMaterialComponent(MaterialComponentType.None)
-            .AddToDB();
+        SpellDarkness.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxyDarkness.Name;
 
-        spellDarkness.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxyDarkness.Name;
-        
         var powerDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
-            .SetGuiPresentation(spellDarkness.GuiPresentation)
+            .SetGuiPresentation(SpellDarkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -57,7 +57,7 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
                     .SetEffectForms()
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness(spellDarkness))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness(SpellDarkness))
             .AddToDB();
 
         var featureSetShadowArts = FeatureDefinitionFeatureSetBuilder
@@ -148,6 +148,8 @@ public sealed class WayOfShadow : AbstractSubclass
             .AddCustomSubFeatures(new CustomBehaviorCloakOfShadows())
             .AddToDB();
 
+        conditionCloakOfShadows.GuiPresentation.spriteReference =
+            ConditionDefinitions.ConditionStealthy.GuiPresentation.SpriteReference;
         conditionCloakOfShadows.SpecialInterruptions.Clear();
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder

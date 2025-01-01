@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
@@ -849,6 +850,7 @@ internal static class LightingAndObscurementContext
             FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseTruesight16, SenseDarkvision24);
             DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightExtendedDescription";
 
+            WayOfShadow.SpellDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
             SpellsContext.MaddeningDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionBlindedByDarkness;
@@ -914,6 +916,7 @@ internal static class LightingAndObscurementContext
                 ConditionAffinityInvocationDevilsSight);
             DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightDescription";
 
+            WayOfShadow.SpellDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
             SpellsContext.MaddeningDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionDarkness;
