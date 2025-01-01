@@ -640,7 +640,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierDevouringBladeExtraAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
+                    .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
                     .AddToDB())
             .SetRequirements(12)
             .SetValidators(Validate)
