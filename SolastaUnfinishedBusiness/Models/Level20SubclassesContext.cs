@@ -2064,20 +2064,14 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
-
-            //get copy to be sure we don't break existing mode
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackModeMain);
-            attackModeCopy.ActionType = ActionType.NoCost;
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
             foreach (var target in targets)
             {
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
-                    attackModeCopy,
+                    attackMode,
                     new ActionModifier());
             }
         }

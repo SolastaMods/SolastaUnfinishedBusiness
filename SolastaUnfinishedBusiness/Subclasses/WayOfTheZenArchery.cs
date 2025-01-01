@@ -283,22 +283,16 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            //get copy to be sure we don't break existing mode
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
             actingCharacter.SetSpecialFeatureUses(HailOfArrowsAttack, 0);
 
-            attackModeCopy.Copy(attackModeMain);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+            var attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             foreach (var target in targets)
             {
                 actingCharacter.MyExecuteActionAttack(
                     ActionDefinitions.Id.AttackFree,
                     target,
-                    attackModeCopy,
+                    attackMode,
                     new ActionModifier());
             }
         }

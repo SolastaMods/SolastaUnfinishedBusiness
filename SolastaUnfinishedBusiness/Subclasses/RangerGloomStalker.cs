@@ -318,10 +318,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
 
             var actionId = Id.AttackFree;
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
 
             if (action.ActionId == Id.AttackOpportunity)
             {
@@ -332,7 +328,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             attacker.MyExecuteActionAttack(
                 actionId,
                 defender,
-                attackModeCopy,
+                attackMode,
                 new ActionModifier());
         }
     }

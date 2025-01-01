@@ -83,15 +83,10 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
-
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
-                attackModeCopy,
+                attackMode,
                 new ActionModifier());
         }
     }
