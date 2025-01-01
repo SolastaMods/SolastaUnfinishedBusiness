@@ -72,6 +72,15 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ZenShotToggle
     ];
 
+    internal static readonly List<Id> ExtraActionIdProxies =
+    [
+        (Id)ExtraActionId.ProxyHoundWeapon ,
+        (Id)ExtraActionId.ProxyPactWeapon ,
+        (Id)ExtraActionId.ProxyPetalStorm ,
+        (Id)ExtraActionId.ProxyDawn ,
+        (Id)ExtraActionId.ProxyDarkness
+    ];
+    
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
     internal static void Load()
@@ -113,6 +122,12 @@ public static class CustomActionIdContext
             .Create(ProxyFlamingSphere, "ActionProxyDawn")
             .SetActionId(ExtraActionId.ProxyDawn)
             .SetActionType(ActionType.Bonus)
+            .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyDarkness")
+            .SetActionId(ExtraActionId.ProxyDarkness)
+            .SetActionType(ActionType.NoCost)
             .AddToDB();
     }
 

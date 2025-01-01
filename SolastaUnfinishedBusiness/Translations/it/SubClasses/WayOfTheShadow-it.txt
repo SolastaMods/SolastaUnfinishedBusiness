@@ -1,6 +1,6 @@
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=Hai un Vantaggio sul prossimo attacco corpo a corpo che effettui.
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=Velo d'ombra
-Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Puoi vedere normalmente in penombra e nell'oscurità naturale come se fossi in penombra, fino a una distanza di 60 piedi. Puoi anche spendere 1 ki per lanciare Darkness come azione senza fornire componenti materiali.
+Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=Puoi vedere normalmente in penombra e nell'oscurità naturale come se fossi in penombra, fino a una distanza di 60 piedi. Puoi anche spendere 1 ki per lanciare Darkness come azione senza fornire componenti materiali. Mentre l'incantesimo persiste, puoi spostare la sua area di oscurità in uno spazio entro 60 piedi da te.
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=Arti dell'ombra
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=Come Azione Bonus mentre sei completamente in Luce Fioca o Oscurità, puoi spendere 3 Punti Ki per avvolgerti nell'oscurità magica per 1 minuto, finché non hai la condizione Incapacitato o finché non termini il tuo turno in Luce Intensa. Mentre sei avvolto nell'oscurità, ottieni i seguenti benefici:\n• Invisibilità. Hai la condizione Invisibile.\n• Parzialmente Incorporeo. Puoi muoverti attraverso i nemici.\n• Raffica d'Ombra. Puoi usare la tua Raffica di Colpi senza spendere Punti Ki.
 Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=Mantello delle Ombre

@@ -31,9 +31,24 @@ public sealed class WayOfShadow : AbstractSubclass
 
         // LEVEL 03 - Shadow Arts
 
+        var effectProxyDarkness = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyDarkness, $"Proxy{Name}Darkness")
+            .SetCanMove()
+            .SetActionId(ExtraActionId.ProxyDarkness)
+            .SetCanMove()
+            .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
+            .AddToDB();
+
+        var spellDarkness = SpellDefinitionBuilder
+            .Create(Darkness, $"Spell{Name}Darkness")
+            .SetMaterialComponent(MaterialComponentType.None)
+            .AddToDB();
+
+        spellDarkness.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxyDarkness.Name;
+        
         var powerDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
-            .SetGuiPresentation(Darkness.GuiPresentation)
+            .SetGuiPresentation(spellDarkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -42,7 +57,7 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
                     .SetEffectForms()
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness(spellDarkness))
             .AddToDB();
 
         var featureSetShadowArts = FeatureDefinitionFeatureSetBuilder
@@ -175,11 +190,11 @@ public sealed class WayOfShadow : AbstractSubclass
     // Shadow Arts
     //
 
-    private sealed class PowerOrSpellFinishedByMeDarkness : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDarkness(SpellDefinition spellDarkness) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            action.ActingCharacter.MyExecuteActionCastNoCost(Darkness, 0, action.ActionParams);
+            action.ActingCharacter.MyExecuteActionCastNoCost(spellDarkness, 0, action.ActionParams);
 
             yield break;
         }

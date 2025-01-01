@@ -83,6 +83,7 @@ internal enum ExtraActionId
     OverChannelToggle,
     GravityWellToggle,
     GrappleNoCost,
+    ProxyDarkness,
     PrioritizeAction = 10000
 }
 
