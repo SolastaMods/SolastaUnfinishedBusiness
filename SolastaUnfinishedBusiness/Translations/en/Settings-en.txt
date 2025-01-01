@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> co
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Add DEX modifier to enemies <color=#D89555>Initiative Roll</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Enable <color=#D89555>Primal Order</color> at level 1 and remove <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Humanoid</color> preferred enemies <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=Enable <color=#D89555>Sear Undead</color> to r
 ModUi/&EnableClericToLearnDomainAtLevel3=Enable <color=#D89555>Domain</color> at level 3 instead of 1
 ModUi/&EnableCustomPortraits=Enable <color=#D89555>Custom Portraits</color>
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
+ModUi/&EnableDruidElementalFury2024=Enable <color=#D89555>Elemental Fury</color>, and <color=#D89555>Improved Elemental Fury</color> at levels 7 and 15
 ModUi/&EnableDruidMetalArmor2024=Remove <color=#D89555>Metal Armor</color> restrictions
+ModUi/&EnableDruidPrimalOrder2024=Enable <color=#D89555>Primal Order</color> at level 1 and remove <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&EnableDruidWeaponProficiency2024=Enable <color=#D89555>Simple Weapons</color> proficiency <i><color=#F0DAA0>[instead of individual weapon types but you lose Scimitar proficiency]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Enable <color=#D89555>Wild Resurgence</color> at level 5
+ModUi/&EnableDruidWildshape2024=Swap <color=#D89555>Wildshape</color> with 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Enable elevation camera during battle to stay at position after disabled and triple its range</i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>Greater</color> と <color=
 ModUi/&AddCustomIconsToOfficialItems=公式ゲームアイテムにカスタムアイコンを追加します <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルド</color>、<color=#D89555>グレイドワーフ</color>に<color=#D89555>闇知覚</color>を有効にする <i><color=#F0DAA0>\n[照明が消えているときや魔法の暗闇にいるときに知覚判定に有利を与える]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color>がクリティカルヒット時にのみスマイトを有効にするようにするトグルを追加します <i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッド
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
+ModUi/&EnableDruidElementalFury2024=レベル7と15で<color=#D89555>エレメンタルフューリー</color>と<color=#D89555>エレメンタルフューリー強化</color>を有効にする
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>金属装甲</color>の制限を解除
+ModUi/&EnableDruidPrimalOrder2024=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>シンプル武器</color>の熟練度を有効にします <i><color=#F0DAA0>[個別の武器タイプではなく、シミターの熟練度を失います]</color></i>
+ModUi/&EnableDruidWildResurgence2024=レベル5で<color=#D89555>ワイルドリサージェンス</color>を有効にする
+ModUi/&EnableDruidWildshape2024=<color=#D89555>Wildshape</color> を 2024 バージョン <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします\n<i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

@@ -64,6 +64,10 @@ internal static partial class Tabletop2024Context
                 .Build())
         .AddToDB();
 
+    internal static void SwitchDruidElementalFury()
+    {
+    }
+    
     internal static void SwitchDruidMetalArmor()
     {
         var active = Main.Settings.EnableDruidMetalArmor2024;
@@ -106,6 +110,14 @@ internal static partial class Tabletop2024Context
             Main.Settings.EnableDruidWeaponProficiency2024
                 ? [WeaponCategoryDefinitions.SimpleWeaponCategory.Name]
                 : DruidWeaponsCategories;
+    }
+
+    internal static void SwitchDruidWildResurgence()
+    {
+    }
+
+    internal static void SwitchDruidWildshape()
+    {
     }
 
     private sealed class ModifyAbilityCheckDruidPrimalOrder : IModifyAbilityCheck

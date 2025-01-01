@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Крово
 ModUi/&AddCustomIconsToOfficialItems=Добавить кастомные значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т.д.]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Включить <color=#D89555>Восприятие тьмы</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> <i><color=#F0DAA0>\n[даёт преимущество при проверках восприятия, когда персонаж не на свету или находится в магической темноте]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавлять модификатор Ловкости к <color=#D89555>броскам Инициативы</color> противников
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Включить <color=#D89555>Первобытный порядок</color> на уровне 1 и убрать <color=#D89555>Владение средней бронёй</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Включить <color=#D89555>Гуманоидов</color> в список избранных врагов <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавить новые оружия и рецепты в магазины <i><color=#F0DAA0>[обмотки, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Добавить переключатель, чтобы позволить <color=#D89555>Паладинам</color> использовать кару только при критах <i><color=#F0DAA0>[полезно для уменьшения количества запросов на реакции]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=Включить <color=#D89555>Опалени
 ModUi/&EnableClericToLearnDomainAtLevel3=Включить <color=#D89555>Божественный домен</color> на уровне 3 вместо 1
 ModUi/&EnableCustomPortraits=Включить <color=#D89555>Пользовательские портреты</color>
 ModUi/&EnableCustomPortraitsHelp=• Поместите свои пользовательские портреты в подпапки <i><b><color=#F0DAA0>Personal</color></b></i> или <i><b><color=#F0DAA0>PreGen</color></b></i> с именами, соответствующими именам героев <i><color=#F0DAA0>[т.е.: Антон, Селия, Ниалла и т. д.]</color></i>\n• Используйте изображения размером 256 x 384 пикселей с прозрачным фоном <i><color=#F0DAA0>[для достижения наилучших результатов используйте GIMP]</color></i>
+ModUi/&EnableDruidElementalFury2024=Включите <color=#D89555>Elemental Fury</color> и <color=#D89555>Improved Elemental Fury</color> на уровнях 7 и 15.
 ModUi/&EnableDruidMetalArmor2024=Снять ограничения на <color=#D89555>Металлическую броню</color>
+ModUi/&EnableDruidPrimalOrder2024=Включить <color=#D89555>Первобытный порядок</color> на уровне 1 и убрать <color=#D89555>Владение средней бронёй</color>
 ModUi/&EnableDruidWeaponProficiency2024=Включить владение <color=#D89555>Простым оружием</color> <i><color=#F0DAA0>[вместо отдельных видов оружия, однако теряется владение скимитаром]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Включить <color=#D89555>Дикое возрождение</color> на уровне 5
+ModUi/&EnableDruidWildshape2024=Заменить <color=#D89555>Wildshape</color> на версию 2024 года <i><color=#F0DAA0>[различные варианты использования]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Включить Создатель Подземелий ПРО\n<i><color=#F0DAA0>[включает простые комнаты, размеры подземелий 150x150 и 200x200, а также смешивание ассетов из разных наборов окружений без танцев с бубном]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Включить сохранение позиции уровня камеры во время боя после отключения, и утроить её масштаб</i>
 ModUi/&EnableEpicPointsAndArray=Включить эпические варианты поинт-бай системы (35 очков) и массива характеристик <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>

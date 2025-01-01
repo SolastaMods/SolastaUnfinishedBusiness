@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상위</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 지정 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에게 <color=#D89555>어둠 지각</color>을 활성화합니다. <i><color=#F0DAA0>\n[조명이 없거나 마법적 어둠에 있을 때 지각 검사에 유리합니다]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>성기사</color>가 치명타에만 스마이트를 사용할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
+ModUi/&EnableDruidElementalFury2024=레벨 7과 15에서 <color=#D89555>원소의 분노</color>와 <color=#D89555>향상된 원소의 분노</color>를 활성화합니다.
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
+ModUi/&EnableDruidPrimalOrder2024=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>간단한 무기</color> 숙련도를 활성화합니다. <i><color=#F0DAA0>[개별 무기 유형 대신 검 숙련도를 잃습니다]</color></i>
+ModUi/&EnableDruidWildResurgence2024=레벨 5에서 ​​<color=#D89555>야생의 부활</color>을 활성화합니다.
+ModUi/&EnableDruidWildshape2024=<color=#D89555>Wildshape</color>를 2024년 버전 <i><color=#F0DAA0>[다른 용도]</color></i>으로 바꾸세요
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기, 모든 환경의 자산을 혼합한 단순함 포함]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
 ModUi/&EnableEpicPointsAndArray=35포인트의 장대한 구매 시스템과 배열을 활성화하세요 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

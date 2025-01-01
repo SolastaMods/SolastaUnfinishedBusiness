@@ -289,9 +289,12 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableClericDivineOrder2024 { get; set; }
     public bool EnableClericSearUndead2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
+    public bool EnableDruidElementalFury2024 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }
     public bool EnableDruidWeaponProficiency2024 { get; set; }
+    public bool EnableDruidWildResurgence2024 { get; set; }
+    public bool EnableDruidWildshape2024 { get; set; }
     public bool EnableFighterIndomitableSaving2024 { get; set; }
     public bool EnableFighterSkillOptions2024 { get; set; }
     public bool EnableFighterSecondWind2024 { get; set; }

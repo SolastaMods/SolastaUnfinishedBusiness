@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Füge den Zustand <color=#D89555>Blutung</
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen benutzerdefinierte Symbole hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Humanoide</color> bevorzugte Feinde <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</col
 ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
+ModUi/&EnableDruidElementalFury2024=Aktiviere <color=#D89555>Elementarfury</color> und <color=#D89555>Verbesserte Elementarfury</color> auf den Stufen 7 und 15.
 ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidPrimalOrder2024=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&EnableDruidWeaponProficiency2024=Aktivieren Sie die Fertigkeit <color=#D89555>Einfache Waffen</color> <i><color=#F0DAA0>[anstelle einzelner Waffentypen, aber Sie verlieren die Fertigkeit Krummsäbel]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Aktiviere <color=#D89555>Wild Resurgence</color> auf Stufe 5.
+ModUi/&EnableDruidWildshape2024=Tauschen Sie <color=#D89555>Wildshape</color> gegen die Version 2024 aus <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeon-Größen von 150 x 150 und 200 x 200 und ohne Schnickschnack, indem Sie Assets aus allen Umgebungen mischen]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht</i>
 ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und -Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

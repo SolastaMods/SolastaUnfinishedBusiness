@@ -178,8 +178,16 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableDruidElementalFury2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidElementalFury2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidElementalFury2024 = toggle;
+            Tabletop2024Context.SwitchDruidElementalFury();
+        }
+
         toggle = Main.Settings.EnableDruidPrimalOrder2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidPrimalOrder2024"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrder2024 = toggle;
@@ -193,11 +201,25 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchDruidWeaponProficiency();
         }
 
+        toggle = Main.Settings.EnableDruidWildResurgence2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildResurgence2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildResurgence2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildResurgence();
+        }
+
         toggle = Main.Settings.EnableDruidMetalArmor2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableDruidMetalArmor2024 = toggle;
             Tabletop2024Context.SwitchDruidMetalArmor();
+        }
+
+        toggle = Main.Settings.EnableDruidWildshape2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildshape2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildshape2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildshape();
         }
 
         UI.Label();

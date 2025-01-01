@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicionar ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilitar <color=#D89555>Percepção da Escuridão</color> em <color=#D89555>Elfo Escuro</color>, <color=#D89555>Kobold Escuro</color> e <color=#D89555>Anão Cinzento</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicione modificador de DEX aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Habilite <color=#D89555>Ordem Primordial</color> no nível 1 e remova <color=#D89555>Proficiência em Armadura Média</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar inimigos preferenciais <color=#D89555>Humanoides</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicionar novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicione uma alternância para permitir que <color=#D89555>Paladinos</color> habilitem golpes somente em acertos críticos <i><color=#F0DAA0>[útil para minimizar prompts de reação]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=Habilitar <color=#D89555>Catar Mortos-Vivos</c
 ModUi/&EnableClericToLearnDomainAtLevel3=Habilitar <color=#D89555>Domínio</color> no nível 3 em vez de 1
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados em subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nomeadas com base no primeiro nome do herói <i><color=#F0DAA0>[por exemplo: Anton, Celia, Nialla, etc.]</color></i>\n• Use imagens PNG, com tamanho de 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
+ModUi/&EnableDruidElementalFury2024=Habilitar <color=#D89555>Fúria Elemental</color> e <color=#D89555>Fúria Elemental Aprimorada</color> nos níveis 7 e 15
 ModUi/&EnableDruidMetalArmor2024=Remover restrições de <color=#D89555>Armadura de Metal</color>
+ModUi/&EnableDruidPrimalOrder2024=Habilite <color=#D89555>Ordem Primordial</color> no nível 1 e remova <color=#D89555>Proficiência em Armadura Média</color>
 ModUi/&EnableDruidWeaponProficiency2024=Habilitar proficiência em <color=#D89555>Armas Simples</color> <i><color=#F0DAA0>[em vez de tipos de armas individuais, mas você perde proficiência em Cimitarra]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Habilitar <color=#D89555>Ressurgência Selvagem</color> no nível 5
+ModUi/&EnableDruidWildshape2024=Troque <color=#D89555>Wildshape</color> pela versão 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilitar Dungeon Maker Pro\n<i><color=#F0DAA0>[incluir salas planas, masmorras de 150x150 e 200x200 e recursos de mistura simples de todos os ambientes]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilitar câmera de elevação durante a batalha para permanecer na posição após desabilitada e triplicar seu alcance</i>
 ModUi/&EnableEpicPointsAndArray=Habilitar um sistema épico de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

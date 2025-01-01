@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>出血</color>状况添�
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color> <i><color=#F0DAA0>\n[在无光或在魔法黑暗下时在感知检查上获得优势]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=在 1 级启用<color=#D89555>原始秩序</color>并移除<color=#D89555>中等护甲熟练度</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
@@ -122,8 +121,12 @@ ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead<
 ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
+ModUi/&EnableDruidElementalFury2024=在 7 级和 15 级时启用<color=#D89555>元素之怒</color>和<color=#D89555>强化元素之怒</color>
 ModUi/&EnableDruidMetalArmor2024=删除<color=#D89555>金属装甲</color>限制
+ModUi/&EnableDruidPrimalOrder2024=在 1 级启用<color=#D89555>原始秩序</color>并移除<color=#D89555>中等护甲熟练度</color>
 ModUi/&EnableDruidWeaponProficiency2024=启用<color=#D89555>简单武器</color>熟练度<i><color=#F0DAA0>[而不是单个武器类型，但你会失去弯刀熟练度]</color></i>
+ModUi/&EnableDruidWildResurgence2024=在第 5 级启用<color=#D89555>狂野复苏</color>
+ModUi/&EnableDruidWildshape2024=将 <color=#D89555>Wildshape</color> 与 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro\n<i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
 ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
