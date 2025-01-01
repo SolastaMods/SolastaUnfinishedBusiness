@@ -125,9 +125,10 @@ ModUi/&EnableDruidArchDruid2024=Échangez <color=#D89555>Archdruid</color> avec 
 ModUi/&EnableDruidElementalFury2024=Activez la <color=#D89555>fureur élémentaire</color> et la <color=#D89555>fureur élémentaire améliorée</color> aux niveaux 7 et 15
 ModUi/&EnableDruidMetalArmor2024=Supprimer les restrictions de <color=#D89555>Armure métallique</color>
 ModUi/&EnableDruidPrimalOrder2024=Activez <color=#D89555>Ordre primordial</color> au niveau 1 et supprimez la <color=#D89555>Maîtrise de l'armure moyenne</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=Activer <color=#D89555>Cercle</color> au niveau 3 au lieu de 2
 ModUi/&EnableDruidWeaponProficiency2024=Activer la maîtrise des <color=#D89555>armes simples</color> <i><color=#F0DAA0>[au lieu des types d'armes individuels, mais vous perdez la maîtrise du cimeterre]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Activer <color=#D89555>Wild Resurgence</color> au niveau 5
-ModUi/&EnableDruidWildshape2024=Échangez <color=#D89555>Wildshape</color> avec la version 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
+ModUi/&EnableDruidWildshape2024=Échangez <color=#D89555>Wild Shape</color> avec la version 2024 <i><color=#F0DAA0>[différentes utilisations et points de vie temporaires]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des salles plates, des tailles de donjon 150x150 et 200x200 et aucun fioriture mélangeant des ressources de tous les environnements]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Activez la caméra d'élévation pendant la bataille pour rester en position après avoir été désactivée et tripler sa portée</i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

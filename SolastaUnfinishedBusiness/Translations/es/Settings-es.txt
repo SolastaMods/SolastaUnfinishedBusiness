@@ -125,9 +125,10 @@ ModUi/&EnableDruidArchDruid2024=Intercambia a <color=#D89555>Archidruida</color>
 ModUi/&EnableDruidElementalFury2024=Habilita <color=#D89555>Furia elemental</color> y <color=#D89555>Furia elemental mejorada</color> en los niveles 7 y 15
 ModUi/&EnableDruidMetalArmor2024=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
 ModUi/&EnableDruidPrimalOrder2024=Habilita <color=#D89555>Orden primigenia</color> en el nivel 1 y elimina <color=#D89555>Competencia en armadura media</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=Habilitar <color=#D89555>Círculo</color> en el nivel 3 en lugar del 2
 ModUi/&EnableDruidWeaponProficiency2024=Habilita la competencia en <color=#D89555>Armas simples</color> <i><color=#F0DAA0>[en lugar de tipos de armas individuales pero pierdes la competencia en Cimitarra]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Habilita <color=#D89555>Resurgimiento salvaje</color> en el nivel 5
-ModUi/&EnableDruidWildshape2024=Intercambiar <color=#D89555>Wildshape</color> con la versión 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
+ModUi/&EnableDruidWildshape2024=Intercambia <color=#D89555>Forma salvaje</color> con la versión 2024 <i><color=#F0DAA0>[usos diferentes y puntos de vida temporales]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilitar Dungeon Maker Pro\n<i><color=#F0DAA0>[incluye habitaciones planas, tamaños de mazmorras de 150x150 y 200x200 y sin lujos que combinen recursos de todos los entornos]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilita la cámara de elevación durante la batalla para que permanezca en la posición después de deshabilitarla y triplicar su alcance</i>
 ModUi/&EnableEpicPointsAndArray=Habilitar un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

@@ -290,6 +290,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableClericSearUndead2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
     public bool EnableDruidArchDruid2024 { get; set; }
+    public bool EnableDruidToLearnCircleAtLevel3 { get; set; }
     public bool EnableDruidElementalFury2024 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -11,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -18,6 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static MetricsDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -116,25 +120,16 @@ internal static partial class Tabletop2024Context
             .SetFeatureSet(PowerDruidWildResurgenceShape, PowerDruidWildResurgenceSlot)
             .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerDruidNatureMagician = FeatureDefinitionPowerBuilder
-        .Create("PowerDruidNatureMagician")
-        .SetGuiPresentation(Category.Feature,
-            Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.UntilLongRest)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .Build())
-        .AddCustomSubFeatures(new ClassFeats.SpendWildShapeUse())
+    private static readonly FeatureDefinition FeatureDruidEvergreenWildShape = FeatureDefinitionBuilder
+        .Create("FeatureDruidEvergreenWildShape")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new InitiativeEndListenerDruidEvergreenWildShape())
         .AddToDB();
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidArchDruid =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetDruidArchDruid")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(PowerDruidNatureMagician)
             .AddToDB();
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidElementalFury =
@@ -160,10 +155,69 @@ internal static partial class Tabletop2024Context
             .AddToDB();
 
         _ = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityAdditionalSpellSlot6")
+            .Create("MagicAffinityAdditionalSpellSlot8")
             .SetGuiPresentationNoContent(true)
             .SetAdditionalSlots(new AdditionalSlotsDuplet { slotLevel = 8, slotsNumber = 1 })
             .AddToDB();
+
+        //
+        // Gain Slots
+        //
+
+        var powers = new List<FeatureDefinitionPower>();
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create("PowerDruidNatureMagician")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        for (var i = 8; i >= 2; i -= 2)
+        {
+            var uses = i / 2;
+            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerNatureMagicianGainSlot{i}")
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PowerNatureMagicianGainSlotTitle", uses.ToString(), i.ToString()),
+                    Gui.Format("Feature/&PowerNatureMagicianGainSlotDescription", uses.ToString(), i.ToString()))
+                .SetSharedPool(ActivationTime.NoCost, powerPool)
+                .SetShowCasting(false)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.UntilLongRest)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"ConditionNatureMagicianGain{i}Slot")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetSilent(Silent.WhenAddedOrRemoved)
+                                        .SetFeatures(
+                                            GetDefinition<FeatureDefinitionMagicAffinity>(
+                                                $"MagicAffinityAdditionalSpellSlot{i}"))
+                                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .Build())
+                .AddCustomSubFeatures(
+                    ModifyPowerVisibility.Hidden,
+                    new ClassFeats.SpendWildShapeUse())
+                .AddToDB();
+
+            powers.Add(powerGainSlot);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+        FeatureSetDruidArchDruid.FeatureSet.SetRange(powerPool, FeatureDruidEvergreenWildShape);
+        FeatureSetDruidArchDruid.FeatureSet.AddRange(powers);
     }
 
     private static void LoadDruidElementalFury()
@@ -245,8 +299,11 @@ internal static partial class Tabletop2024Context
 
     private static void LoadDruidWildshape()
     {
+        CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat.AddCustomSubFeatures(
+            PowerOrSpellFinishedByMeDruidWildShape.Marker);
         PowerDruidWildShape.AddCustomSubFeatures(
             HasModifiedUses.Marker,
+            PowerOrSpellFinishedByMeDruidWildShape.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = PowerDruidWildShape,
@@ -345,6 +402,67 @@ internal static partial class Tabletop2024Context
         PowerFighterSecondWind.rechargeRate = Main.Settings.EnableDruidWildshape2024
             ? RechargeRate.LongRest
             : RechargeRate.ShortRest;
+        PowerDruidWildShape.GuiPresentation.description = Main.Settings.EnableDruidWildshape2024
+            ? "Feature/&PowerDruidWildShapeAlternateDescription"
+            : "Feature/&PowerDruidWildShapeDescription";
+    }
+
+    internal static void SwitchDruidCircleLearningLevel()
+    {
+        var circles = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(x => x.Name.StartsWith("Circle"))
+            .ToList();
+
+        var fromLevel = 3;
+        var toLevel = 2;
+
+        if (Main.Settings.EnableDruidToLearnCircleAtLevel3)
+        {
+            fromLevel = 2;
+            toLevel = 3;
+        }
+
+        foreach (var featureUnlock in circles
+                     .SelectMany(school => school.FeatureUnlocks
+                         .Where(featureUnlock => featureUnlock.level == fromLevel)))
+        {
+            featureUnlock.level = toLevel;
+        }
+
+        // change spell casting level on Druid itself
+        Druid.FeatureUnlocks
+                .FirstOrDefault(x =>
+                    x.FeatureDefinition == SubclassChoiceDruidCircle)!
+                .level =
+            toLevel;
+
+        foreach (var circle in circles)
+        {
+            circle.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+
+        Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class PowerOrSpellFinishedByMeDruidWildShape : IPowerOrSpellFinishedByMe
+    {
+        internal static readonly PowerOrSpellFinishedByMeDruidWildShape Marker = new();
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!Main.Settings.EnableDruidWildshape2024)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var classLevel = rulesetCharacter.GetClassLevel(Druid);
+            var rulesetMonster = ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters
+                .FirstOrDefault(x => x.RulesetCharacter.OriginalFormCharacter == rulesetCharacter)?.RulesetCharacter;
+
+            rulesetMonster?.ReceiveTemporaryHitPoints(
+                classLevel, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        }
     }
 
     private sealed class ModifyAbilityCheckDruidPrimalOrder : IModifyAbilityCheck
@@ -511,6 +629,27 @@ internal static partial class Tabletop2024Context
             }
 
             return effectDescription;
+        }
+    }
+
+    private sealed class InitiativeEndListenerDruidEvergreenWildShape : IInitiativeEndListener
+    {
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter character)
+        {
+            var rulesetCharacter = character.RulesetCharacter;
+            var power = character.RulesetCharacter.GetSubclassLevel(Druid, CircleOfTheNight.Name) == 0
+                ? PowerDruidWildShape
+                : CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat;
+
+            if (!power)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+
+            usablePower.Recharge();
+            rulesetCharacter.LogCharacterUsedFeature(FeatureDruidEvergreenWildShape);
         }
     }
 }

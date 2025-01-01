@@ -57,8 +57,8 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
 
             return character.GetClassLevel(Attribute) switch
             {
-                >= 10 => 4,
-                >= 4 => 3,
+                >= 17 => 4,
+                >= 6 => 3,
                 _ => 2
             };
         }

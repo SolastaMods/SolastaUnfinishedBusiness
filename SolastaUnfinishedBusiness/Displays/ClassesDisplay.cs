@@ -178,20 +178,11 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidElementalFury2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidElementalFury2024"), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.EnableDruidToLearnCircleAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidToLearnCircleAtLevel3"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidElementalFury2024 = toggle;
-            Tabletop2024Context.SwitchDruidElementalFury();
-        }
-
-        toggle = Main.Settings.EnableDruidPrimalOrder2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidPrimalOrder2024"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.EnableDruidPrimalOrder2024 = toggle;
-            Tabletop2024Context.SwitchDruidPrimalOrder();
+            Main.Settings.EnableDruidToLearnCircleAtLevel3 = toggle;
+            Tabletop2024Context.SwitchDruidCircleLearningLevel();
         }
 
         toggle = Main.Settings.EnableDruidWeaponProficiency2024;
@@ -228,7 +219,7 @@ internal static class ClassesDisplay
             Main.Settings.EnableDruidWildshape2024 = toggle;
             Tabletop2024Context.SwitchDruidWildshape();
         }
-        
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&FighterTitle") + ":</color>");
         UI.Label();

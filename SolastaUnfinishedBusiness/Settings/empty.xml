@@ -653,6 +653,8 @@
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>false</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>false</EnableClericToLearnDomainAtLevel3>
+    <EnableDruidArchDruid2024>false</EnableDruidArchDruid2024>
+    <EnableDruidToLearnCircleAtLevel3>false</EnableDruidToLearnCircleAtLevel3>
     <EnableDruidElementalFury2024>false</EnableDruidElementalFury2024>
     <EnableDruidMetalArmor2024>false</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>

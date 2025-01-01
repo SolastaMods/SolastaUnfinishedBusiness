@@ -125,9 +125,10 @@ ModUi/&EnableDruidArchDruid2024=<color=#D89555>アーチドルイド</color>を2
 ModUi/&EnableDruidElementalFury2024=レベル7と15で<color=#D89555>エレメンタルフューリー</color>と<color=#D89555>エレメンタルフューリー強化</color>を有効にする
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>金属装甲</color>の制限を解除
 ModUi/&EnableDruidPrimalOrder2024=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。
+ModUi/&EnableDruidToLearnCircleAtLevel3=<color=#D89555>Circle</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>シンプル武器</color>の熟練度を有効にします <i><color=#F0DAA0>[個別の武器タイプではなく、シミターの熟練度を失います]</color></i>
 ModUi/&EnableDruidWildResurgence2024=レベル5で<color=#D89555>ワイルドリサージェンス</color>を有効にする
-ModUi/&EnableDruidWildshape2024=<color=#D89555>Wildshape</color> を 2024 バージョン <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
+ModUi/&EnableDruidWildshape2024=<color=#D89555>ワイルドシェイプ</color>を2024バージョン<i><color=#F0DAA0>[異なる使用法、および一時的なヒットポイント]</color></i>と入れ替えます
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします\n<i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

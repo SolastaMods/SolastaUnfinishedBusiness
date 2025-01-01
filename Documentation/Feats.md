@@ -530,7 +530,7 @@ You have learned some of the ways of the monk. You gain Ki points equals to your
 
 # 107. - Natural Fluidity [UB]
 
-You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
+You may use a Wild Shape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 Wild Shape forms. You can use it once per long rest.
 
 # 108. - Old Tactics [UB]
 

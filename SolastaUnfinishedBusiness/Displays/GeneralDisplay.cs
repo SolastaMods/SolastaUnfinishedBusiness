@@ -442,6 +442,13 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableDruidToLearnCircleAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidToLearnCircleAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidToLearnCircleAtLevel3 = toggle;
+            Tabletop2024Context.SwitchDruidCircleLearningLevel();
+        }
+
         toggle = Main.Settings.EnableDruidElementalFury2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidElementalFury2024"), ref toggle,
                 UI.AutoWidth()))
@@ -485,7 +492,7 @@ internal static class ToolsDisplay
             Main.Settings.EnableDruidArchDruid2024 = toggle;
             Tabletop2024Context.SwitchDruidArchDruid();
         }
-        
+
         toggle = Main.Settings.EnableDruidWildshape2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildshape2024"), ref toggle, UI.AutoWidth()))
         {
