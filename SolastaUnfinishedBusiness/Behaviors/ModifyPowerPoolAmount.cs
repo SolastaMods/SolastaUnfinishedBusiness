@@ -29,6 +29,7 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
                     ? activeCondition.Amount
                     : 0),
             PowerPoolBonusCalculationType.SecondWind2024 => GetSecondWindUsages(),
+            PowerPoolBonusCalculationType.Wildshape2024 => GetWildshapeUsages(),
             _ => Value
         };
 
@@ -44,6 +45,21 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
                 >= 10 => 3,
                 >= 4 => 2,
                 _ => 1
+            };
+        }
+
+        int GetWildshapeUsages()
+        {
+            if (!Main.Settings.EnableDruidWildshape2024)
+            {
+                return 0;
+            }
+
+            return character.GetClassLevel(Attribute) switch
+            {
+                >= 10 => 4,
+                >= 4 => 3,
+                _ => 2
             };
         }
     }
@@ -67,5 +83,6 @@ public enum PowerPoolBonusCalculationType
     Attribute,
     AttributeModifier,
     ConditionAmount,
-    SecondWind2024
+    SecondWind2024,
+    Wildshape2024
 }

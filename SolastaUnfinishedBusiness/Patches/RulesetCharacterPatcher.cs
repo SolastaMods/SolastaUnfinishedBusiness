@@ -1739,33 +1739,49 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: support for Paladins to regain one channel divinity usage at short rests
-            if (Main.Settings.EnablePaladinChannelDivinity2024 && __instance.GetClassLevel(Paladin) >= 3)
+            if (Main.Settings.EnablePaladinChannelDivinity2024 && __instance.GetClassLevel(Paladin) >= 3 &&
+                __instance.UsedChannelDivinity > 0)
             {
-                if (__instance.UsedChannelDivinity > 0)
+                if (!simulate)
                 {
-                    if (!simulate)
-                    {
-                        __instance.UsedChannelDivinity -= 1;
-                    }
-
-                    __instance.recoveredFeatures.Add(AttributeModifierPaladinChannelDivinity);
+                    __instance.UsedChannelDivinity -= 1;
                 }
+
+                __instance.recoveredFeatures.Add(AttributeModifierPaladinChannelDivinity);
             }
 
             //PATCH: support for Clerics to regain one channel divinity usage at short rests
             // ReSharper disable once InvertIf
-            if (Main.Settings.EnableClericChannelDivinity2024 && __instance.GetClassLevel(Cleric) >= 2)
+            if (Main.Settings.EnableClericChannelDivinity2024 && __instance.GetClassLevel(Cleric) >= 2 &&
+                __instance.UsedChannelDivinity > 0)
             {
-                // ReSharper disable once InvertIf
-                if (__instance.UsedChannelDivinity > 0)
+                if (!simulate)
+                {
+                    __instance.UsedChannelDivinity -= 1;
+                }
+
+                __instance.recoveredFeatures.Add(AttributeModifierClericChannelDivinity);
+            }
+
+            //PATCH: support for Druids to regain one wildshape usage at short rests
+            // ReSharper disable once InvertIf
+            if (Main.Settings.EnableDruidWildshape2024 && __instance.GetClassLevel(Druid) >= 2)
+            {
+                var usablePower = PowerProvider.Get(PowerDruidWildShape, __instance);
+                var maxUses = __instance.GetMaxUsesOfPower(usablePower);
+                var remainingUses = __instance.GetRemainingUsesOfPower(usablePower);
+
+                if (remainingUses < maxUses)
                 {
                     if (!simulate)
                     {
-                        __instance.UsedChannelDivinity -= 1;
+                        usablePower.remainingUses++; // cannot call RepayUse() here as a dynamic pool
                     }
 
-                    __instance.recoveredFeatures.Add(AttributeModifierClericChannelDivinity);
+                    __instance.recoveredFeatures.Add(PowerFighterSecondWind);
                 }
+
+                __instance.recoveredFeatures.Add(PowerDruidWildShape);
             }
         }
 

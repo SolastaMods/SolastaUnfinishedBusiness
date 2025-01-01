@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -64,10 +66,22 @@ internal static partial class Tabletop2024Context
                 .Build())
         .AddToDB();
 
+    private static void LoadDruidWildshape()
+    {
+        PowerDruidWildShape.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = PowerDruidWildShape,
+                Type = PowerPoolBonusCalculationType.Wildshape2024,
+                Attribute = DruidClass
+            });
+    }
+
     internal static void SwitchDruidElementalFury()
     {
     }
-    
+
     internal static void SwitchDruidMetalArmor()
     {
         var active = Main.Settings.EnableDruidMetalArmor2024;
@@ -118,6 +132,9 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchDruidWildshape()
     {
+        PowerFighterSecondWind.rechargeRate = Main.Settings.EnableDruidWildshape2024
+            ? RechargeRate.LongRest
+            : RechargeRate.ShortRest;
     }
 
     private sealed class ModifyAbilityCheckDruidPrimalOrder : IModifyAbilityCheck
