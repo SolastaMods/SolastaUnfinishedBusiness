@@ -30,7 +30,7 @@ public sealed class WayOfShadow : AbstractSubclass
 
     internal static readonly EffectProxyDefinition EffectProxyDarkness = EffectProxyDefinitionBuilder
         .Create(EffectProxyDefinitions.ProxyDarkness, $"Proxy{Name}Darkness")
-        .SetCanMove()
+        .SetPortrait(Darkness.GuiPresentation.SpriteReference)
         .SetActionId(ExtraActionId.ProxyDarkness)
         .SetCanMove()
         .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
@@ -239,6 +239,13 @@ public sealed class WayOfShadow : AbstractSubclass
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
+            if (rulesetCharacter is RulesetCharacterEffectProxy ||
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionDarknessMoveProhibit))
+            {
+                yield break;
+            }
+
             rulesetCharacter.InflictCondition(
                 ConditionDarknessMoveProhibit,
                 DurationType.Round,
@@ -252,8 +259,6 @@ public sealed class WayOfShadow : AbstractSubclass
                 0,
                 0,
                 0);
-            
-            yield break;
         }
     }
 
