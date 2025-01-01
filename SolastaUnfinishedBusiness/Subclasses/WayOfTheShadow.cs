@@ -237,11 +237,6 @@ public sealed class WayOfShadow : AbstractSubclass
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionId != (Id)ExtraActionId.ProxyDarkness)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
@@ -257,6 +252,8 @@ public sealed class WayOfShadow : AbstractSubclass
                 0,
                 0,
                 0);
+            
+            yield break;
         }
     }
 

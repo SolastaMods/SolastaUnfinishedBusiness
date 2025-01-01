@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Hintergründe und Rassen
 ModUi/&Basic=<color=#F0DAA0>Grundlegend:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Verfluchen</color> erfordert keine Konzentration, wenn es mit einem Zauberplatz L5+ gewirkt wird.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Keine Gelegenheitsangriffe aktivieren, wenn Sie <color=#D89555>geblendet</color> sind
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Aktivieren Sie keine Gelegenheitsangriffe, wenn Sie <color=#D89555>geblendet</color> oder <color=#D89555>unsichtbar</color> sind.
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie

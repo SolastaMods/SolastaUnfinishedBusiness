@@ -28,6 +28,7 @@ internal static partial class Tabletop2024Context
         LoadBardCounterCharm();
         LoadClericChannelDivinity();
         LoadClericSearUndead();
+        LoadDruidElementalFury();
         LoadDruidWildshape();
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
