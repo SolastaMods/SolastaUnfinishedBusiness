@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Background e razze
 ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conferisci Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color> o <color=#D89555>Invisibile</color>
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=Campagne
 ModUi/&Category=Categoria

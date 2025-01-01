@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>
 ModUi/&Bestiary=動物図鑑
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪いの付与</color>は、L5以上の呪文スロットで唱える場合、集中力を必要としません。
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>のときに機会攻撃を無効にします
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>または<color=#D89555>透明</color>状態のときは機会攻撃を無効にします
 ModUi/&Blueprints=設計図
 ModUi/&Campaigns=キャンペーン
 ModUi/&Category=カテゴリ

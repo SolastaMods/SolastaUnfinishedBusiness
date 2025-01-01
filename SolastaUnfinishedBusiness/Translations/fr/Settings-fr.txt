@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Origines et races
 ModUi/&Basic=<color=#F0DAA0>Basique :</color>
 ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conférer une malédiction</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort de niveau 5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=N'activez aucune attaque d'opportunité lorsque vous êtes <color=#D89555>aveuglé</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=N'activez aucune attaque d'opportunité lorsque vous êtes <color=#D89555>Aveuglé</color> ou <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Plans
 ModUi/&Campaigns=Campagnes
 ModUi/&Category=Catégorie

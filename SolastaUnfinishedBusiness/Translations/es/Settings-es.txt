@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Antecedentes y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color> o <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría

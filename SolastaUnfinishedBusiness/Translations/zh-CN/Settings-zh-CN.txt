@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景与种族
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=动物寓言集
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术位施放<color=#D89555>施放诅咒</color>时不需要集中注意力
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=当<color=#D89555>失明</color>时，无法进行借机攻击
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=在<color=#D89555>失明</color>或<color=#D89555>隐形</color>时不会启用借机攻击
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=活动
 ModUi/&Category=类别

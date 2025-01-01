@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>
 ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 경우 집중이 필요하지 않습니다.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀었을 때</color> 기회 공격을 활성화하지 않습니다.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀거나</color> <color=#D89555>보이지 않음</color> 상태일 때는 기회 공격을 사용할 수 없습니다.
 ModUi/&Blueprints=청사진
 ModUi/&Campaigns=캠페인
 ModUi/&Category=범주

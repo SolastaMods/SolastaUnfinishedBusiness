@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportunity when <color=#D89555>Blinded</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportunity when <color=#D89555>Blinded</color> or <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
 ModUi/&Category=Category
