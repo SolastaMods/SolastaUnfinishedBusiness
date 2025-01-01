@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:MoveThroughEnemyModifierWayOfTheShadowCloakOfShadows:23b79dc5-a177-5301-ab28-d25bbc2e35df"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -15,11 +17,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacks",
-    "CastSpell",
-    "UsePower"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -273,8 +271,8 @@
     "description": "Rules/&ConditionInvisibleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "47cb18b1e2efaae4e960ff364c16736d",
-      "m_SubObjectName": "ConditionInvisible",
+      "m_AssetGUID": "01b9d4c2adfaad041be3e85c1cf6b9c1",
+      "m_SubObjectName": "ConditionStealthy",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

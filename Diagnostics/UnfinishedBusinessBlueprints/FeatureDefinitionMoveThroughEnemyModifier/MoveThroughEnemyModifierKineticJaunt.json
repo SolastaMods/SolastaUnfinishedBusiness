@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionMoveThroughEnemyModifier, Assembly-CSharp",
-  "minSizeDifference": 10,
+  "minSizeDifference": 0,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

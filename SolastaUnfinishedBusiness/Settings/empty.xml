@@ -653,9 +653,12 @@
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>false</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>false</EnableClericToLearnDomainAtLevel3>
+    <EnableDruidElementalFury2024>false</EnableDruidElementalFury2024>
     <EnableDruidMetalArmor2024>false</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>false</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>false</EnableDruidWeaponProficiency2024>
+    <EnableDruidWildResurgence2024>false</EnableDruidWildResurgence2024>
+    <EnableDruidWildshape2024>false</EnableDruidWildshape2024>
     <EnableFighterIndomitableSaving2024>false</EnableFighterIndomitableSaving2024>
     <EnableFighterSkillOptions2024>false</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>false</EnableFighterSecondWind2024>
@@ -694,6 +697,7 @@
     <EnableRangerRoving2024>false</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>false</EnableRangerSpellCastingAtLevel1>
     <EnableRangerTireless2024>false</EnableRangerTireless2024>
+    <RemoveRangerPrimevalAwareness2024>false</RemoveRangerPrimevalAwareness2024>
     <EnableRangerFeralSenses2024>false</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>false</EnableRangerFoeSlayers2024>
     <EnableRogueScimitarSpecialization>false</EnableRogueScimitarSpecialization>
@@ -1180,4 +1184,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

@@ -1,28 +1,8 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    false,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "Charge",
-    "DashBonus",
-    "DashMain",
-    "TacticalMove"
-  ],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinitionMoveThroughEnemyModifier, Assembly-CSharp",
+  "minSizeDifference": 0,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -47,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1d1b87e9-0943-5208-a7e5-2c5a90b5b3f0",
+  "guid": "23b79dc5-a177-5301-ab28-d25bbc2e35df",
   "contentPack": 9999,
-  "name": "ActionAffinityNoMove"
+  "name": "MoveThroughEnemyModifierWayOfTheShadowCloakOfShadows"
 }

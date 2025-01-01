@@ -1,28 +1,17 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    false,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Bonus",
   "forbiddenActions": [
-    "Charge",
-    "DashBonus",
-    "DashMain",
-    "TacticalMove"
+    "FlurryOfBlows",
+    "FlurryOfBlowsSwiftSteps",
+    "FlurryOfBlowsUnendingStrikes"
   ],
   "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "restrictedActions": [
+    "AttackOff"
+  ],
+  "maxAttacksNumber": 1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -47,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1d1b87e9-0943-5208-a7e5-2c5a90b5b3f0",
+  "guid": "d6349592-d6f2-5eb5-9f7f-acc9639a017f",
   "contentPack": 9999,
-  "name": "ActionAffinityNoMove"
+  "name": "AdditionalActionWayOfTheShadowImprovedShadowStep"
 }

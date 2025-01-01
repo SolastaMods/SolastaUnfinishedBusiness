@@ -4,22 +4,22 @@ ATTENTION: RESPEC required on Acid Claws, Crossbow Mastery, Pugilist, Way of Sha
 
 CHANGES:
 
-- added Devouring Blade, and One with Shadows 2024 invocations
-- added Monk, Ranger, Sorcerer, and Warlock tabletop 2024 settings
-- added Way of Blade subclass [Kensei]
-- changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC req.]
-- changed shadow flurry -> improved shadow step, and Shadow Sanctuary -> Cloak of Shadows on Way of Shadow [RESPEC req.]
+- added Devouring Blade invocation, and Way of Blade subclass
+- added Druid, Monk, Ranger, Sorcerer, and Warlock tabletop 2024 settings
+- added One with Shadows, and Otherwordly Leap tabletop 2024 invocations
+- changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
+- changed shadow flurry -> improved shadow step, and Shadow Sanctuary -> Cloak of Shadows on Way of Shadow [RESPEC]
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
-- fixed Cleric divine spark healing dice progression
+- fixed Cleric divine spark healing power dice progression
 - fixed Command: Grove spell not ending target turn after prone action
-- fixed Disheartening Performance / Hideous Laughter interaction *crash*
-- fixed Gift of the Gem Dragon reaction *crash* under Chinese language
+- fixed Disheartening Performance / Hideous Laughter interaction**crash**
+- fixed Gift of the Gem Dragon reaction **crash** under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
-- fixed translated campaigns world map *soft lock* [location titles won't be translated in any language]
 - fixed True Strike 2024 not using spell casting ability on attack roll
 - fixed damage roll reduction calculation applying on every form instead of total roll [VANILLA]
-- fixed *soft lock* scenario when target cannot move, and AI decision is dash [VANILLA] 
-- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC req.]
+- fixed translated campaigns world map **soft lock** by not translating location titles anymore
+- fixed **soft lock** scenario when target cannot move, and AI decision is dash [VANILLA] 
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
 
 KNOWN ISSUES:
 

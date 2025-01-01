@@ -3558,7 +3558,7 @@ When you are about to be hit by a melee attack that includes Bludgeoning, Pierci
 
 * Swift Strike
 
-Whenever you use Step of the Wind or Patient Defense, you can make one additional main attack with a monk weapon.
+Whenever you use Step of the Wind or Patient Defense, you can make one additional main hand attack with a monk weapon.
 
 
 ### Level 17
@@ -3771,31 +3771,31 @@ Way of Shadow monks practice stealth and subterfuge, channeling their reservoirs
 
 * Shadow Arts
 
-You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
+You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components. While the spell persists, you can move its area of darkness to a space within 60 feet of you.
 
 
 ### Level 6
 
-* Feature/&PowerWayOfTheShadowShadowsStepTitle
+* Shadow Step
 
-Feature/&PowerWayOfTheShadowShadowsStepDescription
+While entirely within Dim Light or Darkness, you can use a Bonus Action to teleport up to 60 feet to an unoccupied space you can see that is also in Dim Light or Darkness. You then have Advantage on the next melee attack you make before the end of the turn.
 
 
 ### Level 11
 
-* Feature/&PowerWayOfTheShadowImprovedShadowsStepTitle
+* Improved Shadow Step
 
-Feature/&PowerWayOfTheShadowImprovedShadowsStepDescription
+You can use a Bonus Action, and spend 1 Ki Point to remove the requirement that you must start and end in Dim Light or Darkness for the use of Shadow Step. You can also make an Unarmed Strike after the teleportation.
 
 
 ### Level 17
 
 * Cloak of Shadows
 
-As a Bonus Action while entirely within Dim Light or Darkness, you can spend 3 Focus Points to shroud yourself with magical darkness for 1 minute, until you have the Incapacitated condition, or until you end your turn in Bright Light. While shrouded in darkness, you gain the following benefits:
+As a Bonus Action while entirely within Dim Light or Darkness, you can spend 3 Ki Points to shroud yourself with magical darkness for 1 minute, until you have the Incapacitated condition, or until you end your turn in Bright Light. While shrouded in darkness, you gain the following benefits:
 • Invisibility. You have the Invisible condition.
 • Partially Incorporeal. You can move through enemies.
-• Shadow Flurry. You can use your Flurry of Blows without spending any Focus Points.
+• Shadow Flurry. You can use your Flurry of Blows without spending any Ki Points.
 
 
 
