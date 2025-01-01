@@ -18,6 +18,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
+using static ActionDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -202,8 +203,8 @@ public static class GameLocationCharacterPatcher
         public static bool Prefix(GameLocationCharacter __instance)
         {
             var rulesetCharacter = __instance.RulesetCharacter;
-            if (__instance.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-                ActionDefinitions.ActionStatus.Available)
+
+            if (__instance.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
             {
                 rulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                     __instance.featuresCache, rulesetCharacter.FeaturesOrigin);
@@ -229,10 +230,10 @@ public static class GameLocationCharacterPatcher
                     __instance.IncrementSpecialFeatureUses(actionAffinity.Name);
 
                     //---- END ----
-                    __instance.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+                    __instance.RefundActionUse(ActionType.Reaction);
 
                     var actionRefunded = __instance.ActionRefunded;
-                    actionRefunded?.Invoke(__instance, ActionDefinitions.ActionType.Reaction);
+                    actionRefunded?.Invoke(__instance, ActionType.Reaction);
                 }
             }
 
@@ -311,7 +312,7 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
-            ActionDefinitions.ActionType actionType,
+            ActionType actionType,
             ref bool __result,
             bool accountDelegatedPowers)
         {
@@ -331,8 +332,8 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            if (actionType == ActionDefinitions.ActionType.Main
-                && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+            if (actionType == ActionType.Main &&
+                rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
                     CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
 
             {
@@ -377,13 +378,19 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
-            ref ActionDefinitions.ActionStatus __result,
-            ActionDefinitions.Id actionId,
-            ActionDefinitions.ActionScope scope,
-            ActionDefinitions.ActionStatus actionTypeStatus,
+            ref ActionStatus __result,
+            Id actionId,
+            ActionScope scope,
+            ActionStatus actionTypeStatus,
             // RulesetAttackMode optionalAttackMode,
             bool ignoreMovePoints)
         {
+            var rulesetCharacter = __instance.RulesetCharacter;
+            var flurryOfBlowActions = new[]
+            {
+                Id.FlurryOfBlows, Id.FlurryOfBlowsSwiftSteps, Id.FlurryOfBlowsUnendingStrikes
+            };
+
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
@@ -399,56 +406,49 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: support `EnableMonkFocus2024`
             if (Main.Settings.EnableMonkFocus2024 &&
-                actionId
-                    is ActionDefinitions.Id.FlurryOfBlows
-                    or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
-                    or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
-                __result == ActionDefinitions.ActionStatus.CannotPerform &&
-                __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
-                ActionDefinitions.ActionStatus.Available &&
-                (!__instance.ActionPerformancesByType.TryGetValue(ActionDefinitions.ActionType.Bonus,
-                     out var actionPerformanceFilters) ||
-                 actionPerformanceFilters
-                     .SelectMany(x => x.ForbiddenActions)
-                     .All(x => x is not (ActionDefinitions.Id.FlurryOfBlows
-                         or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
-                         or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes))) &&
-                (__instance.RulesetCharacter.RemainingKiPoints > 0 ||
-                 __instance.RulesetCharacter.HasConditionOfType(WayOfShadow.ConditionCloakOfShadowsName)))
+                __result == ActionStatus.CannotPerform &&
+                (rulesetCharacter.RemainingKiPoints > 0 ||
+                 rulesetCharacter.HasConditionOfType(WayOfShadow.ConditionCloakOfShadowsName)) &&
+                __instance.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available)
             {
-                __result = ActionDefinitions.ActionStatus.Available;
+                foreach (var flurryOfBlowAction in flurryOfBlowActions)
+                {
+                    if (actionId == flurryOfBlowAction &&
+                        (!__instance.ActionPerformancesByType.TryGetValue(
+                             ActionType.Bonus, out var actionPerformanceFilters) ||
+                         actionPerformanceFilters.All(x => x.ForbiddenActions.All(y => y != flurryOfBlowAction))))
+                    {
+                        __result = ActionStatus.Available;
+                    }
+                }
             }
 
             //PATCH: support Swift Quiver spell interaction with Flurry of Blows
-            if (actionId
-                    is ActionDefinitions.Id.FlurryOfBlows
-                    or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
-                    or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
-                __instance.UsedSpecialFeatures.ContainsKey(SpellBuilders.SwiftQuiverAttackTag) &&
-                __result == ActionDefinitions.ActionStatus.Available)
+            if (__result == ActionStatus.Available &&
+                flurryOfBlowActions.Contains(actionId) &&
+                __instance.UsedSpecialFeatures.ContainsKey(SpellBuilders.SwiftQuiverAttackTag))
             {
-                __result = ActionDefinitions.ActionStatus.CannotPerform;
+                __result = ActionStatus.CannotPerform;
             }
 
             var traditionFreedomLevel =
-                __instance.RulesetCharacter.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Monk,
-                    "TraditionFreedom");
+                rulesetCharacter.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Monk, "TraditionFreedom");
 
             //BUGFIX: Hide other Flurry of Blows actions on Way of Freedom Monk as it levels up
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (actionId)
             {
-                case ActionDefinitions.Id.FlurryOfBlows when
+                case Id.FlurryOfBlows when
                     traditionFreedomLevel >= 3:
-                case ActionDefinitions.Id.FlurryOfBlowsSwiftSteps when
+                case Id.FlurryOfBlowsSwiftSteps when
                     traditionFreedomLevel >= 11:
-                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                    __result = ActionStatus.Unavailable;
                     break;
             }
 
             //BUGFIX: if character can use only 1 of Main or Bonus - auto fail status if another type is used
             //Fixes Slow in various cases where we add extra attacks or other actions that manually consume main or bonus action
-            var either = __instance.RulesetCharacter.GetSubFeaturesByType<IActionPerformanceProvider>()
+            var either = rulesetCharacter.GetSubFeaturesByType<IActionPerformanceProvider>()
                 .Any(provider => provider.EitherMainOrBonus);
 
             if (!either)
@@ -458,15 +458,15 @@ public static class GameLocationCharacterPatcher
 
             var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
             var actionType = action.actionType;
-            var mainRanks = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
-            var bonusRanks = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+            var mainRanks = __instance.currentActionRankByType[ActionType.Main];
+            var bonusRanks = __instance.currentActionRankByType[ActionType.Bonus];
 
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (actionType)
             {
-                case ActionDefinitions.ActionType.Bonus when mainRanks > 0:
-                case ActionDefinitions.ActionType.Main when bonusRanks > 0:
-                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                case ActionType.Bonus when mainRanks > 0:
+                case ActionType.Main when bonusRanks > 0:
+                    __result = ActionStatus.Unavailable;
                     break;
             }
         }
@@ -506,7 +506,7 @@ public static class GameLocationCharacterPatcher
     public static class SpendActionType_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        public static void Prefix(GameLocationCharacter __instance, ActionType actionType)
         {
             //PATCH: support for action switching
             ActionSwitching.SpendActionType(__instance, actionType);
@@ -519,13 +519,13 @@ public static class GameLocationCharacterPatcher
     public static class RefundActionUse_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        public static void Prefix(GameLocationCharacter __instance, ActionType actionType)
         {
             //PATCH: support for action switching
             ActionSwitching.RefundActionUse(__instance, actionType);
 
             //PATCH: fix reaction counted as not available even after refund
-            if (actionType == ActionDefinitions.ActionType.Reaction)
+            if (actionType == ActionType.Reaction)
             {
                 __instance.ReactionEngaged = false;
             }
@@ -542,8 +542,8 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static void Prefix(GameLocationCharacter __instance)
         {
-            _mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
-            _bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+            _mainRank = __instance.currentActionRankByType[ActionType.Main];
+            _bonusRank = __instance.currentActionRankByType[ActionType.Bonus];
             _mainAttacks = __instance.UsedMainAttacks;
             _bonusAttacks = __instance.UsedBonusAttacks;
         }
@@ -552,7 +552,7 @@ public static class GameLocationCharacterPatcher
         public static void Postfix(
             GameLocationCharacter __instance,
             CharacterActionParams actionParams,
-            ActionDefinitions.ActionScope scope)
+            ActionScope scope)
         {
             //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
@@ -563,11 +563,11 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: only call refresh once after above methods are called
             //BUGFIX: vanilla doesn't refresh attack modes on free attacks
-            if (scope == ActionDefinitions.ActionScope.Battle &&
+            if (scope == ActionScope.Battle &&
                 actionParams.ActionDefinition.Id
-                    is ActionDefinitions.Id.AttackFree
-                    or ActionDefinitions.Id.AttackMain
-                    or ActionDefinitions.Id.AttackOff)
+                    is Id.AttackFree
+                    or Id.AttackMain
+                    or Id.AttackOff)
             {
                 __instance.RulesetCharacter.RefreshAttackModes();
             }
@@ -588,11 +588,11 @@ public static class GameLocationCharacterPatcher
             var findAttacks = typeof(GameLocationCharacter).GetMethod("FindActionAttackMode");
             var method = new Func<
                 GameLocationCharacter,
-                ActionDefinitions.Id,
+                Id,
                 bool,
                 bool,
                 bool,
-                ActionDefinitions.ReadyActionType,
+                ReadyActionType,
                 RulesetAttackMode,
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromForcedAttack).Method;
@@ -611,7 +611,7 @@ public static class GameLocationCharacterPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(GameLocationCharacter __instance, ref bool __result,
-            ActionDefinitions.Id actionId)
+            Id actionId)
         {
             if (!CustomActionIdContext.IsToggleId(actionId))
             {
@@ -695,10 +695,11 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(GameLocationCharacter __instance)
         {
-            __instance.RulesetCharacter.TryGetFirstConditionOfCategory(AttributeDefinitions.TagLightSensitivity,
+            var rulesetCharacter = __instance.RulesetCharacter;
+
+            rulesetCharacter.TryGetFirstConditionOfCategory(AttributeDefinitions.TagLightSensitivity,
                 out var activeCondition);
-            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity,
-                false);
+            rulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity, false);
 
             for (var index = __instance.affectingLightEffects.Count - 1; index >= 0; --index)
             {
@@ -707,7 +708,7 @@ public static class GameLocationCharacterPatcher
 
             __instance.affectingLightEffects.Clear();
 
-            var affinityFeatures = __instance.RulesetCharacter.GetLightAffinityFeatures();
+            var affinityFeatures = rulesetCharacter.GetLightAffinityFeatures();
 
             RulesetCondition newCondition = null;
 
@@ -751,15 +752,15 @@ public static class GameLocationCharacterPatcher
                     if (effectAndCondition.condition)
                     {
                         newCondition = RulesetCondition.CreateActiveCondition(
-                            __instance.RulesetCharacter.Guid,
+                            rulesetCharacter.Guid,
                             effectAndCondition.condition,
                             DurationType.Irrelevant,
                             0,
                             TurnOccurenceType.StartOfTurn,
                             __instance.Guid,
-                            __instance.RulesetCharacter.CurrentFaction.Name);
+                            rulesetCharacter.CurrentFaction.Name);
 
-                        __instance.RulesetCharacter.AddConditionOfCategory(
+                        rulesetCharacter.AddConditionOfCategory(
                             AttributeDefinitions.TagLightSensitivity, newCondition, false);
                     }
 
@@ -770,7 +771,7 @@ public static class GameLocationCharacterPatcher
 
                         __instance.affectingLightEffects.Add(implementationService
                             .InstantiateEffectEnvironment(
-                                __instance.RulesetCharacter, effectAndCondition.effect, -1, 0, false, new BoxInt(),
+                                rulesetCharacter, effectAndCondition.effect, -1, 0, false, new BoxInt(),
                                 new int3(), string.Empty, false));
                     }
 
@@ -786,7 +787,7 @@ public static class GameLocationCharacterPatcher
                 return false;
             }
 
-            __instance.RulesetCharacter.RefreshAll();
+            rulesetCharacter.RefreshAll();
 
             return false;
         }

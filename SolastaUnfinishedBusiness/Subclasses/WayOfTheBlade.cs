@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
@@ -27,6 +26,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WayOfBlade : AbstractSubclass
 {
     private const string Name = "WayOfBlade";
+
+    internal const string OneWithTheBlade = "OneWithTheBlade";
 
     internal static readonly FeatureDefinitionPower PowerAgileParry = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}AgileParry")
@@ -105,8 +106,8 @@ public sealed class WayOfBlade : AbstractSubclass
                 new ModifyWeaponAttackModeOneWithTheBlade(),
                 new AddExtraMainHandAttack(
                     ActionType.Bonus,
-                    ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand,
-                    ValidatorsCharacter.HasAnyOfConditions(ConditionMonkMartialArtsUnarmedStrikeBonus)))
+                    ModifyWeaponAttackModeOneWithTheBlade.CanUseOneWithTheBlade,
+                    ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand))
             .AddToDB();
 
         // Path of the Blade
@@ -201,7 +202,7 @@ public sealed class WayOfBlade : AbstractSubclass
         var wayOfBladeLevel = rulesetDefender.GetSubclassLevel(Monk, Name);
 
         if (wayOfBladeLevel < 6 ||
-            !ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand(rulesetDefender))
+            !ValidatorsCharacter.HasMonkWeaponInMainHandAndFreeOffhand(rulesetDefender))
         {
             return false;
         }
@@ -263,9 +264,7 @@ public sealed class WayOfBlade : AbstractSubclass
     // One With The Blade
     //
 
-    // set attacks number to 2 to allow a mix of unarmed / melee weapon attacks otherwise game engine will consume bonus action
-    // the patch on CharacterActionItemForm.Refresh finishes the trick by hiding the number of attacks with a proper hide tag
-    private sealed class ModifyWeaponAttackModeOneWithTheBlade : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeOneWithTheBlade : IModifyWeaponAttackMode, IPhysicalAttackFinishedByMe
     {
         public void ModifyWeaponAttackMode(
             RulesetCharacter rulesetCharacter,
@@ -273,21 +272,35 @@ public sealed class WayOfBlade : AbstractSubclass
             RulesetItem weapon,
             bool canAddAbilityDamageBonus)
         {
-            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-
-            if (character is not { UsedBonusAttacks: 0 } ||
-                attackMode.ActionType != ActionType.Bonus ||
-                !rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionFlurryOfBlows) ||
-                !ValidatorsWeapon.IsMelee(attackMode) ||
-                !rulesetCharacter.IsMonkWeaponOrUnarmed(attackMode.SourceDefinition as ItemDefinition))
+            if (attackMode.ActionType != ActionType.Bonus || !CanUseOneWithTheBlade(rulesetCharacter))
             {
                 return;
             }
 
-            attackMode.AttacksNumber = 2;
-            attackMode.AddAttackTagAsNeeded(
-                CharacterActionItemFormPatcher.Refresh_Patch.HideAttacksNumberOnActionPanel);
+            attackMode.AddAttackTagAsNeeded(OneWithTheBlade);
+            attackMode.AttacksNumber = 3;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (!attackMode.AttackTags.Contains(OneWithTheBlade))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses(OneWithTheBlade, 1);
+        }
+
+        internal static bool CanUseOneWithTheBlade(RulesetCharacter rulesetCharacter)
+        {
+            return GameLocationCharacter.GetFromActor(rulesetCharacter)?.GetSpecialFeatureUses(OneWithTheBlade) != 1;
         }
     }
 
@@ -320,9 +333,8 @@ public sealed class WayOfBlade : AbstractSubclass
             var attackModeWeaponType =
                 (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
 
-            return (OperationType.Or,
-                character.GetSubFeaturesByType<WeaponSpecializationDiceUpgrade>().Exists(
-                    x => x._weaponTypeDefinition == attackModeWeaponType));
+            return (OperationType.Or, character.GetSubFeaturesByType<WeaponSpecializationDiceUpgrade>().Exists(x =>
+                x._weaponTypeDefinition == attackModeWeaponType));
         }
     }
 
