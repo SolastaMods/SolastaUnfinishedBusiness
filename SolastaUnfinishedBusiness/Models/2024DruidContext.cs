@@ -4,7 +4,10 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -65,6 +68,47 @@ internal static partial class Tabletop2024Context
                 .SetParticleEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                 .Build())
         .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerDruidWildResurgenceShape = FeatureDefinitionPowerBuilder
+        .Create("PowerDruidWildResurgenceShape")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.UntilLongRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionDruidWildResurgenceShape")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot1)
+                        .AddToDB()))
+                .Build())
+        .AddCustomSubFeatures(new ClassFeats.SpendWildShapeUse())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerDruidWildResurgenceSlot = FeatureDefinitionPowerBuilder
+        .Create("PowerDruidWildResurgenceSlot")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(new ClassFeats.GainWildShapeCharges(1, 1))
+        .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetDruidWildResurgence =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDruidWildResurgence")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(PowerDruidWildResurgenceShape, PowerDruidWildResurgenceSlot)
+            .AddToDB();
 
     private static void LoadDruidWildshape()
     {
@@ -128,6 +172,14 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchDruidWildResurgence()
     {
+        Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidWildResurgence);
+
+        if (Main.Settings.EnableDruidWildResurgence2024)
+        {
+            Druid.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetDruidWildResurgence, 5));
+        }
+
+        Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     internal static void SwitchDruidWildshape()

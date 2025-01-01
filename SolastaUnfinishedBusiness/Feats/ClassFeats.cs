@@ -739,7 +739,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
+    internal sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
         : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
@@ -771,7 +771,7 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    internal sealed class SpendWildShapeUse : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
