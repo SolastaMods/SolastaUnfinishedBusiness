@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=레벨 1에서 <color=#D89555>원시 질서</c
 ModUi/&EnableDruidToLearnCircleAtLevel3=레벨 2 대신 레벨 3에서 <color=#D89555>원</color>을 활성화합니다.
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>간단한 무기</color> 숙련도를 활성화합니다. <i><color=#F0DAA0>[개별 무기 유형 대신 검 숙련도를 잃습니다]</color></i>
 ModUi/&EnableDruidWildResurgence2024=레벨 5에서 ​​<color=#D89555>야생의 부활</color>을 활성화합니다.
-ModUi/&EnableDruidWildshape2024=<color=#D89555>와일드 셰이프</color>를 2024년 버전 <i><color=#F0DAA0>[다른 용도 및 임시 생명력]</color></i>과 교환하세요
+ModUi/&EnableDruidWildshape2024=<color=#D89555>와일드 셰이프</color>를 2024년 버전 <i><color=#F0DAA0>[보너스 액션, 다양한 용도, 임시 생명력]</color></i>과 교환하세요
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기, 모든 환경의 자산을 혼합한 단순함 포함]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
 ModUi/&EnableEpicPointsAndArray=35포인트의 장대한 구매 시스템과 배열을 활성화하세요 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

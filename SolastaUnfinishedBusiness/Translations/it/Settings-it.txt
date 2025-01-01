@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=Abilita <color=#D89555>Ordine Primordiale</col
 ModUi/&EnableDruidToLearnCircleAtLevel3=Abilita <color=#D89555>Cerchio</color> al livello 3 invece che 2
 ModUi/&EnableDruidWeaponProficiency2024=Abilita la competenza in <color=#D89555>Armi semplici</color> <i><color=#F0DAA0>[invece di tipi di armi individuali ma perdi la competenza in Scimitarra]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Abilita <color=#D89555>Rinascita selvaggia</color> al livello 5
-ModUi/&EnableDruidWildshape2024=Sostituisci <color=#D89555>Forma selvaggia</color> con la versione del 2024 <i><color=#F0DAA0>[usi diversi e punti ferita temporanei]</color></i>
+ModUi/&EnableDruidWildshape2024=Sostituisci <color=#D89555>Forma selvaggia</color> con la versione del 2024 <i><color=#F0DAA0>[azione bonus, usi diversi e punti ferita temporanei]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n{101}{101}<i><color=#F0DAA0>[includi stanze piatte, dimensioni dungeon 150x150 e 200x200 e mix di risorse senza fronzoli da tutti gli ambienti]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Abilita la telecamera di elevazione durante la battaglia per mantenerla in posizione dopo la disattivazione e triplicarne la portata</i>
 ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti e schiera <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>

@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=Habilite <color=#D89555>Ordem Primordial</colo
 ModUi/&EnableDruidToLearnCircleAtLevel3=Habilitar <color=#D89555>Círculo</color> no nível 3 em vez de 2
 ModUi/&EnableDruidWeaponProficiency2024=Habilitar proficiência em <color=#D89555>Armas Simples</color> <i><color=#F0DAA0>[em vez de tipos de armas individuais, mas você perde proficiência em Cimitarra]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Habilitar <color=#D89555>Ressurgência Selvagem</color> no nível 5
-ModUi/&EnableDruidWildshape2024=Troque <color=#D89555>Forma Selvagem</color> pela versão 2024 <i><color=#F0DAA0>[usos diferentes e pontos de vida temporários]</color></i>
+ModUi/&EnableDruidWildshape2024=Troque <color=#D89555>Forma Selvagem</color> pela versão 2024 <i><color=#F0DAA0>[ação bônus, usos diferentes e pontos de vida temporários]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilitar Dungeon Maker Pro\n<i><color=#F0DAA0>[incluir salas planas, masmorras de 150x150 e 200x200 e recursos de mistura simples de todos os ambientes]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilitar câmera de elevação durante a batalha para permanecer na posição após desabilitada e triplicar seu alcance</i>
 ModUi/&EnableEpicPointsAndArray=Habilitar um sistema épico de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

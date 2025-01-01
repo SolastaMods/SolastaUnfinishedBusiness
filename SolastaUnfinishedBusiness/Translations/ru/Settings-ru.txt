@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=Включить <color=#D89555>Первобы
 ModUi/&EnableDruidToLearnCircleAtLevel3=Включить <color=#D89555>Круг</color> на уровне 3 вместо 2
 ModUi/&EnableDruidWeaponProficiency2024=Включить владение <color=#D89555>Простым оружием</color> <i><color=#F0DAA0>[вместо отдельных видов оружия, однако теряется владение скимитаром]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Включить <color=#D89555>Дикое возрождение</color> на уровне 5
-ModUi/&EnableDruidWildshape2024=Замените <color=#D89555>Wild Shape</color> на версию 2024 года <i><color=#F0DAA0>[различные способы использования и временные хитпоинты]</color></i>
+ModUi/&EnableDruidWildshape2024=Замените <color=#D89555>Wild Shape</color> на версию 2024 года <i><color=#F0DAA0>[бонусное действие, различные способы использования и временные очки здоровья]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Включить Создатель Подземелий ПРО\n<i><color=#F0DAA0>[включает простые комнаты, размеры подземелий 150x150 и 200x200, а также смешивание ассетов из разных наборов окружений без танцев с бубном]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Включить сохранение позиции уровня камеры во время боя после отключения, и утроить её масштаб</i>
 ModUi/&EnableEpicPointsAndArray=Включить эпические варианты поинт-бай системы (35 очков) и массива характеристик <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>

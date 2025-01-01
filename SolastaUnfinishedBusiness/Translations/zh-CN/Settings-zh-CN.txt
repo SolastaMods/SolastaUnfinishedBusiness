@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=在 1 级启用<color=#D89555>原始秩序</co
 ModUi/&EnableDruidToLearnCircleAtLevel3=在级别 3 而不是 2 处启用 <color=#D89555>Circle</color>
 ModUi/&EnableDruidWeaponProficiency2024=启用<color=#D89555>简单武器</color>熟练度<i><color=#F0DAA0>[而不是单个武器类型，但你会失去弯刀熟练度]</color></i>
 ModUi/&EnableDruidWildResurgence2024=在第 5 级启用<color=#D89555>狂野复苏</color>
-ModUi/&EnableDruidWildshape2024=将<color=#D89555>野性变身</color>与 2024 版交换<i><color=#F0DAA0>[不同用法和临时生命值]</color></i>
+ModUi/&EnableDruidWildshape2024=将<color=#D89555>野性变身</color>与 2024 版交换<i><color=#F0DAA0>[奖励行动、不同用途和临时生命值]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro\n<i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
 ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>

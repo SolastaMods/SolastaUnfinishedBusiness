@@ -128,7 +128,7 @@ ModUi/&EnableDruidPrimalOrder2024=Aktiviere <color=#D89555>Primal Order</color> 
 ModUi/&EnableDruidToLearnCircleAtLevel3=Aktivieren Sie <color=#D89555>Kreis</color> auf Ebene 3 statt 2.
 ModUi/&EnableDruidWeaponProficiency2024=Aktivieren Sie die Fertigkeit <color=#D89555>Einfache Waffen</color> <i><color=#F0DAA0>[anstelle einzelner Waffentypen, aber Sie verlieren die Fertigkeit Krummsäbel]</color></i>
 ModUi/&EnableDruidWildResurgence2024=Aktiviere <color=#D89555>Wild Resurgence</color> auf Stufe 5.
-ModUi/&EnableDruidWildshape2024=Tauschen Sie <color=#D89555>Wild Shape</color> gegen die Version 2024 aus <i><color=#F0DAA0>[verschiedene Verwendungen und temporäre Trefferpunkte]</color></i>
+ModUi/&EnableDruidWildshape2024=Tauschen Sie <color=#D89555>Wild Shape</color> gegen die Version 2024 aus <i><color=#F0DAA0>[Bonusaktion, verschiedene Verwendungen und temporäre Trefferpunkte]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeon-Größen von 150 x 150 und 200 x 200 und ohne Schnickschnack, indem Sie Assets aus allen Umgebungen mischen]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht</i>
 ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und -Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
