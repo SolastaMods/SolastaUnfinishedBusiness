@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Gain 2 WildShape",
-    "description": "Gain 2 WildShape forms by spending one slot of level 7.",
+    "title": "Gain 2 Wild Shape",
+    "description": "Gain 2 Wild Shape forms by spending one slot of level 7.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

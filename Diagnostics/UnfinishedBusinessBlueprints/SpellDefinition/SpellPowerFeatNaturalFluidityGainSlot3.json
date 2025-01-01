@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gain Slot Level 3",
-    "description": "Gain 1 additional slot level 3 by using one WildShape form.",
+    "description": "Gain 1 additional slot level 3 by using one Wild Shape form.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFeatNaturalFluidityGain3Slot",
-          "conditionDefinition": "Definition:ConditionFeatNaturalFluidityGain3Slot:f22de049-5ea1-5ba8-b07a-8bf593a07e93",
+          "conditionDefinitionName": "ConditionDruidWildResurgenceShape",
+          "conditionDefinition": "Definition:ConditionDruidWildResurgenceShape:263a0c35-ee6a-5edc-8f71-25ee5307e791",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -328,11 +328,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Gain Slot Level 3",
-    "description": "Gain 1 additional slot level 3 by using one Wild Shape form.",
+    "title": "Feature/&PowerDruidWildResurgenceShapeTitle",
+    "description": "Feature/&PowerDruidWildResurgenceShapeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "3c2c596b-dab7-58c9-9cc8-94ba731f1b90",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c844256-29a4-5582-b37f-cef5a7a67146",
+  "guid": "14e475e6-a1ed-5a0c-b99e-c10e12adfcc1",
   "contentPack": 9999,
-  "name": "PowerFeatNaturalFluidityGainSlot3"
+  "name": "PowerDruidWildResurgenceShape"
 }
