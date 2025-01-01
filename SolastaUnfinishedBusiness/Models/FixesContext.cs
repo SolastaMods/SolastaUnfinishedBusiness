@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AI;
 using UnityEngine;
+using static ActionDefinitions;
 using static AttributeDefinitions;
 using static EquipmentDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -104,7 +105,7 @@ internal static class FixesContext
         foreach (var actionAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionActionAffinity>()
                      .Where(x => !x.AllowedActionTypes[2]))
         {
-            actionAffinity.ForbiddenActions.AddRange(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain);
+            actionAffinity.ForbiddenActions.AddRange(Id.Charge, Id.DashBonus, Id.DashMain, Id.TacticalMove);
         }
 
         // fix condition UI
@@ -954,7 +955,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            if (!attacker.IsActionOnGoing(Id.StunningStrikeToggle))
             {
                 yield break;
             }
@@ -1098,7 +1099,7 @@ internal static class FixesContext
             // ReSharper disable once InvertIf
             // handle umbral stalker gloomblade feature
             if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+                rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.GloomBladeToggle))
             {
                 damageForm.DamageType = DamageTypeNecrotic;
             }

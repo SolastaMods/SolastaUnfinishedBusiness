@@ -87,7 +87,7 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    internal static void SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency()
+    internal static void SwitchDruidPrimalOrder()
     {
         Druid.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetDruidPrimalOrder);
         ProficiencyDruidArmor.Proficiencies.Remove(EquipmentDefinitions.MediumArmorCategory);

@@ -191,7 +191,7 @@ internal static class ClassesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrder2024 = toggle;
-            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchDruidPrimalOrder();
         }
 
         toggle = Main.Settings.EnableDruidWeaponProficiency2024;

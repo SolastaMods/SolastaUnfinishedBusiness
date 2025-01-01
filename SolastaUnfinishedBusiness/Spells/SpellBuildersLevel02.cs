@@ -224,7 +224,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionMoveThroughEnemyModifierBuilder
                     .Create($"MoveThroughEnemyModifier{NAME}")
                     .SetGuiPresentation(Category.Feature)
-                    .SetMinSizeDifference(10)
+                    .SetMinSizeDifference(0)
                     .AddToDB(),
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
             .SetConditionParticleReference(ConditionMonkSlowFall)
