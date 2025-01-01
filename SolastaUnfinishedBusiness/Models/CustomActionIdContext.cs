@@ -74,13 +74,13 @@ public static class CustomActionIdContext
 
     internal static readonly List<Id> ExtraActionIdProxies =
     [
-        (Id)ExtraActionId.ProxyHoundWeapon ,
-        (Id)ExtraActionId.ProxyPactWeapon ,
-        (Id)ExtraActionId.ProxyPetalStorm ,
-        (Id)ExtraActionId.ProxyDawn ,
+        (Id)ExtraActionId.ProxyHoundWeapon,
+        (Id)ExtraActionId.ProxyPactWeapon,
+        (Id)ExtraActionId.ProxyPetalStorm,
+        (Id)ExtraActionId.ProxyDawn,
         (Id)ExtraActionId.ProxyDarkness
     ];
-    
+
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
     internal static void Load()
@@ -123,7 +123,7 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.ProxyDawn)
             .SetActionType(ActionType.Bonus)
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(ProxyFlamingSphere, "ActionProxyDarkness")
             .SetActionId(ExtraActionId.ProxyDarkness)
