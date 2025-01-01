@@ -404,28 +404,30 @@ public static class RulesetActorPatcher
 
             var trackingCondition = entity?.FindEffectTrackingCondition(rulesetCondition);
 
-            if (trackingCondition != null)
+            if (trackingCondition == null)
             {
-                formsParams.FillFromActiveEffect(trackingCondition);
-
-                //BEGIN PATCH
-                var effectAdvancement = trackingCondition.EffectDescription.EffectAdvancement;
-
-                formsParams.addDice = effectAdvancement.EffectIncrementMethod switch
-                {
-                    EffectIncrementMethod.PerAdditionalSlotLevel => trackingCondition.EffectDescription
-                        .EffectAdvancement.additionalDicePerIncrement * (trackingCondition.EffectLevel -
-                                                                         (trackingCondition.GetEffectSource() is
-                                                                             SpellDefinition spellDefinition
-                                                                             ? spellDefinition.SpellLevel
-                                                                             : 0)),
-                    EffectIncrementMethod.CasterLevelTable => trackingCondition.EffectDescription.EffectAdvancement
-                        .ComputeAdditionalDiceByCasterLevel(
-                            __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)),
-                    _ => formsParams.addDice
-                };
-                //END PATCH
+                return false;
             }
+
+            formsParams.FillFromActiveEffect(trackingCondition);
+
+            //BEGIN PATCH
+            var effectAdvancement = trackingCondition.EffectDescription.EffectAdvancement;
+
+            formsParams.addDice = effectAdvancement.EffectIncrementMethod switch
+            {
+                EffectIncrementMethod.PerAdditionalSlotLevel => trackingCondition.EffectDescription
+                    .EffectAdvancement.additionalDicePerIncrement * (trackingCondition.EffectLevel -
+                                                                     (trackingCondition.GetEffectSource() is
+                                                                         SpellDefinition spellDefinition
+                                                                         ? spellDefinition.SpellLevel
+                                                                         : 0)),
+                EffectIncrementMethod.CasterLevelTable => trackingCondition.EffectDescription.EffectAdvancement
+                    .ComputeAdditionalDiceByCasterLevel(
+                        __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)),
+                _ => formsParams.addDice
+            };
+            //END PATCH
 
             if (rulesetCondition.ConditionDefinition.AmountOrigin == ConditionDefinition.OriginOfAmount.AddDice)
             {
@@ -434,7 +436,7 @@ public static class RulesetActorPatcher
 
             formsParams.formAbilityBonus = rulesetCondition.SourceAbilityBonus;
             service.ApplyEffectForms(
-                rulesetCondition.ConditionDefinition.RecurrentEffectForms, formsParams, null, out _, out _);
+                rulesetCondition.ConditionDefinition.RecurrentEffectForms, formsParams, [], out _, out _);
 
             var effectFormsApplied = service.ConditionRecurrentEffectFormsApplied;
 
@@ -654,7 +656,8 @@ public static class RulesetActorPatcher
                     }
 
                     var savingThrowBonus =
-                        __instance.ComputeBaseSavingThrowBonus(abilityScoreName, effectModifier.SavingThrowModifierTrends);
+                        __instance.ComputeBaseSavingThrowBonus(abilityScoreName,
+                            effectModifier.SavingThrowModifierTrends);
                     __instance.ComputeSavingThrowModifier(abilityScoreName, EffectForm.EffectFormType.Condition, empty1,
                         schoolOfMagic, string.Empty, rulesetCondition.ConditionDefinition.Name, empty2,
                         effectModifier, __instance.accountedProviders);
@@ -713,7 +716,7 @@ public static class RulesetActorPatcher
                 if (!matched)
                 {
                     continue;
-                }           
+                }
 
                 __instance.matchingInterruptionConditions.Add(rulesetCondition);
 

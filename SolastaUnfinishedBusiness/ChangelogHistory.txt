@@ -12,10 +12,11 @@ CHANGES:
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing power dice progression
 - fixed Command: Grove spell not ending target turn after prone action
-- fixed Disheartening Performance / Hideous Laughter interaction**crash**
+- fixed Disheartening Performance / Hideous Laughter interaction **crash**
 - fixed Gift of the Gem Dragon reaction **crash** under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed True Strike 2024 not using spell casting ability on attack roll
+- fixed **crash** scenario when calculating damage die progression on recurrent effect forms
 - fixed damage roll reduction calculation applying on every form instead of total roll [VANILLA]
 - fixed enable no AoO if Blinded setting to also consider Invisible
 - fixed **soft lock** scenario when target cannot move, and AI decision is dash [VANILLA] 
