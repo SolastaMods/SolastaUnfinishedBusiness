@@ -2739,6 +2739,9 @@ internal static partial class DatabaseHelper
 
     internal static class InvocationDefinitions
     {
+        internal static InvocationDefinition OtherworldlyLeap { get; } =
+            GetDefinition<InvocationDefinition>("OtherworldlyLeap");
+
         internal static InvocationDefinition ArmorOfShadows { get; } =
             GetDefinition<InvocationDefinition>("ArmorOfShadows");
 

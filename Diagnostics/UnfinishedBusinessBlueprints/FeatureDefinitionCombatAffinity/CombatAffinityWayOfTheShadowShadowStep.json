@@ -34,8 +34,8 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a926a6b4-aa9f-5279-8aa6-fd357e746f91",
+  "guid": "13604b80-e069-5de9-84cf-41f01f17f50b",
   "contentPack": 9999,
-  "name": "CombatAffinityWayOfSilhouetteSilhouetteStep"
+  "name": "CombatAffinityWayOfTheShadowShadowStep"
 }

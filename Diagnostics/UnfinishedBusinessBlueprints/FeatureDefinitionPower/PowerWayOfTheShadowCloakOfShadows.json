@@ -7,13 +7,13 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -30,10 +30,10 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Round",
-    "durationParameter": 0,
-    "endOfEffect": "StartOfTurn",
+    "targetSide": "Ally",
+    "durationType": "Minute",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -67,7 +67,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -75,11 +75,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionBanishedTimeshift:fa046e868c8816244bf8dcb28dbe7c72",
+          "conditionDefinitionName": "ConditionWayOfTheShadowCloakOfShadows",
+          "conditionDefinition": "Definition:ConditionWayOfTheShadowCloakOfShadows:dab02e33-9f4b-5e77-9e10-4cf277d34cb1",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -92,9 +92,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -115,13 +115,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "07ccabeca8df36045ad13b1247fd5555",
+        "m_AssetGUID": "a56cb8792645db5478ef288ba5d692d6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -133,7 +133,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1e3f6844f789ca34682bd0da97ea4328",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "18358f685aa889543b2d6d68c78f1b96",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +261,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b04ebd84a933a19499efab399f1c25a6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -280,10 +280,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
+      "cooldownForCaster": 3,
       "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": false
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false,
@@ -292,13 +292,13 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "DamagedByAnySource",
+  "reactionContext": "None",
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
@@ -328,13 +328,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle",
-    "description": "Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription",
+    "title": "Feature/&PowerWayOfTheShadowCloakOfShadowsTitle",
+    "description": "Feature/&PowerWayOfTheShadowCloakOfShadowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "50d92b31850b5b64f92ad7c2612b32f4",
+      "m_SubObjectName": "TimeShift",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "22f9fda7-4249-528b-97b3-0c91e2d32931",
+  "guid": "17f53fb1-57e4-503f-9900-07a86283784b",
   "contentPack": 9999,
-  "name": "PowerWayOfSilhouetteShadowySanctuary"
+  "name": "PowerWayOfTheShadowCloakOfShadows"
 }

@@ -74,7 +74,7 @@ You have blindsight up to 16 cells, allowing you to perceive enemies even throug
 
 You can cast Shield of Faith at will, without expending a spell slot.
 
-# 20. - Devouring Blade [UB]
+# 20. - *Devouring Blade* © [UB]
 
 The Extra Attack of your Thirsting Blade invocation confers two extra attacks rather than one.
 

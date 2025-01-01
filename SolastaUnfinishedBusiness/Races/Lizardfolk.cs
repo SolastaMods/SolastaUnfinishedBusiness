@@ -145,13 +145,11 @@ internal static class RaceLizardfolkBuilder
 
             foreach (var target in targets)
             {
-                var attackModifier = new ActionModifier();
-
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
                     attackMode,
-                    attackModifier);
+                    new ActionModifier());
             }
         }
     }

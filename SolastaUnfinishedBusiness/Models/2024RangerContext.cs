@@ -304,6 +304,19 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static void SwitchRangerPrimevalAwareness()
+    {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == PowerRangerPrimevalAwareness);
+
+        if (!Main.Settings.RemoveRangerPrimevalAwareness2024)
+        {
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerRangerPrimevalAwareness, 3));
+        }
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
     private sealed class CustomBehaviorTireless : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

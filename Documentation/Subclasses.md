@@ -3558,7 +3558,7 @@ When you are about to be hit by a melee attack that includes Bludgeoning, Pierci
 
 * Swift Strike
 
-Whenever you use Step of the Wind or Patient Defense, you can make one additional main attack with a monk weapon or unarmed.
+Whenever you use Step of the Wind or Patient Defense, you can make one additional main attack with a monk weapon.
 
 
 ### Level 17
@@ -3764,7 +3764,7 @@ Starting at 17th level, you gain the ability to set up lethal vibrations in some
 
 ## 7. Way of Shadow [UB]
 
-Practitioners of the Way of Shadow follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
+Way of Shadow monks practice stealth and subterfuge, channeling their reservoirs of power to harness the power of the Shadowfell. They are at home in darkness, able to draw gloom around themselves to hide, to leap from shadow to shadow, and even to take on a wraithlike form of living shadow.
 
 
 ### Level 3
@@ -3773,30 +3773,29 @@ Practitioners of the Way of Shadow follow a tradition that values stealth and su
 
 You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
 
-* Strike the Vitals
-
-Once per turn, you can deal extra damage equal to your martial arts die if you hit a creature with an attack that had advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. You must use an unarmed attack or a monk weapon. This damage increases by one additional martial arts die on levels 11 and 17.
-
 
 ### Level 6
 
-* Shadow Step
+* Feature/&PowerWayOfTheShadowShadowsStepTitle
 
-You can use your bonus action when you are in dim light or natural darkness to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or natural darkness. After doing so, the next melee attack you make before your turn ends is rolled with advantage.
+Feature/&PowerWayOfTheShadowShadowsStepDescription
 
 
 ### Level 11
 
-* Shadow Flurry
+* Feature/&PowerWayOfTheShadowImprovedShadowsStepTitle
 
-Once on each of your turns when you miss with a monk weapon or unarmed attack, you automatically reattempt the attack against the same target.
+Feature/&PowerWayOfTheShadowImprovedShadowsStepDescription
 
 
 ### Level 17
 
-* Shadowy Sanctuary
+* Cloak of Shadows
 
-When a creature is about to hit you with an attack, you can spend 3 ki and use your reaction to step into shadows and disappear, negating any damage or harmful effects you would have received from that attack. While in the shadows, you are considered banished until the start of your next turn. You do not lose concentration while banished this way.
+As a Bonus Action while entirely within Dim Light or Darkness, you can spend 3 Focus Points to shroud yourself with magical darkness for 1 minute, until you have the Incapacitated condition, or until you end your turn in Bright Light. While shrouded in darkness, you gain the following benefits:
+• Invisibility. You have the Invisible condition.
+• Partially Incorporeal. You can move through enemies.
+• Shadow Flurry. You can use your Flurry of Blows without spending any Focus Points.
 
 
 

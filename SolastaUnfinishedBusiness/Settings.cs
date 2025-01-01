@@ -330,6 +330,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRangerRoving2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableRangerTireless2024 { get; set; }
+    public bool RemoveRangerPrimevalAwareness2024 { get; set; }
     public bool EnableRangerFeralSenses2024 { get; set; }
     public bool EnableRangerFoeSlayers2024 { get; set; }
     public bool EnableRogueScimitarSpecialization { get; set; }

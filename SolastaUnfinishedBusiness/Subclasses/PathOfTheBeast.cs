@@ -338,11 +338,17 @@ public sealed class PathOfTheBeast : AbstractSubclass
             void ReactionValidated()
             {
                 attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
+
+                var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+                attackModeCopy.Copy(attackMode);
+                attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+
                 attacker.MyExecuteActionAttack(
                     ActionDefinitions.Id.AttackFree,
                     defender,
-                    attackMode,
-                    action.ActionParams.ActionModifiers[0]);
+                    attackModeCopy,
+                    new ActionModifier());
             }
         }
 

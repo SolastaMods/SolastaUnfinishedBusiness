@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=Eliminar requisitos de sintonización <b><i>
 ModUi/&RemoveBardSongOfRest2024=Eliminar <color=#D89555>Canción de descanso</color> en el nivel 2
 ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego. <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
+ModUi/&RemoveRangerPrimevalAwareness2024=Eliminar <color=#D89555>Conciencia primigenia</color> en el nivel 3
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.
 ModUi/&RemoveRogueBlindSense2024=Elimina el <color=#D89555>Sentido ciego</color> en el nivel 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Eliminar las restricciones escolares de <b>Shadowcaster</b>

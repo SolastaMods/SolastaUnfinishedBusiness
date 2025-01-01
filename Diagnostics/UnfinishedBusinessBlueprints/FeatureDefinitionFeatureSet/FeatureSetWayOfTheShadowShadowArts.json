@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerWayOfSilhouetteDarkness:fb406968-b055-586f-9a1a-2b4e4f28a8ce",
+    "Definition:PowerWayOfTheShadowDarkness:3803903f-9414-5286-a5c9-a464d1032d8a",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "mode": "Union",
@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle",
-    "description": "Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription",
+    "title": "Feature/&FeatureSetWayOfTheShadowShadowArtsTitle",
+    "description": "Feature/&FeatureSetWayOfTheShadowShadowArtsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2c6a6eca-0bd9-5ddf-9423-47b7b9a69eca",
+  "guid": "ab4a0066-f44a-5f58-bb0b-eadd59ad63d6",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfSilhouetteSilhouetteArts"
+  "name": "FeatureSetWayOfTheShadowShadowArts"
 }

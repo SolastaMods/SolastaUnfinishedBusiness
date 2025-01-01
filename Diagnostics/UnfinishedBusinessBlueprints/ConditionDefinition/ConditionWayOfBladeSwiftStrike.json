@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityWayOfSilhouetteSilhouetteStep:a926a6b4-aa9f-5279-8aa6-fd357e746f91"
+    "Definition:AdditionalActionWayOfBladeSwiftBlade:2f21d693-221c-5b65-8d29-142f5c745153"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -17,9 +17,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacks"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -132,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle",
-    "description": "Condition/&ConditionWayOfSilhouetteSilhouetteStepDescription",
+    "title": "Feature/&FeatureWayOfBladeSwiftStrikeTitle",
+    "description": "Feature/&FeatureWayOfBladeSwiftStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
+      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
+      "m_SubObjectName": "ConditionGuided",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -153,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73265e33-155e-5cdf-aa1f-de2af87b82c0",
+  "guid": "2daed71d-bd87-54c0-8a11-5be9d9af8499",
   "contentPack": 9999,
-  "name": "ConditionWayOfSilhouetteSilhouetteStep"
+  "name": "ConditionWayOfBladeSwiftStrike"
 }

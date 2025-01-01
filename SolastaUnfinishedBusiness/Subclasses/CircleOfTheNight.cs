@@ -62,11 +62,14 @@ public sealed class CircleOfTheNight : AbstractSubclass
         // Primal Strike
 
         // kept name for backward compatibility
-        var attackModifierCircleOfTheNightPrimalStrike = FeatureDefinitionAttackModifierBuilder
+        var attackModifierCircleOfTheNightPrimalStrike = FeatureDefinitionBuilder
             .Create("PowerCircleOfTheNightPrimalStrike")
             .SetGuiPresentation(Category.Feature)
-            // cannot use SetMagicalWeapon as it doesn't trigger with flurry of blows
-            .AddCustomSubFeatures(new ModifyAttackActionModifierPrimalStrike())
+            .AddCustomSubFeatures(
+                new AddTagToWeaponWeaponAttack(
+                    TagsDefinitions.MagicalWeapon,
+                    ValidatorsWeapon.IsMelee,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)))
             .AddToDB();
 
         // Improved Combat Healing
@@ -393,24 +396,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
             "WildShapeWaterElemental" or
             "WildShapeCrimsonSpider" or
             "WildShapeMinotaurElite";
-    }
-
-    private sealed class ModifyAttackActionModifierPrimalStrike : IModifyAttackActionModifier
-    {
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName,
-            ref ActionModifier attackModifier)
-        {
-            if (myself.HasConditionOfType(ConditionWildShapeSubstituteForm)
-                && attackProximity == BattleDefinitions.AttackProximity.PhysicalReach)
-            {
-                attackMode?.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
-            }
-        }
     }
 
     private sealed class PowerOrSpellFinishedByMeDruidWildShape : IPowerOrSpellFinishedByMe

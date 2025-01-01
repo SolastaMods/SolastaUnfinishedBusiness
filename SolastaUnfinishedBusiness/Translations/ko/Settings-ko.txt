@@ -328,6 +328,7 @@ ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C0
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
+ModUi/&RemoveRangerPrimevalAwareness2024=레벨 3에서 <color=#D89555>원시적 인식</color>을 제거합니다.
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
 ModUi/&RemoveRogueBlindSense2024=레벨 14에서 <color=#D89555>맹감각</color> 제거
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>섀도우캐스터</b>에서 학교 제한을 제거하세요

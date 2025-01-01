@@ -103,8 +103,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWayOfSilhouetteSilhouetteStep",
-          "conditionDefinition": "Definition:ConditionWayOfSilhouetteSilhouetteStep:73265e33-155e-5cdf-aa1f-de2af87b82c0",
+          "conditionDefinitionName": "ConditionWayOfTheShadowImprovedShadowStep",
+          "conditionDefinition": "Definition:ConditionWayOfTheShadowImprovedShadowStep:9c21b3cc-568d-5b92-b494-20ef97d920d6",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -333,7 +333,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "KiPoints",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -353,13 +353,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfSilhouetteSilhouetteStepTitle",
-    "description": "Feature/&PowerWayOfSilhouetteSilhouetteStepDescription",
+    "title": "Feature/&PowerWayOfTheShadowImprovedShadowStepTitle",
+    "description": "Feature/&PowerWayOfTheShadowImprovedShadowStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "95e4a6fb-54e0-58c0-b2be-25b492479d48",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "d0786755-378b-5733-9ea3-6a96de51bf3e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -374,7 +374,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "91b0a741-32f5-50df-bc7b-1c964ceb1397",
+  "guid": "c0a60da1-edd6-513c-82b7-0b9b8b4af10b",
   "contentPack": 9999,
-  "name": "PowerWayOfSilhouetteSilhouetteStep"
+  "name": "PowerWayOfTheShadowImprovedShadowStep"
 }

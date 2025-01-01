@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.InvocationDefinitions;
@@ -34,7 +35,11 @@ internal static partial class Tabletop2024Context
         .SetGuiPresentation(FeatureSetPactBlade.GuiPresentation)
         .SetGrantedFeature(FeatureSetPactBlade)
         .AddCustomSubFeatures(
-            new CanUseAttribute(AttributeDefinitions.Charisma, PatronSoulBlade.CanWeaponBeEmpowered))
+            new CanUseAttribute(
+                CanUseAttribute.SpellCastingAbilityTag, (mode, _, _) =>
+                    mode.ActionType != ActionDefinitions.ActionType.Bonus &&
+                    ValidatorsWeapon.IsMelee(mode) &&
+                    !ValidatorsWeapon.IsTwoHanded(mode)))
         .AddToDB();
 
     private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder
@@ -65,6 +70,33 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinition FeatureEldritchMaster = FeatureDefinitionBuilder
         .Create("FeatureEldritchMaster")
         .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly SpellDefinition InvisibilityOneWithShadows = SpellDefinitionBuilder
+        .Create(Invisibility, "InvisibilityOneWithShadows")
+        .SetGuiPresentation(Invisibility.GuiPresentation.Title, Invisibility.GuiPresentation.Description, Invisibility,
+            true)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(Invisibility)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerInvocationOneWithShadows = FeatureDefinitionPowerBuilder
+        .Create("PowerInvocationOneWithShadows")
+        .SetGuiPresentation("OneWithShadowsAlternate", Category.Invocation, Invisibility)
+        .SetUsesFixed(ActivationTime.Action)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Hour, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
+            new PowerOrSpellFinishedByMeInvocationOneWithShadows())
         .AddToDB();
 
     internal static void SwitchWarlockMagicalCunningAndImprovedEldritchMaster()
@@ -168,9 +200,11 @@ internal static partial class Tabletop2024Context
             InvocationPactTome.GuiPresentation.hidden = false;
 
             OneWithShadows.GuiPresentation.description = "Invocation/&OneWithShadowsAlternateDescription";
-            OneWithShadows.grantedSpell = Invisibility;
-            OneWithShadows.grantedFeature = null;
-            OneWithShadows.longRestRecharge = true;
+            OneWithShadows.grantedFeature = PowerInvocationOneWithShadows;
+
+            FeatureSetPactBlade.GuiPresentation.description = "Feature/&FeatureSetPactBladeAlternateDescription";
+
+            OtherworldlyLeap.requiredLevel = 2;
         }
         else
         {
@@ -199,14 +233,26 @@ internal static partial class Tabletop2024Context
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetPactSelection, 3));
 
             OneWithShadows.GuiPresentation.description = "Invocation/&OneWithShadowsDescription";
-            OneWithShadows.grantedSpell = null;
             OneWithShadows.grantedFeature = LightAffinityInvocationOneWithShadows;
-            OneWithShadows.longRestRecharge = false;
+
+            FeatureSetPactBlade.GuiPresentation.description = "Feature/&FeatureSetPactBladeDescription";
+
+            OtherworldlyLeap.requiredLevel = 9;
         }
 
         GuiWrapperContext.RecacheInvocations();
 
         Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    private sealed class PowerOrSpellFinishedByMeInvocationOneWithShadows : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.MyExecuteActionCastNoCost(InvisibilityOneWithShadows, 0, action.ActionParams);
+
+            yield break;
+        }
     }
 
     private sealed class PowerOrSpellFinishedByMeMagicalCunning : IPowerOrSpellFinishedByMe

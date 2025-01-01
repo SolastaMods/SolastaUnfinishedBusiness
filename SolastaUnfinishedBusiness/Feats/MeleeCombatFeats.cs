@@ -1850,45 +1850,24 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
+            actingCharacter.BurnOneMainAttack();
+            actingCharacter.SetSpecialFeatureUses("PowerWhirlWindAttack", 0);
+
             var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
-            if (attackModeMain == null)
-            {
-                yield break;
-            }
-
             //get copy to be sure we don't break existing mode
-            var attackMode = RulesetAttackMode.AttackModesPool.Get();
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionType.NoCost;
+            attackModeCopy.Copy(attackModeMain);
+            attackModeCopy.ActionType = ActionType.NoCost;
 
-            //remove additional ability score modifier damage
-#if false
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                actingCharacter.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
-
-            if (modifier > 0)
-            {
-                damageForm.BonusDamage -= modifier;
-            }
-#endif
-
-            actingCharacter.BurnOneMainAttack();
-            actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);
-
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
-                var attackModifier = new ActionModifier();
-
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
-                    attackMode,
-                    attackModifier);
+                    attackModeCopy,
+                    new ActionModifier());
             }
         }
     }

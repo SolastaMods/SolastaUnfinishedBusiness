@@ -3,27 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWayOfSilhouetteSilhouetteArts:2c6a6eca-0bd9-5ddf-9423-47b7b9a69eca",
+      "featureDefinition": "Definition:FeatureSetWayOfTheShadowShadowArts:ab4a0066-f44a-5f58-bb0b-eadd59ad63d6",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitals:faeef1b6-3f34-5a9b-a26f-539f4d3bd1fd",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfSilhouetteSilhouetteStep:91b0a741-32f5-50df-bc7b-1c964ceb1397",
+      "featureDefinition": "Definition:PowerWayOfTheShadowShadowStep:7054c807-6786-52c3-820c-6d36d063bcf7",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWayOfSilhouetteShadowFlurry:56fad97f-6362-521b-9afa-4fdbd967b93a",
+      "featureDefinition": "Definition:PowerWayOfTheShadowImprovedShadowStep:c0a60da1-edd6-513c-82b7-0b9b8b4af10b",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfSilhouetteShadowySanctuary:22f9fda7-4249-528b-97b3-0c91e2d32931",
+      "featureDefinition": "Definition:PowerWayOfTheShadowCloakOfShadows:17f53fb1-57e4-503f-9900-07a86283784b",
       "level": 17
     }
   ],
@@ -32,11 +27,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&WayOfSilhouetteTitle",
-    "description": "Subclass/&WayOfSilhouetteDescription",
+    "title": "Subclass/&WayOfTheShadowTitle",
+    "description": "Subclass/&WayOfTheShadowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ad424728-a3fe-585c-853f-64859dfcd9e3",
+      "m_AssetGUID": "9bd6094b-f0fa-5667-ae13-8eb990f4807d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -53,7 +48,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e618659c-bd19-52a4-a19a-2128445a4776",
+  "guid": "13a8977b-7e03-5f6f-b805-ca85e91d9a98",
   "contentPack": 9999,
-  "name": "WayOfSilhouette"
+  "name": "WayOfTheShadow"
 }

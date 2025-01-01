@@ -2066,27 +2066,19 @@ internal static class Level20SubclassesContext
 
             var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
-            if (attackModeMain == null)
-            {
-                yield break;
-            }
-
             //get copy to be sure we don't break existing mode
-            var attackMode = RulesetAttackMode.AttackModesPool.Get();
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionType.NoCost;
+            attackModeCopy.Copy(attackModeMain);
+            attackModeCopy.ActionType = ActionType.NoCost;
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
-                var attackModifier = new ActionModifier();
-
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
-                    attackMode,
-                    attackModifier);
+                    attackModeCopy,
+                    new ActionModifier());
             }
         }
     }

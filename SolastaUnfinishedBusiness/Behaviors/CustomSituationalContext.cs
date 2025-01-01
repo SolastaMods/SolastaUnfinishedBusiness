@@ -48,6 +48,9 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand =>
                 ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand(contextParams.source),
 
+            ExtraSituationalContext.HasMonkWeaponInMainHandWithFreeOffhand =>
+                ValidatorsCharacter.HasMonkWeaponInMainHandAndFreeOffhand(contextParams.source),
+            
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&

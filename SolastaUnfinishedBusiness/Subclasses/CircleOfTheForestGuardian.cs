@@ -9,8 +9,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
-using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -46,13 +44,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, (mode is { ActionType: ActionType.Main } &&
-                                         ValidatorsCharacter.HasMeleeWeaponInMainHandAndFreeOffhand(character)) ||
-                                        (mode is { ActionType: ActionType.Bonus } &&
-                                         character.GetOriginalHero() is { } hero &&
-                                         hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&
-                                         ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character)))),
                 new CanUseAttribute(AttributeDefinitions.Wisdom, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
