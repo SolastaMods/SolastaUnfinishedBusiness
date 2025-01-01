@@ -202,7 +202,7 @@ internal enum ExtraSituationalContext
     HasBladeMasteryWeaponTypesInHands = 9000,
     HasGreatswordInHands = 9001,
     HasLongswordInHands = 9002,
-    HasMeleeWeaponInMainHandWithFreeOffhand = 9003,
+    HasMeleeWeaponInMainHandAndFreeOffhand = 9003,
     HasSimpleOrMartialWeaponInHands = 9005,
     IsNotInBrightLight = 9007,
     IsRagingAndDualWielding = 9008,
@@ -215,7 +215,7 @@ internal enum ExtraSituationalContext
     IsNotConditionSourceNotRanged = 9016,
     IsConcentratingOnSpell = 9017,
     IsConditionSource = 9018,
-    HasMonkWeaponInMainHandWithFreeOffhand = 9019
+    HasMonkMeleeWeaponInMainHand = 9019
 }
 
 internal enum ExtraTurnOccurenceType

@@ -180,7 +180,8 @@ public static class RulesetActorPatcher
                      is ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands
                      or ExtraSituationalContext.HasGreatswordInHands
                      or ExtraSituationalContext.HasLongswordInHands
-                     or ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand
+                     or ExtraSituationalContext.HasMeleeWeaponInMainHandAndFreeOffhand
+                     or ExtraSituationalContext.HasMonkMeleeWeaponInMainHand
                      or ExtraSituationalContext.IsNotInBrightLight
                      or ExtraSituationalContext.IsRagingAndDualWielding
                      or ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow
