@@ -163,6 +163,13 @@ internal static class Level20Context
         .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
         .AddToDB();
 
+    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityArchDruid =
+        FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityArchDruid")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, true, true)
+            .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -317,12 +324,6 @@ internal static class Level20Context
         SpellListCleric.maxSpellLevel = 9;
     }
 
-    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
-        .Create("MagicAffinityArchDruid")
-        .SetGuiPresentation(Category.Feature)
-        .SetHandsFullCastingModifiers(true, true, true)
-        .AddToDB();
-    
     private static void DruidLoad()
     {
         //BUGFIX: add PB to wildshape saving checks whenever summoner is proficient
