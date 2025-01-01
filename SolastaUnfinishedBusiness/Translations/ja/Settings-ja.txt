@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッド
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
+ModUi/&EnableDruidArchDruid2024=<color=#D89555>アーチドルイド</color>を2024年版の<i><color=#F0DAA0>[野生の姿を取り戻す]</color></i>と入れ替える
 ModUi/&EnableDruidElementalFury2024=レベル7と15で<color=#D89555>エレメンタルフューリー</color>と<color=#D89555>エレメンタルフューリー強化</color>を有効にする
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>金属装甲</color>の制限を解除
 ModUi/&EnableDruidPrimalOrder2024=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。

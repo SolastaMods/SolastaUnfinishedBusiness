@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
+ModUi/&EnableDruidArchDruid2024=<color=#D89555>대드루이드</color>를 2024년 버전으로 바꾸세요 <i><color=#F0DAA0>[와일드 셰이프 회복]</color></i>
 ModUi/&EnableDruidElementalFury2024=레벨 7과 15에서 <color=#D89555>원소의 분노</color>와 <color=#D89555>향상된 원소의 분노</color>를 활성화합니다.
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
 ModUi/&EnableDruidPrimalOrder2024=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.

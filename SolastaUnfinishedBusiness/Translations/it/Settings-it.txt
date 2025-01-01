@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color
 ModUi/&EnableClericToLearnDomainAtLevel3=Abilita <color=#D89555>Dominio</color> al livello 3 invece che 1
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Posiziona i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, chiamate con il nome dell'eroe <i><color=#F0DAA0>[ad esempio: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[utilizza GIMP per risultati migliori]</color></i>
+ModUi/&EnableDruidArchDruid2024=Sostituisci <color=#D89555>Arcidruido</color> con la versione 2024 <i><color=#F0DAA0>[riacquista Forma Selvaggia]</color></i>
 ModUi/&EnableDruidElementalFury2024=Abilita <color=#D89555>Furia Elementale</color> e <color=#D89555>Furia Elementale Migliorata</color> ai livelli 7 e 15
 ModUi/&EnableDruidMetalArmor2024=Rimuovi le restrizioni per <color=#D89555>Armatura metallica</color>
 ModUi/&EnableDruidPrimalOrder2024=Abilita <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>

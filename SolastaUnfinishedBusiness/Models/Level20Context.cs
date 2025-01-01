@@ -317,6 +317,12 @@ internal static class Level20Context
         SpellListCleric.maxSpellLevel = 9;
     }
 
+    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
+        .Create("MagicAffinityArchDruid")
+        .SetGuiPresentation(Category.Feature)
+        .SetHandsFullCastingModifiers(true, true, true)
+        .AddToDB();
+    
     private static void DruidLoad()
     {
         //BUGFIX: add PB to wildshape saving checks whenever summoner is proficient
@@ -349,19 +355,13 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var magicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityArchDruid")
-            .SetGuiPresentation(Category.Feature)
-            .SetHandsFullCastingModifiers(true, true, true)
-            .AddToDB();
-
-        magicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
+        MagicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(MagicAffinityArchDruid));
 
         Druid.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(summoningAffinity, 2),
             new FeatureUnlockByLevel(featureDruidBeastSpells, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(magicAffinityArchDruid, 20)
+            new FeatureUnlockByLevel(MagicAffinityArchDruid, 20)
         );
 
         EnumerateSlotsPerLevel(

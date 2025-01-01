@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</col
 ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
+ModUi/&EnableDruidArchDruid2024=Tausche <color=#D89555>Erzdruide</color> gegen die Version 2024 aus <i><color=#F0DAA0>[Wilde Gestalt zurückerlangen]</color></i>
 ModUi/&EnableDruidElementalFury2024=Aktiviere <color=#D89555>Elementarfury</color> und <color=#D89555>Verbesserte Elementarfury</color> auf den Stufen 7 und 15.
 ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
 ModUi/&EnableDruidPrimalOrder2024=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>

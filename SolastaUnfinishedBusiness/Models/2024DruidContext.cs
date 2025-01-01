@@ -110,6 +110,27 @@ internal static partial class Tabletop2024Context
             .SetFeatureSet(PowerDruidWildResurgenceShape, PowerDruidWildResurgenceSlot)
             .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerDruidNatureMagician = FeatureDefinitionPowerBuilder
+        .Create("PowerDruidNatureMagician")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.UntilLongRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(new ClassFeats.SpendWildShapeUse())
+        .AddToDB();
+    
+    private static readonly FeatureDefinitionFeatureSet FeatureSetDruidArchDruid =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDruidArchDruid")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(PowerDruidNatureMagician)
+            .AddToDB();
+    
     private static void LoadDruidWildshape()
     {
         PowerDruidWildShape.AddCustomSubFeatures(
@@ -122,7 +143,20 @@ internal static partial class Tabletop2024Context
             });
     }
 
-    internal static void SwitchDruidElementalFury()
+    internal static void SwitchDruidArchDruid()
+    {
+        Druid.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSetDruidArchDruid ||
+            x.FeatureDefinition == Level20Context.MagicAffinityArchDruid);
+
+        Druid.FeatureUnlocks.Add(Main.Settings.EnableDruidArchDruid2024
+            ? new FeatureUnlockByLevel(FeatureSetDruidArchDruid, 20)
+            : new FeatureUnlockByLevel(Level20Context.MagicAffinityArchDruid, 20));
+
+        Druid.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+    
+    private static void SwitchDruidElementalFury()
     {
     }
 

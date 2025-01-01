@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=Activez <color=#D89555>Sear Undead</color> pou
 ModUi/&EnableClericToLearnDomainAtLevel3=Activer le <color=#D89555>Domaine</color> au niveau 3 au lieu de 1
 ModUi/&EnableCustomPortraits=Activer les <color=#D89555>portraits personnalisés</color>
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color></b></i>, nommés d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
+ModUi/&EnableDruidArchDruid2024=Échangez <color=#D89555>Archdruid</color> avec la version 2024 <i><color=#F0DAA0>[retrouver la forme sauvage]</color></i>
 ModUi/&EnableDruidElementalFury2024=Activez la <color=#D89555>fureur élémentaire</color> et la <color=#D89555>fureur élémentaire améliorée</color> aux niveaux 7 et 15
 ModUi/&EnableDruidMetalArmor2024=Supprimer les restrictions de <color=#D89555>Armure métallique</color>
 ModUi/&EnableDruidPrimalOrder2024=Activez <color=#D89555>Ordre primordial</color> au niveau 1 et supprimez la <color=#D89555>Maîtrise de l'armure moyenne</color>

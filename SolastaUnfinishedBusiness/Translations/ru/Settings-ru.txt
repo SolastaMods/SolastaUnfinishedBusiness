@@ -121,6 +121,7 @@ ModUi/&EnableClericSearUndead2024=Включить <color=#D89555>Опалени
 ModUi/&EnableClericToLearnDomainAtLevel3=Включить <color=#D89555>Божественный домен</color> на уровне 3 вместо 1
 ModUi/&EnableCustomPortraits=Включить <color=#D89555>Пользовательские портреты</color>
 ModUi/&EnableCustomPortraitsHelp=• Поместите свои пользовательские портреты в подпапки <i><b><color=#F0DAA0>Personal</color></b></i> или <i><b><color=#F0DAA0>PreGen</color></b></i> с именами, соответствующими именам героев <i><color=#F0DAA0>[т.е.: Антон, Селия, Ниалла и т. д.]</color></i>\n• Используйте изображения размером 256 x 384 пикселей с прозрачным фоном <i><color=#F0DAA0>[для достижения наилучших результатов используйте GIMP]</color></i>
+ModUi/&EnableDruidArchDruid2024=Поменяйте <color=#D89555>Archdruid</color> на версию 2024 года <i><color=#F0DAA0>[вернуть Wild Shape]</color></i>
 ModUi/&EnableDruidElementalFury2024=Включите <color=#D89555>Elemental Fury</color> и <color=#D89555>Improved Elemental Fury</color> на уровнях 7 и 15.
 ModUi/&EnableDruidMetalArmor2024=Снять ограничения на <color=#D89555>Металлическую броню</color>
 ModUi/&EnableDruidPrimalOrder2024=Включить <color=#D89555>Первобытный порядок</color> на уровне 1 и убрать <color=#D89555>Владение средней бронёй</color>
