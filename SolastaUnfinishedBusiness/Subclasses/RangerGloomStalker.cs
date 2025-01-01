@@ -317,13 +317,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             attacker.SetSpecialFeatureUses(featureStalkersFlurry.Name, 0);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
 
-            var actionId = Id.AttackFree;
-
-            if (action.ActionId == Id.AttackOpportunity)
-            {
-                actionId = Id.AttackOpportunity;
-                attacker.RefundActionUse(ActionType.Reaction);
-            }
+            var actionId = action.ActionId == Id.AttackOpportunity ? Id.AttackOpportunity : Id.AttackFree;
 
             attacker.MyExecuteActionAttack(
                 actionId,

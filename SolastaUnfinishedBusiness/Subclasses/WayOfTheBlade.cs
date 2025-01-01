@@ -361,8 +361,7 @@ public sealed class WayOfBlade : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
         {
-            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerAgileParryAttack ||
-                !attacker.CanReact())
+            if (action.ActionParams.RulesetEffect.SourceDefinition != PowerAgileParryAttack)
             {
                 yield break;
             }
@@ -454,13 +453,7 @@ public sealed class WayOfBlade : AbstractSubclass
             attacker.SetSpecialFeatureUses(featureMasterOfTheBlade.Name, 0);
             rulesetAttacker.LogCharacterUsedFeature(featureMasterOfTheBlade);
 
-            var actionId = Id.AttackFree;
-
-            if (action.ActionId == Id.AttackOpportunity)
-            {
-                actionId = Id.AttackOpportunity;
-                attacker.RefundActionUse(ActionType.Reaction);
-            }
+            var actionId = action.ActionId == Id.AttackOpportunity ? Id.AttackOpportunity : Id.AttackFree;
 
             attacker.MyExecuteActionAttack(
                 actionId,
