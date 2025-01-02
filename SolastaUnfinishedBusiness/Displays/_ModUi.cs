@@ -287,7 +287,7 @@ internal static class ModUi
         "VitriolicSphere",
         "VoidGrasp",
         "WardingBond",
-        "WayOfShadow",
+        "WayOfTheShadow",
         "Weird",
         "WitchBolt",
         "WitherAndBloom",

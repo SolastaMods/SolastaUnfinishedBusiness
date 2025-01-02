@@ -287,7 +287,7 @@ public sealed class WayOfShadow : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle != null ||
-                action is not CharacterActionMove ||
+                action is not CharacterActionMoveStepBase ||
                 actingCharacter.MovingToDestination ||
                 ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
                 !rulesetCharacter.TryGetConditionOfCategoryAndType(
@@ -303,12 +303,14 @@ public sealed class WayOfShadow : AbstractSubclass
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
+            if (ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionCloakOfShadowsName, out var actionCondition))
             {
-                rulesetCharacter.RemoveCondition(actionCondition);
+                return;
             }
+
+            rulesetCharacter.RemoveCondition(actionCondition);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(
