@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
@@ -453,13 +454,26 @@ public sealed class WayOfBlade : AbstractSubclass
             attacker.SetSpecialFeatureUses(featureMasterOfTheBlade.Name, 0);
             rulesetAttacker.LogCharacterUsedFeature(featureMasterOfTheBlade);
 
-            var actionId = action.ActionId == Id.AttackOpportunity ? Id.AttackOpportunity : Id.AttackFree;
+            if (action.ActionId == Id.AttackOpportunity)
+            {
+                var actionParams = new CharacterActionParams(
+                    attacker,
+                    Id.AttackOpportunity,
+                    attackMode,
+                    defender,
+                    new ActionModifier());
+                var actionAttack = new CharacterActionAttack(actionParams);
 
-            attacker.MyExecuteActionAttack(
-                actionId,
-                defender,
-                attackMode,
-                new ActionModifier());
+                yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+            }
+            else
+            {
+                attacker.MyExecuteActionAttack(
+                    Id.AttackFree,
+                    defender,
+                    attackMode,
+                    new ActionModifier());
+            }
         }
     }
 }
