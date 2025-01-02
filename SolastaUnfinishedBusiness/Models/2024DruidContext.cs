@@ -84,19 +84,11 @@ internal static partial class Tabletop2024Context
         .Create("PowerDruidWildResurgenceShape")
         .SetGuiPresentation(Category.Feature,
             Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.UntilLongRest)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create("ConditionDruidWildResurgenceShape")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot1)
-                        .AddToDB()))
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorPowerDruidWildResurgenceShape())
         .AddToDB();
@@ -105,11 +97,20 @@ internal static partial class Tabletop2024Context
         .Create("PowerDruidWildResurgenceSlot")
         .SetGuiPresentation(Category.Feature,
             Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
+                .SetDurationData(DurationType.UntilLongRest)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionDruidWildResurgenceShape")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot1)
+                            .AddToDB()))
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorSpendWildShape(1))
         .AddToDB();
@@ -195,22 +196,18 @@ internal static partial class Tabletop2024Context
                         .SetDurationData(DurationType.UntilLongRest)
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                         .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"ConditionNatureMagicianGain{i}Slot")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetSilent(Silent.WhenAddedOrRemoved)
-                                        .SetFeatures(
-                                            GetDefinition<FeatureDefinitionMagicAffinity>(
-                                                $"MagicAffinityAdditionalSpellSlot{i}"))
-                                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                                .Build())
+                            EffectFormBuilder.ConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"ConditionNatureMagicianGain{i}Slot")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .SetFeatures(GetDefinition<FeatureDefinitionMagicAffinity>(
+                                        $"MagicAffinityAdditionalSpellSlot{i}"))
+                                    .AddToDB()))
                         .Build())
                 .AddCustomSubFeatures(
                     ModifyPowerVisibility.Hidden,
-                    new CustomBehaviorSpendWildShape(i))
+                    new CustomBehaviorSpendWildShape(uses))
                 .AddToDB();
 
             powers.Add(powerGainSlot);
@@ -509,8 +506,7 @@ internal static partial class Tabletop2024Context
     }
 
     private sealed class CustomBehaviorElementalFury(FeatureDefinitionPower powerElementalFury)
-        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-            IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -521,13 +517,10 @@ internal static partial class Tabletop2024Context
             List<EffectForm> actualEffectForms,
             bool firstTarget, bool criticalHit)
         {
-            yield return HandleReaction(attacker, battleManager);
-        }
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
-            List<GameLocationCharacter> targets)
-        {
-            yield return HandleOutcome(attacker);
+            if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
+            {
+                yield return HandleReaction(attacker, battleManager);
+            }
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -543,18 +536,6 @@ internal static partial class Tabletop2024Context
             bool criticalHit)
         {
             yield return HandleReaction(attacker, battleManager);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            yield return HandleOutcome(attacker);
         }
 
         private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
@@ -583,23 +564,6 @@ internal static partial class Tabletop2024Context
             {
                 attacker.SetSpecialFeatureUses(ElementalFury, 1);
             }
-        }
-
-        private static IEnumerator HandleOutcome(GameLocationCharacter attacker)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.ElementalFuryToggle) ||
-                attacker.GetSpecialFeatureUses(ElementalFury) != 1)
-            {
-                yield break;
-            }
-
-            rulesetAttacker.RemoveAllConditionsOfType(
-                "ConditionDruidElementalFuryDamageCold",
-                "ConditionDruidElementalFuryDamageFire",
-                "ConditionDruidElementalFuryDamageLightning",
-                "ConditionDruidElementalFuryDamageThunder");
         }
     }
 

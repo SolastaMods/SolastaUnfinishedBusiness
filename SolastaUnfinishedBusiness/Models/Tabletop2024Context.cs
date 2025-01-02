@@ -61,6 +61,7 @@ internal static partial class Tabletop2024Context
         SwitchClericDomainLearningLevel();
         SwitchClericSearUndead();
         SwitchDruidArchDruid();
+        SwitchDruidCircleLearningLevel();
         SwitchDruidElementalFury();
         SwitchDruidMetalArmor();
         SwitchDruidPrimalOrder();
