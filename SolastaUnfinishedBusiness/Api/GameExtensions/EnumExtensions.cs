@@ -84,6 +84,7 @@ internal enum ExtraActionId
     GravityWellToggle,
     GrappleNoCost,
     ProxyDarkness,
+    ElementalFuryToggle,
     PrioritizeAction = 10000
 }
 

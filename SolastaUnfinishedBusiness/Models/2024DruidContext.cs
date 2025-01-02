@@ -14,13 +14,15 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -295,10 +297,16 @@ internal static partial class Tabletop2024Context
             powers.Add(powerElementalFury);
         }
 
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityElementalFuryToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.ElementalFuryToggle)
+            .AddToDB();
+
         var featureSetPrimalStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetDruidElementalFuryPrimalStrike")
             .SetGuiPresentation(powerPrimalStrike.GuiPresentation)
-            .SetFeatureSet(powerPrimalStrike)
+            .SetFeatureSet(powerPrimalStrike, actionAffinityToggle)
             .AddFeatureSet([.. powers])
             .AddToDB();
 
@@ -561,12 +569,14 @@ internal static partial class Tabletop2024Context
 
         private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
         {
-            if (!attacker.OnceInMyTurnIsValid(ElementalFury))
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.ElementalFuryToggle) ||
+                !attacker.OnceInMyTurnIsValid(ElementalFury))
             {
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerElementalFury, rulesetAttacker);
 
             yield return attacker.MyReactToSpendPowerBundle(
@@ -589,15 +599,16 @@ internal static partial class Tabletop2024Context
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attacker.GetSpecialFeatureUses(ElementalFury) == 1)
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.ElementalFuryToggle) ||
+                attacker.GetSpecialFeatureUses(ElementalFury) != 1)
             {
-                rulesetAttacker.RemoveAllConditionsOfType(
-                    "ConditionDruidElementalFuryDamageCold",
-                    "ConditionDruidElementalFuryDamageLightning",
-                    "ConditionDruidElementalFuryDamageThunder");
+                yield break;
             }
 
-            yield break;
+            rulesetAttacker.RemoveAllConditionsOfType(
+                "ConditionDruidElementalFuryDamageCold",
+                "ConditionDruidElementalFuryDamageLightning",
+                "ConditionDruidElementalFuryDamageThunder");
         }
     }
 
@@ -663,10 +674,9 @@ internal static partial class Tabletop2024Context
 
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
         {
-            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
             var slotLevel = rulesetCharacter.GetClassSpellRepertoire(Druid)?.GetLowestAvailableSlotLevel();
 
-            return slotLevel > 0 && rulesetCharacter.GetMaxUsesOfPower(usablePower) == 0;
+            return slotLevel > 0 && rulesetCharacter.GetRemainingPowerUses(PowerDruidWildShape) == 0;
         }
     }
 
@@ -682,9 +692,9 @@ internal static partial class Tabletop2024Context
             yield break;
         }
 
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
         {
-            return character.GetRemainingPowerUses(PowerDruidWildShape) >= usage;
+            return rulesetCharacter.GetRemainingPowerUses(PowerDruidWildShape) >= usage;
         }
     }
 }
