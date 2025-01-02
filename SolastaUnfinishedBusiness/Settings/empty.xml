@@ -649,6 +649,7 @@
     <EnableBarbarianReckless2024>false</EnableBarbarianReckless2024>
     <EnableBarbarianRage2024>false</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>false</EnableBarbarianRelentlessRage2024>
+    <EnableClericBlessedStrikes2024>false</EnableClericBlessedStrikes2024>
     <EnableClericChannelDivinity2024>false</EnableClericChannelDivinity2024>
     <EnableClericDivineOrder2024>false</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>false</EnableClericSearUndead2024>

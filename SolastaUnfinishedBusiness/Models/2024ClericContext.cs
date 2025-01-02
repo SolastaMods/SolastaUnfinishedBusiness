@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -105,6 +106,15 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+
+    private static readonly Dictionary<string, string> AdditionalDamageBlessedStrikes = new()
+    {
+        { "DomainMischief", "PowerClericBlessedStrikesDamageTypePsychic" },
+        { "DomainNature", "PowerClericBlessedStrikesDamageTypeCold" },
+        { "DomainSmith", "PowerClericBlessedStrikesDamageTypeFire" },
+        { "DomainTempest", "PowerClericBlessedStrikesDamageTypeThunder" }
+    };
+
     private static void LoadClericBlessedStrikes()
     {
         var featurePotentSpellcasting = FeatureDefinitionBuilder
@@ -115,10 +125,16 @@ internal static partial class Tabletop2024Context
         featurePotentSpellcasting.AddCustomSubFeatures(
             new ClassFeats.CustomBehaviorFeatPotentSpellcaster(featurePotentSpellcasting, Cleric));
 
+        const int SPECIFIC_DAMAGE_START_INDEX = 2;
+
         var damageTypes = new (string, IMagicEffect)[]
         {
-            (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt), (DamageTypeLightning, LightningBolt),
-            (DamageTypeThunder, Shatter)
+            (DamageTypeRadiant, Sunburst), (DamageTypeNecrotic, VampiricTouch),
+            // these are specific to some domains and not added on feature set but on demand before reaction
+            (DamageTypeCold, ConeOfCold), // DomainNature
+            (DamageTypeFire, FireBolt), // DomainSmith
+            (DamageTypeThunder, Shatter), // DomainTempest
+            (DamageTypePsychic, PowerMagebaneWarcry) // DomainMischief
         };
 
         var powers = new List<FeatureDefinitionPower>();
@@ -135,6 +151,8 @@ internal static partial class Tabletop2024Context
             .AddToDB();
 
         powerBlessedStrikes.AddCustomSubFeatures(new CustomBehaviorBlessedStrikes(powerBlessedStrikes));
+
+        var damageIndex = 0;
 
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var (damageType, effect) in damageTypes)
@@ -178,7 +196,10 @@ internal static partial class Tabletop2024Context
                 .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .AddToDB();
 
-            powers.Add(powerDivineStrike);
+            if (damageIndex++ < SPECIFIC_DAMAGE_START_INDEX)
+            {
+                powers.Add(powerDivineStrike);
+            }
         }
 
         var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
@@ -286,22 +307,56 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchClericBlessedStrikes()
     {
-        var subclasses = new List<CharacterSubclassDefinition>();
-
-        foreach (var subclass in subclasses)
+        var domains = new[]
         {
-            subclass.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
-                x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
+            ("DomainDefiler", "AdditionalDamageDomainDefilerDivineStrike"),
+            ("DomainLife", "AdditionalDamageDomainLifeDivineStrike"),
+            ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike"),
+            ("DomainNature", "AdditionalDamageDomainNatureDivineStrike"),
+            ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike"),
+            ("DomainSun", "AdditionalDamageDomainLifeDivineStrike"),
+            ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike")
+        };
 
-            if (Main.Settings.EnableClericBlessedStrikes2024)
+        if (Main.Settings.EnableClericBlessedStrikes2024)
+        {
+            foreach (var (subclassName, additionalDamageName) in domains)
             {
+                var subclass = GetDefinition<CharacterSubclassDefinition>(subclassName);
+                var additionalDamage = GetDefinition<FeatureDefinitionAdditionalDamage>(additionalDamageName);
+
+                subclass.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == additionalDamage);
                 subclass.FeatureUnlocks.AddRange(
                     new FeatureUnlockByLevel(FeatureSetClericBlessedStrikes, 7),
                     new FeatureUnlockByLevel(FeatureClericImprovedBlessedStrikes, 14));
+
+                subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
             }
 
-            subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
+            {
+                subclass.FeatureUnlocks.Where(x => x.Level == 8).Do(x => x.level = 7);
+            }
+        }
+        else
+        {
+            foreach (var (subclassName, additionalDamageName) in domains)
+            {
+                var subclass = GetDefinition<CharacterSubclassDefinition>(subclassName);
+                var additionalDamage = GetDefinition<FeatureDefinitionAdditionalDamage>(additionalDamageName);
+
+                subclass.FeatureUnlocks.RemoveAll(x =>
+                    x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
+                    x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
+                subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(additionalDamage, 8));
+
+                subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            }
+
+            foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
+            {
+                subclass.FeatureUnlocks.Where(x => x.Level == 7).Do(x => x.level = 8);
+            }
         }
     }
 
@@ -643,15 +698,41 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerBlessedStrikes, rulesetAttacker);
+            var hero = rulesetAttacker.GetOriginalHero();
+            RulesetUsablePower additionalUsablePower = null;
+
+            if (hero != null)
+            {
+                foreach (var subclass in hero.ClassesAndSubclasses.Values)
+                {
+                    if (!AdditionalDamageBlessedStrikes.TryGetValue(subclass.Name, out var powerName))
+                    {
+                        continue;
+                    }
+
+                    var power = GetDefinition<FeatureDefinitionPower>(powerName);
+
+                    additionalUsablePower = PowerProvider.Get(power, rulesetAttacker);
+                    hero.UsablePowers.AddRange(additionalUsablePower);
+
+                    break;
+                }
+            }
+
+            var usablePowerPool = PowerProvider.Get(powerBlessedStrikes, rulesetAttacker);
 
             yield return attacker.MyReactToSpendPowerBundle(
-                usablePower,
+                usablePowerPool,
                 [attacker],
                 attacker,
                 powerBlessedStrikes.Name,
                 reactionValidated: ReactionValidated,
                 battleManager: battleManager);
+
+            if (additionalUsablePower != null)
+            {
+                hero.UsablePowers.Remove(additionalUsablePower);
+            }
 
             yield break;
 

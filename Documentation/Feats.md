@@ -528,266 +528,258 @@ You gain proficiency with medium armor and shields.
 
 You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 
-# 107. - Natural Fluidity [UB]
-
-You may use a Wild Shape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 Wild Shape forms. You can use it once per long rest.
-
-# 108. - Old Tactics [UB]
+# 107. - Old Tactics [UB]
 
 Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.
 
-# 109. - *Orcish Aggression* © [UB]
+# 108. - *Orcish Aggression* © [UB]
 
 Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
 • As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon. This feature can be used proficiency bonus times per long rest.
 
-# 110. - *Orcish Fury* © [UB]
+# 109. - *Orcish Fury* © [UB]
 
 Your fury burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
 • When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
 • Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.
 
-# 111. - Pickpocket [UB]
+# 110. - Pickpocket [UB]
 
 You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 
-# 112. - *Piercer* © [UB]
+# 111. - *Piercer* © [UB]
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1, and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 
-# 113. - *Poisoner* © [UB]
+# 112. - *Poisoner* © [UB]
 
 You have a profound understanding on how to manipulate poisons:
 • You gain proficiency with the poisoner's kit, or expertise if already proficient.
 • You gain the ability to apply a poison to your weapon as a bonus action.
 • When you make a damage roll, you ignore resistance to poison damage.
 
-# 114. - Poisonous Skin [UB]
+# 113. - Poisonous Skin [UB]
 
 Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or become Poisoned for 1 minute.
 
-# 115. - *Polearm Master* © [UB]
+# 114. - *Polearm Master* © [UB]
 
 Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
 
-# 116. - Potent Spellcaster [UB]
+# 115. - Potent Spellcaster [UB]
 
 You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.
 
-# 117. - Power Attack [UB]
+# 116. - Power Attack [UB]
 
 You have learned to trade accuracy to land deadlier blows. When attacking unarmed or with melee weapons, you can choose to take a -3 penalty to your attack roll in order to do additional damage equal to 3 + your proficiency bonus.
 
-# 118. - Powerful Cantrip [SOL]
+# 117. - Powerful Cantrip [SOL]
 
 When a creature succeeds on a saving throw against your cantrip or dodges your cantrip, the creature takes half damage but suffers no additional effect from the cantrip or from other sources like Agonizing Blast.
 
-# 119. - Precision Focused [UB]
+# 118. - Precision Focused [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 
-# 120. - Primal Rage [UB]
+# 119. - Primal Rage [UB]
 
 Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.
 
-# 121. - Raise Shield [SOL]
+# 120. - Raise Shield [SOL]
 
 When you are about to get hit by a ranged attack while wielding a shield, you can use your reaction to get +3 AC until the end of the attacker's turn. You also gain proficiency with shields.
 
-# 122. - Ranged Mastery [UB]
+# 121. - Ranged Mastery [UB]
 
 When you take the Attack action while holding a bow or a crossbow, you can use your bonus action to attack with the weapon.
 
-# 123. - Ready or Not [SOL]
+# 122. - Ready or Not [SOL]
 
 You have advantage on your attack rolls when using Ready Action.
 
-# 124. - Reckless Attack [UB]
+# 123. - Reckless Attack [UB]
 
 Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 
-# 125. - *Revenant Blade* © [UB]
+# 124. - *Revenant Blade* © [UB]
 
 You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to AC.
 • Great sword has the finesse property when you wield it.
 
-# 126. - Robust [SOL]
+# 125. - Robust [SOL]
 
 Sturdy and tough, you increase your Constitution score by 1 (max 20) and when you use a hit die to regain hit points, roll twice and take the higher value.
 
-# 127. - Rush to Battle [SOL]
+# 126. - Rush to Battle [SOL]
 
 You can use your bonus action to increase your movement speed by 3 cells until the end of your turn, and get -2 to your AC, until the start of your next turn.
 
-# 128. - *Savage Attack* © [UB]
+# 127. - *Savage Attack* © [UB]
 
 Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 
-# 129. - Scriber [UB]
+# 128. - Scriber [UB]
 
 Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
 
-# 130. - *Second Chance* © [UB]
+# 129. - *Second Chance* © [UB]
 
 Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.
 
-# 131. - *Sentinel* © [UB]
+# 130. - *Sentinel* © [UB]
 
 You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
 • When a creature within 5 feet of you makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
 
-# 132. - *Sharpshooter* © [UB]
+# 131. - *Sharpshooter* © [UB]
 
 You have learned to trade accuracy to land deadlier shots:
 • When attacking with a ranged weapon, you can choose to take a -5 penalty to your attack roll in order to do additional +10 damage.
 • Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 
-# 133. - Shield Bash [UB]
+# 132. - Shield Bash [UB]
 
 You can use your bonus action to bash a creature using your shield, turning it momentarily into a special improvised weapon that you are proficient with. Make a melee weapon attack against a creature within 5 feet of you using your Strength modifier for the attack. If you hit, the creature takes 1d4 + Strength modifier as bludgeoning damage.
 
-# 134. - *Shield Master* © [UB]
+# 133. - *Shield Master* © [UB]
 
 You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:
 • If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.
 • If you aren't incapacitated, gain +2 bonus to all Dexterity saving throws you make.
 • Whenever a damaging spell forces you to roll a Dexterity saving throw, you can use your reaction to halve any damage taken.
 
-# 135. - *Slasher* © [UB]
+# 134. - *Slasher* © [UB]
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
-# 136. - Slay thy Enemies [UB]
+# 135. - Slay thy Enemies [UB]
 
 You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Against favored enemies you gain advantage on attack rolls instead pf attack roll bonus. This effect lasts for 2 rounds, plus 1 round per slot level used.
 
-# 137. - *Spear Mastery* © [UB]
+# 136. - *Spear Mastery* © [UB]
 
 Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# 138. - *Spell Sniper* © [UB]
+# 137. - *Spell Sniper* © [UB]
 
 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 
-# 139. - Spiritual Fluidity [UB]
-
-You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
-
-# 140. - *Squat Nimbleness* © [UB]
+# 138. - *Squat Nimbleness* © [UB]
 
 You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
-# 141. - *Stealthy* © [UB]
+# 139. - *Stealthy* © [UB]
 
 You know how best to hide. You gain the following benefits:
 • Increase your Dexterity by 1, to a maximum of 20.
 • You gain proficiency with Stealth skill or expertise if you are already proficient.
 • If you are hidden, you can move in the open without revealing yourself if you end the move in a position where you're not clearly visible.
 
-# 142. - Sturdiness of the Tundra [SOL]
+# 140. - Sturdiness of the Tundra [SOL]
 
 +1 CON to a maximum of 20 
  You gain proficiency with Medium Armor.
  You gain proficiency with Warhammers, and Light and Heavy Crossbows.
 
-# 143. - Superior Critical [UB]
+# 141. - Superior Critical [UB]
 
 Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 
-# 144. - Take Aim [SOL]
+# 142. - Take Aim [SOL]
 
 You can use your bonus action to take aim. Until the end of your turn, your ranged weapon attacks have no disadvantage or advantage, no matter the conditions.
 
-# 145. - *Telekinetic* © [UB]
+# 143. - *Telekinetic* © [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
 
-# 146. - *Theologian* © [UB]
+# 144. - *Theologian* © [UB]
 
 Your extensive study of religion rewards you with the following benefits.
 • Increase your Intelligence by 1, to a maximum of 20.
 • You gain proficiency with Religious skill or expertise if you are already proficient.
 • You learn the Detect Evil and Good spell. You can cast Detect Evil and Good once without expending a spell slot, and you regain the ability to do so when you finish a long rest.
 
-# 147. - Thrown Weapons Master [UB]
+# 145. - Thrown Weapons Master [UB]
 
 When you are making a ranged attack with a thrown weapon, increase its short range by 10 feet and its long range by 20 feet. In addition, the weapon returns into your hand immediately after it is used to make a thrown attack.
 
-# 148. - Touched Magic [UB]
+# 146. - Touched Magic [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You can pick a set from Aegis Touched, Celestial Touched, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Verdant Touched. Each set grants 3 spells. You can cast these spells once per long rest, and you can also cast these spells with your spell slots.
 
-# 149. - *Tough* © [UB]
+# 147. - *Tough* © [UB]
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 
-# 150. - Toxic Touch [SOL]
+# 148. - Toxic Touch [SOL]
 
 The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional poison damage equal to your proficiency bonus.
 
-# 151. - Toxicologist [UB]
+# 149. - Toxicologist [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
-# 152. - Trip Attack [SOL]
+# 150. - Trip Attack [SOL]
 
 When you hit an enemy with a melee weapon ready attack, they must also make a contested roll as if you used the shove action or be knocked prone.
 
-# 153. - Twin Blade [SOL]
+# 151. - Twin Blade [SOL]
 
 When you are about to get hit by a melee attack while dual-wielding (not sword + shield), you can use your reaction to get +3 AC until the end of the attacker's turn.
 
-# 154. - Unarmored Expert [UB]
+# 152. - Unarmored Expert [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your AC is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
-# 155. - Uncanny Accuracy [SOL]
+# 153. - Uncanny Accuracy [SOL]
 
 +1 DEX to a maximum of 20
  You ignore half and three-quarters cover with your ranged attacks.
 
-# 156. - Versatility Adept [UB]
+# 154. - Versatility Adept [UB]
 
 You gain Eldritch Versatility, with its pool size increased by your proficiency bonus and Versatility Switch. You learn 1 versatility.
 Eldritch Versatility: You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. After a long rest, the pool is reset.
 Versatility Switch: Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If you choose an ability score, treat the chosen ability score as 10 + 2 * [Proficiency Bonus] when using versatilities. If you choose Versatile, your Strength, Intelligence and Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
-# 157. - *War Caster* © [UB]
+# 155. - *War Caster* © [UB]
 
 You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 158. - *Weapon Master* © [UB]
+# 156. - *Weapon Master* © [UB]
 
 You have practiced extensively with a variety of weapons, gaining the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 
-# 159. - Wise Archery [UB]
+# 157. - Wise Archery [UB]
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifier for the attack and damage rolls with these weapons.
 
-# 160. - *Wood-Elf Magic* © [UB]
+# 158. - *Wood-Elf Magic* © [UB]
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 
