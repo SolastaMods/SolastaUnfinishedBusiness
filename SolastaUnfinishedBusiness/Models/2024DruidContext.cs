@@ -28,7 +28,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    private const string ElementalFury = "ElementaFury";
+    private const string ElementalFury = "ElementalFury";
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidPrimalOrder = FeatureDefinitionFeatureSetBuilder
         .Create("FeatureSetDruidPrimalOrder")
@@ -144,7 +144,7 @@ internal static partial class Tabletop2024Context
         FeatureDefinitionBuilder
             .Create("FeatureDruidImprovedElementalFury")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CustomBehaviorPotentSpellcasting())
+            .AddCustomSubFeatures(new CustomBehaviorDruidImprovedPotentSpellcasting())
             .AddToDB();
 
     private static void LoadDruidArchDruid()
@@ -185,7 +185,7 @@ internal static partial class Tabletop2024Context
             var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerNatureMagicianGainSlot{i}")
                 .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerNatureMagicianGainSlotTitle", uses.ToString(), i.ToString()),
+                    Gui.Format("Feature/&PowerNatureMagicianGainSlotTitle", i.ToString()),
                     Gui.Format("Feature/&PowerNatureMagicianGainSlotDescription", uses.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.NoCost, powerPool)
                 .SetShowCasting(false)
@@ -280,8 +280,8 @@ internal static partial class Tabletop2024Context
             var powerElementalFury = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerDruidElementalFury{damageType}")
                 .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerDruidElementalFurySubPowerTitle", damageTitle),
-                    Gui.Format("Feature/&PowerDruidElementalFurySubPowerTitle", damageTitle))
+                    $"Tooltip/&Tag{damageType}Title",
+                    Gui.Format("Feature/&PowerDruidElementalFurySubPowerDescription", damageTitle))
                 .SetShowCasting(false)
                 .SetSharedPool(ActivationTime.NoCost, powerPrimalStrike)
                 .SetEffectDescription(
@@ -312,7 +312,6 @@ internal static partial class Tabletop2024Context
 
         PowerBundle.RegisterPowerBundle(powerPrimalStrike, false, powers);
         FeatureSetDruidElementalFury.FeatureSet.SetRange(featurePotentSpellcasting, featureSetPrimalStrike);
-        FeatureSetDruidElementalFury.FeatureSet.AddRange(powers);
     }
 
     private static void LoadDruidWildshape()
@@ -361,20 +360,11 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchDruidMetalArmor()
     {
-        var active = Main.Settings.EnableDruidMetalArmor2024;
+        ProficiencyDruidArmor.ForbiddenItemTags.Clear();
 
-        if (active)
+        if (!Main.Settings.EnableDruidMetalArmor2024)
         {
-            ProficiencyDruidArmor.ForbiddenItemTags.Clear();
-        }
-        else
-        {
-            if (!ProficiencyDruidArmor.ForbiddenItemTags.Contains(
-                    TagsDefinitions.ItemTagMetal))
-            {
-                ProficiencyDruidArmor.ForbiddenItemTags.Add(
-                    TagsDefinitions.ItemTagMetal);
-            }
+            ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
         }
     }
 
@@ -607,12 +597,13 @@ internal static partial class Tabletop2024Context
 
             rulesetAttacker.RemoveAllConditionsOfType(
                 "ConditionDruidElementalFuryDamageCold",
+                "ConditionDruidElementalFuryDamageFire",
                 "ConditionDruidElementalFuryDamageLightning",
                 "ConditionDruidElementalFuryDamageThunder");
         }
     }
 
-    private sealed class CustomBehaviorPotentSpellcasting : IModifyEffectDescription
+    private sealed class CustomBehaviorDruidImprovedPotentSpellcasting : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {

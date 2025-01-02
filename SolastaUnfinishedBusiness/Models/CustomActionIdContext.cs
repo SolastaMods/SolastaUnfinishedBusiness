@@ -24,34 +24,36 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.BalefulScionToggle,
+        (Id)ExtraActionId.BlessedStrikesToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
+        (Id)ExtraActionId.CleavingAttackToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DeadEyeToggle,
         (Id)ExtraActionId.DestructiveWrathToggle,
         (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
+        (Id)ExtraActionId.ElementalFuryToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.GrappleOnUnarmedToggle,
+        (Id)ExtraActionId.GravityWellToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.OrcishFuryToggle,
+        (Id)ExtraActionId.OverChannelToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.PowerAttackToggle,
         (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ZenShotToggle,
-        (Id)ExtraActionId.CleavingAttackToggle,
-        (Id)ExtraActionId.PowerAttackToggle,
-        (Id)ExtraActionId.DeadEyeToggle,
-        (Id)ExtraActionId.OverChannelToggle,
-        (Id)ExtraActionId.GravityWellToggle
+        (Id)ExtraActionId.ThunderousStrikeToggle,
+        (Id)ExtraActionId.ZenShotToggle
     ];
 
     private static readonly List<Id> ExtraActionIdPowers =
@@ -74,11 +76,11 @@ public static class CustomActionIdContext
 
     internal static readonly List<Id> ExtraActionIdProxies =
     [
+        (Id)ExtraActionId.ProxyDarkness,
+        (Id)ExtraActionId.ProxyDawn,
         (Id)ExtraActionId.ProxyHoundWeapon,
         (Id)ExtraActionId.ProxyPactWeapon,
-        (Id)ExtraActionId.ProxyPetalStorm,
-        (Id)ExtraActionId.ProxyDawn,
-        (Id)ExtraActionId.ProxyDarkness
+        (Id)ExtraActionId.ProxyPetalStorm
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -90,8 +92,8 @@ public static class CustomActionIdContext
         BuildCustomRageStartAction();
         BuildCustomToggleActions();
         BuildDoNothingActions();
-        BuildPrioritizeAction();
         BuildFarStepAction();
+        BuildPrioritizeAction();
         BuildProxyActions();
     }
 
@@ -270,6 +272,14 @@ public static class CustomActionIdContext
 
     private static void BuildCustomToggleActions()
     {
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "BlessedStrikesToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.BlessedStrikesToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "BrutalStrikeToggle")
             .SetOrUpdateGuiPresentation(Category.Action)

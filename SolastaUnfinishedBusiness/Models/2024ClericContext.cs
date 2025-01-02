@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,20 +9,25 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
+    private const string BlessedStrikes = "BlessedStrikes";
+
     private static readonly FeatureDefinitionPointPool PointPoolClericThaumaturgeCantrip =
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolClericThaumaturgeCantrip")
@@ -85,6 +91,112 @@ internal static partial class Tabletop2024Context
         .HasSavingThrow(EffectSavingThrowType.Negates)
         .SetDamageForm(DamageTypeRadiant, 0, DieType.D8)
         .Build();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetClericBlessedStrikes =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetClericBlessedStrikes")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureClericImprovedBlessedStrikes =
+        FeatureDefinitionBuilder
+            .Create("FeatureClericImprovedBlessedStrikes")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+    private static void LoadClericBlessedStrikes()
+    {
+        var featurePotentSpellcasting = FeatureDefinitionBuilder
+            .Create("FeatureClericBlessedStrikesPotentSpellcasting")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featurePotentSpellcasting.AddCustomSubFeatures(
+            new ClassFeats.CustomBehaviorFeatPotentSpellcaster(featurePotentSpellcasting, Cleric));
+
+        var damageTypes = new (string, IMagicEffect)[]
+        {
+            (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt), (DamageTypeLightning, LightningBolt),
+            (DamageTypeThunder, Shatter)
+        };
+
+        var powers = new List<FeatureDefinitionPower>();
+        var powerBlessedStrikes = FeatureDefinitionPowerBuilder
+            .Create("PowerClericBlessedStrikes")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        powerBlessedStrikes.AddCustomSubFeatures(new CustomBehaviorBlessedStrikes(powerBlessedStrikes));
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var (damageType, effect) in damageTypes)
+        {
+            var additionalDamageBlessedStrikes = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamageClericBlessedStrikes{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("DivineStrike")
+                .SetDamageDice(DieType.D8, 1)
+                .SetSpecificDamageType(damageType)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+                .SetAttackModeOnly()
+                .AddCustomSubFeatures(ClassHolder.Cleric)
+                .SetImpactParticleReference(effect)
+                .AddToDB();
+
+            var conditionBlessedStrikes = ConditionDefinitionBuilder
+                .Create($"ConditionClericBlessedStrikes{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(additionalDamageBlessedStrikes)
+                .AddToDB();
+
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var powerDivineStrike = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerClericBlessedStrikes{damageType}")
+                .SetGuiPresentation(
+                    $"Tooltip/&Tag{damageType}Title",
+                    Gui.Format("Feature/&PowerClericBlessedStrikesSubPowerDescription", damageTitle))
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, powerBlessedStrikes)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBlessedStrikes))
+                        .Build())
+                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                .AddToDB();
+
+            powers.Add(powerDivineStrike);
+        }
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBlessedStrikesToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.BlessedStrikesToggle)
+            .AddToDB();
+
+        var featureSetPrimalStrike = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetClericBlessedStrikesPrimalStrike")
+            .SetGuiPresentation(powerBlessedStrikes.GuiPresentation)
+            .SetFeatureSet(powerBlessedStrikes, actionAffinityToggle)
+            .AddFeatureSet([.. powers])
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerBlessedStrikes, false, powers);
+        FeatureSetClericBlessedStrikes.FeatureSet.SetRange(featurePotentSpellcasting, featureSetPrimalStrike);
+    }
 
     private static void LoadClericChannelDivinity()
     {
@@ -170,6 +282,27 @@ internal static partial class Tabletop2024Context
     {
         PowerClericTurnUndead.EffectDescription.EffectForms.Insert(0, SearUndeadDamageForm);
         PowerClericTurnUndead.AddCustomSubFeatures(new ModifyEffectDescriptionPowerTurnUndead());
+    }
+
+    internal static void SwitchClericBlessedStrikes()
+    {
+        var subclasses = new List<CharacterSubclassDefinition>();
+
+        foreach (var subclass in subclasses)
+        {
+            subclass.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
+                x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
+
+            if (Main.Settings.EnableClericBlessedStrikes2024)
+            {
+                subclass.FeatureUnlocks.AddRange(
+                    new FeatureUnlockByLevel(FeatureSetClericBlessedStrikes, 7),
+                    new FeatureUnlockByLevel(FeatureClericImprovedBlessedStrikes, 14));
+            }
+
+            subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
     }
 
     internal static void SwitchClericChannelDivinity()
@@ -449,5 +582,97 @@ internal static partial class Tabletop2024Context
         var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
 
         return Math.Max(wisMod, 1);
+    }
+
+    private sealed class CustomBehaviorBlessedStrikes(FeatureDefinitionPower powerBlessedStrikes)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+            IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action, GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            yield return HandleOutcome(attacker);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield return HandleOutcome(attacker);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BlessedStrikesToggle) ||
+                !attacker.OnceInMyTurnIsValid(BlessedStrikes))
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(powerBlessedStrikes, rulesetAttacker);
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [attacker],
+                attacker,
+                powerBlessedStrikes.Name,
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                attacker.SetSpecialFeatureUses(BlessedStrikes, 1);
+            }
+        }
+
+        private static IEnumerator HandleOutcome(GameLocationCharacter attacker)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.BlessedStrikesToggle) ||
+                attacker.GetSpecialFeatureUses(BlessedStrikes) != 1)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.RemoveAllConditionsOfType(
+                "ConditionClericBlessedStrikesDamageNecrotic", "ConditionClericBlessedStrikesDamageRadiance");
+        }
     }
 }

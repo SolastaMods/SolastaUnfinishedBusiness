@@ -115,6 +115,7 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Allow cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharactersOnFireToEmitLight=Characters <color=#D89555>On Fire</color> should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=Enable <color=#D89555>Blessed Strikes</color>, and <color=#D89555>Improved Blessed Strikes</color> at levels 7 and 14
 ModUi/&EnableClericChannelDivinity2024=Swap <color=#D89555>Channel Divinity</color> with 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnableClericDivineOrder2024=Enable <color=#D89555>Divine Order</color> at level 1 <i><color=#F0DAA0>[choice between heavy armor/martial weapons prof. or bonus cantrip and some INT checks]</color></i>
 ModUi/&EnableClericSearUndead2024=Enable <color=#D89555>Sear Undead</color> to replace <color=#D89555>Destroy Undead</color> at level 5

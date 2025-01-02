@@ -115,6 +115,7 @@ ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requie
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen un ataque adicional adicional de <color=#D89555>Magia de guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=Habilita <color=#D89555>Golpes benditos</color> y <color=#D89555>Golpes benditos mejorados</color> en los niveles 7 y 14
 ModUi/&EnableClericChannelDivinity2024=Intercambia <color=#D89555>Divinidad canalizada</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnableClericDivineOrder2024=Habilita <color=#D89555>Orden Divina</color> en el nivel 1 <i><color=#F0DAA0>[elección entre armadura pesada/armas marciales, truco profesional o adicional y algunas pruebas de INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Habilita <color=#D89555>Quemar no muertos</color> para reemplazar <color=#D89555>Destruir no muertos</color> en el nivel 5

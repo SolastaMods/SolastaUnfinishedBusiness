@@ -137,6 +137,13 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableClericBlessedStrikes2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericBlessedStrikes2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericBlessedStrikes2024 = toggle;
+            Tabletop2024Context.SwitchClericBlessedStrikes();
+        }
+
         toggle = Main.Settings.EnableClericDivineOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
         {
