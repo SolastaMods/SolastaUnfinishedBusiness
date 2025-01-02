@@ -70,6 +70,7 @@ internal static class ModUi
         "DomainSmith",
         "DraconicTransformation",
         "DruidicWarrior",
+        "DragonsBreathSpell",
         "EarthTremor",
         "ElementalBane",
         "ElementalInfusion",
