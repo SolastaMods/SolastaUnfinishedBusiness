@@ -306,7 +306,7 @@ Feature/&PowerMonkSuperiorDefenseDescription=As a free action, you can spend 3 K
 Feature/&PowerMonkSuperiorDefenseTitle=Superior Defense
 Feature/&PowerMonkUncannyMetabolismDescription=When you roll Initiative, you can regain all expended Ki Points. When you do so, roll your Martial Arts die, and regain a number of Hit Points equal to your Monk level plus the number rolled.
 Feature/&PowerMonkUncannyMetabolismTitle=Uncanny Metabolism
-Feature/&PowerNatureMagicianGainSlotDescription==Choose {0} unexpended uses of Wild Shape and convert them into a single level {1} spell slot. Once you use this benefit, you can't do so again until you finish a Long Rest.
+Feature/&PowerNatureMagicianGainSlotDescription=Choose {0} unexpended uses of Wild Shape and convert them into a single level {1} spell slot. Once you use this benefit, you can't do so again until you finish a Long Rest.
 Feature/&PowerNatureMagicianGainSlotTitle=Gain level {0} slot
 Feature/&PowerPaladinAbjureFoesDescription=As an action, you can expend one use of this class's Channel Divinity to overwhelm foes with awe. As you present your Holy Symbol or weapon, you can target a number of creatures equal to your Charisma modifier (minimum of one creature) that you can see within 60 feet of yourself. Each target must succeed on a Wisdom saving throw or have the Frightened condition for 1 minute or until it takes any damage. While Frightened in this way, a target can do only one of the following on its turns: move, take an action, or take a Bonus Action.
 Feature/&PowerPaladinAbjureFoesTitle=Abjure Foes

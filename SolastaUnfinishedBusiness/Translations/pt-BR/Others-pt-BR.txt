@@ -309,7 +309,7 @@ Feature/&PowerMonkSuperiorDefenseDescription=Como uma ação livre, você pode g
 Feature/&PowerMonkSuperiorDefenseTitle=Defesa Superior
 Feature/&PowerMonkUncannyMetabolismDescription=Quando você rola Iniciativa, você pode recuperar todos os Pontos de Ki gastos. Quando você fizer isso, role seu dado de Artes Marciais e recupere um número de Pontos de Vida igual ao seu nível de Monge mais o número rolado.
 Feature/&PowerMonkUncannyMetabolismTitle=Metabolismo Estranho
-Feature/&PowerNatureMagicianGainSlotDescription==Escolha {0} usos não gastos de Wild Shape e converta-os em um slot de magia de nível único {1}. Depois de usar esse benefício, você não pode fazê-lo novamente até terminar um Long Rest.
+Feature/&PowerNatureMagicianGainSlotDescription=Escolha {0} usos não gastos de Wild Shape e converta-os em um slot de magia de nível único {1}. Depois de usar esse benefício, você não pode fazê-lo novamente até terminar um Long Rest.
 Feature/&PowerNatureMagicianGainSlotTitle=Mago da Natureza
 Feature/&PowerPaladinAbjureFoesDescription=Como uma ação, você pode gastar um uso de Canalizar Divindade desta classe para sobrepujar inimigos com admiração. Conforme você apresenta seu Símbolo Sagrado ou arma, você pode alvejar um número de criaturas igual ao seu modificador de Carisma (mínimo de uma criatura) que você possa ver a até 60 pés de você. Cada alvo deve ser bem-sucedido em um teste de resistência de Sabedoria ou ter a condição Assustado por 1 minuto ou até que sofra qualquer dano. Enquanto Assustado dessa forma, um alvo pode fazer apenas uma das seguintes coisas em seus turnos: mover-se, realizar uma ação ou realizar uma Ação Bônus.
 Feature/&PowerPaladinAbjureFoesTitle=Abjurar Inimigos

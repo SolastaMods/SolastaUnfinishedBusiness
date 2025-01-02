@@ -309,7 +309,7 @@ Feature/&PowerMonkSuperiorDefenseDescription=無料のアクションとして�
 Feature/&PowerMonkSuperiorDefenseTitle=優れた防御力
 Feature/&PowerMonkUncannyMetabolismDescription=イニシアティブをロールすると、消費した Ki ポイントをすべて回復できます。これを行うと、武術ダイスをロールし、モンク レベルとロールした数の合計に等しいヒット ポイントを回復します。
 Feature/&PowerMonkUncannyMetabolismTitle=不思議な代謝
-Feature/&PowerNatureMagicianGainSlotDescription==未使用のワイルドシェイプの使用回数を{0}回選択し、それらを単一のレベル{1}呪文スロットに変換します。この特典を一度使用すると、大休憩を終了するまで再度使用することはできません。
+Feature/&PowerNatureMagicianGainSlotDescription=未使用のワイルドシェイプの使用回数を{0}回選択し、それらを単一のレベル{1}呪文スロットに変換します。この特典を一度使用すると、大休憩を終了するまで再度使用することはできません。
 Feature/&PowerNatureMagicianGainSlotTitle=自然の魔術師
 Feature/&PowerPaladinAbjureFoesDescription=アクションとして、このクラスのチャネル ディヴィニティを 1 回使用して、敵を畏怖で圧倒することができます。聖印または武器を提示すると、自分の 60 フィート以内にいる、あなたの魅力修正値に等しい数のクリーチャー (最低 1 体) をターゲットにすることができます。各ターゲットは、知恵セーヴィング スローに成功するか、1 分間またはダメージを受けるまで恐怖状態になる必要があります。このように恐怖状態になっている間、ターゲットは自分のターンに以下のいずれか 1 つしか実行できません: 移動する、アクションを実行する、またはボーナス アクションを実行する。
 Feature/&PowerPaladinAbjureFoesTitle=敵をアブジュアする

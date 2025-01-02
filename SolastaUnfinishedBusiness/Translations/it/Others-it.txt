@@ -309,7 +309,7 @@ Feature/&PowerMonkSuperiorDefenseDescription=Come azione gratuita, puoi spendere
 Feature/&PowerMonkSuperiorDefenseTitle=Difesa superiore
 Feature/&PowerMonkUncannyMetabolismDescription=Quando tiri Iniziativa, puoi recuperare tutti i Punti Ki spesi. Quando lo fai, tira il tuo dado Arti Marziali e recupera un numero di Punti Ferita pari al tuo livello di Monaco più il numero ottenuto.
 Feature/&PowerMonkUncannyMetabolismTitle=Metabolismo misterioso
-Feature/&PowerNatureMagicianGainSlotDescription==Scegli {0} utilizzi non spesi di Forma Selvaggia e convertili in uno slot incantesimo di livello singolo {1}. Una volta che usi questo beneficio, non puoi farlo di nuovo finché non finisci un Riposo Lungo.
+Feature/&PowerNatureMagicianGainSlotDescription=Scegli {0} utilizzi non spesi di Forma Selvaggia e convertili in uno slot incantesimo di livello singolo {1}. Una volta che usi questo beneficio, non puoi farlo di nuovo finché non finisci un Riposo Lungo.
 Feature/&PowerNatureMagicianGainSlotTitle=Mago della natura
 Feature/&PowerPaladinAbjureFoesDescription=Come azione, puoi spendere un uso di Channel Divinity di questa classe per sopraffare i nemici con timore reverenziale. Mentre presenti il ​​tuo Simbolo Sacro o la tua arma, puoi prendere di mira un numero di creature pari al tuo modificatore di Carisma (minimo una creatura) che puoi vedere entro 60 piedi da te. Ogni bersaglio deve superare un tiro salvezza su Saggezza o avere la condizione Spaventato per 1 minuto o finché non subisce danni. Mentre è Spaventato in questo modo, un bersaglio può fare solo una delle seguenti cose nei suoi turni: muoversi, compiere un'azione o compiere un'Azione Bonus.
 Feature/&PowerPaladinAbjureFoesTitle=Abiurare i nemici

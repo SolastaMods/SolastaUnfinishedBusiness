@@ -309,7 +309,7 @@ Feature/&PowerMonkSuperiorDefenseDescription=以一个自由动作，你可以�
 Feature/&PowerMonkSuperiorDefenseTitle=无懈可击
 Feature/&PowerMonkUncannyMetabolismDescription=当你掷出主动权时，你可以恢复所有消耗的气点。这样做时，掷出你的武术骰子，并恢复等于你的武僧等级加上掷出的数字的生命值。
 Feature/&PowerMonkUncannyMetabolismTitle=不可思议的新陈代谢
-Feature/&PowerNatureMagicianGainSlotDescription==选择 {0} 次未使用的野性变身并将其转换为单级 {1} 法术位。一旦您使用了此福利，您就不能再这样做，直到您完成长时间休息。
+Feature/&PowerNatureMagicianGainSlotDescription=选择 {0} 次未使用的野性变身并将其转换为单级 {1} 法术位。一旦您使用了此福利，您就不能再这样做，直到您完成长时间休息。
 Feature/&PowerNatureMagicianGainSlotTitle=自然魔术师
 Feature/&PowerPaladinAbjureFoesDescription=作为一个动作，你可以花费一次该职业的神圣引导来让敌人感到敬畏。当你展示你的圣徽或武器时，你可以瞄准你在 60 英尺范围内看到的等于你的魅力调整值数量的生物（至少一个生物）。每个目标必须成功进行感知豁免检定，否则会处于恐惧状态 1 分钟或直到受到任何伤害。当目标以这种方式受到恐惧时，他只能在其回合中执行以下其中一项操作：移动、采取行动或采取奖励行动。
 Feature/&PowerPaladinAbjureFoesTitle=咒骂敌人
