@@ -226,17 +226,6 @@ public static class RulesetImplementationManagerPatcher
             bool canRerollDice,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            // commented out as causing issues with other features
-#if false
-            //BUGFIX: allow all damage forms from weapons to allow reroll dice (i.e.: Great Weapon Fighting)
-            if (!canRerollDice)
-            {
-                canRerollDice = formsParams.attackMode != null &&
-                                formsParams.attackMode.EffectDescription.EffectForms.Any(
-                                    x => x.DamageForm == damageForm);
-            }
-#endif
-
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {
                 return rulesetActor.RollDamage(
@@ -295,15 +284,18 @@ public static class RulesetImplementationManagerPatcher
             }
 
             //BUGFIX: don't allow damage roll reduction to spam across many damage forms
-            if (damage >= formsParams.actionModifier.DamageRollReduction)
+            if (formsParams.actionModifier != null && formsParams.actionModifier.DamageRollReduction != 0)
             {
-                damage -= formsParams.actionModifier.DamageRollReduction;
-                formsParams.actionModifier.DamageRollReduction = 0;
-            }
-            else
-            {
-                formsParams.actionModifier.DamageRollReduction -= damage;
-                damage = 0;
+                if (damage >= formsParams.actionModifier.DamageRollReduction)
+                {
+                    damage -= formsParams.actionModifier.DamageRollReduction;
+                    formsParams.actionModifier.DamageRollReduction = 0;
+                }
+                else
+                {
+                    formsParams.actionModifier.DamageRollReduction -= damage;
+                    damage = 0;
+                }
             }
 
             //PATCH: supports Sorcerous Wild Magic spell bombardment

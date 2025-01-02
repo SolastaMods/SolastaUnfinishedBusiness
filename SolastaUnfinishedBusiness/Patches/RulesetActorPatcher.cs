@@ -406,7 +406,7 @@ public static class RulesetActorPatcher
 
             if (trackingCondition == null)
             {
-                return false;
+                return true;
             }
 
             formsParams.FillFromActiveEffect(trackingCondition);
