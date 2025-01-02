@@ -20,7 +20,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
-using static MetricsDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -82,7 +81,7 @@ internal static partial class Tabletop2024Context
     private static readonly FeatureDefinitionPower PowerDruidWildResurgenceShape = FeatureDefinitionPowerBuilder
         .Create("PowerDruidWildResurgenceShape")
         .SetGuiPresentation(Category.Feature,
-            Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+            Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -97,20 +96,20 @@ internal static partial class Tabletop2024Context
                         .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot1)
                         .AddToDB()))
                 .Build())
-        .AddCustomSubFeatures(new ClassFeats.SpendWildShapeUse())
+        .AddCustomSubFeatures(new CustomBehaviorPowerDruidWildResurgenceShape())
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerDruidWildResurgenceSlot = FeatureDefinitionPowerBuilder
         .Create("PowerDruidWildResurgenceSlot")
         .SetGuiPresentation(Category.Feature,
-            Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
+            Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
-        .AddCustomSubFeatures(new ClassFeats.GainWildShapeCharges(1, 1))
+        .AddCustomSubFeatures(new CustomBehaviorSpendWildShape(1))
         .AddToDB();
 
     private static readonly FeatureDefinitionFeatureSet FeatureSetDruidWildResurgence =
@@ -168,7 +167,7 @@ internal static partial class Tabletop2024Context
         var powerPool = FeatureDefinitionPowerBuilder
             .Create("PowerDruidNatureMagician")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+                Sprites.GetSprite("PowerDruidNatureMagician", Resources.PowerDruidNatureMagician, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -209,7 +208,7 @@ internal static partial class Tabletop2024Context
                         .Build())
                 .AddCustomSubFeatures(
                     ModifyPowerVisibility.Hidden,
-                    new ClassFeats.SpendWildShapeUse())
+                    new CustomBehaviorSpendWildShape(i))
                 .AddToDB();
 
             powers.Add(powerGainSlot);
@@ -227,9 +226,13 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        featurePotentSpellcasting.AddCustomSubFeatures(
+            new ClassFeats.CustomBehaviorFeatPotentSpellcaster(featurePotentSpellcasting, Druid));
+
         var damageTypes = new (string, IMagicEffect)[]
         {
-            (DamageTypeCold, ConeOfCold), (DamageTypeLightning, LightningBolt), (DamageTypeThunder, Shatter)
+            (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt), (DamageTypeLightning, LightningBolt),
+            (DamageTypeThunder, Shatter)
         };
 
         var powers = new List<FeatureDefinitionPower>();
@@ -292,8 +295,15 @@ internal static partial class Tabletop2024Context
             powers.Add(powerElementalFury);
         }
 
+        var featureSetPrimalStrike = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDruidElementalFuryPrimalStrike")
+            .SetGuiPresentation(powerPrimalStrike.GuiPresentation)
+            .SetFeatureSet(powerPrimalStrike)
+            .AddFeatureSet([.. powers])
+            .AddToDB();
+
         PowerBundle.RegisterPowerBundle(powerPrimalStrike, false, powers);
-        FeatureSetDruidElementalFury.FeatureSet.SetRange(featurePotentSpellcasting, powerPrimalStrike);
+        FeatureSetDruidElementalFury.FeatureSet.SetRange(featurePotentSpellcasting, featureSetPrimalStrike);
         FeatureSetDruidElementalFury.FeatureSet.AddRange(powers);
     }
 
@@ -399,12 +409,18 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchDruidWildshape()
     {
-        PowerFighterSecondWind.rechargeRate = Main.Settings.EnableDruidWildshape2024
-            ? RechargeRate.LongRest
-            : RechargeRate.ShortRest;
-        PowerDruidWildShape.GuiPresentation.description = Main.Settings.EnableDruidWildshape2024
-            ? "Feature/&PowerDruidWildShapeAlternateDescription"
-            : "Feature/&PowerDruidWildShapeDescription";
+        if (Main.Settings.EnableDruidWildshape2024)
+        {
+            PowerDruidWildShape.activationTime = ActivationTime.BonusAction;
+            PowerDruidWildShape.rechargeRate = RechargeRate.LongRest;
+            PowerDruidWildShape.GuiPresentation.description = "Feature/&PowerDruidWildShapeAlternateDescription";
+        }
+        else
+        {
+            PowerDruidWildShape.activationTime = ActivationTime.Action;
+            PowerDruidWildShape.rechargeRate = RechargeRate.ShortRest;
+            PowerDruidWildShape.GuiPresentation.description = "Feature/&PowerDruidWildShapeDescription";
+        }
     }
 
     internal static void SwitchDruidCircleLearningLevel()
@@ -598,34 +614,9 @@ internal static partial class Tabletop2024Context
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var shapeType = effectDescription.TargetType switch
+            if (effectDescription.RangeType is RangeType.Distance or RangeType.RangeHit)
             {
-                TargetType.Line => GeometricShapeType.Line,
-                TargetType.Cone => GeometricShapeType.Cone,
-                TargetType.Cube
-                    or TargetType.CubeWithOffset => GeometricShapeType.Cube,
-                TargetType.Cylinder
-                    or TargetType.CylinderWithDiameter => GeometricShapeType.Cylinder,
-                TargetType.Sphere
-                    or TargetType.PerceivingWithinDistance
-                    or TargetType.InLineOfSightWithinDistance
-                    or TargetType.ClosestWithinDistance => GeometricShapeType.Sphere,
-                TargetType.WallLine => GeometricShapeType.WallLine,
-                TargetType.WallRing => GeometricShapeType.WallRing,
-                _ => GeometricShapeType.None
-            };
-
-            switch (shapeType)
-            {
-                case GeometricShapeType.None:
-                    effectDescription.rangeParameter *= 2;
-                    break;
-                case GeometricShapeType.Cube:
-                    effectDescription.targetParameter += 2;
-                    break;
-                case GeometricShapeType.Cone or GeometricShapeType.Cylinder or GeometricShapeType.Sphere:
-                    effectDescription.targetParameter += 1;
-                    break;
+                effectDescription.rangeParameter *= 2;
             }
 
             return effectDescription;
@@ -648,8 +639,52 @@ internal static partial class Tabletop2024Context
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
-            usablePower.Recharge();
+            usablePower.remainingUses++;
             rulesetCharacter.LogCharacterUsedFeature(FeatureDruidEvergreenWildShape);
+        }
+    }
+
+    internal sealed class CustomBehaviorPowerDruidWildResurgenceShape : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var repertoire = rulesetCharacter.GetClassSpellRepertoire(Druid);
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            if (repertoire == null)
+            {
+                yield break;
+            }
+
+            repertoire.SpendSpellSlot(repertoire.GetLowestAvailableSlotLevel());
+            rulesetCharacter.UpdateUsageForPowerPool(-1, usablePower);
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
+        {
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+            var slotLevel = rulesetCharacter.GetClassSpellRepertoire(Druid)?.GetLowestAvailableSlotLevel();
+
+            return slotLevel > 0 && rulesetCharacter.GetMaxUsesOfPower(usablePower) == 0;
+        }
+    }
+
+    internal sealed class CustomBehaviorSpendWildShape(int usage) : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            rulesetCharacter.UpdateUsageForPowerPool(usage, usablePower);
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.GetRemainingPowerUses(PowerDruidWildShape) >= usage;
         }
     }
 }

@@ -3255,6 +3255,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerDruidNatureMagician {
+            get {
+                object obj = ResourceManager.GetObject("PowerDruidNatureMagician", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerElderChampion {
             get {
                 object obj = ResourceManager.GetObject("PowerElderChampion", resourceCulture);
@@ -5185,6 +5195,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] WayOfTheBlade {
+            get {
+                object obj = ResourceManager.GetObject("WayOfTheBlade", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] WayOfTheDiscordance {
             get {
                 object obj = ResourceManager.GetObject("WayOfTheDiscordance", resourceCulture);
@@ -5218,16 +5238,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] WayOfTheStormSoul {
             get {
                 object obj = ResourceManager.GetObject("WayOfTheStormSoul", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] WayOfTheBlade {
-            get {
-                object obj = ResourceManager.GetObject("WayOfTheBlade", resourceCulture);
                 return ((byte[])(obj));
             }
         }
