@@ -22,6 +22,7 @@ CHANGES:
 - fixed **soft lock** scenario when target cannot move, and AI decision is dash [VANILLA] 
 - fixed translated campaigns world map **soft lock** by not translating location titles anymore
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
+- removed Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
 
 KNOWN ISSUES:
 

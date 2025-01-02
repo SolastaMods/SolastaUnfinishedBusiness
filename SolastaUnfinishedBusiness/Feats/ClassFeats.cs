@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -34,11 +33,8 @@ internal static class ClassFeats
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
         var featExploiter = BuildExploiter();
-        var featNaturalFluidity = BuildNaturalFluidity();
         var featPoisoner = BuildPoisoner();
         var featSlayTheEnemies = BuildSlayTheEnemies();
-        var featSpiritualFluidity = BuildSpiritualFluidity();
-
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
         var closeQuartersGroup = BuildCloseQuarters(feats);
@@ -51,10 +47,8 @@ internal static class ClassFeats
             featCunningEscape,
             featExpandTheHunt,
             featExploiter,
-            featNaturalFluidity,
             featPoisoner,
-            featSlayTheEnemies,
-            featSpiritualFluidity);
+            featSlayTheEnemies);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featCunningEscape);
@@ -75,9 +69,7 @@ internal static class ClassFeats
             featCunningEscape,
             featExpandTheHunt,
             featExploiter,
-            featNaturalFluidity,
             featSlayTheEnemies,
-            featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
             closeQuartersGroup,
@@ -633,164 +625,6 @@ internal static class ClassFeats
 
     #endregion
 
-    #region Natural Fluidity
-
-    private static FeatDefinitionWithPrerequisites BuildNaturalFluidity()
-    {
-        const string NAME = "FeatNaturalFluidity";
-
-        var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .AddToDB();
-
-        //
-        // Gain Slots
-        //
-
-        var powerGainSlotPoolList = new List<FeatureDefinitionPower>();
-
-        var powerGainSlotPool = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{NAME}GainSlotPool")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-            .SetSharedPool(ActivationTime.BonusAction, power)
-            .AddToDB();
-
-        for (var i = 3; i >= 1; i--)
-        {
-            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{NAME}GainSlot{i}")
-                .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotTitle", i.ToString()),
-                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotDescription", i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.UntilLongRest)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}Gain{i}Slot")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetSilent(Silent.WhenAddedOrRemoved)
-                                        .SetFeatures(
-                                            GetDefinition<FeatureDefinitionMagicAffinity>(
-                                                $"MagicAffinityAdditionalSpellSlot{i}"))
-                                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .Build())
-                .AddCustomSubFeatures(new SpendWildShapeUse())
-                .AddToDB();
-
-            powerGainSlotPoolList.Add(powerGainSlot);
-        }
-
-        PowerBundle.RegisterPowerBundle(powerGainSlotPool, false, powerGainSlotPoolList);
-
-        //
-        // Gain Wild Shape
-        //
-
-        var powerGainWildShapeList = new List<FeatureDefinitionPower>();
-
-        var powerWildShapePool = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{NAME}WildShapePool")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
-            .SetSharedPool(ActivationTime.BonusAction, power)
-            .AddToDB();
-
-        for (var i = 8; i >= 3; i--)
-        {
-            var wildShapeAmount = i switch
-            {
-                >= 6 => 2,
-                >= 3 => 1,
-                _ => 0
-            };
-
-            var powerGainWildShapeFromSlot = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{NAME}GainWildShapeFromSlot{i}")
-                .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotTitle",
-                        wildShapeAmount.ToString()),
-                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
-                        wildShapeAmount.ToString(), i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, power)
-                .AddCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
-                .AddToDB();
-
-            powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
-        }
-
-        PowerBundle.RegisterPowerBundle(powerWildShapePool, false, powerGainWildShapeList);
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(power, powerWildShapePool, powerGainSlotPool)
-            .SetValidators(ValidatorsFeat.IsDruidLevel4)
-            .AddToDB();
-    }
-
-    internal sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
-        : IPowerOrSpellFinishedByMe, IValidatePowerUse
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var character = action.ActingCharacter.RulesetCharacter;
-            var repertoire = character.GetClassSpellRepertoire(Druid);
-            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
-
-            if (repertoire == null)
-            {
-                yield break;
-            }
-
-            repertoire.SpendSpellSlot(slotLevel);
-            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var remaining = 0;
-
-            character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(slotLevel, out remaining, out _);
-
-            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
-                         character.GetRemainingPowerUses(PowerDruidWildShape);
-
-            return remaining > 0 && notMax;
-        }
-    }
-
-    internal sealed class SpendWildShapeUse : IPowerOrSpellFinishedByMe, IValidatePowerUse
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var character = action.ActingCharacter.RulesetCharacter;
-            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
-
-            character.UpdateUsageForPowerPool(1, rulesetUsablePower);
-
-            yield break;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
-        }
-    }
-
-    #endregion
-
     #region Potent Spellcaster
 
     private static FeatDefinition BuildPotentSpellcaster(List<FeatDefinition> feats)
@@ -847,8 +681,8 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class CustomBehaviorFeatPotentSpellcaster(
-        FeatDefinition featDefinition,
+    internal sealed class CustomBehaviorFeatPotentSpellcaster(
+        BaseDefinition baseDefinition,
         CharacterClassDefinition castingClass) : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
@@ -907,7 +741,7 @@ internal static class ClassFeats
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(
-                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featDefinition.Name, featDefinition));
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, baseDefinition.Name, baseDefinition));
 
             return effectDescription;
         }
@@ -943,186 +777,7 @@ internal static class ClassFeats
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(
-                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, featDefinition.Name, featDefinition));
-        }
-    }
-
-    #endregion
-
-    #region Spiritual Fluidity
-
-    private static FeatDefinitionWithPrerequisites BuildSpiritualFluidity()
-    {
-        const string NAME = "FeatSpiritualFluidity";
-
-        var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .AddToDB();
-
-        //
-        // Gain Slots
-        //
-
-        var powerGainSlotPoolList = new List<FeatureDefinitionPower>();
-
-        var powerGainSlotPool = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{NAME}GainSlotPool")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-            .SetSharedPool(ActivationTime.BonusAction, power)
-            .AddToDB();
-
-        for (var i = 3; i >= 1; i--)
-        {
-            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{NAME}GainSlot{i}")
-                .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerFeatSpiritualFluidityGainSlotTitle", i.ToString()),
-                    Gui.Format("Feature/&PowerFeatSpiritualFluidityGainSlotDescription", i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.UntilLongRest)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}Gain{i}Slot")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetSilent(Silent.WhenAddedOrRemoved)
-                                        .SetFeatures(GetDefinition<FeatureDefinitionMagicAffinity>(
-                                            $"MagicAffinityAdditionalSpellSlot{i}"))
-                                        .AddToDB(),
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .Build())
-                .AddCustomSubFeatures(
-                    new ActionFinishedByMeFeatSpiritualFluidityGainSlot(),
-                    new ValidatorsValidatePowerUse(c =>
-                        c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
-                .AddToDB();
-
-            powerGainSlotPoolList.Add(powerGainSlot);
-        }
-
-        PowerBundle.RegisterPowerBundle(powerGainSlotPool, false, powerGainSlotPoolList);
-
-        //
-        // Gain Channel Divinity
-        //
-
-        var pickFeatList = new List<FeatureDefinitionAttributeModifier>
-        {
-            AttributeModifierClericChannelDivinityAdd,
-            AttributeModifierClericChannelDivinityAdd,
-            AttributeModifierClericChannelDivinityAdd
-        };
-
-        var powerGainChannelDivinityList = new List<FeatureDefinitionPower>();
-
-        var powerChannelDivinityPool = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{NAME}ChannelDivinityPool")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainChannelDivinity", Resources.PowerGainChannelDivinity, 128, 64))
-            .SetSharedPool(ActivationTime.BonusAction, power)
-            .AddToDB();
-
-        for (var i = 8; i >= 3; i--)
-        {
-            // closure
-            var a = i;
-
-            var channelDivinityAmount = i switch
-            {
-                >= 7 => 3,
-                >= 5 => 2,
-                >= 3 => 1,
-                _ => 0
-            };
-
-            var powerGainChannelDivinityFromSlot = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{NAME}GainChannelDivinityFromSlot{i}")
-                .SetGuiPresentation(
-                    Gui.Format("Feature/&PowerFeatSpiritualFluidityGainChannelDivinityFromSlotTitle",
-                        channelDivinityAmount.ToString()),
-                    Gui.Format("Feature/&PowerFeatSpiritualFluidityGainChannelDivinityFromSlotDescription",
-                        channelDivinityAmount.ToString(), i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.UntilLongRest)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}GainChannelDivinityFromSlot{i}")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetSilent(Silent.WhenAddedOrRemoved)
-                                        .SetFeatures(pickFeatList.Take(channelDivinityAmount))
-                                        .AddToDB(),
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .Build())
-                .AddCustomSubFeatures(
-                    new ActionFinishedByMeFeatSpiritualFluidityFromSlot(),
-                    new ValidatorsValidatePowerUse(
-                        c =>
-                        {
-                            var remaining = 0;
-
-                            c.GetClassSpellRepertoire(Cleric)?
-                                .GetSlotsNumber(a, out remaining, out _);
-
-                            return remaining > 0;
-                        }))
-                .AddToDB();
-
-            powerGainChannelDivinityList.Add(powerGainChannelDivinityFromSlot);
-        }
-
-        PowerBundle.RegisterPowerBundle(powerChannelDivinityPool, false, powerGainChannelDivinityList);
-
-        return
-            FeatDefinitionWithPrerequisitesBuilder
-                .Create(NAME)
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(power, powerChannelDivinityPool, powerGainSlotPool)
-                .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .AddToDB();
-    }
-
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var character = action.ActingCharacter.RulesetCharacter;
-
-            character.UsedChannelDivinity += 1;
-
-            yield break;
-        }
-    }
-
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var character = action.ActingCharacter.RulesetCharacter;
-            var name = power.Name;
-            var level = int.Parse(name.Substring(name.Length - 1, 1));
-            var repertoire = character.GetClassSpellRepertoire(Cleric);
-
-            repertoire?.SpendSpellSlot(level);
-
-            yield break;
+                new TrendInfo(bonus, FeatureSourceType.CharacterFeature, baseDefinition.Name, baseDefinition));
         }
     }
 
