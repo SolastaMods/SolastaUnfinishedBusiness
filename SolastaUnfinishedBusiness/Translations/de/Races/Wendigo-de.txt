@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=Stalker
 Feedback/&AdditionalDamageSuckerPunchFormat=Sucker Punch!
 Feedback/&AdditionalDamageSuckerPunchLine={0}s <b>Sucker Punch</b> verursacht +{2} zusätzlichen Schaden!
 Race/&RaceWendigoDescription=Wendigos kamen während des Kataklysmus durch den Riss nach Solasta. Trotz ihrer Größe sind Wendigos heimlich und stürzen sich mit ihren langen Armen auf ahnungslose Opfer.
-Race/&RaceWendigoTitle1=Popanz
+Race/&RaceWendigoTitle=Popanz

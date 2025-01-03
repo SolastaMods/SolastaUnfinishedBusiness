@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=隐踪者
 Feedback/&AdditionalDamageSuckerPunchFormat=先发制人！
 Feedback/&AdditionalDamageSuckerPunchLine={0} 通过<b>先发制人</b>造成 +{2} 额外伤害！
 Race/&RaceWendigoDescription=温迪戈在大灾变期间通过裂缝到达索拉斯塔。温迪戈尽管体型庞大，但善于隐蔽，它们会用长臂猛扑向毫无防备的受害者。
-Race/&RaceWendigoTitle1=怪物
+Race/&RaceWendigoTitle=怪物

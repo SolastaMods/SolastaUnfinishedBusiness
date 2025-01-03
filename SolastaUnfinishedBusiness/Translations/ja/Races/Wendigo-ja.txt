@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=ストーカー
 Feedback/&AdditionalDamageSuckerPunchFormat=不意打ち！
 Feedback/&AdditionalDamageSuckerPunchLine={0} の<b>サッカー パンチ</b> の追加ダメージは +{2} です！
 Race/&RaceWendigoDescription=ウェンディゴは大災害の際、裂け目を通ってソラスタにやって来ました。ウェンディゴは体が大きいにもかかわらず、長い腕で何も知らない犠牲者に襲い掛かります。
-Race/&RaceWendigoTitle1=バグベア
+Race/&RaceWendigoTitle=バグベア

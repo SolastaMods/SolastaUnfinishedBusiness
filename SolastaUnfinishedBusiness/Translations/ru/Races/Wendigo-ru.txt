@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=Скрытность
 Feedback/&AdditionalDamageSuckerPunchFormat=Удар исподтишка!
 Feedback/&AdditionalDamageSuckerPunchLine=<b>Удар исподтишка</b> {0} наносит +{2} дополнительного урона!
 Race/&RaceWendigoDescription=Вендиго прибыли в Соласту через разлом во время Катаклизма. Скрытные, несмотря на свои размеры, Вендиго набрасываются на ничего не подозревающих жертв своими длинными руками.
-Race/&RaceWendigoTitle1=Жупел
+Race/&RaceWendigoTitle=Жупел
