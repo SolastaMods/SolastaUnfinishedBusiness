@@ -6,7 +6,7 @@
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "requiredProperty": "Weapon",
   "attackModeOnly": true,
   "attackOnly": false,
   "requiredTargetCondition": null,

@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Tooltip/&TagDamageRadiantTitle",
-    "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon, you can cause the target to take an extra 1d8 Radiant Damage.",
+    "title": "Tooltip/&TagDamageFireTitle",
+    "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon, you can cause the target to take an extra 1d8 Fire Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -187,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9804c14f-f335-508f-bb6e-edef4d348833",
+  "guid": "267fdd53-4f1d-5d6e-892e-722c716e6924",
   "contentPack": 9999,
-  "name": "SpellPowerClericBlessedStrikesDamageRadiant"
+  "name": "SpellPowerDomainNatureNatureStrikesDamageFire"
 }

@@ -33,11 +33,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageDomainNatureDivineStrike:db964b6b-7b71-5134-b68c-68503c294bee",
-      "level": 8
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionWizard:0b20466699780a74e801804f86af806b",
       "level": 10
     },

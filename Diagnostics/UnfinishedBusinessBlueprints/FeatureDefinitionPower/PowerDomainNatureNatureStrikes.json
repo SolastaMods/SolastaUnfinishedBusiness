@@ -299,7 +299,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&AdditionalDamageDomainNatureDivineStrikeTitle",
     "description": "Feature/&AdditionalDamageDomainNatureDivineStrikeDescription",
     "spriteReference": {

@@ -2142,7 +2142,7 @@ When you or a creature within 30 feet of you takes acid, cold, fire, lightning, 
 
 * Divine Strike
 
-You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra random 1d8 cold damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
 
 
 ### Level 10
@@ -4932,7 +4932,7 @@ While wearing a shield, you may use your bonus action to increase your speed by 
 
 You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
 
-	0	Gust
+	0	Air Blast
 
 	II	Mirror Image
 

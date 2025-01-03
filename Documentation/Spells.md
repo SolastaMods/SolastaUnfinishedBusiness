@@ -4,77 +4,77 @@
 
 Launch an acid bolt.
 
-# 2. - Annoying Bee (V,S) level 0 Illusion [SOL]
+# 2. - Air Blast (V,S) level 0 Transmutation [UB]
+
+**[Druid, Sorcerer, Wizard]**
+
+Fire a blast of focused air at your target.
+
+# 3. - Annoying Bee (V,S) level 0 Illusion [SOL]
 
 **[Druid, Sorcerer, Wizard]**
 
 The target sees an illusional bee harassing them and has disadvantage on concentration checks until the start of their next turn.
 
-# 3. - *Blade Ward* © (V,S) level 0 Abjuration [UB]
+# 4. - *Blade Ward* © (V,S) level 0 Abjuration [UB]
 
 **[Bard, Sorcerer, Warlock, Wizard]**
 
 You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
 
-# 4. - *Booming Blade* © (M,S) level 0 Evocation [UB]
+# 5. - *Booming Blade* © (M,S) level 0 Evocation [UB]
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
 You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
-# 5. - Chill Touch (V,S) level 0 Necromancy [SOL]
+# 6. - Chill Touch (V,S) level 0 Necromancy [SOL]
 
 **[Sorcerer, Warlock, Wizard]**
 
 Deal damage to one enemy and prevent healing for a limited time.
 
-# 6. - *Create Bonfire* © (V,S) level 0 Conjuration [Concentration] [UB]
+# 7. - *Create Bonfire* © (V,S) level 0 Conjuration [Concentration] [UB]
 
 **[Artificer, Druid, Sorcerer, Warlock, Wizard]**
 
 You create a bonfire on ground that you can see within range. Until the spell ends, the bonfire fills a 5-foot cube. Any creature in the bonfire's space when you cast the spell must succeed on a Dexterity saving throw or take 1d8 fire damage. A creature must also make the saving throw when it enters the bonfire's space or ends its turn there. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
-# 7. - Dancing Lights (V,S) level 0 Evocation [Concentration] [SOL]
+# 8. - Dancing Lights (V,S) level 0 Evocation [Concentration] [SOL]
 
 **[Bard, Sorcerer, Wizard]**
 
 Create dancing lights that move at your command.
 
-# 8. - Dazzle (S) level 0 Illusion [SOL]
+# 9. - Dazzle (S) level 0 Illusion [SOL]
 
 **[Bard, Sorcerer, Warlock, Wizard]**
 
 Lower a target's AC and prevent reaction until the start of its next turn.
 
-# 9. - Eldritch Blast (V,S) level 0 Evocation [SOL]
+# 10. - Eldritch Blast (V,S) level 0 Evocation [SOL]
 
 **[Warlock]**
 
 Unleash a beam of crackling energy with a ranged spell attack against the target. On a hit, it takes 1d10 force damage.
 
-# 10. - Fire Bolt (V,S) level 0 Evocation [SOL]
+# 11. - Fire Bolt (V,S) level 0 Evocation [SOL]
 
 **[Artificer, Sorcerer, Wizard]**
 
 Launch a fire bolt.
 
-# 11. - *Green-Flame Blade* © (M,S) level 0 Evocation [UB]
+# 12. - *Green-Flame Blade* © (M,S) level 0 Evocation [UB]
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
 You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 ft of it. The second creature takes fire damage equal to your spellcasting ability modifier. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
-# 12. - Guidance (V,S) level 0 Divination [Concentration] [SOL]
+# 13. - Guidance (V,S) level 0 Divination [Concentration] [SOL]
 
 **[Artificer, Cleric, Druid]**
 
 Increase an ally's ability checks for a limited time.
-
-# 13. - *Gust* © (V,S) level 0 Transmutation [UB]
-
-**[Druid, Sorcerer, Wizard]**
-
-Fire a blast of focused air at your target.
 
 # 14. - Illuminating Sphere (V,S) level 0 Enchantment [UB]
 

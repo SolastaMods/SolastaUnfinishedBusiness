@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Tooltip/&TagDamageRadiantTitle",
-    "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon, you can cause the target to take an extra 1d8 Radiant Damage.",
+    "title": "Tooltip/&TagDamageColdTitle",
+    "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon, you can cause the target to take an extra 1d8 Cold Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -187,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9804c14f-f335-508f-bb6e-edef4d348833",
+  "guid": "02597dc9-f62e-55b7-8036-d07b2b7f68f7",
   "contentPack": 9999,
-  "name": "SpellPowerClericBlessedStrikesDamageRadiant"
+  "name": "SpellPowerDomainNatureNatureStrikesDamageCold"
 }

@@ -165,7 +165,7 @@
   "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Tooltip/&TagDamageLightningTitle",
     "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon, you can cause the target to take an extra 1d8 Lightning Damage.",
     "spriteReference": {
