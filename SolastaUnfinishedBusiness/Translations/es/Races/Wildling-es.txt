@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Escalador experto
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Tienes competencia en las habilidades de percepción y sigilo.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Instintos naturales
 Race/&RaceWildlingDescription=Los salvajes son descendientes de humanos y tieflings que, en su mayoría, heredaron las características salvajes de sus padres. De apariencia y naturaleza diferentes, los salvajes han pasado la mayor parte de su vida en bosques u otras regiones menos habitadas de Solasta como cazadores y viajeros autosuficientes.
-Race/&RaceWildlingTitle=tabax
+Race/&RaceWildlingTitle=Tabax

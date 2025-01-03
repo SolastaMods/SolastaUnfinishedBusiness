@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
 ModUi/&EnableCantripsTriggeringOnWarMagic=Разрешить срабатывание дополнительной бонусной атаки <color=#D89555>Боевой магии</color> от заговоров
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>Горящие</color> персонажи должны излучать свет <i><color=#F0DAA0>[Куб света, Огненный элементаль, Огненный балагур, Огненная скопа, Огненный паук, а также любые горящие существа]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=Включите <color=#D89555>Благословенные удары</color> и <color=#D89555>Улучшенные благословенные удары</color> на уровнях 7 и 14.
+ModUi/&EnableClericBlessedStrikes2024=Включите <color=#D89555>Благословенные удары</color> и <color=#D89555>Улучшенные благословенные удары</color> на уровнях 7 и 14\n<i><color=#F0DAA0>[влияет только на домены Осквернитель, Жизнь, Шалость, Природа, Кузнец, Солнце и Буря]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Заменить <color=#D89555>Божественный канал</color> на версию из 5e 2024 <i><color=#F0DAA0>[различные варианты использования]</color></i>
 ModUi/&EnableClericDivineOrder2024=Включить <color=#D89555>Божественный порядок</color> на уровне 1 <i><color=#F0DAA0>[выбор между тяжелыми доспехами/воинским оружием и бонусным заговором/некоторыми проверками ИНТ]</color></i>
 ModUi/&EnableClericSearUndead2024=Включить <color=#D89555>Опаление нежити</color> вместо <color=#D89555>Уничтожения нежити</color> на уровне 5

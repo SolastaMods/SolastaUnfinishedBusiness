@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><co
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
-ModUi/&EnableClericBlessedStrikes2024=レベル7と14で<color=#D89555>祝福された一撃</color>と<color=#D89555>改良された祝福された一撃</color>を有効にする
+ModUi/&EnableClericBlessedStrikes2024=レベル 7 と 14 で <color=#D89555>祝福された一撃</color> と <color=#D89555>改良された祝福された一撃</color> を有効にします{99><i><color=#F0DAA0>[汚染者、生命、いたずら、自然、鍛冶、太陽、および嵐の領域にのみ影響します]</color></i>
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
 ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッドの焼却</color> を <color=#D89555>アンデッドの破壊</color> と置き換えます

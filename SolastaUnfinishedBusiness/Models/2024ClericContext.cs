@@ -164,9 +164,9 @@ internal static partial class Tabletop2024Context
         { "DomainMischief", ["PowerClericBlessedStrikesDamagePsychic"] },
         {
             "DomainNature", [
-                "PowerClericBlessedStrikesDamageCold", //
-                "PowerClericBlessedStrikesDamageFire", //
-                "PowerClericBlessedStrikesDamageLighting" //
+                "PowerClericBlessedStrikesDamageCold" //, //
+                //"PowerClericBlessedStrikesDamageFire", //
+                //"PowerClericBlessedStrikesDamageLighting" //
             ]
         },
         { "DomainSmith", ["PowerClericBlessedStrikesDamageFire"] },
@@ -252,6 +252,13 @@ internal static partial class Tabletop2024Context
                 .AddToDB();
 
             powers.Add(powerDivineStrike);
+
+            FeatureDefinitionPowerBuilder
+                .Create($"FeatureClericAdditionalDamageGenericBlessed{damageType}")
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&FeatureClericAdditionalDamageGenericBlessedTitle", damageTitle),
+                    Gui.Format("Feature/&FeatureClericAdditionalDamageGenericBlessedDescription", damageTitle))
+                .AddToDB();
         }
 
         var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
@@ -360,19 +367,22 @@ internal static partial class Tabletop2024Context
     {
         var domains = new[]
         {
-            ("DomainDefiler", "AdditionalDamageDomainDefilerDivineStrike"),
-            ("DomainLife", "AdditionalDamageDomainLifeDivineStrike"),
-            ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike"),
-            ("DomainNature", "AdditionalDamageDomainNatureDivineStrike"),
-            ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike"),
-            ("DomainSun", "AdditionalDamageDomainLifeDivineStrike"),
-            ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike")
+            ("DomainDefiler", "AdditionalDamageDomainDefilerDivineStrike", string.Empty),
+            ("DomainLife", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
+            ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike", DamageTypePsychic),
+            ("DomainNature", "AdditionalDamageDomainNatureDivineStrike", DamageTypeCold),
+            ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike", DamageTypeFire),
+            ("DomainSun", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
+            ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike", DamageTypeThunder)
         };
 
-        foreach (var (subclassName, additionalDamageName) in domains)
+        foreach (var (subclassName, additionalDamageName, damageType) in domains)
         {
             var subclass = GetDefinition<CharacterSubclassDefinition>(subclassName);
             var additionalDamage = GetDefinition<FeatureDefinitionAdditionalDamage>(additionalDamageName);
+            var featureDamage = !string.IsNullOrEmpty(damageType)
+                ? GetDefinition<FeatureDefinition>($"FeatureClericAdditionalDamageGenericBlessed{damageType}")
+                : null;
             int fromLevel;
             int toLevel;
 
@@ -383,6 +393,11 @@ internal static partial class Tabletop2024Context
                     new FeatureUnlockByLevel(FeatureSetClericBlessedStrikes, 7),
                     new FeatureUnlockByLevel(FeatureClericImprovedBlessedStrikes, 14));
 
+                if (featureDamage)
+                {
+                    subclass.FeatureUnlocks.AddRange(new FeatureUnlockByLevel(featureDamage, 7));
+                }
+
                 subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
                 fromLevel = 8;
@@ -391,10 +406,10 @@ internal static partial class Tabletop2024Context
             else
             {
                 subclass.FeatureUnlocks.RemoveAll(x =>
+                    x.FeatureDefinition == featureDamage ||
                     x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
                     x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
                 subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(additionalDamage, 8));
-
                 subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 
                 fromLevel = 7;

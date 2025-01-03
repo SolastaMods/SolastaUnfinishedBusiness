@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustar
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=Aktiviere <color=#D89555>Gesegnete Schläge</color> und <color=#D89555>Verbesserte Gesegnete Schläge</color> auf den Stufen 7 und 14.
+ModUi/&EnableClericBlessedStrikes2024=Aktiviere <color=#D89555>Gesegnete Schläge</color> und <color=#D89555>Verbesserte Gesegnete Schläge</color> auf den Stufen 7 und 14\n<i><color=#F0DAA0>[betrifft nur die Domänen Defiler, Life, Mischief, Nature, Smith, Sun und Tempest]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Tauschen Sie <color=#D89555>Channel Divinity</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnableClericDivineOrder2024=Aktiviere <color=#D89555>Göttliche Ordnung</color> auf Stufe 1 <i><color=#F0DAA0>[Auswahl zwischen schwerer Rüstung/Kampfwaffen-Profi oder Bonus-Zauberspruch und einigen INT-Checks]</color></i>
 ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</color>, um <color=#D89555>Untote zerstören</color> auf Level 5 zu ersetzen.

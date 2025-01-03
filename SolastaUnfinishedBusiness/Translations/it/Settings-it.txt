@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=Abilita <color=#D89555>Colpi Benedetti</color> e <color=#D89555>Colpi Benedetti Migliorati</color> ai livelli 7 e 14
+ModUi/&EnableClericBlessedStrikes2024=Abilita <color=#D89555>Colpi Benedetti</color> e <color=#D89555>Colpi Benedetti Migliorati</color> ai livelli 7 e 14\n<i><color=#F0DAA0>[ha impatto solo sui domini Contaminatore, Vita, Malizia, Natura, Fabbro, Sole e Tempesta]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
 ModUi/&EnableClericDivineOrder2024=Abilita <color=#D89555>Ordine Divino</color> al livello 1 <i><color=#F0DAA0>[scelta tra armatura pesante/armi da guerra prof. o trucchetto bonus e alcuni controlli INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color> per sostituire <color=#D89555>Distruggi Non Morti</color> al livello 5

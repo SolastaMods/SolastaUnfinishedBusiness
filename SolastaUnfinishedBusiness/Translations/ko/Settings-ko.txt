@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재�
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=레벨 7과 14에서 <color=#D89555>축복의 일격</color>과 <color=#D89555>향상된 축복의 일격</color>을 활성화합니다.
+ModUi/&EnableClericBlessedStrikes2024=레벨 7과 14에서 <color=#D89555>축복받은 일격</color>과 <color=#D89555>개선된 축복받은 일격</color>을 활성화합니다.\n<i><color=#F0DAA0>[Defiler, Life, Mischief, Nature, Smith, Sun, Tempest 도메인에만 영향을 미칩니다.]</color></i>
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>으로 바꾸세요
 ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
 ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.

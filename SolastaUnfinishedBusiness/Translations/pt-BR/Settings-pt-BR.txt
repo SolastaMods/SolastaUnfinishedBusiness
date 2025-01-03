@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com clique direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que truques desencadeiem um ataque bônus extra de <color=#D89555>Magia de Guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens <color=#D89555>Em Chamas</color> devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Elemental de Fogo, Bobo da Corte de Fogo, Águia Pescadora de Fogo, Aranha de Fogo e família de condição em chamas]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=Habilitar <color=#D89555>Ataques Abençoados</color> e <color=#D89555>Ataques Abençoados Aprimorados</color> nos níveis 7 e 14
+ModUi/&EnableClericBlessedStrikes2024=Habilite <color=#D89555>Ataques Abençoados</color> e <color=#D89555>Ataques Abençoados Aprimorados</color> nos níveis 7 e 14\n<i><color=#F0DAA0>[impacta apenas os domínios Profanador, Vida, Travessura, Natureza, Ferreiro, Sol e Tempestade]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Troque <color=#D89555>Channel Divinity</color> pela versão 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnableClericDivineOrder2024=Habilite <color=#D89555>Ordem Divina</color> no nível 1 <i><color=#F0DAA0>[escolha entre armadura pesada/prof. de armas marciais ou truque bônus e alguns testes de INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Habilitar <color=#D89555>Catar Mortos-Vivos</color> para substituir <color=#D89555>Destruir Mortos-Vivos</color> no nível 5

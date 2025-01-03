@@ -144,6 +144,8 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchClericBlessedStrikes();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableClericDivineOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
         {

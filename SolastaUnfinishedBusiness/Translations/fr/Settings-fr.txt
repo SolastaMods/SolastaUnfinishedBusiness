@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Néces
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Autoriser les tours de passe-passe à déclencher une attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages <color=#D89555>En feu</color> doivent émettre de la lumière <i><color=#F0DAA0>[Cube de lumière, Élémentaire de feu, Bouffon de feu, Balbuzard pêcheur de feu, Araignée de feu et famille de conditions en feu]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=Activez les <color=#D89555>frappes bénies</color> et les <color=#D89555>frappes bénies améliorées</color> aux niveaux 7 et 14
+ModUi/&EnableClericBlessedStrikes2024=Activez les <color=#D89555>frappes bénies</color> et les <color=#D89555>frappes bénies améliorées</color> aux niveaux 7 et 14\n<i><color=#F0DAA0>[affecte uniquement les domaines Profanateur, Vie, Malice, Nature, Forgeron, Soleil et Tempête]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Échangez <color=#D89555>Channel Divinity</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
 ModUi/&EnableClericDivineOrder2024=Activer <color=#D89555>Ordre divin</color> au niveau 1 <i><color=#F0DAA0>[choix entre armure lourde/prof. armes martiales ou tour de passe-passe bonus et quelques tests d'INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Activez <color=#D89555>Sear Undead</color> pour remplacer <color=#D89555>Destroy Undead</color> au niveau 5

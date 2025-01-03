@@ -115,7 +115,7 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
-ModUi/&EnableClericBlessedStrikes2024=在 7 级和 14 级时启用<color=#D89555>祝福打击</color>和<color=#D89555>强化祝福打击</color>
+ModUi/&EnableClericBlessedStrikes2024=在 7 级和 14 级时启用<color=#D89555>祝福打击</color>和<color=#D89555>强化祝福打击</color>{99><i><color=#F0DAA0>[仅影响领域污染者、生命、恶作剧、自然、铁匠、太阳和暴风雨]</color></i>
 ModUi/&EnableClericChannelDivinity2024=将 <color=#D89555>Channel Divinity</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
 ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
