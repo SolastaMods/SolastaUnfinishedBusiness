@@ -98,7 +98,7 @@ internal static class FixesContext
         FixPaladinAurasDisplayOnActionBar();
         ReportDashing();
         FixSpikeGrowthAffectingAir();
-        NoTwinnedBladeCantrips();
+        NoTwinnedBladeCantripsOrSpellsWithRetargeting();
         FixStaffOfFireToGetFireResistance();
 
         // avoid soft lock scenarios with game UI on any affinity that prevents movement
@@ -137,9 +137,12 @@ internal static class FixesContext
         Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
     }
 
-    private static void NoTwinnedBladeCantrips()
+    private static void NoTwinnedBladeCantripsOrSpellsWithRetargeting()
     {
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
+
+        HuntersMark.AddCustomSubFeatures(NoTwinned.Mark);
+        Malediction.AddCustomSubFeatures(NoTwinned.Mark);
     }
 
     private static void FixStaffOfFireToGetFireResistance()

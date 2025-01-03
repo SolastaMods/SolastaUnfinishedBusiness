@@ -7,8 +7,9 @@ CHANGES:
 - added Cleric, Druid, Monk, Ranger, Sorcerer, and Warlock tabletop 2024 settings
 - added Devouring Blade invocation, and Way of Blade subclass
 - changed Domain Nature divine strike to offer cold, fire, or lighting damage [cold, necrotic, or radiant if 2024]
+- changed Hunter's Mark, and Malediction to be denied under twinned scenarios [engine limitation]
 - changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
-- changed shadow flurry -> improved shadow step, and Shadow Sanctuary -> Cloak of Shadows on Way of Shadow [RESPEC]
+- changed shadow flurry -> improved shadow step, and shadow sanctuary -> cloak of shadows on Way of Shadow [RESPEC]
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing power dice progression
 - fixed Command: Grove spell not ending target turn after prone action
