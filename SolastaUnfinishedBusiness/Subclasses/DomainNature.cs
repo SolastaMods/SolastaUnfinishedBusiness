@@ -12,10 +12,13 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -24,6 +27,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class DomainNature : AbstractSubclass
 {
     private const string Name = "DomainNature";
+
+    private const string NatureStrikes = "BlessedStrikes";
 
     private static readonly string[] DampenElementsDamageTypes =
     [
@@ -48,7 +53,7 @@ public sealed class DomainNature : AbstractSubclass
                 BuildSpellGroup(5, ConjureAnimals, WindWall),
                 BuildSpellGroup(7, DominateBeast, FreedomOfMovement),
                 BuildSpellGroup(9, InsectPlague, CloudKill))
-            .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
+            .SetSpellcastingClass(Cleric)
             .AddToDB();
 
         // LEVEL 01 - Acolyte of Nature
@@ -175,7 +180,8 @@ public sealed class DomainNature : AbstractSubclass
         // LEVEL 08 - Divine Strike
         //
 
-        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DivineStrike")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
@@ -185,8 +191,9 @@ public sealed class DomainNature : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .SetImpactParticleReference(ConeOfCold)
-            //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
+
+        var featureSetNatureStrikes = LoadNatureStrikes();
 
         // LEVEL 17 - Master of Nature
 
@@ -236,14 +243,14 @@ public sealed class DomainNature : AbstractSubclass
                 autoPreparedSpellsDomainNature, featureSetAcolyteOfNature, featureSetBonusProficiency)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)
             .AddFeaturesAtLevel(6, powerDampenElements)
-            .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
+            .AddFeaturesAtLevel(8, featureSetNatureStrikes)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionWizard)
             .AddFeaturesAtLevel(17, featureSetMasterOfNature)
             .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementWizard)
             .AddToDB();
     }
 
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
+    internal override CharacterClassDefinition Klass => Cleric;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -251,6 +258,87 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
+
+    private static FeatureDefinitionFeatureSet LoadNatureStrikes()
+    {
+        var damageTypes = new (string, IMagicEffect)[]
+        {
+            (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt), (DamageTypeLightning, LightningBolt)
+        };
+
+        var powers = new List<FeatureDefinitionPower>();
+        var powerNatureStrikes = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}NatureStrikes")
+            .SetGuiPresentation($"AdditionalDamage{Name}DivineStrike", Category.Feature)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        powerNatureStrikes.AddCustomSubFeatures(new CustomBehaviorNatureStrikes(powerNatureStrikes));
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var (damageType, effect) in damageTypes)
+        {
+            var additionalDamageNatureStrikes = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{Name}NatureStrikes{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("DivineStrike")
+                .SetDamageDice(DieType.D8, 1)
+                .SetSpecificDamageType(damageType)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+                .SetAttackModeOnly()
+                .AddCustomSubFeatures(ClassHolder.Cleric)
+                .SetImpactParticleReference(effect)
+                .AddToDB();
+
+            var conditionNatureStrikes = ConditionDefinitionBuilder
+                .Create($"Condition{Name}NatureStrikes{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(additionalDamageNatureStrikes)
+                .AddToDB();
+
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var powerDivineStrike = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{Name}NatureStrikes{damageType}")
+                .SetGuiPresentation(
+                    $"Tooltip/&Tag{damageType}Title",
+                    Gui.Format("Feature/&PowerClericBlessedStrikesSubPowerDescription", damageTitle))
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, powerNatureStrikes)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(conditionNatureStrikes))
+                        .Build())
+                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                .AddToDB();
+
+            powers.Add(powerDivineStrike);
+        }
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityNatureStrikesToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.NatureStrikesToggle)
+            .AddToDB();
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}NatureStrikes")
+            .SetGuiPresentation(powerNatureStrikes.GuiPresentation)
+            .SetFeatureSet(powerNatureStrikes, actionAffinityToggle)
+            .AddFeatureSet([.. powers])
+            .AddToDB();
+    }
 
     private sealed class CustomBehaviorDampenElements(ConditionDefinition conditionDampenElements)
         : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack
@@ -364,6 +452,65 @@ public sealed class DomainNature : AbstractSubclass
                         0,
                         0);
                 }
+            }
+        }
+    }
+
+    private sealed class CustomBehaviorNatureStrikes(FeatureDefinitionPower powerNatureStrikes)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, battleManager);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.NatureStrikesToggle) ||
+                !attacker.OnceInMyTurnIsValid(NatureStrikes))
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(powerNatureStrikes, rulesetAttacker);
+
+            yield return attacker.MyReactToSpendPowerBundle(
+                usablePower,
+                [attacker],
+                attacker,
+                powerNatureStrikes.Name,
+                reactionValidated: ReactionValidated,
+                battleManager: battleManager);
+
+            yield break;
+
+            void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                attacker.SetSpecialFeatureUses(NatureStrikes, 1);
             }
         }
     }

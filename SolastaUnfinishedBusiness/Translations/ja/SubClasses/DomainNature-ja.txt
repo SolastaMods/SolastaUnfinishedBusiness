@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageDomainNatureDivineStrikeDescription=あなたは武器攻撃に神聖なエネルギーを注入する能力を獲得します。各ターンに 1 回、武器攻撃でクリーチャーを攻撃すると、その攻撃でターゲットに追加のランダムな 1d8 冷気ダメージを与えることができます。 14 レベルに到達すると、追加ダメージは 2d8 に増加します。
+Feature/&AdditionalDamageDomainNatureDivineStrikeDescription=武器攻撃に神聖なエネルギーを注入する能力を獲得します。各ターンに 1 回、武器攻撃でクリーチャーに命中すると、その攻撃でターゲットに 1d8 の冷気、火、または雷ダメージを追加で与えることができます。14 レベルに達すると、追加ダメージは 2d8 に増加します。
 Feature/&AdditionalDamageDomainNatureDivineStrikeTitle=神の一撃
 Feature/&FeatureSetDomainNatureAcolyteOfNatureDescription=• ドルイド呪文リストから選択したキャントリップを 1 つ学びます。このキャントリップはあなたのクレリック キャントリップとしてカウントされますが、あなたが知っているクレリック キャントリップの数にはカウントされません。\n• あなたは、動物の扱い、自然、またはサバイバルのいずれかのスキルを選択して習熟します。
 Feature/&FeatureSetDomainNatureAcolyteOfNatureTitle=自然の侍者

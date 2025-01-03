@@ -44,6 +44,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.NatureStrikesToggle,
         (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.OverChannelToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
@@ -365,6 +366,14 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.MindSculptToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "NatureStrikesToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.NatureStrikesToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
 

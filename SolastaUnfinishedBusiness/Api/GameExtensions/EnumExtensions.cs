@@ -86,6 +86,7 @@ internal enum ExtraActionId
     ProxyDarkness,
     ElementalFuryToggle,
     BlessedStrikesToggle,
+    NatureStrikesToggle,
     PrioritizeAction = 10000
 }
 
