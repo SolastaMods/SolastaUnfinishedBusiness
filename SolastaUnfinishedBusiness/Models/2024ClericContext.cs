@@ -389,9 +389,14 @@ internal static partial class Tabletop2024Context
             int fromLevel;
             int toLevel;
 
+            subclass.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == additionalDamage ||
+                x.FeatureDefinition == featureDamage ||
+                x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
+                x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
+
             if (Main.Settings.EnableClericBlessedStrikes2024)
             {
-                subclass.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == additionalDamage);
                 subclass.FeatureUnlocks.AddRange(
                     new FeatureUnlockByLevel(FeatureSetClericBlessedStrikes, 7),
                     new FeatureUnlockByLevel(FeatureClericImprovedBlessedStrikes, 14));
@@ -408,10 +413,6 @@ internal static partial class Tabletop2024Context
             }
             else
             {
-                subclass.FeatureUnlocks.RemoveAll(x =>
-                    x.FeatureDefinition == featureDamage ||
-                    x.FeatureDefinition == FeatureSetClericBlessedStrikes ||
-                    x.FeatureDefinition == FeatureClericImprovedBlessedStrikes);
                 subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(additionalDamage, 8));
                 subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
 

@@ -340,7 +340,7 @@ public sealed class DomainNature : AbstractSubclass
 
         return FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}NatureStrikes")
-            .SetGuiPresentation(powerNatureStrikes.GuiPresentation)
+            .SetGuiPresentation($"AdditionalDamage{Name}DivineStrike", Category.Feature)
             .SetFeatureSet(powerNatureStrikes, actionAffinityToggle)
             .AddFeatureSet([.. powers])
             .AddToDB();
