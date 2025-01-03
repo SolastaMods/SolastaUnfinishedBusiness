@@ -156,6 +156,7 @@ internal static class LightingAndObscurementContext
 
         HandleTrueSightSpecialCase();
 
+#if false
         if (Main.Settings.OfficialObscurementRulesCancelAdvDisPairs)
         {
             if (attackAdvantageTrends.Any(BlindedAdvantage) &&
@@ -178,6 +179,7 @@ internal static class LightingAndObscurementContext
                 abilityCheckAdvantageTrends.RemoveAll(InvisibleDisadvantage);
             }
         }
+#endif
 
         const string TAG = "Perceive";
 
@@ -251,10 +253,12 @@ internal static class LightingAndObscurementContext
             return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: 1 };
         }
 
+#if false
         static bool InvisibleDisadvantage(RuleDefinitions.TrendInfo trendInfo)
         {
             return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: -1 };
         }
+#endif
 
         // conditions with parent inherit their features which makes true sight quite hard to manage
         // the combat affinity won't have true sight as nullified sense, so we check it here and revert

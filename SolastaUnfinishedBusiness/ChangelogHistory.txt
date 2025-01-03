@@ -4,8 +4,8 @@ RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Nat
 
 CHANGES:
 
-- added Devouring Blade invocation, and Way of Blade subclass
 - added Cleric, Druid, Monk, Ranger, Sorcerer, and Warlock tabletop 2024 settings
+- added Devouring Blade invocation, and Way of Blade subclass
 - changed Domain Nature divine strike to offer cold, fire, or lighting damage [cold, necrotic, or radiant if 2024]
 - changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
 - changed shadow flurry -> improved shadow step, and Shadow Sanctuary -> Cloak of Shadows on Way of Shadow [RESPEC]
@@ -18,11 +18,12 @@ CHANGES:
 - fixed True Strike 2024 not using spell casting ability on attack roll
 - fixed damage roll reduction calculation applying on every form instead of total roll [VANILLA]
 - fixed enable no AoO if Blinded setting to also consider Invisible
+- fixed lighting and obscurement rules / advantage and disadvantage rules interaction
 - fixed **soft lock** scenario when target cannot move, and AI decision is dash [VANILLA] 
 - fixed translated campaigns world map **soft lock** by not translating location titles anymore
 - fixed variant spell points offering spells even without enough points to cast
-- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
 - removed Monk weapon specialization setting, Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
+- removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
 
 KNOWN ISSUES:
 
