@@ -91,6 +91,7 @@ internal static partial class Tabletop2024Context
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetCasterEffectParameters(PowerKindredSpiritRage)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorPowerDruidWildResurgenceShape())
         .AddToDB();
@@ -113,6 +114,7 @@ internal static partial class Tabletop2024Context
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot1)
                             .AddToDB()))
+                .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorSpendWildShape(1))
         .AddToDB();
@@ -174,12 +176,12 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerDruidNatureMagician", Resources.PowerDruidNatureMagician, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(PowerDruidWildShape) > 0))
             .AddToDB();
@@ -265,6 +267,7 @@ internal static partial class Tabletop2024Context
                 .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .SetAttackModeOnly()
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(ClassHolder.Druid)
                 .SetImpactParticleReference(effect)
                 .AddToDB();
@@ -292,8 +295,9 @@ internal static partial class Tabletop2024Context
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                         .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalFury))
                         .Build())
-                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .AddToDB();
+
+            powerElementalFury.GuiPresentation.hidden = true;
 
             powers.Add(powerElementalFury);
         }
@@ -541,7 +545,10 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, battleManager);
+            if (ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield return HandleReaction(attacker, battleManager);
+            }
         }
 
         private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
@@ -625,8 +632,6 @@ internal static partial class Tabletop2024Context
             var repertoire = rulesetCharacter.GetClassSpellRepertoire(Druid);
             var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
 
-            EffectHelpers.StartVisualEffect(
-                character, character, PowerKindredSpiritRage, EffectHelpers.EffectType.Effect);
             repertoire!.SpendSpellSlot(repertoire.GetLowestAvailableSlotLevel());
             rulesetCharacter.UpdateUsageForPowerPool(-1, usablePower);
 
@@ -650,8 +655,6 @@ internal static partial class Tabletop2024Context
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
 
-            EffectHelpers.StartVisualEffect(
-                character, character, PowerDruidCircleBalanceBalanceOfPower, EffectHelpers.EffectType.Caster);
             rulesetCharacter.UpdateUsageForPowerPool(usage, usablePower);
 
             yield break;

@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -269,7 +270,7 @@ public sealed class DomainNature : AbstractSubclass
         var powers = new List<FeatureDefinitionPower>();
         var powerNatureStrikes = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}NatureStrikes")
-            .SetGuiPresentation($"AdditionalDamage{Name}DivineStrike", Category.Feature)
+            .SetGuiPresentation($"AdditionalDamage{Name}DivineStrike", Category.Feature, hidden: true)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -290,7 +291,7 @@ public sealed class DomainNature : AbstractSubclass
                 .SetNotificationTag("DivineStrike")
                 .SetDamageDice(DieType.D8, 1)
                 .SetSpecificDamageType(damageType)
-                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 7, 7)
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .SetAttackModeOnly()
                 .AddCustomSubFeatures(ClassHolder.Cleric)
@@ -322,6 +323,8 @@ public sealed class DomainNature : AbstractSubclass
                         .Build())
                 .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .AddToDB();
+
+            powerDivineStrike.GuiPresentation.hidden = true;
 
             powers.Add(powerDivineStrike);
         }
@@ -483,7 +486,10 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, battleManager);
+            if (ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield return HandleReaction(attacker, battleManager);
+            }
         }
 
         private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)

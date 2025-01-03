@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -218,9 +219,10 @@ internal static partial class Tabletop2024Context
                 .SetNotificationTag("DivineStrike")
                 .SetDamageDice(DieType.D8, 1)
                 .SetSpecificDamageType(damageType)
-                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+                .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 7, 7)
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .SetAttackModeOnly()
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .AddCustomSubFeatures(ClassHolder.Cleric)
                 .SetImpactParticleReference(effect)
                 .AddToDB();
@@ -248,8 +250,9 @@ internal static partial class Tabletop2024Context
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                         .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBlessedStrikes))
                         .Build())
-                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .AddToDB();
+
+            powerDivineStrike.GuiPresentation.hidden = true;
 
             powers.Add(powerDivineStrike);
 
@@ -370,7 +373,7 @@ internal static partial class Tabletop2024Context
             ("DomainDefiler", "AdditionalDamageDomainDefilerDivineStrike", string.Empty),
             ("DomainLife", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike", DamageTypePsychic),
-            ("DomainNature", "AdditionalDamageDomainNatureDivineStrike", DamageTypeCold),
+            ("DomainNature", "FeatureSetDomainNatureNatureStrikes", DamageTypeCold),
             ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike", DamageTypeFire),
             ("DomainSun", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike", DamageTypeThunder)
@@ -579,7 +582,8 @@ internal static partial class Tabletop2024Context
         // change spell casting level on Cleric itself
         Cleric.FeatureUnlocks
             .FirstOrDefault(x =>
-                x.FeatureDefinition == SubclassChoiceClericDivineDomains)!.level = toLevel;
+                x.FeatureDefinition == SubclassChoiceClericDivineDomains ||
+                x.FeatureDefinition == AttributeModifierClericChannelDivinity)!.level = toLevel;
 
         foreach (var domain in domains)
         {
@@ -733,7 +737,10 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, battleManager);
+            if (ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield return HandleReaction(attacker, battleManager);
+            }
         }
 
         private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
