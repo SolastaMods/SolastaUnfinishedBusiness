@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Esperto scalatore
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Hai competenza nelle abilità Percezione e Furtività.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Istinti naturali
 Race/&RaceWildlingDescription=I bruti sono figli di umani e tiefling che hanno ereditato per lo più le caratteristiche selvatiche del genitore tiefling. Diversi nell'aspetto e nella natura, i bruti hanno trascorso la maggior parte della loro vita nelle foreste o in altre regioni meno abitate di Solasta come cacciatori e viaggiatori autosufficienti.
-Race/&RaceWildlingTitle=Selvaggio
+Race/&RaceWildlingTitle=Tabax

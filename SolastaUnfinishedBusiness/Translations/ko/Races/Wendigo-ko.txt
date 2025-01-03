@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=스토커
 Feedback/&AdditionalDamageSuckerPunchFormat=써커펀치!
 Feedback/&AdditionalDamageSuckerPunchLine={0}의 <b>Sucker Punch</b>는 +{2}의 추가 피해를 줍니다!
 Race/&RaceWendigoDescription=웬디고스는 대격변 동안 균열을 통해 솔라스타에 도착했습니다. 크기에도 불구하고 은밀하게 행동하는 웬디고스는 긴 팔로 의심하지 않는 희생자들에게 달려들었습니다.
-Race/&RaceWendigoTitle=웬디고
+Race/&RaceWendigoTitle1=도깨비

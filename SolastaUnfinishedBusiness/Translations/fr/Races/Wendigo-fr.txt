@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=Harceleur
 Feedback/&AdditionalDamageSuckerPunchFormat=Coup de poing ventouse!
 Feedback/&AdditionalDamageSuckerPunchLine=Le <b>Sucker Punch</b> de {0} inflige {2} dégâts supplémentaires !
 Race/&RaceWendigoDescription=Les Wendigos sont arrivés à Solasta par la faille pendant le Cataclysme. Discrets malgré leur taille, les Wendigos se jetaient sur leurs victimes sans méfiance avec leurs longs bras.
-Race/&RaceWendigoTitle=Wendigo
+Race/&RaceWendigoTitle1=Épouvantail

@@ -289,6 +289,8 @@ internal static class ModUi
         "WardingBond",
         "WayOfTheShadow",
         "Weird",
+        "Wendigo",
+        "Wildling",
         "WitchBolt",
         "WitherAndBloom",
         "WizardAbjuration",

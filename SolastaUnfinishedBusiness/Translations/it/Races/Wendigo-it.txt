@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=Molestatore
 Feedback/&AdditionalDamageSuckerPunchFormat=Sucker Punch!
 Feedback/&AdditionalDamageSuckerPunchLine=Il <b>Sucker Punch</b> di {0} infligge +{2} danni extra!
 Race/&RaceWendigoDescription=I Wendigo arrivarono a Solasta attraverso la spaccatura durante il Cataclisma. Furtivi nonostante le loro dimensioni, i Wendigo si lanciavano sulle vittime ignare con le loro lunghe braccia.
-Race/&RaceWendigoTitle=Wendigo
+Race/&RaceWendigoTitle1=Spauracchio

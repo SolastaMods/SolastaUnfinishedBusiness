@@ -15,4 +15,4 @@ Feature/&ProficiencyWendigoStalkerTitle=Perseguidor
 Feedback/&AdditionalDamageSuckerPunchFormat=Golaço!
 Feedback/&AdditionalDamageSuckerPunchLine=O <b>Sucker Punch</b> de {0} causa +{2} de dano extra!
 Race/&RaceWendigoDescription=Wendigos chegaram a Solasta pela fenda durante o Cataclismo. Furtivos apesar do tamanho, Wendigos atacavam vítimas desavisadas com seus braços longos.
-Race/&RaceWendigoTitle=Wendigo
+Race/&RaceWendigoTitle1=Pesadelo

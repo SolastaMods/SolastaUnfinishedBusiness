@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=전문 등반가
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=당신은 인식 및 스텔스 기술에 능숙합니다.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=자연 본능
 Race/&RaceWildlingDescription=와이들링은 티플링 부모의 야성적 특성을 대부분 물려받은 인간과 티플링의 자손입니다. 외모와 성격이 서로 다른 와이들링은 자급자족하는 사냥꾼이자 여행자로서 대부분의 삶을 숲이나 솔라스타의 사람이 덜 거주하는 지역에서 보냈습니다.
-Race/&RaceWildlingTitle=와이들링
+Race/&RaceWildlingTitle=타박스

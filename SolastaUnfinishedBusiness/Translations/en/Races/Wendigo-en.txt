@@ -14,5 +14,5 @@ Feature/&ProficiencyWendigoStalkerDescription=You have proficiency in Stealth sk
 Feature/&ProficiencyWendigoStalkerTitle=Stalker
 Feedback/&AdditionalDamageSuckerPunchFormat=Sucker Punch!
 Feedback/&AdditionalDamageSuckerPunchLine={0}'s <b>Sucker Punch</b> deals +{2} extra damage!
-Race/&RaceWendigoDescription=Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
-Race/&RaceWendigoTitle=Wendigo
+Race/&RaceWendigoDescription=Bugbears arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
+Race/&RaceWendigoTitle1=Bugbear
