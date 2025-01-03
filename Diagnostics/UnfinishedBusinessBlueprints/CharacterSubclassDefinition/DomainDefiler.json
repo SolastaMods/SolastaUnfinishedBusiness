@@ -33,6 +33,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike:320cd4cd-21c7-5f0e-a8ff-60a87283c3e5",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
       "level": 10
     },

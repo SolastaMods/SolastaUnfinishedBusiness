@@ -3,7 +3,12 @@
   "spellsBundle": false,
   "subspellsList": [
     "Definition:SpellPowerClericBlessedStrikesDamageRadiant:9804c14f-f335-508f-bb6e-edef4d348833",
-    "Definition:SpellPowerClericBlessedStrikesDamageNecrotic:3ddcdea5-7763-5cf9-a237-b92f13c6a2b2"
+    "Definition:SpellPowerClericBlessedStrikesDamageNecrotic:3ddcdea5-7763-5cf9-a237-b92f13c6a2b2",
+    "Definition:SpellPowerClericBlessedStrikesDamageCold:76181441-db4b-58f1-9e99-c71e3a4d074b",
+    "Definition:SpellPowerClericBlessedStrikesDamageLightning:d18bb8f9-c2c4-5258-8a8e-ef9cf17880dd",
+    "Definition:SpellPowerClericBlessedStrikesDamageFire:a6983f82-196f-5ca1-99fa-cd1307074de9",
+    "Definition:SpellPowerClericBlessedStrikesDamageThunder:2afe06a2-2460-5498-9028-9ba5dc0969f9",
+    "Definition:SpellPowerClericBlessedStrikesDamagePsychic:54d36d65-246b-5c26-88a1-d05c9c3b6400"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,

@@ -28,6 +28,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureNatureStrikes:c904a5e0-886b-5f42-9623-ddfe165a3a20",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageDomainNatureDivineStrike:db964b6b-7b71-5134-b68c-68503c294bee",
       "level": 8
     },
