@@ -176,12 +176,12 @@ internal static partial class Tabletop2024Context
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerDruidNatureMagician", Resources.PowerDruidNatureMagician, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(PowerDruidWildShape) > 0))
             .AddToDB();
@@ -195,7 +195,6 @@ internal static partial class Tabletop2024Context
                     Gui.Format("Feature/&PowerNatureMagicianGainSlotTitle", i.ToString()),
                     Gui.Format("Feature/&PowerNatureMagicianGainSlotDescription", uses.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.NoCost, powerPool)
-                .SetShowCasting(false)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -210,6 +209,7 @@ internal static partial class Tabletop2024Context
                                     .SetFeatures(GetDefinition<FeatureDefinitionMagicAffinity>(
                                         $"MagicAffinityAdditionalSpellSlot{i}"))
                                     .AddToDB()))
+                        .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                         .Build())
                 .AddCustomSubFeatures(
                     ModifyPowerVisibility.Hidden,

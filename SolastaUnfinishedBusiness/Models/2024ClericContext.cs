@@ -382,7 +382,7 @@ internal static partial class Tabletop2024Context
         foreach (var (subclassName, additionalDamageName, damageType) in domains)
         {
             var subclass = GetDefinition<CharacterSubclassDefinition>(subclassName);
-            var additionalDamage = GetDefinition<FeatureDefinitionAdditionalDamage>(additionalDamageName);
+            var additionalDamage = GetDefinition<FeatureDefinition>(additionalDamageName);
             var featureDamage = !string.IsNullOrEmpty(damageType)
                 ? GetDefinition<FeatureDefinition>($"FeatureClericAdditionalDamageGenericBlessed{damageType}")
                 : null;
@@ -419,8 +419,7 @@ internal static partial class Tabletop2024Context
                 toLevel = 8;
             }
 
-            foreach (var otherSub in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                         .Where(x => x.Name.StartsWith("Domain")))
+            foreach (var otherSub in ClericDomains)
             {
                 var localFromLevel = fromLevel;
                 var localToLevel = toLevel;
@@ -527,12 +526,20 @@ internal static partial class Tabletop2024Context
         Cleric.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    private static readonly CharacterSubclassDefinition[] ClericDomains = DatabaseRepository
+        .GetDatabase<CharacterSubclassDefinition>()
+        .Where(x => x.Name.StartsWith("Domain"))
+        .ToArray();
+
+    private static readonly (CharacterSubclassDefinition, FeatureDefinition)[] ClericFeaturesGrantedAt2 =
+        ClericDomains
+            .SelectMany(y =>
+                    y.FeatureUnlocks.Where(z => z.Level == 2),
+                (subclass, feature) => (subclass, feature.FeatureDefinition))
+            .ToArray();
+
     internal static void SwitchClericDomainLearningLevel()
     {
-        var domains = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-            .Where(x => x.Name.StartsWith("Domain"))
-            .ToList();
-
         var fromLevel = 3;
         var toLevel = 1;
 
@@ -542,50 +549,26 @@ internal static partial class Tabletop2024Context
             toLevel = 3;
         }
 
-        foreach (var featureUnlock in domains
-                     .SelectMany(school => school.FeatureUnlocks
+        foreach (var featureUnlock in ClericDomains
+                     .SelectMany(domain => domain.FeatureUnlocks
                          .Where(featureUnlock => featureUnlock.level == fromLevel)))
         {
             featureUnlock.level = toLevel;
         }
 
-        // handle level 2 grants
-        var featuresGrantedAt2 = new[]
-        {
-            ("DomainBattle", "PowerDomainBattleDecisiveStrike"), //
-            ("DomainDefiler", "FeatureSetDomainDefilerDefileLife"), // UB
-            ("DomainElementalCold", "PowerDomainElementalIceLance"), //
-            ("DomainElementalFire", "PowerDomainElementalFireBurst"), //
-            ("DomainElementalLighting", "PowerDomainElementalLightningBlade"), //
-            ("DomainInsight", "PowerDomainInsightForeknowledge"), //
-            ("DomainLaw", "PowerDomainLawForceOfLaw"), //
-            ("DomainLife", "PowerDomainLifePreserveLife"), //
-            ("DomainMischief", "PowerDomainMischiefStrikeOfChaos"), //
-            ("DomainNature", "FeatureSetDomainNatureCharmAnimalsAndPlants"), // UB
-            ("DomainOblivion", "CampAffinityDomainOblivionPeacefulRest"), //
-            ("DomainOblivion", "PowerDomainOblivionHeraldOfPain"), //
-            ("DomainSmith", "FeatureSetDomainSmithDefileLife"), // UB
-            ("DomainSun", "PowerDomainSunHeraldOfTheSun"), //
-            ("DomainTempest", "FeatureSetDomainTempestDestructiveWrath") // UB
-        };
-
         var level = Main.Settings.EnableClericToLearnDomainAtLevel3 ? 3 : 2;
 
-        foreach (var (subClassName, featureName) in featuresGrantedAt2)
+        foreach (var (subClass, feature) in ClericFeaturesGrantedAt2)
         {
-            var subClass = GetDefinition<CharacterSubclassDefinition>(subClassName);
-            var feature = GetDefinition<FeatureDefinition>(featureName);
-
             subClass.FeatureUnlocks.FirstOrDefault(x => x.FeatureDefinition == feature)!.level = level;
         }
 
         // change spell casting level on Cleric itself
         Cleric.FeatureUnlocks
             .FirstOrDefault(x =>
-                x.FeatureDefinition == SubclassChoiceClericDivineDomains ||
-                x.FeatureDefinition == AttributeModifierClericChannelDivinity)!.level = toLevel;
+                x.FeatureDefinition == SubclassChoiceClericDivineDomains)!.level = toLevel;
 
-        foreach (var domain in domains)
+        foreach (var domain in ClericDomains)
         {
             domain.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
