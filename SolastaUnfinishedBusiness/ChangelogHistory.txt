@@ -20,6 +20,7 @@ CHANGES:
 - fixed enable no AoO if Blinded setting to also consider Invisible
 - fixed **soft lock** scenario when target cannot move, and AI decision is dash [VANILLA] 
 - fixed translated campaigns world map **soft lock** by not translating location titles anymore
+- fixed variant spell points offering spells even without enough points to cast
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
 - removed Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
 

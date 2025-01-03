@@ -42,15 +42,48 @@ public static class SpellActivationBoxPatcher
         }
 
         [UsedImplicitly]
+        public static void MyGetSlotsNumber(
+            RulesetSpellRepertoire repertoire,
+            int spellLevel, 
+            out int remaining,
+            out int max,
+            SpellActivationBox spellActivationBox)
+        {
+            if (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                var canCastSpell = SpellPointsContext.CanCastSpellOfLevel(repertoire.GetCaster(), spellLevel);
+                
+                max = 1; // irrelevant
+                remaining = canCastSpell ? 1 : 0;
+
+                if (!canCastSpell)
+                {
+                    spellActivationBox.hasUpcast = false;
+                }
+            }
+            else
+            {
+                repertoire.GetSlotsNumber(spellLevel, out remaining, out max);
+            }
+        }
+
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");
             var myUniqueLevelSlotsMethod =
                 new Func<FeatureDefinitionCastSpell, RulesetCharacterHero, bool>(UniqueLevelSlots).Method;
 
-            return instructions.ReplaceCalls(uniqueLevelSlotsMethod, "SpellActivationBox.BindSpell",
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
+            var getSlotsNumberMethod = typeof(RulesetSpellRepertoire).GetMethod("GetSlotsNumber");
+            var myGetSlotsNumberMethod = typeof(BindSpell_Patch).GetMethod("MyGetSlotsNumber");
+
+            return instructions
+                .ReplaceCalls(getSlotsNumberMethod, "SpellActivationBox.BindSpell.GetSlotsNumber",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, myGetSlotsNumberMethod))
+                .ReplaceCalls(uniqueLevelSlotsMethod, "SpellActivationBox.BindSpell.UniqueLevelSlots",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
         }
     }
 
