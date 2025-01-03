@@ -1739,7 +1739,7 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMagicAffinity MagicAffinitySpellBladeIntoTheFray { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySpellBladeIntoTheFray");
-        
+
         internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot1 { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot1");
     }
@@ -2099,6 +2099,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDragonFrightfulPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence");
+
+        internal static FeatureDefinitionPower PowerKindredSpiritRage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritRage");
 
         internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");

@@ -74,6 +74,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition SteelWhirlwind = BuildSteelWhirlwind();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition Telekinesis = BuildTelekinesis();
+    internal static readonly SpellDefinition ThornyVines = BuildThornyVines();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
     internal static readonly SpellDefinition VitriolicSphere = BuildVitriolicSphere();
     internal static readonly SpellDefinition Web = BuildWeb();
@@ -277,7 +278,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildStarryWisp(), 0, SpellListBard, SpellListDruid);
         RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
+        RegisterSpell(ThornyVines, 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWarlock,
             SpellListWizard, spellListInventorClass);
         RegisterSpell(Wrack, 0, SpellListCleric);
