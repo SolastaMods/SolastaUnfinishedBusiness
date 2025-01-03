@@ -2693,16 +2693,13 @@ The Circle of the Land is made up of mystics and sages who safeguard the ancient
 
 Learn a druid cantrip of your choice.
 
-* Natural Recovery
-
-Once per day when you complete a short rest, you can recover a number of expended spell slots (max 5th level) up to half of your druid level, rounded up.
-
-
-### Level 3
-
 * Circle Spells
 
 Select a terrain type that grants a range of spells that are always treated as prepared. Forest,Grassland,Mountain,Swamp,Desert,Coast orArctic
+
+* Natural Recovery
+
+Once per day when you complete a short rest, you can recover a number of expended spell slots (max 5th level) up to half of your druid level, rounded up.
 
 
 ### Level 6

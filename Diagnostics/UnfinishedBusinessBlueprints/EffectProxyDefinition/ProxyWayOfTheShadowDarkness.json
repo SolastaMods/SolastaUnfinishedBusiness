@@ -71,15 +71,15 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "isEmptyPresentation": true,
+  "isEmptyPresentation": false,
   "modelScale": 1.0,
   "showWorldLocationFeedbacks": false,
-  "hasPortrait": false,
+  "hasPortrait": true,
   "portraitSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "deca396a70b17b7429b1ae44224cacab",
+    "m_SubObjectName": "Darkness",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",

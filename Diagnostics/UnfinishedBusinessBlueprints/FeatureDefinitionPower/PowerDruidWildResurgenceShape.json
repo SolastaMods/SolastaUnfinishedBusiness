@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "UntilLongRest",
-    "durationParameter": 0,
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -60,35 +60,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDruidWildResurgenceShape",
-          "conditionDefinition": "Definition:ConditionDruidWildResurgenceShape:263a0c35-ee6a-5edc-8f71-25ee5307e791",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -308,7 +280,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "TurnStart",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -332,7 +304,7 @@
     "description": "Feature/&PowerDruidWildResurgenceShapeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c2c596b-dab7-58c9-9cc8-94ba731f1b90",
+      "m_AssetGUID": "11547c5e-382f-55c2-b040-860821de2819",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

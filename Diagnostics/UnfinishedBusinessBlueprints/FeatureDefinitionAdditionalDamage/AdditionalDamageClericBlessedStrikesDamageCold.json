@@ -1,0 +1,181 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "DivineStrike",
+  "limitedUsage": "OnceInMyTurn",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
+  "triggerCondition": "AlwaysActive",
+  "requiredProperty": "None",
+  "attackModeOnly": true,
+  "attackOnly": false,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
+  "damageValueDetermination": "Die",
+  "flatBonus": 0,
+  "damageDieType": "D8",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "Specific",
+  "specificDamageType": "DamageCold",
+  "ancestryTypeForDamageType": "Sorcerer",
+  "damageAdvancement": "ClassLevel",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 7,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 8,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 9,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 17,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 18,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 19,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
+      "diceNumber": 2
+    }
+  ],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "38c44805a1a3e4c4aaf0cd27dbe5f3f6",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidImpactParticleReference": null,
+  "coldImpactParticleReference": null,
+  "fireImpactParticleReference": null,
+  "lightningImpactParticleReference": null,
+  "poisonImpactParticleReference": null,
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c3fb8850-628c-5438-aeac-d2b3e7f82c52",
+  "contentPack": 9999,
+  "name": "AdditionalDamageClericBlessedStrikesDamageCold"
+}
