@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Attiva/disattiva la padronanza delle armi
 Action/&WeaponMasteryToggleTitle=Padronanza delle armi
+Condition/&ConditionWeaponMasteryVexDescription=Vantaggio sul tuo prossimo tiro di attacco prima della fine del tuo prossimo turno.
+Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Se colpisci una creatura con un attacco con arma da mischia, puoi effettuare un secondo attacco contro una creatura entro 5 piedi che sia anche entro la tua portata. Quando colpisci con il secondo attacco, puoi tirare il danno della tua arma, ma non aggiungi il tuo modificatore di abilità a meno che non sia negativo.
 Feature/&FeatureWeaponMasteryCleaveTitle=Scindere
 Feature/&FeatureWeaponMasteryGrazeDescription=Se manchi il bersaglio con la tua arma, infliggi danni pari al modificatore di caratteristica usato per effettuare il tiro.

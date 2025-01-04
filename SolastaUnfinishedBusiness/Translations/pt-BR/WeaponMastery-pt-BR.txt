@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Ativar/desativar Maestria em Arma
 Action/&WeaponMasteryToggleTitle=Maestria em Armas
+Condition/&ConditionWeaponMasteryVexDescription=Vantagem na sua próxima jogada de ataque antes do final do seu próximo turno.
+Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Se você acertar uma criatura com um ataque de arma corpo a corpo, você pode fazer um segundo ataque contra uma criatura a até 5 pés que também esteja dentro do seu alcance. Quando você acerta com o segundo ataque, você pode rolar o dano da sua arma, mas você não adiciona seu modificador de habilidade a menos que seja negativo.
 Feature/&FeatureWeaponMasteryCleaveTitle=Fenda
 Feature/&FeatureWeaponMasteryGrazeDescription=Se você errar uma criatura com sua arma, você causa dano igual ao modificador de habilidade que você usou para fazer a jogada.

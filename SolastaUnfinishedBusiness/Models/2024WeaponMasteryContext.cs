@@ -100,6 +100,18 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionWeaponMasteryVex = ConditionDefinitionBuilder
+        .Create("ConditionWeaponMasteryVex")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBullsStrength)
+        .AddFeatures(
+            FeatureDefinitionCombatAffinityBuilder
+                .Create("CombatAffinityWeaponMasteryVex")
+                .SetGuiPresentationNoContent(true)
+                .SetMyAttackAdvantage(AdvantageType.Advantage)
+                .AddToDB())
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+        .AddToDB();
+
     private static readonly Dictionary<WeaponTypeDefinition, MasteryProperty> WeaponMasteryTable = new()
     {
         { CustomWeaponsContext.HalberdWeaponType, MasteryProperty.Cleave },
@@ -260,9 +272,11 @@ internal static partial class Tabletop2024Context
         Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1));
     }
 
-    private static bool IsWeaponMasteryValid(RulesetAttackMode attackMode, MasteryProperty property)
+    private static bool IsWeaponMasteryValid(
+        GameLocationCharacter attacker, RulesetAttackMode attackMode, MasteryProperty property)
     {
-        return attackMode.SourceDefinition is ItemDefinition { IsWeapon: true } itemDefinition &&
+        return attacker.RulesetCharacter.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
+               attackMode.SourceDefinition is ItemDefinition { IsWeapon: true } itemDefinition &&
                WeaponMasteryTable.TryGetValue(itemDefinition.WeaponDescription.WeaponTypeDefinition, out var value) &&
                value == property;
     }
@@ -429,7 +443,7 @@ internal static partial class Tabletop2024Context
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (!IsWeaponMasteryValid(attackMode, MasteryProperty.Graze))
+            if (!IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Graze))
             {
                 yield break;
             }
@@ -553,7 +567,27 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield break;
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                ConditionWeaponMasteryVex.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasteryVex.Name,
+                0,
+                0,
+                0);
         }
     }
 }

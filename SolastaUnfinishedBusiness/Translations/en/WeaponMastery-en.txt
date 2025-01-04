@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Activate/deactivate Weapon Mastery
 Action/&WeaponMasteryToggleTitle=Weapon Mastery
+Condition/&ConditionWeaponMasteryVexDescription=Advantage on your next attack roll before the end of your next turn. 
+Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=If you hit a creature with a melee weapon attack, you can make a second attack against a creature within 5 feet that is also within your reach. When you hit with the second attack, you can roll your weapon's damage, but you don't add your ability modifier unless it's negative.
 Feature/&FeatureWeaponMasteryCleaveTitle=Cleave
 Feature/&FeatureWeaponMasteryGrazeDescription=If you miss a creature with your weapon, you deal damage equal to the ability modifier you used to make the roll.

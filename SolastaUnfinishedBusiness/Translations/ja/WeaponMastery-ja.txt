@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=武器マスタリーを有効化/無効化
 Action/&WeaponMasteryToggleTitle=武器の習得
+Condition/&ConditionWeaponMasteryVexDescription=次のターンの終了前に次の攻撃ロールにアドバンテージを得ます。
+Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=近接武器攻撃でクリーチャーに命中した場合、5 フィート以内で、かつ攻撃範囲内にあるクリーチャーに対して 2 回目の攻撃を行うことができます。2 回目の攻撃で命中した場合、武器のダメージをロールできますが、能力修正値はマイナスでない限り追加されません。
 Feature/&FeatureWeaponMasteryCleaveTitle=切り裂く
 Feature/&FeatureWeaponMasteryGrazeDescription=武器でクリーチャーを攻撃し損ねた場合、ロールに使用した能力値に等しいダメージを与えます。

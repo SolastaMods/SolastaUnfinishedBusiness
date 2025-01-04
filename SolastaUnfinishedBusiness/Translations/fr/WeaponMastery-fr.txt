@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Activer/désactiver la maîtrise des armes
 Action/&WeaponMasteryToggleTitle=Maîtrise des armes
+Condition/&ConditionWeaponMasteryVexDescription=Avantage sur votre prochain jet d'attaque avant la fin de votre prochain tour.
+Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Si vous touchez une créature avec une attaque d'arme de mêlée, vous pouvez effectuer une seconde attaque contre une créature à 1,50 mètre ou moins qui est également à votre portée. Lorsque vous touchez avec la seconde attaque, vous pouvez calculer les dégâts de votre arme, mais vous n'ajoutez pas votre modificateur de caractéristique à moins qu'il ne soit négatif.
 Feature/&FeatureWeaponMasteryCleaveTitle=Fendre
 Feature/&FeatureWeaponMasteryGrazeDescription=Si vous ratez une créature avec votre arme, vous infligez des dégâts égaux au modificateur de capacité que vous avez utilisé pour effectuer le jet.
