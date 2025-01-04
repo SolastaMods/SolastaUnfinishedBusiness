@@ -44,7 +44,7 @@ public static class SpellActivationBoxPatcher
         [UsedImplicitly]
         public static void MyGetSlotsNumber(
             RulesetSpellRepertoire repertoire,
-            int spellLevel, 
+            int spellLevel,
             out int remaining,
             out int max,
             SpellActivationBox spellActivationBox)
@@ -52,7 +52,7 @@ public static class SpellActivationBoxPatcher
             if (Main.Settings.UseAlternateSpellPointsSystem)
             {
                 var canCastSpell = SpellPointsContext.CanCastSpellOfLevel(repertoire.GetCaster(), spellLevel);
-                
+
                 max = 1; // irrelevant
                 remaining = canCastSpell ? 1 : 0;
 

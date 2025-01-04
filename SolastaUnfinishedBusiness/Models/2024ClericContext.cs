@@ -256,7 +256,7 @@ internal static partial class Tabletop2024Context
 
             powers.Add(powerDivineStrike);
 
-            FeatureDefinitionPowerBuilder
+            FeatureDefinitionBuilder
                 .Create($"FeatureClericAdditionalDamageGenericBlessed{damageType}")
                 .SetGuiPresentation(
                     Gui.Format("Feature/&FeatureClericAdditionalDamageGenericBlessedTitle", damageTitle),
