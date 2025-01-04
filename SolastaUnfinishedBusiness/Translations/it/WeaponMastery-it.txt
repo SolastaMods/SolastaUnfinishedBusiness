@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Attiva/disattiva la padronanza delle armi
 Action/&WeaponMasteryToggleTitle=Padronanza delle armi
+Condition/&ConditionWeaponMasterySapDescription=Svantaggio sul tuo prossimo tiro di attacco fino all'inizio del prossimo turno della fonte.
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Velocità ridotta di 10 piedi fino all'inizio della successiva virata sorgente.
 Condition/&ConditionWeaponMasterySlowTitle=Lento
 Condition/&ConditionWeaponMasteryVexDescription=Vantaggio sul tuo prossimo tiro di attacco prima della fine del tuo prossimo turno.

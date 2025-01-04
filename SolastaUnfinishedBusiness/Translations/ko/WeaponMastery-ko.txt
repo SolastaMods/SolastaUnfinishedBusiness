@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=무기 마스터리 활성화/비활성화
 Action/&WeaponMasteryToggleTitle=무기 마스터리
+Condition/&ConditionWeaponMasterySapDescription=다음 소스 턴이 시작될 때까지 다음 공격 굴림에 불이익을 받습니다.
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=다음 소스 턴이 시작될 때까지 속도가 10피트 감소합니다.
 Condition/&ConditionWeaponMasterySlowTitle=느린
 Condition/&ConditionWeaponMasteryVexDescription=다음 턴이 끝나기 전에 다음 공격 굴림에서 유리해집니다.

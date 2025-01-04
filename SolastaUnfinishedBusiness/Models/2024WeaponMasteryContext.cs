@@ -100,12 +100,25 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionWeaponMasterySap = ConditionDefinitionBuilder
+        .Create("ConditionWeaponMasterySap")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
+        .SetConditionType(ConditionType.Detrimental)
+        .AddFeatures(
+            FeatureDefinitionCombatAffinityBuilder
+                .Create("CombatAffinityWeaponMasterySap")
+                .SetGuiPresentationNoContent(true)
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .AddToDB())
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionWeaponMasterySlow = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasterySlow")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
         .AddFeatures(
             FeatureDefinitionMovementAffinityBuilder
-                .Create("CombatAffinityWeaponMasteryVex")
+                .Create("MovementAffinityWeaponMasterySlow")
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedAdditiveModifier(-2)
                 .AddToDB())
@@ -533,7 +546,28 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield break;
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Sap))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                ConditionWeaponMasterySap.Name,
+                DurationType.Round,
+                1,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasterySap.Name,
+                0,
+                0,
+                0);
         }
     }
 
@@ -550,7 +584,7 @@ internal static partial class Tabletop2024Context
         {
             if (damageAmount <= 0 ||
                 rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Slow))
             {
                 yield break;
             }

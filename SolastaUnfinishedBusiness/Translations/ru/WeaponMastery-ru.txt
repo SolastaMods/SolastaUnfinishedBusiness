@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Активировать/деактивировать Мастерство Оружия
 Action/&WeaponMasteryToggleTitle=Мастерство владения оружием
+Condition/&ConditionWeaponMasterySapDescription=Недостаток при следующем броске атаки до начала следующего хода источника.
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Скорость снижена на 10 футов до начала следующего исходного хода.
 Condition/&ConditionWeaponMasterySlowTitle=Медленный
 Condition/&ConditionWeaponMasteryVexDescription=Преимущество при следующей атаке до конца вашего следующего хода.

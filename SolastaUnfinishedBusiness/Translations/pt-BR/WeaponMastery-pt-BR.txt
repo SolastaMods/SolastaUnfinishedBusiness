@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Ativar/desativar Maestria em Arma
 Action/&WeaponMasteryToggleTitle=Maestria em Armas
+Condition/&ConditionWeaponMasterySapDescription=Desvantagem na sua próxima jogada de ataque até o início do próximo turno de fonte.
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Velocidade reduzida em 10 pés até o início do próximo turno de origem.
 Condition/&ConditionWeaponMasterySlowTitle=Lento
 Condition/&ConditionWeaponMasteryVexDescription=Vantagem na sua próxima jogada de ataque antes do final do seu próximo turno.

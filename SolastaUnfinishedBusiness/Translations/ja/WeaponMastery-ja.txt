@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=武器マスタリーを有効化/無効化
 Action/&WeaponMasteryToggleTitle=武器の習得
+Condition/&ConditionWeaponMasterySapDescription=次の攻撃ロールは、次のソースターンの開始まで不利になります。
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=次のソースターンの開始まで、速度が 10 フィート減少します。
 Condition/&ConditionWeaponMasterySlowTitle=遅い
 Condition/&ConditionWeaponMasteryVexDescription=次のターンの終了前に次の攻撃ロールにアドバンテージを得ます。

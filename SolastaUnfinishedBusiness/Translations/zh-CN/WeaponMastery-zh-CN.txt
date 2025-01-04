@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=激活/停用武器掌握
 Action/&WeaponMasteryToggleTitle=武器精通
+Condition/&ConditionWeaponMasterySapDescription=直到下一个源回合开始前，你的下一次攻击掷骰处于劣势。
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=速度降低 10 英尺直至下一个源转弯开始。
 Condition/&ConditionWeaponMasterySlowTitle=慢的
 Condition/&ConditionWeaponMasteryVexDescription=在你的下一回合结束前，在下一次攻击掷骰中获得优势。

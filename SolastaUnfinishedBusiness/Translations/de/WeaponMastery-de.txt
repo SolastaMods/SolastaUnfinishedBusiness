@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Waffenbeherrschung aktivieren/deaktivieren
 Action/&WeaponMasteryToggleTitle=Waffenbeherrschung
+Condition/&ConditionWeaponMasterySapDescription=Nachteil bei Ihrem nächsten Angriffswurf bis zum Beginn der nächsten Quellrunde.
+Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Bis zum Beginn der nächsten Quelldrehung wird die Geschwindigkeit um 10 Fuß reduziert.
 Condition/&ConditionWeaponMasterySlowTitle=Langsam
 Condition/&ConditionWeaponMasteryVexDescription=Vorteil bei Ihrem nächsten Angriffswurf vor dem Ende Ihres nächsten Zuges.
