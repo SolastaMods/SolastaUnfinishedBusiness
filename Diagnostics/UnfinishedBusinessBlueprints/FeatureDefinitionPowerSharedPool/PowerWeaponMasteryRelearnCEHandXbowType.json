@@ -300,8 +300,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Light Crossbow",
-    "description": "Feature/&FeatureWeaponMasterySlowDescription",
+    "title": "Hand Crossbow",
+    "description": "Feature/&FeatureWeaponMasteryVexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -321,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e920b32f-31da-57de-8ea8-b14ad1367b36",
+  "guid": "3cff73a0-7547-57a7-9ee0-13bff782848c",
   "contentPack": 9999,
-  "name": "PowerWeaponMasteryRelearnLightCrossbowType"
+  "name": "PowerWeaponMasteryRelearnCEHandXbowType"
 }

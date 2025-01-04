@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:ActionAffinityWeaponMasteryToggle:de43d4da-8e63-50ad-a60b-8336602da181",
-    "Definition:FeatureWeaponMasteryPush:99efc298-9e4b-54e3-ba3b-e2bdfc709e31"
+    "Definition:FeatureWeaponMasteryVex:d0a93388-4dc6-5064-b6b3-8bd45bda6de4"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ca50c167-7d0a-53fc-9708-5bcf28e47ac4",
+  "guid": "ca308c5b-4a6e-5623-85b0-5feb2a224652",
   "contentPack": 9999,
-  "name": "FeatureSetWeaponMasteryHeavyCrossbowType"
+  "name": "FeatureSetWeaponMasteryCEHandXbowType"
 }

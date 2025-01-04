@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&HeavyCrossbowTypeTitle",
-    "description": "Feature/&FeatureWeaponMasterySlowDescription",
+    "description": "Feature/&FeatureWeaponMasteryPushDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a5d7ccd2eae6b7346b595a27d5a2a441",

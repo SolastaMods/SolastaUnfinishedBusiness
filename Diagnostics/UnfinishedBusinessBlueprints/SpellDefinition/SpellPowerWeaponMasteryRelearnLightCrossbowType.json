@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Light Crossbow",
-    "description": "Feature/&FeatureWeaponMasteryVexDescription",
+    "description": "Feature/&FeatureWeaponMasterySlowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

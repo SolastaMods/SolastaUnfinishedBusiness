@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:FeatureSetWeaponMasteryLightCrossbowType:4d48b8cf-dcf3-53e8-a5a1-038a7235b500",
+  "grantedFeature": "Definition:FeatureSetWeaponMasteryCEHandXbowType:ca308c5b-4a6e-5623-85b0-5feb2a224652",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&LightCrossbowTypeTitle",
-    "description": "Feature/&FeatureWeaponMasterySlowDescription",
+    "title": "Item/&CEHandXbowTypeTitle",
+    "description": "Feature/&FeatureWeaponMasteryVexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "39e03e1f1dcb317458968d28fddebab9",
-      "m_SubObjectName": "StandardLightCrossbow",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "2f6f5efb-b382-515b-897b-264fdc648c36",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "051563b9-20af-5057-9b39-91f7fd7eceaa",
+  "guid": "72d954b6-34e0-50f3-a24d-e941dce34dc1",
   "contentPack": 9999,
-  "name": "CustomInvocationWeaponMasteryLightCrossbowType"
+  "name": "CustomInvocationWeaponMasteryCEHandXbowType"
 }

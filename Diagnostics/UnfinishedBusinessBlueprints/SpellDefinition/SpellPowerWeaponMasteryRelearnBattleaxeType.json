@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Battleaxe",
-    "description": "Feature/&FeatureWeaponMasteryCleaveDescription",
+    "description": "Feature/&FeatureWeaponMasteryToppleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

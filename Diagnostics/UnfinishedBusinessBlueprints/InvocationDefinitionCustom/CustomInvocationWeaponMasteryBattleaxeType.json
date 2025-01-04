@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&BattleaxeTypeTitle",
-    "description": "Feature/&FeatureWeaponMasteryCleaveDescription",
+    "description": "Feature/&FeatureWeaponMasteryToppleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "67ecd5cd7bd8a2a40886d729e52c84f3",
