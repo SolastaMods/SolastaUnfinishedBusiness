@@ -92,6 +92,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableUnlimitedInventoryActions { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
+    public bool UseWeaponMasterySystem { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }

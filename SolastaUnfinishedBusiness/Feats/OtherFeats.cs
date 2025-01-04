@@ -79,6 +79,7 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
+        var weaponMasteryGroup = BuildWeaponMastery(feats);
 
         var featMerciless = BuildMerciless();
         var featPolearmExpert = BuildPolearmExpert();
@@ -163,7 +164,8 @@ internal static class OtherFeats
             featRopeIpUp,
             featSentinel,
             giftOfTheGemDragonGroup,
-            weaponMasterGroup);
+            weaponMasterGroup,
+            weaponMasteryGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             FeatPoisonousSkin);
@@ -538,6 +540,34 @@ internal static class OtherFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
+    }
+
+    #endregion
+
+    #region Weapon Mastery
+
+    private static FeatDefinition BuildWeaponMastery(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatWeaponMastery";
+
+        var weaponMasterStr = FeatDefinitionBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.InvocationPoolWeaponMasteryLearn1)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var weaponMasterDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.InvocationPoolWeaponMasteryLearn1)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(weaponMasterStr, weaponMasterDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupWeaponMastery", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion

@@ -270,11 +270,11 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePoisonsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            Tabletop2024Context.SwitchSurprisedEnforceDisadvantage();
+            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPoisonsBonusAction();
         }
 
         toggle = Main.Settings.EnablePotionsBonusAction2024;
@@ -284,11 +284,18 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchPotionsBonusAction();
         }
 
-        toggle = Main.Settings.EnablePoisonsBonusAction2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
-            Tabletop2024Context.SwitchPoisonsBonusAction();
+            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
+            Tabletop2024Context.SwitchSurprisedEnforceDisadvantage();
+        }
+
+        toggle = Main.Settings.UseWeaponMasterySystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseWeaponMasterySystem = toggle;
+            Tabletop2024Context.SwitchWeaponMastery();
         }
 
         UI.Label();

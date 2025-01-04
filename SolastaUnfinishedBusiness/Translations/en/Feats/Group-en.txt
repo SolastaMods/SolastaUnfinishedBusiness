@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=Increase one of your mental attributes 
 Feat/&FeatGroupVerdantTouchedTitle=Verdant Touched
 Feat/&FeatGroupWeaponMasterDescription=You have practiced extensively with a variety of weapons, gaining the following benefits:\n• Increase your Strength or Dexterity score by 1, to a maximum of 20.\n• You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 Feat/&FeatGroupWeaponMasterTitle=Weapon Master
+Feat/&FeatGroupWeaponMasteryDescription=You have practiced extensively with a variety of weapons, gaining the following benefits:\n• Increase your Strength or Dexterity by 1, to a maximum of 20.\n• Your training with weapons allows you to use the mastery property of one kind of Simple or Martial weapon of your choice.
+Feat/&FeatGroupWeaponMasteryTitle=Weapon Mastery
 Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.

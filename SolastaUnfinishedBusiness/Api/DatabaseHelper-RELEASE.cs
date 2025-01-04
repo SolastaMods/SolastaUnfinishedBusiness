@@ -4297,9 +4297,14 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition BattleaxeType { get; } =
             GetDefinition<WeaponTypeDefinition>("BattleaxeType");
 
-        internal static WeaponTypeDefinition ClubType { get; } = GetDefinition<WeaponTypeDefinition>("ClubType");
-        internal static WeaponTypeDefinition DaggerType { get; } = GetDefinition<WeaponTypeDefinition>("DaggerType");
-        internal static WeaponTypeDefinition DartType { get; } = GetDefinition<WeaponTypeDefinition>("DartType");
+        internal static WeaponTypeDefinition ClubType { get; } =
+            GetDefinition<WeaponTypeDefinition>("ClubType");
+
+        internal static WeaponTypeDefinition DaggerType { get; } =
+            GetDefinition<WeaponTypeDefinition>("DaggerType");
+
+        internal static WeaponTypeDefinition DartType { get; } =
+            GetDefinition<WeaponTypeDefinition>("DartType");
 
         internal static WeaponTypeDefinition GreataxeType { get; } =
             GetDefinition<WeaponTypeDefinition>("GreataxeType");
@@ -4307,20 +4312,29 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition GreatswordType { get; } =
             GetDefinition<WeaponTypeDefinition>("GreatswordType");
 
-        internal static WeaponTypeDefinition HandaxeType { get; } = GetDefinition<WeaponTypeDefinition>("HandaxeType");
+        internal static WeaponTypeDefinition HandaxeType { get; } =
+            GetDefinition<WeaponTypeDefinition>("HandaxeType");
 
         internal static WeaponTypeDefinition HeavyCrossbowType { get; } =
             GetDefinition<WeaponTypeDefinition>("HeavyCrossbowType");
 
+        internal static WeaponTypeDefinition JavelinType { get; } =
+            GetDefinition<WeaponTypeDefinition>("JavelinType");
+
         internal static WeaponTypeDefinition LightCrossbowType { get; } =
             GetDefinition<WeaponTypeDefinition>("LightCrossbowType");
 
-        internal static WeaponTypeDefinition LongbowType { get; } = GetDefinition<WeaponTypeDefinition>("LongbowType");
+        internal static WeaponTypeDefinition LongbowType { get; } =
+            GetDefinition<WeaponTypeDefinition>("LongbowType");
 
         internal static WeaponTypeDefinition LongswordType { get; } =
             GetDefinition<WeaponTypeDefinition>("LongswordType");
 
-        internal static WeaponTypeDefinition MaulType { get; } = GetDefinition<WeaponTypeDefinition>("MaulType");
+        internal static WeaponTypeDefinition MaceType { get; } =
+            GetDefinition<WeaponTypeDefinition>("MaceType");
+
+        internal static WeaponTypeDefinition MaulType { get; } =
+            GetDefinition<WeaponTypeDefinition>("MaulType");
 
         internal static WeaponTypeDefinition MorningstarType { get; } =
             GetDefinition<WeaponTypeDefinition>("MorningstarType");
@@ -4328,7 +4342,8 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition QuarterstaffType { get; } =
             GetDefinition<WeaponTypeDefinition>("QuarterstaffType");
 
-        internal static WeaponTypeDefinition RapierType { get; } = GetDefinition<WeaponTypeDefinition>("RapierType");
+        internal static WeaponTypeDefinition RapierType { get; } =
+            GetDefinition<WeaponTypeDefinition>("RapierType");
 
         internal static WeaponTypeDefinition ScimitarType { get; } =
             GetDefinition<WeaponTypeDefinition>("ScimitarType");
@@ -4339,7 +4354,8 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition ShortswordType { get; } =
             GetDefinition<WeaponTypeDefinition>("ShortswordType");
 
-        internal static WeaponTypeDefinition SpearType { get; } = GetDefinition<WeaponTypeDefinition>("SpearType");
+        internal static WeaponTypeDefinition SpearType { get; } =
+            GetDefinition<WeaponTypeDefinition>("SpearType");
 
         internal static WeaponTypeDefinition UnarmedStrikeType { get; } =
             GetDefinition<WeaponTypeDefinition>("UnarmedStrikeType");

@@ -43,6 +43,7 @@ internal static partial class Tabletop2024Context
         LoadRogueCunningStrike();
         LoadSorcererSorcerousRestoration();
         LoadWizardMemorizeSpell();
+        LoadWeaponMastery();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianPersistentRage();
@@ -134,6 +135,7 @@ internal static partial class Tabletop2024Context
         SwitchWizardMemorizeSpell();
         SwitchWizardScholar();
         SwitchWizardSchoolOfMagicLearningLevel();
+        SwitchWeaponMastery();
     }
 
     internal static void SwitchSurprisedEnforceDisadvantage()

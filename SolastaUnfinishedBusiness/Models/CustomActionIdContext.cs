@@ -54,6 +54,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
+        (Id)ExtraActionId.WeaponMasteryToggle,
         (Id)ExtraActionId.ZenShotToggle
     ];
 
@@ -451,6 +452,14 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "GravityWellToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.GravityWellToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "WeaponMasteryToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.GravityWellToggle)

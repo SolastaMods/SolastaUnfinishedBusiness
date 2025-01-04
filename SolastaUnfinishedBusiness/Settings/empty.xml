@@ -240,6 +240,7 @@
     <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
+    <UseWeaponMasterySystem>false</UseWeaponMasterySystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>

@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=Erhöhen Sie eine Ihrer geistigen Eigen
 Feat/&FeatGroupVerdantTouchedTitle=Grüne Berührung
 Feat/&FeatGroupWeaponMasterDescription=Sie haben ausgiebig mit einer Vielzahl von Waffen geübt und dadurch die folgenden Vorteile erlangt:\n• Ihr Stärke- oder Geschicklichkeitswert steigt um 1, bis zu einem Maximum von 20.\n• Sie erlangen Fertigkeit im Umgang mit vier Waffen Ihrer Wahl. Jede muss eine einfache oder eine Kriegswaffe sein.
 Feat/&FeatGroupWeaponMasterTitle=Waffenmeister
+Feat/&FeatGroupWeaponMasteryDescription=Sie haben ausgiebig mit einer Vielzahl von Waffen geübt und dadurch die folgenden Vorteile erlangt:\n• Ihre Stärke oder Geschicklichkeit wird um 1 erhöht, bis zu einem Maximum von 20.\n• Ihr Training mit Waffen ermöglicht es Ihnen, die Meisterschaftseigenschaft einer Art einfacher oder Kampfwaffe Ihrer Wahl zu nutzen.
+Feat/&FeatGroupWeaponMasteryTitle=Waffenbeherrschung
 Feature/&MartialChampionSuperiorCriticalDescription=Ihre Waffenangriffe erzielen bei einem Ergebnis von 18, 19 oder 20 einen kritischen Treffer.

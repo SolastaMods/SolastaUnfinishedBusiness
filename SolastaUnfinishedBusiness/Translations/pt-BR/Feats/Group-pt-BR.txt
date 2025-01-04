@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumente um dos seus atributos mentais e
 Feat/&FeatGroupVerdantTouchedTitle=Verdejante Tocado
 Feat/&FeatGroupWeaponMasterDescription=Você praticou extensivamente com uma variedade de armas, obtendo os seguintes benefícios:\n• Aumente seu valor de Força ou Destreza em 1, até um máximo de 20.\n• Você ganha proficiência com quatro armas de sua escolha. Cada uma deve ser uma arma simples ou marcial.
 Feat/&FeatGroupWeaponMasterTitle=Mestre das Armas
+Feat/&FeatGroupWeaponMasteryDescription=Você praticou extensivamente com uma variedade de armas, obtendo os seguintes benefícios:\n• Aumente sua Força ou Destreza em 1, até um máximo de 20.\n• Seu treinamento com armas permite que você use a propriedade de maestria de um tipo de arma Simples ou Marcial de sua escolha.
+Feat/&FeatGroupWeaponMasteryTitle=Maestria em Armas
 Feature/&MartialChampionSuperiorCriticalDescription=Seus ataques com armas marcam um acerto crítico em uma jogada de 18, 19 ou 20.
