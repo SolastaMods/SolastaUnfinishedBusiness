@@ -52,7 +52,10 @@ internal static partial class Tabletop2024Context
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
-        .AddCustomSubFeatures(ValidatorsValidatePowerUse.NotInCombat, new PowerOrSpellFinishedByMeRelearn())
+        .AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.NotInCombat,
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(PowerWeaponMasteryRelearnPool) > 0),
+            new PowerOrSpellFinishedByMeRelearn())
         .AddToDB();
 
     internal static readonly FeatureDefinitionFeatureSet FeatureSetWeaponMasteryLearn1 =
@@ -257,6 +260,13 @@ internal static partial class Tabletop2024Context
         Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1));
     }
 
+    private static bool IsWeaponMasteryValid(RulesetAttackMode attackMode, MasteryProperty property)
+    {
+        return attackMode.SourceDefinition is ItemDefinition { IsWeapon: true } itemDefinition &&
+               WeaponMasteryTable.TryGetValue(itemDefinition.WeaponDescription.WeaponTypeDefinition, out var value) &&
+               value == property;
+    }
+
     private enum MasteryProperty
     {
         Cleave,
@@ -304,7 +314,7 @@ internal static partial class Tabletop2024Context
                 "WeaponMasteryRelearn",
                 "ReactionSpendPowerBundleWeaponMasteryUnlearnDescription".Localized(Category.Reaction),
                 ReactionValidatedUnlearn,
-                ReactionNotValidatedUnlearn);
+                ReactionNotValidated);
 
             usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
 
@@ -343,7 +353,8 @@ internal static partial class Tabletop2024Context
                 character,
                 "WeaponMasteryRelearn",
                 "ReactionSpendPowerBundleWeaponMasteryLearnDescription".Localized(Category.Reaction),
-                ReactionValidatedLearn);
+                ReactionValidatedLearn,
+                ReactionNotValidated);
 
             usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
 
@@ -354,14 +365,15 @@ internal static partial class Tabletop2024Context
                 character.SetSpecialFeatureUses(IndexUnlearn, reactionRequest.SelectedSubOption);
             }
 
-            void ReactionNotValidatedUnlearn(ReactionRequestSpendBundlePower reactionRequest)
-            {
-                aborted = true;
-            }
-
             void ReactionValidatedLearn(ReactionRequestSpendBundlePower reactionRequest)
             {
                 character.SetSpecialFeatureUses(IndexLearn, reactionRequest.SelectedSubOption);
+            }
+
+            void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                aborted = true;
+                usablePower.remainingUses++;
             }
         }
     }
@@ -417,7 +429,52 @@ internal static partial class Tabletop2024Context
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            yield break;
+            if (!IsWeaponMasteryValid(attackMode, MasteryProperty.Graze))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var abilityScore = attackMode.AbilityScore;
+            var abilityScoreValue = rulesetAttacker.TryGetAttributeValue(abilityScore);
+            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(abilityScoreValue);
+
+            if (modifier <= 0)
+            {
+                yield break;
+            }
+
+            var damageForm =
+                attackMode.EffectDescription.EffectForms.FirstOrDefault(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage)?.DamageForm;
+
+            if (damageForm == null)
+            {
+                yield break;
+            }
+
+            var effectForm = EffectFormBuilder.DamageForm(damageForm.DamageType, bonusDamage: modifier);
+            var rulesetDefender = defender.RulesetCharacter;
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
+
+            RulesetActor.InflictDamage(
+                modifier,
+                effectForm.DamageForm,
+                effectForm.DamageForm.DamageType,
+                applyFormsParams,
+                rulesetDefender,
+                false,
+                attacker.Guid,
+                false,
+                [],
+                new RollInfo(DieType.D1, [], modifier),
+                false,
+                out _);
         }
     }
 
