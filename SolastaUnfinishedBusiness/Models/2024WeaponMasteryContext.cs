@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
@@ -136,20 +137,59 @@ internal static partial class Tabletop2024Context
         .SetSpecialInterruptions(ConditionInterruption.Attacks)
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerWeaponMasteryPush = FeatureDefinitionPowerBuilder
+        .Create("PowerWeaponMasteryPush")
+        .SetGuiPresentation("FeatureWeaponMasteryPush", Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                        .Build())
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerWeaponMasteryTopple = FeatureDefinitionPowerBuilder
+        .Create("PowerWeaponMasteryTopple")
+        .SetGuiPresentation("FeatureWeaponMasteryTopple", Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build())
+                .Build())
+        .AddCustomSubFeatures(new ModifyEffectDescriptionTopple())
+        .AddToDB();
+
     private static readonly Dictionary<WeaponTypeDefinition, MasteryProperty> WeaponMasteryTable = new()
     {
         { CustomWeaponsContext.HalberdWeaponType, MasteryProperty.Cleave },
+        { CustomWeaponsContext.HandXbowWeaponType, MasteryProperty.Vex },
         { CustomWeaponsContext.PikeWeaponType, MasteryProperty.Push },
-        { WeaponTypeDefinitions.BattleaxeType, MasteryProperty.Cleave },
+        { WeaponTypeDefinitions.BattleaxeType, MasteryProperty.Topple },
         { WeaponTypeDefinitions.ClubType, MasteryProperty.Slow },
         { WeaponTypeDefinitions.DaggerType, MasteryProperty.Nick },
         { WeaponTypeDefinitions.DartType, MasteryProperty.Vex },
         { WeaponTypeDefinitions.GreataxeType, MasteryProperty.Cleave },
         { WeaponTypeDefinitions.GreatswordType, MasteryProperty.Graze },
         { WeaponTypeDefinitions.HandaxeType, MasteryProperty.Vex },
-        { WeaponTypeDefinitions.HeavyCrossbowType, MasteryProperty.Slow },
+        { WeaponTypeDefinitions.HeavyCrossbowType, MasteryProperty.Push },
         { WeaponTypeDefinitions.JavelinType, MasteryProperty.Slow },
-        { WeaponTypeDefinitions.LightCrossbowType, MasteryProperty.Vex },
+        { WeaponTypeDefinitions.LightCrossbowType, MasteryProperty.Slow },
         { WeaponTypeDefinitions.LongbowType, MasteryProperty.Slow },
         { WeaponTypeDefinitions.LongswordType, MasteryProperty.Sap },
         { WeaponTypeDefinitions.MaceType, MasteryProperty.Sap },
@@ -531,7 +571,16 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield break;
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Push))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerWeaponMasteryPush, rulesetAttacker);
+
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
 
@@ -619,9 +668,51 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield break;
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Topple))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerWeaponMasteryTopple, rulesetAttacker);
+            var abilityScore = attackMode.AbilityScore;
+            var abilityScoreIndex = Array.IndexOf(AttributeDefinitions.AbilityScoreNames, abilityScore);
+
+            attacker.SetSpecialFeatureUses("WeaponMasteryTopple", abilityScoreIndex);
+            attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
+
+    private sealed class ModifyEffectDescriptionTopple : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerWeaponMasteryTopple;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+            var abilityScoreIndex = glc?.GetSpecialFeatureUses("WeaponMasteryTopple") ?? -1;
+
+            if (abilityScoreIndex < 0)
+            {
+                return effectDescription;
+            }
+
+            var abilityScore = AttributeDefinitions.AbilityScoreNames[abilityScoreIndex];
+
+            effectDescription.savingThrowDifficultyAbility = abilityScore;
+
+            return effectDescription;
+        }
+    }
+
 
     private sealed class CustomBehaviorVex : IPhysicalAttackFinishedByMe
     {
