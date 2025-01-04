@@ -1,37 +1,100 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWeaponMasteryLearn1 =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWeaponMasteryLearn1")
+    private const string Stage = "WeaponMasteryRelearn";
+    private const string IndexUnlearn = "WeaponMasteryUnlearn";
+    private const string IndexLearn = "WeaponMasteryLearn";
+    private const int StageUnlearn = -1;
+    private const int StageLearn = 1;
+
+    private static readonly FeatureDefinitionPower PowerWeaponMasteryRelearnPool = FeatureDefinitionPowerBuilder
+        .Create("PowerWeaponMasteryRelearnPool")
+        .SetGuiPresentationNoContent(true)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(ValidatorsValidatePowerUse.NotInCombat, new MagicEffectFinishedByMeRelearn())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerWeaponMasteryRelearn = FeatureDefinitionPowerBuilder
+        .Create("PowerWeaponMasteryRelearn")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerWeaponMasteryRelearn", Resources.PowerWeaponMasteryRelearn, 256, 128))
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddCustomSubFeatures(ValidatorsValidatePowerUse.NotInCombat, new PowerOrSpellFinishedByMeRelearn())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetWeaponMasteryLearn1 =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWeaponMasteryLearn1")
             .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization)
+            .SetFeatureSet(
+                PowerWeaponMasteryRelearnPool,
+                PowerWeaponMasteryRelearn,
+                CustomInvocationPoolDefinitionBuilder
+                    .Create("InvocationPoolWeaponMasteryLearn1")
+                    .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
+                    .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization)
+                    .AddToDB())
             .AddToDB();
 
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWeaponMasteryLearn2 =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWeaponMasteryLearn2")
+    private static readonly FeatureDefinitionFeatureSet FeatureSetWeaponMasteryLearn2 =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWeaponMasteryLearn2")
             .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization, 2)
+            .SetFeatureSet(
+                PowerWeaponMasteryRelearnPool,
+                PowerWeaponMasteryRelearn,
+                CustomInvocationPoolDefinitionBuilder
+                    .Create("InvocationPoolWeaponMasteryLearn2")
+                    .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
+                    .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization, 2)
+                    .AddToDB())
             .AddToDB();
 
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWeaponMasteryLearn3 =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWeaponMasteryLearn3")
+    private static readonly FeatureDefinitionFeatureSet FeatureSetWeaponMasteryLearn3 =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWeaponMasteryLearn3")
             .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization, 3)
+            .SetFeatureSet(
+                PowerWeaponMasteryRelearnPool,
+                PowerWeaponMasteryRelearn,
+                CustomInvocationPoolDefinitionBuilder
+                    .Create("InvocationPoolWeaponMasteryLearn3")
+                    .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
+                    .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization, 3)
+                    .AddToDB())
             .AddToDB();
 
     private static readonly Dictionary<WeaponTypeDefinition, MasteryProperty> WeaponMasteryTable = new()
@@ -118,6 +181,8 @@ internal static partial class Tabletop2024Context
             .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryToggle)
             .AddToDB();
 
+        var powers = new List<FeatureDefinitionPower>();
+
         foreach (var kvp in WeaponMasteryTable)
         {
             var weaponTypeDefinition = kvp.Key;
@@ -140,7 +205,25 @@ internal static partial class Tabletop2024Context
                 .SetGrantedFeature(featureSet)
                 .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
+
+            var powerRelearnWeapon = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerWeaponMasteryRelearn{weaponTypeName}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.FormatTitle(), featureSpecialization.GuiPresentation.Description)
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, PowerWeaponMasteryRelearnPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .Build())
+                .AddToDB();
+
+            powerRelearnWeapon.GuiPresentation.hidden = true;
+            powers.Add(powerRelearnWeapon);
         }
+
+        PowerBundle.RegisterPowerBundle(PowerWeaponMasteryRelearnPool, false, powers);
     }
 
     internal static void SwitchWeaponMastery()
@@ -150,9 +233,9 @@ internal static partial class Tabletop2024Context
         foreach (var klass in klasses)
         {
             klass.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == InvocationPoolWeaponMasteryLearn1 ||
-                x.FeatureDefinition == InvocationPoolWeaponMasteryLearn2 ||
-                x.FeatureDefinition == InvocationPoolWeaponMasteryLearn3);
+                x.FeatureDefinition == FeatureSetWeaponMasteryLearn1 ||
+                x.FeatureDefinition == FeatureSetWeaponMasteryLearn2 ||
+                x.FeatureDefinition == FeatureSetWeaponMasteryLearn3);
         }
 
         if (!Main.Settings.UseWeaponMasterySystem)
@@ -161,17 +244,17 @@ internal static partial class Tabletop2024Context
         }
 
         Barbarian.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn2, 1),
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn1, 4),
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn1, 10));
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1),
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn1, 4),
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn1, 10));
         Fighter.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn3, 1),
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn1, 4),
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn1, 10),
-            new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn1, 16));
-        Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn2, 1));
-        Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn2, 1));
-        Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(InvocationPoolWeaponMasteryLearn2, 1));
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn3, 1),
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn1, 4),
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn1, 10),
+            new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn1, 16));
+        Paladin.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1));
+        Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1));
+        Rogue.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetWeaponMasteryLearn2, 1));
     }
 
     private enum MasteryProperty
@@ -186,35 +269,234 @@ internal static partial class Tabletop2024Context
         Vex
     }
 
+    private sealed class PowerOrSpellFinishedByMeRelearn : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            const string InvocationNamePrefix = "CustomInvocationWeaponMastery";
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var aborted = false;
+            var usablePowers = new List<RulesetUsablePower>();
+            var usablePower = PowerProvider.Get(PowerWeaponMasteryRelearnPool, rulesetCharacter);
+
+            //
+            // UNLEARN
+            //
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (var invocation in rulesetCharacter.Invocations
+                         .Where(x => x.InvocationDefinition.Name.StartsWith(InvocationNamePrefix)))
+            {
+                var weaponTypeName = invocation.InvocationDefinition.Name.Replace(InvocationNamePrefix, string.Empty);
+                var power = GetDefinition<FeatureDefinitionPower>($"PowerWeaponMasteryRelearn{weaponTypeName}");
+
+                usablePowers.Add(PowerProvider.Get(power, rulesetCharacter));
+            }
+
+            rulesetCharacter.UsablePowers.AddRange(usablePowers);
+            character.SetSpecialFeatureUses(Stage, StageUnlearn);
+
+            yield return character.MyReactToSpendPowerBundle(
+                usablePower,
+                [character],
+                character,
+                "WeaponMasteryRelearn",
+                "ReactionSpendPowerBundleWeaponMasteryUnlearnDescription".Localized(Category.Reaction),
+                ReactionValidatedUnlearn,
+                ReactionNotValidatedUnlearn);
+
+            usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
+
+            if (aborted)
+            {
+                yield break;
+            }
+
+            //
+            // LEARN
+            //
+
+            usablePowers.Clear();
+
+            var weaponTypes = rulesetCharacter.Invocations.Where(x =>
+                    x.InvocationDefinition.Name.StartsWith(InvocationNamePrefix)).Select(x =>
+                    x.InvocationDefinition.Name.Replace(InvocationNamePrefix, string.Empty))
+                .ToList();
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (var weaponTypeDefinition in WeaponMasteryTable.Keys
+                         .Where(x => !weaponTypes.Contains(x.Name)))
+            {
+                var weaponTypeName = weaponTypeDefinition.Name;
+                var power = GetDefinition<FeatureDefinitionPower>($"PowerWeaponMasteryRelearn{weaponTypeName}");
+
+                usablePowers.Add(PowerProvider.Get(power, rulesetCharacter));
+            }
+
+            rulesetCharacter.UsablePowers.AddRange(usablePowers);
+            character.SetSpecialFeatureUses(Stage, StageLearn);
+
+            yield return character.MyReactToSpendPowerBundle(
+                usablePower,
+                [character],
+                character,
+                "WeaponMasteryRelearn",
+                "ReactionSpendPowerBundleWeaponMasteryLearnDescription".Localized(Category.Reaction),
+                ReactionValidatedLearn);
+
+            usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
+
+            yield break;
+
+            void ReactionValidatedUnlearn(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                character.SetSpecialFeatureUses(IndexUnlearn, reactionRequest.SelectedSubOption);
+            }
+
+            void ReactionNotValidatedUnlearn(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                aborted = true;
+            }
+
+            void ReactionValidatedLearn(ReactionRequestSpendBundlePower reactionRequest)
+            {
+                character.SetSpecialFeatureUses(IndexLearn, reactionRequest.SelectedSubOption);
+            }
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeRelearn : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action, GameLocationCharacter attacker, List<GameLocationCharacter> targets)
+        {
+            if (!action.ActionParams.RulesetEffect.SourceDefinition.Name.StartsWith("PowerWeaponMasteryRelearn"))
+            {
+                yield break;
+            }
+
+            if (attacker.GetSpecialFeatureUses(Stage) < 0)
+            {
+                yield break;
+            }
+
+            var indexUnlearn = attacker.GetSpecialFeatureUses(IndexUnlearn);
+            var weaponTypeUnlearnName = WeaponMasteryTable.Keys.ToArray()[indexUnlearn].Name;
+            var invocationToUnlearn =
+                GetDefinition<InvocationDefinition>($"CustomInvocationWeaponMastery{weaponTypeUnlearnName}");
+
+            var indexLearn = attacker.GetSpecialFeatureUses(IndexLearn);
+            var weaponTypeLearnName = WeaponMasteryTable.Keys.ToArray()[indexLearn].Name;
+            var invocationToLearn =
+                GetDefinition<InvocationDefinition>($"CustomInvocationWeaponMastery{weaponTypeLearnName}");
+
+            var hero = attacker.RulesetCharacter.GetOriginalHero();
+
+            hero!.TrainedInvocations.Remove(invocationToUnlearn);
+            hero.TrainedInvocations.Add(invocationToLearn);
+            hero.GrantInvocations();
+        }
+    }
+
     private sealed class CustomBehaviorCleave
     {
     }
 
-    private sealed class CustomBehaviorGraze
+    private sealed class CustomBehaviorGraze : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -1;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            yield break;
+        }
     }
 
     private sealed class CustomBehaviorNick
     {
     }
 
-    private sealed class CustomBehaviorPush
+    private sealed class CustomBehaviorPush : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield break;
+        }
     }
 
-    private sealed class CustomBehaviorSap
+    private sealed class CustomBehaviorSap : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield break;
+        }
     }
 
-    private sealed class CustomBehaviorSlow
+    private sealed class CustomBehaviorSlow : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield break;
+        }
     }
 
-    private sealed class CustomBehaviorTopple
+    private sealed class CustomBehaviorTopple : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield break;
+        }
     }
 
-    private sealed class CustomBehaviorVex
+    private sealed class CustomBehaviorVex : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield break;
+        }
     }
 }

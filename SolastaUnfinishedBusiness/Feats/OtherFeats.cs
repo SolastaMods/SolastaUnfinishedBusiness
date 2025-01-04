@@ -553,14 +553,14 @@ internal static class OtherFeats
         var weaponMasterStr = FeatDefinitionBuilder
             .Create($"{Name}Str")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.InvocationPoolWeaponMasteryLearn1)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.FeatureSetWeaponMasteryLearn1)
             .SetFeatFamily(Name)
             .AddToDB();
 
         var weaponMasterDex = FeatDefinitionBuilder
             .Create($"{Name}Dex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.InvocationPoolWeaponMasteryLearn1)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.FeatureSetWeaponMasteryLearn1)
             .SetFeatFamily(Name)
             .AddToDB();
 

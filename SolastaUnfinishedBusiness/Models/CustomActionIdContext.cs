@@ -462,7 +462,7 @@ public static class CustomActionIdContext
             .Create(MetamagicToggle, "WeaponMasteryToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.GravityWellToggle)
+            .SetActionId(ExtraActionId.WeaponMasteryToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }
