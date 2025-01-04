@@ -616,7 +616,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(condition),
                         EffectFormBuilder.ConditionForm(
-                            ConditionInvisibleBase, ConditionForm.ConditionOperation.Remove),
+                            ConditionInvisibleBase, ConditionForm.ConditionOperation.RemoveDetrimentalAll),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(

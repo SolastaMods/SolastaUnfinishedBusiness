@@ -217,7 +217,8 @@ public sealed class DomainNature : AbstractSubclass
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
-                            ConditionDefinitions.ConditionCharmed, ConditionForm.ConditionOperation.Remove),
+                            ConditionDefinitions.ConditionCharmed,
+                            ConditionForm.ConditionOperation.RemoveDetrimentalAll),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
