@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Ativar/desativar Maestria em Arma
 Action/&WeaponMasteryToggleTitle=Maestria em Armas
+Condition/&ConditionWeaponMasterySlowDescription=Velocidade reduzida em 10 pés até o início do próximo turno de origem.
+Condition/&ConditionWeaponMasterySlowTitle=Lento
 Condition/&ConditionWeaponMasteryVexDescription=Vantagem na sua próxima jogada de ataque antes do final do seu próximo turno.
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Se você acertar uma criatura com um ataque de arma corpo a corpo, você pode fazer um segundo ataque contra uma criatura a até 5 pés que também esteja dentro do seu alcance. Quando você acerta com o segundo ataque, você pode rolar o dano da sua arma, mas você não adiciona seu modificador de habilidade a menos que seja negativo.

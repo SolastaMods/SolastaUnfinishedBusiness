@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=무기 마스터리 활성화/비활성화
 Action/&WeaponMasteryToggleTitle=무기 마스터리
+Condition/&ConditionWeaponMasterySlowDescription=다음 소스 턴이 시작될 때까지 속도가 10피트 감소합니다.
+Condition/&ConditionWeaponMasterySlowTitle=느린
 Condition/&ConditionWeaponMasteryVexDescription=다음 턴이 끝나기 전에 다음 공격 굴림에서 유리해집니다.
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=근접 무기 공격으로 생물을 맞히면, 5피트 이내에 있고 당신의 손이 닿는 범위에 있는 생물에 대해 두 번째 공격을 할 수 있습니다. 두 번째 공격으로 맞히면 무기의 데미지를 굴릴 수 있지만, 음수가 아닌 한 능력 수정치를 추가하지 않습니다.

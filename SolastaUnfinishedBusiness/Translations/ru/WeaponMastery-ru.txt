@@ -1,5 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Активировать/деактивировать Мастерство Оружия
 Action/&WeaponMasteryToggleTitle=Мастерство владения оружием
+Condition/&ConditionWeaponMasterySlowDescription=Скорость снижена на 10 футов до начала следующего исходного хода.
+Condition/&ConditionWeaponMasterySlowTitle=Медленный
 Condition/&ConditionWeaponMasteryVexDescription=Преимущество при следующей атаке до конца вашего следующего хода.
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Если вы поразили существо атакой ближнего боя оружием, вы можете провести вторую атаку по существу в пределах 5 футов, которое также находится в пределах вашей досягаемости. Когда вы поразили второй атакой, вы можете бросить урон от вашего оружия, но вы не добавляете свой модификатор способности, если только он не отрицательный.

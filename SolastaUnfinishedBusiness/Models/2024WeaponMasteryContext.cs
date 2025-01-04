@@ -100,6 +100,17 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionWeaponMasterySlow = ConditionDefinitionBuilder
+        .Create("ConditionWeaponMasterySlow")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
+        .AddFeatures(
+            FeatureDefinitionMovementAffinityBuilder
+                .Create("CombatAffinityWeaponMasteryVex")
+                .SetGuiPresentationNoContent(true)
+                .SetBaseSpeedAdditiveModifier(-2)
+                .AddToDB())
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionWeaponMasteryVex = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasteryVex")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBullsStrength)
@@ -537,7 +548,29 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield break;
+            if (damageAmount <= 0 ||
+                rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                ConditionWeaponMasterySlow.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasterySlow.Name,
+                0,
+                0,
+                0);
         }
     }
 
@@ -567,7 +600,8 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (damageAmount <= 0 ||
+                rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
             {
                 yield break;
