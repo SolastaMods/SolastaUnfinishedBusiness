@@ -154,7 +154,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionInvisibleBase",
           "conditionDefinition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
-          "operation": "Remove",
+          "operation": "RemoveDetrimentalAll",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false

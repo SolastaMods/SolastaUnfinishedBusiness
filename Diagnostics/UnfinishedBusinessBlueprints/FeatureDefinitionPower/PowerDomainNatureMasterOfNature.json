@@ -83,7 +83,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionCharmed",
           "conditionDefinition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
-          "operation": "Remove",
+          "operation": "RemoveDetrimentalAll",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
