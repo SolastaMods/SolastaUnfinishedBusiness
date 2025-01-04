@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSupportCombatTitle",
-    "description": "Battle Fervor, Call for Charge, Chef, Gift of the Chromatic Dragon, Gift of the Gem Dragon, Grappler, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master",
+    "description": "Battle Fervor, Call for Charge, Chef, Gift of the Chromatic Dragon, Gift of the Gem Dragon, Grappler, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master, Weapon Mastery",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

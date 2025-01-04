@@ -141,10 +141,11 @@ internal static class CraftingAndItems
 
         UI.Label();
 
-        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePoisonsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPoisonsBonusAction();
         }
 
         toggle = Main.Settings.EnablePotionsBonusAction2024;
@@ -154,17 +155,16 @@ internal static class CraftingAndItems
             Tabletop2024Context.SwitchPotionsBonusAction();
         }
 
-        toggle = Main.Settings.EnablePoisonsBonusAction2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
-            Tabletop2024Context.SwitchPoisonsBonusAction();
-        }
-
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
+        }
+
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
         }
 
         UI.Label();

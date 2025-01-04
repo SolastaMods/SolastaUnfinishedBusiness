@@ -125,6 +125,7 @@ internal static class ModUi
         "FeatGroupTelekinetic",
         "FeatGroupFeyTeleport",
         "FeatGroupWeaponMaster",
+        "FeatGroupWeaponMastery",
         "FeatHealer",
         "FeatHeavyArmorMaster",
         "FeatInfernalConstitution",

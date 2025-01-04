@@ -412,4 +412,5 @@ ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>食料配給</color>の重量
 ModUi/&UseOfficialObscurementRules=<color=#D89555>照明、遮蔽、視界</color>戦闘ルールを有効にする
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者が視力を持たない場合、個人をターゲットとするすべての遠距離呪文は、視力が必要であると明確に述べられていない呪文を除いて、キャストできません]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>小型種族</color>が重火器を使用する際に不利になるようにする
+ModUi/&UseWeaponMasterySystem=<color=#D89555>武器の熟練度</color>ルールを有効にする
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

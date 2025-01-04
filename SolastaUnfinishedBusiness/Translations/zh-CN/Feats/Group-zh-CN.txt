@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=你的一项精神属性 +1，上限为
 Feat/&FeatGroupVerdantTouchedTitle=苍翠之触
 Feat/&FeatGroupWeaponMasterDescription=你已经广泛练习使用各种武器，获得了以下好处：\n• 你的力量或敏捷 +1，上限为 20。\n• 你可以熟练使用四种你选择的武器。每一件都必须是简单的或军用的武器。
 Feat/&FeatGroupWeaponMasterTitle=武器大师
+Feat/&FeatGroupWeaponMasteryDescription=您已广泛练习使用各种武器，并获得以下好处：\n• 将您的力量或敏捷度提高 1，最高可达 20。\n• 您的武器训练可让您使用您选择的一种简单或军用武器的精通属性。
+Feat/&FeatGroupWeaponMasteryTitle=武器精通
 Feature/&MartialChampionSuperiorCriticalDescription=如果掷出 18、19 或 20，您的武器攻击将产生致命一击。

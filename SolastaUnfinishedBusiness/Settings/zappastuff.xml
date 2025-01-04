@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>2</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
@@ -18,7 +18,7 @@
     <DisplayItemsToggle>false</DisplayItemsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
-    <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
+    <DisplaySpellsGeneralToggle>true</DisplaySpellsGeneralToggle>
     <DisplaySubClassesGeneralToggle>false</DisplaySubClassesGeneralToggle>
     <DisplayKlassToggle>
         <item>
@@ -240,6 +240,7 @@
     <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
+    <UseWeaponMasterySystem>true</UseWeaponMasterySystem>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -940,6 +941,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWeaponMastery</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
@@ -1909,4 +1911,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

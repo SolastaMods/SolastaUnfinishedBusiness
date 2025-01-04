@@ -775,11 +775,17 @@ You have practiced extensively with a variety of weapons, gaining the following 
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 
-# 157. - Wise Archery [UB]
+# 157. - *Weapon Mastery* © [UB]
+
+You have practiced extensively with a variety of weapons, gaining the following benefits:
+• Increase your Strength or Dexterity by 1, to a maximum of 20.
+• Your training with weapons allows you to use the mastery property of one kind of Simple or Martial weapon of your choice.
+
+# 158. - Wise Archery [UB]
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifier for the attack and damage rolls with these weapons.
 
-# 158. - *Wood-Elf Magic* © [UB]
+# 159. - *Wood-Elf Magic* © [UB]
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 

@@ -150,6 +150,13 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
         }
 
+        toggle = Main.Settings.UseWeaponMasterySystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseWeaponMasterySystem = toggle;
+            Tabletop2024Context.SwitchWeaponMastery();
+        }
+
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
