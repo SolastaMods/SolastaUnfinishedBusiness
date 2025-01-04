@@ -5,7 +5,7 @@ RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Nat
 CHANGES:
 
 - added Cleric, Druid, Monk, Ranger, Sorcerer, and Warlock tabletop 2024 settings
-- added Devouring Blade invocation, Weapon Mastery rules [skeleton], Weapon Mastery feat, and Way of Blade subclass
+- added Devouring Blade invocation, Dragon's Breath spell, Weapon Mastery rules [skeleton], and Way of Blade subclass
 - changed Domain Nature divine strike to offer cold, fire, or lighting damage [cold, necrotic, or radiant if 2024]
 - changed Hunter's Mark, and Malediction to be denied under twinned scenarios [engine limitation]
 - changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
