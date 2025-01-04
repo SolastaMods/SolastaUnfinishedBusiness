@@ -1186,4 +1186,183 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Dragons Breath
+    internal static SpellDefinition BuildDragonsBreath()
+    {
+        const string NAME = "DragonsBreathSpell";
+
+        var subSpells = new List<SpellDefinition>();
+
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .Where(x => x.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+        foreach (var (damageType, magicEffect) in DamagesAndEffects)
+        {
+            if(damageType == DamageTypeThunder) { continue; }   // Spell doesn't include thunder damage
+
+            var DragonbornBreathPower = powers.First(
+                x => x.EffectDescription.FindFirstDamageFormOfType([damageType]) != null);
+            var dmgStr = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var title = Gui.Format($"Feature/&Power{NAME}Title", dmgStr);
+            var description = Gui.Format($"Feature/&Power{NAME}Description", dmgStr);
+            var powerBreathAttack = FeatureDefinitionPowerBuilder
+                .Create($"Power{NAME}{damageType}")
+                .SetGuiPresentation(title, description, DragonbornBreathPower.GuiPresentation.SpriteReference)
+                .SetUsesFixed(ActivationTime.Action)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Cone, 3)
+                        .SetEffectAdvancement(EffectIncrementMethod.None)
+                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D6))
+                        .SetSavingThrowData(
+                            false,
+                            AttributeDefinitions.Dexterity,
+                            false,
+                            EffectDifficultyClassComputation.FixedValue,
+                            fixedSavingThrowDifficultyClass: 10
+                            )
+                        .SetCasterEffectParameters(DragonbornBreathPower)
+                        .SetImpactEffectParameters(DragonbornBreathPower)
+                        .SetParticleEffectParameters(DragonbornBreathPower)
+                        .SetAnimationMagicEffect(DragonbornBreathPower.EffectDescription.AnimationMagicEffect)
+                        .Build())
+                .AddCustomSubFeatures()
+                .AddToDB();
+
+            description = Gui.Format($"Condition/&Condition{NAME}Description", dmgStr);
+            var conditionDragonsBreath = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}{damageType}")
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, description, ConditionSorcererDraconicElementalResistance.GuiPresentation.SpriteReference)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures(powerBreathAttack)
+            .SetConditionParticleReference(DragonbornBreathPower)
+            .AddCustomSubFeatures(
+                AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+            powerBreathAttack.AddCustomSubFeatures(new ModifySaveDCDragonsBreath(conditionDragonsBreath, powerBreathAttack));
+
+            title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            description = Gui.Format($"Spell/&SubSpell{NAME}Description", title);
+            var spell = SpellDefinitionBuilder
+                .Create(NAME + damageType)
+                .SetGuiPresentation(title, description, DragonbornBreathPower.GuiPresentation.SpriteReference)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(2)
+                .SetCastingTime(ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
+                .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+                .SetRequiresConcentration(true)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Minute, 1)
+                        .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
+                        .SetEffectForms(EffectFormBuilder.AddConditionForm(conditionDragonsBreath))
+                        .SetCasterEffectParameters(Heroism)
+                        .SetParticleEffectParameters(magicEffect)
+                        .Build())
+                .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDragonsBreath(conditionDragonsBreath))
+                .AddToDB();
+
+            subSpells.Add(spell);
+        }
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, PowerDragonbornBreathWeaponGold)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(2)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetRequiresConcentration(true)
+            .SetSubSpells([.. subSpells])
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
+                    .Build())
+            .AddToDB();
+    }
+
+    private sealed class PowerOrSpellFinishedByMeDragonsBreath(ConditionDefinition conditionDragonsBreath)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.Countered ||
+                actionCastSpell.ExecutionFailed)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+
+            // need to loop over target characters to support twinned metamagic scenarios
+            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
+                         .Select(target => target.RulesetCharacter))
+            {
+                if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        conditionDragonsBreath.Name,
+                        out var activeCondition))
+                {
+                    continue;
+                }
+
+                // store info from spell Level
+                activeCondition.effectLevel = actionCastSpell.ActiveSpell.SlotLevel;
+                // store info for caster Spell Save DC
+                rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                    rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
+                activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
+            }
+        }
+    }
+    private sealed class ModifySaveDCDragonsBreath(
+        ConditionDefinition conditionDragonsBreath,
+        FeatureDefinitionPower powerDragonsBreath)
+        : IModifyEffectDescription
+    {
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            character.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                conditionDragonsBreath.Name,
+                out var activeCondition);
+
+            //set upcast damage dice: 3 + ( slot Lv - base spell Lv(2) )
+            effectDescription.FindFirstDamageForm().diceNumber = 1 + activeCondition.effectLevel;
+            //set Spell Save DC
+            effectDescription.fixedSavingThrowDifficultyClass = activeCondition.Amount;
+            return effectDescription;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return character.HasConditionOfType(conditionDragonsBreath) &&
+                effectDescription == powerDragonsBreath.EffectDescription;
+        }
+    }
+    #endregion
 }

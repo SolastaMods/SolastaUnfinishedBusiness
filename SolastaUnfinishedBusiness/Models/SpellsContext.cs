@@ -41,6 +41,7 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = [];
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = [];
 
+    internal static readonly SpellDefinition AganazzarScorcher = BuildAganazzarScorcher();
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition AshardalonStride = BuildAshardalonStride();
     internal static readonly SpellDefinition AuraOfLife = BuildAuraOfLife();
@@ -54,6 +55,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition CausticZap = BuildCausticZap();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition DivineWrath = BuildDivineWrath();
+    internal static readonly SpellDefinition DragonsBreath = BuildDragonsBreath();
     internal static readonly SpellDefinition ElementalInfusion = BuildElementalInfusion();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EarthTremor = BuildEarthTremor();
@@ -311,15 +313,15 @@ internal static class SpellsContext
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
-        RegisterSpell(BuildAganazzarScorcher(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(AganazzarScorcher, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BindingIce, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBorrowedKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
         RegisterSpell(ConjureGoblinoids, 0, SpellListDruid, SpellListRanger);
-        RegisterSpell(BuildKineticJaunt(), 0, SpellListBard, SpellListSorcerer, SpellListWizard,
-            spellListInventorClass);
+        RegisterSpell(BuildKineticJaunt(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        RegisterSpell(DragonsBreath, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(PetalStorm, 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
