@@ -101,6 +101,30 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionWeaponMasteryNick = ConditionDefinitionBuilder
+        .Create("ConditionWeaponMasteryNick")
+        .SetGuiPresentationNoContent(true)
+        .SetFeatures(
+            FeatureDefinitionAdditionalActionBuilder
+                .Create("AdditionalActionWeaponMasteryNick")
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionType.Bonus)
+                .AddCustomSubFeatures(new PhysicalAttackFinishedByMeNickExtraAttack())
+                .AddToDB())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionWeaponMasteryNickPreventBonusAttack =
+        ConditionDefinitionBuilder
+            .Create("ConditionWeaponMasteryNickPreventBonusAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityWeaponMasteryNick")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(Id.AttackOff)
+                    .AddToDB())
+            .AddToDB();
+
     private static readonly ConditionDefinition ConditionWeaponMasterySap = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasterySap")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
@@ -489,9 +513,17 @@ internal static partial class Tabletop2024Context
         }
     }
 
+    //
+    // Cleave
+    //
+
     private sealed class CustomBehaviorCleave
     {
     }
+
+    //
+    // Graze
+    //
 
     private sealed class CustomBehaviorGraze : ITryAlterOutcomeAttack
     {
@@ -556,9 +588,84 @@ internal static partial class Tabletop2024Context
         }
     }
 
-    private sealed class CustomBehaviorNick
+    //
+    // Nick
+    //
+
+    private sealed class CustomBehaviorNick : IPhysicalAttackFinishedByMe
     {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                attackMode.ActionType != ActionType.Main ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Nick))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                ConditionWeaponMasteryNick.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasteryNick.Name,
+                0,
+                0,
+                0);
+        }
     }
+
+    private sealed class PhysicalAttackFinishedByMeNickExtraAttack : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (attackMode.ActionType != ActionType.Bonus ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Nick))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                ConditionWeaponMasteryNickPreventBonusAttack.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasteryNickPreventBonusAttack.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    //
+    // Push
+    //
 
     private sealed class CustomBehaviorPush : IPhysicalAttackFinishedByMe
     {
@@ -583,6 +690,10 @@ internal static partial class Tabletop2024Context
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
     }
+
+    //
+    // Sap
+    //
 
     private sealed class CustomBehaviorSap : IPhysicalAttackFinishedByMe
     {
@@ -620,6 +731,10 @@ internal static partial class Tabletop2024Context
         }
     }
 
+    //
+    // Slow
+    //
+
     private sealed class CustomBehaviorSlow : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -656,6 +771,10 @@ internal static partial class Tabletop2024Context
                 0);
         }
     }
+
+    //
+    // Topple
+    //
 
     private sealed class CustomBehaviorTopple : IPhysicalAttackFinishedByMe
     {
@@ -713,6 +832,9 @@ internal static partial class Tabletop2024Context
         }
     }
 
+    //
+    // Vex
+    //
 
     private sealed class CustomBehaviorVex : IPhysicalAttackFinishedByMe
     {

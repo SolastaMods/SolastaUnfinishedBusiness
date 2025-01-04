@@ -33,7 +33,7 @@ KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
 - Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
-- Weapon Mastery Cleave, and Nick aren't implemented yet
+- Weapon Mastery Cleave isn't implemented yet
 
 1.5.97.42:
 
