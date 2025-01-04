@@ -117,6 +117,7 @@ internal static partial class Tabletop2024Context
         ConditionDefinitionBuilder
             .Create("ConditionWeaponMasteryNickPreventBonusAttack")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityWeaponMasteryNick")
@@ -141,6 +142,7 @@ internal static partial class Tabletop2024Context
     private static readonly ConditionDefinition ConditionWeaponMasterySlow = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasterySlow")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
+        .SetConditionType(ConditionType.Detrimental)
         .AddFeatures(
             FeatureDefinitionMovementAffinityBuilder
                 .Create("MovementAffinityWeaponMasterySlow")
@@ -203,6 +205,8 @@ internal static partial class Tabletop2024Context
     {
         { CustomWeaponsContext.HalberdWeaponType, MasteryProperty.Cleave },
         { CustomWeaponsContext.HandXbowWeaponType, MasteryProperty.Vex },
+        { CustomWeaponsContext.KatanaWeaponType, MasteryProperty.Slow },
+        { CustomWeaponsContext.LongMaceWeaponType, MasteryProperty.Sap },
         { CustomWeaponsContext.PikeWeaponType, MasteryProperty.Push },
         { WeaponTypeDefinitions.BattleaxeType, MasteryProperty.Topple },
         { WeaponTypeDefinitions.ClubType, MasteryProperty.Slow },
@@ -366,7 +370,10 @@ internal static partial class Tabletop2024Context
         return attacker.RulesetCharacter.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
                attackMode.SourceDefinition is ItemDefinition { IsWeapon: true } itemDefinition &&
                WeaponMasteryTable.TryGetValue(itemDefinition.WeaponDescription.WeaponTypeDefinition, out var value) &&
-               value == property;
+               value == property &&
+               attacker.RulesetCharacter.Invocations.Any(x =>
+                   x.InvocationDefinition.Name ==
+                   $"CustomInvocationWeaponMastery{itemDefinition.WeaponDescription.WeaponTypeDefinition.Name}");
     }
 
     private enum MasteryProperty
@@ -525,21 +532,18 @@ internal static partial class Tabletop2024Context
     // Graze
     //
 
-    private sealed class CustomBehaviorGraze : ITryAlterOutcomeAttack
+    private sealed class CustomBehaviorGraze : ITryAlterOutcomeAttack, IPhysicalAttackFinishedByMe
     {
-        public int HandlerPriority => -1;
-
-        public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            if (!IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Graze))
+            if (attacker.GetSpecialFeatureUses("WeaponMasteryGraze") < 0)
             {
                 yield break;
             }
@@ -586,6 +590,31 @@ internal static partial class Tabletop2024Context
                 false,
                 out _);
         }
+
+        public int HandlerPriority => -1;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            var rollOutcome = action.AttackRollOutcome;
+
+            attacker.SetSpecialFeatureUses("WeaponMasteryGraze", -1);
+
+            if (rollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Graze))
+            {
+                yield break;
+            }
+
+            attacker.SetSpecialFeatureUses("WeaponMasteryGraze", 0);
+        }
     }
 
     //
@@ -603,14 +632,15 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 attackMode.ActionType != ActionType.Main ||
+                !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) ||
                 !IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Nick))
             {
                 yield break;
             }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
                 ConditionWeaponMasteryNick.Name,
@@ -760,7 +790,7 @@ internal static partial class Tabletop2024Context
                 ConditionWeaponMasterySlow.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
