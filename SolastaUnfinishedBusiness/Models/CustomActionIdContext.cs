@@ -53,6 +53,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.TacticalMasterToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.WeaponMasteryToggle,
         (Id)ExtraActionId.ZenShotToggle
@@ -463,6 +464,14 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.WeaponMasteryToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "TacticalMasterToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.TacticalMasterToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

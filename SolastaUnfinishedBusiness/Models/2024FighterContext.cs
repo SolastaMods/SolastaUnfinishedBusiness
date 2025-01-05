@@ -64,10 +64,12 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
-    private static readonly FeatureDefinition FeatureFighterTacticalMaster = FeatureDefinitionBuilder
-        .Create("FighterTacticalMaster")
-        .SetGuiPresentation(Category.Feature)
-        .AddToDB();
+    private static readonly FeatureDefinition ActionAffinityFighterTacticalMaster =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityFighterTacticalMaster")
+            .SetGuiPresentation(Category.Feature)
+            .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
+            .AddToDB();
 
     private static void LoadFighterSecondWind()
     {
@@ -126,11 +128,11 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchFighterTacticalMaster()
     {
-        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureFighterTacticalMaster);
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == ActionAffinityFighterTacticalMaster);
 
         if (Main.Settings.EnableFighterTacticalMaster2024)
         {
-            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterTacticalMaster, 9));
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(ActionAffinityFighterTacticalMaster, 9));
         }
 
         Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
