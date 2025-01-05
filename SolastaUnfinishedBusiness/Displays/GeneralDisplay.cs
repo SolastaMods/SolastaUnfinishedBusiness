@@ -298,6 +298,21 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchWeaponMastery();
         }
 
+        if (Main.Settings.UseWeaponMasterySystem)
+        {
+            toggle = Main.Settings.UseWeaponMasterySystemAddCleaveDamage;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddCleaveDamage"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemPushSave;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemPushSave = toggle;
+            }
+        }
+
         UI.Label();
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&BardTitle") + ":</color>");
         UI.Label();

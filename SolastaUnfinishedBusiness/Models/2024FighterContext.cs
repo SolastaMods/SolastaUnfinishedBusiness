@@ -133,7 +133,7 @@ internal static partial class Tabletop2024Context
         {
             var powerTacticalMasterChoice = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerFighterTacticalMaster{mastery}")
-                .SetGuiPresentation($"Feature/&FeatureWeaponMastery{mastery}", Category.Feature)
+                .SetGuiPresentation($"FeatureWeaponMastery{mastery}", Category.Feature)
                 .SetShowCasting(false)
                 .SetSharedPool(ActivationTime.NoCost, PowerFighterTacticalMasterPool)
                 .SetEffectDescription(

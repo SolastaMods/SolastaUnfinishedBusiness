@@ -157,6 +157,21 @@ internal static class RulesDisplay
             Tabletop2024Context.SwitchWeaponMastery();
         }
 
+        if (Main.Settings.UseWeaponMasterySystem)
+        {
+            toggle = Main.Settings.UseWeaponMasterySystemAddCleaveDamage;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddCleaveDamage"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemPushSave;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemPushSave = toggle;
+            }
+        }
+
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
