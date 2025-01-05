@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=将<color=#D89555>Indomitable Resistan
 ModUi/&EnableFighterSecondWind2024=将 <color=#D89555>Second Wind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法进展]</color></i>
 ModUi/&EnableFighterSkillOptions2024=将<color=#D89555>说服</color>添加到 1 级技能选项中
 ModUi/&EnableFighterStudiedAttacks2024=在 13 级时启用<color=#D89555>学习攻击</color> <i><color=#F0DAA0>[如果本轮中对生物的上一次攻击失败则获得优势]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=在 9 级时启用<color=#D89555>战术大师</color> <i><color=#F0DAA0>[替换武器精通属性]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=在 2 级和 5 级时启用<color=#D89555>战术思维</color>和<color=#D89555>战术转变</color><i><color=#F0DAA0>[增强第二风场景]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害力 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>

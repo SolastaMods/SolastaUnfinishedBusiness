@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Tauschen Sie <color=#D89555>Unbezwingb
 ModUi/&EnableFighterSecondWind2024=Tauschen Sie <color=#D89555>Second Wind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[unterschiedlicher Verwendungsverlauf]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Fügen Sie <color=#D89555>Überredung</color> zu den Fertigkeitsoptionen auf Stufe 1 hinzu
 ModUi/&EnableFighterStudiedAttacks2024=Aktivieren Sie <color=#D89555>Durchdachte Angriffe</color> auf Stufe 13 <i><color=#F0DAA0>[Vorteil, wenn vorheriger Angriff in Runde gegen Kreatur fehlgeschlagen ist]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Aktiviere <color=#D89555>Tactical Master</color> auf Level 9 <i><color=#F0DAA0>[Eigenschaft „Waffenbeherrschung“ ersetzen]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Aktivieren Sie <color=#D89555>Tactical Mind</color> und <color=#D89555>Tactical Shift</color> auf den Stufen 2 und 5 <i><color=#F0DAA0>[erweitern Sie Szenarien für den zweiten Wind]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>

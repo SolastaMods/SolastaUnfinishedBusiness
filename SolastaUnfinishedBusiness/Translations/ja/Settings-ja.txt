@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>Indomitable Resistance<
 ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color> を 5e 2024 バージョン <i><color=#F0DAA0>[異なる使用法の進行]</color></i> と入れ替えます
 ModUi/&EnableFighterSkillOptions2024=レベル1のスキルオプションに<color=#D89555>説得</color>を追加します
 ModUi/&EnableFighterStudiedAttacks2024=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=レベル 9 で <color=#D89555>戦術マスター</color> を有効にする <i><color=#F0DAA0>[武器の熟練度プロパティを置き換える]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>

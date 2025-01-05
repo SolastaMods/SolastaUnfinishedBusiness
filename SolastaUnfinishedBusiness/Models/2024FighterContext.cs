@@ -64,6 +64,11 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
+    private static readonly FeatureDefinition FeatureFighterTacticalMaster = FeatureDefinitionBuilder
+        .Create("FighterTacticalMaster")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
     private static void LoadFighterSecondWind()
     {
         PowerFighterSecondWind.AddCustomSubFeatures(
@@ -114,6 +119,18 @@ internal static partial class Tabletop2024Context
         if (Main.Settings.EnableFighterStudiedAttacks2024)
         {
             Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
+        }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchFighterTacticalMaster()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureFighterTacticalMaster);
+
+        if (Main.Settings.EnableFighterTacticalMaster2024)
+        {
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterTacticalMaster, 9));
         }
 
         Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

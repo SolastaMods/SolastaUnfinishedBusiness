@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>불굴의 저항</color
 ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 사용 진행]</color></i>과 교환하세요
 ModUi/&EnableFighterSkillOptions2024=1레벨 스킬 옵션에 <color=#D89555>설득</color>을 추가합니다.
 ModUi/&EnableFighterStudiedAttacks2024=레벨 13에서 <color=#D89555>공격 연구</color>를 활성화합니다. <i><color=#F0DAA0>[이번 라운드에 생물에 대한 이전 공격이 빗나갔을 경우 유리함]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=레벨 9에서 <color=#D89555>전술 마스터</color> 활성화 <i><color=#F0DAA0>[무기 마스터리 속성 대체]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=레벨 2와 5에서 <color=#D89555>전술적 마인드</color>와 <color=#D89555>전술적 변화</color>를 활성화합니다. <i><color=#F0DAA0>[2차 바람 시나리오 증강]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 사용 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>

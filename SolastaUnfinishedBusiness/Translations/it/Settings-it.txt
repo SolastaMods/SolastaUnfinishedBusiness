@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Sostituisci <color=#D89555>Resistenza 
 ModUi/&EnableFighterSecondWind2024=Sostituisci <color=#D89555>Second Wind</color> con la versione 5e 2024 <i><color=#F0DAA0>[progressione di utilizzo diverso]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Aggiungi <color=#D89555>Persuasione</color> alle opzioni delle abilità al livello 1
 ModUi/&EnableFighterStudiedAttacks2024=Abilita <color=#D89555>Attacchi studiati</color> al livello 13 <i><color=#F0DAA0>[vantaggio se l'attacco precedente nel round contro una creatura è fallito]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Abilita <color=#D89555>Maestro tattico</color> al livello 9 <i><color=#F0DAA0>[sostituisci proprietà padronanza arma]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Abilita <color=#D89555>Mente tattica</color> e <color=#D89555>Cambio tattico</color> ai livelli 2 e 5 <i><color=#F0DAA0>[aumenta gli scenari di seconda ventata]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona le competenze di abilità e strumenti dagli sfondi]</color></i>

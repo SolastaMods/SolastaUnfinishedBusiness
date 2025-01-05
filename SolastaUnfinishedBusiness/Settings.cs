@@ -303,6 +303,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterSkillOptions2024 { get; set; }
     public bool EnableFighterSecondWind2024 { get; set; }
     public bool EnableFighterStudiedAttacks2024 { get; set; }
+    public bool EnableFighterTacticalMaster2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }

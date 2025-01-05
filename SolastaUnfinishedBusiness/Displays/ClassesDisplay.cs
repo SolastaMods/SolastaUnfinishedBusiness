@@ -256,6 +256,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchFighterStudiedAttacks();
         }
 
+        toggle = Main.Settings.EnableFighterTacticalMaster2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalMaster2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterTacticalMaster2024 = toggle;
+            Tabletop2024Context.SwitchFighterTacticalMaster();
+        }
+
         toggle = Main.Settings.EnableFighterTacticalProgression2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalProgression2024"), ref toggle, UI.AutoWidth()))
         {

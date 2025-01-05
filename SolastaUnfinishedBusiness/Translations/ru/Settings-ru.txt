@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Заменить умение <color=#
 ModUi/&EnableFighterSecondWind2024=Заменить <color=#D89555>Второе дыхание</color> на версию из 5e 2024 <i><color=#F0DAA0>[другая прогрессия использований]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Добавить <color=#D89555>Убеждение</color> к выбору навыков на уровне 1
 ModUi/&EnableFighterStudiedAttacks2024=Включить <color=#D89555>Изученные атаки</color> на уровне 13 <i><color=#F0DAA0>[преимущество, если предыдущая атака по этому существу промахнулась]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Включить <color=#D89555>Тактического мастера</color> на уровне 9 <i><color=#F0DAA0>[заменить свойство мастерства оружия]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Включить <color=#D89555>Тактический ум</color> и <color=#D89555>Тактический шаг</color> на уровнях 2 и 5 соответственно <i><color=#F0DAA0>[варианты использования Второго дыхания]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Включить <color=#D89555>Специализацию на оружии</color> на уровнях 8 и 16 <i><color=#F0DAA0>[получает +1 к атаке и урону, но помеху при атаке любым другим типом оружия]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Включить гибкие предыстории <i><color=#F0DAA0>[выберите навык и владение инструментами из предыстории]</color></i>

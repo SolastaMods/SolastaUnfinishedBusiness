@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Swap <color=#D89555>Indomitable Resist
 ModUi/&EnableFighterSecondWind2024=Swap <color=#D89555>Second Wind</color> with 5e 2024 version <i><color=#F0DAA0>[different usages progression]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Add <color=#D89555>Persuasion</color> to skill options at level 1
 ModUi/&EnableFighterStudiedAttacks2024=Enable <color=#D89555>Studied Attacks</color> at level 13 <i><color=#F0DAA0>[advantage if previous attack in round against creature missed]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Enable <color=#D89555>Tactical Master</color> at level 9 <i><color=#F0DAA0>[replace weapon mastery property]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Enable <color=#D89555>Tactical Mind</color>, and <color=#D89555>Tactical Shift</color> at levels 2 and 5 <i><color=#F0DAA0>[augment second wind scenarios]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Weapon Specialization</color> at levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>

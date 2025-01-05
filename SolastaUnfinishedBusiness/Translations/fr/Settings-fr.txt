@@ -140,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Échangez <color=#D89555>Résistance i
 ModUi/&EnableFighterSecondWind2024=Échangez <color=#D89555>Second Wind</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes progressions d'utilisation]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Ajoutez <color=#D89555>Persuasion</color> aux options de compétence au niveau 1
 ModUi/&EnableFighterStudiedAttacks2024=Activer les <color=#D89555>attaques étudiées</color> au niveau 13 <i><color=#F0DAA0>[avantage si l'attaque précédente du tour contre la créature a été manquée]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Activer <color=#D89555>Maître tactique</color> au niveau 9 <i><color=#F0DAA0>[remplacer la propriété de maîtrise des armes]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Activez <color=#D89555>Tactical Mind</color> et <color=#D89555>Tactical Shift</color> aux niveaux 2 et 5 <i><color=#F0DAA0>[augmentez les scénarios de second souffle]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Activez la <color=#D89555>spécialisation des armes</color> aux niveaux 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et pour endommager mais désavantagez-vous avec tout autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionnez les compétences et les outils à partir des arrière-plans]</color></i>
