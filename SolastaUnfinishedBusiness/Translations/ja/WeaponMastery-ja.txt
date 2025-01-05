@@ -1,7 +1,7 @@
+Action/&WeaponMasteryCleaveDescription=あなたの手の届く範囲内にあり、互いに 5 フィート以内にある 2 体のクリーチャーを選択します。あなたは 1 回のメイン攻撃を消費し、それが最初のクリーチャーに命中した場合、2 番目のクリーチャーに対して 2 回目の攻撃を行うことができます。2 回目の攻撃が命中した場合、武器のダメージをロールできますが、マイナスでない限り、能力修正値は追加されません。
+Action/&WeaponMasteryCleaveTitle=切り裂く
 Action/&WeaponMasteryToggleDescription=武器マスタリーを有効化/無効化
 Action/&WeaponMasteryToggleTitle=武器の習得
-Action/&WildSurgeSummonDescription=あなたの手の届く範囲内にあり、互いに 5 フィート以内にある 2 体のクリーチャーを選択します。あなたは 1 回のメイン攻撃を消費し、それが最初のクリーチャーに命中した場合、2 番目のクリーチャーに対して 2 回目の攻撃を行うことができます。2 回目の攻撃が命中した場合、武器のダメージをロールできますが、マイナスでない限り、能力修正値は追加されません。
-Action/&WildSurgeSummonTitle=切り裂く
 Condition/&ConditionWeaponMasterySapDescription=次の攻撃ロールは、次のソースターンの開始まで不利になります。
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=次のソースターンの開始まで、速度が 10 フィート減少します。

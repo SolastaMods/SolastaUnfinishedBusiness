@@ -1,7 +1,7 @@
 Action/&WeaponMasteryToggleDescription=Activate/deactivate Weapon Mastery
 Action/&WeaponMasteryToggleTitle=Weapon Mastery
-Action/&WildSurgeSummonDescription=Choose two creatures within reach of you, and within 5 ft of each other. You consume one main attack, and if it hits the first creature, you can make a second attack against the second one. When you hit with the second attack, you can roll your weapon's damage, but you don't add your ability modifier unless it's negative.
-Action/&WildSurgeSummonTitle=Cleave
+Action/&WeaponMasteryCleaveDescription=Choose two creatures within reach of you, and within 5 ft of each other. You consume one main attack, and if it hits the first creature, you can make a second attack against the second one. When you hit with the second attack, you can roll your weapon's damage, but you don't add your ability modifier unless it's negative.
+Action/&WeaponMasteryCleaveTitle=Cleave
 Condition/&ConditionWeaponMasterySapDescription=Disadvantage on your next attack roll until the start of next source turn.
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Speed reduced by 10 feet until the start of next source turn.

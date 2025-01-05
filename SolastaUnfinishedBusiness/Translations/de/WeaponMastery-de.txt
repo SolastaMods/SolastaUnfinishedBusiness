@@ -1,7 +1,7 @@
+Action/&WeaponMasteryCleaveDescription=Wähle zwei Kreaturen in deiner Reichweite und innerhalb eines Abstands von 1,5 m voneinander. Du verbrauchst einen Hauptangriff und wenn dieser die erste Kreatur trifft, kannst du einen zweiten Angriff gegen die zweite Kreatur ausführen. Wenn du mit dem zweiten Angriff triffst, kannst du den Schaden deiner Waffe berechnen, aber du fügst deinen Fähigkeitsmodifikator nicht hinzu, es sei denn, er ist negativ.
+Action/&WeaponMasteryCleaveTitle=Spalten
 Action/&WeaponMasteryToggleDescription=Waffenbeherrschung aktivieren/deaktivieren
 Action/&WeaponMasteryToggleTitle=Waffenbeherrschung
-Action/&WildSurgeSummonDescription=Wähle zwei Kreaturen in deiner Reichweite und innerhalb eines Abstands von 1,5 m voneinander. Du verbrauchst einen Hauptangriff und wenn dieser die erste Kreatur trifft, kannst du einen zweiten Angriff gegen die zweite Kreatur ausführen. Wenn du mit dem zweiten Angriff triffst, kannst du den Schaden deiner Waffe berechnen, aber du fügst deinen Fähigkeitsmodifikator nicht hinzu, es sei denn, er ist negativ.
-Action/&WildSurgeSummonTitle=Spalten
 Condition/&ConditionWeaponMasterySapDescription=Nachteil bei Ihrem nächsten Angriffswurf bis zum Beginn der nächsten Quellrunde.
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Bis zum Beginn der nächsten Quelldrehung wird die Geschwindigkeit um 10 Fuß reduziert.
