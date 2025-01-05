@@ -1,6 +1,6 @@
 Feature/&AttributeModifierRoguishAcrobatProtectorDescription=You add half your proficiency bonus (rounded down) to your AC while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Acrobat Protector
-Feature/&FeatureRoguishAcrobatTrooperDescription=You gain the ability to use a quarterstaff as finesse weapon and the quarterstaff reach increases by 5 ft.\nWhen you take the Attack action with a quarterstaff, you can use your bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
+Feature/&FeatureRoguishAcrobatTrooperDescription=You gain the ability to use a quarterstaff as finesse weapon and the quarterstaff reach increases by 5ft.\nWhen you take the Attack action with a quarterstaff, you can use your bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Acrobat Trooper
 Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Your quarterstaff versatile damage die changes from a d8 to a d10.\nClimbing no longer costs you extra moves, and you can jump an additional 10 feet.\nYou have advantage on prone and shove attempts.\nYou must be wielding a quarterstaff in two hands for these to work.
 Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Swift as the Wind

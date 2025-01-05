@@ -15,7 +15,7 @@ ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION:</color></b> These setting
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness=Allow allies to perceive <b>GloomStalker</b> when in natural darkness
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
-ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5 ft
+ModUi/&AllowBladeCantripsToUseReach=Allow <color=#D89555>Blade Cantrips</color> to use reach instead of 5ft
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>Clubs</color> to be thrown like <color=#D89555>Daggers</color> or <color=#D89555>Hand Axes</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
