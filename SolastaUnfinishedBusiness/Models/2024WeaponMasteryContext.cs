@@ -5,6 +5,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -126,7 +127,7 @@ internal static partial class Tabletop2024Context
                 .Create("AdditionalActionWeaponMasteryNick")
                 .SetGuiPresentationNoContent(true)
                 .SetActionType(ActionType.Bonus)
-                .AddCustomSubFeatures(new PhysicalAttackFinishedByMeNickExtraAttack())
+                .AddCustomSubFeatures(new CustomBehaviorNick())
                 .AddToDB())
         .AddToDB();
 
@@ -187,11 +188,13 @@ internal static partial class Tabletop2024Context
         .Create("ConditionWeaponMasteryVexSelf")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddCustomSubFeatures(new CustomBehaviorVex())
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionWeaponMasteryVex = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasteryVex")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBullsStrength)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
+        .SetConditionType(ConditionType.Detrimental)
         .AddFeatures(
             FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityWeaponMasteryVex")
@@ -236,7 +239,7 @@ internal static partial class Tabletop2024Context
                         .SetMotionForm(MotionForm.MotionType.FallProne)
                         .Build())
                 .Build())
-        .AddCustomSubFeatures(new ModifyEffectDescriptionTopple())
+        .AddCustomSubFeatures(new CustomBehaviorTopple())
         .AddToDB();
 
     private static readonly Dictionary<WeaponTypeDefinition, MasteryProperty> WeaponMasteryTable = new()
@@ -272,7 +275,45 @@ internal static partial class Tabletop2024Context
 
     private static void LoadWeaponMastery()
     {
-        BuildCleave();
+        // Cleave
+
+        var powerCleave = FeatureDefinitionPowerBuilder
+            .Create("PowerWeaponMasteryCleave")
+            .SetGuiPresentation("FeatureWeaponMasteryCleave", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
+                    .Build())
+            .DelegatedToAction()
+            .AddCustomSubFeatures(new CustomBehaviorCleave())
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create("WeaponMasteryCleave")
+            .SetGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.WhirlwindAttack)
+            .SetActionId(ExtraActionId.WeaponMasteryCleave)
+            .SetActionType(ActionType.NoCost)
+            .SetFormType(ActionFormType.Large)
+            .RequiresAuthorization()
+            .OverrideClassName("UsePower")
+            .SetActivatedPower(powerCleave)
+            .AddToDB();
+
+        _ = FeatureDefinitionActionAffinityBuilder
+            .Create("FeatureWeaponMasteryCleave")
+            .SetGuiPresentation(Category.Feature)
+            .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryCleave)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasMainAttackAvailable,
+                    c => IsWeaponMasteryValid(
+                        GameLocationCharacter.GetFromActor(c), c.GetMainWeapon(), MasteryProperty.Cleave)))
+            .AddToDB();
+
+        // all other properties except Cleave
 
         foreach (var masteryProperty in Enum.GetValues(typeof(MasteryProperty))
                      .OfType<MasteryProperty>()
@@ -284,11 +325,15 @@ internal static partial class Tabletop2024Context
                 .AddToDB();
         }
 
+        // master toggle
+
         var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityWeaponMasteryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryToggle)
             .AddToDB();
+
+        // level up custom invocations and re-learn powers
 
         var powers = new List<FeatureDefinitionPower>();
 
@@ -333,41 +378,6 @@ internal static partial class Tabletop2024Context
         }
 
         PowerBundle.RegisterPowerBundle(PowerWeaponMasteryRelearnPool, false, powers);
-    }
-
-    private static void BuildCleave()
-    {
-        var powerCleave = FeatureDefinitionPowerBuilder
-            .Create("PowerWeaponMasteryCleave")
-            .SetGuiPresentation("FeatureWeaponMasteryCleave", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
-                    .Build())
-            .DelegatedToAction()
-            .AddToDB();
-
-        _ = ActionDefinitionBuilder
-            .Create("WeaponMasteryCleave")
-            .SetGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.WhirlwindAttack)
-            .SetActionId(ExtraActionId.WeaponMasteryCleave)
-            .SetActionType(ActionType.NoCost)
-            .SetFormType(ActionFormType.Large)
-            .RequiresAuthorization()
-            .OverrideClassName("UsePower")
-            .SetActivatedPower(powerCleave)
-            .AddToDB();
-
-        _ = FeatureDefinitionActionAffinityBuilder
-            .Create("FeatureWeaponMasteryCleave")
-            .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryCleave)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(c => IsWeaponMasteryValid(
-                    GameLocationCharacter.GetFromActor(c), c.GetMainWeapon(), MasteryProperty.Cleave)))
-            .AddToDB();
     }
 
     internal static void SwitchWeaponMastery()
@@ -418,10 +428,12 @@ internal static partial class Tabletop2024Context
     private static bool IsWeaponMasteryValid(
         GameLocationCharacter attacker, ItemDefinition itemDefinition, MasteryProperty property)
     {
-        return attacker.RulesetCharacter.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
+        var rulesetCharacter = attacker.RulesetCharacter;
+
+        return rulesetCharacter.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
                WeaponMasteryTable.TryGetValue(itemDefinition.WeaponDescription.WeaponTypeDefinition, out var value) &&
                value == property &&
-               attacker.RulesetCharacter.Invocations.Any(x =>
+               rulesetCharacter.Invocations.Any(x =>
                    x.InvocationDefinition.Name ==
                    $"CustomInvocationWeaponMastery{itemDefinition.WeaponDescription.WeaponTypeDefinition.Name}");
     }
@@ -635,6 +647,8 @@ internal static partial class Tabletop2024Context
                     position = defender.LocationPosition
                 };
 
+                rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasteryGraze"));
+
                 RulesetActor.InflictDamage(
                     modifier,
                     effectForm.DamageForm,
@@ -712,6 +726,8 @@ internal static partial class Tabletop2024Context
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Sap))
             {
+                rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasterySap"));
+                
                 rulesetDefender.InflictCondition(
                     ConditionWeaponMasterySap.Name,
                     DurationType.Round,
@@ -735,6 +751,8 @@ internal static partial class Tabletop2024Context
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Slow))
             {
+                rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasterySlow"));
+                
                 rulesetDefender.InflictCondition(
                     ConditionWeaponMasterySlow.Name,
                     DurationType.Round,
@@ -774,6 +792,8 @@ internal static partial class Tabletop2024Context
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
             {
+                rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasteryVex"));
+                
                 rulesetAttacker.InflictCondition(
                     ConditionWeaponMasteryVexSelf.Name,
                     DurationType.Round,
@@ -854,10 +874,71 @@ internal static partial class Tabletop2024Context
     }
 
     //
+    // Cleave
+    //
+
+    private sealed class CustomBehaviorCleave : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var attacker = __instance.ActionParams.ActingCharacter;
+
+            if (!AttackAfterMagicEffect.CanAttack(attacker, target, true, false, false))
+            {
+                __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
+
+                return false;
+            }
+
+            if (__instance.SelectionService.SelectedTargets.Count == 0 ||
+                __instance.SelectionService.SelectedTargets[0].IsWithinRange(target, 1))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Failure/&SecondTargetNotWithinRange");
+
+            return false;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var firstTarget = action.actionParams.TargetCharacters[0];
+            var firstAttackMode = attacker.FindActionAttackMode(Id.AttackMain);
+
+            attacker.BurnOneMainAttack();
+            attacker.MyExecuteActionAttack(Id.AttackFree, firstTarget, firstAttackMode, new ActionModifier());
+
+            if (action.actionParams.TargetCharacters.Count < 2)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
+            var secondTarget = action.actionParams.TargetCharacters[1];
+            var mainWeapon = rulesetAttacker.GetMainWeapon();
+            var secondAttackMode = rulesetAttacker.TryRefreshAttackMode(
+                ActionType.Main,
+                mainWeapon!.ItemDefinition,
+                mainWeapon.ItemDefinition.WeaponDescription,
+                false,
+                false,
+                EquipmentDefinitions.SlotTypeMainHand,
+                rulesetAttacker!.attackModifiers,
+                rulesetAttacker.FeaturesOrigin);
+
+            attacker.MyExecuteActionAttack(Id.AttackFree, secondTarget, secondAttackMode, new ActionModifier());
+        }
+    }
+
+    //
     // Nick
     //
 
-    private sealed class PhysicalAttackFinishedByMeNickExtraAttack : IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorNick : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -912,7 +993,7 @@ internal static partial class Tabletop2024Context
     // Topple
     //
 
-    private sealed class ModifyEffectDescriptionTopple : IModifyEffectDescription
+    private sealed class CustomBehaviorTopple : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
@@ -938,6 +1019,34 @@ internal static partial class Tabletop2024Context
             effectDescription.savingThrowDifficultyAbility = abilityScore;
 
             return effectDescription;
+        }
+    }
+
+    //
+    // Vex
+    //
+
+    private sealed class CustomBehaviorVex : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionWeaponMasteryVex.Name, out var activeCondition) ||
+                activeCondition.SourceGuid != rulesetDefender.Guid)
+            {
+                yield break;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
         }
     }
 }
