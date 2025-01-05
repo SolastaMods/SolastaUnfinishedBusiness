@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
@@ -133,8 +134,9 @@ internal static partial class Tabletop2024Context
 
     private static readonly ConditionDefinition ConditionWeaponMasterySap = ConditionDefinitionBuilder
         .Create("ConditionWeaponMasterySap")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCursed)
         .SetConditionType(ConditionType.Detrimental)
+        .SetSilent(Silent.WhenAdded)
         .AddFeatures(
             FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityWeaponMasterySap")
@@ -148,6 +150,7 @@ internal static partial class Tabletop2024Context
         .Create("ConditionWeaponMasterySlow")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSlowed)
         .SetConditionType(ConditionType.Detrimental)
+        .SetSilent(Silent.WhenAdded)
         .AddFeatures(
             FeatureDefinitionMovementAffinityBuilder
                 .Create("MovementAffinityWeaponMasterySlow")
@@ -167,6 +170,7 @@ internal static partial class Tabletop2024Context
         .Create("ConditionWeaponMasteryVex")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
         .SetConditionType(ConditionType.Detrimental)
+        .SetSilent(Silent.WhenAdded)
         .AddFeatures(
             FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityWeaponMasteryVex")
@@ -218,7 +222,7 @@ internal static partial class Tabletop2024Context
     {
         { CustomWeaponsContext.HalberdWeaponType, MasteryProperty.Cleave },
         { CustomWeaponsContext.HandXbowWeaponType, MasteryProperty.Vex },
-        { CustomWeaponsContext.KatanaWeaponType, MasteryProperty.Slow },
+        { CustomWeaponsContext.KatanaWeaponType, MasteryProperty.Sap },
         { CustomWeaponsContext.LongMaceWeaponType, MasteryProperty.Sap },
         { CustomWeaponsContext.PikeWeaponType, MasteryProperty.Push },
         { WeaponTypeDefinitions.BattleaxeType, MasteryProperty.Topple },
@@ -616,6 +620,7 @@ internal static partial class Tabletop2024Context
             if (action.ActionType == ActionType.Main &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
                 ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker) &&
+                attacker.OnceInMyTurnIsValid("WeaponMasteryNick") &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
                  IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)))
             {
@@ -782,13 +787,8 @@ internal static partial class Tabletop2024Context
             var usablePowers = new List<RulesetUsablePower>();
             var usablePower = PowerProvider.Get(PowerWeaponMasteryRelearnPool, rulesetCharacter);
 
-            usablePowers.SetRange(
-                PowerProvider.Get(GetDefinition<FeatureDefinitionPower>("PowerWeaponMasteryRelearnPush"),
-                    rulesetCharacter),
-                PowerProvider.Get(GetDefinition<FeatureDefinitionPower>("PowerWeaponMasteryRelearnSap"),
-                    rulesetCharacter),
-                PowerProvider.Get(GetDefinition<FeatureDefinitionPower>("PowerWeaponMasteryRelearnSlow"),
-                    rulesetCharacter));
+            //TODO: finish Tactical Master power offering
+            usablePowers.SetRange();
 
             rulesetCharacter.UsablePowers.AddRange(usablePowers);
             character.SetSpecialFeatureUses(Stage, StageUnlearn);
@@ -905,7 +905,11 @@ internal static partial class Tabletop2024Context
                 0);
 
             var attackModeOff = attacker.FindActionAttackMode(Id.AttackOff);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
+            attackModeCopy.Copy(attackModeOff);
+            attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
+            attacker.SetSpecialFeatureUses("WeaponMasteryNick", 0);
             attacker.MyExecuteActionAttack(Id.AttackFree, defender, attackModeOff, new ActionModifier());
         }
 
@@ -1019,7 +1023,7 @@ internal static partial class Tabletop2024Context
             {
                 return;
             }
-            
+
             var attacker = action.ActingCharacter;
             var firstTarget = action.actionParams.TargetCharacters[0];
             var firstAttackMode = attacker.FindActionAttackMode(Id.AttackMain);
@@ -1142,7 +1146,7 @@ internal static partial class Tabletop2024Context
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionWeaponMasteryVex.Name, out var activeCondition) ||
-                activeCondition.SourceGuid != rulesetDefender.Guid)
+                activeCondition.SourceGuid != attacker.Guid)
             {
                 yield break;
             }

@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -62,6 +63,8 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
+    internal const string DualFlurryTriggerMark = "DualFlurryTriggerMark";
+    
     private sealed class PhysicalAttackFinishedByMeDualFlurry : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -75,7 +78,8 @@ internal static class TwoWeaponCombatFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (action.ActionType != ActionType.Bonus ||
+            if ((action.ActionType != ActionType.Bonus &&
+                 !attackMode.AttackTags.Contains(DualFlurryTriggerMark)) ||
                 !attackMode.IsOneHandedWeapon() ||
                 !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) ||
                 defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
@@ -83,6 +87,7 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
+            attackMode.AttackTags.Remove(DualFlurryTriggerMark);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,

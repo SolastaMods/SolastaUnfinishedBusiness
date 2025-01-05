@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Patches;
@@ -468,10 +469,19 @@ public sealed class WayOfBlade : AbstractSubclass
             }
             else
             {
+                var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+                attackModeCopy.Copy(attackMode);
+
+                if (action.ActionId == Id.AttackOff)
+                {
+                    attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
+                }
+                
                 attacker.MyExecuteActionAttack(
                     Id.AttackFree,
                     defender,
-                    attackMode,
+                    attackModeCopy,
                     new ActionModifier());
             }
         }
