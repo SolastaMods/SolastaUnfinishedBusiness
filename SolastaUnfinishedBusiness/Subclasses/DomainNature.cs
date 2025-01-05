@@ -218,7 +218,8 @@ public sealed class DomainNature : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitions.ConditionCharmed,
-                            ConditionForm.ConditionOperation.RemoveDetrimentalAll),
+                            ConditionForm.ConditionOperation.RemoveDetrimentalAll,
+                            ConditionDefinitions.ConditionCharmed),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
