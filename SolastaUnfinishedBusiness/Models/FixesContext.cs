@@ -121,6 +121,9 @@ internal static class FixesContext
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
         AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
 
+        // shadow murder must be removed whenever invisible is
+        ConditionDefinitions.ConditionShadowMurder.parentCondition = ConditionDefinitions.ConditionInvisibleBase;
+
         // remove null features from conditions
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
         {
