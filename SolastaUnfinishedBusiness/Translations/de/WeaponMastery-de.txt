@@ -1,10 +1,12 @@
 Action/&WeaponMasteryToggleDescription=Waffenbeherrschung aktivieren/deaktivieren
 Action/&WeaponMasteryToggleTitle=Waffenbeherrschung
+Action/&WildSurgeSummonDescription=Wähle zwei Kreaturen in deiner Reichweite und innerhalb eines Abstands von 1,5 m voneinander. Du verbrauchst einen Hauptangriff und wenn dieser die erste Kreatur trifft, kannst du einen zweiten Angriff gegen die zweite Kreatur ausführen. Wenn du mit dem zweiten Angriff triffst, kannst du den Schaden deiner Waffe berechnen, aber du fügst deinen Fähigkeitsmodifikator nicht hinzu, es sei denn, er ist negativ.
+Action/&WildSurgeSummonTitle=Spalten
 Condition/&ConditionWeaponMasterySapDescription=Nachteil bei Ihrem nächsten Angriffswurf bis zum Beginn der nächsten Quellrunde.
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Bis zum Beginn der nächsten Quelldrehung wird die Geschwindigkeit um 10 Fuß reduziert.
 Condition/&ConditionWeaponMasterySlowTitle=Langsam
-Condition/&ConditionWeaponMasteryVexDescription=Vorteil bei Ihrem nächsten Angriffswurf vor dem Ende Ihres nächsten Zuges.
+Condition/&ConditionWeaponMasteryVexDescription=Der Angriffswurf der Quelle ist bis zum Ende der nächsten Quellrunde im Vorteil.
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Wenn du eine Kreatur mit einem Nahkampfangriff triffst, kannst du einen zweiten Angriff gegen eine Kreatur innerhalb von 1,5 Metern ausführen, die sich ebenfalls in deiner Reichweite befindet. Wenn du mit dem zweiten Angriff triffst, kannst du den Schaden deiner Waffe berechnen, aber du addierst deinen Fähigkeitsmodifikator nicht, es sei denn, er ist negativ.
 Feature/&FeatureWeaponMasteryCleaveTitle=Spalten

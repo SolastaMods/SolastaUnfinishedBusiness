@@ -1,10 +1,12 @@
 Action/&WeaponMasteryToggleDescription=激活/停用武器掌握
 Action/&WeaponMasteryToggleTitle=武器精通
+Action/&WildSurgeSummonDescription=选择两个在你触手可及范围内的生物，并且彼此相距不超过 5 英尺。你消耗一次主要攻击，如果击中了第一个生物，你可以对第二个生物进行第二次攻击。当你用第二次攻击击中时，你可以掷出武器的伤害，但除非是负数，否则你不会添加你的能力修正值。
+Action/&WildSurgeSummonTitle=劈开
 Condition/&ConditionWeaponMasterySapDescription=直到下一个源回合开始前，你的下一次攻击掷骰处于劣势。
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=速度降低 10 英尺直至下一个源转弯开始。
 Condition/&ConditionWeaponMasterySlowTitle=慢的
-Condition/&ConditionWeaponMasteryVexDescription=在你的下一回合结束前，在下一次攻击掷骰中获得优势。
+Condition/&ConditionWeaponMasteryVexDescription=来自源的攻击掷骰具有优势，直到下一个源回合结束为止。
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=如果您使用近战武器攻击击中生物，则可以对 5 英尺内且在您攻击范围内的生物进行第二次攻击。当您第二次攻击命中时，您可以掷骰子计算武器的伤害，但除非是负数，否则您不会添加能力修正值。
 Feature/&FeatureWeaponMasteryCleaveTitle=劈开

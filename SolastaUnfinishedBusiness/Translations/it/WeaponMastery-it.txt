@@ -1,10 +1,12 @@
 Action/&WeaponMasteryToggleDescription=Attiva/disattiva la padronanza delle armi
 Action/&WeaponMasteryToggleTitle=Padronanza delle armi
+Action/&WildSurgeSummonDescription=Scegli due creature a portata di mano e entro 5 piedi l'una dall'altra. Consumi un attacco principale e, se colpisce la prima creatura, puoi effettuare un secondo attacco contro la seconda. Quando colpisci con il secondo attacco, puoi tirare il danno della tua arma, ma non aggiungi il tuo modificatore di abilità a meno che non sia negativo.
+Action/&WildSurgeSummonTitle=Scindere
 Condition/&ConditionWeaponMasterySapDescription=Svantaggio sul tuo prossimo tiro di attacco fino all'inizio del prossimo turno della fonte.
 Condition/&ConditionWeaponMasterySapTitle=Sap
 Condition/&ConditionWeaponMasterySlowDescription=Velocità ridotta di 10 piedi fino all'inizio della successiva virata sorgente.
 Condition/&ConditionWeaponMasterySlowTitle=Lento
-Condition/&ConditionWeaponMasteryVexDescription=Vantaggio sul tuo prossimo tiro di attacco prima della fine del tuo prossimo turno.
+Condition/&ConditionWeaponMasteryVexDescription=Il tiro di attacco della fonte ha vantaggio fino alla fine del turno della fonte successiva.
 Condition/&ConditionWeaponMasteryVexTitle=Vex
 Feature/&FeatureWeaponMasteryCleaveDescription=Se colpisci una creatura con un attacco con arma da mischia, puoi effettuare un secondo attacco contro una creatura entro 5 piedi che sia anche entro la tua portata. Quando colpisci con il secondo attacco, puoi tirare il danno della tua arma, ma non aggiungi il tuo modificatore di abilità a meno che non sia negativo.
 Feature/&FeatureWeaponMasteryCleaveTitle=Scindere
