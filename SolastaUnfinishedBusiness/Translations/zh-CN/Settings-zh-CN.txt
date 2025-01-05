@@ -414,4 +414,6 @@ ModUi/&UseOfficialObscurementRules=启用<color=#D89555>照明、遮蔽和视觉
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使<color=#D89555>小型种族</color>在使用重型武器时处于劣势
 ModUi/&UseWeaponMasterySystem=启用<color=#D89555>武器精通</color>规则
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 顺劈斩精通为第二次攻击伤害添加属性分数修正</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ 推击精通要求生物进行力量豁免检定（DC 8 加上用于进行攻击检定的能力调整值和你的熟练加值）</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>\n<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

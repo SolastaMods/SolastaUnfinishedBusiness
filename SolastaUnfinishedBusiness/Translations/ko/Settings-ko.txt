@@ -414,4 +414,6 @@ ModUi/&UseOfficialObscurementRules=<color=#D89555>조명, 흐릿함, 시야</col
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[공격자가 감지할 수 없는 방어자를 감지하면 ADV를 얻고, 공격자가 감지할 수 있는 방어자를 감지하지 못하면 DIS를 얻습니다.\n 매우 어두운 지역은 실명 상태를 유발하고, 생물에 대한 공격 굴림은 ADV를 얻고 생물의 공격 굴림은 DIS를 얻습니다.\n 공격자가 시력이 없으면 개인을 대상으로 하는 모든 원거리 주문을 시전할 수 없습니다. 다만 시력이 필요하다는 것이 명확히 명시되지 않은 주문은 예외입니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>작은 종족</color>이 무거운 무기를 사용할 때 불리한 점을 갖도록 합니다.
 ModUi/&UseWeaponMasterySystem=<color=#D89555>무기 마스터리</color> 규칙 활성화
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 클리브 마스터리 2차 공격 데미지에 속성 점수 수정치 추가</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ 밀기 마스터리는 생물이 힘 세이빙 스로우(DC 8, 공격 굴림에 사용된 능력치 수정치, 숙련도 보너스)를 해야 합니다.</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>
