@@ -605,7 +605,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -626,7 +626,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -644,7 +644,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -661,7 +661,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -679,7 +679,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -696,7 +696,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -715,7 +715,7 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender);
 
-                if (attacker.GetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
@@ -772,43 +772,39 @@ internal static partial class Tabletop2024Context
             }
         }
 
+        //
+        // Fighter Tactical Master
+        //
+        
         private static IEnumerator HandleFighterTacticalMaster(
             CharacterAction action, GameLocationCharacter attacker, GameLocationCharacter defender)
         {
-            attacker.SetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name, -1);
+            attacker.SetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name, -1);
 
-            if (!IsFighterTacticalMasterValid(attacker))
+            if (!Main.Settings.EnableFighterTacticalMaster2024 ||
+                attacker.RulesetCharacter.GetClassLevel(Fighter) < 9)
             {
                 yield break;
             }
 
             var character = action.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
-            var usablePowers = new List<RulesetUsablePower>();
-            var usablePower = PowerProvider.Get(PowerWeaponMasteryRelearnPool, rulesetCharacter);
-
-            //TODO: finish Tactical Master power offering
-            usablePowers.SetRange();
-
-            rulesetCharacter.UsablePowers.AddRange(usablePowers);
-            character.SetSpecialFeatureUses(Stage, StageUnlearn);
+            var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetCharacter);
 
             yield return character.MyReactToSpendPowerBundle(
                 usablePower,
                 [character],
                 character,
-                ActionAffinityFighterTacticalMaster.Name,
-                $"ReactionSpendPowerBundle{ActionAffinityFighterTacticalMaster.Name}Description".Localized(
+                FeatureSetFighterTacticalMaster.Name,
+                $"ReactionSpendPowerBundle{FeatureSetFighterTacticalMaster.Name}Description".Localized(
                     Category.Reaction),
                 ReactionValidated);
-
-            usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
 
             yield break;
 
             void ReactionValidated(ReactionRequestSpendBundlePower reactionRequest)
             {
-                attacker.SetSpecialFeatureUses(ActionAffinityFighterTacticalMaster.Name, 0);
+                attacker.SetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name, 0);
 
                 switch (reactionRequest.SelectedSubOption)
                 {
@@ -823,12 +819,6 @@ internal static partial class Tabletop2024Context
                         break;
                 }
             }
-        }
-
-        private static bool IsFighterTacticalMasterValid(GameLocationCharacter attacker)
-        {
-            return Main.Settings.EnableFighterTacticalMaster2024 &&
-                   attacker.RulesetCharacter.GetClassLevel(Fighter) >= 9;
         }
 
         #region Behaviors

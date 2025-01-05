@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -64,11 +65,29 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
-    private static readonly FeatureDefinition ActionAffinityFighterTacticalMaster =
-        FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityFighterTacticalMaster")
+    private static readonly FeatureDefinitionPower PowerFighterTacticalMasterPool = FeatureDefinitionPowerBuilder
+        .Create("PowerFighterTacticalMasterPool")
+        .SetGuiPresentationNoContent(true)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetFighterTacticalMaster =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetFighterTacticalMaster")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
+            .SetFeatureSet(
+                PowerFighterTacticalMasterPool,
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityFighterTacticalMaster")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
+                    .AddToDB())
             .AddToDB();
 
     private static void LoadFighterSecondWind()
@@ -106,6 +125,32 @@ internal static partial class Tabletop2024Context
             new PowerOrSpellInitiatedByMeSecondWind(powerFighterSecondWindTargeting));
     }
 
+    private static void LoadFighterTacticalMaster()
+    {
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var mastery in new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow })
+        {
+            var powerTacticalMasterChoice = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerFighterTacticalMaster{mastery}")
+                .SetGuiPresentation($"Feature/&FeatureWeaponMastery{mastery}", Category.Feature)
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, PowerFighterTacticalMasterPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .Build())
+                .AddToDB();
+
+            powerTacticalMasterChoice.GuiPresentation.hidden = true;
+            powers.Add(powerTacticalMasterChoice);
+        }
+
+        PowerBundle.RegisterPowerBundle(PowerFighterTacticalMasterPool, false, powers);
+        FeatureSetFighterTacticalMaster.FeatureSet.AddRange(powers);
+    }
+
     internal static void SwitchFighterIndomitableSaving()
     {
         UseIndomitableResistance.GuiPresentation.description =
@@ -128,11 +173,11 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchFighterTacticalMaster()
     {
-        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == ActionAffinityFighterTacticalMaster);
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetFighterTacticalMaster);
 
         if (Main.Settings.EnableFighterTacticalMaster2024)
         {
-            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(ActionAffinityFighterTacticalMaster, 9));
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetFighterTacticalMaster, 9));
         }
 
         Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
