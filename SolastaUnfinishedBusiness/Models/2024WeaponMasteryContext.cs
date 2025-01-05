@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -119,6 +120,14 @@ internal static partial class Tabletop2024Context
                     .AddToDB())
             .AddToDB();
 
+    private static readonly ConditionDefinition ConditionWeaponMasteryCleave = ConditionDefinitionBuilder
+        .Create("ConditionWeaponMasteryCleave")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+        .AddCustomSubFeatures(new CustomBehaviorConditionCleave())
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionWeaponMasteryNick =
         ConditionDefinitionBuilder
             .Create("ConditionWeaponMasteryNick")
@@ -163,7 +172,6 @@ internal static partial class Tabletop2024Context
         .Create("ConditionWeaponMasteryVexSelf")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .AddCustomSubFeatures(new CustomBehaviorVex())
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionWeaponMasteryVex = ConditionDefinitionBuilder
@@ -178,6 +186,7 @@ internal static partial class Tabletop2024Context
                 .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                 .SetSituationalContext(SituationalContext.SourceHasCondition, ConditionWeaponMasteryVexSelf)
                 .AddToDB())
+        .AddCustomSubFeatures(new CustomBehaviorVex())
         .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerWeaponMasteryPush = FeatureDefinitionPowerBuilder
@@ -602,6 +611,22 @@ internal static partial class Tabletop2024Context
             var rulesetDefender = defender.RulesetCharacter;
 
             //
+            // Cleave - here to only support Tactical Master
+            //
+
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Cleave) &&
+                attacker.GetSpecialFeatureUses("WeaponMasteryCleave") < 0)
+            {
+                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Cleave);
+
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                {
+                    yield break;
+                }
+            }
+
+            //
             // Graze
             //
 
@@ -609,12 +634,12 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Graze);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoGraze(attacker, defender, attackMode);
                 }
 
-                DoGraze(attacker, defender, attackMode);
+                yield break;
             }
 
             //
@@ -622,38 +647,44 @@ internal static partial class Tabletop2024Context
             //
 
             if (action.ActionType == ActionType.Main &&
+                !attackMode.Thrown &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
                 ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker) &&
                 attacker.OnceInMyTurnIsValid("WeaponMasteryNick") &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
                  IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)))
             {
+                //TODO: review Nick / Tactical Master integration on v44
+#if false
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Nick);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
                 {
                     yield break;
                 }
+#endif
 
                 DoNick(attacker, defender);
+
+                yield break;
             }
 
             //
             // Push
             //
 
-            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Push) &&
-                rulesetDefender.SizeDefinition.MaxExtent.x <= 2)
+            if (rulesetDefender.SizeDefinition.MaxExtent.x <= 2 &&
+                rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Push))
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Push);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoPush(attacker, defender);
                 }
 
-                DoPush(attacker, defender);
+                yield break;
             }
 
             //
@@ -665,12 +696,12 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Sap);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoSap(attacker, defender);
                 }
 
-                DoSap(attacker, defender);
+                yield break;
             }
 
             //
@@ -683,12 +714,12 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Slow);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoSlow(attacker, defender);
                 }
 
-                DoSlow(attacker, defender);
+                yield break;
             }
 
             //
@@ -700,12 +731,12 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Topple);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoTopple(attacker, defender, attackMode);
                 }
 
-                DoTopple(attacker, defender, attackMode);
+                yield break;
             }
 
             //
@@ -719,12 +750,10 @@ internal static partial class Tabletop2024Context
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Vex);
 
-                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) >= 0)
+                if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
-                    yield break;
+                    DoVex(attacker, defender);
                 }
-
-                DoVex(attacker, defender);
             }
         }
 
@@ -810,8 +839,9 @@ internal static partial class Tabletop2024Context
                 [character],
                 character,
                 FeatureSetFighterTacticalMaster.Name,
-                $"ReactionSpendPowerBundle{FeatureSetFighterTacticalMaster.Name}Description".Formatted(
-                    Category.Reaction, $"FeatureWeaponMastery{masteryToReplace}Title").Localized(Category.Feature),
+                $"ReactionSpendPowerBundle{FeatureSetFighterTacticalMaster.Name}Description"
+                    .Formatted(Category.Reaction, $"FeatureWeaponMastery{masteryToReplace}Title"
+                        .Localized(Category.Feature)),
                 ReactionValidated);
 
             usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
@@ -1023,40 +1053,66 @@ internal static partial class Tabletop2024Context
                 0);
         }
 
-        internal static void DoCleave(CharacterActionMagicEffect action)
+        internal static IEnumerator DoCleave(CharacterActionMagicEffect action)
         {
             if (action.actionParams.TargetCharacters.Count < 1)
             {
-                return;
+                yield break;
             }
 
             var attacker = action.ActingCharacter;
-            var firstTarget = action.actionParams.TargetCharacters[0];
-            var firstAttackMode = attacker.FindActionAttackMode(Id.AttackMain);
+            var attackMode = attacker.FindActionAttackMode(Id.AttackMain);
 
             attacker.SetSpecialFeatureUses("WeaponMasteryCleave", 0);
             attacker.BurnOneMainAttack();
-            attacker.MyExecuteActionAttack(Id.AttackFree, firstTarget, firstAttackMode, new ActionModifier());
 
-            if (action.actionParams.TargetCharacters.Count < 2)
+            var firstTarget = action.actionParams.TargetCharacters[0];
+
+            var actionAttack = new CharacterActionAttack(
+                new CharacterActionParams(
+                    attacker,
+                    Id.AttackFree,
+                    attackMode,
+                    firstTarget,
+                    new ActionModifier()));
+
+            // only reason I can do this is because I manually control burning one attack otherwise it would go nuts
+            yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+
+            if (action.actionParams.TargetCharacters.Count < 2 ||
+                actionAttack.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
-            var secondTarget = action.actionParams.TargetCharacters[1];
-            var mainWeapon = rulesetAttacker.GetMainWeapon();
-            var secondAttackMode = rulesetAttacker.TryRefreshAttackMode(
-                ActionType.Main,
-                mainWeapon!.ItemDefinition,
-                mainWeapon.ItemDefinition.WeaponDescription,
-                false,
-                Main.Settings.UseWeaponMasterySystemAddCleaveDamage,
-                EquipmentDefinitions.SlotTypeMainHand,
-                rulesetAttacker!.attackModifiers,
-                rulesetAttacker.FeaturesOrigin);
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            attacker.MyExecuteActionAttack(Id.AttackFree, secondTarget, secondAttackMode, new ActionModifier());
+            rulesetAttacker.InflictCondition(
+                ConditionWeaponMasteryCleave.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionWeaponMasteryCleave.Name,
+                0,
+                0,
+                0);
+
+            var secondTarget = action.actionParams.TargetCharacters[1];
+
+            actionAttack = new CharacterActionAttack(
+                new CharacterActionParams(
+                    attacker,
+                    Id.AttackFree,
+                    attackMode,
+                    secondTarget,
+                    new ActionModifier()));
+
+            // only reason I can do this is because I manually control burning one attack otherwise it would go nuts
+            yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
         }
 
         #endregion
@@ -1094,14 +1150,29 @@ internal static partial class Tabletop2024Context
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            CustomBehaviorWeaponMastery.DoCleave(action);
+            yield return CustomBehaviorWeaponMastery.DoCleave(action);
+        }
+    }
 
-            yield break;
+    private sealed class CustomBehaviorConditionCleave : IModifyWeaponAttackMode
+    {
+        public void ModifyWeaponAttackMode(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            bool canAddAbilityDamageBonus)
+        {
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+            var attributeDamage =
+                damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceType == FeatureSourceType.AbilityScore);
+
+            damageForm.BonusDamage -= attributeDamage.value;
+            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceType == FeatureSourceType.AbilityScore);
         }
     }
 
     //
-    //
+    // Push
     //
 
     private sealed class CustomBehaviorPush : IModifyEffectDescription
@@ -1178,9 +1249,9 @@ internal static partial class Tabletop2024Context
     // Vex
     //
 
-    private sealed class CustomBehaviorVex : IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorVex : IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
