@@ -148,7 +148,6 @@ internal static partial class Tabletop2024Context
         }
 
         PowerBundle.RegisterPowerBundle(PowerFighterTacticalMasterPool, false, powers);
-        FeatureSetFighterTacticalMaster.FeatureSet.AddRange(powers);
     }
 
     internal static void SwitchFighterIndomitableSaving()

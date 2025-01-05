@@ -797,13 +797,13 @@ internal static partial class Tabletop2024Context
             var character = action.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetCharacter);
-            var usablePowerToRemove = rulesetCharacter.UsablePowers.FirstOrDefault(x =>
-                x.PowerDefinition.Name == $"PowerFighterTacticalMaster{masteryToReplace}");
+            var usablePowers = new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow }
+                .Where(x => x != masteryToReplace)
+                .Select(mastery =>
+                    PowerProvider.Get(GetDefinition<FeatureDefinitionPower>($"PowerFighterTacticalMaster{mastery}")))
+                .ToArray();
 
-            if (usablePowerToRemove != null)
-            {
-                rulesetCharacter.UsablePowers.Remove(usablePowerToRemove);
-            }
+            rulesetCharacter.UsablePowers.AddRange(usablePowers);
 
             yield return character.MyReactToSpendPowerBundle(
                 usablePower,
@@ -811,10 +811,10 @@ internal static partial class Tabletop2024Context
                 character,
                 FeatureSetFighterTacticalMaster.Name,
                 $"ReactionSpendPowerBundle{FeatureSetFighterTacticalMaster.Name}Description".Formatted(
-                    Category.Reaction, Gui.Localize($"FeatureWeaponMastery{masteryToReplace}Title")),
+                    Category.Reaction, $"FeatureWeaponMastery{masteryToReplace}Title").Localized(Category.Feature),
                 ReactionValidated);
 
-            rulesetCharacter.UsablePowers.Add(usablePowerToRemove);
+            usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
 
             yield break;
 
