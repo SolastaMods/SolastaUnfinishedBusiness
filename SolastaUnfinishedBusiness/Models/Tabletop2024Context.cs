@@ -75,6 +75,7 @@ internal static partial class Tabletop2024Context
         SwitchFighterSecondWind();
         SwitchFighterSkillOptions();
         SwitchFighterStudiedAttacks();
+        SwitchFighterTacticalMaster();
         SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMind();
         SwitchMonkDeflectAttacks();

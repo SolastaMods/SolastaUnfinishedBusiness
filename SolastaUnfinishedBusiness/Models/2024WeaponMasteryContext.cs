@@ -543,7 +543,7 @@ internal static partial class Tabletop2024Context
             var rulesetDefender = defender.RulesetCharacter;
 
             //
-            // Nick - must be the fist check on this sequence as it doesn't yield break like others
+            // Nick
             //
 
             if (action.ActionType == ActionType.Main &&
@@ -552,7 +552,7 @@ internal static partial class Tabletop2024Context
                  ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)) &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
                  IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)) &&
-                attacker.GetSpecialFeatureUses(WeaponMasteryNick) < 0)
+                attacker.OnceInMyTurnIsValid(WeaponMasteryNick))
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Nick);
 
@@ -560,6 +560,11 @@ internal static partial class Tabletop2024Context
                 {
                     DoNick(attacker);
                 }
+
+                attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
+
+                // remove this to allow Nick to trigger with others
+                yield break;
             }
 
             //
@@ -568,7 +573,7 @@ internal static partial class Tabletop2024Context
 
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Cleave) &&
-                attacker.GetSpecialFeatureUses(WeaponMasteryCleave) < 0)
+                attacker.OnceInMyTurnIsValid(WeaponMasteryCleave))
             {
                 yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Cleave);
 
@@ -576,6 +581,8 @@ internal static partial class Tabletop2024Context
                 {
                     DoCleave(attacker, defender);
                 }
+
+                attacker.SetSpecialFeatureUses(WeaponMasteryCleave, 0);
 
                 yield break;
             }
@@ -861,8 +868,6 @@ internal static partial class Tabletop2024Context
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
-
             rulesetAttacker.InflictCondition(
                 ConditionWeaponMasteryNick.Name,
                 DurationType.Round,
@@ -1116,27 +1121,24 @@ internal static partial class Tabletop2024Context
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
             var attackMode = attacker.FindActionAttackMode(Id.AttackOff);
 
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
+            attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
             attackMode.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
 
-            var firstTarget = action.actionParams.TargetCharacters[0];
+            var target = action.actionParams.TargetCharacters[0];
 
             var actionAttack = new CharacterActionAttack(
                 new CharacterActionParams(
                     attacker,
                     Id.AttackFree,
                     attackMode,
-                    firstTarget,
+                    target,
                     new ActionModifier()));
 
             yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
                 ConditionWeaponMasteryNickPreventAttackOff.Name,
