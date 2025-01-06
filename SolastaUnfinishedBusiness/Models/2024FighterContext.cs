@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -87,6 +88,8 @@ internal static partial class Tabletop2024Context
                     .Create("ActionAffinityFighterTacticalMaster")
                     .SetGuiPresentation(Category.Feature)
                     .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
+                    .AddCustomSubFeatures(new ValidateDefinitionApplication(c =>
+                        !c.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle)))
                     .AddToDB())
             .AddToDB();
 

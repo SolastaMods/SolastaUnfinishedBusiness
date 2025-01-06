@@ -241,6 +241,9 @@
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseWeaponMasterySystem>false</UseWeaponMasterySystem>
+    <UseWeaponMasterySystemAddWeaponTag>false</UseWeaponMasterySystemAddWeaponTag>
+    <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -667,6 +670,7 @@
     <EnableFighterSkillOptions2024>false</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>false</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>false</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalMaster2024>false</EnableFighterTacticalMaster2024>
     <EnableFighterTacticalProgression2024>false</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>false</EnableMonkBodyAndMind2024>

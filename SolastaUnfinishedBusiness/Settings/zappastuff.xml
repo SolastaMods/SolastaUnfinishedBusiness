@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>2</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>false</DisplayTabletop2024>
+    <DisplayTabletop2024>true</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -241,6 +241,9 @@
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseWeaponMasterySystem>true</UseWeaponMasterySystem>
+    <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
+    <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -716,6 +719,7 @@
     <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalMaster2024>false</EnableFighterTacticalMaster2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>

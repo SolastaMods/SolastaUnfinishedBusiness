@@ -159,6 +159,12 @@ internal static class RulesDisplay
 
         if (Main.Settings.UseWeaponMasterySystem)
         {
+            toggle = Main.Settings.UseWeaponMasterySystemAddWeaponTag;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddWeaponTag"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddWeaponTag = toggle;
+            }
+
             toggle = Main.Settings.UseWeaponMasterySystemAddCleaveDamage;
             if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddCleaveDamage"), ref toggle, UI.AutoWidth()))
             {

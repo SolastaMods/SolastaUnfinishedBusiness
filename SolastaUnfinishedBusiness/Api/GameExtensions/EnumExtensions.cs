@@ -89,6 +89,7 @@ internal enum ExtraActionId
     NatureStrikesToggle,
     WeaponMasteryToggle,
     WeaponMasteryCleave,
+    WeaponMasteryNick,
     TacticalMasterToggle,
     PrioritizeAction = 10000
 }

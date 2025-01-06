@@ -93,6 +93,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseWeaponMasterySystem { get; set; }
+    public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
     public bool UseWeaponMasterySystemAddCleaveDamage { get; set; }
     public bool UseWeaponMasterySystemPushSave { get; set; }
     public bool UseOfficialFlankingRules { get; set; }

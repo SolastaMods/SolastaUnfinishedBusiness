@@ -415,5 +415,6 @@ ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する�
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>小型種族</color>が重火器を使用する際に不利になるようにする
 ModUi/&UseWeaponMasterySystem=<color=#D89555>武器の熟練度</color>ルールを有効にする
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 斬撃マスタリーは 2 回目の攻撃ダメージに属性スコア修正値を追加します</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ ゲームのすべての武器にマスタリータグを追加</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ プッシュ マスタリーでは、クリーチャーは筋力セーヴィング スロー (DC 8 + 攻撃ロール能力修正値 + 熟練度ボーナス) を実行する必要があります</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>
