@@ -547,7 +547,8 @@ internal static partial class Tabletop2024Context
             //
 
             if (action.ActionType == ActionType.Main &&
-                (ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker) || attacker.UsedBonusAttacks == 0) &&
+                (rulesetAttacker.ExecutedBonusAttacks == 0 ||
+                 ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
                  IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)) &&
