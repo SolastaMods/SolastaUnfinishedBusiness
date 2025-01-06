@@ -86,7 +86,7 @@ internal static partial class Tabletop2024Context
                 PowerFighterTacticalMasterPool,
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityFighterTacticalMaster")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
                     .AddCustomSubFeatures(new ValidateDefinitionApplication(c =>
                         !c.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle)))
