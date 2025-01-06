@@ -341,7 +341,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 {
                     attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
                 }
-                
+
                 attacker.MyExecuteActionAttack(
                     Id.AttackFree,
                     defender,

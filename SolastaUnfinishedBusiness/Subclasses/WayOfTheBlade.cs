@@ -477,7 +477,7 @@ public sealed class WayOfBlade : AbstractSubclass
                 {
                     attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
                 }
-                
+
                 attacker.MyExecuteActionAttack(
                     Id.AttackFree,
                     defender,
