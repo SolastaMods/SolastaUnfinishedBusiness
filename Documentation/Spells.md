@@ -26,7 +26,7 @@ You extend your hand and trace a sigil of warding in the air. Until the end of y
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
 # 6. - Chill Touch (V,S) level 0 Necromancy [SOL]
 
@@ -68,7 +68,7 @@ Launch a fire bolt.
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5 ft of it. The second creature takes fire damage equal to your spellcasting ability modifier. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5ft distance. On a hit, the target suffers the weapon attack's normal effects, and you can cause green fire to leap from the target to a different creature of your choice that you can see within 5ft of it. The second creature takes fire damage equal to your spellcasting ability modifier. At 5th level, the melee attack deals an extra 1d8 fire damage to the target on a hit, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
 # 13. - Guidance (V,S) level 0 Divination [Concentration] [SOL]
 
@@ -86,7 +86,7 @@ Causes light sources such as torches and mana lamps in the area of effect to lig
 
 **[Druid, Sorcerer, Warlock, Wizard]**
 
-You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 ft in a random direction. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5ft in a random direction. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 16. - Light (V) level 0 Evocation [SOL]
 
@@ -98,7 +98,7 @@ An object you can touch emits a powerful light for a limited time.
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
-You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15 ft of you. The target must succeed on a Strength saving throw or be pulled up to 10 ft in a straight line toward you and then take 1d8 lightning damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You create a lash of lightning energy that strikes at one creature of your choice that you can see within 15ft of you. The target must succeed on a Strength saving throw or be pulled up to 10ft in a straight line toward you and then take 1d8 lightning damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 18. - *Mind Sliver* © (V) level 0 Enchantment [UB]
 
@@ -110,7 +110,7 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 **[Bard, Sorcerer, Warlock, Wizard]**
 
-You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5 ft of you. On a hit, the creature takes 1d6 necrotic damage, and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5ft of you. On a hit, the creature takes 1d6 necrotic damage, and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 20. - Poison Spray (V,S) level 0 Conjuration [SOL]
 
@@ -122,7 +122,7 @@ Fire a poison spray at an enemy you can see, within range.
 
 **[Druid]**
 
-You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d10 acid damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5ft of you. On a hit, the target takes 1d10 acid damage. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 22. - Produce Flame (V,S) level 0 Conjuration [SOL]
 
@@ -188,7 +188,7 @@ Damage and daze an enemy on a successful touch.
 
 **[Artificer, Cleric]**
 
-Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft).
+Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft).
 
 # 33. - Sparkle (V,S) level 0 Enchantment [SOL]
 
@@ -206,19 +206,19 @@ You launch a mote of light at one creature or object within range. Make a ranged
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
-You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage. At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th and 17th levels.
+You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5ft distance. On a hit, the target suffers the weapon attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage. At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th and 17th levels.
 
 # 36. - *Sword Burst* © (V,S) level 0 Enchantment [UB]
 
 **[Artificer, Sorcerer, Warlock, Wizard]**
 
-You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 ft of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
+You create a momentary circle of spectral blades that sweep around you. All other creatures within 5ft of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 
 # 37. - *Thorn Whip* © (V,S) level 0 Transmutation [UB]
 
 **[Artificer, Druid]**
 
-You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 ft closer to you.
+You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10ft closer to you.
 
 # 38. - *Thunderclap* © (V,S) level 0 Evocation [UB]
 
@@ -722,7 +722,7 @@ You fill the air with spinning daggers in a cube 5 feet on each side, centered o
 
 **[Artificer, Sorcerer, Wizard]**
 
-Burst a luminous cube that briefly blinds anyone within 10 ft. 8d10 is how many hit points of creatures this spell can affect.
+Burst a luminous cube that briefly blinds anyone within 10ft. 8d10 is how many hit points of creatures this spell can affect.
 
 # 121. - Conjure Goblinoids (V,S) level 2 Conjuration [Concentration] [UB]
 
@@ -862,7 +862,7 @@ Make yourself and up to 5 allies stealthier for one hour.
 
 **[Druid]**
 
-Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 ft in any direction.
+Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30ft in any direction.
 
 # 144. - Prayer of Healing (V) level 2 Evocation [SOL]
 
@@ -1180,7 +1180,7 @@ Call forth spirits to protect you.
 **[Cleric, Paladin, Warlock, Wizard]**
 
 You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
-Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 ft of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
+Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10ft of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 
@@ -1373,7 +1373,7 @@ You weave a song into the air, causing those who hear it to applaud its magnific
 
 **[Artificer, Wizard]**
 
-You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound has Darkvision up to 60 ft, Truesight up to 80 ft, is invisible to all creatures except you and can't be harmed. During each of your turns, the hound can attempt to bite one creature within 5 feet of it that is hostile to you as a free action. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
+You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound has Darkvision up to 60ft, Truesight up to 80ft, is invisible to all creatures except you and can't be harmed. During each of your turns, the hound can attempt to bite one creature within 5 feet of it that is hostile to you as a free action. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
 
 # 229. - Phantasmal Killer (V,S) level 4 Illusion [Concentration] [SOL]
 
@@ -1487,7 +1487,7 @@ Grants you control over an enemy creature.
 
 **[Sorcerer, Warlock, Wizard]**
 
-You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
+You teleport up to 60ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 
 # 248. - Flame Strike (V,S) level 5 Evocation [SOL]
 
@@ -1511,7 +1511,7 @@ Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
 **[Cleric, Paladin]**
 
-You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration. As a bonus action on your turn, if the weapon is within 30 ft, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.
+You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration. As a bonus action on your turn, if the weapon is within 30ft, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.
 
 # 252. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
 

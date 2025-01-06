@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityWeaponMasteryNick:507aedca-4bf8-5809-86d4-5ed11a2a8871"
+    "Definition:ActionAffinityWeaponMasteryNickPreventBonusAttack:fd0182e0-d8dc-5881-b7ec-6007507d6a73"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "05d240d3-c039-5102-8cd8-036a55991880",
+  "guid": "2d529168-197c-5e7b-b84e-dba7bf340afb",
   "contentPack": 9999,
-  "name": "ConditionWeaponMasteryNickPreventBonusAttack"
+  "name": "ConditionWeaponMasteryNickPreventAttackOff"
 }

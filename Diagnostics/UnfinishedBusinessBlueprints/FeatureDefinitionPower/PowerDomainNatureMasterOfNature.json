@@ -85,7 +85,7 @@
           "conditionDefinition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
           "operation": "RemoveDetrimentalAll",
           "conditionsList": [],
-          "applyToSelf": false,
+          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,

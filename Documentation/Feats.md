@@ -110,7 +110,7 @@ The first time each turn that you deal damage with an unarmed attack or weapon, 
 
 # 22. - Call for Charge [UB]
 
-You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
+You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
 
 # 23. - *Charger* © [UB]
 
@@ -430,7 +430,7 @@ You gain proficiency with the Manacalon Rosary, which is required to enchant ite
 
 # 86. - *Inspiring Leader* © [UB]
 
-You can spend 10 minutes to inspire all friendly creatures, including you, within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+You can spend 10 minutes to inspire all friendly creatures, including you, within 30ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 
 # 87. - Lock Breaker [SOL]
 
@@ -517,7 +517,7 @@ When you attack with a two-handed melee weapon, you deal additional damage equal
 
 # 104. - *Mobile* © [UB]
 
-You are exceptionally speedy and agile. Your speed increases by 10 ft, and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
+You are exceptionally speedy and agile. Your speed increases by 10ft, and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 
 # 105. - *Moderately Armored* © [UB]
 
@@ -663,7 +663,7 @@ You use shields not just for protection but also for offense. You gain the follo
 # 134. - *Slasher* © [UB]
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
-When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
+When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
 # 135. - Slay thy Enemies [UB]
 
@@ -674,7 +674,7 @@ You can use your bonus action and consume one ranger spell slot to focus your hu
 Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
-• As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
+• As a bonus action, you can increase your reach with a spear by 5ft for the rest of your turn.
 
 # 137. - *Spell Sniper* © [UB]
 
@@ -682,7 +682,7 @@ You learn one cantrip that requires an attack roll. Choose the cantrip from the 
 
 # 138. - *Squat Nimbleness* © [UB]
 
-You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
+You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
 # 139. - *Stealthy* © [UB]
 
@@ -708,7 +708,7 @@ You can use your bonus action to take aim. Until the end of your turn, your rang
 # 143. - *Telekinetic* © [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
+As a bonus action during combat, you can telekinetically move one creature you can see within 30ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5ft in a direction of your choosing.
 
 # 144. - *Theologian* © [UB]
 

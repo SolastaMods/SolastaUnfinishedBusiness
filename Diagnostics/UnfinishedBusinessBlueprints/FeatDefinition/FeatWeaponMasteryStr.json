@@ -13,7 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:FeatureSetWeaponMasteryLearn1:5e0182e6-6e15-5411-a371-1811348dbad7"
+    "Definition:FeatureSetFeatWeaponMasteryLearn1:cf0a5651-6b9d-5096-b338-a63aa5998168"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

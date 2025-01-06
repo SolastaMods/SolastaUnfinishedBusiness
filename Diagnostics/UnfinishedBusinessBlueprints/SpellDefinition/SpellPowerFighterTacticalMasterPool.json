@@ -2,33 +2,9 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellPowerWeaponMasteryRelearnCEHalberdType:1d543cfe-fb4c-5283-b42d-4e3f2c457a7b",
-    "Definition:SpellPowerWeaponMasteryRelearnCEHandXbowType:e553daee-590c-543b-ba5a-ca25db9e19d1",
-    "Definition:SpellPowerWeaponMasteryRelearnKatanaType:d89c4413-070b-5129-a169-cf791064d877",
-    "Definition:SpellPowerWeaponMasteryRelearnCELongMaceType:eb01afbe-cfd0-551b-a89d-e6f56ef2091a",
-    "Definition:SpellPowerWeaponMasteryRelearnCEPikeType:c050eb1a-a7ab-5cf2-a895-5b7daa97a8f3",
-    "Definition:SpellPowerWeaponMasteryRelearnBattleaxeType:7f68ffec-d92b-5f40-8bbf-c787992e38ca",
-    "Definition:SpellPowerWeaponMasteryRelearnClubType:b449a956-5af0-5ac5-9c55-261215f5565c",
-    "Definition:SpellPowerWeaponMasteryRelearnDaggerType:f182e409-37db-5c30-a03e-b5077a2f8283",
-    "Definition:SpellPowerWeaponMasteryRelearnDartType:1c4ac61f-3afc-5599-a3ed-718e54c063bf",
-    "Definition:SpellPowerWeaponMasteryRelearnGreataxeType:975e2ac1-835d-589d-a3c5-375d91c98605",
-    "Definition:SpellPowerWeaponMasteryRelearnGreatswordType:2a2248ff-834b-5746-a9c4-9c397d78fe48",
-    "Definition:SpellPowerWeaponMasteryRelearnHandaxeType:37406c58-2fe3-52a2-9c52-191f211a11bb",
-    "Definition:SpellPowerWeaponMasteryRelearnHeavyCrossbowType:6df7de14-fedc-5671-9580-2c812d30a423",
-    "Definition:SpellPowerWeaponMasteryRelearnJavelinType:54f11a00-35c6-5516-9a69-3fd896c4e2be",
-    "Definition:SpellPowerWeaponMasteryRelearnLightCrossbowType:ca33bc56-ec9d-5b1d-8d81-676c4ba25e67",
-    "Definition:SpellPowerWeaponMasteryRelearnLongbowType:e9cb497d-6e7f-5f04-b780-fa8f7912e2df",
-    "Definition:SpellPowerWeaponMasteryRelearnLongswordType:8a9daae4-f937-5f1b-8448-ea52c4e45375",
-    "Definition:SpellPowerWeaponMasteryRelearnMaceType:256887ef-e075-5a48-bd26-3bc24af0f091",
-    "Definition:SpellPowerWeaponMasteryRelearnMaulType:2b373deb-315f-54fc-93ec-ed297e8aa1f7",
-    "Definition:SpellPowerWeaponMasteryRelearnMorningstarType:5290d712-93ee-541f-9859-2e4802fbde5f",
-    "Definition:SpellPowerWeaponMasteryRelearnQuarterstaffType:ed41fe1d-7e22-592b-b526-407368d22485",
-    "Definition:SpellPowerWeaponMasteryRelearnRapierType:37bfc996-bd27-5682-9039-68d67546dfd4",
-    "Definition:SpellPowerWeaponMasteryRelearnScimitarType:b67c16ac-ac38-51bf-bfd6-08485f678b20",
-    "Definition:SpellPowerWeaponMasteryRelearnShortbowType:bff3623a-d6b6-50df-be2f-9e0dfd880fe6",
-    "Definition:SpellPowerWeaponMasteryRelearnShortswordType:2062f304-15fc-5581-b7e5-6768b8bc48a5",
-    "Definition:SpellPowerWeaponMasteryRelearnSpearType:62f43f0a-d4d6-5c62-b56e-f1201b6a773e",
-    "Definition:SpellPowerWeaponMasteryRelearnWarhammerType:0d6fdbee-3383-56d9-9767-16da09c2b69d"
+    "Definition:SpellPowerFighterTacticalMasterPush:bd3529eb-bae4-5136-ae63-b28f27ec07ac",
+    "Definition:SpellPowerFighterTacticalMasterSap:9037154a-f569-5a3b-bb70-f024a5d9e4c1",
+    "Definition:SpellPowerFighterTacticalMasterSlow:b4905751-4ae0-5607-8555-3b8b10d24d94"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,
@@ -215,7 +191,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a76e0834-30be-5108-9ee4-6b4f01d6125c",
+  "guid": "80137305-7dec-5019-96df-003481ea9b71",
   "contentPack": 9999,
-  "name": "SpellPowerWeaponMasteryRelearnPool"
+  "name": "SpellPowerFighterTacticalMasterPool"
 }

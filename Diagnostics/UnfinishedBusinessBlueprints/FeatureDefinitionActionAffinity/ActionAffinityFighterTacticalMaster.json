@@ -12,7 +12,7 @@
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
   "authorizedActions": [
-    9087
+    9088
   ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "507aedca-4bf8-5809-86d4-5ed11a2a8871",
+  "guid": "a2df8f9e-a86c-5ef9-9f5e-88e55bd1b945",
   "contentPack": 9999,
-  "name": "ActionAffinityWeaponMasteryNick"
+  "name": "ActionAffinityFighterTacticalMaster"
 }

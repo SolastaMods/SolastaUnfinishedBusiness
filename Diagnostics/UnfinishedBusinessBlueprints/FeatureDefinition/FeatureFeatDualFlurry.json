@@ -1,16 +1,10 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Bonus",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feat/&FeatDualFlurryTitle",
+    "description": "Feat/&FeatDualFlurryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "42534c42-00be-571d-a257-5cc2c62da7b2",
+  "guid": "454be011-5c14-5a5a-9779-563db063bc98",
   "contentPack": 9999,
-  "name": "AdditionalActionWeaponMasteryNick"
+  "name": "FeatureFeatDualFlurry"
 }

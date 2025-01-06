@@ -12,7 +12,7 @@ You learn two cantrips of your choice from the Cleric spell list. They count as 
 
 # 4. - *Blind Fighting* © [UB]
 
-You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
+You have blind sight with a range of 10ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 
 # 5. - Classical Swordplay [UB]
 
@@ -20,7 +20,7 @@ You gain a +1 bonus to your attack rolls and a +1 to bonus to your AC while wiel
 
 # 6. - Crippling [UB]
 
-You reduce the speed of your opponents by 10 ft until the end of your next turn on a melee attack hit.
+You reduce the speed of your opponents by 10ft until the end of your next turn on a melee attack hit.
 
 # 7. - Defense [SOL]
 
@@ -48,7 +48,7 @@ When a creature you can see hits a target, other than you, within 5 feet of you 
 
 # 13. - Lunger [UB]
 
-Your melee weapon reach increases by 5 ft as long as wielding a weapon without the heavy tag and your other hand is free.
+Your melee weapon reach increases by 5ft as long as wielding a weapon without the heavy tag and your other hand is free.
 
 # 14. - Protection [SOL]
 

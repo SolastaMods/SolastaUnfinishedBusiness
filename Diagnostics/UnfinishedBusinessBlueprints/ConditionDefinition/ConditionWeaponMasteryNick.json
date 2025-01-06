@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionWeaponMasteryNick:42534c42-00be-571d-a257-5cc2c62da7b2"
+    "Definition:ActionAffinityWeaponMasteryNick:507aedca-4bf8-5809-86d4-5ed11a2a8871"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

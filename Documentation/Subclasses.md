@@ -626,7 +626,7 @@ The additional damage dealt by Illuminating Strike increases to 2d6.
 
 * Illuminating Burst
 
-On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 ft of you. They must succeed on a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
+On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30ft of you. They must succeed on a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
 
 
 
@@ -1846,7 +1846,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 • You gain proficiency with Intelligence based saving throws.
-• You can now channel your Foreknowledge divinity to you and all allies within 15 ft.
+• You can now channel your Foreknowledge divinity to you and all allies within 15ft.
 
 
 ### Level 20
@@ -2240,7 +2240,7 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 
 * Keeper of Oblivion
 
-You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with the lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30ft of you regain hit points from a pool equals to your Cleric level. Allies with the lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
 
 
 ### Level 20
@@ -2805,7 +2805,7 @@ You learn to use your star map to divine the will of the cosmos. Whenever you fi
 
 * Twinkling Constellations
 
-The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20 ft. Moreover, if you haven't moved or used any bonus or main action yet while in your Starry Form, you can change which constellation glimmers on your body.
+The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20ft. Moreover, if you haven't moved or used any bonus or main action yet while in your Starry Form, you can change which constellation glimmers on your body.
 
 
 ### Level 14
@@ -2979,7 +2979,7 @@ A knight who inspires greatness in others by committing brave deeds in battle. A
 
 * Rallying Cry
 
-Starting at 3rd level, you replace your Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30 ft.
+Starting at 3rd level, you replace your Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30ft.
 
 
 ### Level 7
@@ -3269,7 +3269,7 @@ You gain proficiency in Wisdom saving throws. You are also treated as having hal
 
 * Grand Challenge
 
-As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC = 8 + proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 30 ft away from the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
+As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC = 8 + proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 30ft away from the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15
@@ -3328,7 +3328,7 @@ Starting at level 15, when you are using a shield, you have advantage on melee a
 
 * Position of Strength
 
-Starting at 18th level, your Tunnel Fighter feature also provides its benefits when within 5 feet of any ally (no diagonals). You have a permanent aura that grants +1 AC to you and all allies within 5 ft.
+Starting at 18th level, your Tunnel Fighter feature also provides its benefits when within 5 feet of any ally (no diagonals). You have a permanent aura that grants +1 AC to you and all allies within 5ft.
 
 
 
@@ -3819,7 +3819,7 @@ You gain resistance to lightning damage, and you can replace any of your main ac
 
 * Tempest's Fury
 
-You can spend 1 ki to replace one of bonus attacks provided by Flurry of Blows to instead attack all enemy creatures within 5 ft of you with it.
+You can spend 1 ki to replace one of bonus attacks provided by Flurry of Blows to instead attack all enemy creatures within 5ft of you with it.
 
 
 ### Level 17
@@ -3944,7 +3944,7 @@ In your list and always prepared:
 
 * Aura of the Guardian
 
-Starting at 7th level, you can shield others from harm at the cost of your own health. When a creature within 10 ft of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way.
+Starting at 7th level, you can shield others from harm at the cost of your own health. When a creature within 10ft of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way.
 
 
 ### Level 15
@@ -3958,7 +3958,7 @@ As a bonus action, spend a Channel Divinity to exchange hit points with an ally.
 
 * Improved Aura of the Guardian
 
-Your Aura of the Guardian range increased to 30 ft.
+Your Aura of the Guardian range increased to 30ft.
 
 
 ### Level 20
@@ -3981,11 +3981,11 @@ An Oath from a more primitive time which one dedicates themselves to utilizing n
 
 * Channel Divinity: Nature's Wrath
 
-You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
+You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
 
 * Channel Divinity: Turn the Faithless
 
-You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
+You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
 
 * Oath of Ancients
 
@@ -4004,7 +4004,7 @@ In your list and always prepared:
 
 * Aura of Warding
 
-Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
+Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10ft of you have resistance to damage from spells.
 
 
 ### Level 15
@@ -4018,7 +4018,7 @@ When you are reduced to 0 hit points but not killed outright, you drop to 1 hit 
 
 * Improved Aura of Warding
 
-Your Aura of Warding range increased to 30 ft.
+Your Aura of Warding range increased to 30ft.
 
 
 ### Level 20
@@ -4140,7 +4140,7 @@ Starting at level 15, you are always under the effects of a protection from evil
 
 * Improved Aura of Devotion
 
-Your Aura of Devotion range increased to 30 ft.
+Your Aura of Devotion range increased to 30ft.
 
 
 ### Level 20
@@ -4199,7 +4199,7 @@ When a creature under the effect of your Mark of Castigation or frighten conditi
 
 * Improved Aura of Domination
 
-Your Aura of Domination range increased to 30 ft.
+Your Aura of Domination range increased to 30ft.
 
 
 ### Level 20
@@ -4224,11 +4224,11 @@ An Oath of Hatred paladin has dedicated himself to the punishment of evildoers b
 
 * Channel Divinity: Hateful Gaze
 
-As a bonus action, use your Channel Divinity to invoke your rage into a gaze causing fear in target foe up to 30 ft away.
+As a bonus action, use your Channel Divinity to invoke your rage into a gaze causing fear in target foe up to 30ft away.
 
 * Channel Divinity: Scornful Prayer
 
-Use your Channel Divinity to perform a prayer of contempt towards an enemy up to 60 ft away, cursing and enfeebling them on a failed saving throw.
+Use your Channel Divinity to perform a prayer of contempt towards an enemy up to 60ft away, cursing and enfeebling them on a failed saving throw.
 
 * Elevated Hate
 
@@ -4322,7 +4322,7 @@ Starting at level 15, whenever an enemy within 6 cells deals damage to you, you 
 
 * Improved Aura of Rightenousness
 
-Your Aura of Rightenousness range increased to 30 ft.
+Your Aura of Rightenousness range increased to 30ft.
 
 
 ### Level 20
@@ -4383,7 +4383,7 @@ Starting at level 15, you are immune to fire and your skin covers with stone sca
 
 * Improved Volcanic Aura
 
-Your Volcanic Aura range increased to 30 ft.
+Your Volcanic Aura range increased to 30ft.
 
 
 ### Level 20
@@ -4508,7 +4508,7 @@ Starting at level 15, when you use a melee attack to strike an opponent who has 
 
 * Improved Aura of Truth
 
-Your Aura of Truth range increased to 30 ft.
+Your Aura of Truth range increased to 30ft.
 
 
 ### Level 20
@@ -4561,7 +4561,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 * Arcane Pulse
 
-Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Starting at 7th level, you can cause an eruption of arcane energy at a range of 30ft. Hostile creatures within 15ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 
 
 ### Level 11
@@ -4575,7 +4575,7 @@ Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
 
 * Arcane Pulse
 
-Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Starting at 7th level, you can cause an eruption of arcane energy at a range of 30ft. Hostile creatures within 15ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 
 
 
@@ -4629,7 +4629,7 @@ Once per long rest, you can use your action to cast Conjure Fey spell. Casting t
 
 * Misty Wanderer
 
-You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 ft of you.
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5ft of you.
 
 
 
@@ -4786,11 +4786,11 @@ The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper 
 
 * Blessed Warrior
 
-As a bonus action, choose one creature within 30 ft of you. The next time you hit that creature on this turn with a weapon attack, all damage dealt by the attack becomes radiant damage, and the creature takes an extra 1d8 radiant damage from the attack. Starting at 11th level, the extra damage increases to 2d8.
+As a bonus action, choose one creature within 30ft of you. The next time you hit that creature on this turn with a weapon attack, all damage dealt by the attack becomes radiant damage, and the creature takes an extra 1d8 radiant damage from the attack. Starting at 11th level, the extra damage increases to 2d8.
 
 * Lifebringer
 
-You have a pool of hit points equal to five times your ranger level. This pool replenished at the end of a long rest. As an action, you can choose a creature within 30 ft of you and restore up to half of its hp maximum.
+You have a pool of hit points equal to five times your ranger level. This pool replenished at the end of a long rest. As an action, you can choose a creature within 30ft of you and restore up to half of its hp maximum.
 
 * Lightbearer Magic
 
@@ -4811,7 +4811,7 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 * Blessed Glow
 
-You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20 ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest.
+You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest.
 
 
 ### Level 11
@@ -4825,7 +4825,7 @@ You are able to briefly transform into a holy form. As an action, for up to 1 mi
 
 * Warding Light
 
-You can use your holy light to temporarily blind assailants. When a creature within 30 ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
+You can use your holy light to temporarily blind assailants. When a creature within 30ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
 
 
 
@@ -4926,7 +4926,7 @@ Gain proficiency in Acrobatics.
 
 * Gift of the Wind
 
-While wearing a shield, you may use your bonus action to increase your speed by 10 ft and become immune to opportunity attacks by enemies you attack with melee weapons until the start of your next turn. You lose this benefit if you are no longer wearing a shield.
+While wearing a shield, you may use your bonus action to increase your speed by 10ft and become immune to opportunity attacks by enemies you attack with melee weapons until the start of your next turn. You lose this benefit if you are no longer wearing a shield.
 
 * Sky Warrior Bonus Spells
 
@@ -5116,7 +5116,7 @@ You add half your proficiency bonus (rounded down) to your AC while wielding a q
 
 * Acrobat Trooper
 
-You gain the ability to use a quarterstaff as finesse weapon and the quarterstaff reach increases by 5 ft.
+You gain the ability to use a quarterstaff as finesse weapon and the quarterstaff reach increases by 5ft.
 When you take the Attack action with a quarterstaff, you can use your bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 
 
@@ -5294,7 +5294,7 @@ Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, a
 
 * Daring Duel
 
-You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
+You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5ft of it, no other creatures are within 5ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
 
 * Swirling Dance
 
@@ -5319,7 +5319,7 @@ Once per turn while you aren't dazzled, incapacitated, shocked or slowed and get
 
 * Master Duelist
 
-Immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
+Immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5ft of it and no other creatures are within 5ft of you.
 
 
 
@@ -5394,7 +5394,7 @@ Starting at 9th level, when an enemy first fails a saving throw, and it is not y
 
 * Improved Debilitating Strike
 
-Starting at 13th level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or have the movement speed reduced by 10 ft, and roll all saving throws with –1d6 penalty until the end of your next turn.
+Starting at 13th level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or have the movement speed reduced by 10ft, and roll all saving throws with –1d6 penalty until the end of your next turn.
 
 
 ### Level 17
@@ -6153,7 +6153,7 @@ Your patron is a lord or lady of the fey, a creature of legend who holds secrets
 
 * Fey Presence
 
-As an action, you can cause each creature in a 15 ft cone to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+As an action, you can cause each creature in a 15ft cone to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
 
 
 ### Level 6
@@ -6422,7 +6422,7 @@ Your main weapon single-handed attacks count as magical, and you use your spell 
 
 * Soul Hex
 
-You can curse one creature you can see within 30 ft of you for one minute. While in effect:
+You can curse one creature you can see within 30ft of you for one minute. While in effect:
 • You add your proficiency bonus to damage against the cursed creature.
 • Your critical threat range increases by 1 against the cursed creature.
 • You regain hit points equal to your warlock level + your Charisma modifier when the cursed creature dies.
@@ -6559,7 +6559,7 @@ You have made a pact with an ancient primal entity that dwells atop the highest 
 
 * Barrier of Stone
 
-When an ally within 30 ft of you is attacked, you may use your reaction to reduce the damage by an amount equal to twice your warlock level plus your Charisma modifier. You may use this power a number of times equal to your Charisma modifier per long rest.
+When an ally within 30ft of you is attacked, you may use your reaction to reduce the damage by an amount equal to twice your warlock level plus your Charisma modifier. You may use this power a number of times equal to your Charisma modifier per long rest.
 
 * Expanded Spells
 
@@ -6871,7 +6871,7 @@ Bladesingers use a series of intricate, elegant maneuvers that fend off harm and
 
 You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon:
 • You gain a bonus to your AC equal to your Intelligence modifier.
-• Your walking speed increases by 10 ft.
+• Your walking speed increases by 10ft.
 • You have advantage on Dexterity (Acrobatics) checks.
 • You have advantage on Constitution checks.
 You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
@@ -7051,11 +7051,11 @@ Understanding and mastering the forces that draw bodies of matter together or dr
 
 * Decrease Density
 
-You can use your action to decrease the density of a creature you can see within 30 ft of you, increasing its walking speed and jumping distance by 10 ft and making it able to make maximum distance jumps without risk, at the cost of disadvantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Increase Density.
+You can use your action to decrease the density of a creature you can see within 30ft of you, increasing its walking speed and jumping distance by 10ft and making it able to make maximum distance jumps without risk, at the cost of disadvantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Increase Density.
 
 * Increase Density
 
-You can use your action to increase the density of a creature you can see within 30 ft of you, reducing its speed by 10 ft at the benefit of advantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Decrease Density.
+You can use your action to increase the density of a creature you can see within 30ft of you, reducing its speed by 10ft at the benefit of advantage on Strength checks and saving throws. You can use this feature a number of times per short rest equal to your Intelligence modifier, and it shares the number of uses with Decrease Density.
 
 
 ### Level 6
@@ -7069,7 +7069,7 @@ Starting at 6th level, creatures hit by your spell attacks are pushed 1 cell awa
 
 * Violent Attraction
 
-You can use your bonus action to increase the striking power of one ally that you can see within 60 ft of you for 1 minute. The creature does an additional 1d10 damage with a weapon or unarmed attack once during its turn. You can use this feature a number of times per long rest equal to your Intelligence modifier.
+You can use your bonus action to increase the striking power of one ally that you can see within 60ft of you for 1 minute. The creature does an additional 1d10 damage with a weapon or unarmed attack once during its turn. You can use this feature a number of times per long rest equal to your Intelligence modifier.
 
 
 ### Level 14
