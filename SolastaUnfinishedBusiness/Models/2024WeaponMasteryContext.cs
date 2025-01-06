@@ -547,42 +547,38 @@ internal static partial class Tabletop2024Context
             //
 
             if (action.ActionType == ActionType.Main &&
+                (ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker) || attacker.UsedBonusAttacks == 0) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
-                (rulesetAttacker.UsedBonusAttacks == 0 ||
-                 ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)) &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
                  IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)) &&
                 attacker.OnceInMyTurnIsValid(WeaponMasteryNick))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Nick);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Nick);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
                     DoNick(attacker);
                 }
 
-                attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
-
                 // remove this to allow Nick to trigger with others
-                yield break;
+                // yield break;
             }
 
             //
             // Cleave - here to only support Tactical Master
             //
 
-            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+            if (action.ActionType == ActionType.Main &&
+                rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Cleave) &&
                 attacker.OnceInMyTurnIsValid(WeaponMasteryCleave))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Cleave);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Cleave);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
                     DoCleave(attacker, defender);
                 }
-
-                attacker.SetSpecialFeatureUses(WeaponMasteryCleave, 0);
 
                 yield break;
             }
@@ -593,7 +589,7 @@ internal static partial class Tabletop2024Context
 
             if (attacker.GetSpecialFeatureUses(WeaponMasteryGraze) >= 0)
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Graze);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Graze);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -611,7 +607,7 @@ internal static partial class Tabletop2024Context
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Push))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Push);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Push);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -628,7 +624,7 @@ internal static partial class Tabletop2024Context
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Sap))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Sap);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Sap);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -646,7 +642,7 @@ internal static partial class Tabletop2024Context
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Slow))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Slow);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Slow);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -663,7 +659,7 @@ internal static partial class Tabletop2024Context
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Topple))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Topple);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Topple);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -682,7 +678,7 @@ internal static partial class Tabletop2024Context
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Vex))
             {
-                yield return HandleFighterTacticalMaster(action, attacker, defender, MasteryProperty.Vex);
+                yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Vex);
 
                 if (attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name) < 0)
                 {
@@ -737,41 +733,37 @@ internal static partial class Tabletop2024Context
         //
 
         private static IEnumerator HandleFighterTacticalMaster(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            MasteryProperty masteryToReplace)
+            GameLocationCharacter attacker, GameLocationCharacter defender, MasteryProperty masteryToReplace)
         {
-            attacker.SetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name, -1);
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!Main.Settings.EnableFighterTacticalMaster2024 ||
-                attacker.RulesetCharacter.GetClassLevel(Fighter) < 9)
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
             {
                 yield break;
             }
 
-            var character = action.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-            var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetCharacter);
+            attacker.SetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name, -1);
+
+            var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetAttacker);
             var usablePowers = new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow }
                 .Where(x => x != masteryToReplace)
                 .Select(mastery =>
                     PowerProvider.Get(GetDefinition<FeatureDefinitionPower>($"PowerFighterTacticalMaster{mastery}")))
                 .ToArray();
 
-            rulesetCharacter.UsablePowers.AddRange(usablePowers);
+            rulesetAttacker.UsablePowers.AddRange(usablePowers);
 
-            yield return character.MyReactToSpendPowerBundle(
+            yield return attacker.MyReactToSpendPowerBundle(
                 usablePower,
-                [character],
-                character,
+                [attacker],
+                attacker,
                 FeatureSetFighterTacticalMaster.Name,
                 $"ReactionSpendPowerBundle{FeatureSetFighterTacticalMaster.Name}Description"
                     .Formatted(Category.Reaction, $"FeatureWeaponMastery{masteryToReplace}Title"
                         .Localized(Category.Feature)),
                 ReactionValidated);
 
-            usablePowers.Do(x => rulesetCharacter.UsablePowers.Remove(x));
+            usablePowers.Do(x => rulesetAttacker.UsablePowers.Remove(x));
 
             yield break;
 
@@ -1058,6 +1050,11 @@ internal static partial class Tabletop2024Context
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            if (action.ActionParams.RulesetEffect?.SourceDefinition.Name == "PowerWeaponMasteryCleave")
+            {
+                yield break;
+            }
+
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
@@ -1080,7 +1077,8 @@ internal static partial class Tabletop2024Context
             RulesetItem weapon,
             bool canAddAbilityDamageBonus)
         {
-            if (!attackMode.AttackTags.Contains(WeaponMasteryCleave))
+            if (Main.Settings.UseWeaponMasterySystemAddCleaveDamage ||
+                !attackMode.AttackTags.Contains(WeaponMasteryCleave))
             {
                 return;
             }
@@ -1181,7 +1179,7 @@ internal static partial class Tabletop2024Context
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == PowerWeaponMasteryTopple;
+            return definition == PowerWeaponMasteryPush;
         }
 
         public EffectDescription GetEffectDescription(
