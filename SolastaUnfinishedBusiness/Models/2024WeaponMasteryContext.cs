@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -488,79 +487,27 @@ internal static partial class Tabletop2024Context
             .Select(x => GetDefinition<WeaponTypeDefinition>(x.InvocationDefinition.Name.Replace(PREFIX, string.Empty)))
             .ToArray();
 
-        var hasMainAttack = ValidatorsCharacter.HasMainAttackAvailable(character);
         var mainWeaponType = character.GetMainWeapon()?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition;
-        var glc = GameLocationCharacter.GetFromActor(character);
 
+        // unity life check
         if (mainWeaponType)
         {
-            if (weaponTypes.Contains(mainWeaponType) && WeaponMasteryTable.TryGetValue(mainWeaponType, out var mastery))
+            if (weaponTypes.Contains(mainWeaponType))
             {
-                if (Gui.Battle == null)
-                {
-                    if (mastery != MasteryProperty.Nick ||
-                        ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character))
-                    {
-                        return true;
-                    }
-                }
-
-                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-                switch (mastery)
-                {
-                    case MasteryProperty.Cleave:
-                    {
-                        if (hasMainAttack && glc.OnceInMyTurnIsValid(WeaponMasteryCleave))
-                        {
-                            return true;
-                        }
-
-                        break;
-                    }
-                    case MasteryProperty.Nick:
-                    {
-                        if (hasMainAttack &&
-                            glc.OnceInMyTurnIsValid(WeaponMasteryNick) &&
-                            ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character))
-                        {
-                            return true;
-                        }
-
-                        break;
-                    }
-                    default:
-                        return true;
-                }
+                return true;
             }
         }
-
+        
         var offWeaponType = character.GetOffhandWeapon()?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition;
 
+        // unity life check
+        // ReSharper disable once ConvertIfStatementToReturnStatement
         if (!offWeaponType)
         {
             return false;
         }
 
-        if (!weaponTypes.Contains(offWeaponType))
-        {
-            return false;
-        }
-
-        if (!WeaponMasteryTable.TryGetValue(offWeaponType, out var masteryOff))
-        {
-            return false;
-        }
-
-        if (Gui.Battle == null)
-        {
-            return masteryOff != MasteryProperty.Nick ||
-                   ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character);
-        }
-
-        return masteryOff != MasteryProperty.Nick ||
-               (hasMainAttack &&
-                glc.OnceInMyTurnIsValid(WeaponMasteryNick) &&
-                ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character));
+        return weaponTypes.Contains(offWeaponType);
     }
 
     private enum MasteryProperty
@@ -1123,16 +1070,27 @@ internal static partial class Tabletop2024Context
 
             var target = action.actionParams.TargetCharacters[0];
 
+            if (!Main.Settings.UseWeaponMasterySystemAddCleaveDamage)
+            {
+                var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+                var attributeDamage =
+                    damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceType == FeatureSourceType.AbilityScore);
+
+                damageForm.BonusDamage -= attributeDamage.value;
+                damageForm.DamageBonusTrends.RemoveAll(x => x.sourceType == FeatureSourceType.AbilityScore);
+            }
+
             attacker.MyExecuteActionAttack(Id.AttackFree, target, attackMode, new ActionModifier());
 
             yield break;
         }
     }
 
-    private sealed class CustomBehaviorConditionCleave : IModifyAttackActionModifier, IActionFinishedByMe
+    private sealed class CustomBehaviorConditionCleave : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            // ignore any non cost toggle usage
             if (CustomActionIdContext.ExtraActionIdToggles.Contains(action.ActionId))
             {
                 yield break;
@@ -1146,35 +1104,13 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
+            // ignore the attack itself
             if (activeCondition.Amount == 1)
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
 
             activeCondition.Amount = 1;
-        }
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName, 
-            ref ActionModifier attackModifier)
-        {
-            if (Main.Settings.UseWeaponMasterySystemAddCleaveDamage ||
-                attackMode == null ||
-                !attackMode.AttackTags.Contains(WeaponMasteryCleave))
-            {
-                return;
-            }
-
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-            var attributeDamage =
-                damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceType == FeatureSourceType.AbilityScore);
-
-            damageForm.BonusDamage -= attributeDamage.value;
-            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceType == FeatureSourceType.AbilityScore);
         }
     }
 
