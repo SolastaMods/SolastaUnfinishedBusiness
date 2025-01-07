@@ -416,5 +416,6 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Abilita le <color=#D89555>razze 
 ModUi/&UseWeaponMasterySystem=Abilita le regole <color=#D89555>Padronanza delle armi</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ La maestria di Cleave aggiunge il modificatore del punteggio attributo al danno del secondo attacco</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Aggiungi tag di maestria a tutte le armi del gioco</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Nascondi la barra delle azioni di Padronanza delle armi/Maestro tattico si attiva ogni volta che l'eroe non conosce la proprietà dell'arma impugnata</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La padronanza della spinta richiede che la creatura effettui un tiro salvezza su Forza (CD 8 + modificatore di caratteristica del tiro per colpire + bonus di competenza)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Imposta la soglia di probabilità di dado <color=#D89555>Magia selvaggia dello stregone</color>:</color>\n<i><color=#F0DAA0>[L'ondata selvaggia si innesca se i tiri sono inferiori o uguali alla soglia]</color></i>

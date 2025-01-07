@@ -416,5 +416,6 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使<color=#D89555>小型种族</
 ModUi/&UseWeaponMasterySystem=启用<color=#D89555>武器精通</color>规则
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 顺劈斩精通为第二次攻击伤害添加属性分数修正</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 为所有游戏武器添加精通标签</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ 当英雄不知道所持武器属性时，隐藏武器精通/战术大师动作栏切换</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ 推击精通要求生物进行力量豁免检定（DC 8 + 攻击检定能力修正值 + 熟练加值）</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>\n<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

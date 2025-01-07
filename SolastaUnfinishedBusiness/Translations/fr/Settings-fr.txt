@@ -416,5 +416,6 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Les <color=#D89555>petites races
 ModUi/&UseWeaponMasterySystem=Activer les règles de <color=#D89555>Maîtrise des armes</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ La maîtrise de Cleave ajoute un modificateur de score d'attribut aux dégâts de la deuxième attaque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Ajouter une balise de maîtrise à toutes les armes du jeu</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Masquer la barre d'action Maîtrise des armes / Maître tactique bascule lorsque le héros ne connaît pas la propriété de l'arme utilisée</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La maîtrise de la poussée nécessite que la créature effectue un jet de sauvegarde de Force (DD 8 + modificateur de caractéristique du jet d'attaque + bonus de maîtrise)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Définissez le seuil de chances de dé de <color=#D89555>Magie sauvage du sorcier</color> :</color>\n<i><color=#F0DAA0>[la poussée sauvage se déclenche si le résultat est inférieur ou égal au seuil]</color></i>

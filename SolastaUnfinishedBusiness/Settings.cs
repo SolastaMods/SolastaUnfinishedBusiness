@@ -96,6 +96,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
     public bool UseWeaponMasterySystemAddCleaveDamage { get; set; }
     public bool UseWeaponMasterySystemPushSave { get; set; }
+    public bool UseWeaponMasterySystemHideToggles { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }

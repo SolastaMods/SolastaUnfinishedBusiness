@@ -414,7 +414,8 @@ ModUi/&UseOfficialObscurementRules=Enable <color=#D89555>lighting, obscurement, 
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Enable <color=#D89555>small races</color> have disadvantage when wielding heavy weapons
 ModUi/&UseWeaponMasterySystem=Enable <color=#D89555>Weapon Mastery</color> rules
-ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Add mastery tag to all game weapons</i>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Cleave mastery add attribute score modifier to second attack damage</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Add mastery tag to all game weapons</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Hide Weapon Mastery / Tactical Master action bar toggles whenever hero doesn't know wielded weapon property</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ Push mastery requires the creature to make a Strength saving throw (DC 8 + attack roll ability modifier + Proficiency Bonus)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

@@ -416,5 +416,6 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Permitir que las <color=#D89555>
 ModUi/&UseWeaponMasterySystem=Habilitar las reglas de <color=#D89555>Maestría en armas</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Maestría en hendidura: añade un modificador de puntuación de atributo al daño del segundo ataque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Añadir etiqueta de maestría a todas las armas del juego</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Ocultar la barra de acción Maestría en armas / Maestro táctico se activa cuando el héroe no conoce la propiedad del arma que maneja</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La maestría de empuje requiere que la criatura realice una tirada de salvación de Fuerza (CD 8 + modificador de característica de tirada de ataque + Bonificación por Competencia)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero</color>:</color><99}<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>

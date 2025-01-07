@@ -317,6 +317,12 @@ internal static class ToolsDisplay
             {
                 Main.Settings.UseWeaponMasterySystemPushSave = toggle;
             }
+
+            toggle = Main.Settings.UseWeaponMasterySystemHideToggles;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemHideToggles"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemHideToggles = toggle;
+            }
         }
 
         UI.Label();

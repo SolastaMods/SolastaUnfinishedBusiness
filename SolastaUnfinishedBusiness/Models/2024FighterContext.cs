@@ -88,8 +88,9 @@ internal static partial class Tabletop2024Context
                     .Create("ActionAffinityFighterTacticalMaster")
                     .SetGuiPresentationNoContent(true)
                     .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
-                    .AddCustomSubFeatures(new ValidateDefinitionApplication(c =>
-                        !c.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle)))
+                    .AddCustomSubFeatures(new ValidateDefinitionApplication(
+                        ShouldDisplayWeaponMasteryToggle,
+                        c => !c.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle)))
                     .AddToDB())
             .AddToDB();
 

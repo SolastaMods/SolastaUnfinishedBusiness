@@ -347,8 +347,9 @@ internal static partial class Tabletop2024Context
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityWeaponMasteryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryToggle)
-            .AddCustomSubFeatures(new ValidateDefinitionApplication(c =>
-                !c.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle)))
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(
+                ShouldDisplayWeaponMasteryToggle,
+                c => !c.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle)))
             .AddToDB();
 
         // level up custom invocations and re-learn powers
@@ -471,6 +472,95 @@ internal static partial class Tabletop2024Context
                rulesetCharacter.Invocations.Any(x =>
                    x.InvocationDefinition.Name ==
                    $"CustomInvocationWeaponMastery{itemDefinition.WeaponDescription.WeaponTypeDefinition.Name}");
+    }
+
+    private static bool ShouldDisplayWeaponMasteryToggle(RulesetCharacter character)
+    {
+        if (!Main.Settings.UseWeaponMasterySystemHideToggles)
+        {
+            return true;
+        }
+
+        const string PREFIX = "CustomInvocationWeaponMastery";
+
+        var weaponTypes = character.Invocations
+            .Where(x => x.InvocationDefinition.Name.StartsWith(PREFIX))
+            .Select(x => GetDefinition<WeaponTypeDefinition>(x.InvocationDefinition.Name.Replace(PREFIX, string.Empty)))
+            .ToArray();
+
+        var hasMainAttack = ValidatorsCharacter.HasMainAttackAvailable(character);
+        var mainWeaponType = character.GetMainWeapon()?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition;
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        if (mainWeaponType)
+        {
+            if (weaponTypes.Contains(mainWeaponType) && WeaponMasteryTable.TryGetValue(mainWeaponType, out var mastery))
+            {
+                if (Gui.Battle == null)
+                {
+                    if (mastery != MasteryProperty.Nick ||
+                        ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character))
+                    {
+                        return true;
+                    }
+                }
+
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                switch (mastery)
+                {
+                    case MasteryProperty.Cleave:
+                    {
+                        if (hasMainAttack && glc.OnceInMyTurnIsValid(WeaponMasteryCleave))
+                        {
+                            return true;
+                        }
+
+                        break;
+                    }
+                    case MasteryProperty.Nick:
+                    {
+                        if (hasMainAttack &&
+                            glc.OnceInMyTurnIsValid(WeaponMasteryNick) &&
+                            ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character))
+                        {
+                            return true;
+                        }
+
+                        break;
+                    }
+                    default:
+                        return true;
+                }
+            }
+        }
+
+        var offWeaponType = character.GetOffhandWeapon()?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition;
+
+        if (!offWeaponType)
+        {
+            return false;
+        }
+
+        if (!weaponTypes.Contains(offWeaponType))
+        {
+            return false;
+        }
+
+        if (!WeaponMasteryTable.TryGetValue(offWeaponType, out var masteryOff))
+        {
+            return false;
+        }
+
+        if (Gui.Battle == null)
+        {
+            return masteryOff != MasteryProperty.Nick ||
+                   ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character);
+        }
+
+        return masteryOff != MasteryProperty.Nick ||
+               (hasMainAttack &&
+                glc.OnceInMyTurnIsValid(WeaponMasteryNick) &&
+                ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character));
     }
 
     private enum MasteryProperty
