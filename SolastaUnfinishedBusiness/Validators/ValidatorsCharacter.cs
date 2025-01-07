@@ -181,14 +181,14 @@ internal static class ValidatorsCharacter
     {
         var weapon = character.GetMainWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
