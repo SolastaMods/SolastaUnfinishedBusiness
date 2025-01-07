@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
-    private static readonly List<Id> ExtraActionIdToggles =
+    internal static readonly List<Id> ExtraActionIdToggles =
     [
         (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,

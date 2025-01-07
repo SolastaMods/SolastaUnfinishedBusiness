@@ -156,10 +156,19 @@ internal static partial class Tabletop2024Context
 
     internal static void SwitchFighterIndomitableSaving()
     {
-        UseIndomitableResistance.GuiPresentation.description =
-            Main.Settings.EnableFighterIndomitableSaving2024
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
+        //AttributeModifierFighterIndomitable
+        if (Main.Settings.EnableFighterIndomitableSaving2024)
+        {
+            UseIndomitableResistance.GuiPresentation.description = "Feature/&EnhancedIndomitableResistanceDescription";
+            AttributeModifierFighterIndomitable.GuiPresentation.description =
+                "Feature/&EnhancedIndomitableResistanceDescription";
+        }
+        else
+        {
+            UseIndomitableResistance.GuiPresentation.description = "Feature/&IndomitableResistanceDescription";
+            AttributeModifierFighterIndomitable.GuiPresentation.description =
+                "Feature/&IndomitableResistanceDescription";
+        }
     }
 
     internal static void SwitchFighterStudiedAttacks()

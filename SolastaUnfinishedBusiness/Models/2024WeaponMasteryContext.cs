@@ -599,16 +599,40 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            attacker.SetSpecialFeatureUses(WeaponMasteryGuard, 0);
+            // cleave additional must be ignored
+            if (attackMode.AttackTags.Contains(WeaponMasteryCleave))
+            {
+                yield break;
+            }
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            // nick bonus attack must be ignored
+            if (action.ActionId == Id.AttackOff)
+            {
+                if (rulesetAttacker.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name))
+                {
+                    yield break;
+                }
+
+                if (rulesetAttacker.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionWeaponMasteryNickBonusAttack.Name))
+                {
+                    yield break;
+                }
+            }
+
+            // MAIN
+
+            attacker.SetSpecialFeatureUses(WeaponMasteryGuard, 0);
 
             //
             // Nick
             //
 
-            if (action.ActionType == ActionType.Main &&
+            if (action.ActionId == Id.AttackMain &&
                 (rulesetAttacker.ExecutedBonusAttacks == 0 ||
                  ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
@@ -628,13 +652,12 @@ internal static partial class Tabletop2024Context
             }
 
             //
-            // Cleave - here to only support Tactical Master
+            // Cleave
             //
 
-            if (action.ActionType == ActionType.Main &&
+            if (attacker.OnceInMyTurnIsValid(WeaponMasteryCleave) &&
                 rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Cleave) &&
-                attacker.OnceInMyTurnIsValid(WeaponMasteryCleave))
+                IsWeaponMasteryValid(attacker, attackMode, MasteryProperty.Cleave))
             {
                 yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Cleave);
 
@@ -1100,23 +1123,17 @@ internal static partial class Tabletop2024Context
 
             var target = action.actionParams.TargetCharacters[0];
 
-            var actionAttack = new CharacterActionAttack(
-                new CharacterActionParams(
-                    attacker,
-                    Id.AttackFree,
-                    attackMode,
-                    target,
-                    new ActionModifier()));
+            attacker.MyExecuteActionAttack(Id.AttackFree, target, attackMode, new ActionModifier());
 
-            yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+            yield break;
         }
     }
 
-    private sealed class CustomBehaviorConditionCleave : IModifyWeaponAttackMode, IActionFinishedByMe
+    private sealed class CustomBehaviorConditionCleave : IModifyAttackActionModifier, IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionParams.RulesetEffect?.SourceDefinition.Name == "PowerWeaponMasteryCleave")
+            if (CustomActionIdContext.ExtraActionIdToggles.Contains(action.ActionId))
             {
                 yield break;
             }
@@ -1137,13 +1154,16 @@ internal static partial class Tabletop2024Context
             activeCondition.Amount = 1;
         }
 
-        public void ModifyWeaponAttackMode(
-            RulesetCharacter character,
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
-            RulesetItem weapon,
-            bool canAddAbilityDamageBonus)
+            string effectName, 
+            ref ActionModifier attackModifier)
         {
             if (Main.Settings.UseWeaponMasterySystemAddCleaveDamage ||
+                attackMode == null ||
                 !attackMode.AttackTags.Contains(WeaponMasteryCleave))
             {
                 return;
