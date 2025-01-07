@@ -94,6 +94,19 @@ public static class CharacterActionUsePowerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
+            //PATCH: we get an empty originItem under MP (GRENADIER) (MULTIPLAYER)
+            if (Global.IsMultiplayer &&
+                __instance.activePower.OriginItem == null &&
+                __instance.ActingCharacter.RulesetCharacter is RulesetCharacterHero)
+            {
+                var provider = __instance.activePower.PowerDefinition.GetFirstSubFeatureOfType<PowerPoolDevice>();
+
+                if (provider != null)
+                {
+                    __instance.activePower.originItem = provider.GetDevice(__instance.ActingCharacter.RulesetCharacter);
+                }
+            }
+
             //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
             if (__instance.actionParams.RulesetEffect.OriginItem == null ||
                 __instance.actionParams.RulesetEffect is not RulesetEffectPowerWithAdvancement power)

@@ -111,16 +111,15 @@ internal static class DefensiveStrikeAttack
             var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
             attackMode.Copy(opportunityAttackMode);
-            opportunityAttackMode = attackMode;
 
             //Apply bonus to hit and damage of the attack mode
-            opportunityAttackMode.EffectDescription.FindFirstDamageForm().BonusDamage += bonus;
-            opportunityAttackMode.ToHitBonus += bonus;
-            opportunityAttackMode.ToHitBonusTrends.Add(
+            attackMode.EffectDescription.FindFirstDamageForm().BonusDamage += bonus;
+            attackMode.ToHitBonus += bonus;
+            attackMode.ToHitBonusTrends.Add(
                 new TrendInfo(bonus, FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
             //Execute attack
-            defender.MyExecuteActionAttack(Id.AttackOpportunity, attacker, opportunityAttackMode, actionModifier);
+            defender.MyExecuteActionAttack(Id.AttackOpportunity, attacker, attackMode, actionModifier);
         }
     }
 }

@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>false</DisplayTabletop2024>
+    <DisplayTabletop2024>true</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -18,7 +18,7 @@
     <DisplayItemsToggle>false</DisplayItemsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
-    <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
+    <DisplaySpellsGeneralToggle>true</DisplaySpellsGeneralToggle>
     <DisplaySubClassesGeneralToggle>false</DisplaySubClassesGeneralToggle>
     <DisplayKlassToggle>
         <item>
@@ -240,6 +240,10 @@
     <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
+    <UseWeaponMasterySystem>true</UseWeaponMasterySystem>
+    <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
+    <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -698,17 +702,24 @@
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
     <EnableBarbarianRage2024>true</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
+    <EnableClericBlessedStrikes2024>true</EnableClericBlessedStrikes2024>
     <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
     <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>true</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
+    <EnableDruidArchDruid2024>true</EnableDruidArchDruid2024>
+    <EnableDruidToLearnCircleAtLevel3>true</EnableDruidToLearnCircleAtLevel3>
+    <EnableDruidElementalFury2024>true</EnableDruidElementalFury2024>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
+    <EnableDruidWildResurgence2024>true</EnableDruidWildResurgence2024>
+    <EnableDruidWildshape2024>true</EnableDruidWildshape2024>
     <EnableFighterIndomitableSaving2024>true</EnableFighterIndomitableSaving2024>
     <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalMaster2024>false</EnableFighterTacticalMaster2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
@@ -743,6 +754,7 @@
     <EnableRangerRoving2024>true</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
+    <RemoveRangerPrimevalAwareness2024>true</RemoveRangerPrimevalAwareness2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
     <EnableRogueScimitarSpecialization>true</EnableRogueScimitarSpecialization>
@@ -894,7 +906,6 @@
         <string>FeatMobile</string>
         <string>FeatGroupMediumArmor</string>
         <string>FeatMonkInitiate</string>
-        <string>FeatNaturalFluidity</string>
         <string>FeatGroupOldTactics</string>
         <string>FeatGroupOrcishAggression</string>
         <string>FeatGroupOrcishFury</string>
@@ -921,7 +932,6 @@
         <string>FeatSlayTheEnemies</string>
         <string>FeatSpearMastery</string>
         <string>FeatGroupSpellSniper</string>
-        <string>FeatSpiritualFluidity</string>
         <string>FeatGroupSquatNimbleness</string>
         <string>FeatStealthy</string>
         <string>FeatSuperiorCritical</string>
@@ -935,6 +945,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWeaponMastery</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
@@ -1904,4 +1915,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

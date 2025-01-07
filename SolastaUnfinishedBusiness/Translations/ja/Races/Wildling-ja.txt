@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=エキスパートクライ�
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=あなたは知覚とステルスのスキルに熟達しています。
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=自然な本能
 Race/&RaceWildlingDescription=野人は人間とティーフリングの子孫で、ティーフリングの親の野生的な特徴をほぼ受け継いでいます。外見や性質が異なり、野人はソラスタの森林や人の少ない地域で自給自足の狩猟者や旅行者として人生のほとんどを過ごしてきました。
-Race/&RaceWildlingTitle=野人
+Race/&RaceWildlingTitle=タバックス

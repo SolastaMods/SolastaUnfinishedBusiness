@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>Greater</color> と <color=
 ModUi/&AddCustomIconsToOfficialItems=公式ゲームアイテムにカスタムアイコンを追加します <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルド</color>、<color=#D89555>グレイドワーフ</color>に<color=#D89555>闇知覚</color>を有効にする <i><color=#F0DAA0>\n[照明が消えているときや魔法の暗闇にいるときに知覚判定に有利を与える]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵に DEX 修飾子を追加する <color=#D89555>イニシアティブ ロール</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>ヒューマノイド</color>優先敵を有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color>がクリティカルヒット時にのみスマイトを有効にするようにするトグルを追加します <i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>
 ModUi/&Bestiary=動物図鑑
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪いの付与</color>は、L5以上の呪文スロットで唱える場合、集中力を必要としません。
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>のときに機会攻撃を無効にします
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>または<color=#D89555>透明</color>状態のときは機会攻撃を無効にします
 ModUi/&Blueprints=設計図
 ModUi/&Campaigns=キャンペーン
 ModUi/&Category=カテゴリ
@@ -116,14 +115,21 @@ ModUi/&EnableBetaContent=ベータ版コンテンツを有効にする <b><i><co
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックでキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=呪文で<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動できるようにする
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>On Fire</color> のキャラクターは、<i><color=#F0DAA0>[Cube of Light、Fire Elemental、Fire Jester、Fire Osprey、Fire Spider、および On Fire 状態ファミリー]</color></i> を発するはずです。
+ModUi/&EnableClericBlessedStrikes2024=レベル 7 と 14 で <color=#D89555>祝福された一撃</color> と <color=#D89555>改良された祝福された一撃</color> を有効にします{99><i><color=#F0DAA0>[汚染者、生命、いたずら、自然、鍛冶、太陽、および嵐の領域にのみ影響します]</color></i>
 ModUi/&EnableClericChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnableClericDivineOrder2024=レベル 1 で <color=#D89555>神聖な命令</color> を有効にする <i><color=#F0DAA0>[重装甲/武術武器の熟練度またはボーナス キャントリップといくつかの INT チェックのいずれかを選択]</color></i>
 ModUi/&EnableClericSearUndead2024=レベル 5 で <color=#D89555>アンデッドの焼却</color> を <color=#D89555>アンデッドの破壊</color> と置き換えます
 ModUi/&EnableClericToLearnDomainAtLevel3=<color=#D89555>ドメイン</color>をレベル1ではなくレベル3で有効にする
 ModUi/&EnableCustomPortraits=<color=#D89555>カスタムポートレート</color>を有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタムポートレートを、主人公のファーストネームにちなんで名付けたサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color></b></i> に配置します <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n• 透明レイヤー付きの 256 x 384 ピクセルの PNG 画像を使用します <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用します]</color></i>
+ModUi/&EnableDruidArchDruid2024=<color=#D89555>アーチドルイド</color>を2024年版の<i><color=#F0DAA0>[野生の姿を取り戻す]</color></i>と入れ替える
+ModUi/&EnableDruidElementalFury2024=レベル7と15で<color=#D89555>エレメンタルフューリー</color>と<color=#D89555>エレメンタルフューリー強化</color>を有効にする
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>金属装甲</color>の制限を解除
+ModUi/&EnableDruidPrimalOrder2024=レベル 1 で <color=#D89555>Primal Order</color> を有効にし、<color=#D89555>Medium Armor Proficiency</color> を削除します。
+ModUi/&EnableDruidToLearnCircleAtLevel3=<color=#D89555>Circle</color>をレベル2ではなくレベル3で有効にする
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>シンプル武器</color>の熟練度を有効にします <i><color=#F0DAA0>[個別の武器タイプではなく、シミターの熟練度を失います]</color></i>
+ModUi/&EnableDruidWildResurgence2024=レベル5で<color=#D89555>ワイルドリサージェンス</color>を有効にする
+ModUi/&EnableDruidWildshape2024=<color=#D89555>ワイルドシェイプ</color>を2024バージョンの<i><color=#F0DAA0>[ボーナスアクション、異なる使用法、一時的なヒットポイント]</color></i>と入れ替えます
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にします\n<i><color=#F0DAA0>[フラットな部屋、150x150 および 200x200 のダンジョン サイズ、あらゆる環境からの無駄のない混合アセットを含む]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 戦闘中に高度カメラを有効にすると、無効になった後もその位置に留まり、範囲が 3 倍になります</i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列を有効にします <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -134,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>Indomitable Resistance<
 ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color> を 5e 2024 バージョン <i><color=#F0DAA0>[異なる使用法の進行]</color></i> と入れ替えます
 ModUi/&EnableFighterSkillOptions2024=レベル1のスキルオプションに<color=#D89555>説得</color>を追加します
 ModUi/&EnableFighterStudiedAttacks2024=レベル 13 で <color=#D89555>研究された攻撃</color> を有効にする <i><color=#F0DAA0>[そのラウンドのクリーチャーに対する前回の攻撃が失敗した場合、有利]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=レベル 9 で <color=#D89555>戦術マスター</color> を有効にする <i><color=#F0DAA0>[武器の熟練度プロパティを置き換える]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=レベル 2 と 5 で <color=#D89555>タクティカル マインド</color> と <color=#D89555>タクティカル シフト</color> を有効にします <i><color=#F0DAA0>[セカンド ウィンド シナリオを強化]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=レベル 8 と 16 で <color=#D89555>武器特化</color> を有効にします <i><color=#F0DAA0>[命中とダメージが +1 になりますが、他の武器タイプでは不利になります]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[背景からスキルとツールの熟練度を選択]</color></i>
@@ -406,4 +413,9 @@ ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>食料配給</color>の重量
 ModUi/&UseOfficialObscurementRules=<color=#D89555>照明、遮蔽、視界</color>戦闘ルールを有効にする
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者が視力を持たない場合、個人をターゲットとするすべての遠距離呪文は、視力が必要であると明確に述べられていない呪文を除いて、キャストできません]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>小型種族</color>が重火器を使用する際に不利になるようにする
+ModUi/&UseWeaponMasterySystem=<color=#D89555>武器の熟練度</color>ルールを有効にする
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 斬撃マスタリーは 2 回目の攻撃ダメージに属性スコア修正値を追加します</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ ゲームのすべての武器にマスタリータグを追加</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ ヒーローが装備している武器の特性を知らないときはいつでも、武器習熟/戦術マスターのアクションバーの切り替えを非表示にします</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ プッシュ マスタリーでは、クリーチャーは筋力セーヴィング スロー (DC 8 + 攻撃ロール能力修正値 + 熟練度ボーナス) を実行する必要があります</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

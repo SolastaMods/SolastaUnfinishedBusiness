@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageDomainNatureDivineStrikeDescription=당신은 무기 공격에 신성한 에너지를 주입하는 능력을 얻습니다. 매 턴마다 한 번씩 무기 공격으로 생물을 공격할 때, 공격이 대상에게 무작위로 1d8의 추가 냉기 피해를 입히게 할 수 있습니다. 14레벨에 도달하면 추가 피해가 2d8로 증가합니다.
+Feature/&AdditionalDamageDomainNatureDivineStrikeDescription=당신은 신성한 에너지로 무기 타격을 주입할 수 있는 능력을 얻습니다. 당신의 턴마다 무기 공격으로 생물을 때릴 때, 당신은 공격이 대상에게 추가로 1d8의 냉기, 불, 번개 피해를 입히게 할 수 있습니다. 당신이 14레벨에 도달하면, 추가 피해는 2d8로 증가합니다.
 Feature/&AdditionalDamageDomainNatureDivineStrikeTitle=신성한 일격
 Feature/&FeatureSetDomainNatureAcolyteOfNatureDescription=• 드루이드 주문 목록에서 원하는 캔트립 하나를 배웁니다. 이 캔트립은 당신에게 성직자 캔트립으로 간주되지만, 당신이 알고 있는 성직자 캔트립의 수에는 포함되지 않습니다.\n• 당신은 동물 다루기, 자연, 생존 중 원하는 기술 중 하나에 능숙해집니다.
 Feature/&FeatureSetDomainNatureAcolyteOfNatureTitle=자연의 수행사제

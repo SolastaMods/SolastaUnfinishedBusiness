@@ -270,11 +270,11 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePoisonsBonusAction2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
-            Tabletop2024Context.SwitchSurprisedEnforceDisadvantage();
+            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
+            Tabletop2024Context.SwitchPoisonsBonusAction();
         }
 
         toggle = Main.Settings.EnablePotionsBonusAction2024;
@@ -284,11 +284,45 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchPotionsBonusAction();
         }
 
-        toggle = Main.Settings.EnablePoisonsBonusAction2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePoisonsBonusAction2024"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSurprisedToEnforceDisadvantage;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSurprisedToEnforceDisadvantage"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnablePoisonsBonusAction2024 = toggle;
-            Tabletop2024Context.SwitchPoisonsBonusAction();
+            Main.Settings.EnableSurprisedToEnforceDisadvantage = toggle;
+            Tabletop2024Context.SwitchSurprisedEnforceDisadvantage();
+        }
+
+        toggle = Main.Settings.UseWeaponMasterySystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseWeaponMasterySystem = toggle;
+            Tabletop2024Context.SwitchWeaponMastery();
+        }
+
+        if (Main.Settings.UseWeaponMasterySystem)
+        {
+            toggle = Main.Settings.UseWeaponMasterySystemAddWeaponTag;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddWeaponTag"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddWeaponTag = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemAddCleaveDamage;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddCleaveDamage"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemPushSave;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemPushSave = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemHideToggles;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemHideToggles"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemHideToggles = toggle;
+            }
         }
 
         UI.Label();
@@ -401,6 +435,15 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableClericBlessedStrikes2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericBlessedStrikes2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericBlessedStrikes2024 = toggle;
+            Tabletop2024Context.SwitchClericBlessedStrikes();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.EnableClericDivineOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
         {
@@ -442,12 +485,27 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableDruidToLearnCircleAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidToLearnCircleAtLevel3"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidToLearnCircleAtLevel3 = toggle;
+            Tabletop2024Context.SwitchDruidCircleLearningLevel();
+        }
+
+        toggle = Main.Settings.EnableDruidElementalFury2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidElementalFury2024"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidElementalFury2024 = toggle;
+            Tabletop2024Context.SwitchDruidElementalFury();
+        }
+
         toggle = Main.Settings.EnableDruidPrimalOrder2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidPrimalOrder2024"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.EnableDruidPrimalOrder2024 = toggle;
-            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Tabletop2024Context.SwitchDruidPrimalOrder();
         }
 
         toggle = Main.Settings.EnableDruidWeaponProficiency2024;
@@ -457,11 +515,32 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchDruidWeaponProficiency();
         }
 
+        toggle = Main.Settings.EnableDruidWildResurgence2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildResurgence2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildResurgence2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildResurgence();
+        }
+
         toggle = Main.Settings.EnableDruidMetalArmor2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableDruidMetalArmor2024 = toggle;
             Tabletop2024Context.SwitchDruidMetalArmor();
+        }
+
+        toggle = Main.Settings.EnableDruidArchDruid2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidArchDruid2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidArchDruid2024 = toggle;
+            Tabletop2024Context.SwitchDruidArchDruid();
+        }
+
+        toggle = Main.Settings.EnableDruidWildshape2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildshape2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildshape2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildshape();
         }
 
         UI.Label();
@@ -480,6 +559,13 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableFighterStudiedAttacks2024 = toggle;
             Tabletop2024Context.SwitchFighterStudiedAttacks();
+        }
+
+        toggle = Main.Settings.EnableFighterTacticalMaster2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalMaster2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterTacticalMaster2024 = toggle;
+            Tabletop2024Context.SwitchFighterTacticalMaster();
         }
 
         toggle = Main.Settings.EnableFighterTacticalProgression2024;

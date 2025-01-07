@@ -121,8 +121,17 @@ internal static class CampaignsContext
 
     internal static IEnumerator SelectPosition(CharacterAction action, FeatureDefinitionPower power)
     {
-        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var character = action.ActingCharacter;
+
+        // disable this feature in MP as we cannot offer selections during power execution
+        if (Global.IsMultiplayer)
+        {
+            action.actionParams.Positions.SetRange(character.LocationPosition);
+
+            yield break;
+        }
+
+        var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = character.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
         var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost)

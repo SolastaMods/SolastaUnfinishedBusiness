@@ -395,9 +395,8 @@ public static class GameLocationCharacterPatcher
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
             //PATCH: support for custom invocation action ids
-            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope,
-                actionTypeStatus,
-                ignoreMovePoints);
+            CustomActionIdContext.ProcessCustomActionIds(
+                __instance, ref __result, actionId, scope, actionTypeStatus, ignoreMovePoints);
 
             ActionSwitching.CheckSpellcastingAvailability(__instance, actionId, scope, ref __result);
 
@@ -407,23 +406,25 @@ public static class GameLocationCharacterPatcher
             //PATCH: support `EnableMonkFocus2024`
             if (Main.Settings.EnableMonkFocus2024 &&
                 __result == ActionStatus.CannotPerform &&
+                flurryOfBlowActions.Contains(actionId) &&
                 (rulesetCharacter.RemainingKiPoints > 0 ||
                  rulesetCharacter.HasConditionOfType(WayOfShadow.ConditionCloakOfShadowsName)) &&
                 __instance.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available)
             {
-                foreach (var flurryOfBlowAction in flurryOfBlowActions)
-                {
-                    if (actionId == flurryOfBlowAction &&
-                        (!__instance.ActionPerformancesByType.TryGetValue(
-                             ActionType.Bonus, out var actionPerformanceFilters) ||
-                         actionPerformanceFilters.All(x => x.ForbiddenActions.All(y => y != flurryOfBlowAction))))
-                    {
-                        __result = ActionStatus.Available;
-                    }
-                }
+                __result = ActionStatus.Available;
+            }
+
+            //PATCH: support forbidden flurry actions
+            if (__result == ActionStatus.Available &&
+                flurryOfBlowActions.Contains(actionId) && __instance.ActionPerformancesByType.TryGetValue(
+                    ActionType.Bonus, out var actionPerformanceFilters) &&
+                actionPerformanceFilters.Any(x => x.ForbiddenActions.Any(y => y == actionId)))
+            {
+                __result = ActionStatus.CannotPerform;
             }
 
             //PATCH: support Swift Quiver spell interaction with Flurry of Blows
+            //TODO: this sounds fishy. rethink how to do it
             if (__result == ActionStatus.Available &&
                 flurryOfBlowActions.Contains(actionId) &&
                 __instance.UsedSpecialFeatures.ContainsKey(SpellBuilders.SwiftQuiverAttackTag))

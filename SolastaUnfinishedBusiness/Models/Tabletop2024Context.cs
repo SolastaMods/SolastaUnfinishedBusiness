@@ -26,10 +26,15 @@ internal static partial class Tabletop2024Context
         LoadBarbarianInstinctivePounce();
         LoadBarbarianPersistentRage();
         LoadBardCounterCharm();
+        LoadClericBlessedStrikes();
         LoadClericChannelDivinity();
         LoadClericSearUndead();
+        LoadDruidArchDruid();
+        LoadDruidElementalFury();
+        LoadDruidWildshape();
         LoadFighterSecondWind();
         LoadFighterStudiedAttacks();
+        LoadFighterTacticalMaster();
         LoadFighterTacticalProgression();
         LoadMonkStunningStrike();
         LoadOneDndSpellGuidanceSubspells();
@@ -39,6 +44,7 @@ internal static partial class Tabletop2024Context
         LoadRogueCunningStrike();
         LoadSorcererSorcerousRestoration();
         LoadWizardMemorizeSpell();
+        LoadWeaponMastery();
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianInstinctivePounce();
         SwitchBarbarianPersistentRage();
@@ -52,17 +58,24 @@ internal static partial class Tabletop2024Context
         SwitchBardSongOfRest();
         SwitchBardSuperiorInspiration();
         SwitchBardWordsOfCreation();
+        SwitchClericBlessedStrikes();
         SwitchClericChannelDivinity();
         SwitchClericDivineOrder();
         SwitchClericDomainLearningLevel();
         SwitchClericSearUndead();
+        SwitchDruidArchDruid();
+        SwitchDruidCircleLearningLevel();
+        SwitchDruidElementalFury();
         SwitchDruidMetalArmor();
-        SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+        SwitchDruidPrimalOrder();
         SwitchDruidWeaponProficiency();
+        SwitchDruidWildResurgence();
+        SwitchDruidWildshape();
         SwitchFighterIndomitableSaving();
         SwitchFighterSecondWind();
         SwitchFighterSkillOptions();
         SwitchFighterStudiedAttacks();
+        SwitchFighterTacticalMaster();
         SwitchFighterTacticalProgression();
         SwitchMonkBodyAndMind();
         SwitchMonkDeflectAttacks();
@@ -124,6 +137,7 @@ internal static partial class Tabletop2024Context
         SwitchWizardMemorizeSpell();
         SwitchWizardScholar();
         SwitchWizardSchoolOfMagicLearningLevel();
+        SwitchWeaponMastery();
     }
 
     internal static void SwitchSurprisedEnforceDisadvantage()

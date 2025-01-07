@@ -92,6 +92,11 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableUnlimitedInventoryActions { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
+    public bool UseWeaponMasterySystem { get; set; }
+    public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
+    public bool UseWeaponMasterySystemAddCleaveDamage { get; set; }
+    public bool UseWeaponMasterySystemPushSave { get; set; }
+    public bool UseWeaponMasterySystemHideToggles { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
@@ -285,17 +290,24 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianReckless2024 { get; set; }
     public bool EnableBarbarianRage2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
+    public bool EnableClericBlessedStrikes2024 { get; set; }
     public bool EnableClericChannelDivinity2024 { get; set; }
     public bool EnableClericDivineOrder2024 { get; set; }
     public bool EnableClericSearUndead2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
+    public bool EnableDruidArchDruid2024 { get; set; }
+    public bool EnableDruidToLearnCircleAtLevel3 { get; set; }
+    public bool EnableDruidElementalFury2024 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }
     public bool EnableDruidWeaponProficiency2024 { get; set; }
+    public bool EnableDruidWildResurgence2024 { get; set; }
+    public bool EnableDruidWildshape2024 { get; set; }
     public bool EnableFighterIndomitableSaving2024 { get; set; }
     public bool EnableFighterSkillOptions2024 { get; set; }
     public bool EnableFighterSecondWind2024 { get; set; }
     public bool EnableFighterStudiedAttacks2024 { get; set; }
+    public bool EnableFighterTacticalMaster2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }

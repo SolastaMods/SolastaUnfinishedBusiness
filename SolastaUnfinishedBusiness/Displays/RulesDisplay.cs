@@ -150,6 +150,40 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
         }
 
+        toggle = Main.Settings.UseWeaponMasterySystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseWeaponMasterySystem = toggle;
+            Tabletop2024Context.SwitchWeaponMastery();
+        }
+
+        if (Main.Settings.UseWeaponMasterySystem)
+        {
+            toggle = Main.Settings.UseWeaponMasterySystemAddWeaponTag;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddWeaponTag"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddWeaponTag = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemAddCleaveDamage;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemAddCleaveDamage"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemPushSave;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemPushSave = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemHideToggles;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemHideToggles"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemHideToggles = toggle;
+            }
+        }
+
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {

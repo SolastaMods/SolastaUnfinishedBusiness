@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -25,15 +26,60 @@ public sealed class WayOfShadow : AbstractSubclass
 
     internal const string ConditionCloakOfShadowsName = $"Condition{Name}CloakOfShadows";
 
+    private const string ConditionDarknessMoveProhibit = $"Condition{Name}DarknessMoveProhibit";
+
+    internal static readonly EffectProxyDefinition EffectProxyDarkness = EffectProxyDefinitionBuilder
+        .Create(EffectProxyDefinitions.ProxyDarkness, $"Proxy{Name}Darkness")
+        .SetPortrait(Darkness.GuiPresentation.SpriteReference)
+        .SetActionId(ExtraActionId.ProxyDarkness)
+        .SetCanMove()
+        .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
+        .AddToDB();
+
+    internal static readonly SpellDefinition SpellDarkness = SpellDefinitionBuilder
+        .Create(Darkness, $"Spell{Name}Darkness")
+        .SetMaterialComponent(MaterialComponentType.None)
+        .AddToDB();
+
     public WayOfShadow()
     {
         var validateIsNotInBrightLight = new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight);
 
         // LEVEL 03 - Shadow Arts
 
+        var conditionDarknessMoveTracker = ConditionDefinitionBuilder
+            .Create($"Condition{Name}DarknessMoveTracker")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new ActionFinishedByMeProxyDarkness())
+            .AddToDB();
+
+        var conditionDarknessMoveProhibit = ConditionDefinitionBuilder
+            .Create(ConditionDarknessMoveProhibit)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}DarknessMoveProhibit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions((Id)ExtraActionId.ProxyDarkness)
+                    .AddToDB())
+            .AddToDB();
+
+        var spellDarknessForms = SpellDarkness.EffectDescription.EffectForms;
+
+        spellDarknessForms[0].SummonForm.effectProxyDefinitionName = EffectProxyDarkness.Name;
+
+        spellDarknessForms.AddRange(
+            EffectFormBuilder.ConditionForm(conditionDarknessMoveTracker, ConditionForm.ConditionOperation.Add, true,
+                true),
+            EffectFormBuilder.ConditionForm(conditionDarknessMoveProhibit, ConditionForm.ConditionOperation.Add, true,
+                true));
+
         var powerDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
-            .SetGuiPresentation(Darkness.GuiPresentation)
+            .SetGuiPresentation(SpellDarkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -42,7 +88,7 @@ public sealed class WayOfShadow : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
                     .SetEffectForms()
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness(SpellDarkness))
             .AddToDB();
 
         var featureSetShadowArts = FeatureDefinitionFeatureSetBuilder
@@ -133,6 +179,8 @@ public sealed class WayOfShadow : AbstractSubclass
             .AddCustomSubFeatures(new CustomBehaviorCloakOfShadows())
             .AddToDB();
 
+        conditionCloakOfShadows.GuiPresentation.spriteReference =
+            ConditionDefinitions.ConditionStealthy.GuiPresentation.SpriteReference;
         conditionCloakOfShadows.SpecialInterruptions.Clear();
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
@@ -175,13 +223,42 @@ public sealed class WayOfShadow : AbstractSubclass
     // Shadow Arts
     //
 
-    private sealed class PowerOrSpellFinishedByMeDarkness : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDarkness(SpellDefinition spellDarkness) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            action.ActingCharacter.MyExecuteActionCastNoCost(Darkness, 0, action.ActionParams);
+            action.ActingCharacter.MyExecuteActionCastNoCost(spellDarkness, 0, action.ActionParams);
 
             yield break;
+        }
+    }
+
+    private sealed class ActionFinishedByMeProxyDarkness : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is RulesetCharacterEffectProxy ||
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionDarknessMoveProhibit))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.InflictCondition(
+                ConditionDarknessMoveProhibit,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionDarknessMoveProhibit,
+                0,
+                0,
+                0);
         }
     }
 
@@ -210,7 +287,7 @@ public sealed class WayOfShadow : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle != null ||
-                action is not CharacterActionMove ||
+                action is not CharacterActionMoveStepBase ||
                 actingCharacter.MovingToDestination ||
                 ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
                 !rulesetCharacter.TryGetConditionOfCategoryAndType(
@@ -226,12 +303,14 @@ public sealed class WayOfShadow : AbstractSubclass
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
+            if (ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionCloakOfShadowsName, out var actionCondition))
             {
-                rulesetCharacter.RemoveCondition(actionCondition);
+                return;
             }
+
+            rulesetCharacter.RemoveCondition(actionCondition);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(

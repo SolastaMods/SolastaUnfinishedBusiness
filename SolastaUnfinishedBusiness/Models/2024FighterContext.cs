@@ -4,9 +4,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -64,6 +66,34 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new PhysicalAttackFinishedByMeStudiedAttacks())
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerFighterTacticalMasterPool = FeatureDefinitionPowerBuilder
+        .Create("PowerFighterTacticalMasterPool")
+        .SetGuiPresentationNoContent(true)
+        .SetShowCasting(false)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetFighterTacticalMaster =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetFighterTacticalMaster")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
+                PowerFighterTacticalMasterPool,
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityFighterTacticalMaster")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAuthorizedActions((Id)ExtraActionId.TacticalMasterToggle)
+                    .AddCustomSubFeatures(new ValidateDefinitionApplication(
+                        ShouldDisplayWeaponMasteryToggle,
+                        c => !c.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle)))
+                    .AddToDB())
+            .AddToDB();
+
     private static void LoadFighterSecondWind()
     {
         PowerFighterSecondWind.AddCustomSubFeatures(
@@ -99,12 +129,46 @@ internal static partial class Tabletop2024Context
             new PowerOrSpellInitiatedByMeSecondWind(powerFighterSecondWindTargeting));
     }
 
+    private static void LoadFighterTacticalMaster()
+    {
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var mastery in new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow })
+        {
+            var powerTacticalMasterChoice = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerFighterTacticalMaster{mastery}")
+                .SetGuiPresentation($"FeatureWeaponMastery{mastery}", Category.Feature)
+                .SetShowCasting(false)
+                .SetSharedPool(ActivationTime.NoCost, PowerFighterTacticalMasterPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .Build())
+                .AddToDB();
+
+            powerTacticalMasterChoice.GuiPresentation.hidden = true;
+            powers.Add(powerTacticalMasterChoice);
+        }
+
+        PowerBundle.RegisterPowerBundle(PowerFighterTacticalMasterPool, false, powers);
+    }
+
     internal static void SwitchFighterIndomitableSaving()
     {
-        UseIndomitableResistance.GuiPresentation.description =
-            Main.Settings.EnableFighterIndomitableSaving2024
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
+        //AttributeModifierFighterIndomitable
+        if (Main.Settings.EnableFighterIndomitableSaving2024)
+        {
+            UseIndomitableResistance.GuiPresentation.description = "Feature/&EnhancedIndomitableResistanceDescription";
+            AttributeModifierFighterIndomitable.GuiPresentation.description =
+                "Feature/&EnhancedIndomitableResistanceDescription";
+        }
+        else
+        {
+            UseIndomitableResistance.GuiPresentation.description = "Feature/&IndomitableResistanceDescription";
+            AttributeModifierFighterIndomitable.GuiPresentation.description =
+                "Feature/&IndomitableResistanceDescription";
+        }
     }
 
     internal static void SwitchFighterStudiedAttacks()
@@ -114,6 +178,18 @@ internal static partial class Tabletop2024Context
         if (Main.Settings.EnableFighterStudiedAttacks2024)
         {
             Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureFighterStudiedAttacks, 13));
+        }
+
+        Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchFighterTacticalMaster()
+    {
+        Fighter.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FeatureSetFighterTacticalMaster);
+
+        if (Main.Settings.EnableFighterTacticalMaster2024)
+        {
+            Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetFighterTacticalMaster, 9));
         }
 
         Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);

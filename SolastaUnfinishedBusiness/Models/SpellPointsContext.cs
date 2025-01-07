@@ -91,6 +91,13 @@ internal static class SpellPointsContext
         }
     }
 
+    internal static bool CanCastSpellOfLevel(RulesetCharacter rulesetCharacter, int level)
+    {
+        var remaining = GetRemainingSpellPoints(rulesetCharacter);
+
+        return remaining >= SpellCostByLevel[level];
+    }
+
     private static int GetMaxSpellPoints(RulesetCharacter rulesetCharacter)
     {
         var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);

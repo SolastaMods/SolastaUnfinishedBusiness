@@ -36,7 +36,7 @@ If you make an attack roll for a spell and miss, you can spend 2 sorcerer points
 
 # 10. - Shared Spell [UB]
 
-When you cast a spell targeting yourself you can spend 1 sorcery point to instead affect an ally within 30 ft. Or you can spend 3 sorcery points to affect both yourself and ally in 30ft.
+When you cast a spell targeting yourself you can spend 1 sorcery point to instead affect an ally within 30ft. Or you can spend 3 sorcery points to affect both yourself and ally in 30ft.
 
 # 11. - Subtle Spell [SOL]
 

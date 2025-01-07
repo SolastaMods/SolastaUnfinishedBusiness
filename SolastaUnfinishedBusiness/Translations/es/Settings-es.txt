@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Añade íconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilita <color=#D89555>Percepción de la oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Kóbold oscuro</color> y <color=#D89555>Enano gris</color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Añade el modificador DEX a los enemigos <color=#D89555>Tiro de iniciativa</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Habilita <color=#D89555>Orden primigenia</color> en el nivel 1 y elimina <color=#D89555>Competencia en armadura media</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar enemigos preferidos <color=#D89555>humanoides</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Añade nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[vendas de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregar un interruptor para permitir que los <color=#D89555>Paladines</color> solo habiliten golpes críticos. <i><color=#F0DAA0>[útil para minimizar las solicitudes de reacción]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Antecedentes y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color> o <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría
@@ -116,14 +115,21 @@ ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requie
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar acciones de cancelación con clic derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Permitir que los trucos activen un ataque adicional adicional de <color=#D89555>Magia de guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes <color=#D89555>On Fire</color> deben emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y familia de condición en llamas]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=Habilita <color=#D89555>Golpes benditos</color> y <color=#D89555>Golpes benditos mejorados</color> en los niveles 7 y 14\n<i><color=#F0DAA0>[solo afecta a los dominios Desecrador, Vida, Travesura, Naturaleza, Herrero, Sol y Tempestad]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Intercambia <color=#D89555>Divinidad canalizada</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnableClericDivineOrder2024=Habilita <color=#D89555>Orden Divina</color> en el nivel 1 <i><color=#F0DAA0>[elección entre armadura pesada/armas marciales, truco profesional o adicional y algunas pruebas de INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Habilita <color=#D89555>Quemar no muertos</color> para reemplazar <color=#D89555>Destruir no muertos</color> en el nivel 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Habilitar <color=#D89555>Dominio</color> en el nivel 3 en lugar del 1
 ModUi/&EnableCustomPortraits=Habilitar <color=#D89555>Retratos personalizados</color>
 ModUi/&EnableCustomPortraitsHelp=• Coloca tus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, nombradas como el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Usa imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[usa GIMP para obtener mejores resultados]</color></i>
+ModUi/&EnableDruidArchDruid2024=Intercambia a <color=#D89555>Archidruida</color> con la versión 2024 <i><color=#F0DAA0>[recupera la forma salvaje]</color></i>
+ModUi/&EnableDruidElementalFury2024=Habilita <color=#D89555>Furia elemental</color> y <color=#D89555>Furia elemental mejorada</color> en los niveles 7 y 15
 ModUi/&EnableDruidMetalArmor2024=Eliminar las restricciones de <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidPrimalOrder2024=Habilita <color=#D89555>Orden primigenia</color> en el nivel 1 y elimina <color=#D89555>Competencia en armadura media</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=Habilitar <color=#D89555>Círculo</color> en el nivel 3 en lugar del 2
 ModUi/&EnableDruidWeaponProficiency2024=Habilita la competencia en <color=#D89555>Armas simples</color> <i><color=#F0DAA0>[en lugar de tipos de armas individuales pero pierdes la competencia en Cimitarra]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Habilita <color=#D89555>Resurgimiento salvaje</color> en el nivel 5
+ModUi/&EnableDruidWildshape2024=Intercambia <color=#D89555>Forma salvaje</color> con la versión 2024 <i><color=#F0DAA0>[acción adicional, usos diferentes y puntos de vida temporales]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilitar Dungeon Maker Pro\n<i><color=#F0DAA0>[incluye habitaciones planas, tamaños de mazmorras de 150x150 y 200x200 y sin lujos que combinen recursos de todos los entornos]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Habilita la cámara de elevación durante la batalla para que permanezca en la posición después de deshabilitarla y triplicar su alcance</i>
 ModUi/&EnableEpicPointsAndArray=Habilitar un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -134,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Intercambia <color=#D89555>Resistencia
 ModUi/&EnableFighterSecondWind2024=Intercambia <color=#D89555>Second Wind</color> con la versión 5e 2024 <i><color=#F0DAA0>[progresión de usos diferentes]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Añade <color=#D89555>Persuasión</color> a las opciones de habilidad en el nivel 1
 ModUi/&EnableFighterStudiedAttacks2024=Habilita <color=#D89555>Ataques estudiados</color> en el nivel 13 <i><color=#F0DAA0>[ventaja si el ataque anterior en la ronda contra la criatura falló]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Habilitar <color=#D89555>Maestro táctico</color> en el nivel 9 <i><color=#F0DAA0>[reemplazar propiedad de maestría de armas]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Habilita <color=#D89555>Mente táctica</color> y <color=#D89555>Cambio táctico</color> en los niveles 2 y 5 <i><color=#F0DAA0>[escenarios de aumento de segundo aliento]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Habilita la <color=#D89555>Especialización en armas</color> en los niveles 8 y 16 <i><color=#F0DAA0>[obtienes +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar fondos flexibles <i><color=#F0DAA0>[seleccionar habilidades y competencias de herramientas de los fondos]</color></i>
@@ -406,4 +413,9 @@ ModUi/&UseOfficialFoodRationsWeight=Habilitar <color=#D89555>ración de alimento
 ModUi/&UseOfficialObscurementRules=Habilitar las reglas de combate de <color=#D89555>iluminación, oscurecimiento y visión</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV, y el atacante que no percibe al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen condición de ceguera, donde las tiradas de ataque contra la criatura tienen ADV, y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista, excepto los que claramente no indican que se requiere vista]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Permitir que las <color=#D89555>razas pequeñas</color> tengan desventaja al manejar armas pesadas
+ModUi/&UseWeaponMasterySystem=Habilitar las reglas de <color=#D89555>Maestría en armas</color>
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Maestría en hendidura: añade un modificador de puntuación de atributo al daño del segundo ataque</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Añadir etiqueta de maestría a todas las armas del juego</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Ocultar la barra de acción Maestría en armas / Maestro táctico se activa cuando el héroe no conoce la propiedad del arma que maneja</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ La maestría de empuje requiere que la criatura realice una tirada de salvación de Fuerza (CD 8 + modificador de característica de tirada de ataque + Bonificación por Competencia)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero</color>:</color><99}<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>

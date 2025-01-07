@@ -28,7 +28,7 @@ You can cast Dreadful Omen once using a warlock spell slot - but without spendin
 
 # 8. - *Bond of The Talisman* © [UB]
 
-You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
+You can use Bonus Action to teleport up to 30ft away to an unoccupied space you can see.
 
 # 9. - Book of Ancient Secrets [SOL]
 
@@ -136,7 +136,7 @@ When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 
 # 35. - *Grasp of Hadar* © [UB]
 
-When you hit a creature with Eldritch Blast, you can pull the creature up to 10 ft towards you in a straight line.
+When you hit a creature with Eldritch Blast, you can pull the creature up to 10ft towards you in a straight line.
 
 # 36. - *Improved Pact Weapon* © [UB]
 
@@ -144,7 +144,7 @@ Your weapon gains a +1 bonus to its attack and damage rolls.
 
 # 37. - *Lance of Lethargy* © [UB]
 
-When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 ft until the end of your next turn.
+When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10ft until the end of your next turn.
 
 # 38. - Lifedrinker [SOL]
 

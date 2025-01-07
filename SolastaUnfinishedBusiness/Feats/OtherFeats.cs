@@ -79,6 +79,7 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
+        var weaponMasteryGroup = BuildWeaponMastery(feats);
 
         var featMerciless = BuildMerciless();
         var featPolearmExpert = BuildPolearmExpert();
@@ -163,7 +164,8 @@ internal static class OtherFeats
             featRopeIpUp,
             featSentinel,
             giftOfTheGemDragonGroup,
-            weaponMasterGroup);
+            weaponMasterGroup,
+            weaponMasteryGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             FeatPoisonousSkin);
@@ -538,6 +540,34 @@ internal static class OtherFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
+    }
+
+    #endregion
+
+    #region Weapon Mastery
+
+    private static FeatDefinition BuildWeaponMastery(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatWeaponMastery";
+
+        var weaponMasterStr = FeatDefinitionBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var weaponMasterDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(weaponMasterStr, weaponMasterDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupWeaponMastery", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion
@@ -3060,17 +3090,17 @@ internal static class OtherFeats
         const string NAME = "FeatSpellSniper";
 
         var spellSniperFeats = new List<FeatDefinition>();
-        var castSpells = new List<FeatureDefinitionCastSpell>
+        var castSpells = new List<(FeatureDefinitionCastSpell, ClassHolder)>
         {
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard,
-            InventorClass.SpellCasting
+            (CastSpellDruid, ClassHolder.Druid),
+            (CastSpellSorcerer, ClassHolder.Sorcerer),
+            (CastSpellWarlock, ClassHolder.Warlock),
+            (CastSpellWizard, ClassHolder.Wizard),
+            (InventorClass.SpellCasting, ClassHolder.Inventor)
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var castSpell in castSpells)
+        foreach (var (castSpell, classHolder) in castSpells)
         {
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
@@ -3088,7 +3118,6 @@ internal static class OtherFeats
             var className = castSpell.SpellListDefinition.Name.Replace("SpellList", "");
             var classDefinition = GetDefinition<CharacterClassDefinition>(className);
             var classTitle = classDefinition.FormatTitle();
-
             var spellList = SpellListDefinitionBuilder
                 .Create($"SpellList{NAME}{className}")
                 .SetGuiPresentationNoContent(true)
@@ -3096,7 +3125,24 @@ internal static class OtherFeats
                 .SetSpellsAtLevel(0, spellSniperSpells)
                 .FinalizeSpells()
                 .AddToDB();
-
+            var featureDefinitionCastSpell = FeatureDefinitionCastSpellBuilder
+                .Create(castSpell, $"CastSpell{NAME}{className}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feature/&CastSpell{NAME}Title", classTitle),
+                    Gui.Format($"Feat/&{NAME}Description", classTitle))
+                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+                .SetSpellKnowledge(SpellKnowledge.Selection)
+                .SetSpellReadyness(SpellReadyness.AllKnown)
+                .SetSlotsRecharge(RechargeRate.LongRest)
+                .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
+                .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                .SetReplacedSpells(1, 0)
+                .SetUniqueLevelSlots(false)
+                .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatSpellSniperTag))
+                .SetSpellList(spellList)
+                .AddCustomSubFeatures(classHolder)
+                .AddToDB();
             var title = Gui.Format($"Feat/&{NAME}Title", classTitle);
             var featSpellSniper = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
@@ -3111,23 +3157,7 @@ internal static class OtherFeats
                                 mode.EffectDescription.RangeType == RangeType.RangeHit)))
                         .SetIgnoreCover()
                         .AddToDB(),
-                    FeatureDefinitionCastSpellBuilder
-                        .Create(castSpell, $"CastSpell{NAME}{className}")
-                        .SetGuiPresentation(
-                            Gui.Format($"Feature/&CastSpell{NAME}Title", classTitle),
-                            Gui.Format($"Feat/&{NAME}Description", classTitle))
-                        .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-                        .SetSpellKnowledge(SpellKnowledge.Selection)
-                        .SetSpellReadyness(SpellReadyness.AllKnown)
-                        .SetSlotsRecharge(RechargeRate.LongRest)
-                        .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
-                        .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-                        .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-                        .SetReplacedSpells(1, 0)
-                        .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatSpellSniperTag))
-                        .SetSpellList(spellList)
-                        .AddToDB(),
+                    featureDefinitionCastSpell,
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
                         .SetGuiPresentationNoContent(true)

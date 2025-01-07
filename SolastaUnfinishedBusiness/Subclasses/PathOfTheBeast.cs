@@ -338,16 +338,10 @@ public sealed class PathOfTheBeast : AbstractSubclass
             void ReactionValidated()
             {
                 attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
-
-                var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-                attackModeCopy.Copy(attackMode);
-                attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
                 attacker.MyExecuteActionAttack(
                     ActionDefinitions.Id.AttackFree,
                     defender,
-                    attackModeCopy,
+                    attackMode,
                     new ActionModifier());
             }
         }
@@ -767,24 +761,18 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var attacker = targetCharacters[0];
             var defender = targetCharacters[1];
 
-            // issue ally's attack
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            var attackModifier = new ActionModifier();
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, condition.name);
 
+            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackOpportunity, defender, attackModeCopy, attackModifier);
+                ActionDefinitions.Id.AttackOpportunity,
+                defender,
+                attackMode,
+                new ActionModifier());
+
+            yield break;
         }
 
         private static bool IsValidAttack(

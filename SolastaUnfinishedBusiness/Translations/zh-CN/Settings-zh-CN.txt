@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>出血</color>状况添�
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color> <i><color=#F0DAA0>\n[在无光或在魔法黑暗下时在感知检查上获得优势]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加 DEX 修正值<color=#D89555>主动掷骰</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=在 1 级启用<color=#D89555>原始秩序</color>并移除<color=#D89555>中等护甲熟练度</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>人形</color>首选敌人<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=在商店中添加新武器和配方<i><color=#F0DAA0>[手套、戟、长矛、长锤、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用惩击<i><color=#F0DAA0>[有助于最大限度地减少反应提示]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景与种族
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=动物寓言集
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术位施放<color=#D89555>施放诅咒</color>时不需要集中注意力
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=当<color=#D89555>失明</color>时，无法进行借机攻击
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=在<color=#D89555>失明</color>或<color=#D89555>隐形</color>时不会启用借机攻击
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=活动
 ModUi/&Category=类别
@@ -116,14 +115,21 @@ ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重�
 ModUi/&EnableCancelEditOnRightMouseClick=通过鼠标右键单击启用取消操作
 ModUi/&EnableCantripsTriggeringOnWarMagic=允许戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>着火</color>的角色应该发光<i><color=#F0DAA0>[光之立方体、火元素、火小丑、火鱼鹰、火蜘蛛和着火状态家族]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=在 7 级和 14 级时启用<color=#D89555>祝福打击</color>和<color=#D89555>强化祝福打击</color>{99><i><color=#F0DAA0>[仅影响领域污染者、生命、恶作剧、自然、铁匠、太阳和暴风雨]</color></i>
 ModUi/&EnableClericChannelDivinity2024=将 <color=#D89555>Channel Divinity</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnableClericDivineOrder2024=在 1 级启用<color=#D89555>神圣秩序</color> <i><color=#F0DAA0>[在重型盔甲/军用武器专业或奖励戏法和一些 INT 检查之间进行选择]</color></i>
 ModUi/&EnableClericSearUndead2024=在 5 级时启用 <color=#D89555>Sear Undead</color> 来替代 <color=#D89555>Destroy Undead</color>
 ModUi/&EnableClericToLearnDomainAtLevel3=在级别 3 而不是 1 启用 <color=#D89555>域</color>
 ModUi/&EnableCustomPortraits=启用<color=#D89555>自定义肖像</color>
 ModUi/&EnableCustomPortraitsHelp=• 将自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i> 下，并以英雄名字命名<i><color=#F0DAA0>[例如：Anton、Celia、Nialla 等]</color></i>\n• 使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 可获得最佳效果]</color></i>
+ModUi/&EnableDruidArchDruid2024=将<color=#D89555>大德鲁伊</color>与 2024 版交换<i><color=#F0DAA0>[恢复野性变身]</color></i>
+ModUi/&EnableDruidElementalFury2024=在 7 级和 15 级时启用<color=#D89555>元素之怒</color>和<color=#D89555>强化元素之怒</color>
 ModUi/&EnableDruidMetalArmor2024=删除<color=#D89555>金属装甲</color>限制
+ModUi/&EnableDruidPrimalOrder2024=在 1 级启用<color=#D89555>原始秩序</color>并移除<color=#D89555>中等护甲熟练度</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=在级别 3 而不是 2 处启用 <color=#D89555>Circle</color>
 ModUi/&EnableDruidWeaponProficiency2024=启用<color=#D89555>简单武器</color>熟练度<i><color=#F0DAA0>[而不是单个武器类型，但你会失去弯刀熟练度]</color></i>
+ModUi/&EnableDruidWildResurgence2024=在第 5 级启用<color=#D89555>狂野复苏</color>
+ModUi/&EnableDruidWildshape2024=将<color=#D89555>野性变身</color>与 2024 版交换<i><color=#F0DAA0>[奖励行动、不同用途和临时生命值]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro\n<i><color=#F0DAA0>[包括平面房间、150x150 和 200x200 地牢大小，以及来自所有环境的简洁混合资产]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 战斗中启用仰角相机，禁用后可保持在原位，且范围增加三倍</i>
 ModUi/&EnableEpicPointsAndArray=启用史诗 35 点购买系统和阵列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -134,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=将<color=#D89555>Indomitable Resistan
 ModUi/&EnableFighterSecondWind2024=将 <color=#D89555>Second Wind</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法进展]</color></i>
 ModUi/&EnableFighterSkillOptions2024=将<color=#D89555>说服</color>添加到 1 级技能选项中
 ModUi/&EnableFighterStudiedAttacks2024=在 13 级时启用<color=#D89555>学习攻击</color> <i><color=#F0DAA0>[如果本轮中对生物的上一次攻击失败则获得优势]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=在 9 级时启用<color=#D89555>战术大师</color> <i><color=#F0DAA0>[替换武器精通属性]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=在 2 级和 5 级时启用<color=#D89555>战术思维</color>和<color=#D89555>战术转变</color><i><color=#F0DAA0>[增强第二风场景]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级时启用<color=#D89555>武器专精</color> <i><color=#F0DAA0>[命中率和伤害力 +1，但使用其他武器类型时处于劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
@@ -406,4 +413,9 @@ ModUi/&UseOfficialFoodRationsWeight=启用重量为 2 磅的<color=#D89555>食�
 ModUi/&UseOfficialObscurementRules=启用<color=#D89555>照明、遮蔽和视觉</color>战斗规则
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[能感知到防御者但无法感知到攻击者的防御者会获得 ADV，无法感知到攻击者但可以感知到防御者会获得 DIS\n 被严重遮挡的区域会造成致盲状态，对生物的攻击掷骰获得 ADV，而生物的攻击掷骰获得 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有远距离法术，除了那些明确未说明需要视力的法术]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使<color=#D89555>小型种族</color>在使用重型武器时处于劣势
+ModUi/&UseWeaponMasterySystem=启用<color=#D89555>武器精通</color>规则
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 顺劈斩精通为第二次攻击伤害添加属性分数修正</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 为所有游戏武器添加精通标签</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ 当英雄不知道所持武器属性时，隐藏武器精通/战术大师动作栏切换</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ 推击精通要求生物进行力量豁免检定（DC 8 + 攻击检定能力修正值 + 熟练加值）</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>\n<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

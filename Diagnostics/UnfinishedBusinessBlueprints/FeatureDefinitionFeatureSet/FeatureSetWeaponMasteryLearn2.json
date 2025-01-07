@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerWeaponMasteryRelearnPool:99086dd1-09e2-50f1-9cb0-bbe127240aa8",
+    "Definition:InvocationPoolWeaponMasteryLearn2:d6711e7f-5dd9-5122-87f7-f6826798acbc",
+    "Definition:PowerWeaponMasteryRelearn:bd625c07-d389-5761-8284-77e656f67f65"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&InvocationPoolWeaponMasteryLearnTitle",
+    "description": "Feature/&InvocationPoolWeaponMasteryLearnDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b0028b17-d61e-56b4-8cd9-cbfd82cbc638",
+  "contentPack": 9999,
+  "name": "FeatureSetWeaponMasteryLearn2"
+}

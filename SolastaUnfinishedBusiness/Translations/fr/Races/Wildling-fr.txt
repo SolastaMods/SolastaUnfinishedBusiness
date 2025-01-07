@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Grimpeur expert
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Vous maîtrisez les compétences de Perception et de Furtivité.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Instincts naturels
 Race/&RaceWildlingDescription=Les sauvages sont des descendants d'humains et de tieffelins qui ont pour la plupart hérité des caractéristiques sauvages de leurs parents tieffelins. D'apparence et de nature différentes, les sauvages ont passé la majeure partie de leur vie dans les forêts ou dans d'autres régions moins habitées de Solasta en tant que chasseurs et voyageurs autonomes.
-Race/&RaceWildlingTitle=Sauvageon
+Race/&RaceWildlingTitle=Tabax

@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Эксперт в лазан
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Вы владеете навыками Восприятие и Скрытность.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Природные инстинкты
 Race/&RaceWildlingDescription=Одичалые - потомки людей и тифлингов, унаследовавшие, в основном, дикие черты родителей-тифлингов. Не похожие друга на друга внешностью и характером, будучи самодостаточными охотниками и странниками, одичалые большую часть своей жизни проводят в лесах и других малонаселённых регионах Соласты.
-Race/&RaceWildlingTitle=Одичалый
+Race/&RaceWildlingTitle=Табакс

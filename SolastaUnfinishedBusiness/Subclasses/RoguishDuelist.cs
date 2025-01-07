@@ -241,16 +241,10 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             var attackModeMain = attacker.FindActionAttackMode(Id.AttackMain);
 
-            //get copy to be sure we don't break existing mode
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackModeMain);
-            attackModeCopy.ActionType = ActionType.NoCost;
-
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
-                attackModeCopy,
+                attackModeMain,
                 new ActionModifier());
         }
     }

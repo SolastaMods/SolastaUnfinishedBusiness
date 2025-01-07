@@ -1,6 +1,6 @@
 Condition/&ConditionWayOfTheShadowShadowVeilDescription=你在下一次近战攻击中占有优势。
 Condition/&ConditionWayOfTheShadowShadowVeilTitle=暗影面纱
-Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=你可以在微光光照下以及在黑暗环境如同在微光光照下一样正常地看到 60 尺的距离。你也可以花费 1 点气以一个动作施放 <b>黑暗术</b> ，而不需要提供材料成分。
+Feature/&FeatureSetWayOfTheShadowShadowArtsDescription=您可以在昏暗的光线下正常看东西，在自然黑暗中也像在昏暗的光线下一样看东西，距离为 60 英尺。您还可以花费 1 气来施展黑暗术，无需提供材料成分。当法术持续时，您可以将其黑暗区域移动到您周围 60 英尺内的空间。
 Feature/&FeatureSetWayOfTheShadowShadowArtsTitle=暗影技艺
 Feature/&PowerWayOfTheShadowCloakOfShadowsDescription=作为奖励行动，当完全处于昏暗或黑暗中时，您可以花费 3 点气点，用魔法黑暗笼罩自己 1 分钟，直到您进入无力状态，或者直到您在明亮的光线中结束回合。当被黑暗笼罩时，您将获得以下好处：\n• 隐身。您处于隐身状态。\n• 部分虚体化。您可以穿过敌人。\n• 暗影乱舞。您无需花费任何气点即可使用连击乱舞。
 Feature/&PowerWayOfTheShadowCloakOfShadowsTitle=暗影斗篷

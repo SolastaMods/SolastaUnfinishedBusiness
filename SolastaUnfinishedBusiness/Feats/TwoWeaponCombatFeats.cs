@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -16,6 +17,8 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class TwoWeaponCombatFeats
 {
+    internal const string DualFlurryTriggerMark = "DualFlurryTriggerMark";
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featDualFlurry = BuildDualFlurry();
@@ -55,14 +58,21 @@ internal static class TwoWeaponCombatFeats
     {
         const string NAME = "FeatDualFlurry";
 
+        var feature = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .AddToDB();
+
+        feature.AddCustomSubFeatures(new PhysicalAttackFinishedByMeDualFlurry(feature));
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDualFlurry())
+            .SetFeatures(feature)
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeDualFlurry : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeDualFlurry(FeatureDefinition feature) : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -75,7 +85,8 @@ internal static class TwoWeaponCombatFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (action.ActionType != ActionType.Bonus ||
+            if ((action.ActionType != ActionType.Bonus &&
+                 !attackMode.AttackTags.Contains(DualFlurryTriggerMark)) ||
                 !attackMode.IsOneHandedWeapon() ||
                 !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) ||
                 defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
@@ -83,15 +94,12 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
-
+            attackMode.AttackTags.Remove(DualFlurryTriggerMark);
+            rulesetAttacker.LogCharacterUsedFeature(feature);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
-                attackModeCopy,
+                attackMode,
                 new ActionModifier());
         }
     }

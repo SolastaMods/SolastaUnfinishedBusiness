@@ -32,7 +32,7 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, Sorcerous Wild Magic, " +
             "Way of Archery, Way of Blade, Way of Discordance, Way of Shadow, Way of Storm, " +
             "Wizard Bladesinging, Wizard Deadmaster, Wizard Evocation, Wizard War Magic, " +
-            "Level 20, Lighting and Obscurement, Multiclass, Variant Spell Rules"),
+            "Level 20, Lighting and Obscurement, Multiclass, Tabletop 2024, Variant Spell Rules"),
 
         ("HiddenHax",
             "quality assurance, SFX, sprites, homebrew design [" +

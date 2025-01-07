@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AI;
 using UnityEngine;
+using static ActionDefinitions;
 using static AttributeDefinitions;
 using static EquipmentDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -97,14 +98,14 @@ internal static class FixesContext
         FixPaladinAurasDisplayOnActionBar();
         ReportDashing();
         FixSpikeGrowthAffectingAir();
-        NoTwinnedBladeCantrips();
+        NoTwinnedBladeCantripsOrSpellsWithRetargeting();
         FixStaffOfFireToGetFireResistance();
 
         // avoid soft lock scenarios with game UI on any affinity that prevents movement
         foreach (var actionAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionActionAffinity>()
                      .Where(x => !x.AllowedActionTypes[2]))
         {
-            actionAffinity.ForbiddenActions.AddRange(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain);
+            actionAffinity.ForbiddenActions.AddRange(Id.Charge, Id.DashBonus, Id.DashMain, Id.TacticalMove);
         }
 
         // fix condition UI
@@ -119,6 +120,9 @@ internal static class FixesContext
         // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
         AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
+
+        // shadow murder must be removed whenever invisible is
+        ConditionDefinitions.ConditionShadowMurder.parentCondition = ConditionDefinitions.ConditionInvisibleBase;
 
         // remove null features from conditions
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
@@ -136,9 +140,12 @@ internal static class FixesContext
         Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetMonkPatientDefense, 2));
     }
 
-    private static void NoTwinnedBladeCantrips()
+    private static void NoTwinnedBladeCantripsOrSpellsWithRetargeting()
     {
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
+
+        HuntersMark.AddCustomSubFeatures(NoTwinned.Mark);
+        Malediction.AddCustomSubFeatures(NoTwinned.Mark);
     }
 
     private static void FixStaffOfFireToGetFireResistance()
@@ -954,7 +961,7 @@ internal static class FixesContext
                 yield break;
             }
 
-            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            if (!attacker.IsActionOnGoing(Id.StunningStrikeToggle))
             {
                 yield break;
             }
@@ -1098,7 +1105,7 @@ internal static class FixesContext
             // ReSharper disable once InvertIf
             // handle umbral stalker gloomblade feature
             if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+                rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.GloomBladeToggle))
             {
                 damageForm.DamageType = DamageTypeNecrotic;
             }

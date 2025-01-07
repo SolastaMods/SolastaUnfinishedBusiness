@@ -103,8 +103,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWayOfTheShadowShadowStep",
-          "conditionDefinition": "Definition:ConditionWayOfTheShadowShadowStep:ab9e8b3b-96fc-58e1-8b9a-96ad33186351",
+          "conditionDefinitionName": "ConditionWayOfTheShadowShadowVeil",
+          "conditionDefinition": "Definition:ConditionWayOfTheShadowShadowVeil:16a7688b-cfb8-59fd-b671-dc3a7c718132",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

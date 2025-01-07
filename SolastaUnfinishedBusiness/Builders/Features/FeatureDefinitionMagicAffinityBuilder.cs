@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -115,6 +116,13 @@ internal class FeatureDefinitionMagicAffinityBuilder
     internal FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
         Definition.extendedSpellList = spellListDefinition;
+
+        return this;
+    }
+
+    internal FeatureDefinitionMagicAffinityBuilder SetAdditionalSlots(params AdditionalSlotsDuplet[] additionalSlots)
+    {
+        Definition.AdditionalSlots.SetRange(additionalSlots);
 
         return this;
     }

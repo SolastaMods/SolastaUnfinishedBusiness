@@ -1853,20 +1853,14 @@ internal static class MeleeCombatFeats
             actingCharacter.BurnOneMainAttack();
             actingCharacter.SetSpecialFeatureUses("PowerWhirlWindAttack", 0);
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
-
-            //get copy to be sure we don't break existing mode
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackModeMain);
-            attackModeCopy.ActionType = ActionType.NoCost;
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
             foreach (var target in targets)
             {
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
-                    attackModeCopy,
+                    attackMode,
                     new ActionModifier());
             }
         }

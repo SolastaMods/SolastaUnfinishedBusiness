@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Kletterexperte
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Sie verfügen über Kenntnisse in den Bereichen Wahrnehmung und Tarnung.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Natürliche Instinkte
 Race/&RaceWildlingDescription=Wildlinge sind Nachkommen von Menschen und Tieflingen, die größtenteils die wilden Eigenschaften der Tiefling-Eltern geerbt haben. Wildlinge unterscheiden sich in Aussehen und Wesen und haben den Großteil ihres Lebens als autarke Jäger und Reisende in Wäldern oder anderen weniger bewohnten Regionen von Solasta verbracht.
-Race/&RaceWildlingTitle=Wildling
+Race/&RaceWildlingTitle=Tabax

@@ -8,8 +8,10 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -317,23 +319,35 @@ public sealed class RangerGloomStalker : AbstractSubclass
             attacker.SetSpecialFeatureUses(featureStalkersFlurry.Name, 0);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
 
-            var actionId = Id.AttackFree;
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionType.NoCost;
-
             if (action.ActionId == Id.AttackOpportunity)
             {
-                actionId = Id.AttackOpportunity;
-                attacker.RefundActionUse(ActionType.Reaction);
-            }
+                var actionParams = new CharacterActionParams(
+                    attacker,
+                    Id.AttackOpportunity,
+                    attackMode,
+                    defender,
+                    new ActionModifier());
+                var actionAttack = new CharacterActionAttack(actionParams);
 
-            attacker.MyExecuteActionAttack(
-                actionId,
-                defender,
-                attackModeCopy,
-                new ActionModifier());
+                yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+            }
+            else
+            {
+                var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+                attackModeCopy.Copy(attackMode);
+
+                if (action.ActionId == Id.AttackOff)
+                {
+                    attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
+                }
+
+                attacker.MyExecuteActionAttack(
+                    Id.AttackFree,
+                    defender,
+                    attackModeCopy,
+                    new ActionModifier());
+            }
         }
     }
 

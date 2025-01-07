@@ -11,47 +11,52 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
-    private static readonly List<Id> ExtraActionIdToggles =
+    internal static readonly List<Id> ExtraActionIdToggles =
     [
         (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.BalefulScionToggle,
+        (Id)ExtraActionId.BlessedStrikesToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
+        (Id)ExtraActionId.CleavingAttackToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DeadEyeToggle,
         (Id)ExtraActionId.DestructiveWrathToggle,
         (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
+        (Id)ExtraActionId.ElementalFuryToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.GrappleOnUnarmedToggle,
+        (Id)ExtraActionId.GravityWellToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.NatureStrikesToggle,
         (Id)ExtraActionId.OrcishFuryToggle,
+        (Id)ExtraActionId.OverChannelToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.PowerAttackToggle,
         (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ZenShotToggle,
-        (Id)ExtraActionId.CleavingAttackToggle,
-        (Id)ExtraActionId.PowerAttackToggle,
-        (Id)ExtraActionId.DeadEyeToggle,
-        (Id)ExtraActionId.OverChannelToggle,
-        (Id)ExtraActionId.GravityWellToggle
+        (Id)ExtraActionId.TacticalMasterToggle,
+        (Id)ExtraActionId.ThunderousStrikeToggle,
+        (Id)ExtraActionId.WeaponMasteryToggle,
+        (Id)ExtraActionId.ZenShotToggle
     ];
 
     private static readonly List<Id> ExtraActionIdPowers =
@@ -72,6 +77,15 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ZenShotToggle
     ];
 
+    internal static readonly List<Id> ExtraActionIdProxies =
+    [
+        (Id)ExtraActionId.ProxyDarkness,
+        (Id)ExtraActionId.ProxyDawn,
+        (Id)ExtraActionId.ProxyHoundWeapon,
+        (Id)ExtraActionId.ProxyPactWeapon,
+        (Id)ExtraActionId.ProxyPetalStorm
+    ];
+
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
     internal static void Load()
@@ -81,8 +95,8 @@ public static class CustomActionIdContext
         BuildCustomRageStartAction();
         BuildCustomToggleActions();
         BuildDoNothingActions();
-        BuildPrioritizeAction();
         BuildFarStepAction();
+        BuildPrioritizeAction();
         BuildProxyActions();
     }
 
@@ -113,6 +127,12 @@ public static class CustomActionIdContext
             .Create(ProxyFlamingSphere, "ActionProxyDawn")
             .SetActionId(ExtraActionId.ProxyDawn)
             .SetActionType(ActionType.Bonus)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyDarkness")
+            .SetActionId(ExtraActionId.ProxyDarkness)
+            .SetActionType(ActionType.NoCost)
             .AddToDB();
     }
 
@@ -256,6 +276,14 @@ public static class CustomActionIdContext
     private static void BuildCustomToggleActions()
     {
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "BlessedStrikesToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.BlessedStrikesToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "BrutalStrikeToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
@@ -296,6 +324,14 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "ElementalFuryToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ElementalFuryToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "FeatCrusherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
@@ -332,6 +368,14 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.MindSculptToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "NatureStrikesToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.NatureStrikesToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
 
@@ -412,6 +456,22 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.GravityWellToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "WeaponMasteryToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.WeaponMasteryToggle)
+            .OverrideClassName("Toggle")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "TacticalMasterToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.TacticalMasterToggle)
             .OverrideClassName("Toggle")
             .AddToDB();
     }

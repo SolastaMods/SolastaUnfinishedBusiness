@@ -137,6 +137,15 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&ClericTitle") + ":</color>");
         UI.Label();
 
+        toggle = Main.Settings.EnableClericBlessedStrikes2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableClericBlessedStrikes2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableClericBlessedStrikes2024 = toggle;
+            Tabletop2024Context.SwitchClericBlessedStrikes();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.EnableClericDivineOrder2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableClericDivineOrder2024"), ref toggle, UI.AutoWidth()))
         {
@@ -178,12 +187,11 @@ internal static class ClassesDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("Class/&DruidTitle") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableDruidPrimalOrder2024;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency"), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.EnableDruidToLearnCircleAtLevel3;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidToLearnCircleAtLevel3"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableDruidPrimalOrder2024 = toggle;
-            Tabletop2024Context.SwitchDruidPrimalOrderAndRemoveMediumArmorProficiency();
+            Main.Settings.EnableDruidToLearnCircleAtLevel3 = toggle;
+            Tabletop2024Context.SwitchDruidCircleLearningLevel();
         }
 
         toggle = Main.Settings.EnableDruidWeaponProficiency2024;
@@ -193,11 +201,32 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchDruidWeaponProficiency();
         }
 
+        toggle = Main.Settings.EnableDruidWildResurgence2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildResurgence2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildResurgence2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildResurgence();
+        }
+
         toggle = Main.Settings.EnableDruidMetalArmor2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidMetalArmor2024"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableDruidMetalArmor2024 = toggle;
             Tabletop2024Context.SwitchDruidMetalArmor();
+        }
+
+        toggle = Main.Settings.EnableDruidArchDruid2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidArchDruid2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidArchDruid2024 = toggle;
+            Tabletop2024Context.SwitchDruidArchDruid();
+        }
+
+        toggle = Main.Settings.EnableDruidWildshape2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableDruidWildshape2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableDruidWildshape2024 = toggle;
+            Tabletop2024Context.SwitchDruidWildshape();
         }
 
         UI.Label();
@@ -225,6 +254,13 @@ internal static class ClassesDisplay
         {
             Main.Settings.EnableFighterStudiedAttacks2024 = toggle;
             Tabletop2024Context.SwitchFighterStudiedAttacks();
+        }
+
+        toggle = Main.Settings.EnableFighterTacticalMaster2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterTacticalMaster2024"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterTacticalMaster2024 = toggle;
+            Tabletop2024Context.SwitchFighterTacticalMaster();
         }
 
         toggle = Main.Settings.EnableFighterTacticalProgression2024;

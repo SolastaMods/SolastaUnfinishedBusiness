@@ -181,14 +181,14 @@ internal static class ValidatorsCharacter
     {
         var weapon = character.GetMainWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
@@ -203,10 +203,6 @@ internal static class ValidatorsCharacter
         HasFreeHandWithoutTwoHandedInMain(character) &&
         HasMeleeWeaponInMainHand(character);
 
-    internal static readonly IsCharacterValidHandler HasMonkWeaponInMainHandAndFreeOffhand = character =>
-        HasFreeHand(character) &&
-        character.IsMonkWeaponOrUnarmed(character.GetMainWeapon()?.ItemDefinition);
-    
     internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>
         HasAnyOfLightingStates(
             LocationDefinitions.LightingState.Darkness,
@@ -318,6 +314,14 @@ internal static class ValidatorsCharacter
     //
     // BOOL VALIDATORS
     //
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsMonkMeleeWeapon(RulesetCharacter character)
+    {
+        var item = character.GetMainWeapon()?.ItemDefinition;
+
+        return ValidatorsWeapon.IsMelee(item) && character.IsMonkWeaponOrUnarmed(item);
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeaponOrUnarmed(this RulesetActor character, WeaponDescription weaponDescription)

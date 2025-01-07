@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Füge den Zustand <color=#D89555>Blutung</
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie offiziellen Spielgegenständen benutzerdefinierte Symbole hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktiviere <color=#D89555>Dunkelheitswahrnehmung</color> bei <color=#D89555>Dunkelelf</color>, <color=#D89555>Dunkelkobold</color> und <color=#D89555>Grauem Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen im unbeleuchteten Zustand oder in magischer Dunkelheit]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=DEX-Modifikator zu Feinden hinzufügen <color=#D89555>Initiative Roll</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Humanoide</color> bevorzugte Feinde <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Neue Waffen und Rezepte zu den Läden hinzufügen <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Hintergründe und Rassen
 ModUi/&Basic=<color=#F0DAA0>Grundlegend:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Verfluchen</color> erfordert keine Konzentration, wenn es mit einem Zauberplatz L5+ gewirkt wird.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Keine Gelegenheitsangriffe aktivieren, wenn Sie <color=#D89555>geblendet</color> sind
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Aktivieren Sie keine Gelegenheitsangriffe, wenn Sie <color=#D89555>geblendet</color> oder <color=#D89555>unsichtbar</color> sind.
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie
@@ -116,14 +115,21 @@ ModUi/&EnableBetaContent=Beta-Inhalte aktivieren <b><i><color=#C04040E0>[Neustar
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Erlaube Cantrips, um einen zusätzlichen Bonusangriff von <color=#D89555>Kriegsmagie</color> auszulösen
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere, die <color=#D89555>brennen</color>, sollten Licht ausstrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und Familie der Feuerzustände]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=Aktiviere <color=#D89555>Gesegnete Schläge</color> und <color=#D89555>Verbesserte Gesegnete Schläge</color> auf den Stufen 7 und 14\n<i><color=#F0DAA0>[betrifft nur die Domänen Defiler, Life, Mischief, Nature, Smith, Sun und Tempest]</color></i>
 ModUi/&EnableClericChannelDivinity2024=Tauschen Sie <color=#D89555>Channel Divinity</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnableClericDivineOrder2024=Aktiviere <color=#D89555>Göttliche Ordnung</color> auf Stufe 1 <i><color=#F0DAA0>[Auswahl zwischen schwerer Rüstung/Kampfwaffen-Profi oder Bonus-Zauberspruch und einigen INT-Checks]</color></i>
 ModUi/&EnableClericSearUndead2024=Aktiviere <color=#D89555>Untote versengen</color>, um <color=#D89555>Untote zerstören</color> auf Level 5 zu ersetzen.
 ModUi/&EnableClericToLearnDomainAtLevel3=Aktivieren Sie <color=#D89555>Domäne</color> auf Ebene 3 statt 1.
 ModUi/&EnableCustomPortraits=Aktivieren Sie <color=#D89555>Benutzerdefinierte Porträts</color>
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color></b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[z. B.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
+ModUi/&EnableDruidArchDruid2024=Tausche <color=#D89555>Erzdruide</color> gegen die Version 2024 aus <i><color=#F0DAA0>[Wilde Gestalt zurückerlangen]</color></i>
+ModUi/&EnableDruidElementalFury2024=Aktiviere <color=#D89555>Elementarfury</color> und <color=#D89555>Verbesserte Elementarfury</color> auf den Stufen 7 und 15.
 ModUi/&EnableDruidMetalArmor2024=Entfernen Sie die Einschränkungen für <color=#D89555>Metal Armor</color>
+ModUi/&EnableDruidPrimalOrder2024=Aktiviere <color=#D89555>Primal Order</color> auf Level 1 und entferne <color=#D89555>Medium Armor Proficiency</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=Aktivieren Sie <color=#D89555>Kreis</color> auf Ebene 3 statt 2.
 ModUi/&EnableDruidWeaponProficiency2024=Aktivieren Sie die Fertigkeit <color=#D89555>Einfache Waffen</color> <i><color=#F0DAA0>[anstelle einzelner Waffentypen, aber Sie verlieren die Fertigkeit Krummsäbel]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Aktiviere <color=#D89555>Wild Resurgence</color> auf Stufe 5.
+ModUi/&EnableDruidWildshape2024=Tauschen Sie <color=#D89555>Wild Shape</color> gegen die Version 2024 aus <i><color=#F0DAA0>[Bonusaktion, verschiedene Verwendungen und temporäre Trefferpunkte]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeon-Größen von 150 x 150 und 200 x 200 und ohne Schnickschnack, indem Sie Assets aus allen Umgebungen mischen]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Aktivieren Sie die Höhenkamera während des Gefechts, damit sie nach der Deaktivierung an ihrer Position bleibt und ihre Reichweite verdreifacht</i>
 ModUi/&EnableEpicPointsAndArray=Aktiviere ein episches 35-Punkte-Kaufsystem und -Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -134,6 +140,7 @@ ModUi/&EnableFighterIndomitableSaving2024=Tauschen Sie <color=#D89555>Unbezwingb
 ModUi/&EnableFighterSecondWind2024=Tauschen Sie <color=#D89555>Second Wind</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[unterschiedlicher Verwendungsverlauf]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Fügen Sie <color=#D89555>Überredung</color> zu den Fertigkeitsoptionen auf Stufe 1 hinzu
 ModUi/&EnableFighterStudiedAttacks2024=Aktivieren Sie <color=#D89555>Durchdachte Angriffe</color> auf Stufe 13 <i><color=#F0DAA0>[Vorteil, wenn vorheriger Angriff in Runde gegen Kreatur fehlgeschlagen ist]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Aktiviere <color=#D89555>Tactical Master</color> auf Level 9 <i><color=#F0DAA0>[Eigenschaft „Waffenbeherrschung“ ersetzen]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Aktivieren Sie <color=#D89555>Tactical Mind</color> und <color=#D89555>Tactical Shift</color> auf den Stufen 2 und 5 <i><color=#F0DAA0>[erweitern Sie Szenarien für den zweiten Wind]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Aktivieren Sie <color=#D89555>Waffenspezialisierung</color> auf den Stufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, sind Sie jedoch bei allen anderen Waffentypen im Nachteil]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Flexible Hintergründe aktivieren <i><color=#F0DAA0>[Fertigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
@@ -406,4 +413,9 @@ ModUi/&UseOfficialFoodRationsWeight=Aktivieren Sie eine <color=#D89555>Lebensmit
 ModUi/&UseOfficialObscurementRules=Aktiviere die Kampfregeln <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnehmen kann, erhält ADV, und Angreifer, der es nicht wahrnimmt, Verteidiger, der es wahrnehmen kann, erhält DIS\n stark verdeckte Bereiche verursachen den Zustand der Erblindung, wobei Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS haben\n alle Distanzzauber, die auf Einzelpersonen zielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat, außer denen, bei denen nicht klar angegeben ist, dass Sicht erforderlich ist]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Aktivieren <color=#D89555>Kleine Rassen</color> haben einen Nachteil beim Tragen schwerer Waffen
+ModUi/&UseWeaponMasterySystem=Aktivieren Sie die Regeln für <color=#D89555>Waffenbeherrschung</color>
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Cleave-Meisterung fügt Attributwertmodifikator zum Schaden des zweiten Angriffs hinzu</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Meisterschafts-Tag zu allen Spielwaffen hinzufügen</i>
+ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Die Aktionsleiste „Waffenbeherrschung/Taktikmeister“ ausblenden wird umgeschaltet, wenn der Held die Eigenschaften der getragenen Waffe nicht kennt</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ Push-Meisterung erfordert, dass die Kreatur einen Stärkerettungswurf macht (DC 8 + Angriffswurf-Fähigkeitsmodifikator + Proficiency-Bonus)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Setze den Schwellenwert für die Chance des <color=#D89555>Sorcerer Wild Magic</color>-Würfels:</color>\n<i><color=#F0DAA0>[Wild Surge wird ausgelöst, wenn der Würfel kleiner oder gleich dem Schwellenwert ist]</color></i>
