@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Patches;
 using SolastaUnfinishedBusiness.Properties;
@@ -150,34 +149,34 @@ internal static partial class Tabletop2024Context
             .Create("ConditionWeaponMasteryNick")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new CustomBehaviorConditionNick())
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionWeaponMasteryNickBonusAttack =
+        ConditionDefinitionBuilder
+            .Create("ConditionWeaponMasteryNickBonusAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityWeaponMasteryNick")
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create("AdditionalActionWeaponMasteryNickBonusAttack")
                     .SetGuiPresentationNoContent(true)
-                    .SetAuthorizedActions((Id)ExtraActionId.WeaponMasteryNick)
-                    .AddCustomSubFeatures(new ValidateDefinitionApplication(c =>
-                    {
-                        var glc = GameLocationCharacter.GetFromActor(c);
-
-                        // the condition gets removed on all other scenarios
-                        // right after AttackOff or WeaponMasteryNick executes
-
-                        return IsWeaponMasteryValid(glc, c.GetMainWeapon(), MasteryProperty.Nick) ||
-                               IsWeaponMasteryValid(glc, c.GetOffhandWeapon(), MasteryProperty.Nick);
-                    }))
+                    .SetActionType(ActionType.Bonus)
+                    .SetRestrictedActions(Id.AttackOff)
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorConditionNick())
             .AddToDB();
 
-    private static readonly ConditionDefinition ConditionWeaponMasteryNickPreventAttackOff =
+    private static readonly ConditionDefinition ConditionWeaponMasteryNickBonusDenyAttackOff =
         ConditionDefinitionBuilder
-            .Create("ConditionWeaponMasteryNickPreventAttackOff")
+            .Create("ConditionWeaponMasteryNickBonusDenyAttackOff")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityWeaponMasteryNickPreventBonusAttack")
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create("AdditionalActionWeaponMasteryNickBonusDenyAttackOff")
                     .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionType.Bonus)
                     .SetForbiddenActions(Id.AttackOff)
                     .AddToDB())
             .AddToDB();
@@ -330,33 +329,6 @@ internal static partial class Tabletop2024Context
             .RequiresAuthorization()
             .OverrideClassName("UsePower")
             .SetActivatedPower(powerCleave)
-            .AddToDB();
-
-        // Nick
-
-        var powerNick = FeatureDefinitionPowerBuilder
-            .Create("PowerWeaponMasteryNick")
-            .SetGuiPresentation("FeatureWeaponMasteryNick", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .Build())
-            .DelegatedToAction()
-            .AddCustomSubFeatures(new CustomBehaviorNick())
-            .AddToDB();
-
-        _ = ActionDefinitionBuilder
-            .Create(WeaponMasteryNick)
-            .SetGuiPresentation(Category.Action, Sprites.GetSprite("ActionNick", Resources.ActionNick, 144))
-            .SetActionId(ExtraActionId.WeaponMasteryNick)
-            .SetActionType(ActionType.NoCost)
-            .SetFormType(ActionFormType.Large)
-            .RequiresAuthorization()
-            .OverrideClassName("UsePower")
-            .SetActivatedPower(powerNick)
             .AddToDB();
 
         // create a feature for every mastery property
@@ -860,9 +832,12 @@ internal static partial class Tabletop2024Context
         private static void DoNick(GameLocationCharacter attacker)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var conditionNick = ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)
+                ? ConditionWeaponMasteryNick
+                : ConditionWeaponMasteryNickBonusAttack;
 
             rulesetAttacker.InflictCondition(
-                ConditionWeaponMasteryNick.Name,
+                conditionNick.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -870,7 +845,7 @@ internal static partial class Tabletop2024Context
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                ConditionWeaponMasteryNick.Name,
+                conditionNick.Name,
                 0,
                 0,
                 0);
@@ -1097,78 +1072,65 @@ internal static partial class Tabletop2024Context
     // Nick
     //
 
-    private sealed class CustomBehaviorNick : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
-    {
-        public bool EnforceFullSelection => true;
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            var attacker = __instance.ActionParams.ActingCharacter;
-            var attackMode = attacker.FindActionAttackMode(Id.AttackOff);
-
-            //TODO: allow thrown scenarios with Nick
-            if (attacker.IsWithinRange(target, attackMode.ReachRange))
-            {
-                return true;
-            }
-
-            __instance.actionModifier.FailureFlags.Add(Gui.Localize("Failure/&CannotAttackTarget"));
-
-            return false;
-        }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var attacker = action.ActingCharacter;
-            var attackMode = attacker.FindActionAttackMode(Id.AttackOff);
-
-            attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
-            attackMode.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
-
-            var target = action.actionParams.TargetCharacters[0];
-
-            var actionAttack = new CharacterActionAttack(
-                new CharacterActionParams(
-                    attacker,
-                    Id.AttackFree,
-                    attackMode,
-                    target,
-                    new ActionModifier()));
-
-            yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                ConditionWeaponMasteryNickPreventAttackOff.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                ConditionWeaponMasteryNickPreventAttackOff.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
     private sealed class CustomBehaviorConditionNick : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (action.ActionId is Id.AttackOff or (Id)ExtraActionId.WeaponMasteryNick &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name, out var activeCondition))
+            if (action.ActionType != ActionType.Bonus)
+            {
+                yield break;
+            }
+
+            var hasConditionNick = rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name, out var activeCondition);
+
+            if (hasConditionNick)
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
 
-            yield break;
+            if (action.ActionId == Id.AttackOff)
+            {
+                actingCharacter.SetSpecialFeatureUses(WeaponMasteryNick, 0);
+
+                if (!hasConditionNick)
+                {
+                    yield break;
+                }
+
+                rulesetCharacter.InflictCondition(
+                    ConditionWeaponMasteryNickBonusDenyAttackOff.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    ConditionWeaponMasteryNickBonusDenyAttackOff.Name,
+                    0,
+                    0,
+                    0);
+            }
+            else if (hasConditionNick)
+            {
+                rulesetCharacter.InflictCondition(
+                    ConditionWeaponMasteryNickBonusAttack.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    ConditionWeaponMasteryNickBonusAttack.Name,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 
