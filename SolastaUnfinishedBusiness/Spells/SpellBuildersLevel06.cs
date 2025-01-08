@@ -57,8 +57,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
             .AddCustomSubFeatures(
                 CanUseAttribute.SpellCastingAbility,
-                new AddTagToWeaponWeaponAttack(
-                    TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
 
         var lowerPlane = SpellDefinitionBuilder

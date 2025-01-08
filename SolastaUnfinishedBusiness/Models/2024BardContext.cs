@@ -36,6 +36,28 @@ internal static partial class Tabletop2024Context
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
+    private static readonly FeatureDefinitionFeatureSet FeatureSetBardMagicalSecrets =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetBardMagicalSecrets")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityBardMagicalSecretsCleric")
+                    .SetGuiPresentationNoContent(true)
+                    .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
+                    .AddToDB(),
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityBardMagicalSecretsDruid")
+                    .SetGuiPresentationNoContent(true)
+                    .SetExtendedSpellList(SpellListDefinitions.SpellListDruid)
+                    .AddToDB(),
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityBardMagicalSecretsWizard")
+                    .SetGuiPresentationNoContent(true)
+                    .SetExtendedSpellList(SpellListDefinitions.SpellListWizard)
+                    .AddToDB())
+            .AddToDB();
+
     private static void LoadBardCounterCharm()
     {
         PowerBardCountercharm.AddCustomSubFeatures(
@@ -124,12 +146,19 @@ internal static partial class Tabletop2024Context
     internal static void SwitchBardBardMagicalSecrets()
     {
         Bard.FeatureUnlocks.RemoveAll(x =>
+            x.FeatureDefinition == FeatureSetBardMagicalSecrets ||
+            x.FeatureDefinition == PointPoolBardMagicalSecrets10 ||
             x.FeatureDefinition == PointPoolBardMagicalSecrets14 ||
             x.FeatureDefinition == Level20Context.PointPoolBardMagicalSecrets18);
 
-        if (!Main.Settings.RemoveBardMagicalSecret2024)
+        if (Main.Settings.EnableBardMagicalSecrets2024)
+        {
+            Bard.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureSetBardMagicalSecrets, 10));
+        }
+        else
         {
             Bard.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PointPoolBardMagicalSecrets14, 10),
                 new FeatureUnlockByLevel(PointPoolBardMagicalSecrets14, 14),
                 new FeatureUnlockByLevel(Level20Context.PointPoolBardMagicalSecrets18, 18));
         }
@@ -225,8 +254,8 @@ internal static partial class Tabletop2024Context
                 // we need to manually spend the reaction here as rolling the saving again below
                 helper.SpendActionType(ActionType.Reaction);
                 helper.RulesetCharacter.LogCharacterUsedPower(PowerBardCountercharm);
-                EffectHelpers.StartVisualEffect(helper, defender, PowerBardCountercharm,
-                    EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(
+                    helper, defender, PowerBardCountercharm, EffectHelpers.EffectType.Caster);
                 TryAlterOutcomeSavingThrow.TryRerollSavingThrow(attacker, defender, savingThrowData, hasHitVisual);
             }
         }

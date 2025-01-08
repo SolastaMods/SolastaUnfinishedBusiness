@@ -146,7 +146,7 @@ Dexterity + 2
 
 * Grovel, Cower, and Beg
 
-As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 ft of you that can see you. Once you use this trait, you can't use it again until you finish a short or long rest.
+As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10ft of you that can see you. Once you use this trait, you can't use it again until you finish a short or long rest.
 
 * Light Sensitivity
 
@@ -188,7 +188,7 @@ Use three boosts on ability scores in any combination of your choosing.
 
 * Draconic Cry
 
-As a bonus action, you let out a cry at your enemies within 10 ft of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+As a bonus action, you let out a cry at your enemies within 10ft of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 * Kobold Magic
 

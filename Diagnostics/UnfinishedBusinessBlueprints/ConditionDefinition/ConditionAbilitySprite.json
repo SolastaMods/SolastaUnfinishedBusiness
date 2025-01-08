@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AttributeModifierBarkskin:5a071f498c38a0042bc3dc3c3099e692",
-    "Definition:CombatAffinityBlurred:25cbeeebcfdcf5b4a828b5b3008096be"
+    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

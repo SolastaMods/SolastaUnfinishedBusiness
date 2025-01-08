@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerDomainNatureNatureStrikesDamageCold:80ecfbc3-0222-5238-aefc-9b67f482c395",
+    "Definition:PowerDomainNatureNatureStrikes:a22f9a1e-710f-5164-99ba-3f673c45ba7b",
+    "Definition:PowerDomainNatureNatureStrikesDamageFire:b4ad1dc9-a1b7-599b-afc4-9280dd1ee521",
+    "Definition:PowerDomainNatureNatureStrikesDamageLightning:0aed7d18-4d79-58c4-9fd1-c56cd1721007",
+    "Definition:ActionAffinityNatureStrikesToggle:c03a167a-1920-5511-b71e-d30b9a2a86fd"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AdditionalDamageDomainNatureDivineStrikeTitle",
+    "description": "Feature/&AdditionalDamageDomainNatureDivineStrikeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c904a5e0-886b-5f42-9623-ddfe165a3a20",
+  "contentPack": 9999,
+  "name": "FeatureSetDomainNatureNatureStrikes"
+}

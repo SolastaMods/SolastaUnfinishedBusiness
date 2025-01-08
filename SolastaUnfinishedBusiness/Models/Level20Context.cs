@@ -163,6 +163,13 @@ internal static class Level20Context
         .Create(PowerClericTurnUndead14, "PowerClericTurnUndead17")
         .AddToDB();
 
+    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityArchDruid =
+        FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityArchDruid")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, true, true)
+            .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -349,19 +356,13 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var magicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityArchDruid")
-            .SetGuiPresentation(Category.Feature)
-            .SetHandsFullCastingModifiers(true, true, true)
-            .AddToDB();
-
-        magicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
+        MagicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(MagicAffinityArchDruid));
 
         Druid.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(summoningAffinity, 2),
             new FeatureUnlockByLevel(featureDruidBeastSpells, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-            new FeatureUnlockByLevel(magicAffinityArchDruid, 20)
+            new FeatureUnlockByLevel(MagicAffinityArchDruid, 20)
         );
 
         EnumerateSlotsPerLevel(

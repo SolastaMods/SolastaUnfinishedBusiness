@@ -811,7 +811,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -853,7 +853,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -1454,7 +1454,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -2467,7 +2467,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |
@@ -2597,7 +2597,7 @@ Size: *Medium*
 | ----- | ----- | ----------- |
 | 0 | Light | An object you can touch emits a powerful light for a limited time. |
 | 0 | Sacred Flame | Strike an enemy with radiant damage. |
-| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30 ft), 11 (60 ft), and 17 (120 ft). |
+| 0 | Spare the Dying | Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable. The range doubles when you reach levels 5 (30ft), 11 (60ft), and 17 (120ft). |
 | 1 | Cure Wounds | Heal an ally by touch. |
 | 1 | Guiding Bolt | Launch a radiant attack against an enemy and make them easy to hit. |
 | 1 | Bless | Increase your allies' saving throws and attack rolls for a limited time. |

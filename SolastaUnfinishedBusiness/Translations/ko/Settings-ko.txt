@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상위</color> 및 <color=#
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 사용자 지정 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>다크엘프</color>, <color=#D89555>다크 코볼드</color>, <color=#D89555>그레이 드워프</color>에게 <color=#D89555>어둠 지각</color>을 활성화합니다. <i><color=#F0DAA0>\n[조명이 없거나 마법적 어둠에 있을 때 지각 검사에 유리합니다]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=적에게 DEX 수정치를 추가합니다 <color=#D89555>이니셔티브 롤</color>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>인간형</color> 선호 적 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법을 추가하세요 <i><color=#F0DAA0>[손가락 묶는 무기, 도끼창, 창, 긴 메이스, 손 석궁]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>성기사</color>가 치명타에만 스마이트를 사용할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>
 ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 경우 집중이 필요하지 않습니다.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀었을 때</color> 기회 공격을 활성화하지 않습니다.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀거나</color> <color=#D89555>보이지 않음</color> 상태일 때는 기회 공격을 사용할 수 없습니다.
 ModUi/&Blueprints=청사진
 ModUi/&Campaigns=캠페인
 ModUi/&Category=범주
@@ -102,38 +101,46 @@ ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>격투 스타�
 ModUi/&EnableBarbarianInstinctivePounce2024=레벨 7에서 <color=#D89555>본능적 습격</color> 활성화
 ModUi/&EnableBarbarianPersistentRage2024=<color=#D89555>Persistent Rage</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBarbarianPrimalKnowledge2024=레벨 3에서 <color=#D89555>원시 지식</color>을 활성화합니다.
-ModUi/&EnableBarbarianReckless2024=다음 턴 시작 시 <color=#D89555>무모한 공격</color> 버프와 디버프가 완료되도록 활성화합니다.
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=1레벨에서 짧은 휴식 시간 동안 <color=#D89555>격노</color> 한 번 회복 가능
+ModUi/&EnableBarbarianRage2024=<color=#D89555>격노</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[짧은 휴식으로 한 번 사용 가능]</color></i>
+ModUi/&EnableBarbarianReckless2024=<color=#D89555>무모한 공격</color>을 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[다음 턴 시작 시 버프 및 디버프 완료]</color></i>
 ModUi/&EnableBarbarianRelentlessRage2024=<color=#D89555>Relentless Rage</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[생명력이 클래스 레벨의 1배가 아닌 2배로 설정됨]</color></i>
 ModUi/&EnableBardCounterCharm2024=레벨 6의 액션 대신 레벨 7의 반응으로 <color=#D89555>카운터챠밍</color>을 활성화합니다.
 ModUi/&EnableBardExpertiseOneLevelBefore2024=레벨 3과 10 대신 레벨 2와 9에서 <color=#D89555>전문성</color>을 활성화합니다.
 ModUi/&EnableBardHealingBalladOnLongRest=긴 휴식 시 <b>College of Hope</b> <color=#D89555>힐링 발라드</color> 활성화
+ModUi/&EnableBardMagicalSecrets2024=<color=#D89555>Magical Secrets</color>를 5e 2024 버전으로 바꾸세요
 ModUi/&EnableBardSuperiorInspiration2024=레벨 20 대신 레벨 18에서 <color=#D89555>우수한 영감</color>을 활성화하고 1회 대신 2회 충전을 허용합니다.
 ModUi/&EnableBardWordsOfCreation2024=레벨 20에서 <color=#D89555>창조의 말씀</color>을 활성화합니다.
-ModUi/&EnableBardicInspiration2024=<color=#D89555>바드 영감</color> 지속 시간을 10분 대신 1시간으로 변경
+ModUi/&EnableBardicInspiration2024=<color=#D89555>Bardic Inspiration</color>을 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[기간은 10분이 아닌 1시간입니다]</color></i>
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 클릭으로 취소 작업 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=주문이 <color=#D89555>전쟁 마법</color> 추가 보너스 공격을 발동하도록 허용합니다.
 ModUi/&EnableCharactersOnFireToEmitLight=<color=#D89555>불타는</color> 캐릭터는 빛을 내야 합니다. <i><color=#F0DAA0>[빛의 큐브, 불의 정령, 불의 광대, 불의 물수리, 불의 거미, 불의 상태 패밀리]</color></i>
-ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
-ModUi/&EnableClericDivineIntervention2024=<color=#D89555>신성한 개입</color>과 <color=#D89555>개선된 신성 개입</color>을 5e 2024 버전 <i><color=#F0DAA0>[특정 레벨까지 주문 슬롯 획득]</color></i>과 교환하세요.
+ModUi/&EnableClericBlessedStrikes2024=레벨 7과 14에서 <color=#D89555>축복받은 일격</color>과 <color=#D89555>개선된 축복받은 일격</color>을 활성화합니다.\n<i><color=#F0DAA0>[Defiler, Life, Mischief, Nature, Smith, Sun, Tempest 도메인에만 영향을 미칩니다.]</color></i>
+ModUi/&EnableClericChannelDivinity2024=<color=#D89555>채널 디비니티</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>으로 바꾸세요
 ModUi/&EnableClericDivineOrder2024=레벨 1에서 <color=#D89555>신성한 질서</color> 활성화 <i><color=#F0DAA0>[중갑옷/무술 무기 전문가 또는 보너스 주문과 일부 INT 검사 중 선택]</color></i>
 ModUi/&EnableClericSearUndead2024=레벨 5에서 ​​<color=#D89555>언데드 파괴</color>를 대체하기 위해 <color=#D89555>언데드 태우기</color>를 활성화합니다.
 ModUi/&EnableClericToLearnDomainAtLevel3=1 대신 3 레벨에서 <color=#D89555>도메인</color>을 활성화하세요.
 ModUi/&EnableCustomPortraits=<color=#D89555>사용자 정의 초상화</color> 활성화
 ModUi/&EnableCustomPortraitsHelp=• 영웅의 이름을 따서 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color></b></i> 하위 폴더에 사용자 지정 초상화를 넣습니다. <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• 투명 레이어가 있는 256 x 384픽셀 크기의 PNG 이미지를 사용합니다. <i><color=#F0DAA0>[최상의 결과를 위해 GIMP를 사용하세요]</color></i>
+ModUi/&EnableDruidArchDruid2024=<color=#D89555>대드루이드</color>를 2024년 버전으로 바꾸세요 <i><color=#F0DAA0>[와일드 셰이프 회복]</color></i>
+ModUi/&EnableDruidElementalFury2024=레벨 7과 15에서 <color=#D89555>원소의 분노</color>와 <color=#D89555>향상된 원소의 분노</color>를 활성화합니다.
 ModUi/&EnableDruidMetalArmor2024=<color=#D89555>금속 갑옷</color> 제한 제거
+ModUi/&EnableDruidPrimalOrder2024=레벨 1에서 <color=#D89555>원시 질서</color>를 활성화하고 <color=#D89555>중간 방어구 숙련도</color>를 제거합니다.
+ModUi/&EnableDruidToLearnCircleAtLevel3=레벨 2 대신 레벨 3에서 <color=#D89555>원</color>을 활성화합니다.
 ModUi/&EnableDruidWeaponProficiency2024=<color=#D89555>간단한 무기</color> 숙련도를 활성화합니다. <i><color=#F0DAA0>[개별 무기 유형 대신 검 숙련도를 잃습니다]</color></i>
+ModUi/&EnableDruidWildResurgence2024=레벨 5에서 ​​<color=#D89555>야생의 부활</color>을 활성화합니다.
+ModUi/&EnableDruidWildshape2024=<color=#D89555>와일드 셰이프</color>를 2024년 버전 <i><color=#F0DAA0>[보너스 액션, 다양한 용도, 임시 생명력]</color></i>과 교환하세요
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기, 모든 환경의 자산을 혼합한 단순함 포함]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ 전투 중 고도 카메라를 활성화하여 비활성화 후에도 위치를 유지하고 범위를 3배로 늘립니다.</i>
 ModUi/&EnableEpicPointsAndArray=35포인트의 장대한 구매 시스템과 배열을 활성화하세요 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[비밀의 사격, 주입, 기동 및 다양성]</color></i>\n<b><i><color=#C04040E0>[캐릭터 검사 시 성능 저하. 사용 시 모든 위험을 감수해야 함]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=레벨 2, 10, 18에서 <color=#D89555>특기</color> 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=레벨 6과 14에서 <color=#D89555>특기</color> 선택 활성화
-ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>불굴의 저항력</color> 세이빙 스로우 재시전에 보너스로 클래스 레벨을 추가합니다.
-ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color>를 활성화하여 5e 2024 사용 진행을 사용하세요.
+ModUi/&EnableFighterIndomitableSaving2024=<color=#D89555>불굴의 저항</color>을 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[세이브 스로우 재시도에 보너스로 클래스 레벨 추가]</color></i>
+ModUi/&EnableFighterSecondWind2024=<color=#D89555>Second Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 사용 진행]</color></i>과 교환하세요
 ModUi/&EnableFighterSkillOptions2024=1레벨 스킬 옵션에 <color=#D89555>설득</color>을 추가합니다.
 ModUi/&EnableFighterStudiedAttacks2024=레벨 13에서 <color=#D89555>공격 연구</color>를 활성화합니다. <i><color=#F0DAA0>[이번 라운드에 생물에 대한 이전 공격이 빗나갔을 경우 유리함]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=레벨 9에서 <color=#D89555>전술 마스터</color> 활성화 <i><color=#F0DAA0>[무기 마스터리 속성 대체]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=레벨 2와 5에서 <color=#D89555>전술적 마인드</color>와 <color=#D89555>전술적 변화</color>를 활성화합니다. <i><color=#F0DAA0>[2차 바람 시나리오 증강]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=레벨 8과 16에서 <color=#D89555>무기 전문화</color> 활성화 <i><color=#F0DAA0>[명중률과 피해량이 +1 증가하지만 다른 무기 유형에는 불리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 사용 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
@@ -151,15 +158,18 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 정의 캠페인�
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 입출력 전제 조건 능력치 적용</i>
 ModUi/&EnableMonkAbundantKi=2레벨에서 <color=#D89555>풍부한 기</color>를 활성화합니다. <i><color=#F0DAA0>[숙련도 보너스의 절반에 해당하는 추가 기를 얻습니다(올림)]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=레벨 20에서 <color=#D89555>완벽한 자아</color>를 대체하기 위해 <color=#D89555>신체와 정신</color>을 활성화합니다.
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=<color=#D89555>무술 - 보너스 비무장 타격</color>을 활성화하면 사용 전에 공격 동작이 필요하지 않습니다.
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=사용 전에 공격 동작이 필요하지 않도록 <color=#D89555>Flurry of Blows</color>를 활성화합니다.
+ModUi/&EnableMonkDeflectAttacks2024=<color=#D89555>공격 반사</color>와 <color=#D89555>에너지 반사</color>를 활성화하여 레벨 3과 13에서 <color=#D89555>미사일 반사</color>와 <color=#D89555>태양과 달의 혀</color>를 대체합니다.\n<i><color=#F0DAA0>[3레벨에서는 근접 공격을 반사할 수 있고, 13레벨에서는 모든 유형의 피해를 반사할 수 있습니다]</color></i>
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>격투 스타일</color> 선택 가능
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
-ModUi/&EnableMonkHeightenedMetabolism2024=레벨 10에서 <color=#D89555>높아진 신진대사</color> 활성화 <i><color=#F0DAA0>[<b>연타격</b>, <b>환자 방어</b>, <b>바람의 발걸음</b>이 추가 혜택을 얻습니다]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>개선된 비무장 이동</color>을 활성화하여 떨어지지 않고 수직 표면을 따라 이동합니다.
-ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 대체하기 위해 <color=#D89555>우수한 방어력</color>을 활성화합니다.
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=<color=#D89555>비무장 공격</color>을 활성화하여 5e 2024 주사위 유형 진행을 사용합니다.
-ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>무기 전문화</color>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 당신에게 수도사 무기가 됩니다]</color></i>
+ModUi/&EnableMonkFocus2024=<color=#D89555>Flurry of Blows</color>, <color=#D89555>Patient Defense</color>, <color=#D89555>Step of the Wind</color>를 5e 2024 버전 <i><color=#F0DAA0>[원하는 대로 사용 가능, 추가 효과를 위한 기 포인트]</color></i>과 교환하세요.
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=<color=#D89555>핸드랩</color>과 <color=#D89555>건틀릿</color>이 건틀릿 슬롯에서 작동하도록 활성화합니다.
+ModUi/&EnableMonkHeightenedFocus2024=<color=#D89555>강화된 집중력</color>과 <color=#D89555>완벽한 집중력</color>을 활성화하여 레벨 10과 15에서 <color=#D89555>신체의 순수성</color>과 <color=#D89555>영원한 신체</color>를 대체합니다.\n<i><color=#F0DAA0>[<b>연타격</b>, <b>인내의 방어</b>, <b>바람의 발걸음</b>은 10레벨에서 추가 효과를 얻고, 15레벨에서 기 포인트를 회복합니다]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=<color=#D89555>개선된 비무장 이동</color>을 활성화하여 떨어지지 않고 수직 표면을 따라 이동합니다.
+ModUi/&EnableMonkKatanaSpecialization=그랜트 카타나 <color=#D89555>무기 전문화</color>
+ModUi/&EnableMonkMartialArts2024=<color=#D89555>무술</color>을 5e 2024 버전으로 교체 <i><color=#F0DAA0>[개선된 비무장 주사위 진행 및 비무장 타격 보너스 액션에 대한 요구 사항 없음]</color></i>
+ModUi/&EnableMonkSelfRestoration2024=레벨 7의 <color=#D89555>정신의 고요함</color>을 대체하기 위해 레벨 10에서 <color=#D89555>자기 회복</color>을 활성화합니다.
+ModUi/&EnableMonkStunningStrike2024=<color=#D89555>Stunning Strike</color>를 5e 2024 버전으로 바꾸세요 <i><color=#F0DAA0>[대상이 저장에 성공하면 추가 효과가 적용됩니다]</color></i>
+ModUi/&EnableMonkSuperiorDefense2024=레벨 18에서 <color=#D89555>빈 몸</color>을 <color=#D89555>최고 방어력</color>으로 대체합니다. <i><color=#F0DAA0>[피해 저항력]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=레벨 2에서 <color=#D89555>기이한 신진대사</color>를 활성화합니다. <i><color=#F0DAA0>[이니셔티브 롤에서 기와 체력 회복]</color></i>
 ModUi/&EnableMulticlass=<color=#D89555>다중클래스</color> 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=<color=#D89555>Barkskin</color> 5e 2024 주문 버전 활성화 <i><color=#F0DAA0>[보너스 액션, 집중 없음, AC 17로 설정]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=<color=#D89555>비전의 검</color>, <color=#D89555>죽음의 원</color>, <color=#D89555>불꽃 일격</color>, <color=#D89555>얼음 폭풍</color>, <color=#D89555>프리즘 스프레이</color>, <color=#D89555>사악한 조롱</color> 5e 2024 주문 버전 <i><color=#F0DAA0>[더 나은 데미지]</color></i>을 활성화합니다.
@@ -176,10 +186,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=<color=#D89555>거미 등반</color> 5e 2024
 ModUi/&EnableOneDndStoneSkinSpell=<color=#D89555>스톤 스킨</color> 5e 2024 주문 버전을 활성화합니다. <i><color=#F0DAA0>[마법 B/P/S에 대한 저항력도 제공]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 캔트립 버전 사용 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>\n<i><color=#F0DAA0>[공격 시 공격 굴림과 피해 보너스에 주문 시전 능력을 사용하고, 레벨 5부터 추가 방사형 피해]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=레벨 9에서 <color=#D89555>적을 배척</color>할 수 있습니다.
-ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color> 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>을 활성화하세요
-ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>안수</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>으로 바꾸세요
+ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color>를 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>과 교환하세요
 ModUi/&EnablePaladinRestoringTouch2024=레벨 14에서 <color=#D89555>클렌징 터치</color>를 대체하기 위해 <color=#D89555>터치 복원</color>을 활성화합니다.
-ModUi/&EnablePaladinSmite2024=<color=#D89555>신성한 일격</color> 5e 2024 버전 활성화 <i><color=#F0DAA0>[보너스 액션]</color></i>
+ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color>를 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>과 교환하세요
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
 ModUi/&EnablePcgRandom=더 나은 난수 생성 알고리즘을 활성화하세요 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=보너스 액션으로 무기에 <color=#D89555>독</color>을 적용하도록 활성화합니다.
@@ -208,13 +218,15 @@ ModUi/&EnableRogueReliableTalent2024=레벨 11 대신 레벨 7에서 <color=#D89
 ModUi/&EnableRogueSlipperyMind2024=<color=#D89555>Slippery Mind</color>를 5e 2024 버전과 교환하세요 <i><color=#F0DAA0>[지혜 외에도 카리스마 세이빙 스로우에 능숙해짐]</color></i>
 ModUi/&EnableRogueSteadyAim2024=레벨 3에서 <color=#D89555>안정적인 조준</color>을 활성화합니다. <i><color=#F0DAA0>[현재 턴에서 아직 이동하지 않았다면 다음 공격 굴림에 보너스 액션이 유리해집니다.]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>교활한/사악한 일격</color>에 <b>후드럼</b> DEX 또는 STR 수정치를 활성화합니다.
+ModUi/&EnableScimitarSpecialization=그랜트 스키미터 <color=#D89555>무기 전문화</color>
 ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 <color=#D89555>특징 주문</color>을 준비할 수 있게 합니다. <i><color=#F0DAA0>[레벨 20에서 한 번만]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=20에서 <color=#D89555>비전적 신격화</color> 활성화
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=레벨 1과 7에서 <color=#D89555>선천적 마법</color>과 <color=#D89555>마법의 화신</color>을 활성화합니다.
+ModUi/&EnableSorcererArcaneApotheosis2024=레벨 20에서 <color=#D89555>마법의 회복</color>을 대체하기 위해 <color=#D89555>비전의 신격화</color>를 활성화합니다.
+ModUi/&EnableSorcererInnateSorcery2024=레벨 1과 7에서 <color=#D89555>선천적 마법</color>과 <color=#D89555>마법의 화신</color>을 활성화합니다.
 ModUi/&EnableSorcererMagicalGuidance=레벨 5에서 <color=#D89555>마법의 안내</color>를 활성화합니다.
+ModUi/&EnableSorcererMetamagic2024=<color=#D89555>메타매직</color>을 3레벨 대신 2레벨로 활성화합니다.
+ModUi/&EnableSorcererOrigin2024=레벨 1 대신 레벨 3에서 <color=#D89555>Origins</color> 활성화
 ModUi/&EnableSorcererQuickenedAction=<color=#D89555>빠른 주문</color> 동작을 활성화하여 빠른 메타매직이 적용된 주요 동작 주문을 시전할 수 있습니다.
 ModUi/&EnableSorcererSorcerousRestoration2024=레벨 5에서 <color=#D89555>마법 회복</color>을 활성화합니다.
-ModUi/&EnableSorcererToLearnOriginAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>Origins</color> 활성화
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableSpeech=사용자 정의 캠페인에서 음성 활성화 <i><color=#F0DAA0>[내레이션 및 영웅만]</color></i>
 ModUi/&EnableSpeechActorHelp=• 배우를 선택하세요
@@ -233,7 +245,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>원소 소환</color>�
 ModUi/&EnableVariablePlaceholdersOnTexts=설명에 변수 플레이스홀더 활성화 <i><color=#F0DAA0>[플레이스홀더로 {VARIABLE_NAME} 사용]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 탄약 슬롯에 넣고 운반하고 사용할 수 있습니다.
 ModUi/&EnableVersatileOffHandSlot=<color=#D89555>물약</color>과 <color=#D89555>두루마리</color>를 보조 무기 슬롯에 휴대하고 사용할 수 있습니다.
-ModUi/&EnableWarlockInvocationProgression2024=5e 2024 진행을 사용하려면 <color=#D89555>호출</color>을 활성화하세요.
+ModUi/&EnableWarlockInvocationProgression2024=<color=#D89555>호출</color>을 5e 2024 <i><color=#F0DAA0>[다른 진행 및 조정된 호출]</color></i>로 바꾸세요
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화하고 레벨 20에서 <color=#D89555>엘드리치 마스터</color>를 향상시킵니다.
 ModUi/&EnableWarlockMagicalCunningAtLevel2=레벨 2에서 <color=#D89555>마법의 교활함</color>을 활성화합니다.
 ModUi/&EnableWarlockToLearnPatronAtLevel3=레벨 1 대신 레벨 3에서 <color=#D89555>후원자</color> 활성화
@@ -269,8 +281,6 @@ ModUi/&FullyControlConjurations=<i><color=#F0DAA0>[동물, 정령 등]</color></
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
-ModUi/&GrantKatanaSpecializationToMonk=<b>수도사</b>에게 카타나 <color=#D89555>무기 전문화</color>를 부여합니다.
-ModUi/&GrantScimitarSpecializationToBardRogue=<b>바드</b>와 <b>도적</b>에게 <color=#D89555>무기 전문화</color>를 부여합니다.
 ModUi/&GridSelectedColor=움직임 변경 <b><color=$$$$$$>격자 색상</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않았다면 출구와 텔레포터 시각 효과를 숨깁니다.
 ModUi/&HideMonsterHitPoints=정확한 체력 대신 25% / 50% / 75% / 100% 단계로 몬스터의 체력을 표시합니다.
@@ -322,11 +332,10 @@ ModUi/&RecipeCost=<color=white>레시피 비용</color>
 ModUi/&RefreshVoice=음성 목록 새로 고침
 ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=레벨 14와 18에서 <color=#D89555>마법의 비밀</color>을 제거하세요
 ModUi/&RemoveBardSongOfRest2024=레벨 2에서 <color=#D89555>휴식의 노래</color>를 제거합니다.
 ModUi/&RemoveBugVisualModels=게임에서 거미와 유사한 모델을 곰과 유사한 모델로 교체 <i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터를 제거하세요
-ModUi/&RemoveRangerVanish2024=레벨 14에서 <color=#D89555>사라짐</color> 제거
+ModUi/&RemoveRangerPrimevalAwareness2024=레벨 3에서 <color=#D89555>원시적 인식</color>을 제거합니다.
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 힘 검사를 강제로 시행합니다.
 ModUi/&RemoveRogueBlindSense2024=레벨 14에서 <color=#D89555>맹감각</color> 제거
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<b>섀도우캐스터</b>에서 학교 제한을 제거하세요
@@ -404,4 +413,8 @@ ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량 배급량</color> 무�
 ModUi/&UseOfficialObscurementRules=<color=#D89555>조명, 흐릿함, 시야</color> 전투 규칙을 활성화합니다.
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[공격자가 감지할 수 없는 방어자를 감지하면 ADV를 얻고, 공격자가 감지할 수 있는 방어자를 감지하지 못하면 DIS를 얻습니다.\n 매우 어두운 지역은 실명 상태를 유발하고, 생물에 대한 공격 굴림은 ADV를 얻고 생물의 공격 굴림은 DIS를 얻습니다.\n 공격자가 시력이 없으면 개인을 대상으로 하는 모든 원거리 주문을 시전할 수 없습니다. 다만 시력이 필요하다는 것이 명확히 명시되지 않은 주문은 예외입니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>작은 종족</color>이 무거운 무기를 사용할 때 불리한 점을 갖도록 합니다.
+ModUi/&UseWeaponMasterySystem=<color=#D89555>무기 마스터리</color> 규칙 활성화
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 클리브 마스터리 2차 공격 데미지에 속성 점수 수정치 추가</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 모든 게임 무기에 마스터리 태그 추가</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ 밀기 마스터리는 생물이 힘 세이빙 스로우(DC 8 + 공격 굴림 능력치 수정치 + 숙련 보너스)를 해야 합니다.</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

@@ -988,6 +988,14 @@ internal static class GLBM
                             NotificationTag: "DivineSmite"
                         };
 
+                        // Dnd 2014 don't allow thrown smites except if Oath of Thunder attack
+                        if (!Main.Settings.EnablePaladinSmite2024 &&
+                            !OathOfThunder.IsOathOfThunderWeapon(attackMode, null, attacker.RulesetCharacter) &&
+                            attackMode.thrown)
+                        {
+                            break;
+                        }
+
                         // One DnD only allow smites as bonus action
                         if (Main.Settings.EnablePaladinSmite2024 &&
                             isDivineSmite &&

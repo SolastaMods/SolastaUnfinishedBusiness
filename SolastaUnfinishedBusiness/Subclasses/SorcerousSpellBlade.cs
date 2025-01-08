@@ -43,7 +43,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
 
         // Enchant Weapon
 
-        var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
+        // kept name for backward compatibility
+        var attackModifierEnchantWeapon = FeatureDefinitionBuilder
             .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
             .AddCustomSubFeatures(

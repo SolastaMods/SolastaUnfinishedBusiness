@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=AC に -1。
+Condition/&ConditionAcidClawsTitle=酸によるやけど
 Condition/&ConditionInnovationVitriolistCorrodedDescription=ACに-2。
 Condition/&ConditionInnovationVitriolistCorrodedTitle=腐食した
 Condition/&ConditionInnovationVitriolistMiserableDescription=再発性の損傷。

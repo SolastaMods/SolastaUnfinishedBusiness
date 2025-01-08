@@ -1,5 +1,5 @@
 Feature/&PerceptionAffinityHelmOfAwarenessDescription=Cannot be surprised.
-Feature/&PowerHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15 ft closer to you.
+Feature/&PowerHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15ft closer to you.
 Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Extra damage from Lighting Spear.
 Feedback/&ExtraDamageTitle=Lightning Spear extra damage

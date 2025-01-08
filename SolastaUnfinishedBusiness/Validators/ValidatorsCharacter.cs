@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -180,14 +181,14 @@ internal static class ValidatorsCharacter
     {
         var weapon = character.GetMainWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
-        return ValidatorsWeapon.IsMelee(null, weapon, character);
+        return weapon != null && ValidatorsWeapon.IsMelee(null, weapon, character);
     };
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
@@ -315,24 +316,35 @@ internal static class ValidatorsCharacter
     //
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
+    internal static bool IsMonkMeleeWeapon(RulesetCharacter character)
     {
-        var monkWeaponSpecializations = character.GetSubFeaturesByType<ClassesContext.MonkWeaponSpecialization>();
+        var item = character.GetMainWeapon()?.ItemDefinition;
+
+        return ValidatorsWeapon.IsMelee(item) && character.IsMonkWeaponOrUnarmed(item);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsMonkWeaponOrUnarmed(this RulesetActor character, WeaponDescription weaponDescription)
+    {
+        var monkWeaponSpecializations = character.GetSubFeaturesByType<WayOfBlade.WeaponSpecialization>();
 
         return weaponDescription == null ||
                weaponDescription.IsMonkWeaponOrUnarmed() ||
+               WayOfZenArchery.IsZenArcheryWeapon(character, weaponDescription) ||
+               (Main.Settings.EnableMonkKatanaSpecialization &&
+                weaponDescription.WeaponTypeDefinition == CustomWeaponsContext.KatanaWeaponType) ||
                monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
+    internal static bool IsMonkWeaponOrUnarmed(this RulesetCharacter character, ItemDefinition itemDefinition)
     {
         if (!itemDefinition)
         {
             return false;
         }
 
-        return itemDefinition.IsWeapon && character.IsMonkWeapon(itemDefinition.WeaponDescription);
+        return itemDefinition.IsWeapon && character.IsMonkWeaponOrUnarmed(itemDefinition.WeaponDescription);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

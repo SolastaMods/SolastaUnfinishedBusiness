@@ -14,8 +14,8 @@
   "features": [
     "Definition:AttributeModifierMonkKiPointsAddProficiencyBonus:87c4ce58-4094-57af-8437-1d1be2549977",
     "Definition:FeatureSetMonkFlurryOfBlows:48a146e4b2069e14b82d8f51355fded3",
-    "Definition:FeatureSetMonkStepOfTheWind:8b9db5a4bcf83264d83077da21292574",
-    "Definition:PowerMonkPatientDefense:24fa05ec9f3efcf4d86e6a0833c6281b"
+    "Definition:FeatureSetMonkPatientDefense:54517bdd-5028-5088-8490-fc2199f4e9a9",
+    "Definition:FeatureSetMonkStepOfTheWind:8b9db5a4bcf83264d83077da21292574"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

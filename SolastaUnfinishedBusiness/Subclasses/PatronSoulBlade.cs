@@ -53,7 +53,8 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
-        var attackModifierEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
+        // kept name for backward compatibility
+        var attackModifierEmpowerWeapon = FeatureDefinitionBuilder
             .Create($"AttackModifier{Name}EmpowerWeapon")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
@@ -223,7 +224,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
+    private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
         if (character is not RulesetCharacterHero hero)
         {

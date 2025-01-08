@@ -38,7 +38,7 @@ public static class WieldedConfigurationSelectorPatcher
 
         private static bool IsMonkWeaponOrUnarmed(WeaponDescription description, GuiCharacter guiCharacter)
         {
-            return guiCharacter.RulesetCharacter.IsMonkWeapon(description);
+            return guiCharacter.RulesetCharacter.IsMonkWeaponOrUnarmed(description);
         }
 
         [UsedImplicitly]

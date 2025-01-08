@@ -35,19 +35,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddFeatureSet(gambitPoolIncrease2)
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureAdaptiveStrategy")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
-            .AddFeatureSet(gambitPoolIncrease2)
-            .AddToDB();
-
-        _ = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureOvercomingStrategy")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
-            .AddFeatureSet(gambitPoolIncrease2)
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,

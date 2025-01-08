@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 bis AC.
+Condition/&ConditionAcidClawsTitle=Säureverbrennung
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 zu AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Korrodiert
 Condition/&ConditionInnovationVitriolistMiserableDescription=Wiederkehrende Schäden.

@@ -650,12 +650,6 @@ internal static class TranslatorContext
 
                         dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
                     }
-
-                    // foreach (var functor in userDialogState.functors
-                    //              .Where(functor => functor.type is SetLocationStatus or LoreOperation))
-                    // {
-                    //     functor.StringParameter = Translate(functor.StringParameter, languageCode);
-                    // }
                 }
             }
 
@@ -687,32 +681,21 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
-                    // foreach (var outStart in userQuestStep.onStartFunctors
-                    //              .Where(outStart => outStart.type is SetLocationStatus or LoreOperation))
-                    // {
-                    //     outStart.StringParameter = Translate(outStart.StringParameter, languageCode);
-                    // }
-
                     foreach (var outcome in userQuestStep.OutcomesTable)
                     {
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-                        outcome.validatorDescription.StringParameter = outcome.validatorDescription.type switch
-                        {
-                            QuestDefinitions.QuestValidatorType.EnterLocation or
-                                QuestDefinitions.QuestValidatorType.EnterCampaignMap or
-                                QuestDefinitions.QuestValidatorType.LeaveLocation or
-                                QuestDefinitions.QuestValidatorType.LeaveCampaignMap => Translate(
-                                    outcome.validatorDescription.StringParameter, languageCode),
-                            _ => outcome.validatorDescription.StringParameter
-                        };
 
-                        // foreach (var outComplete in outcome.OnCompleteFunctors
-                        //              .Where(outComplete => outComplete.type is SetLocationStatus or LoreOperation))
-                        // {
-                        //     outComplete.StringParameter = Translate(outComplete.StringParameter, languageCode);
-                        // }
+                        if (outcome.validatorDescription.type is not (QuestDefinitions.QuestValidatorType.EnterLocation
+                            or
+                            QuestDefinitions.QuestValidatorType.EnterCampaignMap or
+                            QuestDefinitions.QuestValidatorType.LeaveLocation or
+                            QuestDefinitions.QuestValidatorType.LeaveCampaignMap))
+                        {
+                            outcome.validatorDescription.StringParameter =
+                                Translate(outcome.validatorDescription.StringParameter, languageCode);
+                        }
                     }
                 }
             }
@@ -791,7 +774,7 @@ internal static class TranslatorContext
             {
                 yield return Update();
 
-                userCampaignMapNode.userLocationName = Translate(userCampaignMapNode.userLocationName, languageCode);
+                userCampaignMapNode.unchartedTitle = Translate(userCampaignMapNode.unchartedTitle, languageCode);
                 userCampaignMapNode.overriddenTitle = Translate(userCampaignMapNode.overriddenTitle, languageCode);
                 userCampaignMapNode.overriddenDescription =
                     Translate(userCampaignMapNode.overriddenDescription, languageCode);

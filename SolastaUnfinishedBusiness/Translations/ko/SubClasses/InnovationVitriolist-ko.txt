@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=AC에 -1.
+Condition/&ConditionAcidClawsTitle=산 화상
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 ~ AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=부식됨
 Condition/&ConditionInnovationVitriolistMiserableDescription=반복되는 손상.

@@ -82,6 +82,14 @@ internal enum ExtraActionId
     DeadEyeToggle,
     OverChannelToggle,
     GravityWellToggle,
+    GrappleNoCost,
+    ProxyDarkness,
+    ElementalFuryToggle,
+    BlessedStrikesToggle,
+    NatureStrikesToggle,
+    WeaponMasteryToggle,
+    WeaponMasteryCleave,
+    TacticalMasterToggle,
     PrioritizeAction = 10000
 }
 
@@ -201,7 +209,7 @@ internal enum ExtraSituationalContext
     HasBladeMasteryWeaponTypesInHands = 9000,
     HasGreatswordInHands = 9001,
     HasLongswordInHands = 9002,
-    HasMeleeWeaponInMainHandWithFreeOffhand = 9003,
+    HasMeleeWeaponInMainHandAndFreeOffhand = 9003,
     HasSimpleOrMartialWeaponInHands = 9005,
     IsNotInBrightLight = 9007,
     IsRagingAndDualWielding = 9008,
@@ -213,7 +221,8 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 9015,
     IsNotConditionSourceNotRanged = 9016,
     IsConcentratingOnSpell = 9017,
-    IsConditionSource = 9018
+    IsConditionSource = 9018,
+    HasMonkMeleeWeaponInMainHand = 9019
 }
 
 internal enum ExtraTurnOccurenceType

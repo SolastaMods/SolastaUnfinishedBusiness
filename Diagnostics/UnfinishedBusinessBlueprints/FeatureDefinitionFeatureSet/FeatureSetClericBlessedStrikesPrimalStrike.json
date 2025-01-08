@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerClericBlessedStrikes:ab930de0-192b-5d07-b33c-f18ae6275a44",
+    "Definition:PowerClericBlessedStrikesDamageNecrotic:a2adce35-1ecb-59f4-9e21-400dfdf0ee6b",
+    "Definition:ActionAffinityBlessedStrikesToggle:ecd59f94-0a6f-5946-9e4e-687ce314bb7f",
+    "Definition:PowerClericBlessedStrikesDamageRadiant:44119b71-4cb3-528b-ba7d-0ad57c847cf6"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&PowerClericBlessedStrikesTitle",
+    "description": "Feature/&PowerClericBlessedStrikesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9c4b6048-7b41-5b3f-b4f1-e03a158bc9fb",
+  "contentPack": 9999,
+  "name": "FeatureSetClericBlessedStrikesPrimalStrike"
+}

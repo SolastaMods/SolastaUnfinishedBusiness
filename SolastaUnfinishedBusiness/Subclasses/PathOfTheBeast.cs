@@ -342,7 +342,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     ActionDefinitions.Id.AttackFree,
                     defender,
                     attackMode,
-                    action.ActionParams.ActionModifiers[0]);
+                    new ActionModifier());
             }
         }
 
@@ -761,24 +761,18 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var attacker = targetCharacters[0];
             var defender = targetCharacters[1];
 
-            // issue ally's attack
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            var attackModifier = new ActionModifier();
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagEffect, condition.name);
 
+            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
             attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackOpportunity, defender, attackModeCopy, attackModifier);
+                ActionDefinitions.Id.AttackOpportunity,
+                defender,
+                attackMode,
+                new ActionModifier());
+
+            yield break;
         }
 
         private static bool IsValidAttack(

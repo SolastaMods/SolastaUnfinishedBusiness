@@ -11,12 +11,10 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -29,25 +27,18 @@ internal static class ClassesContext
     {
         InventorClass.Build();
 
-        // kept for backward compatibility
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolMonkWeaponSpecialization")
-            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
-            .AddToDB();
-
-        LoadMonkWeaponSpecialization();
         SwitchBarbarianFightingStyle();
-        SwitchKatanaWeaponSpecialization();
+        SwitchBardScimitarSpecialization();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
-        SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+        SwitchMonkHandwrapsGauntletSlot();
+        SwitchMonkImprovedUnarmoredMovement();
+        SwitchMonkKatanaSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRogueFightingStyle();
+        SwitchRogueScimitarSpecialization();
         SwitchRogueStrSaving();
-        SwitchScimitarWeaponSpecialization();
         SwitchSorcererMagicalGuidance();
-        UpdateHandWrapsUseGauntletSlot();
     }
 
     #region Ranger
@@ -70,32 +61,15 @@ internal static class ClassesContext
 
     #endregion
 
-    #region _General
+    #region Bard
 
-    internal static void SwitchKatanaWeaponSpecialization()
+    internal static void SwitchBardScimitarSpecialization()
     {
-        ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
+        ProficiencyBardWeapon.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
 
-        if (Main.Settings.GrantKatanaSpecializationToMonk)
+        if (Main.Settings.EnableBardScimitarSpecialization)
         {
-            ProficiencyMonkWeapon.Proficiencies.Add(CustomWeaponsContext.KatanaWeaponType.Name);
-        }
-    }
-
-    internal static void SwitchScimitarWeaponSpecialization()
-    {
-        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
-
-        foreach (var proficiency in proficiencies)
-        {
-            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
-            {
-                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
-            }
-            else
-            {
-                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
-            }
+            ProficiencyBardWeapon.Proficiencies.Add(WeaponTypeDefinitions.ScimitarType.Name);
         }
     }
 
@@ -108,22 +82,9 @@ internal static class ClassesContext
             .Create("FightingStyleChoiceBarbarian")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
-                // BlindFighting
-                // Crippling
-                // Defense
+                "Crippling",
                 "Dueling",
-                // Executioner
                 "GreatWeapon",
-                // HandAndAHalf
-                // Interception
-                // Lunger
-                // Merciless
-                // Protection
-                // Pugilist
-                // RemarkableTechnique
-                // RopeIpUp
-                // ShieldExpert
-                // Torchbearer
                 "TwoWeapon")
             .AddToDB();
 
@@ -161,90 +122,18 @@ internal static class ClassesContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                // BlindFighting
-                // Crippling
-                // Defense
+                "BlindFighting",
                 "Dueling",
-                // Executioner
-                // GreatWeapon
-                // HandAndAHalf
-                // Interception
-                // Lunger
-                // Merciless
-                // Protection
-                // Pugilist
-                // RemarkableTechnique
-                // RopeIpUp
-                // ShieldExpert
-                // Torchbearer
-                "TwoWeapon")
+                "HandAndAHalf")
             .AddToDB();
-
-    private static void LoadMonkWeaponSpecialization()
-    {
-        var weaponTypeDefinitions = new List<WeaponTypeDefinition>
-        {
-            WeaponTypeDefinitions.BattleaxeType,
-            WeaponTypeDefinitions.LightCrossbowType,
-            WeaponTypeDefinitions.LongbowType,
-            WeaponTypeDefinitions.LongswordType,
-            WeaponTypeDefinitions.MorningstarType,
-            WeaponTypeDefinitions.RapierType,
-            WeaponTypeDefinitions.ScimitarType,
-            WeaponTypeDefinitions.ShortbowType,
-            WeaponTypeDefinitions.WarhammerType,
-            CustomWeaponsContext.HandXbowWeaponType
-        };
-
-        foreach (var weaponTypeDefinition in weaponTypeDefinitions)
-        {
-            var weaponTypeName = weaponTypeDefinition.Name;
-
-            var featureMonkWeaponSpecialization = FeatureDefinitionProficiencyBuilder
-                .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
-                .SetGuiPresentationNoContent(true)
-                .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
-                .AddCustomSubFeatures(
-                    new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
-                .AddToDB();
-
-            if (!weaponTypeDefinition.IsBow && !weaponTypeDefinition.IsCrossbow)
-            {
-                featureMonkWeaponSpecialization.AddCustomSubFeatures(
-                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
-                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition))
-                );
-            }
-
-            // ensure we get dice upgrade on these
-            AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
-                new MonkWeaponSpecializationDiceUpgrade(weaponTypeDefinition));
-
-            _ = CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocationMonkWeaponSpecialization{weaponTypeName}")
-                .SetGuiPresentation(
-                    weaponTypeDefinition.GuiPresentation.Title,
-                    weaponTypeDefinition.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
-                .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
-                .SetGrantedFeature(featureMonkWeaponSpecialization)
-                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
-                .AddToDB();
-        }
-    }
 
     internal static void SwitchMonkAbundantKi()
     {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == AttributeModifierMonkAbundantKi);
+
         if (Main.Settings.EnableMonkAbundantKi)
         {
-            Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(AttributeModifierMonkAbundantKi, 2));
-        }
-        else
-        {
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 2 &&
-                                x.FeatureDefinition == AttributeModifierMonkAbundantKi);
+            Monk.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierMonkAbundantKi, 2));
         }
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
@@ -252,24 +141,19 @@ internal static class ClassesContext
 
     internal static void SwitchMonkFightingStyle()
     {
+        Monk.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == FightingStyleChoiceMonk);
+
         if (Main.Settings.EnableMonkFightingStyle)
         {
-            Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FightingStyleChoiceMonk, 2));
-        }
-        else
-        {
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 2 &&
-                                x.FeatureDefinition == FightingStyleChoiceMonk);
+            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(FightingStyleChoiceMonk, 2));
         }
 
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    internal static void SwitchMonkImprovedUnarmoredMovement()
     {
-        if (Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall)
+        if (Main.Settings.EnableMonkImprovedUnarmoredMovement)
         {
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
                 "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
@@ -287,34 +171,7 @@ internal static class ClassesContext
         }
     }
 
-#if false
-    internal static void SwitchMonkWeaponSpecialization()
-    {
-        var levels = new[] { 2, 11 };
-
-        if (Main.Settings.EnableMonkWeaponSpecialization)
-        {
-            foreach (var level in levels)
-            {
-                Monk.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(InvocationPoolMonkWeaponSpecialization, level));
-            }
-        }
-        else
-        {
-            foreach (var level in levels)
-            {
-                Monk.FeatureUnlocks
-                    .RemoveAll(x => x.level == level &&
-                                    x.FeatureDefinition == InvocationPoolMonkWeaponSpecialization);
-            }
-        }
-
-        Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-#endif
-
-    internal static void UpdateHandWrapsUseGauntletSlot()
+    internal static void SwitchMonkHandwrapsGauntletSlot()
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
@@ -325,7 +182,7 @@ internal static class ClassesContext
 
             if (item == ItemDefinitions.UnarmedStrikeBase) { continue; }
 
-            if (Main.Settings.EnableMonkHandwrapsUseGauntletSlot)
+            if (Main.Settings.EnableMonkHandwrapsOnGauntletSlot)
             {
                 item.SlotTypes.Add(EquipmentDefinitions.SlotTypeGloves);
                 item.SlotsWhereActive.Add(EquipmentDefinitions.SlotTypeGloves);
@@ -338,34 +195,15 @@ internal static class ClassesContext
         }
     }
 
-    internal sealed class MonkWeaponSpecialization
+    internal static void SwitchMonkKatanaSpecialization()
     {
-        internal WeaponTypeDefinition WeaponType { get; set; }
-    }
-
-    private sealed class MonkWeaponSpecializationDiceUpgrade : IValidateContextInsteadOfRestrictedProperty
-    {
-        private readonly WeaponTypeDefinition _weaponTypeDefinition;
-
-        internal MonkWeaponSpecializationDiceUpgrade(WeaponTypeDefinition weaponTypeDefinition)
+        if (Main.Settings.EnableMonkKatanaSpecialization)
         {
-            _weaponTypeDefinition = weaponTypeDefinition;
+            ProficiencyMonkWeapon.Proficiencies.TryAdd(CustomWeaponsContext.KatanaWeaponType.Name);
         }
-
-        public (OperationType, bool) ValidateContext(
-            BaseDefinition definition,
-            IRestrictedContextProvider provider,
-            RulesetCharacter character,
-            ItemDefinition itemDefinition,
-            bool rangedAttack, RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
+        else
         {
-            var attackModeWeaponType =
-                (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
-
-            return (OperationType.Or,
-                character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(
-                    x => x._weaponTypeDefinition == attackModeWeaponType));
+            ProficiencyMonkWeapon.Proficiencies.Remove(CustomWeaponsContext.KatanaWeaponType.Name);
         }
     }
 
@@ -379,22 +217,8 @@ internal static class ClassesContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                // BlindFighting
-                // Crippling
                 "Defense",
-                // Dueling
-                // Executioner
-                // GreatWeapon
-                // HandAndAHalf
-                // Interception
-                // Lunger
-                // Merciless
-                // Protection
-                // Pugilist
-                // RemarkableTechnique
-                // RopeIpUp
-                // ShieldExpert
-                // Torchbearer
+                "HandAndAHalf",
                 "TwoWeapon")
             .AddToDB();
 
@@ -411,6 +235,16 @@ internal static class ClassesContext
         }
 
         Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchRogueScimitarSpecialization()
+    {
+        ProficiencyRogueWeapon.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
+
+        if (Main.Settings.EnableRogueScimitarSpecialization)
+        {
+            ProficiencyRogueWeapon.Proficiencies.Add(WeaponTypeDefinitions.ScimitarType.Name);
+        }
     }
 
     private static void SwitchRogueStrSaving()

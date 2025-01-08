@@ -15,4 +15,4 @@ Feature/&MovementAffinityWildlingExpertClimberTitle=Escalador especialista
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=Você tem proficiência em Percepção e Furtividade.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Instintos naturais
 Race/&RaceWildlingDescription=Wildlings são descendentes de humanos e tieflings que herdaram principalmente as características selvagens dos pais tieflings. Diferentes em aparência e natureza, os wildlings passaram a maior parte de suas vidas em florestas ou outras regiões menos habitadas de Solasta como caçadores e viajantes autossuficientes.
-Race/&RaceWildlingTitle=Selvagem
+Race/&RaceWildlingTitle=Tabax

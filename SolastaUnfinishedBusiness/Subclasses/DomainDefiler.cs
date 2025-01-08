@@ -138,14 +138,6 @@ public sealed class DomainDefiler : AbstractSubclass
             //.AddCustomSubFeatures(ClassHolder.Cleric)
             .AddToDB();
 
-        // LEVEL 14
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionDamageAffinityBuilder
-            .Create($"DamageAffinity{NAME}DivineImmunity")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         // LEVEL 17
 
         // Dying Light

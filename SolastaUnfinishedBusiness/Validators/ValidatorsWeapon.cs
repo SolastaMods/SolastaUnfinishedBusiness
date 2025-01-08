@@ -70,10 +70,14 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetItem rulesetItem,
         RulesetCharacter rulesetCharacter)
     {
-        var finalRulesetItem =
+        var finalRulesetItemMain =
             attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon();
-
-        return IsMelee(finalRulesetItem?.ItemDefinition) || InnovationArmor.InGuardianMode(rulesetCharacter);
+        var finalRulesetItemOff =
+            attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetOffhandWeapon();
+        
+        return IsMelee(finalRulesetItemMain?.ItemDefinition) ||
+               IsMelee(finalRulesetItemOff?.ItemDefinition) ||
+               InnovationArmor.InGuardianMode(rulesetCharacter);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

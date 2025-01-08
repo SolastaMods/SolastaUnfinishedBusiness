@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>false</DisplayTabletop2024>
+    <DisplayTabletop2024>true</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -18,7 +18,7 @@
     <DisplayItemsToggle>false</DisplayItemsToggle>
     <DisplayBackgroundsAndRacesGeneralToggle>false</DisplayBackgroundsAndRacesGeneralToggle>
     <DisplayProficienciesGeneralToggle>false</DisplayProficienciesGeneralToggle>
-    <DisplaySpellsGeneralToggle>false</DisplaySpellsGeneralToggle>
+    <DisplaySpellsGeneralToggle>true</DisplaySpellsGeneralToggle>
     <DisplaySubClassesGeneralToggle>false</DisplaySubClassesGeneralToggle>
     <DisplayKlassToggle>
         <item>
@@ -240,6 +240,11 @@
     <EnableUnlimitedInventoryActions>false</EnableUnlimitedInventoryActions>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
+    <UseWeaponMasterySystem>true</UseWeaponMasterySystem>
+    <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
+    <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
+    <UseWeaponMasterySystemHideToggles>false</UseWeaponMasterySystemHideToggles>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -301,7 +306,7 @@
             </key>
             <value>
                 <ValueTupleOfStringSingle>
-                    <Item1>en_GB-alan-medium</Item1>
+                    <Item1>No Voice</Item1>
                     <Item2>0.8</Item2>
                 </ValueTupleOfStringSingle>
             </value>
@@ -633,38 +638,45 @@
         <string>Battleaxe</string>
         <string>LightCrossbow</string>
         <string>HeavyCrossbow</string>
+        <string>Dagger</string>
         <string>Greataxe</string>
         <string>Greatsword</string>
         <string>CEHalberd</string>
         <string>Handaxe</string>
         <string>CEHandXbow</string>
+        <string>Katana</string>
+        <string>Longbow</string>
+        <string>Longsword</string>
         <string>CELongMace</string>
+        <string>Mace</string>
+        <string>Morningstar</string>
         <string>CEPike</string>
         <string>Quarterstaff</string>
         <string>Rapier</string>
         <string>Scimitar</string>
+        <string>Shortbow</string>
+        <string>Shortsword</string>
         <string>Spear</string>
         <string>Javelin</string>
         <string>Dart</string>
-        <string>Shield_Wooden</string>
-        <string>Shield</string>
-        <string>HideArmor</string>
-        <string>LeatherDruid</string>
-        <string>StuddedLeather</string>
-        <string>ChainShirt</string>
-        <string>PaddedLeather</string>
-        <string>Leather</string>
-        <string>ScaleMail</string>
-        <string>Breastplate</string>
-        <string>HalfPlate</string>
-        <string>Ringmail</string>
-        <string>ChainMail</string>
-        <string>Plate</string>
-        <string>SorcererArmor</string>
         <string>BarbarianClothes</string>
-        <string>Warlock_Armor</string>
-        <string>MonkArmor</string>
         <string>ClothesWizard</string>
+        <string>MonkArmor</string>
+        <string>PaddedLeather</string>
+        <string>Shield_Wooden</string>
+        <string>SorcererArmor</string>
+        <string>Warlock_Armor</string>
+        <string>Breastplate</string>
+        <string>ChainMail</string>
+        <string>ChainShirt</string>
+        <string>HalfPlate</string>
+        <string>HideArmor</string>
+        <string>Leather</string>
+        <string>LeatherDruid</string>
+        <string>Plate</string>
+        <string>ScaleMail</string>
+        <string>Shield</string>
+        <string>StuddedLeather</string>
     </CraftingInStore>
     <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
@@ -675,14 +687,13 @@
     <EnableVariablePlaceholdersOnTexts>false</EnableVariablePlaceholdersOnTexts>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
     <SelectedLanguageCode>en</SelectedLanguageCode>
-    <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
-    <GrantKatanaSpecializationToMonk>false</GrantKatanaSpecializationToMonk>
+    <EnableBardScimitarSpecialization>true</EnableBardScimitarSpecialization>
     <EnableBardicInspiration2024>true</EnableBardicInspiration2024>
     <EnableBardCounterCharm2024>true</EnableBardCounterCharm2024>
     <EnableBardExpertiseOneLevelBefore2024>true</EnableBardExpertiseOneLevelBefore2024>
     <EnableBardSuperiorInspiration2024>true</EnableBardSuperiorInspiration2024>
     <EnableBardWordsOfCreation2024>true</EnableBardWordsOfCreation2024>
-    <RemoveBardMagicalSecret2024>true</RemoveBardMagicalSecret2024>
+    <EnableBardMagicalSecrets2024>true</EnableBardMagicalSecrets2024>
     <RemoveBardSongOfRest2024>true</RemoveBardSongOfRest2024>
     <EnableBarbarianBrutalStrike2024>true</EnableBarbarianBrutalStrike2024>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
@@ -690,32 +701,41 @@
     <EnableBarbarianPersistentRage2024>true</EnableBarbarianPersistentRage2024>
     <EnableBarbarianPrimalKnowledge2024>true</EnableBarbarianPrimalKnowledge2024>
     <EnableBarbarianReckless2024>true</EnableBarbarianReckless2024>
-    <EnableBarbarianRegainOneRageAtShortRest2024>true</EnableBarbarianRegainOneRageAtShortRest2024>
+    <EnableBarbarianRage2024>true</EnableBarbarianRage2024>
     <EnableBarbarianRelentlessRage2024>true</EnableBarbarianRelentlessRage2024>
+    <EnableClericBlessedStrikes2024>true</EnableClericBlessedStrikes2024>
     <EnableClericChannelDivinity2024>true</EnableClericChannelDivinity2024>
-    <EnableClericDivineIntervention2024>false</EnableClericDivineIntervention2024>
     <EnableClericDivineOrder2024>true</EnableClericDivineOrder2024>
     <EnableClericSearUndead2024>true</EnableClericSearUndead2024>
     <EnableClericToLearnDomainAtLevel3>true</EnableClericToLearnDomainAtLevel3>
+    <EnableDruidArchDruid2024>true</EnableDruidArchDruid2024>
+    <EnableDruidToLearnCircleAtLevel3>true</EnableDruidToLearnCircleAtLevel3>
+    <EnableDruidElementalFury2024>true</EnableDruidElementalFury2024>
     <EnableDruidMetalArmor2024>true</EnableDruidMetalArmor2024>
     <EnableDruidPrimalOrder2024>true</EnableDruidPrimalOrder2024>
     <EnableDruidWeaponProficiency2024>true</EnableDruidWeaponProficiency2024>
+    <EnableDruidWildResurgence2024>true</EnableDruidWildResurgence2024>
+    <EnableDruidWildshape2024>true</EnableDruidWildshape2024>
     <EnableFighterIndomitableSaving2024>true</EnableFighterIndomitableSaving2024>
     <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
+    <EnableFighterTacticalMaster2024>false</EnableFighterTacticalMaster2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
-    <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>true
-    </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024>
-    <EnableMonkDoNotRequireAttackActionForFlurry2024>true</EnableMonkDoNotRequireAttackActionForFlurry2024>
-    <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
-    <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
-    <EnableMonkHandwrapsUseGauntletSlot>true</EnableMonkHandwrapsUseGauntletSlot>
-    <EnableMonkHeightenedMetabolism2024>true</EnableMonkHeightenedMetabolism2024>
-    <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
-    <EnableMonkUnarmoredDieTypeProgression2024>true</EnableMonkUnarmoredDieTypeProgression2024>
+    <EnableMonkDeflectAttacks2024>true</EnableMonkDeflectAttacks2024>
+    <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
+    <EnableMonkHandwrapsOnGauntletSlot>true</EnableMonkHandwrapsOnGauntletSlot>
+    <EnableMonkHeightenedFocus2024>true</EnableMonkHeightenedFocus2024>
+    <EnableMonkImprovedUnarmoredMovement>true</EnableMonkImprovedUnarmoredMovement>
+    <EnableMonkSelfRestoration2024>true</EnableMonkSelfRestoration2024>
+    <EnableMonkSuperiorDefense2024>true</EnableMonkSuperiorDefense2024>
+    <EnableMonkUncannyMetabolism2024>true</EnableMonkUncannyMetabolism2024>
+    <EnableMonkKatanaSpecialization>false</EnableMonkKatanaSpecialization>
+    <EnableMonkFocus2024>true</EnableMonkFocus2024>
+    <EnableMonkMartialArts2024>true</EnableMonkMartialArts2024>
+    <EnableMonkStunningStrike2024>true</EnableMonkStunningStrike2024>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>
@@ -735,9 +755,10 @@
     <EnableRangerRoving2024>true</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
+    <RemoveRangerPrimevalAwareness2024>true</RemoveRangerPrimevalAwareness2024>
     <EnableRangerFeralSenses2024>true</EnableRangerFeralSenses2024>
     <EnableRangerFoeSlayers2024>true</EnableRangerFoeSlayers2024>
-    <RemoveRangerVanish2024>true</RemoveRangerVanish2024>
+    <EnableRogueScimitarSpecialization>true</EnableRogueScimitarSpecialization>
     <EnableRogueCunningStrike2024>true</EnableRogueCunningStrike2024>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueReliableTalent2024>true</EnableRogueReliableTalent2024>
@@ -745,12 +766,13 @@
     <EnableRogueSteadyAim2024>true</EnableRogueSteadyAim2024>
     <RemoveRogueBlindSense2024>true</RemoveRogueBlindSense2024>
     <EnableSorcererArcaneApotheosis2024>true</EnableSorcererArcaneApotheosis2024>
-    <EnableSorcererInnateSorceryAndSorceryIncarnate2024>true</EnableSorcererInnateSorceryAndSorceryIncarnate2024>
+    <EnableSorcererInnateSorcery2024>true</EnableSorcererInnateSorcery2024>
     <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <EnableSorcererQuickenedAction>true</EnableSorcererQuickenedAction>
     <HideQuickenedActionWhenMetamagicOff>true</HideQuickenedActionWhenMetamagicOff>
     <EnableSorcererSorcerousRestoration2024>true</EnableSorcererSorcerousRestoration2024>
-    <EnableSorcererToLearnOriginAtLevel3>true</EnableSorcererToLearnOriginAtLevel3>
+    <EnableSorcererMetamagic2024>true</EnableSorcererMetamagic2024>
+    <EnableSorcererOrigin2024>true</EnableSorcererOrigin2024>
     <EnableWarlockInvocationProgression2024>true</EnableWarlockInvocationProgression2024>
     <EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>true
     </EnableWarlockMagicalCunningAndImprovedEldritchMaster2024>
@@ -885,7 +907,6 @@
         <string>FeatMobile</string>
         <string>FeatGroupMediumArmor</string>
         <string>FeatMonkInitiate</string>
-        <string>FeatNaturalFluidity</string>
         <string>FeatGroupOldTactics</string>
         <string>FeatGroupOrcishAggression</string>
         <string>FeatGroupOrcishFury</string>
@@ -912,7 +933,6 @@
         <string>FeatSlayTheEnemies</string>
         <string>FeatSpearMastery</string>
         <string>FeatGroupSpellSniper</string>
-        <string>FeatSpiritualFluidity</string>
         <string>FeatGroupSquatNimbleness</string>
         <string>FeatStealthy</string>
         <string>FeatSuperiorCritical</string>
@@ -926,6 +946,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWeaponMastery</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
@@ -955,9 +976,11 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>AstralReach</string>
+        <string>BlessedWarrior</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
+        <string>DruidicWarrior</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
@@ -977,6 +1000,7 @@
         <string>InvocationPerniciousCloak</string>
         <string>InvocationCorrosiveBlast</string>
         <string>InvocationSpectralShield</string>
+        <string>InvocationDevouringBlade</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>
@@ -1766,11 +1790,11 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>WayOfBlade</string>
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
-                    <string>WayOfSilhouette</string>
+                    <string>WayOfTheShadow</string>
                     <string>WayOfTheStormSoul</string>
-                    <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>
             </value>

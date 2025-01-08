@@ -275,11 +275,13 @@ internal static class Tabletop2014Context
     {
         if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
         {
+            ConditionDefinitions.ConditionInvisibleBase.Features.TryAdd(ActionAffinityConditionBlind);
             ConditionDefinitions.ConditionBlinded.Features.TryAdd(ActionAffinityConditionBlind);
             LightingAndObscurementContext.ConditionBlindedByDarkness.Features.TryAdd(ActionAffinityConditionBlind);
         }
         else
         {
+            ConditionDefinitions.ConditionInvisibleBase.Features.Remove(ActionAffinityConditionBlind);
             ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
             LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
         }

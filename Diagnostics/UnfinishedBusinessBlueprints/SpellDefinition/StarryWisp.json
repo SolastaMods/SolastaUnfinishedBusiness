@@ -152,11 +152,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInvisible",
-          "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
-          "operation": "Remove",
+          "conditionDefinitionName": "ConditionInvisibleBase",
+          "conditionDefinition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
+          "operation": "RemoveDetrimentalAll",
           "conditionsList": [],
-          "applyToSelf": false,
+          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,

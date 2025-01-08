@@ -235,25 +235,13 @@ internal static partial class Tabletop2024Context
     internal static void SwitchRangerNatureShroud()
     {
         Ranger.FeatureUnlocks
-            .RemoveAll(x => x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
+            .RemoveAll(x =>
+                x.FeatureDefinition == FeatureDefinitionPowerNatureShroud ||
+                x.FeatureDefinition == ActionAffinityRangerVanish);
 
-        if (Main.Settings.EnableRangerNatureShroud2024)
-        {
-            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14));
-        }
-
-        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-    }
-
-    internal static void SwitchRangerVanish()
-    {
-        Ranger.FeatureUnlocks
-            .RemoveAll(x => x.FeatureDefinition == ActionAffinityRangerVanish);
-
-        if (!Main.Settings.RemoveRangerVanish2024)
-        {
-            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(ActionAffinityRangerVanish, 14));
-        }
+        Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerNatureShroud2024
+            ? new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 14)
+            : new FeatureUnlockByLevel(ActionAffinityRangerVanish, 14));
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
@@ -312,6 +300,19 @@ internal static partial class Tabletop2024Context
         Ranger.FeatureUnlocks.Add(Main.Settings.EnableRangerTireless2024
             ? new FeatureUnlockByLevel(PowerRangerTireless, 10)
             : new FeatureUnlockByLevel(PowerRangerHideInPlainSight, 10));
+
+        Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+    }
+
+    internal static void SwitchRangerPrimevalAwareness()
+    {
+        Ranger.FeatureUnlocks
+            .RemoveAll(x => x.FeatureDefinition == PowerRangerPrimevalAwareness);
+
+        if (!Main.Settings.RemoveRangerPrimevalAwareness2024)
+        {
+            Ranger.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerRangerPrimevalAwareness, 3));
+        }
 
         Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }

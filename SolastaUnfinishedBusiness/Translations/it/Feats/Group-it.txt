@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno dei tuoi attributi mentali 
 Feat/&FeatGroupVerdantTouchedTitle=Verdeggiante Toccato
 Feat/&FeatGroupWeaponMasterDescription=Hai fatto molta pratica con una varietà di armi, ottenendo i seguenti benefici:\n• Aumenta il tuo punteggio di Forza o Destrezza di 1, fino a un massimo di 20.\n• Ottieni competenza con quattro armi a tua scelta. Ognuna deve essere un'arma semplice o marziale.
 Feat/&FeatGroupWeaponMasterTitle=Maestro d'armi
+Feat/&FeatGroupWeaponMasteryDescription=Hai praticato ampiamente con una varietà di armi, ottenendo i seguenti benefici:\n• Aumenta la tua Forza o Destrezza di 1, fino a un massimo di 20.\n• Il tuo addestramento con le armi ti consente di utilizzare la proprietà di padronanza di un tipo di arma semplice o marziale a tua scelta.
+Feat/&FeatGroupWeaponMasteryTitle=Padronanza delle armi
 Feature/&MartialChampionSuperiorCriticalDescription=I tuoi attacchi con le armi ottengono un colpo critico con un risultato di 18, 19 o 20.

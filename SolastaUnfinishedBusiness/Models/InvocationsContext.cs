@@ -36,6 +36,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildBondOfTheTalisman());
         LoadInvocation(BuildBreakerAndBanisher());
         LoadInvocation(BuildCallOfTheBeast());
+        LoadInvocation(BuildDevouringBlade());
         LoadInvocation(BuildDiscerningGaze());
         LoadInvocation(EldritchMind);
         LoadInvocation(BuildEldritchSmite());

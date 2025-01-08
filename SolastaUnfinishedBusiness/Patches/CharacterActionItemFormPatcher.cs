@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA.AddressableAssets;
 using TMPro;
 using UnityEngine;
@@ -56,13 +57,11 @@ public static class CharacterActionItemFormPatcher
     [UsedImplicitly]
     public static class Refresh_Patch
     {
-        internal const string HideAttacksNumberOnActionPanel = "HideAttacksNumberOnActionPanel";
-
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
-            //PATCH: supports Way of Zen Archery flurry of arrows to not display max attack numbers on action button
-            if (__instance.currentAttackMode.AttackTags.Contains(HideAttacksNumberOnActionPanel))
+            //PATCH: supports hide One with the Blade attack numbers as in practice it's only one
+            if (__instance.currentAttackMode.AttackTags.Contains(WayOfBlade.OneWithTheBlade))
             {
                 __instance.attacksNumberGroup.gameObject.SetActive(false);
             }

@@ -1,3 +1,5 @@
+Condition/&ConditionAcidClawsDescription=-1 至 AC。
+Condition/&ConditionAcidClawsTitle=酸灼伤
 Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 护甲等级。
 Condition/&ConditionInnovationVitriolistCorrodedTitle=腐蚀
 Condition/&ConditionInnovationVitriolistMiserableDescription=持续伤害。

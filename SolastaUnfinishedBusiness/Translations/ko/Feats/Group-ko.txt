@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=정신 속성 중 하나를 1 증가시
 Feat/&FeatGroupVerdantTouchedTitle=신록의 감동
 Feat/&FeatGroupWeaponMasterDescription=다양한 무기를 사용하여 광범위하게 연습하여 다음과 같은 이점을 얻었습니다.\n• 힘 또는 민첩 점수를 1 올려 최대 20까지 높입니다.\n• 선택한 4가지 무기를 능숙하게 사용할 수 있습니다. 각각은 단순한 무기이거나 전투용 무기여야 합니다.
 Feat/&FeatGroupWeaponMasterTitle=무기 마스터
+Feat/&FeatGroupWeaponMasteryDescription=여러분은 다양한 무기를 광범위하게 연습하여 다음과 같은 혜택을 얻었습니다:\n• 힘 또는 손재주가 1만큼 증가하며 최대 20까지 증가합니다.\n• 무기 훈련을 통해 선택한 단순 무기나 무술 무기 중 하나의 숙련도 속성을 사용할 수 있습니다.
+Feat/&FeatGroupWeaponMasteryTitle=무기 마스터리
 Feature/&MartialChampionSuperiorCriticalDescription=무기 공격은 주사위를 굴려 18, 19, 20이 나오면 치명타가 됩니다.

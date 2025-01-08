@@ -14,5 +14,5 @@ Feature/&MovementAffinityWildlingExpertClimberDescription=Your climbing speed is
 Feature/&MovementAffinityWildlingExpertClimberTitle=Expert Climber
 Feature/&ProficiencyWildlingNaturalInstinctsDescription=You have proficiency in Perception and Stealth skills.
 Feature/&ProficiencyWildlingNaturalInstinctsTitle=Natural Instincts
-Race/&RaceWildlingDescription=Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
-Race/&RaceWildlingTitle=Wildling
+Race/&RaceWildlingDescription=Tabaxis are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, tabaxis have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
+Race/&RaceWildlingTitle=Tabaxi

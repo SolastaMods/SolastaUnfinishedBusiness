@@ -144,4 +144,6 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno de tus atributos mentales e
 Feat/&FeatGroupVerdantTouchedTitle=Tocado verde
 Feat/&FeatGroupWeaponMasterDescription=Has practicado extensamente con una variedad de armas, obteniendo los siguientes beneficios:\n• Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.\n• Obtienes competencia con cuatro armas de tu elección. Cada una debe ser un arma simple o marcial.
 Feat/&FeatGroupWeaponMasterTitle=Maestro de armas
+Feat/&FeatGroupWeaponMasteryDescription=Has practicado extensamente con una variedad de armas, obteniendo los siguientes beneficios:\n• Aumenta tu Fuerza o Destreza en 1, hasta un máximo de 20.\n• Tu entrenamiento con armas te permite usar la propiedad de maestría de un tipo de arma simple o marcial de tu elección.
+Feat/&FeatGroupWeaponMasteryTitle=Maestría en armas
 Feature/&MartialChampionSuperiorCriticalDescription=Tus ataques con armas obtienen un impacto crítico con un resultado de 18, 19 o 20.

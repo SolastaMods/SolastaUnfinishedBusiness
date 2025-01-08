@@ -1011,12 +1011,6 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatCleavingAttack";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
@@ -1604,12 +1598,6 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatPowerAttack";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var actionAffinityPowerAttackToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityPowerAttackToggle")
             .SetGuiPresentationNoContent(true)
@@ -1837,7 +1825,7 @@ internal static class MeleeCombatFeats
                 new AddWhirlWindFollowUpAttack(GreataxeType))
             .AddToDB();
 
-        // name kept for backward compatibility
+        // kept name for backward compatibility
         return FeatDefinitionBuilder
             .Create("FeatWhirlWindAttackDex")
             .SetGuiPresentation($"Feat{NAME}", Category.Feat)
@@ -1862,45 +1850,18 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
-
-            if (attackModeMain == null)
-            {
-                yield break;
-            }
-
-            //get copy to be sure we don't break existing mode
-            var attackMode = RulesetAttackMode.AttackModesPool.Get();
-
-            attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionType.NoCost;
-
-            //remove additional ability score modifier damage
-#if false
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                actingCharacter.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
-
-            if (modifier > 0)
-            {
-                damageForm.BonusDamage -= modifier;
-            }
-#endif
-
             actingCharacter.BurnOneMainAttack();
-            actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);
+            actingCharacter.SetSpecialFeatureUses("PowerWhirlWindAttack", 0);
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
+
             foreach (var target in targets)
             {
-                var attackModifier = new ActionModifier();
-
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
                     attackMode,
-                    attackModifier);
+                    new ActionModifier());
             }
         }
     }

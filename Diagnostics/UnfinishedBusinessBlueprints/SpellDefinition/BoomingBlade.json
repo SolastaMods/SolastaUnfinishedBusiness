@@ -320,7 +320,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&BoomingBladeTitle",
-    "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5 ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.",
+    "description": "You brandish the weapon used in the spell's casting and make a melee attack with it against one creature within 5ft distance. On a hit, the target suffers the weapon attack's normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5ft or more before then, the target takes 1d8 thunder damage, and the spell ends. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th and 17th levels.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df2faaa7db39d064b913d8578da6d3e8",

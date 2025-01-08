@@ -837,7 +837,7 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildAuraOfLife()
     {
-        // kept this name for backward compatibility reasons
+        // kept name for backward compatibility
         const string NAME = "AuraOfVitality";
 
         var conditionAffinityLifeDrained = FeatureDefinitionConditionAffinityBuilder

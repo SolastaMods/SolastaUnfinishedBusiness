@@ -10,7 +10,12 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [],
+  "forbiddenActions": [
+    "Charge",
+    "DashBonus",
+    "DashMain",
+    "TacticalMove"
+  ],
   "authorizedActions": [
     9020
   ],

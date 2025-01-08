@@ -92,6 +92,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableUnlimitedInventoryActions { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
+    public bool UseWeaponMasterySystem { get; set; }
+    public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
+    public bool UseWeaponMasterySystemAddCleaveDamage { get; set; }
+    public bool UseWeaponMasterySystemPushSave { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
@@ -269,14 +273,13 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Classes
     //
 
-    public bool GrantScimitarSpecializationToBardRogue { get; set; }
-    public bool GrantKatanaSpecializationToMonk { get; set; }
+    public bool EnableBardScimitarSpecialization { get; set; }
     public bool EnableBardicInspiration2024 { get; set; }
     public bool EnableBardCounterCharm2024 { get; set; }
     public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
     public bool EnableBardSuperiorInspiration2024 { get; set; }
     public bool EnableBardWordsOfCreation2024 { get; set; }
-    public bool RemoveBardMagicalSecret2024 { get; set; }
+    public bool EnableBardMagicalSecrets2024 { get; set; }
     public bool RemoveBardSongOfRest2024 { get; set; }
     public bool EnableBarbarianBrutalStrike2024 { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
@@ -284,31 +287,41 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianPersistentRage2024 { get; set; }
     public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
     public bool EnableBarbarianReckless2024 { get; set; }
-    public bool EnableBarbarianRegainOneRageAtShortRest2024 { get; set; }
+    public bool EnableBarbarianRage2024 { get; set; }
     public bool EnableBarbarianRelentlessRage2024 { get; set; }
+    public bool EnableClericBlessedStrikes2024 { get; set; }
     public bool EnableClericChannelDivinity2024 { get; set; }
-    public bool EnableClericDivineIntervention2024 { get; set; }
     public bool EnableClericDivineOrder2024 { get; set; }
     public bool EnableClericSearUndead2024 { get; set; }
     public bool EnableClericToLearnDomainAtLevel3 { get; set; }
+    public bool EnableDruidArchDruid2024 { get; set; }
+    public bool EnableDruidToLearnCircleAtLevel3 { get; set; }
+    public bool EnableDruidElementalFury2024 { get; set; }
     public bool EnableDruidMetalArmor2024 { get; set; }
     public bool EnableDruidPrimalOrder2024 { get; set; }
     public bool EnableDruidWeaponProficiency2024 { get; set; }
+    public bool EnableDruidWildResurgence2024 { get; set; }
+    public bool EnableDruidWildshape2024 { get; set; }
     public bool EnableFighterIndomitableSaving2024 { get; set; }
     public bool EnableFighterSkillOptions2024 { get; set; }
     public bool EnableFighterSecondWind2024 { get; set; }
     public bool EnableFighterStudiedAttacks2024 { get; set; }
+    public bool EnableFighterTacticalMaster2024 { get; set; }
     public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 { get; set; }
-    public bool EnableMonkDoNotRequireAttackActionForFlurry2024 { get; set; }
-    public bool EnableMonkFightingStyle { get; set; }
-    public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
-    public bool EnableMonkHandwrapsUseGauntletSlot { get; set; }
-    public bool EnableMonkHeightenedMetabolism2024 { get; set; }
-    public bool EnableMonkSuperiorDefense2024 { get; set; }
     public bool EnableMonkBodyAndMind2024 { get; set; }
-    public bool EnableMonkUnarmoredDieTypeProgression2024 { get; set; }
+    public bool EnableMonkDeflectAttacks2024 { get; set; }
+    public bool EnableMonkFightingStyle { get; set; }
+    public bool EnableMonkHandwrapsOnGauntletSlot { get; set; }
+    public bool EnableMonkHeightenedFocus2024 { get; set; }
+    public bool EnableMonkImprovedUnarmoredMovement { get; set; }
+    public bool EnableMonkSelfRestoration2024 { get; set; }
+    public bool EnableMonkSuperiorDefense2024 { get; set; }
+    public bool EnableMonkUncannyMetabolism2024 { get; set; }
+    public bool EnableMonkKatanaSpecialization { get; set; }
+    public bool EnableMonkFocus2024 { get; set; }
+    public bool EnableMonkMartialArts2024 { get; set; }
+    public bool EnableMonkStunningStrike2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnablePaladinAbjureFoes2024 { get; set; }
     public bool EnablePaladinChannelDivinity2024 { get; set; }
@@ -328,9 +341,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRangerRoving2024 { get; set; }
     public bool EnableRangerSpellCastingAtLevel1 { get; set; }
     public bool EnableRangerTireless2024 { get; set; }
+    public bool RemoveRangerPrimevalAwareness2024 { get; set; }
     public bool EnableRangerFeralSenses2024 { get; set; }
     public bool EnableRangerFoeSlayers2024 { get; set; }
-    public bool RemoveRangerVanish2024 { get; set; }
+    public bool EnableRogueScimitarSpecialization { get; set; }
     public bool EnableRogueCunningStrike2024 { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueReliableTalent2024 { get; set; }
@@ -338,12 +352,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueSteadyAim2024 { get; set; }
     public bool RemoveRogueBlindSense2024 { get; set; }
     public bool EnableSorcererArcaneApotheosis2024 { get; set; }
-    public bool EnableSorcererInnateSorceryAndSorceryIncarnate2024 { get; set; }
+    public bool EnableSorcererInnateSorcery2024 { get; set; }
     public bool EnableSorcererMagicalGuidance { get; set; }
     public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
     public bool EnableSorcererSorcerousRestoration2024 { get; set; }
-    public bool EnableSorcererToLearnOriginAtLevel3 { get; set; }
+    public bool EnableSorcererMetamagic2024 { get; set; }
+    public bool EnableSorcererOrigin2024 { get; set; }
     public bool EnableWarlockInvocationProgression2024 { get; set; }
     public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
     public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }

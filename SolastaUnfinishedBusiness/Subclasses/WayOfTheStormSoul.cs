@@ -312,25 +312,16 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 yield break;
             }
 
-            //get copy to be sure we don't break existing mode
-            var attackMode = RulesetAttackMode.AttackModesPool.Get();
-
-            attackMode.Copy(attackModeOff);
-            attackMode.ActionType = ActionType.NoCost;
-
             actingCharacter.BurnOneBonusAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("PowerTempestFury", 0);
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
             {
-                var attackModifier = new ActionModifier();
-
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
                     target,
-                    attackMode,
-                    attackModifier);
+                    attackModeOff,
+                    new ActionModifier());
             }
         }
     }

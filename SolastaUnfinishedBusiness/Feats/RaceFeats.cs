@@ -1719,28 +1719,19 @@ internal static class RaceFeats
 
             actingCharacter.UsedSpecialFeatures.TryAdd(_knockOutPreventedTag, 0);
 
-            if (Gui.Battle == null ||
-                !Gui.Battle.InitiativeRollFinished)
+            if (Gui.Battle == null || !Gui.Battle.InitiativeRollFinished || !target.CanReact())
             {
                 return;
             }
-
-            if (!target.CanReact())
-            {
-                return;
-            }
-
-            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
             rulesetTarget.LogCharacterUsedPower(powerOrcishFury);
+
+            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
             target.MyExecuteActionAttack(
                 ActionDefinitions.Id.AttackOpportunity,
                 action.ActingCharacter,
-                attackModeCopy,
+                attackMode,
                 new ActionModifier());
         }
 

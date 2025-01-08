@@ -369,6 +369,7 @@ public static class GameLocationCharacterExtensions
         string stringParameter,
         string stringParameter2 = "",
         Action reactionValidated = null,
+        Action reactionNotValidated = null,
         GameLocationBattleManager battleManager = null)
     {
         battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -400,6 +401,10 @@ public static class GameLocationCharacterExtensions
         if (actionParams.ReactionValidated)
         {
             reactionValidated?.Invoke();
+        }
+        else
+        {
+            reactionNotValidated?.Invoke();
         }
     }
 
@@ -636,6 +641,8 @@ public static class GameLocationCharacterExtensions
                !character.IsCharging &&
                !character.MoveStepInProgress &&
                !rulesetCharacter.IsIncapacitated &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionCharmed) &&
+               !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) &&
                !rulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
@@ -823,7 +830,7 @@ public static class GameLocationCharacterExtensions
     {
         var rulesetCharacter = instance.RulesetCharacter;
 
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024 ||
+        if (Main.Settings.EnableMonkMartialArts2024 ||
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) == 0)
         {
             return;

@@ -23,7 +23,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .Create("AttributeModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand)
+                .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandAndFreeOffhand)
                 .AddToDB(),
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")

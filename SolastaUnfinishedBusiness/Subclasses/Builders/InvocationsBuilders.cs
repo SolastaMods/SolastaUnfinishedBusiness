@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -628,6 +629,35 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildDevouringBlade()
+    {
+        const string NAME = "InvocationDevouringBlade";
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.ThirstingBlade)
+            .SetGrantedFeature(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierDevouringBladeExtraAttack")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
+                    .AddToDB())
+            .SetRequirements(12)
+            .SetValidators(Validate)
+            .AddToDB();
+
+        static (bool, string) Validate(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
+        {
+            var hasThirstingBlade = hero.TrainedInvocations.Any(x => x == InvocationDefinitions.ThirstingBlade)
+                                    || hero.GetHeroBuildingData().LevelupTrainedInvocations.Any(x =>
+                                        x.Value.Any(y => y == InvocationDefinitions.ThirstingBlade));
+
+            var guiFormat = Gui.Localize("Failure/&MustHaveThirstingBlade");
+
+            return !hasThirstingBlade ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        }
+    }
+
     #region Burning Hex
 
     internal static InvocationDefinition BuildBurningHex()
@@ -889,7 +919,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainSprite)
             .AddFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin,
-                FeatureDefinitionCombatAffinitys.CombatAffinityBlurred)
+                FeatureDefinitionCombatAffinitys.CombatAffinityBlinded)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 

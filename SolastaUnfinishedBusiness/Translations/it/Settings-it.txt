@@ -5,7 +5,6 @@ ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555>Sang
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percezione dell'oscurità</color> su <color=#D89555>Elfo scuro</color>, <color=#D89555>Kobold oscuro</color> e <color=#D89555>Nano grigio</color> <i><color=#F0DAA0>\n[concede vantaggio sui controlli di percezione quando non è illuminato o sotto oscurità magica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi modificatore DEX al tiro di iniziativa dei nemici <color=#D89555>
-ModUi/&AddDruidPrimalOrderAndRemoveMediumArmorProficiency=Abilita <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti <color=#D89555>Umanoidi</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un'opzione per consentire ai <color=#D89555>Paladini</color> di abilitare le punizioni solo sui colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
@@ -35,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Background e razze
 ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conferisci Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color> o <color=#D89555>Invisibile</color>
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=Campagne
 ModUi/&Category=Categoria
@@ -102,38 +101,46 @@ ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Stile di co
 ModUi/&EnableBarbarianInstinctivePounce2024=Abilita <color=#D89555>Balzo istintivo</color> al livello 7
 ModUi/&EnableBarbarianPersistentRage2024=Sostituisci <color=#D89555>Rabbia persistente</color> con la versione 5e 2024
 ModUi/&EnableBarbarianPrimalKnowledge2024=Abilita <color=#D89555>Conoscenza primordiale</color> al livello 3
-ModUi/&EnableBarbarianReckless2024=Abilita il buff e il debuff <color=#D89555>Attacco sconsiderato</color> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest2024=Abilita il recupero di un utilizzo di <color=#D89555>Rabbia</color> durante un breve riposo al livello 1
+ModUi/&EnableBarbarianRage2024=Sostituisci <color=#D89555>Rabbia</color> con la versione 5e 2024 <i><color=#F0DAA0>[recupera un utilizzo durante un breve riposo]</color></i>
+ModUi/&EnableBarbarianReckless2024=Sostituisci <color=#D89555>Attacco sconsiderato</color> con la versione 5e 2024 <i><color=#F0DAA0>[finitura buff e debuff all'inizio del turno successivo]</color></i>
 ModUi/&EnableBarbarianRelentlessRage2024=Sostituisci <color=#D89555>Rabbia implacabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[i tuoi punti ferita sono impostati a 2 volte il tuo livello di classe invece di 1]</color></i>
 ModUi/&EnableBardCounterCharm2024=Abilita <color=#D89555>Contrafascino</color> al livello 7 come reazione invece che al livello 6 come azione
 ModUi/&EnableBardExpertiseOneLevelBefore2024=Abilita <color=#D89555>Competenza</color> ai livelli 2 e 9 invece che 3 e 10
 ModUi/&EnableBardHealingBalladOnLongRest=Abilita <b>College of Hope</b> <color=#D89555>Ballata curativa</color> durante il riposo lungo
+ModUi/&EnableBardMagicalSecrets2024=Sostituisci <color=#D89555>Segreti magici</color> con la versione 5e 2024
 ModUi/&EnableBardSuperiorInspiration2024=Abilita <color=#D89555>Ispirazione superiore</color> al livello 18 invece che 20 e concedi anche due ricariche invece di 1
 ModUi/&EnableBardWordsOfCreation2024=Abilita <color=#D89555>Parole di Creazione</color> al livello 20
-ModUi/&EnableBardicInspiration2024=Modifica la durata di <color=#D89555>Ispirazione bardica</color> a 1 ora invece di 10 minuti
+ModUi/&EnableBardicInspiration2024=Sostituisci <color=#D89555>Ispirazione bardica</color> con la versione 5e 2024 <i><color=#F0DAA0>[la durata è di 1 ora invece di 10 minuti]</color></i>
 ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita l'annullamento delle azioni con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Consenti ai trucchetti di attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi <color=#D89555>In fiamme</color> dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale di fuoco, Giullare di fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia di condizioni in fiamme]</color></i>
-ModUi/&EnableClericChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
-ModUi/&EnableClericDivineIntervention2024=Sostituisci <color=#D89555>Intervento divino</color> e <color=#D89555>Intervento divino migliorato</color> con la versione 5e 2024 <i><color=#F0DAA0>[guadagna slot incantesimo fino a un certo livello]</color></i>
+ModUi/&EnableClericBlessedStrikes2024=Abilita <color=#D89555>Colpi Benedetti</color> e <color=#D89555>Colpi Benedetti Migliorati</color> ai livelli 7 e 14\n<i><color=#F0DAA0>[ha impatto solo sui domini Contaminatore, Vita, Malizia, Natura, Fabbro, Sole e Tempesta]</color></i>
+ModUi/&EnableClericChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
 ModUi/&EnableClericDivineOrder2024=Abilita <color=#D89555>Ordine Divino</color> al livello 1 <i><color=#F0DAA0>[scelta tra armatura pesante/armi da guerra prof. o trucchetto bonus e alcuni controlli INT]</color></i>
 ModUi/&EnableClericSearUndead2024=Abilita <color=#D89555>Brucia Non Morti</color> per sostituire <color=#D89555>Distruggi Non Morti</color> al livello 5
 ModUi/&EnableClericToLearnDomainAtLevel3=Abilita <color=#D89555>Dominio</color> al livello 3 invece che 1
 ModUi/&EnableCustomPortraits=Abilita <color=#D89555>Ritratti personalizzati</color>
 ModUi/&EnableCustomPortraitsHelp=• Posiziona i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, chiamate con il nome dell'eroe <i><color=#F0DAA0>[ad esempio: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[utilizza GIMP per risultati migliori]</color></i>
+ModUi/&EnableDruidArchDruid2024=Sostituisci <color=#D89555>Arcidruido</color> con la versione 2024 <i><color=#F0DAA0>[riacquista Forma Selvaggia]</color></i>
+ModUi/&EnableDruidElementalFury2024=Abilita <color=#D89555>Furia Elementale</color> e <color=#D89555>Furia Elementale Migliorata</color> ai livelli 7 e 15
 ModUi/&EnableDruidMetalArmor2024=Rimuovi le restrizioni per <color=#D89555>Armatura metallica</color>
+ModUi/&EnableDruidPrimalOrder2024=Abilita <color=#D89555>Ordine Primordiale</color> al livello 1 e rimuovi <color=#D89555>Competenza in Armatura Media</color>
+ModUi/&EnableDruidToLearnCircleAtLevel3=Abilita <color=#D89555>Cerchio</color> al livello 3 invece che 2
 ModUi/&EnableDruidWeaponProficiency2024=Abilita la competenza in <color=#D89555>Armi semplici</color> <i><color=#F0DAA0>[invece di tipi di armi individuali ma perdi la competenza in Scimitarra]</color></i>
+ModUi/&EnableDruidWildResurgence2024=Abilita <color=#D89555>Rinascita selvaggia</color> al livello 5
+ModUi/&EnableDruidWildshape2024=Sostituisci <color=#D89555>Forma selvaggia</color> con la versione del 2024 <i><color=#F0DAA0>[azione bonus, usi diversi e punti ferita temporanei]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n{101}{101}<i><color=#F0DAA0>[includi stanze piatte, dimensioni dungeon 150x150 e 200x200 e mix di risorse senza fronzoli da tutti gli ambienti]</color></i>
 ModUi/&EnableElevationCameraToStayAtPosition=<i>+ Abilita la telecamera di elevazione durante la battaglia per mantenerla in posizione dopo la disattivazione e triplicarne la portata</i>
 ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti e schiera <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Colpi arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni ridotte durante l'ispezione del personaggio. Usa a tuo rischio e pericolo]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione di <color=#D89555>talenti</color> ai livelli 6 e 14
-ModUi/&EnableFighterIndomitableSaving2024=Aggiungere il livello di classe come bonus al tiro salvezza ripetuto di <color=#D89555>Resistenza indomabile</color>.
-ModUi/&EnableFighterSecondWind2024=Abilita <color=#D89555>Second Wind</color> per usare la progressione di utilizzo 5e 2024
+ModUi/&EnableFighterIndomitableSaving2024=Sostituisci <color=#D89555>Resistenza indomabile</color> con la versione 5e 2024 <i><color=#F0DAA0>[aggiungi il livello di classe come bonus al tiro salvezza]</color></i>
+ModUi/&EnableFighterSecondWind2024=Sostituisci <color=#D89555>Second Wind</color> con la versione 5e 2024 <i><color=#F0DAA0>[progressione di utilizzo diverso]</color></i>
 ModUi/&EnableFighterSkillOptions2024=Aggiungi <color=#D89555>Persuasione</color> alle opzioni delle abilità al livello 1
 ModUi/&EnableFighterStudiedAttacks2024=Abilita <color=#D89555>Attacchi studiati</color> al livello 13 <i><color=#F0DAA0>[vantaggio se l'attacco precedente nel round contro una creatura è fallito]</color></i>
+ModUi/&EnableFighterTacticalMaster2024=Abilita <color=#D89555>Maestro tattico</color> al livello 9 <i><color=#F0DAA0>[sostituisci proprietà padronanza arma]</color></i>
 ModUi/&EnableFighterTacticalProgression2024=Abilita <color=#D89555>Mente tattica</color> e <color=#D89555>Cambio tattico</color> ai livelli 2 e 5 <i><color=#F0DAA0>[aumenta gli scenari di seconda ventata]</color></i>
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona le competenze di abilità e strumenti dagli sfondi]</color></i>
@@ -151,15 +158,18 @@ ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione de
 ModUi/&EnableMinInOutAttributes=<i>+ Applica i punteggi minimi di abilità in entrata e in uscita dai prerequisiti</i>
 ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Ki abbondante</color> al livello 2 <i><color=#F0DAA0>[guadagna Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color></i>
 ModUi/&EnableMonkBodyAndMind2024=Abilita <color=#D89555>Corpo e Mente</color> per sostituire <color=#D89555>Sé Perfetto</color> al livello 20
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack2024=Abilita <color=#D89555>Arti marziali - Colpi bonus senz'armi</color> per non richiedere un'azione di attacco prima dell'utilizzo
-ModUi/&EnableMonkDoNotRequireAttackActionForFlurry2024=Abilita <color=#D89555>Raffica di colpi</color> per non richiedere un'azione di attacco prima dell'utilizzo
+ModUi/&EnableMonkDeflectAttacks2024=Abilita <color=#D89555>Devia attacchi</color> e <color=#D89555>Devia energia</color> per sostituire <color=#D89555>Devia missili</color> e <color=#D89555>Lingua del sole e della luna</color> ai livelli 3 e 13\n<i><color=#F0DAA0>[può anche deviare i danni in mischia al 3° livello e qualsiasi tipo di danno al 13°]</color></i>
 ModUi/&EnableMonkFightingStyle=Abilita la scelta <color=#D89555>Stile di combattimento</color> al livello 2
-ModUi/&EnableMonkHandwrapsUseGauntletSlot=Abilita <color=#D89555>Fasce per le mani</color> e <color=#D89555>Guanti</color> per funzionare nello slot dei guanti
-ModUi/&EnableMonkHeightenedMetabolism2024=Abilita <color=#D89555>Metabolismo elevato</color> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa paziente</b> e <b>Passo del vento</b> ottengono ulteriori benefici]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Movimento senza armatura migliorato</color> per muoverti lungo le superfici verticali senza cadere
-ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18
-ModUi/&EnableMonkUnarmoredDieTypeProgression2024=Abilita <color=#D89555>Attacco disarmato</color> per usare la progressione del tipo di dado 5e 2024
-ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Specializzazione nelle armi</color> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
+ModUi/&EnableMonkFocus2024=Sostituisci <color=#D89555>Raffica di colpi</color>, <color=#D89555>Difesa paziente</color> e <color=#D89555>Passo del vento</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi a piacimento, punti ki per effetti aggiuntivi]</color></i>
+ModUi/&EnableMonkHandwrapsOnGauntletSlot=Abilita <color=#D89555>Fasce per le mani</color> e <color=#D89555>Guanti</color> per funzionare nello slot dei guanti
+ModUi/&EnableMonkHeightenedFocus2024=Abilita <color=#D89555>Focus accresciuto</color> e <color=#D89555>Focus perfetto</color> per sostituire <color=#D89555>Purezza del corpo</color> e <color=#D89555>Corpo senza tempo</color> ai livelli 10 e 15\n<i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa paziente</b> e <b>Passo del vento</b> ottengono effetti aggiuntivi al 10° e i punti Ki vengono ripristinati al 15°]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovement=Abilita <color=#D89555>Movimento senza armatura migliorato</color> per muoverti lungo le superfici verticali senza cadere
+ModUi/&EnableMonkKatanaSpecialization=Concedi Katana <color=#D89555>Specializzazione in arma</color>
+ModUi/&EnableMonkMartialArts2024=Sostituisci <color=#D89555>Arti marziali</color> con la versione 5e 2024 <i><color=#F0DAA0>[migliorata progressione del dado senz'armi e nessun requisito per l'azione bonus di colpo senz'armi]</color></i>
+ModUi/&EnableMonkSelfRestoration2024=Abilita <color=#D89555>Auto-ripristino</color> al livello 10 per sostituire <color=#D89555>Immobilismo mentale</color> al livello 7
+ModUi/&EnableMonkStunningStrike2024=Sostituisci <color=#D89555>Colpo Sbalorditivo</color> con la versione 5e 2024 <i><color=#F0DAA0>[effetti aggiuntivi quando il bersaglio riesce nel salvataggio]</color></i>
+ModUi/&EnableMonkSuperiorDefense2024=Abilita <color=#D89555>Difesa superiore</color> per sostituire <color=#D89555>Corpo vuoto</color> al livello 18 <i><color=#F0DAA0>[resistenza ai danni]</color></i>
+ModUi/&EnableMonkUncannyMetabolism2024=Abilita <color=#D89555>Metabolismo Straniero</color> al livello 2 <i><color=#F0DAA0>[recupera Ki e HP al tiro di iniziativa]</color></i>
 ModUi/&EnableMulticlass=Abilita <color=#D89555>multiclasse</color> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&EnableOneDndBarkskinSpell=Abilita la versione dell'incantesimo <color=#D89555>Barkskin</color> 5e 2024 <i><color=#F0DAA0>[azione bonus, nessuna concentrazione, CA impostata a 17]</color></i>
 ModUi/&EnableOneDndDamagingSpellsUpgrade=Abilita <color=#D89555>Spada Arcana</color>, <color=#D89555>Cerchio della Morte</color>, <color=#D89555>Colpo di Fiamma</color>, <color=#D89555>Tempesta di Ghiaccio</color>, <color=#D89555>Spruzzo Prismatico</color> e <color=#D89555>Scherno Vizioso</color> versione incantesimi 5e 2024 <i><color=#F0DAA0>[danni migliori]</color></i>
@@ -176,10 +186,10 @@ ModUi/&EnableOneDndSpiderClimbSpell=Abilita <color=#D89555>Spider Climb</color> 
 ModUi/&EnableOneDndStoneSkinSpell=Abilita <color=#D89555>Pelle di pietra</color> versione incantesimo 5e 2024 <i><color=#F0DAA0>[fornisce anche resistenza a B/P/S magici]</color></i>
 ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> versione trucchetto 5e 2024 <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>\n<i><color=#F0DAA0>[l'attacco usa la tua capacità di lanciare incantesimi per il tiro di attacco e il bonus al danno, e danni radianti aggiuntivi dal livello 5]</color></i>
 ModUi/&EnablePaladinAbjureFoes2024=Abilita <color=#D89555>Abjura i nemici</color> al livello 9
-ModUi/&EnablePaladinChannelDivinity2024=Abilita <color=#D89555>Canale Divinità</color> versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
-ModUi/&EnablePaladinLayOnHands2024=Abilita <color=#D89555>Imposizione delle mani</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
+ModUi/&EnablePaladinLayOnHands2024=Sostituisci <color=#D89555>Imposizione delle mani</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinRestoringTouch2024=Abilita <color=#D89555>Ripristino del tocco</color> per sostituire <color=#D89555>Tocco purificatore</color> al livello 14
-ModUi/&EnablePaladinSmite2024=Abilita <color=#D89555>Colpo divino</color> versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinSmite2024=Sostituisci <color=#D89555>Colpo divino</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnablePoisonsBonusAction2024=Abilita l'applicazione di <color=#D89555>veleni</color> alle armi come azione bonus
@@ -208,13 +218,15 @@ ModUi/&EnableRogueReliableTalent2024=Abilita <color=#D89555>Talento affidabile</
 ModUi/&EnableRogueSlipperyMind2024=Sostituisci <color=#D89555>Mente Sfuggente</color> con la versione 5e 2024 <i><color=#F0DAA0>[oltre alla saggezza, ottieni anche competenza nei tiri salvezza sul Carisma]</color></i>
 ModUi/&EnableRogueSteadyAim2024=Abilita <color=#D89555>Mira Fissa</color> al livello 3 <i><color=#F0DAA0>[l'azione bonus fornisce vantaggio al tuo prossimo tiro di attacco nel turno corrente se non ti sei ancora mosso]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita i modificatori DEX o STR di <b>Hoodlum</b> su <color=#D89555>Colpo astuto/subdolo</color>
+ModUi/&EnableScimitarSpecialization=Grant Scimitar <color=#D89555>Specializzazione in arma</color>
 ModUi/&EnableSignatureSpellsRelearn=Abilita la preparazione degli <color=#D89555>incantesimi distintivi</color> a ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
-ModUi/&EnableSorcererArcaneApotheosis2024=Abilita <color=#D89555>Apoteosi Arcana</color> a 20
-ModUi/&EnableSorcererInnateSorceryAndSorceryIncarnate2024=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
+ModUi/&EnableSorcererArcaneApotheosis2024=Abilita <color=#D89555>Apoteosi Arcana</color> per sostituire <color=#D89555>Restauro Stregonesco</color> al livello 20
+ModUi/&EnableSorcererInnateSorcery2024=Abilita <color=#D89555>Stregoneria Innata</color> e <color=#D89555>Stregoneria Incarnata</color> al livello 1 e 7
 ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Guida magica</color> al livello 5
+ModUi/&EnableSorcererMetamagic2024=Abilita <color=#D89555>Metamagia</color> al livello 2 invece che 3
+ModUi/&EnableSorcererOrigin2024=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSorcererQuickenedAction=Abilita l'azione <color=#D89555>Incantesimo accelerato</color> per consentire il lancio dell'incantesimo di azione principale con metamagia accelerata applicata
 ModUi/&EnableSorcererSorcerousRestoration2024=Abilita <color=#D89555>Restauro Stregonesco</color> al livello 5
-ModUi/&EnableSorcererToLearnOriginAtLevel3=Abilita <color=#D89555>Origini</color> al livello 3 invece che 1
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableSpeech=Abilita la voce nelle campagne personalizzate <i><color=#F0DAA0>[solo narrazione ed eroi]</color></i>
 ModUi/&EnableSpeechActorHelp=• Seleziona un attore
@@ -233,7 +245,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evo
 ModUi/&EnableVariablePlaceholdersOnTexts=Abilita segnaposto variabili nelle descrizioni <i><color=#F0DAA0>[usa {VARIABLE_NAME} come segnaposto]</color></i>
 ModUi/&EnableVersatileAmmunitionSlots=Consenti il trasporto e l'utilizzo di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> negli slot Munizioni
 ModUi/&EnableVersatileOffHandSlot=Consenti il trasporto e l'uso di <color=#D89555>Pozioni</color> e <color=#D89555>Pergamene</color> nello slot dell'arma secondaria
-ModUi/&EnableWarlockInvocationProgression2024=Abilita <color=#D89555>Invocazioni</color> per usare la progressione 5e 2024
+ModUi/&EnableWarlockInvocationProgression2024=Sostituisci <color=#D89555>Invocazioni</color> con 5e 2024 <i><color=#F0DAA0>[progressione diversa e invocazioni modificate]</color></i>
 ModUi/&EnableWarlockMagicalCunningAndImprovedEldritchMaster2024=Abilita <color=#D89555>Astuzia magica</color> al livello 2 e migliora <color=#D89555>Maestro eldritch</color> al livello 20
 ModUi/&EnableWarlockMagicalCunningAtLevel2=Abilita <color=#D89555>Astuzia magica</color> al livello 2
 ModUi/&EnableWarlockToLearnPatronAtLevel3=Abilita <color=#D89555>Patron</color> al livello 3 invece che 1
@@ -269,8 +281,6 @@ ModUi/&FullyControlConjurations=Controllo completo delle evocazioni <i><color=#F
 ModUi/&Gameplay=Modalità di gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
-ModUi/&GrantKatanaSpecializationToMonk=Concedi Katana <color=#D89555>Specializzazione in arma</color> ai <b>monaci</b>
-ModUi/&GrantScimitarSpecializationToBardRogue=Concedi Scimitar <color=#D89555>Specializzazione nelle armi</color> a <b>bardi</b> e <b>ladri</b>
 ModUi/&GridSelectedColor=Cambia il colore della griglia del movimento <b><color=$$$$$$>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non sono ancora stati scoperti
 ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
@@ -322,11 +332,10 @@ ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RefreshVoice=Aggiorna elenco voci
 ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di sintonizzazione <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
-ModUi/&RemoveBardMagicalSecret2024=Rimuovi <color=#D89555>Segreto magico</color> ai livelli 14 e 18
 ModUi/&RemoveBardSongOfRest2024=Rimuovi <color=#D89555>Canzone del Riposo</color> al livello 2
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi filtro umanoide su <color=#D89555>Risata orribile</color>
-ModUi/&RemoveRangerVanish2024=Rimuovi <color=#D89555>Svanisci</color> al livello 14
+ModUi/&RemoveRangerPrimevalAwareness2024=Rimuovi <color=#D89555>Consapevolezza Primordiale</color> al livello 3
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intrappolamento</color> solo al momento del lancio e forza anche un controllo di forza per liberarti dai tralci
 ModUi/&RemoveRogueBlindSense2024=Rimuovi <color=#D89555>Senso cieco</color> al livello 14
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <b>Shadowcaster</b>
@@ -404,4 +413,8 @@ ModUi/&UseOfficialFoodRationsWeight=Abilita <color=#D89555>razione alimentare</c
 ModUi/&UseOfficialObscurementRules=Abilita le regole di combattimento <color=#D89555>illuminazione, oscuramento e visione</color>
 ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[l'attaccante che percepisce il difensore che non riesce a percepirlo ottiene ADV, e l'attaccante che non percepisce il difensore che riesce a percepirlo ottiene DIS\n le aree pesantemente oscurate infliggono la condizione di accecamento, dove i tiri per colpire contro la creatura hanno ADV, e i tiri per colpire della creatura hanno DIS\n tutti gli incantesimi a distanza che prendono di mira gli individui non possono essere lanciati se l'attaccante non ha vista, eccetto quelli che chiaramente non dichiarano che la vista è richiesta]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Abilita le <color=#D89555>razze piccole</color> che hanno svantaggio quando impugnano armi pesanti
+ModUi/&UseWeaponMasterySystem=Abilita le regole <color=#D89555>Padronanza delle armi</color>
+ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ La maestria di Cleave aggiunge il modificatore del punteggio attributo al danno del secondo attacco</i>
+ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Aggiungi tag di maestria a tutte le armi del gioco</i>
+ModUi/&UseWeaponMasterySystemPushSave=<i>+ La padronanza della spinta richiede che la creatura effettui un tiro salvezza su Forza (CD 8 + modificatore di caratteristica del tiro per colpire + bonus di competenza)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Imposta la soglia di probabilità di dado <color=#D89555>Magia selvaggia dello stregone</color>:</color>\n<i><color=#F0DAA0>[L'ondata selvaggia si innesca se i tiri sono inferiori o uguali alla soglia]</color></i>

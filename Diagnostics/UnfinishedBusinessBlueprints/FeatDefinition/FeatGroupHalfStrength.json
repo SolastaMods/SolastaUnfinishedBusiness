@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfStrengthTitle",
-    "description": "Athlete [Str], Awaken the Beast [Str], Baleful Scion [Str], Brawler, Creed of Einar, Crusher [Str], Devastating Strikes [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Thrown Weapons Master, Weapon Master [Str]",
+    "description": "Athlete [Str], Awaken the Beast [Str], Baleful Scion [Str], Brawler, Creed of Einar, Crusher [Str], Devastating Strikes [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Thrown Weapons Master, Weapon Master [Str], Weapon Mastery [Str]",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

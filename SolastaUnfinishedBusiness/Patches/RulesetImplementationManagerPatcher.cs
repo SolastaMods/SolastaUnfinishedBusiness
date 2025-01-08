@@ -226,17 +226,6 @@ public static class RulesetImplementationManagerPatcher
             bool canRerollDice,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            // commented out as causing issues with other features
-#if false
-            //BUGFIX: allow all damage forms from weapons to allow reroll dice (i.e.: Great Weapon Fighting)
-            if (!canRerollDice)
-            {
-                canRerollDice = formsParams.attackMode != null &&
-                                formsParams.attackMode.EffectDescription.EffectForms.Any(
-                                    x => x.DamageForm == damageForm);
-            }
-#endif
-
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {
                 return rulesetActor.RollDamage(
@@ -258,47 +247,56 @@ public static class RulesetImplementationManagerPatcher
                 damage = rulesetActor.RollDamage(
                     damageForm, addDice, false, additionalDamage, damageRollReduction, damageMultiplier,
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+            }
+            else
+            {
+                //PATCH: supports different critical damage algorithms
+                var rollDamageOption = rulesetActor.Side switch
+                {
+                    Side.Ally => Main.Settings.CriticalHitModeAllies,
+                    Side.Enemy => Main.Settings.CriticalHitModeEnemies,
+                    Side.Neutral => Main.Settings.CriticalHitModeNeutral,
+                    _ => 0
+                };
 
-                //PATCH: supports Sorcerous Wild Magic spell bombardment
-                SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
+                //PATCH: supports Umbral Stalker shadow dance
+                if (rulesetActor.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
+                {
+                    rollDamageOption = 2;
+                }
 
-                //PATCH: supports College of Audacity defensive whirl
-                CollegeOfAudacity.HandleDefensiveWhirl(rulesetCharacter, damageForm, damage);
-
-                return damage;
+                damage = rollDamageOption switch
+                {
+                    1 => RollDamageOption1(
+                        rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                        maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                    2 => RollDamageOption2(
+                        rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                        useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                    3 => RollDamageOption3(
+                        rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                        maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                    _ => rulesetActor.RollDamage(
+                        damageForm, addDice, true, additionalDamage, damageRollReduction, damageMultiplier,
+                        maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
+                };
             }
 
-            //PATCH: supports different critical damage algorithms
-            var rollDamageOption = rulesetActor.Side switch
+            //BUGFIX: don't allow damage roll reduction to spam across many damage forms
+            if (formsParams.actionModifier != null && formsParams.actionModifier.DamageRollReduction != 0)
             {
-                Side.Ally => Main.Settings.CriticalHitModeAllies,
-                Side.Enemy => Main.Settings.CriticalHitModeEnemies,
-                Side.Neutral => Main.Settings.CriticalHitModeNeutral,
-                _ => 0
-            };
-
-            //PATCH: supports Umbral Stalker shadow dance
-            if (rulesetActor.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
-            {
-                rollDamageOption = 2;
+                if (damage >= formsParams.actionModifier.DamageRollReduction)
+                {
+                    damage -= formsParams.actionModifier.DamageRollReduction;
+                    formsParams.actionModifier.DamageRollReduction = 0;
+                }
+                else
+                {
+                    formsParams.actionModifier.DamageRollReduction -= damage;
+                    damage = 0;
+                }
             }
-
-            damage = rollDamageOption switch
-            {
-                1 => RollDamageOption1(
-                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
-                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
-                2 => RollDamageOption2(
-                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
-                    useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
-                3 => RollDamageOption3(
-                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
-                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
-                _ => rulesetActor.RollDamage(
-                    damageForm, addDice, true, additionalDamage, damageRollReduction, damageMultiplier, maximumDamage,
-                    useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
-            };
 
             //PATCH: supports Sorcerous Wild Magic spell bombardment
             SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
@@ -312,6 +310,7 @@ public static class RulesetImplementationManagerPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
+            var damageRollReductionMethod = typeof(ActionModifier).GetMethod("get_DamageRollReduction");
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
@@ -323,17 +322,27 @@ public static class RulesetImplementationManagerPatcher
             var myGetDiceOfRankMethod =
                 new Func<int, List<DiceByRank>, bool, EffectForm, RulesetImplementationDefinitions.ApplyFormsParams,
                     int>(GetDiceOfRank).Method;
+            var myDamageRollReductionMethod = new Func<ActionModifier, int>(GetDamageRollReduction).Method;
 
             return instructions
                 .ReplaceCalls(rollDamageMethod,
                     "RulesetImplementationManager.RollDamage",
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Call, myRollDamageMethod))
+                .ReplaceCalls(damageRollReductionMethod,
+                    "RulesetImplementationManager.get_DamageRollReduction",
+                    new CodeInstruction(OpCodes.Call, myDamageRollReductionMethod))
                 .ReplaceCalls(getDiceOfRankMethod,
                     "RulesetImplementationManager.GetDiceOfRank",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Call, myGetDiceOfRankMethod));
+        }
+
+        //BUGFIX: let damage roll reduction be handled above after damage is determined and before returned
+        private static int GetDamageRollReduction(ActionModifier actionModifier)
+        {
+            return 0;
         }
 
         //PATCH: allows dice advancement to play nicely with MULTICLASS
