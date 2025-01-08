@@ -33,7 +33,6 @@ internal static partial class Tabletop2024Context
 
     private const string WeaponMasteryCleave = "WeaponMasteryCleave";
     private const string WeaponMasteryGraze = "WeaponMasteryGraze";
-    private const string WeaponMasteryNick = "WeaponMasteryNick";
     private const string WeaponMasteryTopple = "WeaponMasteryTopple";
 
     private static readonly FeatureDefinitionPower PowerWeaponMasteryRelearnPool = FeatureDefinitionPowerBuilder
@@ -497,7 +496,7 @@ internal static partial class Tabletop2024Context
                 return true;
             }
         }
-        
+
         var offWeaponType = character.GetOffhandWeapon()?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition;
 
         // unity life check
@@ -558,14 +557,10 @@ internal static partial class Tabletop2024Context
             // nick bonus attack must be ignored
             if (action.ActionId == Id.AttackOff)
             {
-                if (rulesetAttacker.HasConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name))
-                {
-                    yield break;
-                }
-
-                if (rulesetAttacker.HasConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionWeaponMasteryNickBonusAttack.Name))
+                if (!ValidatorsCharacter.HasNoneOfConditions(
+                        ConditionWeaponMasteryNick.Name,
+                        ConditionWeaponMasteryNickBonusAttack.Name,
+                        ConditionWeaponMasteryNickBonusDenyAttackOff.Name)(rulesetAttacker))
                 {
                     yield break;
                 }
@@ -583,9 +578,12 @@ internal static partial class Tabletop2024Context
                 (rulesetAttacker.ExecutedBonusAttacks == 0 ||
                  ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
+                ValidatorsCharacter.HasNoneOfConditions(
+                    ConditionWeaponMasteryNick.Name,
+                    ConditionWeaponMasteryNickBonusAttack.Name,
+                    ConditionWeaponMasteryNickBonusDenyAttackOff.Name)(rulesetAttacker) &&
                 (IsWeaponMasteryValid(attacker, rulesetAttacker.GetMainWeapon(), MasteryProperty.Nick) ||
-                 IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)) &&
-                attacker.OnceInMyTurnIsValid(WeaponMasteryNick))
+                 IsWeaponMasteryValid(attacker, rulesetAttacker.GetOffhandWeapon(), MasteryProperty.Nick)))
             {
                 yield return HandleFighterTacticalMaster(attacker, defender, MasteryProperty.Nick);
 
@@ -1140,8 +1138,6 @@ internal static partial class Tabletop2024Context
 
             if (action.ActionId == Id.AttackOff)
             {
-                actingCharacter.SetSpecialFeatureUses(WeaponMasteryNick, 0);
-
                 if (!hasConditionNick)
                 {
                     yield break;

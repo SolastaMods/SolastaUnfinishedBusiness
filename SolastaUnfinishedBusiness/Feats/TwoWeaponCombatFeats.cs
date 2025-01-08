@@ -84,6 +84,13 @@ internal static class TwoWeaponCombatFeats
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var attackModeWeapon = attackMode.SourceDefinition as ItemDefinition;
+            var offhandWeapon = rulesetAttacker.GetOffhandWeapon()?.ItemDefinition;
+
+            if (attackModeWeapon != offhandWeapon)
+            {
+                yield break;
+            }
 
             if ((action.ActionType != ActionType.Bonus &&
                  !attackMode.AttackTags.Contains(DualFlurryTriggerMark)) ||

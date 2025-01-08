@@ -15,11 +15,13 @@ CHANGES:
 - fixed Command: Grove spell not ending target turn after prone action
 - fixed Disheartening Performance / Hideous Laughter interaction **crash**
 - fixed Domain Nature master of nature not removing conditions with a charmed condition as a parent
+- fixed Dual Flurry to only trigger if weapon still in hands [scenarios that can be bypassed with Throw Weapon Master]
 - fixed Gift of the Gem Dragon reaction **crash** under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed Potent Spell caster / Spell Sniper feats interaction
 - fixed Starry Wisp cantrip not removing conditions with an invisible base condition as a parent
 - fixed True Strike 2024 not using spell casting ability on attack roll
+- fixed context checks doing the opposite check on opponents, leading to incorrect reaction requests
 - fixed damage roll reduction calculation applying on every form instead of total roll [VANILLA]
 - fixed enable no AoO if Blinded setting to also consider Invisible
 - fixed lighting and obscurement rules / advantage and disadvantage rules interaction
