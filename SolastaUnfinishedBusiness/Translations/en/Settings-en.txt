@@ -416,6 +416,5 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Enable <color=#D89555>small race
 ModUi/&UseWeaponMasterySystem=Enable <color=#D89555>Weapon Mastery</color> rules
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Cleave mastery add attribute score modifier to second attack damage</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Add mastery tag to all game weapons</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Hide Weapon Mastery / Tactical Master action bar toggles whenever hero doesn't know wielded weapon property</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ Push mastery requires the creature to make a Strength saving throw (DC 8 + attack roll ability modifier + Proficiency Bonus)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

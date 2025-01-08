@@ -474,11 +474,6 @@ internal static partial class Tabletop2024Context
 
     private static bool ShouldDisplayWeaponMasteryToggle(RulesetCharacter character)
     {
-        if (!Main.Settings.UseWeaponMasterySystemHideToggles)
-        {
-            return true;
-        }
-
         const string PREFIX = "CustomInvocationWeaponMastery";
 
         var weaponTypes = character.Invocations

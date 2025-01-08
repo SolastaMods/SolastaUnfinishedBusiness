@@ -416,6 +416,5 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>작은 종족</co
 ModUi/&UseWeaponMasterySystem=<color=#D89555>무기 마스터리</color> 규칙 활성화
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 클리브 마스터리 2차 공격 데미지에 속성 점수 수정치 추가</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 모든 게임 무기에 마스터리 태그 추가</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ 영웅이 사용하는 무기 속성을 모를 때마다 무기 마스터리 숨기기/전술 마스터 액션 바가 토글됩니다.</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ 밀기 마스터리는 생물이 힘 세이빙 스로우(DC 8 + 공격 굴림 능력치 수정치 + 숙련 보너스)를 해야 합니다.</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

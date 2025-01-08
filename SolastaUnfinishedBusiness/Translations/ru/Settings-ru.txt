@@ -416,6 +416,5 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Включить помеху <c
 ModUi/&UseWeaponMasterySystem=Включить правила <color=#D89555>Оружейного мастерства</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Мастерство рассекающего удара добавляет модификатор характеристики к урону второй атаки</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Добавить метку мастерства ко всему оружию в игре</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Скрыть панель действий Оружейного мастерства / Мастера тактики, когда герой не знает умений используемого оружия</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ Мастерство толчка требует, чтобы существо совершило спасбросок Силы (Сл равна 8 + модификатор характеристики броска атаки + Бонус мастерства)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Установить пороговое значение вероятности срабатывания <color=#D89555>Дикой магии Чародея</color>:</color>\n<i><color=#F0DAA0>[Волна дикой магии срабатывает, если бросок меньше или равен пороговому значению]</color></i>
