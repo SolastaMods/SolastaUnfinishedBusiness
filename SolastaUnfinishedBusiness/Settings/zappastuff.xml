@@ -244,6 +244,7 @@
     <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
+    <UseWeaponMasterySystemHideToggles>false</UseWeaponMasterySystemHideToggles>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -1915,8 +1916,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

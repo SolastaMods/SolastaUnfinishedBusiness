@@ -244,6 +244,7 @@
     <UseWeaponMasterySystemAddWeaponTag>false</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
+    <UseWeaponMasterySystemHideToggles>false</UseWeaponMasterySystemHideToggles>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>

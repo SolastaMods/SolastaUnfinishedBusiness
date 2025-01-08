@@ -1,25 +1,5 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [
-    9086
-  ],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

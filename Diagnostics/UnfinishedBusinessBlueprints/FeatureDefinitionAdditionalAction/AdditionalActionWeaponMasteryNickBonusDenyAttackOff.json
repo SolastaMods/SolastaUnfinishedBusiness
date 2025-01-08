@@ -1,25 +1,13 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Bonus",
+  "forbiddenActions": [
+    "AttackOff"
   ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [
-    9087
-  ],
+  "authorizedActions": [],
   "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -44,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a2df8f9e-a86c-5ef9-9f5e-88e55bd1b945",
+  "guid": "3f18e8d9-7d9c-54be-8a3d-64b1e682b66f",
   "contentPack": 9999,
-  "name": "ActionAffinityFighterTacticalMaster"
+  "name": "AdditionalActionWeaponMasteryNickBonusDenyAttackOff"
 }

@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalActionWeaponMasteryNickBonusDenyAttackOff:3f18e8d9-7d9c-54be-8a3d-64b1e682b66f"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4a324428-9a13-5ee8-b7cb-60ae5d7412df",
+  "guid": "62f9c267-834a-5773-ae9b-d996a5a0ee26",
   "contentPack": 9999,
-  "name": "ConditionWeaponMasteryNick"
+  "name": "ConditionWeaponMasteryNickBonusDenyAttackOff"
 }

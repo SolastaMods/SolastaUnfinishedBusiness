@@ -10,10 +10,10 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "AttackOff"
+  "forbiddenActions": [],
+  "authorizedActions": [
+    9086
   ],
-  "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fd0182e0-d8dc-5881-b7ec-6007507d6a73",
+  "guid": "03afce82-5279-5361-a302-3e3336e807c2",
   "contentPack": 9999,
-  "name": "ActionAffinityWeaponMasteryNickPreventBonusAttack"
+  "name": "ActionAffinityWeaponMasteryCleave"
 }

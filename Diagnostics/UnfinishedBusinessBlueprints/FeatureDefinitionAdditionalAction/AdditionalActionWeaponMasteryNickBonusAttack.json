@@ -1,25 +1,13 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Bonus",
   "forbiddenActions": [],
-  "authorizedActions": [
-    9087
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackOff"
   ],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -44,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "507aedca-4bf8-5809-86d4-5ed11a2a8871",
+  "guid": "7df60dfe-73c8-5cd6-861a-2821d11ff827",
   "contentPack": 9999,
-  "name": "ActionAffinityWeaponMasteryNick"
+  "name": "AdditionalActionWeaponMasteryNickBonusAttack"
 }
