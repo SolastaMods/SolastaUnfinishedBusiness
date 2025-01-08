@@ -48,6 +48,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationAlchemy:76917a05-718e-50e4-8728-2045d1def2e3",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureInnovationAlchemyMasterOverchargeBombs:a6b8d962-ff0c-5fab-9c2f-89f53b5c99e0",
       "level": 15
     }

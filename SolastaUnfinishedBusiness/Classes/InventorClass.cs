@@ -758,6 +758,52 @@ internal static class InventorClass
 
         Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSet, 11));
         Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+
+        foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
+        {
+            if (!subclass.Name.Contains("Innovation"))
+            {
+                continue;
+            }
+
+            var autoPreparedSpells = subclass.FeatureUnlocks.FirstOrDefault(x =>
+                    x.FeatureDefinition is FeatureDefinitionAutoPreparedSpells)
+                ?.FeatureDefinition as FeatureDefinitionAutoPreparedSpells;
+
+            if (!autoPreparedSpells)
+            {
+                continue;
+            }
+
+            var featureSetSub = FeatureDefinitionFeatureSetBuilder
+                .Create($"FeatureSetSpellStoringItem{subclass.Name}")
+                .SetGuiPresentationNoContent(true)
+                .AddToDB();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var autoPreparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
+            {
+                if (autoPreparedSpellsGroup.ClassLevel is not (3 or 5))
+                {
+                    continue;
+                }
+
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var spell in autoPreparedSpellsGroup.SpellsList)
+                {
+                    if (spell.ActivationTime != ActivationTime.Action)
+                    {
+                        continue;
+                    }
+
+                    featureSetSub.FeatureSet.Add(
+                        GetDefinition<FeatureDefinitionPower>($"PowerCreateSpellStoringWandOf{spell.Name}"));
+                }
+            }
+
+            subclass.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetSub, 11));
+            subclass.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
     }
 
     private static FeatureDefinitionPower BuildSpellStoringItem(int level, FeatureDefinitionPower power)
@@ -826,9 +872,8 @@ internal static class InventorClass
 
     private static ItemDefinition BuildWandOfSpell(SpellDefinition spell)
     {
-        var spellName = spell.FormatTitle();
-        var title = Gui.Format("Item/&SpellStoringWandTitle", spellName);
-        var description = Gui.Format("Item/&SpellStoringWandDescription", spellName);
+        var title = Gui.Format("Item/&SpellStoringWandTitle", spell.FormatTitle());
+        var description = Gui.Format("Item/&SpellStoringWandDescription", spell.FormatTitle());
 
         return ItemDefinitionBuilder
             .Create(ItemDefinitions.WandMagicMissile, $"SpellStoringWandOf{spell.Name}")

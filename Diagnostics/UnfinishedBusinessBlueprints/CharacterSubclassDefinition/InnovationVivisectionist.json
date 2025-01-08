@@ -38,6 +38,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationVivisectionist:f3b61b9a-1ff1-520b-8a76-0f2616669a67",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationVivisectionistMasterEmergencyCure:0bd8cc53-beb3-50f5-9e3c-dd161f0fdc58",
       "level": 15
     },

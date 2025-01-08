@@ -10,6 +10,7 @@ CHANGES:
 - changed Hunter's Mark, and Malediction to be denied under twinned scenarios [engine limitation]
 - changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
 - changed shadow flurry -> improved shadow step, and shadow sanctuary -> cloak of shadows on Way of Shadow [RESPEC]
+- fixed Alchemist subclasses not getting spell storing item powers for their specific auto prepared spells
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing power dice progression
 - fixed Command: Grove spell not ending target turn after prone action
@@ -35,7 +36,6 @@ KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
 - Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
-- Weapon Mastery Cleave isn't implemented yet
 
 1.5.97.42:
 
