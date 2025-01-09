@@ -334,10 +334,13 @@ internal static partial class Tabletop2024Context
 
         foreach (MasteryProperty masteryProperty in Enum.GetValues(typeof(MasteryProperty)))
         {
-            _ = FeatureDefinitionBuilder
-                .Create($"FeatureWeaponMastery{masteryProperty}")
-                .SetGuiPresentation(Category.Feature)
-                .AddToDB();
+            if (masteryProperty != MasteryProperty.None)
+            {
+                _ = FeatureDefinitionBuilder
+                    .Create($"FeatureWeaponMastery{masteryProperty}")
+                    .SetGuiPresentation(Category.Feature)
+                    .AddToDB();   
+            }
         }
 
         // master toggle

@@ -1,5 +1,6 @@
 1.5.97.44:
 
+- fixed apply damage form crash after patch to support MC class level ranking
 - fixed context checks behaviors
 - fixed weapon mastery Cleave, Graze, and Nick behaviors
 - fixed weapon mastery integration with Fighter tactical master, and multiclass
