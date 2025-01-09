@@ -342,14 +342,18 @@ public sealed class RangerGloomStalker : AbstractSubclass
                     attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
                 }
 
-                var actionModifier = action.ActionParams.ActionModifiers[0];
+                var actionModifier = new ActionModifier
+                {
+                    proximity = attacker.IsWithinRange(defender, attackMode.reachRange)
+                        ? AttackProximity.Melee
+                        : AttackProximity.Range
+                };
 
-                actionModifier.AttacktoHitTrends.Clear();
                 attacker.MyExecuteActionAttack(
                     Id.AttackFree,
                     defender,
                     attackModeCopy,
-                    action.ActionParams.ActionModifiers[0]);
+                    actionModifier);
             }
         }
     }

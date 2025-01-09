@@ -101,10 +101,13 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
-            var actionModifier = action.ActionParams.ActionModifiers[0];
+            var actionModifier = new ActionModifier
+            {
+                proximity = attacker.IsWithinRange(defender, attackMode.reachRange)
+                    ? AttackProximity.Melee
+                    : AttackProximity.Range
+            };
 
-            actionModifier.AttacktoHitTrends.Clear();
-            attackMode.AttackTags.Remove(DualFlurryTriggerMark);
             rulesetAttacker.LogCharacterUsedFeature(feature);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,

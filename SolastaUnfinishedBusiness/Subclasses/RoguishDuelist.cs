@@ -240,14 +240,12 @@ public sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.RemoveCondition(activeCondition);
 
             var attackModeMain = attacker.FindActionAttackMode(Id.AttackMain);
-            var actionModifier = action.ActionParams.ActionModifiers[0];
 
-            actionModifier.AttacktoHitTrends.Clear();
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
                 attackModeMain,
-                action.ActionParams.ActionModifiers[0]);
+                new ActionModifier());
         }
     }
 
