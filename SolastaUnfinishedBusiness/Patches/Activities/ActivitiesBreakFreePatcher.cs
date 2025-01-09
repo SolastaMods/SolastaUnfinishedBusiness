@@ -58,12 +58,17 @@ public static class BreakFreePatcher
                     {
                         AbilityCheckActionModifier = new ActionModifier(), Action = null
                     };
+                    var opponentAbilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckActionModifier = new ActionModifier(), Action = null
+                    };
 
                     yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                        source, gameLocationCharacter, ActionDefinitions.Id.BreakFree, abilityCheckData);
+                        source, gameLocationCharacter, ActionDefinitions.Id.BreakFree,
+                        abilityCheckData, opponentAbilityCheckData);
 
                     // this is the success of the opponent
-                    success = abilityCheckData.AbilityCheckRollOutcome
+                    success = opponentAbilityCheckData.AbilityCheckRollOutcome
                         is not (RollOutcome.Success or RollOutcome.CriticalSuccess);
 
                     break;

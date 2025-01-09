@@ -481,9 +481,10 @@ internal static class GrappleContext
             if (!isHeightenedFocus)
             {
                 var abilityCheckData = new AbilityCheckData();
+                var opponentAbilityCheckData = new AbilityCheckData();
 
                 yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData, opponentAbilityCheckData);
 
                 success =
                     abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;

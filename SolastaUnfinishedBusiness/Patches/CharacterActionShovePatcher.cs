@@ -36,6 +36,10 @@ public static class CharacterActionShovePatcher
             {
                 AbilityCheckActionModifier = new ActionModifier(), Action = characterActionShove
             };
+            var opponentAbilityCheckData = new AbilityCheckData
+            {
+                AbilityCheckActionModifier = new ActionModifier(), Action = characterActionShove
+            };
 
             //BEGIN PATCH
             // original code
@@ -44,7 +48,7 @@ public static class CharacterActionShovePatcher
  isSameSide || isIncapacitated || CharacterActionShove.ResolveRolls(characterActionShove.ActingCharacter, target, characterActionShove.ActionId);
 #endif
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                actingCharacter, target, characterActionShove.ActionId, abilityCheckData);
+                actingCharacter, target, characterActionShove.ActionId, abilityCheckData, opponentAbilityCheckData);
 
             var success =
                 isSameSide ||

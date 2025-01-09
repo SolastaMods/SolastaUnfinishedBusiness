@@ -37,6 +37,7 @@ internal static class TryAlterOutcomeAttributeCheck
         GameLocationCharacter opponent,
         ActionDefinitions.Id actionId,
         AbilityCheckData abilityCheckData,
+        AbilityCheckData opponentAbilityCheckData,
         string opponentAbilityScoreName = "")
     {
         var actionModifierActorStrength = new ActionModifier();
@@ -148,7 +149,8 @@ internal static class TryAlterOutcomeAttributeCheck
             opponentProficiencyName,
             actionModifierOpponent.AbilityCheckAdvantageTrends,
             actionModifierOpponent.AbilityCheckModifierTrends,
-            abilityCheckData);
+            abilityCheckData,
+            opponentAbilityCheckData);
     }
 
     private static int ExtendedRollDie(
@@ -200,6 +202,7 @@ internal static class TryAlterOutcomeAttributeCheck
         List<TrendInfo> opponentAdvantageTrends,
         List<TrendInfo> opponentModifierTrends,
         AbilityCheckData abilityCheckData,
+        AbilityCheckData opponentAbilityCheckData,
         bool notify = true)
     {
         var advantageActor = ComputeAdvantage(advantageTrends);
@@ -290,22 +293,22 @@ internal static class TryAlterOutcomeAttributeCheck
         // handle opponent interruptions
         var actionModifierEnemy = new ActionModifier();
 
-        abilityCheckData.AbilityCheckRoll = opponentRawRoll;
-        abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
-            ? opponentRawRoll <= totalRoll ? RollOutcome.Failure :
+        opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
+        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - rawRoll;
+        opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
+            ? opponentTotalRoll <= totalRoll ? RollOutcome.Failure :
             opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
             RollOutcome.CriticalSuccess
             : RollOutcome.CriticalFailure;
-        abilityCheckData.AbilityCheckActionModifier = actionModifierEnemy;
+        opponentAbilityCheckData.AbilityCheckActionModifier = actionModifierEnemy;
 
         yield return HandleITryAlterOutcomeAttributeCheck(
-            GameLocationCharacter.GetFromActor(opponent), abilityCheckData);
+            GameLocationCharacter.GetFromActor(opponent), opponentAbilityCheckData);
 
-        opponentTotalRoll = opponentTotalRoll - opponentRawRoll + abilityCheckData.AbilityCheckRoll +
-                            abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifier;
-        opponentRawRoll = abilityCheckData.AbilityCheckRoll;
-        opponentModifierTrends.AddRange(abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
+        opponentTotalRoll = opponentTotalRoll - opponentRawRoll + opponentAbilityCheckData.AbilityCheckRoll +
+                            opponentAbilityCheckData.AbilityCheckActionModifier.AbilityCheckModifier;
+        opponentRawRoll = opponentAbilityCheckData.AbilityCheckRoll;
+        opponentModifierTrends.AddRange(opponentAbilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
 
         // calculate final results
         abilityCheckData.AbilityCheckRoll = rawRoll;
@@ -313,6 +316,14 @@ internal static class TryAlterOutcomeAttributeCheck
         abilityCheckData.AbilityCheckRollOutcome = totalRoll != DiceMinValue[8]
             ? totalRoll <= opponentTotalRoll ? RollOutcome.Failure :
             rawRoll != DiceMaxValue[8] ? RollOutcome.Success :
+            RollOutcome.CriticalSuccess
+            : RollOutcome.CriticalFailure;
+
+        opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
+        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - rawRoll;
+        opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
+            ? opponentTotalRoll <= totalRoll ? RollOutcome.Failure :
+            opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
             RollOutcome.CriticalSuccess
             : RollOutcome.CriticalFailure;
 

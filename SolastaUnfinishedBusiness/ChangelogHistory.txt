@@ -1,7 +1,8 @@
 1.5.97.44:
 
+- fixed context checks behaviors
 - fixed weapon mastery Cleave, Graze, and Nick behaviors
-- fixed weapon mastery integration with tactical master, and multiclass
+- fixed weapon mastery integration with Fighter tactical master, and multiclass
 
 1.5.97.43:
 
