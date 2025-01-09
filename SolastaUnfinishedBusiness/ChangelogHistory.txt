@@ -1,3 +1,8 @@
+1.5.97.44:
+
+- fixed weapon mastery Cleave, Graze, and Nick behaviors
+- fixed weapon mastery integration with tactical master, and multiclass
+
 1.5.97.43:
 
 RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Natural Fluidity, Spiritual Fluidity, Pugilist, Way of Shadow, and Way of Zen Archery
