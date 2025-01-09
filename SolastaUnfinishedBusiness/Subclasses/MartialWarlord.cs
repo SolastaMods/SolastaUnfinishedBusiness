@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -78,7 +77,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
-                    ValidatorsWeapon.IsMelee(mode) &&
+                    !ValidatorsWeapon.IsUnarmed(mode) &&
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
@@ -553,8 +552,8 @@ public sealed class MartialWarlord : AbstractSubclass
 
             var actionParams = action.actionParams;
 
-            // non-reaction melee hits only
-            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+            // non-reaction non unarmed hits only
+            if (ValidatorsWeapon.IsUnarmed(attackMode) ||
                 rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
@@ -664,8 +663,7 @@ public sealed class MartialWarlord : AbstractSubclass
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var strengthModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength)), 1);
+            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.InflictCondition(
                 conditionStrengthInitiative.Name,
@@ -677,7 +675,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 rulesetCharacter.CurrentFaction.Name,
                 1,
                 conditionStrengthInitiative.Name,
-                strengthModifier,
+                pb,
                 0,
                 0);
 
@@ -708,8 +706,7 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
             var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var strengthModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetSource.TryGetAttributeValue(AttributeDefinitions.Strength)), 1);
+            var pb = rulesetSource.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.InflictCondition(
                 conditionStrengthInitiative.Name,
@@ -721,7 +718,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 rulesetCharacter.CurrentFaction.Name,
                 1,
                 conditionStrengthInitiative.Name,
-                (strengthModifier + 1) / 2,
+                (pb + 1) / 2,
                 0,
                 0);
         }
