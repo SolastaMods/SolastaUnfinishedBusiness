@@ -95,15 +95,6 @@ public static class CharacterActionAttackPatcher
             var target = targets[0];
             var defenderWasConscious = !target.RulesetActor.IsDeadOrDyingOrUnconscious;
 
-            // BEGIN PATCH
-
-            // supports ValidatorsWeapon.IsMelee [dagger, dart, and javelin use cases which always have thrown on]
-            if (actingCharacter.IsWithinRange(target, attackMode.ReachRange))
-            {
-                attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagMelee);
-            }
-            // END PATCH
-
             // Check if the attack is possible, and compute modifiers
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var attackModifier = new ActionModifier();
