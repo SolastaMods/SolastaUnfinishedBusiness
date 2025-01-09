@@ -353,7 +353,7 @@ public static class RulesetImplementationManagerPatcher
             EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            if (formsParams.activeEffect.SourceDefinition is not FeatureDefinitionPower featureDefinitionPower)
+            if (formsParams.activeEffect?.SourceDefinition is not FeatureDefinitionPower featureDefinitionPower)
             {
                 return DiceByRank.GetDiceOfRank(rank, table, allowEmptyEntries);
             }
