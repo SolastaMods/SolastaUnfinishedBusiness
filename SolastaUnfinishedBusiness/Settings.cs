@@ -341,6 +341,7 @@ public class Settings : UnityModManager.ModSettings
     [Tag(Type = TagType.T2024)] public bool EnablePaladinAbjureFoes2024 { get; set; }
     [Tag(Type = TagType.T2024)] public bool EnablePaladinChannelDivinity2024 { get; set; }
     [Tag(Type = TagType.T2024)] public bool EnablePaladinLayOnHands2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinRechargeLv20Feature { get; set; }
     [Tag(Type = TagType.T2024)] public bool EnablePaladinRestoringTouch2024 { get; set; }
     [Tag(Type = TagType.T2024)] public bool EnablePaladinSmite2024 { get; set; }
     [Tag(Type = TagType.T2024)] public bool EnablePaladinSpellCastingAtLevel1 { get; set; }

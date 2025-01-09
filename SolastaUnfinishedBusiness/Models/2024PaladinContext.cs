@@ -82,6 +82,9 @@ internal static partial class Tabletop2024Context
         ConditionDefinitions.ConditionStunned
     ];
 
+    private static List<(CharacterSubclassDefinition Subclass, FeatureUnlockByLevel Feature)> subclassFeatureTuples =
+        new List<(CharacterSubclassDefinition, FeatureUnlockByLevel)>();
+
     private static void LoadPaladinRestoringTouch()
     {
         PowerPaladinLayOnHands.AddCustomSubFeatures(new PowerOrSpellFinishedByMeRestoringTouch());
@@ -115,6 +118,66 @@ internal static partial class Tabletop2024Context
         }
 
         PowerBundle.RegisterPowerBundle(PowerPaladinRestoringTouch, false, [.. powers]);
+    }
+
+    internal static void LoadPaladinRestoreLevel20Features()
+    {
+        // Get List<(Subclass, Power)> of tuples for features to recharge
+        var subclassPower = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .Where(subclass => subclass.Name.StartsWith("OathOf"))
+            .SelectMany((subclass, power) =>    //flatten the list in case there are multiple Lv.20 powers
+                subclass.FeatureUnlocks
+                    .Where(unlock => unlock?.Level == 20 &&
+                                        unlock.FeatureDefinition is FeatureDefinitionPower power &&
+                                        power.RechargeRate == RechargeRate.LongRest)
+                    .Select(unlock => unlock?.FeatureDefinition as FeatureDefinitionPower)
+                , (subclass, power) =>
+                    (Subclass: subclass, Power: power)) // create a tuple
+            .Where(x => x.Power != null)
+            .Select(x => x)
+            .ToArray();
+
+        var title = "Feature/&FeaturePaladinRechargeLv20PowerTitle";
+        var description = "Feature/&FeaturePaladinRechargeLv20PowerDescription";
+        foreach (var x in subclassPower)
+        {
+            var powerName = Gui.Localize("Feature/&"+x.Power.Name+"Title");
+            // Build recharge power
+            var rechargePower = FeatureDefinitionPowerBuilder
+                .Create("PowerRecharge"+x.Power.Name)
+                .SetGuiPresentation(
+                    Gui.Format(title, powerName),
+                    Gui.Format(description, powerName),
+                    Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
+                .SetShowCasting(false)
+                .AddToDB();
+
+            // Add custom behaviour to recharge a given feature
+            rechargePower.AddCustomSubFeatures(new CustomBehaviourPaladinRechargeLv20Power(x.Power));
+
+            // Add power to subclasses
+            var featureUnlock = new FeatureUnlockByLevel(rechargePower, 20);
+
+            subclassFeatureTuples.Add((x.Subclass, featureUnlock));
+        }
+    }
+
+    internal static void SwitchPaladinRechargeLv20Power()
+    {
+        if (Main.Settings.EnablePaladinRechargeLv20Feature)
+        {
+            foreach(var t in subclassFeatureTuples)
+            {
+                t.Subclass.FeatureUnlocks.Add(t.Feature);
+            }
+        }
+        else
+        {
+            foreach (var t in subclassFeatureTuples)
+            {
+                t.Subclass.FeatureUnlocks.Remove(t.Feature);
+            }
+        }
     }
 
     internal static void SwitchPaladinSpellCastingAtOne()
@@ -275,6 +338,32 @@ internal static partial class Tabletop2024Context
                     rulesetCaster.UsablePowers.Remove(usablePower);
                 }
             }
+        }
+    }
+
+    internal sealed class CustomBehaviourPaladinRechargeLv20Power(FeatureDefinitionPower powerToRecharge)
+        : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        {
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var repertoire = rulesetCharacter.GetClassSpellRepertoire(Paladin);
+            var usablePower = PowerProvider.Get(powerToRecharge, rulesetCharacter);
+
+            repertoire!.SpendSpellSlot(5);
+            rulesetCharacter.UpdateUsageForPowerPool(-1, usablePower);
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
+        {
+            var repertoire = rulesetCharacter.GetClassSpellRepertoire(Paladin);
+            int remaining = 0;
+            repertoire?.GetSlotsNumber(5, out remaining, out _);
+
+            return remaining > 0 && rulesetCharacter.GetRemainingPowerUses(powerToRecharge) == 0;
         }
     }
 }
