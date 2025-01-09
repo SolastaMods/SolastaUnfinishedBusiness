@@ -478,11 +478,14 @@ public sealed class WayOfBlade : AbstractSubclass
                     attackModeCopy.AddAttackTagAsNeeded(TwoWeaponCombatFeats.DualFlurryTriggerMark);
                 }
 
+                var actionModifier = action.ActionParams.ActionModifiers[0];
+
+                actionModifier.AttacktoHitTrends.Clear();
                 attacker.MyExecuteActionAttack(
                     Id.AttackFree,
                     defender,
                     attackModeCopy,
-                    new ActionModifier());
+                    action.ActionParams.ActionModifiers[0]);
             }
         }
     }

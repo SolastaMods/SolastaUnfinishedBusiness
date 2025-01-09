@@ -101,13 +101,16 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
+            var actionModifier = action.ActionParams.ActionModifiers[0];
+
+            actionModifier.AttacktoHitTrends.Clear();
             attackMode.AttackTags.Remove(DualFlurryTriggerMark);
             rulesetAttacker.LogCharacterUsedFeature(feature);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
                 attackMode,
-                new ActionModifier());
+                actionModifier);
         }
     }
 }

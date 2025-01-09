@@ -337,12 +337,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             void ReactionValidated()
             {
+                var actionModifier = action.ActionParams.ActionModifiers[0];
+
+                actionModifier.AttacktoHitTrends.Clear();
                 attacker.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
                 attacker.MyExecuteActionAttack(
                     ActionDefinitions.Id.AttackFree,
                     defender,
                     attackMode,
-                    new ActionModifier());
+                    action.ActionParams.ActionModifiers[0]);
             }
         }
 
