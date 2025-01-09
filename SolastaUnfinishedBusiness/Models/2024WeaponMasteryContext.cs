@@ -529,7 +529,8 @@ internal static partial class Tabletop2024Context
     // Weapon Mastery
     //
 
-    private sealed class CustomBehaviorWeaponMastery : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorWeaponMastery 
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -540,9 +541,16 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
+                !rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
+            {
+                yield break;
+            }
+            
             var tacticalMasterIndex = attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name);
             var mastery = (MasteryProperty)tacticalMasterIndex;
-            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (mastery == MasteryProperty.None)
             {
@@ -627,11 +635,20 @@ internal static partial class Tabletop2024Context
 
             var masteryToReplace = rulesetAttacker.GetMastery(attackMode);
 
-            if (masteryToReplace == MasteryProperty.None)
+            if (masteryToReplace != MasteryProperty.Graze &&
+                masteryToReplace != MasteryProperty.Nick)
             {
                 yield break;
             }
 
+            yield return OfferTacticalMasterReplacement(attacker, masteryToReplace);
+        }
+
+        private static IEnumerator OfferTacticalMasterReplacement(
+            GameLocationCharacter attacker, MasteryProperty masteryToReplace)
+        {
+            
+            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetAttacker);
             var usablePowers = new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow }
                 .Where(x => x != masteryToReplace)
@@ -661,7 +678,36 @@ internal static partial class Tabletop2024Context
             }
         }
 
-        #region Behaviors
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
+            {
+                yield break;
+            }
+
+            var masteryToReplace = rulesetAttacker.GetMastery(attackMode);
+
+            if (masteryToReplace is MasteryProperty.None or MasteryProperty.Graze or MasteryProperty.Nick)
+            {
+                yield break;
+            }
+
+            yield return OfferTacticalMasterReplacement(attacker, masteryToReplace);
+        }
+        
+                #region Behaviors
 
         private static void DoCleave(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
@@ -761,6 +807,7 @@ internal static partial class Tabletop2024Context
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerWeaponMasteryPush, rulesetAttacker);
 
+            rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasteryPush"));
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
 
@@ -819,6 +866,7 @@ internal static partial class Tabletop2024Context
             var abilityScore = attackMode.AbilityScore;
             var abilityScoreIndex = Array.IndexOf(AttributeDefinitions.AbilityScoreNames, abilityScore);
 
+            rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasteryTopple"));
             attacker.SetSpecialFeatureUses(WeaponMasteryTopple, abilityScoreIndex);
             attacker.MyExecuteActionSpendPower(usablePower, defender);
         }
