@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -42,13 +41,13 @@ public sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildSharpMind(), BuildGambitPoolIncrease(4, Name),
                 GambitsBuilders.Learn3Gambit,
                 GambitsBuilders.GambitPool)
-            .AddFeaturesAtLevel(7, BuildHonedCraft(), BuildGambitPoolIncrease(),
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(10, BuildGambitDieSize(DieType.D10),
                 gambitPoolIncrease,
                 unlearn)
-            .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(18, BuildTacticalAwareness(), BuildGambitDieSize(DieType.D12),
@@ -78,46 +77,6 @@ public sealed class MartialTactician : AbstractSubclass
                     .SetGuiPresentationNoContent()
                     .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
                     .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionFeatureSet BuildHonedCraft()
-    {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTacticianHonedCraft")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                FeatureDefinitionPointPoolBuilder
-                    .Create("PointPoolTacticianSharpMindExpertise")
-                    .SetGuiPresentationNoContent()
-                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionFeatureSet BuildBattleClarity()
-    {
-        var features = new FeatureDefinition[]
-        {
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta
-        };
-
-        foreach (var feature in features.OfType<FeatureDefinitionSavingThrowAffinity>())
-        {
-            var term = $"Attribute/&{feature.affinityGroups[0].abilityScoreName}TitleLong";
-
-            feature.GuiPresentation.title = term;
-            feature.GuiPresentation.description = term;
-        }
-
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTacticianBattleClarity")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(features)
             .AddToDB();
     }
 
