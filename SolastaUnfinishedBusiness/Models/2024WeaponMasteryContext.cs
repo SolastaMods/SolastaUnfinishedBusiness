@@ -41,7 +41,7 @@ internal static partial class Tabletop2024Context
         .AddCustomSubFeatures(new CustomBehaviorWeaponMastery())
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerWeaponMasteryRelearnPool = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinitionPower PowerWeaponMasteryRelearnPool = FeatureDefinitionPowerBuilder
         .Create("PowerWeaponMasteryRelearnPool")
         .SetGuiPresentationNoContent(true)
         .SetShowCasting(false)
@@ -339,7 +339,7 @@ internal static partial class Tabletop2024Context
                 _ = FeatureDefinitionBuilder
                     .Create($"FeatureWeaponMastery{masteryProperty}")
                     .SetGuiPresentation(Category.Feature)
-                    .AddToDB();   
+                    .AddToDB();
             }
         }
 
@@ -532,9 +532,38 @@ internal static partial class Tabletop2024Context
     // Weapon Mastery
     //
 
-    private sealed class CustomBehaviorWeaponMastery 
+    private sealed class CustomBehaviorWeaponMastery
         : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
+            {
+                yield break;
+            }
+
+            var masteryToReplace = rulesetAttacker.GetMastery(attackMode);
+
+            if (masteryToReplace is MasteryProperty.None or MasteryProperty.Graze or MasteryProperty.Nick)
+            {
+                yield break;
+            }
+
+            yield return OfferTacticalMasterReplacement(attacker, masteryToReplace);
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -551,7 +580,7 @@ internal static partial class Tabletop2024Context
             {
                 yield break;
             }
-            
+
             var tacticalMasterIndex = attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name);
             var mastery = (MasteryProperty)tacticalMasterIndex;
 
@@ -650,7 +679,6 @@ internal static partial class Tabletop2024Context
         private static IEnumerator OfferTacticalMasterReplacement(
             GameLocationCharacter attacker, MasteryProperty masteryToReplace)
         {
-            
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerFighterTacticalMasterPool, rulesetAttacker);
             var usablePowers = new[] { MasteryProperty.Push, MasteryProperty.Sap, MasteryProperty.Slow }
@@ -681,36 +709,7 @@ internal static partial class Tabletop2024Context
             }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
-            {
-                yield break;
-            }
-
-            var masteryToReplace = rulesetAttacker.GetMastery(attackMode);
-
-            if (masteryToReplace is MasteryProperty.None or MasteryProperty.Graze or MasteryProperty.Nick)
-            {
-                yield break;
-            }
-
-            yield return OfferTacticalMasterReplacement(attacker, masteryToReplace);
-        }
-        
-                #region Behaviors
+        #region Behaviors
 
         private static void DoCleave(GameLocationCharacter attacker, GameLocationCharacter defender)
         {

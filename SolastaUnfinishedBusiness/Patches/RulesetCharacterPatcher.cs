@@ -2271,20 +2271,10 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: supports Weapon Mastery to ensure only one custom behavior per hero
-            if (hero.ClassesAndSubclasses.Keys
-                    .Intersect([Barbarian, Fighter, Paladin, Ranger, Rogue]).ToArray().Length > 0)
+            if (hero.HasAnyFeature(Tabletop2024Context.PowerWeaponMasteryRelearnPool))
             {
-                if (Main.Settings.UseWeaponMasterySystem &&
-                    hero.HasAnyFeature(Tabletop2024Context.FeatureWeaponMasteryBehavior))
-                {
-                    hero.ActiveFeatures[AttributeDefinitions.TagRace]
-                        .Remove(Tabletop2024Context.FeatureWeaponMasteryBehavior);
-                }
-                else
-                {
-                    hero.ActiveFeatures[AttributeDefinitions.TagRace]
-                        .Add(Tabletop2024Context.FeatureWeaponMasteryBehavior);
-                }
+                hero.ActiveFeatures[AttributeDefinitions.TagRace]
+                    .TryAdd(Tabletop2024Context.FeatureWeaponMasteryBehavior);
             }
 
             //PATCH: support adding required power to keep a tab on spell points (SPELL_POINTS)

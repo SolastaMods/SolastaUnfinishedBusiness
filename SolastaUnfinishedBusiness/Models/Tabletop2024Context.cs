@@ -307,7 +307,7 @@ internal static partial class Tabletop2024Context
             yield return helper.MyReactToDoNothing(
                 ExtraActionId.DoNothingReaction,
                 attacker,
-                "HeroicWarrior",
+                "HeroicWarriorAttack",
                 "CustomReactionHeroicWarriorAttackDescription".Formatted(Category.Reaction, attacker.Name,
                     defender.Name, helper.Name),
                 ReactionValidated,

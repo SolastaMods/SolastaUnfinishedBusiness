@@ -244,7 +244,6 @@
     <UseWeaponMasterySystemAddWeaponTag>false</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
-    <UseWeaponMasterySystemHideToggles>false</UseWeaponMasterySystemHideToggles>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -978,6 +977,7 @@
     <SwapAbjurationSavant>false</SwapAbjurationSavant>
     <SwapEvocationSavant>false</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
+    <EnableMartialChampion2024>true</EnableMartialChampion2024>
     <KlassListSliderPosition>
         <item>
             <key>

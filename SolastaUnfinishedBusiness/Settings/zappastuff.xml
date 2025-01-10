@@ -208,7 +208,10 @@
             </value>
         </item>
     </DisplaySpellListsToggle>
-    <DefaultPartyHeroes/>
+    <DefaultPartyHeroes>
+        <string>Beriiel</string>
+        <string>Teaghan</string>
+    </DefaultPartyHeroes>
     <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
     <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
     <EnableLevelUpFeaturesSelection>true</EnableLevelUpFeaturesSelection>
@@ -229,7 +232,7 @@
     <MaxAllowedClasses>3</MaxAllowedClasses>
     <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
     <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
-    <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
+    <EnableMinInOutAttributes>false</EnableMinInOutAttributes>
     <EnableActionSwitching>true</EnableActionSwitching>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <EnableProneAction>true</EnableProneAction>
@@ -244,7 +247,6 @@
     <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
-    <UseWeaponMasterySystemHideToggles>false</UseWeaponMasterySystemHideToggles>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
@@ -1598,6 +1600,7 @@
     <SwapAbjurationSavant>true</SwapAbjurationSavant>
     <SwapEvocationSavant>true</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
+    <EnableMartialChampion2024>true</EnableMartialChampion2024>
     <KlassListSliderPosition>
         <item>
             <key>

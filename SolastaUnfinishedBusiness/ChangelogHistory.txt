@@ -1,10 +1,10 @@
 1.5.97.44:
 
 - added Martial Champion 2024 setting
-- fixed apply damage form crash
+- fixed apply damage form crash scenario
 - fixed context checks calculations
-- fixed Weapon Mastery Cleave, Graze, and Nick
-- fixed Weapon Mastery integration with Tactical Master
+- fixed Weapon Mastery cleave, graze, and nick
+- nerfed Battle Master, Warlord, and Bladestorm
 
 1.5.97.43:
 

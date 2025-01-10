@@ -1854,12 +1854,13 @@ internal static class MeleeCombatFeats
             actingCharacter.SetSpecialFeatureUses("PowerWhirlWindAttack", 0);
 
             var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
+            var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            foreach (var target in targets)
+            for (var i = 0; i < targets.Count && i < pb; i++)
             {
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
-                    target,
+                    targets[i],
                     attackMode,
                     new ActionModifier());
             }
