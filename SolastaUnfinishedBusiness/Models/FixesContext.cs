@@ -132,6 +132,15 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+
+        foreach (var feature in DatabaseRepository.GetDatabase<FeatureDefinitionSavingThrowAffinity>()
+                     .Where(x => x.Name.StartsWith("Definition:SavingThrowAffinityCreed")))
+        {
+            var term = $"Attribute/&{feature.affinityGroups[0].abilityScoreName}TitleLong";
+
+            feature.GuiPresentation.title = term;
+            feature.GuiPresentation.description = term;
+        }
     }
 
     private static void FixMonkPatientDefenseToAFeatureSet()
