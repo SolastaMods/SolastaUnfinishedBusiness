@@ -450,7 +450,7 @@ internal static class Level20SubclassesContext
         var featureMartialChampionSurvivor = FeatureDefinitionBuilder
             .Create("FeatureMartialChampionSurvivor")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterTurnStartListenerSurvivor())
+            .AddCustomSubFeatures(new CustomBehaviorSurvivor())
             .AddToDB();
 
         MartialChampion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureMartialChampionSurvivor, 18));
@@ -1805,7 +1805,7 @@ internal static class Level20SubclassesContext
     // Survivor
     //
 
-    private sealed class CharacterTurnStartListenerSurvivor : ICharacterTurnStartListener
+    private sealed class CustomBehaviorSurvivor : ICharacterTurnStartListener, IModifyDiceRoll
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -1828,6 +1828,37 @@ internal static class Level20SubclassesContext
             EffectHelpers.StartVisualEffect(
                 locationCharacter, locationCharacter, Heal, EffectHelpers.EffectType.Effect);
             rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
+        }
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            if (rollContext == RollContext.DeathSavingThrow)
+            {
+                advantageType = AdvantageType.Advantage;
+            }
+        }
+
+        public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
+            ref int result)
+        {
+            if (result < 18 ||
+                rollContext != RollContext.DeathSavingThrow)
+            {
+                return;
+            }
+
+            firstRoll = 20;
+            result = 20;
         }
     }
 

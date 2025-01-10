@@ -1,9 +1,10 @@
 1.5.97.44:
 
-- fixed apply damage form crash after patch to support MC class level ranking
-- fixed context checks behaviors
-- fixed weapon mastery Cleave, Graze, and Nick behaviors
-- fixed weapon mastery integration with Fighter tactical master, and multiclass
+- added Martial Champion 2024 setting
+- fixed apply damage form crash
+- fixed context checks calculations
+- fixed Weapon Mastery Cleave, Graze, and Nick
+- fixed Weapon Mastery integration with Tactical Master
 
 1.5.97.43:
 

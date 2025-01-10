@@ -1087,7 +1087,6 @@ internal static class ToolsDisplay
         }
 
         toggle = Main.Settings.SwapEvocationSavant;
-        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationSavant"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapEvocationSavant = toggle;
@@ -1095,11 +1094,18 @@ internal static class ToolsDisplay
         }
 
         toggle = Main.Settings.SwapEvocationPotentCantripAndSculptSpell;
-        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&SwapEvocationPotentCantripAndSculptSpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.SwapEvocationPotentCantripAndSculptSpell = toggle;
             WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
+        }
+
+        toggle = Main.Settings.EnableMartialChampion2024;
+        // ReSharper disable once InvertIf
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapMartialChampion"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMartialChampion2024 = toggle;
+            Tabletop2024Context.SwitchMartialChampion();
         }
     }
 

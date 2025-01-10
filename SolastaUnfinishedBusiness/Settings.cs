@@ -468,6 +468,7 @@ public class Settings : UnityModManager.ModSettings
     public bool SwapAbjurationSavant { get; set; }
     public bool SwapEvocationSavant { get; set; }
     public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
+    public bool EnableMartialChampion2024 { get; set; }
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 

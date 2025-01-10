@@ -970,6 +970,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAbilityCheckAffinitys
     {
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityChampionRemarkableAthlete { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityChampionRemarkableAthlete");
+
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionRaging { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionRaging");
 
@@ -1611,6 +1614,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionFeatureSets
     {
+        internal static FeatureDefinitionFeatureSet FeatureSetChampionRemarkableAthlete { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetChampionRemarkableAthlete");
+
         internal static FeatureDefinitionFeatureSet FeatureSetMonkTimelessBody { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkTimelessBody");
 
@@ -1752,6 +1758,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMovementAffinitys
     {
+        internal static FeatureDefinitionMovementAffinity MovementAffinityChampionRemarkableAthlete { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityChampionRemarkableAthlete");
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionSurprised { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSurprised");
 
