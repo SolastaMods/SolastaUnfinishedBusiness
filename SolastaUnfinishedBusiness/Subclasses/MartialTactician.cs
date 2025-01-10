@@ -23,6 +23,30 @@ public sealed class MartialTactician : AbstractSubclass
 
     public MartialTactician()
     {
+        // kept for backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianHonedCraft")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatureSet(
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolTacticianSharpMindExpertise")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                    .AddToDB())
+            .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianBattleClarity")
+            .SetGuiPresentationNoContent(true)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetFeatureSet(
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
+            .AddToDB();
+
         var unlearn = BuildUnlearn();
 
         var gambitPoolIncrease2 = BuildGambitPoolIncrease(2, "ImproviseStrategy");
