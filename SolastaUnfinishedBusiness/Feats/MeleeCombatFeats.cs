@@ -1855,8 +1855,9 @@ internal static class MeleeCombatFeats
 
             var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
             var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var limit = 1 + pb / 2;
 
-            for (var i = 0; i < targets.Count && i < pb; i++)
+            for (var i = 0; i < targets.Count && i < limit; i++)
             {
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
