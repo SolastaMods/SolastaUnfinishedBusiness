@@ -28,11 +28,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetTacticianHonedCraft:c3440a1e-19b8-5765-9b3a-682310d7f982",
-      "level": 7
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
       "level": 7
     },
@@ -59,11 +54,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
-      "level": 15
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetTacticianBattleClarity:f473d7da-4fae-5487-8385-08c181825099",
       "level": 15
     },
     {
