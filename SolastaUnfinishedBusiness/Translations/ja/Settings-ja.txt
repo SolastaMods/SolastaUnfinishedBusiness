@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>2014 ルールを有効にする</color></
 ModUi/&TableTop2024=<b><color=#D89555>2024 ルールを有効にする</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。
-ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。
+ModUi/&TableTopHelp2=• ボタンを押して、<b>キャラクタータブでテーブルトップコンテンツのみを選択</b>し、<b>2014 ルールと/または 2024 ルールを有効に</b>して、真の TT 体験を実現します。
 ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>

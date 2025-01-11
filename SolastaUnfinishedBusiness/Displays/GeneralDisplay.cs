@@ -29,14 +29,18 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&TableTopHelp2"));
         UI.Label();
 
-        var width = UI.Width(145f);
+        var width = UI.Width(195f);
 
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, width);
+            UI.ActionButton(Gui.Localize("ModUi/&ModQoL"), () => SwitchTabletop(TagType.QoL), width);
+        }
+
+        using (UI.HorizontalScope())
+        {
             UI.ActionButton(Gui.Localize("ModUi/&TableTop2014"), () => SwitchTabletop(TagType.T2014), width);
             UI.ActionButton(Gui.Localize("ModUi/&TableTop2024"), () => SwitchTabletop(TagType.T2024), width);
-            UI.ActionButton(Gui.Localize("ModUi/&ModQoL"), () => SwitchTabletop(TagType.QoL), width);
         }
 
         UI.Label();

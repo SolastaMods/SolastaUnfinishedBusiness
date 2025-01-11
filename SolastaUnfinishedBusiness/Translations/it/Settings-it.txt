@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>Abilita le regole del 2014</color></b>
 ModUi/&TableTop2024=<b><color=#D89555>Abilita le regole del 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
 ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
-ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT
+ModUi/&TableTopHelp2=• Premi i pulsanti per <b>selezionare solo i contenuti del tavolo nella scheda Personaggio</b> e <b>abilitare le regole del 2014 e/o del 2024</b>, per una vera esperienza TT
 ModUi/&Tabletop=<color=#F0DAA0>Da tavolo <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>

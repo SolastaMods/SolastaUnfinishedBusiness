@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>Activer les règles 2014</color></b>
 ModUi/&TableTop2024=<b><color=#D89555>Activer les règles 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
-ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT
+ModUi/&TableTopHelp2=• Appuyez sur les boutons pour <b>sélectionner uniquement le contenu de table sous l'onglet Personnage</b> et <b>activer les règles 2014 et/ou 2024</b>, pour une véritable expérience TT
 ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[5e 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>

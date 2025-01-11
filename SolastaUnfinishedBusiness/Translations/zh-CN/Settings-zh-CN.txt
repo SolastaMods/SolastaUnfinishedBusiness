@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>启用 2014 规则</color></b>
 ModUi/&TableTop2024=<b><color=#D89555>启用 2024 规则</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>
 ModUi/&TableTopHelp1=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>5e 2014 和 2024</color> 设置，以方便您使用
-ModUi/&TableTopHelp2=• 按下按钮仅选择角色选项卡下的桌面内容，并选择以下所有选项以获得真正的 TT 体验
+ModUi/&TableTopHelp2=• 按下按钮<b>仅选择“角色”选项卡下的桌面内容</b>，并<b>启用 2014 和/或 2024 规则</b>，以获得真正的 TT 体验
 ModUi/&Tabletop=<color=#F0DAA0>桌面<i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=目标语言
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>

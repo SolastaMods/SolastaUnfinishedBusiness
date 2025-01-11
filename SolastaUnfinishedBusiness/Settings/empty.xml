@@ -977,7 +977,7 @@
     <SwapAbjurationSavant>false</SwapAbjurationSavant>
     <SwapEvocationSavant>false</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>false</SwapEvocationPotentCantripAndSculptSpell>
-    <EnableMartialChampion2024>true</EnableMartialChampion2024>
+    <EnableMartialChampion2024>false</EnableMartialChampion2024>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1193,8 +1193,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

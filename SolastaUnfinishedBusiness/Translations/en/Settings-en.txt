@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>Enable 2014 rules</color></b>
 ModUi/&TableTop2024=<b><color=#D89555>Enable 2024 rules</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Enable Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
-ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience
+ModUi/&TableTopHelp2=• Press the buttons to <b>select only tabletop content under Character tab</b>, and <b>enable 2014 and/or 2024 rules</b>, for a true TT experience
 ModUi/&Tabletop=<color=#F0DAA0>Tabletop <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Target Language
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>

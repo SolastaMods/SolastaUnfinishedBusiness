@@ -391,7 +391,7 @@ ModUi/&TableTop2014=<b><color=#D89555>2014-Regeln aktivieren</color></b>
 ModUi/&TableTop2024=<b><color=#D89555>2024-Regeln aktivieren</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
 ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>5e 2014 und 2024</color> neu gruppiert und dupliziert, damit Sie es einfacher haben.
-ModUi/&TableTopHelp2=• Drücken Sie die Taste, um unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen, und wählen Sie alle Optionen darunter für ein echtes TT-Erlebnis aus
+ModUi/&TableTopHelp2=• Drücken Sie die Tasten, um <b>unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen</b> und <b>die Regeln für 2014 und/oder 2024 zu aktivieren</b>, für ein echtes TT-Erlebnis
 ModUi/&Tabletop=<color=#F0DAA0>Tabletop <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Zielsprache
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduzieren Sie die Herstellungszeit um</color>
