@@ -271,16 +271,7 @@ internal static class TryAlterOutcomeAttributeCheck
         var opponentTotalRoll = opponentBaseBonus + opponentRawRoll + opponentRollModifier;
 
         // handle actor interruptions
-        var actionModifierHero = new ActionModifier();
-
-        abilityCheckData.AbilityCheckRoll = rawRoll;
-        abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = totalRoll != DiceMinValue[8]
-            ? totalRoll <= opponentTotalRoll ? RollOutcome.Failure :
-            rawRoll != DiceMaxValue[8] ? RollOutcome.Success :
-            RollOutcome.CriticalSuccess
-            : RollOutcome.CriticalFailure;
-        abilityCheckData.AbilityCheckActionModifier = actionModifierHero;
+        PrepareActorAbilityCheckData();
 
         yield return HandleITryAlterOutcomeAttributeCheck(
             GameLocationCharacter.GetFromActor(rulesetCharacter), abilityCheckData);
@@ -291,20 +282,7 @@ internal static class TryAlterOutcomeAttributeCheck
         modifierTrends.AddRange(abilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
 
         // handle opponent interruptions
-        var actionModifierEnemy = new ActionModifier();
-
-        totalRoll++;
-
-        opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
-        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll++;
-        opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
-            ? opponentTotalRoll <= totalRoll-- ? RollOutcome.Failure :
-            opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
-            RollOutcome.CriticalSuccess
-            : RollOutcome.CriticalFailure;
-        opponentAbilityCheckData.AbilityCheckActionModifier = actionModifierEnemy;
-
-        totalRoll--;
+        PrepareOpponentAbilityCheckData();
 
         yield return HandleITryAlterOutcomeAttributeCheck(
             GameLocationCharacter.GetFromActor(opponent), opponentAbilityCheckData);
@@ -315,21 +293,8 @@ internal static class TryAlterOutcomeAttributeCheck
         opponentModifierTrends.AddRange(opponentAbilityCheckData.AbilityCheckActionModifier.AbilityCheckModifierTrends);
 
         // calculate final results
-        abilityCheckData.AbilityCheckRoll = rawRoll;
-        abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
-        abilityCheckData.AbilityCheckRollOutcome = totalRoll != DiceMinValue[8]
-            ? totalRoll <= opponentTotalRoll ? RollOutcome.Failure :
-            rawRoll != DiceMaxValue[8] ? RollOutcome.Success :
-            RollOutcome.CriticalSuccess
-            : RollOutcome.CriticalFailure;
-
-        opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
-        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - rawRoll;
-        opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
-            ? opponentTotalRoll <= totalRoll ? RollOutcome.Failure :
-            opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
-            RollOutcome.CriticalSuccess
-            : RollOutcome.CriticalFailure;
+        PrepareActorAbilityCheckData();
+        PrepareOpponentAbilityCheckData();
 
         rulesetCharacter.ProcessConditionsMatchingInterruption(ConditionInterruption.AbilityCheck);
         opponent.ProcessConditionsMatchingInterruption(ConditionInterruption.AbilityCheck);
@@ -352,6 +317,30 @@ internal static class TryAlterOutcomeAttributeCheck
                 modifierTrends,
                 opponentAdvantageTrends,
                 opponentModifierTrends);
+        }
+
+        yield break;
+
+        void PrepareActorAbilityCheckData()
+        {
+            abilityCheckData.AbilityCheckRoll = rawRoll;
+            abilityCheckData.AbilityCheckSuccessDelta = totalRoll - opponentTotalRoll;
+            abilityCheckData.AbilityCheckRollOutcome =
+                abilityCheckData.AbilityCheckSuccessDelta < 0 ? RollOutcome.Failure : RollOutcome.Success;
+            abilityCheckData.AbilityCheckActionModifier = new ActionModifier();
+        }
+
+        void PrepareOpponentAbilityCheckData()
+        {
+            totalRoll++;
+
+            opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
+            opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll;
+            opponentAbilityCheckData.AbilityCheckRollOutcome =
+                abilityCheckData.AbilityCheckSuccessDelta < 0 ? RollOutcome.Failure : RollOutcome.Success;
+            opponentAbilityCheckData.AbilityCheckActionModifier = new ActionModifier();
+
+            totalRoll--;
         }
     }
 

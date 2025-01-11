@@ -69,7 +69,7 @@ public static class BreakFreePatcher
 
                     // this is the success of the opponent
                     success = opponentAbilityCheckData.AbilityCheckRollOutcome
-                        is not (RollOutcome.Success or RollOutcome.CriticalSuccess);
+                        is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
                     break;
 
