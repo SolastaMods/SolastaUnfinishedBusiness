@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -27,12 +28,43 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&TableTopHelp1"));
         UI.Label(Gui.Localize("ModUi/&TableTopHelp2"));
         UI.Label();
-        UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, UI.AutoWidth());
+        
+#if DEBUG
+        var size = IsUnityExplorerEnabled ? 195f : 145f;
+#else
+        // ReSharper disable once ConvertToConstant.Local
+        var size = 195f;
+#endif
+
+        var width = UI.Width(size);
+
+        using (UI.HorizontalScope())
+        {
+
+            UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, width);
+            UI.ActionButton(Gui.Localize("ModUi/&TableTop2014"), () => SwitchTabletop(TagType.T2014), width);
+            UI.ActionButton(Gui.Localize("ModUi/&TableTop2024"), () => SwitchTabletop(TagType.T2024), width);
+        }
+
         UI.Label();
         DisplayTabletop2014();
         UI.Label();
         DisplayTabletop2024();
         UI.Label();
+    }
+
+    private static void SwitchTabletop(TagType tagType)
+    {
+        var properties = typeof(Settings).GetProperties()
+            .Where(prop =>
+                prop.IsDefined(typeof(Tag), false) &&
+                ((Tag[])prop.GetCustomAttributes(typeof(Tag), false)).Any(x => x.Type == tagType))
+            .ToArray();
+
+        foreach (var property in properties)
+        {
+            property.SetValue(Main.Settings, true);
+        }
     }
 
     private static void SelectTabletopSet()
@@ -943,13 +975,6 @@ internal static class ToolsDisplay
         UI.Label("<color=#F0DAA0>" + Gui.Localize("ModUi/&DocsRaces") + ":</color>");
         UI.Label();
 
-        toggle = Main.Settings.EnableAlternateHuman;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableAlternateHuman = toggle;
-            FeatsContext.SwitchFirstLevelTotalFeats();
-        }
-
         toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
         if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
         {
@@ -1398,7 +1423,14 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
-
+        
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            FeatsContext.SwitchFirstLevelTotalFeats();
+        }
+        
         toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
         {
