@@ -617,7 +617,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(condition),
                         EffectFormBuilder.ConditionForm(
                             ConditionInvisibleBase, ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                            ConditionInvisibleBase),
+                            false, false, ConditionInvisibleBase),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(

@@ -293,14 +293,18 @@ internal static class TryAlterOutcomeAttributeCheck
         // handle opponent interruptions
         var actionModifierEnemy = new ActionModifier();
 
+        totalRoll++;
+
         opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
-        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll;
+        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll++;
         opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
-            ? opponentTotalRoll <= totalRoll ? RollOutcome.Failure :
+            ? opponentTotalRoll <= totalRoll-- ? RollOutcome.Failure :
             opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
             RollOutcome.CriticalSuccess
             : RollOutcome.CriticalFailure;
         opponentAbilityCheckData.AbilityCheckActionModifier = actionModifierEnemy;
+
+        totalRoll--;
 
         yield return HandleITryAlterOutcomeAttributeCheck(
             GameLocationCharacter.GetFromActor(opponent), opponentAbilityCheckData);

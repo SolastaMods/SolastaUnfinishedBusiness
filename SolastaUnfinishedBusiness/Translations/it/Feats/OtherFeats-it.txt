@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=L'infusione cromatic
 Feedback/&FeatBrawlerReroll=Quando effettui un attacco senz'armi, puoi ritirare qualsiasi 1 sui dadi di danno che hai ottenuto come parte di quell'attacco e devi accettare il nuovo risultato.
 Feedback/&FeatElementalAdeptReroll={0} usa Elemental Adept per rilanciare un dado di attacco {1} da {2} a {3}.
 Feedback/&FeatElementalMasterReroll={0} usa Elemental Master per rilanciare un dado di attacco {1} da {2} a {3}.
+Feedback/&IsLower={0} ha ottenuto un {2} inferiore per sostituire un {3}.
 Feedback/&IsNotLuckyHigher={0} non è affatto fortunato, tirando un {2} più alto per sostituire un {3}.
 Feedback/&IsNotLuckyLower={0} non è affatto fortunato, tirando un {2} più basso per sostituire un {3}.
 Feedback/&LuckyAttackToHitRoll={0} ha usato {1} e tira un {2} per sostituire {3} nel tiro di attacco

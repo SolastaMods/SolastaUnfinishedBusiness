@@ -1,10 +1,13 @@
 1.5.97.44:
 
+- added buttons to enable all 2014, and 2024 settings
 - added Martial Champion 2024 setting
-- fixed apply damage form crash scenario
+- changed Martial Warlord to allow any weapon
+- fixed apply damage form crash scenario from race features
 - fixed context checks calculations
+- fixed Starry Wisp crash on tooltip display
 - fixed Weapon Mastery cleave, graze, and nick
-- nerfed Battle Master, Warlord, and Bladestorm
+- nerfed Battle Master, and Bladestorm
 
 1.5.97.43:
 
