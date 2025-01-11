@@ -337,7 +337,7 @@ internal static class TryAlterOutcomeAttributeCheck
             opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
             opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll;
             opponentAbilityCheckData.AbilityCheckRollOutcome =
-                abilityCheckData.AbilityCheckSuccessDelta < 0 ? RollOutcome.Failure : RollOutcome.Success;
+                opponentAbilityCheckData.AbilityCheckSuccessDelta < 0 ? RollOutcome.Failure : RollOutcome.Success;
             opponentAbilityCheckData.AbilityCheckActionModifier = new ActionModifier();
 
             totalRoll--;
