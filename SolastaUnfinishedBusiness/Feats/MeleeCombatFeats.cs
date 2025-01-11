@@ -1806,16 +1806,17 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 1)
                     .Build())
-            .AddCustomSubFeatures(
-                ValidatorsValidatePowerUse.HasMainAttackAvailable,
-                new ValidatorsValidatePowerUse(
-                    c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerWhirlWindAttack") == true,
-                    ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
-                new PowerOrSpellFinishedByMeWhirlWindAttack())
             .AddToDB();
 
+        powerWhirlWindAttack.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new ValidatorsValidatePowerUse(
+                c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerWhirlWindAttack") == true,
+                ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
+            new CustomBehaviorWhirlWindAttack(powerWhirlWindAttack));
+        
         var featureExtraBonusAttack = FeatureDefinitionBuilder
             .Create($"Feature{NAME}ExtraBonusAttack")
             .SetGuiPresentationNoContent(true)
@@ -1833,7 +1834,8 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorWhirlWindAttack(FeatureDefinitionPower powerWhirlWindAttack) 
+        : IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1843,28 +1845,46 @@ internal static class MeleeCombatFeats
             }
 
             var actingCharacter = action.ActingCharacter;
-            var targets = Gui.Battle.GetContenders(actingCharacter, withinRange: 1);
-
-            if (targets.Count == 0)
-            {
-                yield break;
-            }
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
 
             actingCharacter.BurnOneMainAttack();
             actingCharacter.SetSpecialFeatureUses("PowerWhirlWindAttack", 0);
 
-            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
-            var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var limit = 1 + pb / 2;
-
-            for (var i = 0; i < targets.Count && i < limit; i++)
+            foreach (var target in action.ActionParams.TargetCharacters)
             {
                 actingCharacter.MyExecuteActionAttack(
                     Id.AttackFree,
-                    targets[i],
+                    target,
                     attackMode,
                     new ActionModifier());
             }
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerWhirlWindAttack;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var actingCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (actingCharacter == null)
+            {
+                return effectDescription;
+            }
+            
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
+            var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectDescription.targetParameter = 1 + pb / 2;
+            effectDescription.rangeParameter = attackMode.ReachRange;
+            
+            return effectDescription;
         }
     }
 
