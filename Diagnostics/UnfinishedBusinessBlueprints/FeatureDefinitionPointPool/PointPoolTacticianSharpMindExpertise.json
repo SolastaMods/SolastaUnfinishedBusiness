@@ -1,20 +1,19 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerUseModifierTacticianGambitPoolImproviseStrategy:18ec73c9-8c06-5ef8-b4c9-9aba6a7e649f"
-  ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Expertise",
+  "poolAmount": 1,
+  "restrictedChoices": [],
   "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerUseModifierTacticianGambitPool2Title",
-    "description": "Feature/&PowerUseModifierTacticianGambitPool2Description",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "619b0594-2816-595d-a7fc-8656266ac307",
+  "guid": "ccc6b1b8-3fc3-5a24-8401-bd5e40cdef40",
   "contentPack": 9999,
-  "name": "FeatureImproviseStrategy"
+  "name": "PointPoolTacticianSharpMindExpertise"
 }

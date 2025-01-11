@@ -38,7 +38,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureImproviseStrategy:619b0594-2816-595d-a7fc-8656266ac307",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPoolImproviseStrategy:18ec73c9-8c06-5ef8-b4c9-9aba6a7e649f",
       "level": 10
     },
     {
