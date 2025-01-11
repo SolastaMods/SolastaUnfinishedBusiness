@@ -294,7 +294,7 @@ internal static class TryAlterOutcomeAttributeCheck
         var actionModifierEnemy = new ActionModifier();
 
         opponentAbilityCheckData.AbilityCheckRoll = opponentRawRoll;
-        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - rawRoll;
+        opponentAbilityCheckData.AbilityCheckSuccessDelta = opponentTotalRoll - totalRoll;
         opponentAbilityCheckData.AbilityCheckRollOutcome = opponentRawRoll != DiceMinValue[8]
             ? opponentTotalRoll <= totalRoll ? RollOutcome.Failure :
             opponentRawRoll != DiceMaxValue[8] ? RollOutcome.Success :
