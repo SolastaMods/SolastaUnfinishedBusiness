@@ -81,7 +81,7 @@ You master the dagger, shortsword, longsword, scimitar, rapier, and greatsword. 
 
 You become a master of whirling death, gaining the following benefits while wielding a greatsword, greataxe or maul:
 • When you take the Attack action and attack with the weapon, you can use a bonus action to make a quick melee attack with the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 damage of the same type as the wielded weapon.
-• Once during your turn when you take the Attack action with the weapon, you can replace one attack to instead attack all enemy creatures within 5ft of you.
+• Once during your turn when you take the Attack action with the weapon, you can replace one attack to instead attack up to 1 + half proficiency bonus (rounded down) enemy creatures within 5ft of you.
 
 # 17. - Blessed Soul [UB]
 

@@ -155,8 +155,10 @@
           "conditionDefinitionName": "ConditionInvisibleBase",
           "conditionDefinition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
           "operation": "RemoveDetrimentalAll",
-          "conditionsList": [],
-          "applyToSelf": true,
+          "conditionsList": [
+            "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf"
+          ],
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

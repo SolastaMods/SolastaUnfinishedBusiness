@@ -10,6 +10,11 @@
 - fixed apply damage form crash scenario from race features
 - fixed context checks calculations
 
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.43:
 
 RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Natural Fluidity, Spiritual Fluidity, Pugilist, Way of Shadow, and Way of Zen Archery
@@ -43,11 +48,6 @@ CHANGES:
 - fixed variant spell points offering spells even without enough points to cast
 - removed Monk weapon specialization setting, Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.42:
 
