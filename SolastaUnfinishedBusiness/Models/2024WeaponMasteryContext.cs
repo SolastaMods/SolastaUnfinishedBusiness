@@ -148,6 +148,12 @@ internal static partial class Tabletop2024Context
             .Create("ConditionWeaponMasteryNick")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create("AdditionalActionWeaponMasteryNick")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionType.Bonus)
+                    .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorConditionNick())
             .AddToDB();
 

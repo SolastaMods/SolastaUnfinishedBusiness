@@ -95,7 +95,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
     public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
     public bool EnableMinInOutAttributes { get; set; }
-    public bool EnableActionSwitching { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableActionSwitching { get; set; }
     [Tag(Type = TagType.T2014)] public bool DontEndTurnAfterReady { get; set; }
     [Tag(Type = TagType.T2014)] public bool EnableProneAction { get; set; }
     [Tag(Type = TagType.T2014)] public bool EnableGrappleAction { get; set; }

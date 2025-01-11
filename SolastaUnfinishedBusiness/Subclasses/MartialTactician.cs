@@ -50,7 +50,7 @@ public sealed class MartialTactician : AbstractSubclass
         var unlearn = BuildUnlearn();
         var initialPool = BuildGambitPoolIncrease(4, Name);
         var gambitPoolIncrease = BuildGambitPoolIncrease(2, "ImproviseStrategy");
-        
+
         initialPool.GuiPresentation.hidden = true;
 
         Subclass = CharacterSubclassDefinitionBuilder

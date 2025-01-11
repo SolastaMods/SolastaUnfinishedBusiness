@@ -1806,7 +1806,7 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
@@ -1816,7 +1816,7 @@ internal static class MeleeCombatFeats
                 c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerWhirlWindAttack") == true,
                 ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
             new CustomBehaviorWhirlWindAttack(powerWhirlWindAttack));
-        
+
         var featureExtraBonusAttack = FeatureDefinitionBuilder
             .Create($"Feature{NAME}ExtraBonusAttack")
             .SetGuiPresentationNoContent(true)
@@ -1834,9 +1834,36 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorWhirlWindAttack(FeatureDefinitionPower powerWhirlWindAttack) 
+    private sealed class CustomBehaviorWhirlWindAttack(FeatureDefinitionPower powerWhirlWindAttack)
         : IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerWhirlWindAttack;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var actingCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (actingCharacter == null)
+            {
+                return effectDescription;
+            }
+
+            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
+            var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectDescription.targetParameter = 1 + (pb / 2);
+            effectDescription.rangeParameter = attackMode.ReachRange;
+
+            return effectDescription;
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
@@ -1858,33 +1885,6 @@ internal static class MeleeCombatFeats
                     attackMode,
                     new ActionModifier());
             }
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerWhirlWindAttack;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var actingCharacter = GameLocationCharacter.GetFromActor(character);
-
-            if (actingCharacter == null)
-            {
-                return effectDescription;
-            }
-            
-            var attackMode = actingCharacter.FindActionAttackMode(Id.AttackMain);
-            var pb = actingCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectDescription.targetParameter = 1 + pb / 2;
-            effectDescription.rangeParameter = attackMode.ReachRange;
-            
-            return effectDescription;
         }
     }
 
