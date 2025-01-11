@@ -1643,12 +1643,14 @@ internal static partial class SpellBuilders
 
             if (!caster.IsWithinRange(actingCharacter, 1))
             {
-                yield break;
+                rulesetCharacter.RemoveCondition(activeCondition);
             }
-
-            var commandService = ServiceRepository.GetService<ICommandService>();
+            else
+            {
+                var commandService = ServiceRepository.GetService<ICommandService>();
                 
-            commandService.EndTurn();
+                commandService.EndTurn();
+            }
         }
     }
 
