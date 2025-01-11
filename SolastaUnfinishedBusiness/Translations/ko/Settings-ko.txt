@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 맵에 보이�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
+ModUi/&ModQoL=<b><color=#D89555>QoL 설정 활성화</color></b>
 ModUi/&ModifyGravitySlam=<color=#D89555>Gravity Slam</color> 주문을 수정하여 영향을 받는 대상을 아래로 끌어내리고 구가 아닌 원통형이 되게 함\n<i><color=#F0DAA0>[위/아래 축에서 <color=#D89555>밀기 및 당기기 동작 효과가 작동해야 함</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>로 주문을 클릭하면 소모된 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소모하고 다른 이들은 계약 녹색 주문 슬롯을 소모합니다]</color></i>

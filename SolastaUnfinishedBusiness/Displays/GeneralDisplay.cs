@@ -28,22 +28,15 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&TableTopHelp1"));
         UI.Label(Gui.Localize("ModUi/&TableTopHelp2"));
         UI.Label();
-        
-#if DEBUG
-        var size = IsUnityExplorerEnabled ? 195f : 145f;
-#else
-        // ReSharper disable once ConvertToConstant.Local
-        var size = 195f;
-#endif
 
-        var width = UI.Width(size);
+        var width = UI.Width(145f);
 
         using (UI.HorizontalScope())
         {
-
             UI.ActionButton(Gui.Localize("ModUi/&TableTopButton"), SelectTabletopSet, width);
             UI.ActionButton(Gui.Localize("ModUi/&TableTop2014"), () => SwitchTabletop(TagType.T2014), width);
             UI.ActionButton(Gui.Localize("ModUi/&TableTop2024"), () => SwitchTabletop(TagType.T2024), width);
+            UI.ActionButton(Gui.Localize("ModUi/&ModQoL"), () => SwitchTabletop(TagType.QoL), width);
         }
 
         UI.Label();
@@ -1423,14 +1416,14 @@ internal static class ToolsDisplay
         }
 
         UI.Label();
-        
+
         toggle = Main.Settings.EnableAlternateHuman;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateHuman = toggle;
             FeatsContext.SwitchFirstLevelTotalFeats();
         }
-        
+
         toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
         {

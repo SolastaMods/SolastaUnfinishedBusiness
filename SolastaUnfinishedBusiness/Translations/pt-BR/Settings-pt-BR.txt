@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização do
 ModUi/&MaxAllowedClasses=<color=white>Máximo de classes permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
+ModUi/&ModQoL=<b><color=#D89555>Habilitar configurações de qualidade de vida</color></b>
 ModUi/&ModifyGravitySlam=Modifique o feitiço <color=#D89555>Gravity Slam</color> para puxar os alvos afetados para baixo e torná-los um cilindro em vez de uma esfera\n<i><color=#F0DAA0>[requer <color=#D89555>efeitos de movimento de empurrar e puxar para funcionar nos eixos para cima/baixo</color> habilitados]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em uma magia inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de magia brancos e outros gastam slots de pacto verdes]</color></i>

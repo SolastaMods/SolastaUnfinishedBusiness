@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
+ModUi/&ModQoL=<b><color=#D89555>Activer les paramètres QoL</color></b>
 ModUi/&ModifyGravitySlam=Modifier le sort <color=#D89555>Gravity Slam</color> pour attirer les cibles affectées vers le bas et être un cylindre au lieu d'une sphère\n<i><color=#F0DAA0>[nécessite l'activation des <color=#D89555>effets de mouvement de poussée et de traction pour fonctionner sur l'axe haut/bas</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et les autres dépensent des emplacements de sorts verts de pacte]</color></i>

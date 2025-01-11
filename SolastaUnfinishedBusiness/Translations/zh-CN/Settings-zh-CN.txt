@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标
 ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
+ModUi/&ModQoL=<b><color=#D89555>启用 QoL 设置</color></b>
 ModUi/&ModifyGravitySlam=修改<color=#D89555>重力猛击</color>法术，将受影响的目标拉下，并将其变为圆柱体而不是球体\n<i><color=#F0DAA0>[需要启用<color=#D89555>推拉运动效果才能在上/下轴上工作</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>

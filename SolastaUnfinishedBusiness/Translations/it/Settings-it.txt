@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei tele
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color>
 ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
+ModUi/&ModQoL=<b><color=#D89555>Abilita impostazioni QoL</color></b>
 ModUi/&ModifyGravitySlam=Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per tirare verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera\n<i><color=#F0DAA0>[richiede che gli effetti di movimento <color=#D89555>spinta e trazione funzionino sull'asse su/giù</color> abilitati]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spende gli slot incantesimo bianchi e gli altri spendono quelli verdi del patto]</color></i>

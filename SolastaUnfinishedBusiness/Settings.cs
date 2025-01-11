@@ -12,7 +12,7 @@ public sealed class Core;
 
 public enum TagType
 {
-    None,
+    QoL,
     T2014,
     T2024
 }
@@ -116,17 +116,17 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     [Tag(Type = TagType.T2014)] public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     [Tag(Type = TagType.T2014)] public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
-    [Tag(Type = TagType.T2014)]public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
-    [Tag(Type = TagType.T2014)]public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
     public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }
-    [Tag(Type = TagType.T2014)]public bool OfficialObscurementRulesTweakMonsters { get; set; }
-    [Tag(Type = TagType.T2014)]public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
-    [Tag(Type = TagType.T2014)]public bool StealthDoesNotBreakWithSubtle { get; set; }
-    [Tag(Type = TagType.T2014)]public bool StealthBreaksWhenAttackHits { get; set; }
-    [Tag(Type = TagType.T2014)]public bool StealthBreaksWhenAttackMisses { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesTweakMonsters { get; set; }
+    [Tag(Type = TagType.T2014)] public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthDoesNotBreakWithSubtle { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenAttackHits { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool StealthBreaksWhenCastingMaterial { get; set; }
-    [Tag(Type = TagType.T2014)]public bool StealthBreaksWhenCastingVerbose { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
     [Tag(Type = TagType.T2014)] public bool AccountForAllDiceOnSavageAttack { get; set; }
     [Tag(Type = TagType.T2014)] public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
@@ -158,7 +158,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableSpeech { get; set; }
@@ -170,13 +170,13 @@ public class Settings : UnityModManager.ModSettings
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
-    public bool AllowMoreRealStateOnRestPanel { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
+    [Tag(Type = TagType.QoL)] public bool AllowMoreRealStateOnRestPanel { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-    public bool ShowButtonWithControlledMonsterInfo { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
@@ -188,8 +188,8 @@ public class Settings : UnityModManager.ModSettings
     public int MovementGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthSpeed { get; set; } = 100;
-    public bool EnableDistanceOnTooltip { get; set; }
-    public bool ShowMotionFormPreview { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableDistanceOnTooltip { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ShowMotionFormPreview { get; set; }
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
 
@@ -221,7 +221,7 @@ public class Settings : UnityModManager.ModSettings
     ];
 
     // Merchants
-    public bool ScaleMerchantPricesCorrectly { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ScaleMerchantPricesCorrectly { get; set; }
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
     public bool StockHugoStoreWithAdditionalFoci { get; set; }
     public bool StockGorimStoreWithAllNonMagicalInstruments { get; set; }
@@ -252,9 +252,9 @@ public class Settings : UnityModManager.ModSettings
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryFilteringAndSorting { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableStackableAxesAndDaggers { get; set; }
     public bool EnableStackableArtItems { get; set; }
     public bool EnableVersatileAmmunitionSlots { get; set; }
@@ -394,7 +394,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
-    [Tag(Type = TagType.T2014)]public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
+    [Tag(Type = TagType.T2014)] public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = [];
     public int SubraceSliderPosition { get; set; } = ModUi.DontDisplayDescription;

@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de l
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
+ModUi/&ModQoL=<b><color=#D89555>Habilitar configuración de calidad de vida</color></b>
 ModUi/&ModifyGravitySlam=Modificar el hechizo <color=#D89555>Golpe de gravedad</color> para que tire hacia abajo a los objetivos afectados y se convierta en un cilindro en lugar de una esfera\n<i><color=#F0DAA0>[requiere que los <color=#D89555>efectos de movimiento de empujar y tirar funcionen en el eje arriba/abajo</color> estén habilitados]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hacer clic en un hechizo invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y los demás gastan espacios verdes del pacto]</color></i>

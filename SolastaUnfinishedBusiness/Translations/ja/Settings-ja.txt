@@ -303,6 +303,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>
 ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
+ModUi/&ModQoL=<b><color=#D89555>QoL設定を有効にする</color></b>
 ModUi/&ModifyGravitySlam=<color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを引き下げ、球体ではなく円筒形になるようにします\n<i><color=#F0DAA0>[<color=#D89555>上下軸でプッシュおよびプル モーション エフェクトを有効にするには</color> を有効にする必要があります]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他の呪文スロットはパクトの緑の呪文スロットを消費します]</color></i>
