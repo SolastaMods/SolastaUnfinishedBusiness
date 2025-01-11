@@ -615,6 +615,7 @@ internal static partial class Tabletop2024Context
                     break;
             }
 
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (mastery)
             {
                 case MasteryProperty.Push when
@@ -646,10 +647,6 @@ internal static partial class Tabletop2024Context
                 case MasteryProperty.Vex when
                     rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess && damageAmount > 0:
                     DoVex(attacker, defender);
-                    break;
-                case MasteryProperty.Nick:
-                case MasteryProperty.None:
-                default:
                     break;
             }
         }

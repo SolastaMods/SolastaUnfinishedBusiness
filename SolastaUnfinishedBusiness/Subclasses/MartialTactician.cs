@@ -110,9 +110,11 @@ public sealed class MartialTactician : AbstractSubclass
 
     internal static FeatureDefinition BuildGambitPoolIncrease(int number, string name)
     {
+        var tag = number > 1 ? "2" : string.Empty;
+
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierTacticianGambitPool{name}")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
+            .SetGuiPresentation($"PowerUseModifierTacticianGambitPool{tag}", Category.Feature)
             .SetFixedValue(GambitsBuilders.GambitPool, number)
             .AddToDB();
     }
