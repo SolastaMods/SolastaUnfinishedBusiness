@@ -742,6 +742,7 @@
     <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>
     <EnablePaladinLayOnHands2024>true</EnablePaladinLayOnHands2024>
+    <EnablePaladinRechargeLv20Feature>true</EnablePaladinRechargeLv20Feature>
     <EnablePaladinRestoringTouch2024>true</EnablePaladinRestoringTouch2024>
     <EnablePaladinSmite2024>true</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>

@@ -690,6 +690,7 @@
     <EnablePaladinAbjureFoes2024>false</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>false</EnablePaladinChannelDivinity2024>
     <EnablePaladinLayOnHands2024>false</EnablePaladinLayOnHands2024>
+    <EnablePaladinRechargeLv20Feature>false</EnablePaladinRechargeLv20Feature>
     <EnablePaladinRestoringTouch2024>false</EnablePaladinRestoringTouch2024>
     <EnablePaladinSmite2024>false</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>false</EnablePaladinSpellCastingAtLevel1>
@@ -1193,4 +1194,8 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <WildSurgeEffectDie>0</WildSurgeEffectDie>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

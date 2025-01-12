@@ -6,23 +6,23 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Self",
     "itemSelectionType": "None",
-    "targetParameter": 6,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
-    "targetExcludeCaster": true,
+    "targetProximityDistance": 6,
+    "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -35,7 +35,7 @@
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
-    "disableSavingThrowOnAllies": true,
+    "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "LightSource",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,49 +76,26 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 0,
-          "dieType": "D1",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 10,
-          "damageType": "DamageRadiant",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionOathOfDevotionHolyNimbus",
-          "conditionDefinition": "Definition:ConditionOathOfDevotionHolyNimbus:6fd0d0d3-2c17-514a-b466-00f5aeea94f0",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 6,
+          "dimAdditionalRange": 6,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 0.8396226,
+            "g": 0.7766465,
+            "b": 0.5505073,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "fc7cb53da57a8fb40a278d62a885ce58",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -150,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -174,7 +151,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7e4bb615fae08a14ab527ab661cd6cbf",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c403157f4552068439eefad683faff34",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -327,7 +304,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -343,7 +320,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -356,20 +333,20 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerOathOfDevotionHolyNimbusTitle",
-    "description": "Feature/&PowerOathOfDevotionHolyNimbusDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bc938fbed7c65d245bf4accea49f2be1",
-      "m_SubObjectName": "BlindingFlash",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -384,7 +361,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "86073ccb-94b9-59dd-8453-b6ebb15e9097",
+  "guid": "99029c9b-2968-526d-87f5-10b95032c2f1",
   "contentPack": 9999,
-  "name": "PowerOathOfDevotionHolyNimbus"
+  "name": "PowerOathOfDevotionHolyNimbusLight"
 }

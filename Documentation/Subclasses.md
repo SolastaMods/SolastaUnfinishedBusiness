@@ -1000,7 +1000,7 @@ Your valiance in battle demoralizes your enemies. As a bonus action, you can exp
 
 * Silver Tongue
 
-You leave a lasting impression on people around you. When you make a Deception or Performance check, you can treat a d20 roll of 9 or lower as a 10.
+You leave a lasting impression on people around you. When you make a Deception or Persuasion check, you can treat a d20 roll of 9 or lower as a 10.
 
 
 ### Level 6
