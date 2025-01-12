@@ -116,6 +116,11 @@ internal static class LightingAndObscurementContext
         "TrueStrike"
     ];
 
+    private static bool ShouldIgnoreInvisibility(this RulesetActor actor)
+    {
+        return actor.HasAnyConditionOfType("ConditionStarryWisp", "ConditionHighlighted");
+    }
+
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
@@ -180,6 +185,21 @@ internal static class LightingAndObscurementContext
             }
         }
 #endif
+
+        // handle some exceptional scenarios with invisibility
+        if (attackAdvantageTrends.Any(InvisibleDisadvantage) &&
+            defenderActor.ShouldIgnoreInvisibility())
+        {
+            attackAdvantageTrends.RemoveAll(InvisibleDisadvantage);
+            abilityCheckAdvantageTrends.RemoveAll(InvisibleDisadvantage);
+        }
+
+        if (attackAdvantageTrends.Any(InvisibleAdvantage) &&
+            attackerActor.ShouldIgnoreInvisibility())
+        {
+            attackAdvantageTrends.RemoveAll(InvisibleAdvantage);
+            abilityCheckAdvantageTrends.RemoveAll(InvisibleAdvantage);
+        }
 
         const string TAG = "Perceive";
 
@@ -251,6 +271,11 @@ internal static class LightingAndObscurementContext
         static bool InvisibleAdvantage(RuleDefinitions.TrendInfo trendInfo)
         {
             return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: 1 };
+        }
+
+        static bool InvisibleDisadvantage(RuleDefinitions.TrendInfo trendInfo)
+        {
+            return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: -1 };
         }
 
 #if false
