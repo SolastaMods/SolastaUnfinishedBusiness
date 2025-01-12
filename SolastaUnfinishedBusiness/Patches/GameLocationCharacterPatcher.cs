@@ -414,9 +414,10 @@ public static class GameLocationCharacterPatcher
                 __result = ActionStatus.Available;
             }
 
-            //PATCH: support forbidden flurry actions
+            //PATCH: support forbidden actions
             if (__result == ActionStatus.Available &&
-                flurryOfBlowActions.Contains(actionId) && __instance.ActionPerformancesByType.TryGetValue(
+                //flurryOfBlowActions.Contains(actionId) &&
+                __instance.ActionPerformancesByType.TryGetValue(
                     ActionType.Bonus, out var actionPerformanceFilters) &&
                 actionPerformanceFilters.Any(x => x.ForbiddenActions.Any(y => y == actionId)))
             {
@@ -446,7 +447,7 @@ public static class GameLocationCharacterPatcher
                     __result = ActionStatus.Unavailable;
                     break;
             }
-
+                
             //BUGFIX: if character can use only 1 of Main or Bonus - auto fail status if another type is used
             //Fixes Slow in various cases where we add extra attacks or other actions that manually consume main or bonus action
             var either = rulesetCharacter.GetSubFeaturesByType<IActionPerformanceProvider>()
