@@ -81,6 +81,7 @@ internal static partial class Tabletop2024Context
         LoadOneDndSpellSpareTheDying();
         LoadOneDndSpellTrueStrike();
         LoadPaladinRestoringTouch();
+        LoadPaladinRestoreLevel20Features();
         LoadRogueCunningStrike();
         LoadSorcererSorcerousRestoration();
         LoadWizardMemorizeSpell();

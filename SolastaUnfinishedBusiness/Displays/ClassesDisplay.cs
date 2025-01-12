@@ -416,6 +416,13 @@ internal static class ClassesDisplay
             Tabletop2024Context.SwitchPaladinAbjureFoes();
         }
 
+        toggle = Main.Settings.EnablePaladinRechargeLv20Feature;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinRestoreLevel20Feature"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePaladinRechargeLv20Feature = toggle;
+            Tabletop2024Context.SwitchPaladinRechargeLv20Power();
+        }
+
         toggle = Main.Settings.EnablePaladinRestoringTouch2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnablePaladinRestoringTouch2024"), ref toggle, UI.AutoWidth()))
         {
