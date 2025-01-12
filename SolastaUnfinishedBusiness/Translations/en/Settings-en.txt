@@ -188,7 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5
 ModUi/&EnablePaladinAbjureFoes2024=Enable <color=#D89555>Abjure Foes</color> at level 9
 ModUi/&EnablePaladinChannelDivinity2024=Swap <color=#D89555>Channel Divinity</color> with 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Swap <color=#D89555>Lay on Hands</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
-ModUi/&EnablePaladinRestoreLevel20Feature=Enable <color=#D89555>Paladins</color> to expend a Lv5 spell slot to recharge their level 20 feature
+ModUi/&EnablePaladinRestoreLevel20Feature=Enable <color=#D89555>Level 20</color> subclass powers to recharge with a level 5 slot
 ModUi/&EnablePaladinRestoringTouch2024=Enable <color=#D89555>Restoring Touch</color> to replace <color=#D89555>Cleansing Touch</color> at level 14
 ModUi/&EnablePaladinSmite2024=Swap <color=#D89555>Divine Smite</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2

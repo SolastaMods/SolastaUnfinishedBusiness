@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> 
 ModUi/&EnablePaladinAbjureFoes2024=Abilita <color=#D89555>Abjura i nemici</color> al livello 9
 ModUi/&EnablePaladinChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Sostituisci <color=#D89555>Imposizione delle mani</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Abilita i poteri della sottoclasse di <color=#D89555>livello 20</color> per ricaricarsi con uno slot di livello 5
 ModUi/&EnablePaladinRestoringTouch2024=Abilita <color=#D89555>Ripristino del tocco</color> per sostituire <color=#D89555>Tocco purificatore</color> al livello 14
 ModUi/&EnablePaladinSmite2024=Sostituisci <color=#D89555>Colpo divino</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2

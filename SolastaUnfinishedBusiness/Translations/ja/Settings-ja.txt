@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク<
 ModUi/&EnablePaladinAbjureFoes2024=レベル 9 で <color=#D89555>敵の拒絶</color> を有効にする
 ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
+ModUi/&EnablePaladinRestoreLevel20Feature=<color=#D89555>レベル20</color>サブクラスパワーをレベル5スロットで再充電できるようにする
 ModUi/&EnablePaladinRestoringTouch2024=レベル14で<color=#D89555>浄化のタッチ</color>の代わりに<color=#D89555>回復のタッチ</color>を有効にする
 ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする

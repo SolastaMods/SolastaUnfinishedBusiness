@@ -82,8 +82,8 @@ internal static partial class Tabletop2024Context
         ConditionDefinitions.ConditionStunned
     ];
 
-    private static List<(CharacterSubclassDefinition Subclass, FeatureUnlockByLevel Feature)> subclassFeatureTuples =
-        new List<(CharacterSubclassDefinition, FeatureUnlockByLevel)>();
+    private static readonly List<(CharacterSubclassDefinition Subclass, FeatureUnlockByLevel Feature)>
+        SubclassFeatureTuples = [];
 
     private static void LoadPaladinRestoringTouch()
     {
@@ -120,45 +120,50 @@ internal static partial class Tabletop2024Context
         PowerBundle.RegisterPowerBundle(PowerPaladinRestoringTouch, false, [.. powers]);
     }
 
-    internal static void LoadPaladinRestoreLevel20Features()
+    private static void LoadPaladinRestoreLevel20Features()
     {
         // Get List<(Subclass, Power)> of tuples for features to recharge
         var subclassPower = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
             .Where(subclass => subclass.Name.StartsWith("OathOf"))
-            .SelectMany((subclass, power) =>    //flatten the list in case there are multiple Lv.20 powers
-                subclass.FeatureUnlocks
-                    .Where(unlock => unlock?.Level == 20 &&
-                                        unlock.FeatureDefinition is FeatureDefinitionPower power &&
-                                        power.RechargeRate == RechargeRate.LongRest)
-                    .Select(unlock => unlock?.FeatureDefinition as FeatureDefinitionPower)
+            .SelectMany((subclass, _) => //flatten the list in case there are multiple Lv.20 powers
+                    subclass.FeatureUnlocks
+                        .Where(unlock => unlock is
+                        {
+                            Level: 20, FeatureDefinition: FeatureDefinitionPower
+                            {
+                                RechargeRate: RechargeRate.LongRest
+                            }
+                        })
+                        .Select(unlock => unlock.FeatureDefinition as FeatureDefinitionPower)
                 , (subclass, power) =>
                     (Subclass: subclass, Power: power)) // create a tuple
             .Where(x => x.Power != null)
             .Select(x => x)
             .ToArray();
 
-        var title = "Feature/&FeaturePaladinRechargeLv20PowerTitle";
-        var description = "Feature/&FeaturePaladinRechargeLv20PowerDescription";
-        foreach (var x in subclassPower)
+        const string TITLE = "Feature/&FeaturePaladinRechargeLv20PowerTitle";
+        const string DESCRIPTION = "Feature/&FeaturePaladinRechargeLv20PowerDescription";
+
+        foreach (var (subclass, power) in subclassPower)
         {
-            var powerName = Gui.Localize("Feature/&"+x.Power.Name+"Title");
+            var powerName = Gui.Localize("Feature/&" + power.Name + "Title");
             // Build recharge power
             var rechargePower = FeatureDefinitionPowerBuilder
-                .Create("PowerRecharge"+x.Power.Name)
+                .Create("PowerRecharge" + power.Name)
                 .SetGuiPresentation(
-                    Gui.Format(title, powerName),
-                    Gui.Format(description, powerName),
+                    Gui.Format(TITLE, powerName),
+                    Gui.Format(DESCRIPTION, powerName),
                     Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                 .SetShowCasting(false)
                 .AddToDB();
 
             // Add custom behaviour to recharge a given feature
-            rechargePower.AddCustomSubFeatures(new CustomBehaviourPaladinRechargeLv20Power(x.Power));
+            rechargePower.AddCustomSubFeatures(new CustomBehaviourPaladinRechargeLv20Power(power));
 
             // Add power to subclasses
             var featureUnlock = new FeatureUnlockByLevel(rechargePower, 20);
 
-            subclassFeatureTuples.Add((x.Subclass, featureUnlock));
+            SubclassFeatureTuples.Add((subclass, featureUnlock));
         }
     }
 
@@ -166,16 +171,16 @@ internal static partial class Tabletop2024Context
     {
         if (Main.Settings.EnablePaladinRechargeLv20Feature)
         {
-            foreach(var t in subclassFeatureTuples)
+            foreach (var (subclass, feature) in SubclassFeatureTuples)
             {
-                t.Subclass.FeatureUnlocks.Add(t.Feature);
+                subclass.FeatureUnlocks.Add(feature);
             }
         }
         else
         {
-            foreach (var t in subclassFeatureTuples)
+            foreach (var (subclass, feature) in SubclassFeatureTuples)
             {
-                t.Subclass.FeatureUnlocks.Remove(t.Feature);
+                subclass.FeatureUnlocks.Remove(feature);
             }
         }
     }
@@ -360,7 +365,8 @@ internal static partial class Tabletop2024Context
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
         {
             var repertoire = rulesetCharacter.GetClassSpellRepertoire(Paladin);
-            int remaining = 0;
+            var remaining = 0;
+
             repertoire?.GetSlotsNumber(5, out remaining, out _);
 
             return remaining > 0 && rulesetCharacter.GetRemainingPowerUses(powerToRecharge) == 0;

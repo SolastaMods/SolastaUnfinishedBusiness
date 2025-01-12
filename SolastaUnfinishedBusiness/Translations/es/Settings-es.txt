@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>Golpe verdadero</c
 ModUi/&EnablePaladinAbjureFoes2024=Habilita <color=#D89555>Abjurar enemigos</color> en el nivel 9
 ModUi/&EnablePaladinChannelDivinity2024=Intercambia <color=#D89555>Divinidad canalizada</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Intercambia <color=#D89555>Imposición de manos</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Habilite los poderes de la subclase de <color=#D89555>Nivel 20</color> para recargarse con una ranura de nivel 5
 ModUi/&EnablePaladinRestoringTouch2024=Habilita <color=#D89555>Toque restaurador</color> para reemplazar <color=#D89555>Toque purificador</color> en el nivel 14
 ModUi/&EnablePaladinSmite2024=Intercambia <color=#D89555>Divine Smite</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
