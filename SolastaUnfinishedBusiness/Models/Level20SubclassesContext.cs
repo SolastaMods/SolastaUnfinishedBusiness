@@ -805,6 +805,29 @@ internal static class Level20SubclassesContext
 
         // Holy Nimbus
 
+        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var powerOathOfDevotionHolyNimbusLight = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfDevotionHolyNimbusLight")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
         var savingThrowAffinityOathOfDevotionHolyNimbus = FeatureDefinitionBuilder
             .Create("SavingThrowAffinityOathOfDevotionHolyNimbus")
             .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
@@ -817,10 +840,9 @@ internal static class Level20SubclassesContext
             .Create("ConditionOathOfDevotionHolyNimbus")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
             .SetPossessive()
-            .SetFeatures(savingThrowAffinityOathOfDevotionHolyNimbus)
+            .SetFeatures(powerOathOfDevotionHolyNimbusLight, savingThrowAffinityOathOfDevotionHolyNimbus)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
-
-        var lightSourceForm = Light.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var powerOathOfDevotionHolyNimbus = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfDevotionHolyNimbus")
@@ -838,16 +860,10 @@ internal static class Level20SubclassesContext
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
                         EffectFormBuilder.ConditionForm(
                             conditionOathOfDevotionHolyNimbus,
-                            ConditionForm.ConditionOperation.Add, true, true),
-                        EffectFormBuilder
-                            .Create()
-                            .SetLightSourceForm(
-                                LightSourceType.Basic, 6, 6,
-                                lightSourceForm.lightSourceForm.color,
-                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
-                            .Build())
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeHolyNimbus(powerOathOfDevotionHolyNimbusLight))
             .AddToDB();
 
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionHolyNimbus, 20));
@@ -1634,7 +1650,21 @@ internal static class Level20SubclassesContext
     // Holy Nimbus
     //
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class PowerOrSpellFinishedByMeHolyNimbus(FeatureDefinitionPower powerLight)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerLight, rulesetCharacter);
+
+            character.MyExecuteActionPowerNoCost(usablePower, character);
+
+            yield break;
+        }
+    }
+
     private sealed class ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(

@@ -6,6 +6,7 @@
 - changed Martial Battle Master to remove honed craft, and battle clarity 
 - changed Martial Warlord to allow any weapon to trigger features
 - fixed Command: Approach spell not ending turn if target within 5 ft
+- fixed Oath of Devotion holy nimbus crash on use
 - fixed Starry Wisp crash on tooltip display
 - fixed Weapon Mastery cleave, graze, and nick behaviors
 - fixed apply damage form crash scenario from race features
