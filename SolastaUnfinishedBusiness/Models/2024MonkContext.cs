@@ -706,6 +706,11 @@ internal static partial class Tabletop2024Context
                 !defender.CanPerceiveTarget(attacker) ||
                 !hasReturnAttacks)
             {
+                if (hasReturnAttacks)
+                {
+                    rulesetDefender.RemoveCondition(condition);
+                }
+
                 yield break;
             }
 
