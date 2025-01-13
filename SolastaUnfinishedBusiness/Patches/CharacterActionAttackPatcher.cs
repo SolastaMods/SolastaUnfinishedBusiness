@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Spells;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.GameExtensions.GameLocationBattleExtensions;
@@ -71,8 +72,8 @@ public static class CharacterActionAttackPatcher
                     ActionDefinitions.ActionScope.Battle,
                     optionalAttackMode: attackMode) == ActionDefinitions.ActionStatus.Available;
 
-            if ((!canAttackMain && __instance.ActionType == ActionDefinitions.ActionType.Main)
-                || (!canAttackOff && __instance.ActionType == ActionDefinitions.ActionType.Bonus))
+            if ((!canAttackMain && __instance.ActionType == ActionDefinitions.ActionType.Main) ||
+                (!canAttackOff && __instance.ActionType == ActionDefinitions.ActionType.Bonus))
             {
                 // ReSharper disable once InvocationIsSkipped
                 Trace.Assert(false,
@@ -132,6 +133,45 @@ public static class CharacterActionAttackPatcher
                 attackModifier = attackModifiers[0];
             }
 
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(actingCharacter, attackMode);
+
+            //PATCH: allow custom behavior when physical attack initiates
+            if (Gui.Battle != null)
+            {
+                foreach (var attackInitiated in
+                         actingCharacter.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
+                {
+                    yield return attackInitiated.OnPhysicalAttackInitiatedByMe(
+                        battleManager, __instance, actingCharacter, target, attackModifier, attackMode);
+                }
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me
+            if (Gui.Battle != null)
+            {
+                foreach (var attackInitiated in
+                         target.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMe>())
+                {
+                    yield return attackInitiated.OnPhysicalAttackInitiatedOnMe(
+                        battleManager, __instance, actingCharacter, target, attackModifier, attackMode);
+                }
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me or ally
+            if (Gui.Battle != null)
+            {
+                foreach (var ally in Gui.Battle.GetContenders(actingCharacter))
+                {
+                    foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
+                    {
+                        yield return physicalAttackInitiatedOnMeOrAlly.OnPhysicalAttackInitiatedOnMeOrAlly(
+                            battleManager, __instance, actingCharacter, target, ally, attackModifier, attackMode);
+                    }
+                }
+            }
+
             yield return battleManager.HandleCharacterPhysicalAttackInitiated(
                 __instance, actingCharacter, target, attackModifier, attackMode);
 
@@ -141,8 +181,7 @@ public static class CharacterActionAttackPatcher
             //BEGIN PATCH
             //fix vanilla to consider all actions that are an opportunity attack
             //var opportunity = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
-            var opportunity = __instance.ActionType == ActionDefinitions.ActionType.Reaction &&
-                              __instance.ActionDefinition.classNameOverride == "Attack";
+            var opportunity = attackParams.opportunityAttack;
             //END PATCH
 
             var rangeAttack = attackModifier.Proximity == AttackProximity.Range;
@@ -235,7 +274,7 @@ public static class CharacterActionAttackPatcher
 
             if (!__instance.skipAnimationWarmup)
             {
-                // HACK : Ensure the character animation is idle, as a trigger is not considered if the animator is in a transition
+                // Ensure the character animation is idle, as a trigger is not considered if the animator is in a transition
                 yield return Coroutine.WaitForSeconds(GameConfiguration.CharacterAnimation.WaitingTimeAfterMove);
             }
 
