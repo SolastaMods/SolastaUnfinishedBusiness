@@ -34,7 +34,12 @@ internal static partial class Tabletop2024Context
         .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightenedByAbjureFoes")
         .SetParentCondition(ConditionDefinitions.ConditionFrightened)
         .SetSpecialInterruptions(ConditionInterruption.Damaged)
-        .SetFeatures()
+        .SetFeatures(
+            FeatureDefinitionActionAffinityBuilder
+                .Create("ActionAffinityFrightenedByAbjureFoes")
+                .SetGuiPresentationNoContent(true)
+                .SetForbiddenActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain)
+                .AddToDB())
         .AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove())
         .AddToDB();
 
