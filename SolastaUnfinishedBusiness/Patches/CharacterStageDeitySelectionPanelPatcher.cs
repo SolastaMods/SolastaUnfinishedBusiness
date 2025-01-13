@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -34,7 +35,9 @@ public static class CharacterStageDeitySelectionPanelPatcher
         [UsedImplicitly]
         public static void Postfix([NotNull] CharacterStageDeitySelectionPanel __instance)
         {
-            if (!Main.Settings.EnableClericToLearnDomainAtLevel3 || __instance.selectedDeity < 0)
+            if (!Main.Settings.EnableClericToLearnDomainAtLevel3 ||
+                __instance.selectedDeity < 0 ||
+                LevelUpHelper.GetSelectedClass(__instance.currentHero) != Cleric)
             {
                 return;
             }
