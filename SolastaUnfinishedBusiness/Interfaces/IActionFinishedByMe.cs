@@ -24,6 +24,7 @@ public sealed class ActionFinishedByMeCheckBonusOrMainOrMove : IActionFinishedBy
                 .Create("ActionAffinityNoBonus")
                 .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes(bonus: false)
+                .SetForbiddenActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain)
                 .AddToDB())
         .AddToDB();
 
@@ -36,6 +37,7 @@ public sealed class ActionFinishedByMeCheckBonusOrMainOrMove : IActionFinishedBy
                 .Create("ActionAffinityNoMove")
                 .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes(move: false)
+                .SetForbiddenActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain)
                 .AddToDB())
         .AddToDB();
 
@@ -48,6 +50,7 @@ public sealed class ActionFinishedByMeCheckBonusOrMainOrMove : IActionFinishedBy
                 .Create("ActionAffinityNoMain")
                 .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes(false)
+                .SetForbiddenActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain)
                 .AddToDB())
         .AddToDB();
 
