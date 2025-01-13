@@ -52,6 +52,7 @@ internal static class GrappleContext
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .ExcludeCaster()
                 .SetImpactEffectParameters(Knock)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorGrapple())
