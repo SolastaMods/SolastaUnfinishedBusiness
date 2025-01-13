@@ -57,9 +57,9 @@ internal static class ReplaceAttackWithCantrip
         character.UsedMainAttacks++;
         rulesetCharacter.ExecutedAttacks++;
 
-        var maxAttacks = rulesetCharacter.AttackModes
-            .Where(mode => mode.ActionType == ActionType.Main)
-            .Max(mode => mode.AttacksNumber);
+        //how many attacks last action allowed?
+        var rank = character.currentActionRankByType[ActionType.Main] - 1;
+        var maxAttacks = character.GetAllowedMainAttacksForRank(rank);
 
         if (character.UsedMainAttacks < maxAttacks)
         {
