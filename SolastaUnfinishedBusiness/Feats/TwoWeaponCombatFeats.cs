@@ -17,6 +17,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class TwoWeaponCombatFeats
 {
+    internal const string DualFlurryAttackMark = "DualFlurryAttackMark";
     internal const string DualFlurryTriggerMark = "DualFlurryTriggerMark";
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
@@ -108,11 +109,15 @@ internal static class TwoWeaponCombatFeats
                     : AttackProximity.Range
             };
 
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.AddAttackTagAsNeeded(DualFlurryAttackMark);
             rulesetAttacker.LogCharacterUsedFeature(feature);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
-                attackMode,
+                attackModeCopy,
                 actionModifier);
         }
     }

@@ -421,5 +421,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Habilitar <color=#D89555>pequena
 ModUi/&UseWeaponMasterySystem=Habilitar regras de <color=#D89555>Maestria em Armas</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Domínio de Fenda adiciona modificador de pontuação de atributo ao dano do segundo ataque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Adicionar tag de maestria a todas as armas do jogo</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ Ataque extra de Dual Flurry pode desencadear outra maestria</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ Ataque extra de maestria de Nick pode desencadear outra maestria</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ A maestria em empurrar requer que a criatura faça um teste de resistência de Força (CD 8 + modificador de habilidade de ataque + Bônus de Proficiência)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>

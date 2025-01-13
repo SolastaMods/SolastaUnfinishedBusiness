@@ -171,6 +171,20 @@ internal static class RulesDisplay
                 Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
             }
 
+            toggle = Main.Settings.UseWeaponMasterySystemFlurryTriggersMastery;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemFlurryTriggersMastery"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemFlurryTriggersMastery = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemNickExtraAttackTriggersMastery;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemNickExtraAttackTriggersMastery = toggle;
+            }
+
             toggle = Main.Settings.UseWeaponMasterySystemPushSave;
             if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
             {

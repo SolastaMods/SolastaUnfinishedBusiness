@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
@@ -553,6 +554,11 @@ internal static partial class Tabletop2024Context
             bool firstTarget,
             bool criticalHit)
         {
+            if (!IsValid(attacker, attackMode))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
@@ -579,6 +585,11 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            if (!IsValid(attacker, attackMode))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.WeaponMasteryToggle) &&
@@ -587,65 +598,48 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            var tacticalMasterIndex = attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name);
-            var mastery = (MasteryProperty)tacticalMasterIndex;
+            var mastery = (MasteryProperty)attacker.GetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name);
 
             if (mastery == MasteryProperty.None)
             {
                 mastery = rulesetAttacker.GetMastery(attackMode);
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (action.ActionId)
+            // Nick attack must be processed before as Nick can trigger side-by-side with another mastery
+            if (action.ActionId == Id.AttackMain &&
+                attacker.OnceInMyTurnIsValid(WeaponMasteryNick) &&
+                ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
+                (mastery == MasteryProperty.Nick || rulesetAttacker.GetOffhandMastery() == MasteryProperty.Nick) &&
+                (rulesetAttacker.ExecutedBonusAttacks == 0 ||
+                 ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)))
             {
-                // Nick Bonus Attack should not trigger any mastery
-                case Id.AttackOff when ValidatorsWeapon.IsMelee(attackMode) &&
-                                       !attacker.OnceInMyTurnIsValid(WeaponMasteryNick):
-                    yield break;
-                // Nick attack must be processed before as Nick can trigger side-by-side with another mastery
-                case Id.AttackMain when
-                    attacker.OnceInMyTurnIsValid(WeaponMasteryNick) &&
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) &&
-                    (mastery == MasteryProperty.Nick || rulesetAttacker.GetOffhandMastery() == MasteryProperty.Nick) &&
-                    (rulesetAttacker.ExecutedBonusAttacks == 0 ||
-                     ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)):
-                    DoNick(attacker);
-                    break;
+                DoNick(attacker);
             }
 
+            var success = rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+            
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (mastery)
             {
-                case MasteryProperty.Push when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                    rulesetDefender.SizeDefinition.MaxExtent.x <= 2:
+                case MasteryProperty.Push when success && defender.RulesetCharacter.SizeDefinition.MaxExtent.x <= 2:
                     DoPush(attacker, defender);
                     break;
-                case MasteryProperty.Sap when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case MasteryProperty.Sap when success:
                     DoSap(attacker, defender);
                     break;
-                case MasteryProperty.Slow when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess && damageAmount > 0:
+                case MasteryProperty.Slow when success && damageAmount > 0:
                     DoSlow(attacker, defender);
                     break;
-                case MasteryProperty.Cleave when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                    attacker.OnceInMyTurnIsValid(WeaponMasteryCleave):
+                case MasteryProperty.Cleave when success && attacker.OnceInMyTurnIsValid(WeaponMasteryCleave):
                     DoCleave(attacker, defender);
                     break;
-                case MasteryProperty.Graze when
-                    rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
+                case MasteryProperty.Graze when !success:
                     DoGraze(attacker, defender, attackMode);
                     break;
-                case MasteryProperty.Topple when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case MasteryProperty.Topple when success:
                     DoTopple(attacker, defender, attackMode);
                     break;
-                case MasteryProperty.Vex when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess && damageAmount > 0:
+                case MasteryProperty.Vex when success && damageAmount > 0:
                     DoVex(attacker, defender);
                     break;
             }
@@ -661,6 +655,11 @@ internal static partial class Tabletop2024Context
         {
             attacker.SetSpecialFeatureUses(FeatureSetFighterTacticalMaster.Name, -1);
 
+            if (!IsValid(attacker, attackMode))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.TacticalMasterToggle))
@@ -670,13 +669,32 @@ internal static partial class Tabletop2024Context
 
             var masteryToReplace = rulesetAttacker.GetMastery(attackMode);
 
-            if (masteryToReplace != MasteryProperty.Graze &&
-                masteryToReplace != MasteryProperty.Nick)
+            if (masteryToReplace is not (MasteryProperty.Graze or MasteryProperty.Nick))
             {
                 yield break;
             }
 
             yield return OfferTacticalMasterReplacement(attacker, masteryToReplace);
+        }
+
+        private static bool IsValid(GameLocationCharacter attacker, RulesetAttackMode attackMode)
+        {
+            if (!Main.Settings.UseWeaponMasterySystemFlurryTriggersMastery &&
+                attackMode.AttackTags.Contains(TwoWeaponCombatFeats.DualFlurryAttackMark))
+            {
+                return false;
+            }
+
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (!Main.Settings.UseWeaponMasterySystemNickExtraAttackTriggersMastery &&
+                attackMode.ActionType == ActionType.Bonus &&
+                ValidatorsWeapon.IsMelee(attackMode) &&
+                !attacker.OnceInMyTurnIsValid(WeaponMasteryNick))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private static IEnumerator OfferTacticalMasterReplacement(
