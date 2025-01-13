@@ -8,6 +8,7 @@
 - changed Martial Warlord to allow any weapon to trigger features
 - fixed Command: Approach spell not ending turn if target within 5 ft
 - fixed Faery Fire, and Starry Wisp integration with Lighting rules
+- fixed Haste interaction with multi-attack when replace with cantrip is used
 - fixed Oath of Devotion holy nimbus crash on use
 - fixed Starry Wisp crash on tooltip display
 - fixed Weapon Mastery cleave, graze, and nick behaviors
