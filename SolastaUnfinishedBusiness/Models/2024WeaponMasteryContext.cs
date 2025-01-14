@@ -158,21 +158,6 @@ internal static partial class Tabletop2024Context
             .AddCustomSubFeatures(new CustomBehaviorConditionNick())
             .AddToDB();
 
-    private static readonly ConditionDefinition ConditionWeaponMasteryNickBonusAttack =
-        ConditionDefinitionBuilder
-            .Create("ConditionWeaponMasteryNickBonusAttack")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionWeaponMasteryNickBonusAttack")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionType.Bonus)
-                    .SetRestrictedActions(Id.AttackOff)
-                    .AddToDB())
-            .AddCustomSubFeatures(new CustomBehaviorConditionNick())
-            .AddToDB();
-
     private static readonly ConditionDefinition ConditionWeaponMasteryNickDenyAttackOff =
         ConditionDefinitionBuilder
             .Create("ConditionWeaponMasteryNickDenyAttackOff")
@@ -183,6 +168,21 @@ internal static partial class Tabletop2024Context
                     .Create("ActionAffinityWeaponMasteryNickDenyAttackOff")
                     .SetGuiPresentationNoContent(true)
                     .SetForbiddenActions(Id.AttackOff)
+                    .AddToDB())
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionWeaponMasteryNickDenyAllBonusButAttack =
+        ConditionDefinitionBuilder
+            .Create("ConditionWeaponMasteryNickDenyAllBonusButAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityWeaponMasteryDenyAllBonusButAttack")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(
+                        Id.CastBonus, Id.DashBonus, Id.DisengageBonus, Id.HideBonus,
+                        Id.PowerBonus, Id.ShoveBonus, Id.AssignTargetBonus, Id.UseItemBonus)
                     .AddToDB())
             .AddToDB();
 
@@ -805,14 +805,28 @@ internal static partial class Tabletop2024Context
         private static void DoNick(GameLocationCharacter attacker)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var conditionNick = ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker)
-                ? ConditionWeaponMasteryNick
-                : ConditionWeaponMasteryNickBonusAttack;
+
+            if (!ValidatorsCharacter.HasAvailableBonusAction(rulesetAttacker))
+            {
+                rulesetAttacker.InflictCondition(
+                    ConditionWeaponMasteryNickDenyAllBonusButAttack.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    ConditionWeaponMasteryNickDenyAllBonusButAttack.Name,
+                    0,
+                    0,
+                    0);
+            }
 
             attacker.SetSpecialFeatureUses(WeaponMasteryNick, 0);
             rulesetAttacker.LogCharacterUsedFeature(GetDefinition<FeatureDefinition>("FeatureWeaponMasteryNick"));
             rulesetAttacker.InflictCondition(
-                conditionNick.Name,
+                ConditionWeaponMasteryNick.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -820,7 +834,7 @@ internal static partial class Tabletop2024Context
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                conditionNick.Name,
+                ConditionWeaponMasteryNick.Name,
                 0,
                 0,
                 0);
@@ -1042,41 +1056,28 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            if (action.ActionId == Id.AttackOff)
+            if (action.ActionId is Id.CunningAction or Id.CunningActionFastHands)
             {
-                rulesetCharacter.InflictCondition(
-                    ConditionWeaponMasteryNickDenyAttackOff.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    ConditionWeaponMasteryNickDenyAttackOff.Name,
-                    0,
-                    0,
-                    0);
+                yield break;
             }
-            else if (action.ActionId is not (Id.CunningAction or Id.CunningActionFastHands) &&
-                     rulesetCharacter.TryGetConditionOfCategoryAndType(
-                         AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name, out var activeCondition))
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-                rulesetCharacter.InflictCondition(
-                    ConditionWeaponMasteryNickBonusAttack.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    ConditionWeaponMasteryNickBonusAttack.Name,
-                    0,
-                    0,
-                    0);
-            }
+
+            var condition = action.ActionId == Id.AttackOff
+                ? ConditionWeaponMasteryNickDenyAttackOff
+                : ConditionWeaponMasteryNickDenyAllBonusButAttack;
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
         }
     }
 
