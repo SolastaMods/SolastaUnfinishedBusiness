@@ -273,29 +273,20 @@ internal static class Tabletop2014Context
 
     internal static void SwitchConditionBlindedShouldNotAllowOpportunityAttack()
     {
-        if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
+                     .Where(x => x == ConditionDefinitions.ConditionInvisibleBase ||
+                                 x.parentCondition == ConditionDefinitions.ConditionInvisibleBase ||
+                                 x == ConditionDefinitions.ConditionBlinded ||
+                                 x.parentCondition == ConditionDefinitions.ConditionBlinded))
         {
-            foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
-                         .Where(x => x == ConditionDefinitions.ConditionInvisibleBase ||
-                                     x.parentCondition == ConditionDefinitions.ConditionInvisibleBase))
+            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
             {
                 condition.Features.TryAdd(ActionAffinityConditionBlind);
             }
-
-            ConditionDefinitions.ConditionBlinded.Features.TryAdd(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.TryAdd(ActionAffinityConditionBlind);
-        }
-        else
-        {
-            foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
-                         .Where(x => x == ConditionDefinitions.ConditionInvisibleBase ||
-                                     x.parentCondition == ConditionDefinitions.ConditionInvisibleBase))
+            else
             {
                 condition.Features.Remove(ActionAffinityConditionBlind);
             }
-            
-            ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
         }
     }
 
