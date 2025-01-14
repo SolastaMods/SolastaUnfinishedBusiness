@@ -173,16 +173,15 @@ internal static partial class Tabletop2024Context
             .AddCustomSubFeatures(new CustomBehaviorConditionNick())
             .AddToDB();
 
-    private static readonly ConditionDefinition ConditionWeaponMasteryNickBonusDenyAttackOff =
+    private static readonly ConditionDefinition ConditionWeaponMasteryNickDenyAttackOff =
         ConditionDefinitionBuilder
-            .Create("ConditionWeaponMasteryNickBonusDenyAttackOff")
+            .Create("ConditionWeaponMasteryNickDenyAttackOff")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionWeaponMasteryNickBonusDenyAttackOff")
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ActionAffinityWeaponMasteryNickDenyAttackOff")
                     .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionType.Bonus)
                     .SetForbiddenActions(Id.AttackOff)
                     .AddToDB())
             .AddToDB();
@@ -616,32 +615,34 @@ internal static partial class Tabletop2024Context
                 DoNick(attacker);
             }
 
-            var success = rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
-            
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (mastery)
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                case MasteryProperty.Push when success && defender.RulesetCharacter.SizeDefinition.MaxExtent.x <= 2:
-                    DoPush(attacker, defender);
-                    break;
-                case MasteryProperty.Sap when success:
-                    DoSap(attacker, defender);
-                    break;
-                case MasteryProperty.Slow when success && damageAmount > 0:
-                    DoSlow(attacker, defender);
-                    break;
-                case MasteryProperty.Cleave when success && attacker.OnceInMyTurnIsValid(WeaponMasteryCleave):
-                    DoCleave(attacker, defender);
-                    break;
-                case MasteryProperty.Graze when !success:
-                    DoGraze(attacker, defender, attackMode);
-                    break;
-                case MasteryProperty.Topple when success:
-                    DoTopple(attacker, defender, attackMode);
-                    break;
-                case MasteryProperty.Vex when success && damageAmount > 0:
-                    DoVex(attacker, defender);
-                    break;
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (mastery)
+                {
+                    case MasteryProperty.Push when defender.RulesetCharacter.SizeDefinition.MaxExtent.x <= 2:
+                        DoPush(attacker, defender);
+                        break;
+                    case MasteryProperty.Sap:
+                        DoSap(attacker, defender);
+                        break;
+                    case MasteryProperty.Slow when damageAmount > 0:
+                        DoSlow(attacker, defender);
+                        break;
+                    case MasteryProperty.Cleave when attacker.OnceInMyTurnIsValid(WeaponMasteryCleave):
+                        DoCleave(attacker, defender);
+                        break;
+                    case MasteryProperty.Topple:
+                        DoTopple(attacker, defender, attackMode);
+                        break;
+                    case MasteryProperty.Vex when damageAmount > 0:
+                        DoVex(attacker, defender);
+                        break;
+                }
+            }
+            else if (mastery == MasteryProperty.Graze)
+            {
+                DoGraze(attacker, defender, attackMode);
             }
         }
 
@@ -1041,23 +1042,10 @@ internal static partial class Tabletop2024Context
                 yield break;
             }
 
-            var hasConditionNick = rulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name, out var activeCondition);
-
-            if (hasConditionNick)
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-
             if (action.ActionId == Id.AttackOff)
             {
-                if (!hasConditionNick)
-                {
-                    yield break;
-                }
-
                 rulesetCharacter.InflictCondition(
-                    ConditionWeaponMasteryNickBonusDenyAttackOff.Name,
+                    ConditionWeaponMasteryNickDenyAttackOff.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -1065,13 +1053,16 @@ internal static partial class Tabletop2024Context
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    ConditionWeaponMasteryNickBonusDenyAttackOff.Name,
+                    ConditionWeaponMasteryNickDenyAttackOff.Name,
                     0,
                     0,
                     0);
             }
-            else if (hasConditionNick)
+            else if (action.ActionId is not (Id.CunningAction or Id.CunningActionFastHands) &&
+                     rulesetCharacter.TryGetConditionOfCategoryAndType(
+                         AttributeDefinitions.TagEffect, ConditionWeaponMasteryNick.Name, out var activeCondition))
             {
+                rulesetCharacter.RemoveCondition(activeCondition);
                 rulesetCharacter.InflictCondition(
                     ConditionWeaponMasteryNickBonusAttack.Name,
                     DurationType.Round,

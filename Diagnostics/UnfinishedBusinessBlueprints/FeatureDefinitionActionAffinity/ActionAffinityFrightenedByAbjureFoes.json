@@ -5,7 +5,7 @@
     true,
     true,
     true,
-    false,
+    true,
     true
   ],
   "eitherMainOrBonus": false,
@@ -45,7 +45,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce74cb21-e747-5e10-aa1d-9e9554300f35",
+  "guid": "8ddbbbce-d307-5ffc-a4de-ea2f2331678c",
   "contentPack": 9999,
-  "name": "ActionAffinityPsychicWhipNoReaction"
+  "name": "ActionAffinityFrightenedByAbjureFoes"
 }

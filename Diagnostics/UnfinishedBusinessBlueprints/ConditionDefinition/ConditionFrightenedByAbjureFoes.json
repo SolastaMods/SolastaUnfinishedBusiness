@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityFrightenedByAbjureFoes:8ddbbbce-d307-5ffc-a4de-ea2f2331678c"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
