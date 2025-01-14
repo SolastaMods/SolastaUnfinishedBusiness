@@ -5,6 +5,7 @@
 - added additional settings to tweak weapon mastery behaviors
 - added buttons to enable all QoL, 2014, and 2024 settings at once
 - changed Bladestorm feat to select up to 1 + pb / 2 targets rounded down
+- changed Exploiter feat attack to an attack of opportunity
 - changed Martial Battle Master to remove honed craft, and battle clarity 
 - changed Martial Warlord to allow any weapon to trigger features
 - fixed Circle of Cosmos chalice healing not working off combat
@@ -15,6 +16,7 @@
 - fixed Oath of Devotion holy nimbus crash on use
 - fixed Weapon Mastery cleave, graze, and nick behaviors
 - fixed apply damage form crash scenario from race features
+- fixed enable no AoO if Blinded or Invisible setting to consider parents
 - fixed context checks calculations
 
 KNOWN ISSUES:
