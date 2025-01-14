@@ -437,7 +437,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -763,7 +762,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             rulesetAttacker.InflictCondition(
                 conditionChaliceHealing.Name,
-                DurationType.Round,
+                DurationType.Permanent,
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,

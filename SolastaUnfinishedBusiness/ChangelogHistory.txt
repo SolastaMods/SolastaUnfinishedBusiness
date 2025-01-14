@@ -7,11 +7,12 @@
 - changed Bladestorm feat to select up to 1 + pb / 2 targets rounded down
 - changed Martial Battle Master to remove honed craft, and battle clarity 
 - changed Martial Warlord to allow any weapon to trigger features
+- fixed Circle of Cosmos chalice healing not working off combat
 - fixed Command: Approach spell not ending turn if target within 5 ft
 - fixed Faery Fire, and Starry Wisp integration with Lighting rules
 - fixed Haste interaction with multi-attack when replace with cantrip is used
+- fixed Monk deflect attacks 2024 not losing return attacks condition
 - fixed Oath of Devotion holy nimbus crash on use
-- fixed Starry Wisp crash on tooltip display
 - fixed Weapon Mastery cleave, graze, and nick behaviors
 - fixed apply damage form crash scenario from race features
 - fixed context checks calculations
