@@ -1106,12 +1106,7 @@ public static class RulesetCharacterPatcher
             else
             {
                 attackRoll = rawRoll + toHitBonus + rollModifier;
-
-                //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
-                // successDelta = attackRoll - target.GetAttribute("ArmorClass").CurrentValue;
-                successDelta = attackRoll -
-                               MirrorImage.GetAC(target.GetAttribute("ArmorClass"), target, toHitTrends);
-                // END PATCH
+                successDelta = attackRoll - target.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue;
 
                 if (successDelta >= 0)
                 {
