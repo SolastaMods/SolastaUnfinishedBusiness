@@ -247,7 +247,8 @@ internal static partial class Tabletop2024Context
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not RollOutcome.CriticalSuccess)
+            if (rollOutcome is not RollOutcome.CriticalSuccess ||
+                !attacker.IsMyTurn())
             {
                 yield break;
             }

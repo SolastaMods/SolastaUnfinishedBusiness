@@ -609,6 +609,11 @@ internal static partial class Tabletop2024Context
 
         private IEnumerator HandleWithdraw(CharacterAction action, GameLocationCharacter attacker)
         {
+            if (!attacker.IsMyTurn())
+            {
+                yield break;
+            }
+            
             yield return CampaignsContext.SelectPosition(action, powerWithdraw);
 
             var position = action.ActionParams.Positions[0];
