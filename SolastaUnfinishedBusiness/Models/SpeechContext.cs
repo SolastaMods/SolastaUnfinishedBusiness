@@ -595,7 +595,7 @@ internal static class SpeechContext
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
 
-            PlaySpeech(audioSettingsService, await task);
+            PlaySpeech(await task);
         }
         catch (Exception e)
         {
@@ -696,7 +696,7 @@ internal static class SpeechContext
 
             var task = Task.Run(async () => await GetPiperTask(executablePath, voice, scale, inputText));
 
-            PlaySpeech(audioSettingsService, await task);
+            PlaySpeech(await task);
         }
         catch (Exception e)
         {
@@ -704,14 +704,14 @@ internal static class SpeechContext
         }
     }
 
-    private static void PlaySpeech(IAudioSettingsService audioSettingsService, MemoryStream audioStream)
+    private static void PlaySpeech(MemoryStream audioStream)
     {
         using var waveStream = new RawSourceWaveStream(audioStream, new WaveFormat(22050, 1));
 
         waveStream.Position = 0;
 
         WaveOutEvent.Init(waveStream);
-        WaveOutEvent.Volume = audioSettingsService.MasterVolume * audioSettingsService.VoicesVolume;
+        WaveOutEvent.Volume = Main.Settings.SpeechVolume;
         WaveOutEvent.Play();
     }
 

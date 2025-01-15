@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dica
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&ShowMotionFormPreview=Mostrar pré-visualização dos efeitos <b>Push</b> e <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificador de velocidade de narração</color> <i><color=#F0DAA0>[menor é mais rápido]</color></i>
+ModUi/&SpeechVolume=<color=white>Volume da narração</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de magia</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Habilitar perda de furtividade quando ataque de arma ou magia acerta

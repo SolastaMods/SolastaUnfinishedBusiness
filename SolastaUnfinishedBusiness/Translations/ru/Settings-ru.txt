@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт с
 ModUi/&ShowDescriptions=Показывать описания
 ModUi/&ShowMotionFormPreview=Показывать предпросмотр эффектов <b>Толкания</b> и <b>Притяжения</b>
 ModUi/&SpeechScale=<color=white>Модификатор скорости повествования</color> <i><color=#F0DAA0>[чем ниже, тем быстрее]</color></i>
+ModUi/&SpeechVolume=<color=white>Громкость повествования</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</color> <color=#F0DAA0>[-1 отображает все]</color></i></b>
 ModUi/&SpellsMenu=Заклинания
 ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки оружием или заклинанием

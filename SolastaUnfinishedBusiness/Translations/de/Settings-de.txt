@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Herstellungsrezept in ausführlichen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&ShowMotionFormPreview=Vorschau der <b>Push</b>- und <b>Pull</b>-Effekte anzeigen
 ModUi/&SpeechScale=<color=white>Erzählgeschwindigkeitsmodifikator</color> <i><color=#F0DAA0>[niedriger ist schneller]</color></i>
+ModUi/&SpeechVolume=<color=white>Erzählvolumen</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie den Verlust der Tarnung, wenn ein Waffen- oder Zauberangriff trifft

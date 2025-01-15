@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁으로 제작 레시
 ModUi/&ShowDescriptions=설명 보기
 ModUi/&ShowMotionFormPreview=<b>밀기</b> 및 <b>당기기</b> 효과의 미리보기 표시
 ModUi/&SpeechScale=<color=white>내레이션 속도 수정자</color> <i><color=#F0DAA0>[낮을수록 빠름]</color></i>
+ModUi/&SpeechVolume=<color=white>내레이션 볼륨</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>주문 레벨 필터</color> <color=#F0DAA0>[-1은 모두 표시]</color></i></b>
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기 또는 주문 공격이 적중하면 은신 해제를 활성화합니다.

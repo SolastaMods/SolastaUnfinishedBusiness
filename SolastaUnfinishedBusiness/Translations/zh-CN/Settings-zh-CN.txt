@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制
 ModUi/&ShowDescriptions=显示描述
 ModUi/&ShowMotionFormPreview=显示<b>推</b>和<b>拉</b>效果的预览
 ModUi/&SpeechScale=<color=white>叙述速度调节器</color> <i><color=#F0DAA0>[速度越低越快]</color></i>
+ModUi/&SpeechVolume=<color=white>旁白音量</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color> <color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
 ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时，隐身效果消失

@@ -370,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar la receta de elaboración en
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&ShowMotionFormPreview=Mostrar vista previa de los efectos <b>Push</b> y <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificador de velocidad de narración</color> <i><color=#F0DAA0>[cuanto más bajo, más rápido]</color></i>
+ModUi/&SpeechVolume=<color=white>Volumen de narración</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todos]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
 ModUi/&StealthBreaksWhenAttackHits=Habilitar la pérdida de sigilo cuando un arma o un ataque de hechizo impacta
