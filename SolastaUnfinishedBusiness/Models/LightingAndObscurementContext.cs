@@ -52,7 +52,9 @@ internal static class LightingAndObscurementContext
     private static string[] MonstersThatShouldHaveTrueSight { get; } =
     [
         "Couatl",
-        "CubeOfLight"
+        "CubeOfLight",
+        "Glabrezu_General",
+        "Glabrezu_MonsterDefinition"
     ];
 
     private static string[] MonstersThatShouldHaveBlindSight { get; } =
