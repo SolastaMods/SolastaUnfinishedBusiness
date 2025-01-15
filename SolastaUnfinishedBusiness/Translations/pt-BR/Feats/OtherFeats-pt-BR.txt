@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=Infusão Cromática 
 Feedback/&FeatBrawlerReroll=Quando você faz um ataque desarmado, você pode rolar novamente qualquer 1 nos dados de dano que você rolar como parte daquele ataque e deve escolher o novo resultado.
 Feedback/&FeatElementalAdeptReroll={0} usa Adepto Elemental para rolar novamente um dado de ataque {1} de {2} para {3}.
 Feedback/&FeatElementalMasterReroll={0} usa Mestre Elemental para rolar novamente um dado de ataque {1} de {2} para {3}.
+Feedback/&IsLower={0} lançou um {2} menor para substituir um {3}.
 Feedback/&IsNotLuckyHigher={0} não teve nenhuma sorte, rolando um {2} maior para substituir um {3}.
 Feedback/&IsNotLuckyLower={0} não tem sorte alguma, rolando um {2} menor para substituir um {3}.
 Feedback/&LuckyAttackToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de ataque

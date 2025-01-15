@@ -697,14 +697,20 @@ internal static partial class Tabletop2024Context
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
+            var hasReturnAttacks = rulesetDefender.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var condition);
 
             if (damageAmount > 0 ||
                 rulesetDefender.RemainingKiPoints == 0 ||
                 !defender.CanAct() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                !rulesetDefender.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name))
+                !hasReturnAttacks)
             {
+                if (hasReturnAttacks)
+                {
+                    rulesetDefender.RemoveCondition(condition);
+                }
+
                 yield break;
             }
 
@@ -757,20 +763,12 @@ internal static partial class Tabletop2024Context
 
             void ReactionNotValidated(ReactionRequestSpendBundlePower reactionRequestSpendBundlePower)
             {
-                if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var condition))
-                {
-                    rulesetDefender.RemoveCondition(condition);
-                }
+                rulesetDefender.RemoveCondition(condition);
             }
 
             void ReactionNotValidatedPower()
             {
-                if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionMonkReturnAttacks.Name, out var condition))
-                {
-                    rulesetDefender.RemoveCondition(condition);
-                }
+                rulesetDefender.RemoveCondition(condition);
             }
         }
     }

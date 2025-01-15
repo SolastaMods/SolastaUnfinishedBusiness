@@ -1,3 +1,32 @@
+1.5.97.44:
+
+- added Martial Champion 2024 setting
+- added Paladin level 20 subclasses power recharge from level 5 slot 2024 setting
+- added additional settings to tweak weapon mastery behaviors
+- added buttons to enable all QoL, 2014, and 2024 settings at once
+- added slider to directly control mod generated voices volume
+- changed Bladestorm feat to select up to 1 + pb / 2 targets rounded down
+- changed Exploiter feat attack to an attack of opportunity
+- changed Martial Battle Master to remove honed craft, and battle clarity 
+- changed Martial Warlord to allow any weapon to trigger features
+- changed Remarkable Athlete move on critical to only trigger in your turn
+- fixed Circle of Cosmos chalice healing not working off combat
+- fixed Command: Approach spell not ending turn if target within 5 ft
+- fixed Faery Fire, and Starry Wisp integration with Lighting rules
+- fixed Haste interaction with multi-attack when replace with cantrip is used
+- fixed Mirror Image 2024 AC calculation
+- fixed Monk deflect attacks 2024 not losing return attacks condition
+- fixed Oath of Devotion holy nimbus crash on use
+- fixed Weapon Mastery cleave, graze, and nick behaviors
+- fixed apply damage form crash scenario from race features
+- fixed context checks calculations
+- fixed enable no AoO if Blinded or Invisible setting to consider sense modes
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.43:
 
 RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Natural Fluidity, Spiritual Fluidity, Pugilist, Way of Shadow, and Way of Zen Archery
@@ -10,16 +39,19 @@ CHANGES:
 - changed Hunter's Mark, and Malediction to be denied under twinned scenarios [engine limitation]
 - changed flurry of arrows -> swift shot, unerring precision, and hail of arrows on Way of Zen Archery [RESPEC]
 - changed shadow flurry -> improved shadow step, and shadow sanctuary -> cloak of shadows on Way of Shadow [RESPEC]
+- fixed Alchemist subclasses not getting spell storing item powers for their specific auto prepared spells
 - fixed Bard Magical Secrets 2024 not offering Cleric, Druid, and Wizard spell lists
 - fixed Cleric divine spark healing power dice progression
 - fixed Command: Grove spell not ending target turn after prone action
 - fixed Disheartening Performance / Hideous Laughter interaction **crash**
 - fixed Domain Nature master of nature not removing conditions with a charmed condition as a parent
+- fixed Dual Flurry to only trigger if weapon still in hands [scenarios that can be bypassed with Throw Weapon Master]
 - fixed Gift of the Gem Dragon reaction **crash** under Chinese language
 - fixed Paladin Divine Smite triggering on thrown attacks without the 2024 setting on
 - fixed Potent Spell caster / Spell Sniper feats interaction
 - fixed Starry Wisp cantrip not removing conditions with an invisible base condition as a parent
 - fixed True Strike 2024 not using spell casting ability on attack roll
+- fixed context checks doing the opposite check on opponents, leading to incorrect reaction requests
 - fixed damage roll reduction calculation applying on every form instead of total roll [VANILLA]
 - fixed enable no AoO if Blinded setting to also consider Invisible
 - fixed lighting and obscurement rules / advantage and disadvantage rules interaction
@@ -28,12 +60,6 @@ CHANGES:
 - fixed variant spell points offering spells even without enough points to cast
 - removed Monk weapon specialization setting, Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
-- Weapon Mastery Cleave isn't implemented yet
 
 1.5.97.42:
 

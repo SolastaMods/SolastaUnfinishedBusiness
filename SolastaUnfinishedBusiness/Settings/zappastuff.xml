@@ -4,7 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayMultiplayerToggle>false</DisplayMultiplayerToggle>
-    <DisplayTabletop2024>true</DisplayTabletop2024>
+    <DisplayTabletop2024>false</DisplayTabletop2024>
     <DisplayTabletopToggle>false</DisplayTabletopToggle>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
@@ -208,7 +208,10 @@
             </value>
         </item>
     </DisplaySpellListsToggle>
-    <DefaultPartyHeroes/>
+    <DefaultPartyHeroes>
+        <string>Beriiel</string>
+        <string>Teaghan</string>
+    </DefaultPartyHeroes>
     <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
     <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
     <EnableLevelUpFeaturesSelection>true</EnableLevelUpFeaturesSelection>
@@ -229,7 +232,7 @@
     <MaxAllowedClasses>3</MaxAllowedClasses>
     <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
     <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
-    <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
+    <EnableMinInOutAttributes>false</EnableMinInOutAttributes>
     <EnableActionSwitching>true</EnableActionSwitching>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <EnableProneAction>true</EnableProneAction>
@@ -719,7 +722,7 @@
     <EnableFighterSkillOptions2024>true</EnableFighterSkillOptions2024>
     <EnableFighterSecondWind2024>true</EnableFighterSecondWind2024>
     <EnableFighterStudiedAttacks2024>true</EnableFighterStudiedAttacks2024>
-    <EnableFighterTacticalMaster2024>false</EnableFighterTacticalMaster2024>
+    <EnableFighterTacticalMaster2024>true</EnableFighterTacticalMaster2024>
     <EnableFighterTacticalProgression2024>true</EnableFighterTacticalProgression2024>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkBodyAndMind2024>true</EnableMonkBodyAndMind2024>
@@ -739,6 +742,7 @@
     <EnablePaladinAbjureFoes2024>true</EnablePaladinAbjureFoes2024>
     <EnablePaladinChannelDivinity2024>true</EnablePaladinChannelDivinity2024>
     <EnablePaladinLayOnHands2024>true</EnablePaladinLayOnHands2024>
+    <EnablePaladinRechargeLv20Feature>true</EnablePaladinRechargeLv20Feature>
     <EnablePaladinRestoringTouch2024>true</EnablePaladinRestoringTouch2024>
     <EnablePaladinSmite2024>true</EnablePaladinSmite2024>
     <EnablePaladinSpellCastingAtLevel1>true</EnablePaladinSpellCastingAtLevel1>
@@ -750,7 +754,7 @@
     <EnableRangerNatureShroud2024>true</EnableRangerNatureShroud2024>
     <EnableRangerPreciseHunter2024>true</EnableRangerPreciseHunter2024>
     <EnableRangerRelentlessHunter2024>true</EnableRangerRelentlessHunter2024>
-    <EnableRangerRelentlessHunter2024AsNoConcentration>false</EnableRangerRelentlessHunter2024AsNoConcentration>
+    <EnableRangerRelentlessHunter2024AsNoConcentration>true</EnableRangerRelentlessHunter2024AsNoConcentration>
     <EnableRangerRoving2024>true</EnableRangerRoving2024>
     <EnableRangerSpellCastingAtLevel1>true</EnableRangerSpellCastingAtLevel1>
     <EnableRangerTireless2024>true</EnableRangerTireless2024>
@@ -1597,6 +1601,7 @@
     <SwapAbjurationSavant>true</SwapAbjurationSavant>
     <SwapEvocationSavant>true</SwapEvocationSavant>
     <SwapEvocationPotentCantripAndSculptSpell>true</SwapEvocationPotentCantripAndSculptSpell>
+    <EnableMartialChampion2024>true</EnableMartialChampion2024>
     <KlassListSliderPosition>
         <item>
             <key>
@@ -1915,8 +1920,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>true</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <WildSurgeEffectDie>0</WildSurgeEffectDie>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

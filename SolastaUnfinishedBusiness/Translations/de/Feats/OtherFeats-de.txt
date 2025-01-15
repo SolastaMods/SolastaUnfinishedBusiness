@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=Chromatische Infusio
 Feedback/&FeatBrawlerReroll=Wenn Sie einen unbewaffneten Angriff ausführen, können Sie im Rahmen dieses Angriffs alle 1er auf den Schadenswürfeln wiederholen und müssen das neue Ergebnis akzeptieren.
 Feedback/&FeatElementalAdeptReroll={0} verwendet Elemental Adept, um einen {1} Angriffswürfel von {2} auf {3} neu zu würfeln.
 Feedback/&FeatElementalMasterReroll={0} verwendet Elemental Master, um einen {1} Angriffswürfel von {2} auf {3} neu zu würfeln.
+Feedback/&IsLower={0} hat eine niedrigere {2} gewürfelt, um eine {3} zu ersetzen.
 Feedback/&IsNotLuckyHigher={0} hat überhaupt kein Glück und würfelt eine höhere {2} als Ersatz für eine {3}.
 Feedback/&IsNotLuckyLower={0} hat überhaupt kein Glück und würfelt eine niedrigere {2} als Ersatz für eine {3}.
 Feedback/&LuckyAttackToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} beim Angriffswurf zu ersetzen.

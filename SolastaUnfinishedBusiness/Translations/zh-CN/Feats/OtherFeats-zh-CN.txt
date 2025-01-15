@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=繁彩注魔造成�
 Feedback/&FeatBrawlerReroll=当你进行徒手攻击时，你可以重新掷出在该次攻击中掷出的伤害骰子上的任何 1，并且必须接受新的结果。
 Feedback/&FeatElementalAdeptReroll={0} 使用元素熟练者将 {1} 个攻击掷骰子从 {2} 重新掷到 {3}。
 Feedback/&FeatElementalMasterReroll={0} 使用元素大师将 {1} 个攻击掷骰子从 {2} 重新掷到 {3}。
+Feedback/&IsLower={0} 掷出较低的 {2} 来替换 {3}。
 Feedback/&IsNotLuckyHigher={0} 一点也不幸运，掷出更高的 {2} 来替换 {3}。
 Feedback/&IsNotLuckyLower={0} 一点也不幸运，掷出较低的 {2} 来替换 {3}。
 Feedback/&LuckyAttackToHitRoll={0} 使用 {1} 并掷出 {2} 以替换攻击检定上的 {3}

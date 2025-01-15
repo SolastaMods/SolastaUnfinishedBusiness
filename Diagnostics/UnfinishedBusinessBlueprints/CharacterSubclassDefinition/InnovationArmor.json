@@ -28,6 +28,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationArmor:64600629-a90a-597f-9d96-8e58ffaa2d35",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInventorArmorerPerfectedArmor:2db0484b-1b42-59cc-a851-aa3c1546c2df",
       "level": 15
     }

@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerUseModifierTacticianGambitPoolTitle",
-    "description": "Feature/&PowerUseModifierTacticianGambitPoolDescription",
+    "title": "Feature/&PowerUseModifierTacticianGambitPool2Title",
+    "description": "Feature/&PowerUseModifierTacticianGambitPool2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3",
     "Definition:SavingThrowAffinityCreedOfPakri:9d43e6a909c8f7d49814bf89494ecceb",
-    "Definition:SavingThrowAffinityCreedOfMaraike:39c4d52229518ce4db6805304fd5fba0"
+    "Definition:SavingThrowAffinityCreedOfMaraike:39c4d52229518ce4db6805304fd5fba0",
+    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],

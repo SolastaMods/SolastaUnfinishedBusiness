@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Origines et races
 ModUi/&Basic=<color=#F0DAA0>Basique :</color>
 ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conférer une malédiction</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort de niveau 5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=N'activez aucune attaque d'opportunité lorsque vous êtes <color=#D89555>Aveuglé</color> ou <color=#D89555>Invisible</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=N'activez aucune attaque d'opportunité lorsque vous êtes <color=#D89555>aveuglé</color> ou si la cible est <color=#D89555>invisible</color>
 ModUi/&Blueprints=Plans
 ModUi/&Campaigns=Campagnes
 ModUi/&Category=Catégorie
@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Activer <color=#D89555>True Strike</color> 
 ModUi/&EnablePaladinAbjureFoes2024=Activez <color=#D89555>Abjurer les ennemis</color> au niveau 9
 ModUi/&EnablePaladinChannelDivinity2024=Échangez <color=#D89555>Channel Divinity</color> avec la version 5e 2024 <i><color=#F0DAA0>[différentes utilisations]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Échangez <color=#D89555>Imposition des mains</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Activez les pouvoirs de sous-classe de <color=#D89555>niveau 20</color> pour qu'ils se rechargent avec un emplacement de niveau 5
 ModUi/&EnablePaladinRestoringTouch2024=Activez <color=#D89555>Restauration du toucher</color> pour remplacer <color=#D89555>Nettoyage du toucher</color> au niveau 14
 ModUi/&EnablePaladinSmite2024=Échangez <color=#D89555>Divine Smite</color> avec la version 5e 2024 <i><color=#F0DAA0>[action bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Activer le <color=#D89555>lancement de sorts</color> au niveau 1 au lieu de 2
@@ -303,6 +304,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement 
 ModUi/&MaxAllowedClasses=<color=white>Nombre maximal de cours autorisés</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
+ModUi/&ModQoL=<b><color=#D89555>Activer les paramètres QoL</color></b>
 ModUi/&ModifyGravitySlam=Modifier le sort <color=#D89555>Gravity Slam</color> pour attirer les cibles affectées vers le bas et être un cylindre au lieu d'une sphère\n<i><color=#F0DAA0>[nécessite l'activation des <color=#D89555>effets de mouvement de poussée et de traction pour fonctionner sur l'axe haut/bas</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et les autres dépensent des emplacements de sorts verts de pacte]</color></i>
@@ -368,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&ShowMotionFormPreview=Afficher l'aperçu des effets <b>Push</b> et <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificateur de vitesse de narration</color> <i><color=#F0DAA0>[plus bas est plus rapide]</color></i>
+ModUi/&SpeechVolume=<color=white>Volume de narration</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtre de niveau d'orthographe</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
 ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsque l'attaque d'arme ou de sort touche
@@ -385,9 +388,12 @@ ModUi/&SwapAbjurationSavant=Échangez <b>Abjurer</b> <color=#D89555>Abjuration S
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Échangez les sorts de sculpture de l'évocateur et le sort de cantrip puissant au fil de la progression
 ModUi/&SwapEvocationSavant=Échangez <b>Evoker</b> <color=#D89555>Evocation Savant</color> avec la version 5e 2024 <i><color=#F0DAA0>[apprenez 2 sorts d'école une fois acquis, apprenez-en 1 de plus à chaque fois que vous gagnez un niveau d'emplacement]</color></i>
+ModUi/&SwapMartialChampion=Échangez <b>Martial Champion</b> avec la version 5e 2024
+ModUi/&TableTop2014=<b><color=#D89555>Activer les règles 2014</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>Activer les règles 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Sélectionnez le contenu de la table</color></b>
 ModUi/&TableTopHelp1=• Les sections suivantes regroupent et dupliquent les paramètres <color=#D89555>5e 2014 et 2024</color> dispersés dans le mod pour votre commodité
-ModUi/&TableTopHelp2=• Appuyez sur le bouton pour sélectionner uniquement le contenu de table sous l'onglet Personnage et sélectionnez toutes les options ci-dessous pour une véritable expérience TT
+ModUi/&TableTopHelp2=• Appuyez sur les boutons pour <b>sélectionner uniquement le contenu de table sous l'onglet Personnage</b> et <b>activer les règles 2014 et/ou 2024</b>, pour une véritable expérience TT
 ModUi/&Tabletop=<color=#F0DAA0>Jeux de société <i>[5e 2014]</i> :</color>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduisez le temps de fabrication de</color>
@@ -416,6 +422,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Les <color=#D89555>petites races
 ModUi/&UseWeaponMasterySystem=Activer les règles de <color=#D89555>Maîtrise des armes</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ La maîtrise de Cleave ajoute un modificateur de score d'attribut aux dégâts de la deuxième attaque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Ajouter une balise de maîtrise à toutes les armes du jeu</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Masquer la barre d'action Maîtrise des armes / Maître tactique bascule lorsque le héros ne connaît pas la propriété de l'arme utilisée</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ L'attaque supplémentaire Dual Flurry peut déclencher une autre maîtrise</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ L'attaque supplémentaire de maîtrise de Nick peut déclencher une autre maîtrise</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La maîtrise de la poussée nécessite que la créature effectue un jet de sauvegarde de Force (DD 8 + modificateur de caractéristique du jet d'attaque + bonus de maîtrise)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Définissez le seuil de chances de dé de <color=#D89555>Magie sauvage du sorcier</color> :</color>\n<i><color=#F0DAA0>[la poussée sauvage se déclenche si le résultat est inférieur ou égal au seuil]</color></i>

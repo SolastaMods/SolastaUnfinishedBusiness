@@ -1106,12 +1106,7 @@ public static class RulesetCharacterPatcher
             else
             {
                 attackRoll = rawRoll + toHitBonus + rollModifier;
-
-                //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
-                // successDelta = attackRoll - target.GetAttribute("ArmorClass").CurrentValue;
-                successDelta = attackRoll -
-                               MirrorImage.GetAC(target.GetAttribute("ArmorClass"), target, toHitTrends);
-                // END PATCH
+                successDelta = attackRoll - target.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue;
 
                 if (successDelta >= 0)
                 {
@@ -2268,6 +2263,13 @@ public static class RulesetCharacterPatcher
             if (__instance is not RulesetCharacterHero hero)
             {
                 return;
+            }
+
+            //PATCH: supports Weapon Mastery to ensure only one custom behavior per hero
+            if (hero.HasAnyFeature(Tabletop2024Context.PowerWeaponMasteryRelearnPool))
+            {
+                hero.ActiveFeatures[AttributeDefinitions.TagRace]
+                    .TryAdd(Tabletop2024Context.FeatureWeaponMasteryBehavior);
             }
 
             //PATCH: support adding required power to keep a tab on spell points (SPELL_POINTS)

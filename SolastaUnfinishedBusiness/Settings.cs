@@ -10,6 +10,19 @@ namespace SolastaUnfinishedBusiness;
 
 public sealed class Core;
 
+public enum TagType
+{
+    QoL,
+    T2014,
+    T2024
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class Tag : Attribute
+{
+    public TagType Type { get; set; }
+}
+
 [Serializable]
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
@@ -76,59 +89,60 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableEpicPointsAndArray { get; set; }
-    public bool EnableLevel20 { get; set; }
-    public bool EnableMulticlass { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableLevel20 { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; }
     public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
     public bool DisplayPactSlotsOnSpellSelectionPanel { get; set; }
     public bool EnableMinInOutAttributes { get; set; }
-    public bool EnableActionSwitching { get; set; }
-    public bool DontEndTurnAfterReady { get; set; }
-    public bool EnableProneAction { get; set; }
-    public bool EnableGrappleAction { get; set; }
-    public bool EnableHelpAction { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableActionSwitching { get; set; }
+    [Tag(Type = TagType.T2014)] public bool DontEndTurnAfterReady { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableProneAction { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableGrappleAction { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableHelpAction { get; set; }
     public bool EnableRespecAction { get; set; }
-    public bool EnableUnarmedMainAttackAction { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableUnarmedMainAttackAction { get; set; }
     public bool EnableUnlimitedInventoryActions { get; set; }
-    public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    [Tag(Type = TagType.T2014)] public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseAlternateSpellPointsSystem { get; set; }
-    public bool UseWeaponMasterySystem { get; set; }
-    public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
+    [Tag(Type = TagType.T2024)] public bool UseWeaponMasterySystem { get; set; }
+    [Tag(Type = TagType.T2024)] public bool UseWeaponMasterySystemAddWeaponTag { get; set; }
     public bool UseWeaponMasterySystemAddCleaveDamage { get; set; }
+    public bool UseWeaponMasterySystemFlurryTriggersMastery { get; set; }
+    public bool UseWeaponMasterySystemNickExtraAttackTriggersMastery { get; set; }
     public bool UseWeaponMasterySystemPushSave { get; set; }
-    public bool UseWeaponMasterySystemHideToggles { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
-    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
-    public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
-    public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
-    public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
+    [Tag(Type = TagType.T2014)] public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+    [Tag(Type = TagType.T2014)] public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
     public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }
-    public bool OfficialObscurementRulesTweakMonsters { get; set; }
-    public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
-    public bool StealthDoesNotBreakWithSubtle { get; set; }
-    public bool StealthBreaksWhenAttackHits { get; set; }
-    public bool StealthBreaksWhenAttackMisses { get; set; }
+    [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesTweakMonsters { get; set; }
+    [Tag(Type = TagType.T2014)] public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthDoesNotBreakWithSubtle { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenAttackHits { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool StealthBreaksWhenCastingMaterial { get; set; }
-    public bool StealthBreaksWhenCastingVerbose { get; set; }
+    [Tag(Type = TagType.T2014)] public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
-    public bool AccountForAllDiceOnSavageAttack { get; set; }
-    public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
-    public bool EnemiesAlwaysRollInitiative { get; set; }
+    [Tag(Type = TagType.T2014)] public bool AccountForAllDiceOnSavageAttack { get; set; }
+    [Tag(Type = TagType.T2014)] public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnemiesAlwaysRollInitiative { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }
-    public bool EnablePullPushOnVerticalDirection { get; set; }
-    public bool FullyControlConjurations { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnablePullPushOnVerticalDirection { get; set; }
+    [Tag(Type = TagType.T2014)] public bool FullyControlConjurations { get; set; }
     public bool EnableHigherGroundRules { get; set; }
-    public bool EnableSurprisedToEnforceDisadvantage { get; set; }
-    public bool EnableTeleportToRemoveRestrained { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSurprisedToEnforceDisadvantage { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableTeleportToRemoveRestrained { get; set; }
     public bool EnableCharactersOnFireToEmitLight { get; set; }
-    public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
-    public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
+    [Tag(Type = TagType.T2014)] public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
+    [Tag(Type = TagType.T2014)] public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
     public int SenseNormalVisionRangeMultiplier { get; set; } = 1;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
@@ -146,7 +160,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public bool AddPickPocketableLoot { get; set; }
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
-    public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableSpeech { get; set; }
@@ -154,17 +168,18 @@ public class Settings : UnityModManager.ModSettings
     public bool ForceModSpeechOnNpcs { get; set; }
     public int SpeechChoice { get; set; }
     public SerializableDictionary<int, (string, float)> SpeechVoices { get; set; } = [];
+    public float SpeechVolume { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }
-    public bool AllowMoreRealStateOnRestPanel { get; set; }
-    public bool EnableStatsOnHeroTooltip { get; set; }
+    [Tag(Type = TagType.QoL)] public bool AllowMoreRealStateOnRestPanel { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-    public bool ShowButtonWithControlledMonsterInfo { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
@@ -176,8 +191,8 @@ public class Settings : UnityModManager.ModSettings
     public int MovementGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthSpeed { get; set; } = 100;
-    public bool EnableDistanceOnTooltip { get; set; }
-    public bool ShowMotionFormPreview { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableDistanceOnTooltip { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ShowMotionFormPreview { get; set; }
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
 
@@ -209,7 +224,7 @@ public class Settings : UnityModManager.ModSettings
     ];
 
     // Merchants
-    public bool ScaleMerchantPricesCorrectly { get; set; }
+    [Tag(Type = TagType.QoL)] public bool ScaleMerchantPricesCorrectly { get; set; }
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
     public bool StockHugoStoreWithAdditionalFoci { get; set; }
     public bool StockGorimStoreWithAllNonMagicalInstruments { get; set; }
@@ -229,18 +244,20 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveAttunementRequirements { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowClubsToBeThrown { get; set; }
-    public bool UseOfficialFoodRationsWeight { get; set; }
+    [Tag(Type = TagType.T2014)] public bool UseOfficialFoodRationsWeight { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public bool FixRingOfRegenerationHealRate { get; set; }
+    [Tag(Type = TagType.T2014)] public bool FixRingOfRegenerationHealRate { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool EnablePotionsBonusAction2024 { get; set; }
-    public bool EnablePoisonsBonusAction2024 { get; set; }
+
+    [Tag(Type = TagType.T2024)] public bool EnablePotionsBonusAction2024 { get; set; }
+
+    [Tag(Type = TagType.T2024)] public bool EnablePoisonsBonusAction2024 { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
-    public bool EnableInventoryFilteringAndSorting { get; set; }
-    public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
-    public bool EnableInventoryTintKnownRecipesRed { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryFilteringAndSorting { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    [Tag(Type = TagType.QoL)] public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableStackableAxesAndDaggers { get; set; }
     public bool EnableStackableArtItems { get; set; }
     public bool EnableVersatileAmmunitionSlots { get; set; }
@@ -275,97 +292,98 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableBardScimitarSpecialization { get; set; }
-    public bool EnableBardicInspiration2024 { get; set; }
-    public bool EnableBardCounterCharm2024 { get; set; }
-    public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
-    public bool EnableBardSuperiorInspiration2024 { get; set; }
-    public bool EnableBardWordsOfCreation2024 { get; set; }
-    public bool EnableBardMagicalSecrets2024 { get; set; }
-    public bool RemoveBardSongOfRest2024 { get; set; }
-    public bool EnableBarbarianBrutalStrike2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardicInspiration2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardCounterCharm2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardExpertiseOneLevelBefore2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardSuperiorInspiration2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardWordsOfCreation2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBardMagicalSecrets2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool RemoveBardSongOfRest2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianBrutalStrike2024 { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableBarbarianInstinctivePounce2024 { get; set; }
-    public bool EnableBarbarianPersistentRage2024 { get; set; }
-    public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
-    public bool EnableBarbarianReckless2024 { get; set; }
-    public bool EnableBarbarianRage2024 { get; set; }
-    public bool EnableBarbarianRelentlessRage2024 { get; set; }
-    public bool EnableClericBlessedStrikes2024 { get; set; }
-    public bool EnableClericChannelDivinity2024 { get; set; }
-    public bool EnableClericDivineOrder2024 { get; set; }
-    public bool EnableClericSearUndead2024 { get; set; }
-    public bool EnableClericToLearnDomainAtLevel3 { get; set; }
-    public bool EnableDruidArchDruid2024 { get; set; }
-    public bool EnableDruidToLearnCircleAtLevel3 { get; set; }
-    public bool EnableDruidElementalFury2024 { get; set; }
-    public bool EnableDruidMetalArmor2024 { get; set; }
-    public bool EnableDruidPrimalOrder2024 { get; set; }
-    public bool EnableDruidWeaponProficiency2024 { get; set; }
-    public bool EnableDruidWildResurgence2024 { get; set; }
-    public bool EnableDruidWildshape2024 { get; set; }
-    public bool EnableFighterIndomitableSaving2024 { get; set; }
-    public bool EnableFighterSkillOptions2024 { get; set; }
-    public bool EnableFighterSecondWind2024 { get; set; }
-    public bool EnableFighterStudiedAttacks2024 { get; set; }
-    public bool EnableFighterTacticalMaster2024 { get; set; }
-    public bool EnableFighterTacticalProgression2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianInstinctivePounce2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianPersistentRage2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianPrimalKnowledge2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianReckless2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianRage2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableBarbarianRelentlessRage2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableClericBlessedStrikes2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableClericChannelDivinity2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableClericDivineOrder2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableClericSearUndead2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableClericToLearnDomainAtLevel3 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidArchDruid2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidToLearnCircleAtLevel3 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidElementalFury2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidMetalArmor2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidPrimalOrder2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidWeaponProficiency2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidWildResurgence2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableDruidWildshape2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterIndomitableSaving2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterSkillOptions2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterSecondWind2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterStudiedAttacks2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterTacticalMaster2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableFighterTacticalProgression2024 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
-    public bool EnableMonkBodyAndMind2024 { get; set; }
-    public bool EnableMonkDeflectAttacks2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkBodyAndMind2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkDeflectAttacks2024 { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkHandwrapsOnGauntletSlot { get; set; }
-    public bool EnableMonkHeightenedFocus2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkHeightenedFocus2024 { get; set; }
     public bool EnableMonkImprovedUnarmoredMovement { get; set; }
-    public bool EnableMonkSelfRestoration2024 { get; set; }
-    public bool EnableMonkSuperiorDefense2024 { get; set; }
-    public bool EnableMonkUncannyMetabolism2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkSelfRestoration2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkSuperiorDefense2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkUncannyMetabolism2024 { get; set; }
     public bool EnableMonkKatanaSpecialization { get; set; }
-    public bool EnableMonkFocus2024 { get; set; }
-    public bool EnableMonkMartialArts2024 { get; set; }
-    public bool EnableMonkStunningStrike2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkFocus2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkMartialArts2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMonkStunningStrike2024 { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool EnablePaladinAbjureFoes2024 { get; set; }
-    public bool EnablePaladinChannelDivinity2024 { get; set; }
-    public bool EnablePaladinLayOnHands2024 { get; set; }
-    public bool EnablePaladinRestoringTouch2024 { get; set; }
-    public bool EnablePaladinSmite2024 { get; set; }
-    public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinAbjureFoes2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinChannelDivinity2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinLayOnHands2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinRechargeLv20Feature { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinRestoringTouch2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinSmite2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePaladinSpellCastingAtLevel1 { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
-    public bool EnableRangerDeftExplorer2024 { get; set; }
-    public bool EnableRangerExpertise2024 { get; set; }
-    public bool EnableRangerFavoredEnemy2024 { get; set; }
-    public bool EnableRangerNatureShroud2024 { get; set; }
-    public bool EnableRangerPreciseHunter2024 { get; set; }
-    public bool EnableRangerRelentlessHunter2024 { get; set; }
-    public bool EnableRangerRelentlessHunter2024AsNoConcentration { get; set; }
-    public bool EnableRangerRoving2024 { get; set; }
-    public bool EnableRangerSpellCastingAtLevel1 { get; set; }
-    public bool EnableRangerTireless2024 { get; set; }
-    public bool RemoveRangerPrimevalAwareness2024 { get; set; }
-    public bool EnableRangerFeralSenses2024 { get; set; }
-    public bool EnableRangerFoeSlayers2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerDeftExplorer2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerExpertise2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerFavoredEnemy2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerNatureShroud2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerPreciseHunter2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerRelentlessHunter2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerRelentlessHunter2024AsNoConcentration { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerRoving2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerSpellCastingAtLevel1 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerTireless2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool RemoveRangerPrimevalAwareness2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerFeralSenses2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRangerFoeSlayers2024 { get; set; }
     public bool EnableRogueScimitarSpecialization { get; set; }
-    public bool EnableRogueCunningStrike2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRogueCunningStrike2024 { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
-    public bool EnableRogueReliableTalent2024 { get; set; }
-    public bool EnableRogueSlipperyMind2024 { get; set; }
-    public bool EnableRogueSteadyAim2024 { get; set; }
-    public bool RemoveRogueBlindSense2024 { get; set; }
-    public bool EnableSorcererArcaneApotheosis2024 { get; set; }
-    public bool EnableSorcererInnateSorcery2024 { get; set; }
-    public bool EnableSorcererMagicalGuidance { get; set; }
-    public bool EnableSorcererQuickenedAction { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRogueReliableTalent2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRogueSlipperyMind2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRogueSteadyAim2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool RemoveRogueBlindSense2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSorcererArcaneApotheosis2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSorcererInnateSorcery2024 { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableSorcererMagicalGuidance { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableSorcererQuickenedAction { get; set; }
     public bool HideQuickenedActionWhenMetamagicOff { get; set; }
-    public bool EnableSorcererSorcerousRestoration2024 { get; set; }
-    public bool EnableSorcererMetamagic2024 { get; set; }
-    public bool EnableSorcererOrigin2024 { get; set; }
-    public bool EnableWarlockInvocationProgression2024 { get; set; }
-    public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
-    public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
-    public bool EnableWizardMemorizeSpell2024 { get; set; }
-    public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
-    public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSorcererSorcerousRestoration2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSorcererMetamagic2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableSorcererOrigin2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWarlockInvocationProgression2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWarlockMagicalCunningAndImprovedEldritchMaster2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWarlockToLearnPatronAtLevel3 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWizardMemorizeSpell2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWizardToLearnScholarAtLevel2 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableWizardToLearnSchoolAtLevel3 { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
 
     //
@@ -375,12 +393,12 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
-    public bool EnableAlternateHuman { get; set; }
-    public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableAlternateHuman { get; set; }
+    [Tag(Type = TagType.T2014)] public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
-    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
+    [Tag(Type = TagType.T2014)] public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = [];
     public int SubraceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -399,7 +417,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool AccountForAllDiceOnFollowUpStrike { get; set; }
+    [Tag(Type = TagType.T2014)] public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AllowCantripsTriggeringOnWarMagic { get; set; }
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatEnabled { get; } = [];
@@ -417,35 +435,35 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowBladeCantripsToUseReach { get; set; }
-    public bool EnablePreparedSpellsTables2024 { get; set; }
-    public bool EnableRitualOnAllCasters2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnablePreparedSpellsTables2024 { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableRitualOnAllCasters2024 { get; set; }
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-    public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
+    [Tag(Type = TagType.T2014)] public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
-    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
+    [Tag(Type = TagType.T2014)] public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
+    [Tag(Type = TagType.T2014)] public bool RemoveRecurringEffectOnEntangle { get; set; }
     public bool EnableUpcastConjureElementalAndFey { get; set; }
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool ChangeSleetStormToCube { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
-    public bool FixEldritchBlastRange { get; set; }
+    [Tag(Type = TagType.T2014)] public bool FixEldritchBlastRange { get; set; }
     public bool ModifyGravitySlam { get; set; }
-    public bool EnableOneDndBarkskinSpell { get; set; }
-    public bool EnableOneDndDamagingSpellsUpgrade { get; set; }
-    public bool EnableOneDndHealingSpellsUpgrade { get; set; }
-    public bool EnableOneDndDivineFavorSpell { get; set; }
-    public bool EnableOneDndGuidanceSpell { get; set; }
-    public bool EnableOneDndHideousLaughterSpell { get; set; }
-    public bool EnableOneDndHuntersMarkSpell { get; set; }
-    public bool EnableOneDndLesserRestorationSpell { get; set; }
-    public bool EnableOneDndMagicWeaponSpell { get; set; }
-    public bool EnableOneDndPowerWordStunSpell { get; set; }
-    public bool EnableOneDndSpareTheDyingSpell { get; set; }
-    public bool EnableOneDndSpiderClimbSpell { get; set; }
-    public bool EnableOneDndStoneSkinSpell { get; set; }
-    public bool EnableOneDndTrueStrikeCantrip { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndBarkskinSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndDamagingSpellsUpgrade { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndHealingSpellsUpgrade { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndDivineFavorSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndGuidanceSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndHideousLaughterSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndHuntersMarkSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndLesserRestorationSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndMagicWeaponSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndPowerWordStunSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndSpareTheDyingSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndSpiderClimbSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndStoneSkinSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableOneDndTrueStrikeCantrip { get; set; }
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableRelearnSpells { get; set; }
@@ -460,15 +478,16 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness { get; set; }
-    public bool EnableBardHealingBalladOnLongRest { get; set; }
+    [Tag(Type = TagType.T2014)] public bool EnableBardHealingBalladOnLongRest { get; set; }
     public bool EnableBg3AbjurationArcaneWard { get; set; }
     public bool EnableRogueStrSaving { get; set; }
     public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
     public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public int WildSurgeDieRollThreshold { get; set; } = 2;
-    public bool SwapAbjurationSavant { get; set; }
-    public bool SwapEvocationSavant { get; set; }
-    public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool SwapAbjurationSavant { get; set; }
+    [Tag(Type = TagType.T2024)] public bool SwapEvocationSavant { get; set; }
+    [Tag(Type = TagType.T2024)] public bool SwapEvocationPotentCantripAndSculptSpell { get; set; }
+    [Tag(Type = TagType.T2024)] public bool EnableMartialChampion2024 { get; set; }
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 

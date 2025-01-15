@@ -10,10 +10,17 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [
-    9086
+  "forbiddenActions": [
+    "CastBonus",
+    "DashBonus",
+    "DisengageBonus",
+    "HideBonus",
+    "PowerBonus",
+    "UseItemBonus",
+    "AssignTargetBonus",
+    "ShoveBonus"
   ],
+  "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -22,9 +29,9 @@
   "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&FeatureWeaponMasteryCleaveTitle",
-    "description": "Feature/&FeatureWeaponMasteryCleaveDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -44,7 +51,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90ea350c-c704-5358-bb25-8ad409c09188",
+  "guid": "b0ffa055-f1ea-5daa-817b-542f1da938b0",
   "contentPack": 9999,
-  "name": "FeatureWeaponMasteryCleave"
+  "name": "ActionAffinityWeaponMasteryDenyAllBonusButAttack"
 }

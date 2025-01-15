@@ -1383,7 +1383,8 @@ internal static partial class SpellBuilders
             GameLocationCharacter opponent,
             string spellCastingAbility,
             ActionDefinitions.Id actionId,
-            AbilityCheckData abilityCheckData)
+            AbilityCheckData abilityCheckData,
+            AbilityCheckData opponentAbilityCheckData)
         {
             var actionModifier1 = new ActionModifier();
             var actionModifier2 = new ActionModifier();
@@ -1449,7 +1450,8 @@ internal static partial class SpellBuilders
                 string.Empty,
                 actionModifier2.AbilityCheckAdvantageTrends,
                 actionModifier2.AbilityCheckModifierTrends,
-                abilityCheckData);
+                abilityCheckData,
+                opponentAbilityCheckData);
         }
 
         private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
@@ -1466,13 +1468,16 @@ internal static partial class SpellBuilders
             if (isEnemy)
             {
                 var abilityCheckData = new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
+                var opponentAbilityCheckData =
+                    new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier() };
                 var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
                     .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
                     // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
                     .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
 
                 yield return ResolveRolls(
-                    actingCharacter, targetCharacter, spellCastingAbility, action.ActionId, abilityCheckData);
+                    actingCharacter, targetCharacter, spellCastingAbility, action.ActionId,
+                    abilityCheckData, opponentAbilityCheckData);
 
                 if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
                 {

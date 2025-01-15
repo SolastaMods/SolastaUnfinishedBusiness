@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=Chromatic Infusion d
 Feedback/&FeatBrawlerReroll={0} uses Brawler to reroll a {1} damage die from {2} to {3}.
 Feedback/&FeatElementalAdeptReroll={0} uses Elemental Adept to reroll a {1} attack roll die from {2} to {3}.
 Feedback/&FeatElementalMasterReroll={0} uses Elemental Master to reroll a {1} attack roll die from {2} to {3}.
+Feedback/&IsLower={0} rolled a lower {2} to replace a {3}.
 Feedback/&IsNotLuckyHigher={0} isn't lucky at all, rolling a higher {2} to replace a {3}.
 Feedback/&IsNotLuckyLower={0} isn't lucky at all, rolling a lower {2} to replace a {3}.
 Feedback/&LuckyAttackToHitRoll={0} used {1} and rolls a {2} to replace {3} on the attack roll

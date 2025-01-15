@@ -107,7 +107,7 @@ internal static class RulesetCharacterHeroExtensions
             return;
         }
 
-        var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == selectedClass);
+        var spellRepertoire = hero.GetClassSpellRepertoire(selectedClass);
 
         foreach (var spell in spells)
         {

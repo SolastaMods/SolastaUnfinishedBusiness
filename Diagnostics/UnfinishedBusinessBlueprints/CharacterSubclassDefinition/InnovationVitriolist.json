@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationVitriolist:44d89659-ea50-5c53-8972-1245e03db900",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureInnovationVitriolistParagon:a37b435a-22b1-504e-bb25-80b766059ecb",
       "level": 15
     }

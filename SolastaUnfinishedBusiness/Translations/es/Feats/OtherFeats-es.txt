@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=¡La infusión crom�
 Feedback/&FeatBrawlerReroll=Cuando realizas un ataque desarmado, puedes repetir cualquier 1 en los dados de daño que tires como parte de ese ataque y debes aceptar el nuevo resultado.
 Feedback/&FeatElementalAdeptReroll={0} usa Adepto Elemental para repetir un dado de ataque {1} de {2} a {3}.
 Feedback/&FeatElementalMasterReroll={0} usa Maestro elemental para repetir un dado de ataque {1} de {2} a {3}.
+Feedback/&IsLower={0} hizo rodar un {2} inferior para reemplazar un {3}.
 Feedback/&IsNotLuckyHigher={0} no tiene suerte en absoluto, ya que obtiene un {2} más alto para reemplazar un {3}.
 Feedback/&IsNotLuckyLower={0} no tiene suerte en absoluto, ya que obtiene un {2} más bajo para reemplazar un {3}.
 Feedback/&LuckyAttackToHitRoll={0} usó {1} y lanza un {2} para reemplazar a {3} en la tirada de ataque

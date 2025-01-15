@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=Chromatic Infusion�
 Feedback/&FeatBrawlerReroll=素手攻撃を行う場合、その攻撃の一部としてロールしたダメージ ダイスの 1 を再ロールすることができ、新しい結果を使用する必要があります。
 Feedback/&FeatElementalAdeptReroll={0} はエレメンタル アデプトを使用して、{1} 攻撃ロール ダイスを {2} から {3} に再ロールします。
 Feedback/&FeatElementalMasterReroll={0}はエレメンタルマスターを使用して、{1}攻撃ロールダイスを{2}から{3}に再ロールします。
+Feedback/&IsLower={0} は {3} の代わりに低い {2} をロールしました。
 Feedback/&IsNotLuckyHigher={0} はまったく幸運ではありません。{3} の代わりに、より高い {2} をロールします。
 Feedback/&IsNotLuckyLower={0} はまったく幸運ではありません。低い {2} を出して {3} を置き換えます。
 Feedback/&LuckyAttackToHitRoll={0} は {1} を使用し、アタックロールで {3} を置き換えるために {2} をロールしました。

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -24,31 +23,50 @@ public sealed class MartialTactician : AbstractSubclass
 
     public MartialTactician()
     {
-        var unlearn = BuildUnlearn();
-
-        var gambitPoolIncrease2 = BuildGambitPoolIncrease(2, "ImproviseStrategy");
-
-        // kept name for backward compatibility
-        var gambitPoolIncrease = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureImproviseStrategy")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool2", Category.Feature)
-            .AddFeatureSet(gambitPoolIncrease2)
+        // kept for backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianHonedCraft")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatureSet(
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolTacticianSharpMindExpertise")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                    .AddToDB())
             .AddToDB();
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianBattleClarity")
+            .SetGuiPresentationNoContent(true)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetFeatureSet(
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
+            .AddToDB();
+
+        var unlearn = BuildUnlearn();
+        var initialPool = BuildGambitPoolIncrease(4, Name);
+        var gambitPoolIncrease = BuildGambitPoolIncrease(2, "ImproviseStrategy");
+
+        initialPool.GuiPresentation.hidden = true;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3, BuildSharpMind(), BuildGambitPoolIncrease(4, Name),
+            .AddFeaturesAtLevel(3, BuildSharpMind(), initialPool,
                 GambitsBuilders.Learn3Gambit,
                 GambitsBuilders.GambitPool)
-            .AddFeaturesAtLevel(7, BuildHonedCraft(), BuildGambitPoolIncrease(),
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(10, BuildGambitDieSize(DieType.D10),
                 gambitPoolIncrease,
                 unlearn)
-            .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(18, BuildTacticalAwareness(), BuildGambitDieSize(DieType.D12),
@@ -81,46 +99,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildHonedCraft()
-    {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTacticianHonedCraft")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                FeatureDefinitionPointPoolBuilder
-                    .Create("PointPoolTacticianSharpMindExpertise")
-                    .SetGuiPresentationNoContent()
-                    .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionFeatureSet BuildBattleClarity()
-    {
-        var features = new FeatureDefinition[]
-        {
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
-            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta
-        };
-
-        foreach (var feature in features.OfType<FeatureDefinitionSavingThrowAffinity>())
-        {
-            var term = $"Attribute/&{feature.affinityGroups[0].abilityScoreName}TitleLong";
-
-            feature.GuiPresentation.title = term;
-            feature.GuiPresentation.description = term;
-        }
-
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTacticianBattleClarity")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(features)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionPowerUseModifier BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -132,9 +110,11 @@ public sealed class MartialTactician : AbstractSubclass
 
     internal static FeatureDefinition BuildGambitPoolIncrease(int number, string name)
     {
+        var tag = number > 1 ? "2" : string.Empty;
+
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierTacticianGambitPool{name}")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
+            .SetGuiPresentation($"PowerUseModifierTacticianGambitPool{tag}", Category.Feature)
             .SetFixedValue(GambitsBuilders.GambitPool, number)
             .AddToDB();
     }

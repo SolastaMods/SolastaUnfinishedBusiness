@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Background e razze
 ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conferisci Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color> o <color=#D89555>Invisibile</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Non abilitare attacchi di opportunità quando <color=#D89555>Accecato</color> o se il bersaglio è <color=#D89555>Invisibile</color>
 ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=Campagne
 ModUi/&Category=Categoria
@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Abilita <color=#D89555>True Strike</color> 
 ModUi/&EnablePaladinAbjureFoes2024=Abilita <color=#D89555>Abjura i nemici</color> al livello 9
 ModUi/&EnablePaladinChannelDivinity2024=Sostituisci <color=#D89555>Canale Divinità</color> con la versione 5e 2024 <i><color=#F0DAA0>[usi diversi]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Sostituisci <color=#D89555>Imposizione delle mani</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Abilita i poteri della sottoclasse di <color=#D89555>livello 20</color> per ricaricarsi con uno slot di livello 5
 ModUi/&EnablePaladinRestoringTouch2024=Abilita <color=#D89555>Ripristino del tocco</color> per sostituire <color=#D89555>Tocco purificatore</color> al livello 14
 ModUi/&EnablePaladinSmite2024=Sostituisci <color=#D89555>Colpo divino</color> con la versione 5e 2024 <i><color=#F0DAA0>[azione bonus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Abilita <color=#D89555>lancio di incantesimi</color> al livello 1 invece che 2
@@ -303,6 +304,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Segna anche la posizione dei tele
 ModUi/&MaxAllowedClasses=<color=white>Numero massimo di classi consentite</color>
 ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
+ModUi/&ModQoL=<b><color=#D89555>Abilita impostazioni QoL</color></b>
 ModUi/&ModifyGravitySlam=Modifica l'incantesimo <color=#D89555>Gravity Slam</color> per tirare verso il basso i bersagli colpiti e trasformarlo in un cilindro anziché in una sfera\n<i><color=#F0DAA0>[richiede che gli effetti di movimento <color=#D89555>spinta e trazione funzionino sull'asse su/giù</color> abilitati]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spende gli slot incantesimo bianchi e gli altri spendono quelli verdi del patto]</color></i>
@@ -368,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in to
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&ShowMotionFormPreview=Mostra l'anteprima degli effetti <b>Push</b> e <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificatore velocità narrazione</color> <i><color=#F0DAA0>[più basso è più veloce]</color></i>
+ModUi/&SpeechVolume=<color=white>Volume narrazione</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
 ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando un attacco con arma o incantesimo colpisce
@@ -385,9 +388,12 @@ ModUi/&SwapAbjurationSavant=Sostituisci <b>Abjurer</b> <color=#D89555>Savant del
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Sostituisci <b>Evocatore</b> <color=#D89555>Incantesimi di Scultura</color> e <color=#D89555>Trucchetto Potente</color> durante la progressione
 ModUi/&SwapEvocationSavant=Sostituisci <b>Evocatore</b> <color=#D89555>Sapiente dell'evocazione</color> con la versione 5e 2024 <i><color=#F0DAA0>[impara 2 incantesimi della scuola quando acquisiti, imparane 1 in più ogni volta che guadagni un livello slot]</color></i>
+ModUi/&SwapMartialChampion=Sostituisci <b>Campione Marziale</b> con la versione 5e 2024
+ModUi/&TableTop2014=<b><color=#D89555>Abilita le regole del 2014</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>Abilita le regole del 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Seleziona contenuto Tabletop</color></b>
 ModUi/&TableTopHelp1=• Le sezioni seguenti raggruppano e duplicano le impostazioni <color=#D89555>5e 2014 e 2024</color> sparse nella mod per la tua comodità
-ModUi/&TableTopHelp2=• Premi il pulsante per selezionare solo il contenuto del tavolo nella scheda Personaggio e seleziona tutte le opzioni sottostanti per una vera esperienza TT
+ModUi/&TableTopHelp2=• Premi i pulsanti per <b>selezionare solo i contenuti del tavolo nella scheda Personaggio</b> e <b>abilitare le regole del 2014 e/o del 2024</b>, per una vera esperienza TT
 ModUi/&Tabletop=<color=#F0DAA0>Da tavolo <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
@@ -416,6 +422,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Abilita le <color=#D89555>razze 
 ModUi/&UseWeaponMasterySystem=Abilita le regole <color=#D89555>Padronanza delle armi</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ La maestria di Cleave aggiunge il modificatore del punteggio attributo al danno del secondo attacco</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Aggiungi tag di maestria a tutte le armi del gioco</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ Nascondi la barra delle azioni di Padronanza delle armi/Maestro tattico si attiva ogni volta che l'eroe non conosce la proprietà dell'arma impugnata</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ L'attacco extra Dual Flurry può innescare un'altra maestria</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ L'attacco extra di Nick Mastery può innescare un'altra maestria</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La padronanza della spinta richiede che la creatura effettui un tiro salvezza su Forza (CD 8 + modificatore di caratteristica del tiro per colpire + bonus di competenza)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Imposta la soglia di probabilità di dado <color=#D89555>Magia selvaggia dello stregone</color>:</color>\n<i><color=#F0DAA0>[L'ondata selvaggia si innesca se i tiri sono inferiori o uguali alla soglia]</color></i>

@@ -17,6 +17,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class TwoWeaponCombatFeats
 {
+    internal const string DualFlurryAttackMark = "DualFlurryAttackMark";
     internal const string DualFlurryTriggerMark = "DualFlurryTriggerMark";
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
@@ -84,6 +85,13 @@ internal static class TwoWeaponCombatFeats
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var attackModeWeapon = attackMode.SourceDefinition as ItemDefinition;
+            var offhandWeapon = rulesetAttacker.GetOffhandWeapon()?.ItemDefinition;
+
+            if (attackModeWeapon != offhandWeapon)
+            {
+                yield break;
+            }
 
             if ((action.ActionType != ActionType.Bonus &&
                  !attackMode.AttackTags.Contains(DualFlurryTriggerMark)) ||
@@ -94,13 +102,23 @@ internal static class TwoWeaponCombatFeats
                 yield break;
             }
 
-            attackMode.AttackTags.Remove(DualFlurryTriggerMark);
+            var actionModifier = new ActionModifier
+            {
+                proximity = attacker.IsWithinRange(defender, attackMode.reachRange)
+                    ? AttackProximity.Melee
+                    : AttackProximity.Range
+            };
+
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.AddAttackTagAsNeeded(DualFlurryAttackMark);
             rulesetAttacker.LogCharacterUsedFeature(feature);
             attacker.MyExecuteActionAttack(
                 Id.AttackFree,
                 defender,
-                attackMode,
-                new ActionModifier());
+                attackModeCopy,
+                actionModifier);
         }
     }
 }

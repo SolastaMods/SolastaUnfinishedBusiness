@@ -1,20 +1,10 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerUseModifierTacticianGambitPoolImproviseStrategy:18ec73c9-8c06-5ef8-b4c9-9aba6a7e649f"
-  ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerUseModifierTacticianGambitPool2Title",
-    "description": "Feature/&PowerUseModifierTacticianGambitPool2Description",
+    "title": "Feature/&FeatureWeaponMasteryCleaveTitle",
+    "description": "Feature/&FeatureWeaponMasteryCleaveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "619b0594-2816-595d-a7fc-8656266ac307",
+  "guid": "90ea350c-c704-5358-bb25-8ad409c09188",
   "contentPack": 9999,
-  "name": "FeatureImproviseStrategy"
+  "name": "FeatureWeaponMasteryCleave"
 }

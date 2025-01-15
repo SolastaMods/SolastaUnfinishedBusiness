@@ -28,6 +28,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationWeapon:c59c695e-8b48-5bfa-905c-c54ea902e518",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInnovationWeaponImprovedDefender:ecf1f27e-124f-5fc2-827c-cae59901d7d3",
       "level": 15
     }

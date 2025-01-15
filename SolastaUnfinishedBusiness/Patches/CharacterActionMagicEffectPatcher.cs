@@ -1263,9 +1263,11 @@ public static class CharacterActionMagicEffectPatcher
 
             var abilityCheckData =
                 new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = __instance };
+            var opponentAbilityCheckData =
+                new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = __instance };
 
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData);
+                actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData, opponentAbilityCheckData);
 
             __instance.successfulShove =
                 abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;

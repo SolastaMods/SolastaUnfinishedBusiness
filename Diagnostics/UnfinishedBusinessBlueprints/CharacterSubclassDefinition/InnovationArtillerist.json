@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSpellStoringItemInnovationArtillerist:fa59f04f-c6ed-5f14-b1f3-437ba265fa02",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInnovationArtilleristFortifiedPosition:845a6e15-8919-5c56-b845-ae4ff3d76c91",
       "level": 15
     }

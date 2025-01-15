@@ -508,6 +508,7 @@ internal static partial class SpellBuilders
             .Create($"ActionAffinity{NAME}NoReaction")
             .SetGuiPresentationNoContent(true)
             .SetAllowedActionTypes(reaction: false)
+            .SetForbiddenActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DashMain)
             .AddToDB();
 
         var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
@@ -516,9 +517,8 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityPsychicWhipNoReaction)
+            .AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove())
             .AddToDB();
-
-        conditionPsychicWhipNoReaction.AddCustomSubFeatures(new ActionFinishedByMeCheckBonusOrMainOrMove());
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景与种族
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=动物寓言集
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=使用 L5+ 法术位施放<color=#D89555>施放诅咒</color>时不需要集中注意力
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=在<color=#D89555>失明</color>或<color=#D89555>隐形</color>时不会启用借机攻击
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=当目标<color=#D89555>失明</color>或<color=#D89555>隐形</color>时，无法进行借机攻击
 ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=活动
 ModUi/&Category=类别
@@ -188,6 +188,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=启用 <color=#D89555>True Strike</color> 5
 ModUi/&EnablePaladinAbjureFoes2024=在 9 级时启用<color=#D89555>Abjure Foes</color>
 ModUi/&EnablePaladinChannelDivinity2024=将 <color=#D89555>Channel Divinity</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[不同用法]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=将<color=#D89555>圣疗术</color>与 5e 2024 版本交换<i><color=#F0DAA0>[奖励行动]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=启用 <color=#D89555>20 级</color> 子类能力，以使用 5 级槽位进行充电
 ModUi/&EnablePaladinRestoringTouch2024=在第 14 级启用<color=#D89555>恢复之触</color>来替换<color=#D89555>清洁之触</color>
 ModUi/&EnablePaladinSmite2024=将<color=#D89555>Divine Smite</color>与 5e 2024 版本交换<i><color=#F0DAA0>[奖励行动]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=在 1 级（而非 2 级）启用<color=#D89555>施法</color>
@@ -303,6 +304,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 发现后也在关卡地图上标
 ModUi/&MaxAllowedClasses=<color=white>最大允许类别</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔法</color>
+ModUi/&ModQoL=<b><color=#D89555>启用 QoL 设置</color></b>
 ModUi/&ModifyGravitySlam=修改<color=#D89555>重力猛击</color>法术，将受影响的目标拉下，并将其变为圆柱体而不是球体\n<i><color=#F0DAA0>[需要启用<color=#D89555>推拉运动效果才能在上/下轴上工作</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 点击一个法术会反转所消耗的默认法术槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color> 消耗白色法术槽，其他人消耗契约绿色法术槽]</color></i>
@@ -368,6 +370,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制
 ModUi/&ShowDescriptions=显示描述
 ModUi/&ShowMotionFormPreview=显示<b>推</b>和<b>拉</b>效果的预览
 ModUi/&SpeechScale=<color=white>叙述速度调节器</color> <i><color=#F0DAA0>[速度越低越快]</color></i>
+ModUi/&SpeechVolume=<color=white>旁白音量</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color> <color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
 ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时，隐身效果消失
@@ -385,9 +388,12 @@ ModUi/&SwapAbjurationSavant=将<b>Abjurer</b> <color=#D89555>Abjuration Savant</
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 在商店中交换配方和制作物品图标</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=在进度中交换<b>召唤师</b> <color=#D89555>塑形法术</color>和<color=#D89555>强效戏法</color>
 ModUi/&SwapEvocationSavant=将<b>Evoker</b> <color=#D89555>Evocation Savant</color> 与 5e 2024 版本交换<i><color=#F0DAA0>[获得时学习 2 个学校法术，每次获得一个插槽等级时再学习 1 个]</color></i>
+ModUi/&SwapMartialChampion=将<b>武术冠军</b>与5e 2024版本交换
+ModUi/&TableTop2014=<b><color=#D89555>启用 2014 规则</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>启用 2024 规则</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>选择桌面内容</color></b>
 ModUi/&TableTopHelp1=• 以下部分重新分组并复制了分散在模块中的 <color=#D89555>5e 2014 和 2024</color> 设置，以方便您使用
-ModUi/&TableTopHelp2=• 按下按钮仅选择角色选项卡下的桌面内容，并选择以下所有选项以获得真正的 TT 体验
+ModUi/&TableTopHelp2=• 按下按钮<b>仅选择“角色”选项卡下的桌面内容</b>，并<b>启用 2014 和/或 2024 规则</b>，以获得真正的 TT 体验
 ModUi/&Tabletop=<color=#F0DAA0>桌面<i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=目标语言
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
@@ -416,6 +422,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使<color=#D89555>小型种族</
 ModUi/&UseWeaponMasterySystem=启用<color=#D89555>武器精通</color>规则
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 顺劈斩精通为第二次攻击伤害添加属性分数修正</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 为所有游戏武器添加精通标签</i>
-ModUi/&UseWeaponMasterySystemHideToggles=<i>+ 当英雄不知道所持武器属性时，隐藏武器精通/战术大师动作栏切换</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ 双重乱舞额外攻击可以触发另一项精通</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ 尼克精通额外攻击可以触发另一项精通</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ 推击精通要求生物进行力量豁免检定（DC 8 + 攻击检定能力修正值 + 熟练加值）</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>设置<color=#D89555>巫师狂野魔法</color>几率骰子阈值：</color>\n<i><color=#F0DAA0>[如果掷出的骰子小于或等于阈值，则触发狂野涌动]</color></i>

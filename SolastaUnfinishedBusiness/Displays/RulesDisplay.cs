@@ -171,16 +171,24 @@ internal static class RulesDisplay
                 Main.Settings.UseWeaponMasterySystemAddCleaveDamage = toggle;
             }
 
+            toggle = Main.Settings.UseWeaponMasterySystemFlurryTriggersMastery;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemFlurryTriggersMastery"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemFlurryTriggersMastery = toggle;
+            }
+
+            toggle = Main.Settings.UseWeaponMasterySystemNickExtraAttackTriggersMastery;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseWeaponMasterySystemNickExtraAttackTriggersMastery = toggle;
+            }
+
             toggle = Main.Settings.UseWeaponMasterySystemPushSave;
             if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemPushSave"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UseWeaponMasterySystemPushSave = toggle;
-            }
-
-            toggle = Main.Settings.UseWeaponMasterySystemHideToggles;
-            if (UI.Toggle(Gui.Localize("ModUi/&UseWeaponMasterySystemHideToggles"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.UseWeaponMasterySystemHideToggles = toggle;
             }
         }
 
@@ -241,7 +249,6 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            Tabletop2014Context.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
