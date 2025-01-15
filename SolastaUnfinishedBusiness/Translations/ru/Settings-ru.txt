@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Предыстории и расы
 ModUi/&Basic=<color=#F0DAA0>Обычный:</color>
 ModUi/&Bestiary=Бестиарий
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Проклятие</color> не требует концентрации, когда наложено с помощью ячейки заклинания 5-го уровня и выше
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Отключить атаку по возможности в состоянии <color=#D89555>Ослеплён</color> или при <color=#D89555>Невидимости</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Не разрешать атаки по возможности, если <color=#D89555>ослеплен</color> или если цель <color=#D89555>невидима</color>
 ModUi/&Blueprints=Чертежи
 ModUi/&Campaigns=Кампании
 ModUi/&Category=Категория

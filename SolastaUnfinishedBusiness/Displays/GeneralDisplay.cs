@@ -1272,7 +1272,6 @@ internal static class ToolsDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            Tabletop2014Context.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
