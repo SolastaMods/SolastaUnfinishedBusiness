@@ -202,6 +202,7 @@ public static class GameLocationBattlePatcher
             }
 
             Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
+            Gui.GuiService.GetScreen<GameLocationScreenBattle>().initiativeTable.Refresh();
         }
     }
 
