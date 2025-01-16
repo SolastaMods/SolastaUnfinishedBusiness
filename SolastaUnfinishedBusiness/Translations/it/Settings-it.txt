@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Abilita l'azione <color=#D89555>Afferramento</color>
 ModUi/&EnableHelpAction=Abilita l'azione <color=#D89555>Aiuto</color> <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1 cella da te]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Abilita l'eroe con la migliore competenza a effettuare scelte di dialogo <i><color=#F0DAA0>[funziona ma le narrazioni sembrano strane nelle campagne ufficiali]</color></i>
 ModUi/&EnableHigherGroundRules=Abilita le regole <color=#D89555>terreno più alto</color> <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Abilita <color=#D89555>Tiri di iniziativa</color> a ogni inizio turno
 ModUi/&EnableInventoryFilteringAndSorting=Abilita il filtraggio e l'ordinamento dell'inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tingi di rosso qualsiasi oggetto con cui l'eroe non è competente
 ModUi/&EnableInventoryTintKnownRecipesRed=Tinta ricette note rosso

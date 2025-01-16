@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=<color=#D89555>Grapple</color> 액션을 활성화합
 ModUi/&EnableHelpAction=<color=#D89555>도움</color> 액션을 활성화합니다. <i><color=#F0DAA0>[당신은 1셀 이내의 생물을 공격하는 데 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=<color=#D89555>높은 곳</color> 규칙 활성화 <i><color=#F0DAA0>[높은 곳에서 공격 시 적중률 +1]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=매 턴 시작 시 <color=#D89555>이니셔티브 롤</color> 활성화
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
 ModUi/&EnableInventoryTaintNonProficientItemsRed=영웅이 능숙하지 않은 모든 아이템을 빨간색으로 칠합니다.
 ModUi/&EnableInventoryTintKnownRecipesRed=알려진 레시피를 빨간색으로 칠하다

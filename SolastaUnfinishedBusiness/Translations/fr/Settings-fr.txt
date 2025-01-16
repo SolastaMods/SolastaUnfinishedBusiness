@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Activer l'action <color=#D89555>Grappin</color>
 ModUi/&EnableHelpAction=Activer l'action <color=#D89555>Aider</color> <i><color=#F0DAA0>[vous pouvez aider une créature amicale à attaquer une créature à 1 cellule de vous]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permettre au héros le plus compétent de faire des choix de dialogue <i><color=#F0DAA0>[ça marche mais les narrations semblent étranges dans les campagnes officielles]</color></i>
 ModUi/&EnableHigherGroundRules=Activer les règles de <color=#D89555>terrain plus élevé</color> <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un terrain plus élevé]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Activez les <color=#D89555>jets d'initiative</color> au début de chaque tour
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Teindre en rouge tout objet que le héros ne maîtrise pas
 ModUi/&EnableInventoryTintKnownRecipesRed=Teinter les recettes connues en rouge

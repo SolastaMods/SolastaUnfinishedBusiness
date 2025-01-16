@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=启用<color=#D89555>抓钩</color>动作
 ModUi/&EnableHelpAction=启用<color=#D89555>帮助</color>操作<i><color=#F0DAA0>[你可以协助友方生物攻击你 1 个单元格范围内的生物]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=让技能熟练度最高的英雄进行对话选择<i><color=#F0DAA0>[这可行，但在官方活动中叙述看起来很奇怪]</color></i>
 ModUi/&EnableHigherGroundRules=启用<color=#D89555>高地</color>规则<i><color=#F0DAA0>[从高地进攻时 +1 命中]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=每次回合开始时启用<color=#D89555>主动掷骰</color>
 ModUi/&EnableInventoryFilteringAndSorting=启用库存过滤和排序
 ModUi/&EnableInventoryTaintNonProficientItemsRed=将英雄不熟练的任何物品染成红色
 ModUi/&EnableInventoryTintKnownRecipesRed=将已知食谱染成红色

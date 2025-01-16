@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Habilitar a ação <color=#D89555>Grapple</color>
 ModUi/&EnableHelpAction=Habilite a ação <color=#D89555>Ajudar</color> <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura dentro de 1 célula de você]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar regras de <color=#D89555>terreno mais alto</color> <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Habilitar <color=#D89555>Rolagens de Iniciativa</color> em cada início de turno
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tingir de vermelho qualquer item com o qual o herói não seja proficiente
 ModUi/&EnableInventoryTintKnownRecipesRed=Tingir receitas conhecidas de vermelho

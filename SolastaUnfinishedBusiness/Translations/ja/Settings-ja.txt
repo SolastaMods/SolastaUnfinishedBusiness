@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=<color=#D89555>グラップル</color>アクション
 ModUi/&EnableHelpAction=<color=#D89555>ヘルプ</color>アクションを有効にする <i><color=#F0DAA0>[1セル以内のクリーチャーを攻撃する友好的なクリーチャーを支援できます]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練度の高いヒーローが会話の選択肢をロールできるようにします <i><color=#F0DAA0>[機能しますが、公式キャンペーンではナレーションが奇妙に見えます]</color></i>
 ModUi/&EnableHigherGroundRules=<color=#D89555>高地</color>ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、命中率+1]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=ターン開始時に<color=#D89555>イニシアチブロール</color>を有効にする
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
 ModUi/&EnableInventoryTaintNonProficientItemsRed=ヒーローが熟練していないアイテムを赤く着色する
 ModUi/&EnableInventoryTintKnownRecipesRed=知られているレシピを赤く染める

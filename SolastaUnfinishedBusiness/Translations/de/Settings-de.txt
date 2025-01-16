@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Aktivieren Sie die Aktion <color=#D89555>Greifen</col
 ModUi/&EnableHelpAction=Aktiviere die Aktion <color=#D89555>Hilfe</color> <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb von 1 Zelle von dir anzugreifen]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Regeln für <color=#D89555>höheres Gelände</color> aktivieren <i><color=#F0DAA0>[+1 zum Treffen bei Angriffen von höherem Gelände]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Aktiviere <color=#D89555>Initiativwürfe</color> zu Beginn jeder Runde.
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Inventarfilterung und -sortierung
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Färben Sie alle Gegenstände rot, mit denen der Held nicht vertraut ist
 ModUi/&EnableInventoryTintKnownRecipesRed=Bekannte Rezepte zum Rotfärben

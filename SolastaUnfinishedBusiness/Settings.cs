@@ -116,6 +116,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
+    public bool EnableInitiativeRollOnEveryRoundStart { get; set; }
     [Tag(Type = TagType.T2014)] public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     [Tag(Type = TagType.T2014)] public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
     [Tag(Type = TagType.T2014)] public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
