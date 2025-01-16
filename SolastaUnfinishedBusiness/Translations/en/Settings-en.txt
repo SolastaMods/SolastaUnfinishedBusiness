@@ -149,7 +149,7 @@ ModUi/&EnableGrappleAction=Enable the <color=#D89555>Grapple</color> action
 ModUi/&EnableHelpAction=Enable the <color=#D89555>Help</color> action <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable <color=#D89555>higher ground</color> rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
-ModUi/&EnableInitiativeRollOnEveryRoundStart=Enable <color=#D89555>Initiative Rolls</color> on every turn start
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Enable <color=#D89555>initiative rolls</color> on every turn start
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
 ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
