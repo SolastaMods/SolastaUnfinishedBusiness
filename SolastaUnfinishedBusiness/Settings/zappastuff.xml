@@ -246,6 +246,8 @@
     <UseWeaponMasterySystem>true</UseWeaponMasterySystem>
     <UseWeaponMasterySystemAddWeaponTag>true</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemFlurryTriggersMastery>false</UseWeaponMasterySystemFlurryTriggersMastery>
+    <UseWeaponMasterySystemNickExtraAttackTriggersMastery>false</UseWeaponMasterySystemNickExtraAttackTriggersMastery>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
@@ -380,6 +382,7 @@
             </value>
         </item>
     </SpeechVoices>
+    <SpeechVolume>0</SpeechVolume>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>

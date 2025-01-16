@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Включить действие <color=#D89555>За
 ModUi/&EnableHelpAction=Включить действие <color=#D89555>Помощь</color> <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать другое существо, находящееся в пределах 1 клетки от вас]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Включить возможность персонажу с лучшими владениями проходить проверки в диалогах <i><color=#F0DAA0>[работает, но повествование выглядит странно в официальных кампаниях]</color></i>
 ModUi/&EnableHigherGroundRules=Включить правила <color=#D89555>возвышенности</color> <i><color=#F0DAA0>[+1 к атаке с высоты]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Включить <color=#D89555>Инициативные броски</color> в начале каждого хода
 ModUi/&EnableInventoryFilteringAndSorting=Включить фильтры и сортировку инвентаря
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Отмечать красным цветом предметы, которыми герой не владеет
 ModUi/&EnableInventoryTintKnownRecipesRed=Отмечать красным цветом известные рецепты

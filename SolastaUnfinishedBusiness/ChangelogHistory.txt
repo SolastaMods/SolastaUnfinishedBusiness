@@ -3,6 +3,7 @@
 - added Martial Champion 2024 setting
 - added Paladin level 20 subclasses power recharge from level 5 slot 2024 setting
 - added additional settings to tweak weapon mastery behaviors
+- added setting to roll initiative on every round start
 - added buttons to enable all QoL, 2014, and 2024 settings at once
 - added slider to directly control mod generated voices volume
 - changed Bladestorm feat to select up to 1 + pb / 2 targets rounded down
@@ -13,6 +14,7 @@
 - fixed Circle of Cosmos chalice healing not working off combat
 - fixed Command: Approach spell not ending turn if target within 5 ft
 - fixed Faery Fire, and Starry Wisp integration with Lighting rules
+- fixed Grapple interaction with Step of Wind: Grapple when used on same turn
 - fixed Haste interaction with multi-attack when replace with cantrip is used
 - fixed Mirror Image 2024 AC calculation
 - fixed Monk deflect attacks 2024 not losing return attacks condition

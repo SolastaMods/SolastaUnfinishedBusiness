@@ -306,7 +306,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 6)
+            .SetTargetingData(Side.All, RangeType.Distance, 30, TargetType.Sphere, 6)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
             .SetParticleEffectParameters(Thunderwave)

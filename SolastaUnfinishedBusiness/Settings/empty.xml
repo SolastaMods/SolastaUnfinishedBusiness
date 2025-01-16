@@ -243,12 +243,15 @@
     <UseWeaponMasterySystem>false</UseWeaponMasterySystem>
     <UseWeaponMasterySystemAddWeaponTag>false</UseWeaponMasterySystemAddWeaponTag>
     <UseWeaponMasterySystemAddCleaveDamage>false</UseWeaponMasterySystemAddCleaveDamage>
+    <UseWeaponMasterySystemFlurryTriggersMastery>false</UseWeaponMasterySystemFlurryTriggersMastery>
+    <UseWeaponMasterySystemNickExtraAttackTriggersMastery>false</UseWeaponMasterySystemNickExtraAttackTriggersMastery>
     <UseWeaponMasterySystemPushSave>false</UseWeaponMasterySystemPushSave>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
     <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
+    <EnableInitiativeRollOnEveryRoundStart>false</EnableInitiativeRollOnEveryRoundStart>
     <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
     <UseOfficialLightingObscurementAndVisionRules>false</UseOfficialLightingObscurementAndVisionRules>
     <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>false</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
@@ -377,6 +380,7 @@
             </value>
         </item>
     </SpeechVoices>
+    <SpeechVolume>0</SpeechVolume>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>

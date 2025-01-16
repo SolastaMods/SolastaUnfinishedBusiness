@@ -242,6 +242,12 @@ internal static class RulesDisplay
             }
         }
 
+        toggle = Main.Settings.EnableInitiativeRollOnEveryRoundStart;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInitiativeRollOnEveryRoundStart"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableInitiativeRollOnEveryRoundStart = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
