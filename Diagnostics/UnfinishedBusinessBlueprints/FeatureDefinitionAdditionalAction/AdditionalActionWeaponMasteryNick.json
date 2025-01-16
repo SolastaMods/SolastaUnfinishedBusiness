@@ -3,9 +3,7 @@
   "actionType": "Bonus",
   "forbiddenActions": [],
   "authorizedActions": [],
-  "restrictedActions": [
-    "AttackOff"
-  ],
+  "restrictedActions": [],
   "maxAttacksNumber": -1,
   "triggerCondition": "None",
   "guiPresentation": {
@@ -32,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7df60dfe-73c8-5cd6-861a-2821d11ff827",
+  "guid": "42534c42-00be-571d-a257-5cc2c62da7b2",
   "contentPack": 9999,
-  "name": "AdditionalActionWeaponMasteryNickBonusAttack"
+  "name": "AdditionalActionWeaponMasteryNick"
 }

@@ -187,6 +187,13 @@ internal static class CampaignsDisplay
                 Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
             }
 
+            floatValue = Main.Settings.SpeechVolume;
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechVolume"), ref floatValue,
+                    0.0f, 1.2f, 1, 1, string.Empty, UI.AutoWidth()))
+            {
+                Main.Settings.SpeechVolume = floatValue;
+            }
+
             UI.Label();
 
             if (UI.SelectionGrid(

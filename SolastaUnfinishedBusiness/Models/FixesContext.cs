@@ -121,9 +121,6 @@ internal static class FixesContext
         AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
         AttributeModifierDazzled.GuiPresentation.description = Gui.EmptyContent;
 
-        // shadow murder must be removed whenever invisible is
-        ConditionDefinitions.ConditionShadowMurder.parentCondition = ConditionDefinitions.ConditionInvisibleBase;
-
         // remove null features from conditions
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
         {
@@ -132,6 +129,15 @@ internal static class FixesContext
 
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+
+        foreach (var feature in DatabaseRepository.GetDatabase<FeatureDefinitionSavingThrowAffinity>()
+                     .Where(x => x.Name.StartsWith("Definition:SavingThrowAffinityCreed")))
+        {
+            var term = $"Attribute/&{feature.affinityGroups[0].abilityScoreName}TitleLong";
+
+            feature.GuiPresentation.title = term;
+            feature.GuiPresentation.description = term;
+        }
     }
 
     private static void FixMonkPatientDefenseToAFeatureSet()

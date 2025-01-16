@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:PowerOathOfDevotionHolyNimbusLight:99029c9b-2968-526d-87f5-10b95032c2f1",
     "Definition:SavingThrowAffinityOathOfDevotionHolyNimbus:f51b2530-8752-5f2f-b3f7-99e118a99732"
   ],
   "allowMultipleInstances": false,

@@ -422,8 +422,6 @@ internal static class ClassFeats
                     continue;
                 }
 
-                opportunityAttackMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
-
                 yield return helper.MyReactForOpportunityAttack(
                     defender,
                     attacker,

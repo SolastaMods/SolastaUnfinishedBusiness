@@ -59,21 +59,6 @@ public class MirrorImage
         ];
     }
 
-    // ReSharper disable once InconsistentNaming
-    internal static int GetAC(
-        RulesetAttribute attribute,
-        RulesetActor target,
-        IEnumerable<RuleDefinitions.TrendInfo> toHitTrends)
-    {
-        if (!TargetsMirrorImage(toHitTrends))
-        {
-            return attribute.CurrentValue;
-        }
-
-        var dexterity = target.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-        return 10 + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
-    }
-
     private static bool TargetsMirrorImage(IEnumerable<RuleDefinitions.TrendInfo> toHitTrends)
     {
         return toHitTrends.Any(t => t.sourceName == TargetMirrorImageTag);

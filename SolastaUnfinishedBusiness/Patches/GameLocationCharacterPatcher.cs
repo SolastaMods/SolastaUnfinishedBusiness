@@ -20,6 +20,7 @@ using TA;
 using UnityEngine;
 using static ActionDefinitions;
 using static RuleDefinitions;
+using static SenseMode;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -148,7 +149,7 @@ public static class GameLocationCharacterPatcher
                 {
                     isWithinRange = true;
 
-                    if (!SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
+                    if (!ValidForLighting(senseMode.SenseType, lightingState))
                     {
                         continue;
                     }
@@ -403,6 +404,30 @@ public static class GameLocationCharacterPatcher
             //PATCH: support grapple
             GrappleContext.ValidateActionAvailability(__instance, ref __result, actionId);
 
+            //PATCH: support blinded don't allow AoO
+            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity &&
+                actionId == Id.AttackOpportunity &&
+                rulesetCharacter.HasConditionOfTypeOrSubType(ConditionBlinded) &&
+                rulesetCharacter.SenseModes
+                    .Select(x => x.SenseType)
+                    .Intersect([SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense, SenseMode.Type.Truesight])
+                    .ToList().Count == 0)
+            {
+                __result = ActionStatus.CannotPerform;
+            }
+
+            //PATCH: support bonus / main forbidden actions
+            foreach (var bonusOrMain in new[] { ActionType.Bonus, ActionType.Main })
+            {
+                if (__result == ActionStatus.Available &&
+                    __instance.ActionPerformancesByType.TryGetValue(
+                        bonusOrMain, out var actionPerformanceFilters) &&
+                    actionPerformanceFilters.Any(x => x.ForbiddenActions.Any(y => y == actionId)))
+                {
+                    __result = ActionStatus.CannotPerform;
+                }
+            }
+
             //PATCH: support `EnableMonkFocus2024`
             if (Main.Settings.EnableMonkFocus2024 &&
                 __result == ActionStatus.CannotPerform &&
@@ -412,15 +437,6 @@ public static class GameLocationCharacterPatcher
                 __instance.GetActionTypeStatus(ActionType.Bonus) == ActionStatus.Available)
             {
                 __result = ActionStatus.Available;
-            }
-
-            //PATCH: support forbidden flurry actions
-            if (__result == ActionStatus.Available &&
-                flurryOfBlowActions.Contains(actionId) && __instance.ActionPerformancesByType.TryGetValue(
-                    ActionType.Bonus, out var actionPerformanceFilters) &&
-                actionPerformanceFilters.Any(x => x.ForbiddenActions.Any(y => y == actionId)))
-            {
-                __result = ActionStatus.CannotPerform;
             }
 
             //PATCH: support Swift Quiver spell interaction with Flurry of Blows

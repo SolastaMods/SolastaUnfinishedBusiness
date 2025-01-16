@@ -160,7 +160,7 @@ internal static class SharedSpellsContext
     internal static RulesetSpellRepertoire GetWarlockSpellRepertoire(
         [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
-        return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
+        return rulesetCharacterHero.GetClassSpellRepertoire(Warlock);
     }
 
     internal static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)

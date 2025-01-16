@@ -1000,7 +1000,7 @@ Your valiance in battle demoralizes your enemies. As a bonus action, you can exp
 
 * Silver Tongue
 
-You leave a lasting impression on people around you. When you make a Deception or Performance check, you can treat a d20 roll of 9 or lower as a 10.
+You leave a lasting impression on people around you. When you make a Deception or Persuasion check, you can treat a d20 roll of 9 or lower as a 10.
 
 
 ### Level 6
@@ -2026,7 +2026,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -2060,7 +2060,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ### Level 8
@@ -3018,10 +3018,6 @@ For battle masters, a battle is a test of wit as much as a test of might. They e
 
 ### Level 3
 
-* Additional Superiority Die
-
-You gain an additional superiority die.
-
 * Maneuvers
 
 You learn three special techniques called maneuvers. Using a maneuver costs one superiority die. Most maneuvers enhance your attacks in a way and add the superiority die's roll to the attack's damage. You can only have one maneuver active at a time. Some of your maneuvers require your target to make a saving throw to avoid its detrimental effects. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
@@ -3040,10 +3036,6 @@ You gain four D8 dice called superiority dice that you can spend to use various 
 * Additional Superiority Die
 
 You gain an additional superiority die.
-
-* Honed Skill
-
-Gain expertise with a skill or tool of your choice.
 
 * Maneuvers
 
@@ -3074,10 +3066,6 @@ Your superiority die is upgraded to D10.
 * Additional Superiority Die
 
 You gain an additional superiority die.
-
-* Battle Clarity
-
-Gain proficiency with a saving throw of your choice.
 
 * Maneuvers
 
@@ -3141,7 +3129,9 @@ Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 
 * Survivor
 
-You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
+You attain the pinnacle of resilience in battle, giving you these benefits:
+• Defy Death. You have Advantage on Death Saving Throws. Moreover, when you roll 18, 19, or 20 on a Death Saving, you gain the benefit of rolling a 20 on it.
+• Heroic Rally. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
 
 
 
@@ -3163,14 +3153,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -3434,14 +3424,14 @@ Whether they are loved, respected or feared, warlords are primarily known for on
 
 * Press the Advantage
 
-As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers:
+As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a weapon attack, you can immediately initiate one of the following maneuvers:
 • Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
 • Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
 • Covering Strike - All allies other than yourself don't provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
 
 * Relentlessness
 
-You gain a bonus to initiative rolls equal to your Strength modifier (minimum +1).
+You gain a bonus to initiative rolls equal to your proficiency bonus.
 
 
 ### Level 7
@@ -3455,14 +3445,14 @@ You can use your bonus action to order an ally other than yourself that you can 
 
 * Coordinated Assault
 
-Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature a number of times per long rest equal to your proficiency bonus.
+Once during your turn when you hit a creature with a weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15
 
 * Commanding Presence
 
-You add half your Strength modifier (rounded up, minimum +1) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
+You add half your proficiency bonus (rounded up) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
 
 
 ### Level 18

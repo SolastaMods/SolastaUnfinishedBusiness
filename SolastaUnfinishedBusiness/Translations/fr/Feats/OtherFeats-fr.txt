@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=L'infusion chromatiq
 Feedback/&FeatBrawlerReroll=Lorsque vous effectuez une attaque à mains nues, vous pouvez relancer tous les 1 sur les dés de dégâts que vous lancez dans le cadre de cette attaque et devez prendre le nouveau résultat.
 Feedback/&FeatElementalAdeptReroll={0} utilise Adepte élémentaire pour relancer un dé d'attaque {1} de {2} à {3}.
 Feedback/&FeatElementalMasterReroll={0} utilise Maître élémentaire pour relancer un dé d'attaque {1} de {2} à {3}.
+Feedback/&IsLower={0} a lancé un {2} inférieur pour remplacer un {3}.
 Feedback/&IsNotLuckyHigher={0} n'a pas de chance du tout, il obtient un {2} plus élevé pour remplacer un {3}.
 Feedback/&IsNotLuckyLower={0} n'a pas de chance du tout, il lance un {2} inférieur pour remplacer un {3}.
 Feedback/&LuckyAttackToHitRoll={0} a utilisé {1} et lance un {2} pour remplacer {3} au jet d'attaque

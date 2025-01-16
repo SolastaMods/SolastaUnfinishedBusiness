@@ -128,12 +128,11 @@ public static class GameLocationBattlePatcher
                          .ToArray())
             {
                 //PATCH: supports `SenseNormalVisionRangeMultiplier`
-                var multiplier = Main.Settings.SenseNormalVisionRangeMultiplier;
-
-                if (multiplier > 0)
+                if (Main.Settings.SenseNormalVisionRangeMultiplier > 0)
                 {
                     var rulesetCharacter = character.RulesetCharacter;
-                    var conditionName = $"ConditionSenseNormalVision{(multiplier == 1 ? 24 : 48)}";
+                    var conditionName =
+                        $"ConditionSenseNormalVision{(Main.Settings.SenseNormalVisionRangeMultiplier == 1 ? 24 : 48)}";
 
                     rulesetCharacter.InflictCondition(
                         conditionName,
@@ -156,6 +155,54 @@ public static class GameLocationBattlePatcher
                     yield return feature.OnInitiativeEnded(character);
                 }
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.StartFirstTurnOfRound))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GameLocationBattle_StartFirstTurnOfRound
+    {
+        [UsedImplicitly]
+        public static void Prefix()
+        {
+            if (!Main.Settings.EnableInitiativeRollOnEveryRoundStart ||
+                Gui.Battle == null ||
+                Gui.Battle.CurrentRound < 2)
+            {
+                return;
+            }
+
+            Gui.Battle.initiativeSortedContenders.Clear();
+            Gui.Battle.initiativeByName.Clear();
+            Gui.Battle.initiativeFirstRollByName.Clear();
+            Gui.Battle.initiativeModifierByName.Clear();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var playerContender in Gui.Battle.playerContenders)
+            {
+                if (!playerContender.RulesetActor.IsDead)
+                {
+                    Gui.Battle.initiativeSortedContenders.Add(playerContender);
+                }
+            }
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var enemyContender in Gui.Battle.enemyContenders)
+            {
+                if (!enemyContender.RulesetActor.IsDead)
+                {
+                    Gui.Battle.initiativeSortedContenders.Add(enemyContender);
+                }
+            }
+
+            foreach (var initiativeSortedContender in Gui.Battle.initiativeSortedContenders)
+            {
+                Gui.Battle.ProcessContenderInitiative(initiativeSortedContender);
+            }
+
+            Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
+            Gui.GuiService.GetScreen<GameLocationScreenBattle>().initiativeTable.Refresh();
         }
     }
 

@@ -11,6 +11,8 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [
+    "DashBonus",
+    "DashMain",
     "Charge",
     "DashBonus",
     "DashMain",

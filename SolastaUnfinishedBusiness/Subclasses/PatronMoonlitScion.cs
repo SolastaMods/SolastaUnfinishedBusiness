@@ -512,8 +512,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 levels, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
-            var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
-                x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+            var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(CharacterClassDefinitions.Warlock);
 
             action.ActingCharacter.MyExecuteActionCastNoCost(MoonBeam, slotLevel, action.ActionParams, spellRepertoire);
 

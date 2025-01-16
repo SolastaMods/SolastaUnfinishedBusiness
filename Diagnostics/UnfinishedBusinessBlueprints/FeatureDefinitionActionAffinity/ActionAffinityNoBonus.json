@@ -10,7 +10,10 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [],
+  "forbiddenActions": [
+    "DashBonus",
+    "DashMain"
+  ],
   "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],

@@ -69,7 +69,11 @@ public static class CharacterActionBreakFreePatcher
                     var source = GameLocationCharacter.GetFromActor(rulesetSource);
                     var abilityCheckData = new AbilityCheckData
                     {
-                        AbilityCheckActionModifier = actionModifier, Action = __instance
+                        AbilityCheckActionModifier = new ActionModifier(), Action = __instance
+                    };
+                    var opponentAbilityCheckData = new AbilityCheckData
+                    {
+                        AbilityCheckActionModifier = new ActionModifier(), Action = __instance
                     };
 
                     abilityScoreName =
@@ -78,15 +82,16 @@ public static class CharacterActionBreakFreePatcher
                             : AttributeDefinitions.Dexterity;
 
                     yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                        source, character, ActionDefinitions.Id.BreakFree, abilityCheckData, abilityScoreName);
+                        source, character, ActionDefinitions.Id.BreakFree, abilityCheckData,
+                        opponentAbilityCheckData, abilityScoreName);
 
-                    __instance.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
-                    __instance.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
-                    __instance.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
+                    __instance.AbilityCheckRoll = opponentAbilityCheckData.AbilityCheckRoll;
+                    __instance.AbilityCheckRollOutcome = opponentAbilityCheckData.AbilityCheckRollOutcome;
+                    __instance.AbilityCheckSuccessDelta = opponentAbilityCheckData.AbilityCheckSuccessDelta;
 
                     // this is the success of the opponent
                     success = __instance.AbilityCheckRollOutcome
-                        is not (RollOutcome.Success or RollOutcome.CriticalSuccess);
+                        is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
                     break;
                 }

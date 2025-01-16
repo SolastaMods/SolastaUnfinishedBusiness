@@ -137,6 +137,7 @@ Feedback/&AdditionalDamageChromaticInfusionDamagePoisonLine=색채 주입은 추
 Feedback/&FeatBrawlerReroll=비무장 공격을 할 경우, 해당 공격의 일부로 굴린 피해 주사위에서 나온 1을 다시 굴릴 수 있으며, 새로운 결과를 적용해야 합니다.
 Feedback/&FeatElementalAdeptReroll={0}은 Elemental Adept를 사용하여 {1} 공격 굴림 주사위를 {2}에서 {3}으로 다시 굴립니다.
 Feedback/&FeatElementalMasterReroll={0}은 Elemental Master를 사용하여 {1} 공격 굴림 주사위를 {2}에서 {3}으로 다시 굴립니다.
+Feedback/&IsLower={0}이 {3}을 대체하기 위해 더 낮은 {2}를 굴렸습니다.
 Feedback/&IsNotLuckyHigher={0}은 전혀 운이 좋지 않습니다. {3}을 대체하기 위해 더 높은 {2}를 굴립니다.
 Feedback/&IsNotLuckyLower={0}은 전혀 운이 좋지 않습니다. {3}을 대체하기 위해 더 낮은 {2}를 굴립니다.
 Feedback/&LuckyAttackToHitRoll={0}는 {1}을 사용하고 공격 굴림에서 {3}을 대체하기 위해 {2}를 굴립니다.

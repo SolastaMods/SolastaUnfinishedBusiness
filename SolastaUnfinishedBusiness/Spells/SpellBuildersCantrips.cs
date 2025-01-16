@@ -594,8 +594,6 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
-        ConditionInvisibleBase.cancellingConditions.Add(condition);
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.StarryWisp, 128))
@@ -615,9 +613,6 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(condition),
-                        EffectFormBuilder.ConditionForm(
-                            ConditionInvisibleBase, ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                            ConditionInvisibleBase),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(

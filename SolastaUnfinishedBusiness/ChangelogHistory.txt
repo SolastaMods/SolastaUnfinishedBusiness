@@ -1,3 +1,34 @@
+1.5.97.44:
+
+- added Martial Champion 2024 setting
+- added Paladin level 20 subclasses power recharge from level 5 slot 2024 setting
+- added additional settings to tweak weapon mastery behaviors
+- added setting to roll initiative on every round start
+- added buttons to enable all QoL, 2014, and 2024 settings at once
+- added slider to directly control mod generated voices volume
+- changed Bladestorm feat to select up to 1 + pb / 2 targets rounded down
+- changed Exploiter feat attack to an attack of opportunity
+- changed Martial Battle Master to remove honed craft, and battle clarity 
+- changed Martial Warlord to allow any weapon to trigger features
+- changed Remarkable Athlete move on critical to only trigger in your turn
+- fixed Circle of Cosmos chalice healing not working off combat
+- fixed Command: Approach spell not ending turn if target within 5 ft
+- fixed Faery Fire, and Starry Wisp integration with Lighting rules
+- fixed Grapple interaction with Step of Wind: Grapple when used on same turn
+- fixed Haste interaction with multi-attack when replace with cantrip is used
+- fixed Mirror Image 2024 AC calculation
+- fixed Monk deflect attacks 2024 not losing return attacks condition
+- fixed Oath of Devotion holy nimbus crash on use
+- fixed Weapon Mastery cleave, graze, and nick behaviors
+- fixed apply damage form crash scenario from race features
+- fixed context checks calculations
+- fixed enable no AoO if Blinded or Invisible setting to consider sense modes
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
+- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
+
 1.5.97.43:
 
 RESPEC required on Acid Claws, Crossbow Mastery, Monk weapon specialization, Natural Fluidity, Spiritual Fluidity, Pugilist, Way of Shadow, and Way of Zen Archery
@@ -31,11 +62,6 @@ CHANGES:
 - fixed variant spell points offering spells even without enough points to cast
 - removed Monk weapon specialization setting, Natural Fluidity, and Spiritual Fluidity feats [RESPEC]
 - removed backward compatibility support from Acid Claws, Crossbow Mastery, and Pugilist [RESPEC]
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.42:
 

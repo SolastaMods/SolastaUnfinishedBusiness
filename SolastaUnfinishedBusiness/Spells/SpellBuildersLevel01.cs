@@ -1645,6 +1645,12 @@ internal static partial class SpellBuilders
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
+            else
+            {
+                var commandService = ServiceRepository.GetService<ICommandService>();
+                
+                commandService.EndTurn();
+            }
         }
     }
 

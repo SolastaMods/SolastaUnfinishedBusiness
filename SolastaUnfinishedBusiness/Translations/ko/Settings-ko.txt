@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>
 ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 경우 집중이 필요하지 않습니다.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀거나</color> <color=#D89555>보이지 않음</color> 상태일 때는 기회 공격을 사용할 수 없습니다.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>눈이 멀거나</color> 대상이 <color=#D89555>보이지 않는 상태</color>일 경우 기회 공격을 활성화하지 않습니다.
 ModUi/&Blueprints=청사진
 ModUi/&Campaigns=캠페인
 ModUi/&Category=범주
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=<color=#D89555>Grapple</color> 액션을 활성화합
 ModUi/&EnableHelpAction=<color=#D89555>도움</color> 액션을 활성화합니다. <i><color=#F0DAA0>[당신은 1셀 이내의 생물을 공격하는 데 아군 생물을 도울 수 있습니다]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=가장 뛰어난 능력을 가진 영웅이 대화 선택을 할 수 있도록 합니다. <i><color=#F0DAA0>[작동하지만 공식 캠페인에서는 내레이션이 이상하게 보입니다.]</color></i>
 ModUi/&EnableHigherGroundRules=<color=#D89555>높은 곳</color> 규칙 활성화 <i><color=#F0DAA0>[높은 곳에서 공격 시 적중률 +1]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=매 턴 시작 시 <color=#D89555>이니셔티브 롤</color> 활성화
 ModUi/&EnableInventoryFilteringAndSorting=재고 필터링 및 정렬 활성화
 ModUi/&EnableInventoryTaintNonProficientItemsRed=영웅이 능숙하지 않은 모든 아이템을 빨간색으로 칠합니다.
 ModUi/&EnableInventoryTintKnownRecipesRed=알려진 레시피를 빨간색으로 칠하다
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>True Strike</color> 5e 2024 
 ModUi/&EnablePaladinAbjureFoes2024=레벨 9에서 <color=#D89555>적을 배척</color>할 수 있습니다.
 ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>채널 디비니티</color>를 5e 2024 버전 <i><color=#F0DAA0>[다른 용도]</color></i>으로 바꾸세요
 ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color>를 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>과 교환하세요
+ModUi/&EnablePaladinRestoreLevel20Feature=<color=#D89555>레벨 20</color> 하위 클래스 능력을 레벨 5 슬롯으로 재충전할 수 있도록 합니다.
 ModUi/&EnablePaladinRestoringTouch2024=레벨 14에서 <color=#D89555>클렌징 터치</color>를 대체하기 위해 <color=#D89555>터치 복원</color>을 활성화합니다.
 ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color>를 5e 2024 버전 <i><color=#F0DAA0>[보너스 액션]</color></i>과 교환하세요
 ModUi/&EnablePaladinSpellCastingAtLevel1=레벨 2 대신 레벨 1에서 <color=#D89555>주문 시전</color>을 활성화합니다.
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 발견 후 레벨 맵에 보이�
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
+ModUi/&ModQoL=<b><color=#D89555>QoL 설정 활성화</color></b>
 ModUi/&ModifyGravitySlam=<color=#D89555>Gravity Slam</color> 주문을 수정하여 영향을 받는 대상을 아래로 끌어내리고 구가 아닌 원통형이 되게 함\n<i><color=#F0DAA0>[위/아래 축에서 <color=#D89555>밀기 및 당기기 동작 효과가 작동해야 함</color>]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비를 </color> <color=#C04040E0>[%]</color>로 곱합니다.
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>로 주문을 클릭하면 소모된 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소모하고 다른 이들은 계약 녹색 주문 슬롯을 소모합니다]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁으로 제작 레시
 ModUi/&ShowDescriptions=설명 보기
 ModUi/&ShowMotionFormPreview=<b>밀기</b> 및 <b>당기기</b> 효과의 미리보기 표시
 ModUi/&SpeechScale=<color=white>내레이션 속도 수정자</color> <i><color=#F0DAA0>[낮을수록 빠름]</color></i>
+ModUi/&SpeechVolume=<color=white>내레이션 볼륨</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>주문 레벨 필터</color> <color=#F0DAA0>[-1은 모두 표시]</color></i></b>
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기 또는 주문 공격이 적중하면 은신 해제를 활성화합니다.
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</col
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교환</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=진행 중 <b>소환사</b> <color=#D89555>조각 주문</color>과 <color=#D89555>강력한 주문</color>을 교체하세요.
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color>를 5e 2024 버전으로 교체하세요 <i><color=#F0DAA0>[획득 시 학교 주문 2개 배우기, 슬롯 레벨이 올라갈 때마다 1개 더 배우기]</color></i>
+ModUi/&SwapMartialChampion=<b>Martial Champion</b>를 5e 2024 버전으로 교체
+ModUi/&TableTop2014=<b><color=#D89555>2014 규칙 사용</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>2024 규칙 활성화</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>테이블탑 콘텐츠 선택</color></b>
 ModUi/&TableTopHelp1=• 다음 섹션은 편의를 위해 모드 전체에 분산된 <color=#D89555>5e 2014 및 2024</color> 설정을 다시 그룹화하고 복제합니다.
-ModUi/&TableTopHelp2=• 캐릭터 탭에서 테이블탑 콘텐츠만 선택하려면 버튼을 누르고, 진정한 TT 경험을 위해 아래의 모든 옵션을 선택하세요.
+ModUi/&TableTopHelp2=• 버튼을 눌러 <b>캐릭터 탭에서 테이블탑 콘텐츠만 선택</b>하고 <b>2014 및/또는 2024 규칙을 활성화</b>하여 진정한 TT 경험을 얻으세요.
 ModUi/&Tabletop=<color=#F0DAA0>테이블탑<i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간을 다음과 같이 줄이세요.</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>작은 종족</co
 ModUi/&UseWeaponMasterySystem=<color=#D89555>무기 마스터리</color> 규칙 활성화
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 클리브 마스터리 2차 공격 데미지에 속성 점수 수정치 추가</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ 모든 게임 무기에 마스터리 태그 추가</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ 듀얼 플러리 추가 공격은 다른 마스터리를 발동할 수 있습니다.</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+닉 마스터리 추가 공격은 다른 마스터리를 발동할 수 있습니다.</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ 밀기 마스터리는 생물이 힘 세이빙 스로우(DC 8 + 공격 굴림 능력치 수정치 + 숙련 보너스)를 해야 합니다.</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>마법사 야생 마법</color> 확률 주사위 임계값 설정:</color>\n<i><color=#F0DAA0>[임계값 이하로 굴리면 야생 급증이 발동]</color></i>

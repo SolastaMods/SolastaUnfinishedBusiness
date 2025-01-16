@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionWeaponMasteryNickBonusDenyAttackOff:3f18e8d9-7d9c-54be-8a3d-64b1e682b66f"
+    "Definition:ActionAffinityWeaponMasteryDenyAllBonusButAttack:b0ffa055-f1ea-5daa-817b-542f1da938b0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62f9c267-834a-5773-ae9b-d996a5a0ee26",
+  "guid": "cad97be0-f239-5495-969d-d1e49ecaa310",
   "contentPack": 9999,
-  "name": "ConditionWeaponMasteryNickBonusDenyAttackOff"
+  "name": "ConditionWeaponMasteryNickDenyAllBonusButAttack"
 }

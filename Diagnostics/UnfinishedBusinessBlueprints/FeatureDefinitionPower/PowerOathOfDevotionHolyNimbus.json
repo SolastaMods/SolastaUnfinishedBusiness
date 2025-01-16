@@ -122,45 +122,6 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "LightSource",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "lightSourceForm": {
-          "$type": "LightSourceForm, Assembly-CSharp",
-          "lightSourceType": "Basic",
-          "brightRange": 6,
-          "dimAdditionalRange": 6,
-          "color": {
-            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-            "r": 0.8396226,
-            "g": 0.7766465,
-            "b": 0.5505073,
-            "a": 1.0
-          },
-          "graphicsPrefabReference": {
-            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-            "m_AssetGUID": "fc7cb53da57a8fb40a278d62a885ce58",
-            "m_SubObjectName": "",
-            "m_SubObjectType": ""
-          },
-          "applyToSelf": true,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",

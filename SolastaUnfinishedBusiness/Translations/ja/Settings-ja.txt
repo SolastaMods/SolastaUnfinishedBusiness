@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>
 ModUi/&Bestiary=動物図鑑
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>呪いの付与</color>は、L5以上の呪文スロットで唱える場合、集中力を必要としません。
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>または<color=#D89555>透明</color>状態のときは機会攻撃を無効にします
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態またはターゲットが<color=#D89555>不可視</color>状態の場合、機会攻撃を無効にします
 ModUi/&Blueprints=設計図
 ModUi/&Campaigns=キャンペーン
 ModUi/&Category=カテゴリ
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=<color=#D89555>グラップル</color>アクション
 ModUi/&EnableHelpAction=<color=#D89555>ヘルプ</color>アクションを有効にする <i><color=#F0DAA0>[1セル以内のクリーチャーを攻撃する友好的なクリーチャーを支援できます]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練度の高いヒーローが会話の選択肢をロールできるようにします <i><color=#F0DAA0>[機能しますが、公式キャンペーンではナレーションが奇妙に見えます]</color></i>
 ModUi/&EnableHigherGroundRules=<color=#D89555>高地</color>ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、命中率+1]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=ターン開始時に<color=#D89555>イニシアチブロール</color>を有効にする
 ModUi/&EnableInventoryFilteringAndSorting=在庫のフィルタリングと並べ替えを有効にする
 ModUi/&EnableInventoryTaintNonProficientItemsRed=ヒーローが熟練していないアイテムを赤く着色する
 ModUi/&EnableInventoryTintKnownRecipesRed=知られているレシピを赤く染める
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=<color=#D89555>トゥルーストライク<
 ModUi/&EnablePaladinAbjureFoes2024=レベル 9 で <color=#D89555>敵の拒絶</color> を有効にする
 ModUi/&EnablePaladinChannelDivinity2024=<color=#D89555>Channel Divinity</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[異なる使用法]</color></i> と入れ替えます
 ModUi/&EnablePaladinLayOnHands2024=<color=#D89555>Lay on Hands</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
+ModUi/&EnablePaladinRestoreLevel20Feature=<color=#D89555>レベル20</color>サブクラスパワーをレベル5スロットで再充電できるようにする
 ModUi/&EnablePaladinRestoringTouch2024=レベル14で<color=#D89555>浄化のタッチ</color>の代わりに<color=#D89555>回復のタッチ</color>を有効にする
 ModUi/&EnablePaladinSmite2024=<color=#D89555>Divine Smite</color> を 5e 2024 バージョンの <i><color=#F0DAA0>[ボーナス アクション]</color></i> と入れ替えます
 ModUi/&EnablePaladinSpellCastingAtLevel1=<color=#D89555>呪文発動</color>をレベル2ではなくレベル1で有効にする
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後、レベルマップ上
 ModUi/&MaxAllowedClasses=<color=white>最大許容クラス数</color>
 ModUi/&Merchants=<color=#F0DAA0>商人:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
+ModUi/&ModQoL=<b><color=#D89555>QoL設定を有効にする</color></b>
 ModUi/&ModifyGravitySlam=<color=#D89555>重力スラム</color> 呪文を変更して、影響を受けたターゲットを引き下げ、球体ではなく円筒形になるようにします\n<i><color=#F0DAA0>[<color=#D89555>上下軸でプッシュおよびプル モーション エフェクトを有効にするには</color> を有効にする必要があります]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color> で乗算します
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> キーを押しながら呪文をクリックすると、消費されるデフォルトのレパートリー スロットの種類が反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color> は白の呪文スロットを消費し、その他の呪文スロットはパクトの緑の呪文スロットを消費します]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=詳細なツールチップにクラ
 ModUi/&ShowDescriptions=説明を表示
 ModUi/&ShowMotionFormPreview=<b>プッシュ</b>と<b>プル</b>効果のプレビューを表示
 ModUi/&SpeechScale=<color=white>ナレーション速度修飾子</color> <i><color=#F0DAA0>[低いほど速くなります]</color></i>
+ModUi/&SpeechVolume=<color=white>ナレーションの音量</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>スペルレベルフィルター</color> <color=#F0DAA0>[-1 はすべて表示]</color></i></b>
 ModUi/&SpellsMenu=呪文
 ModUi/&StealthBreaksWhenAttackHits=武器や呪文攻撃がヒットしたときにステルス解除を有効にする
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=<b>Abjurer</b> <color=#D89555>Abjuration Savant</col
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピとクラフトアイテムのアイコンを交換</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=進行時に<b>エヴォーカー</b>の<color=#D89555>スカルプトスペル</color>と<color=#D89555>ポテンシャルキャントリップ</color>を入れ替える
 ModUi/&SwapEvocationSavant=<b>Evoker</b> <color=#D89555>Evocation Savant</color> を 5e 2024 バージョン <i><color=#F0DAA0>[取得時に 2 つの学校呪文を習得し、スロット レベルが上がるたびにさらに 1 つ習得する]</color></i> と入れ替えます
+ModUi/&SwapMartialChampion=<b>Martial Champion</b> を 5e 2024 バージョンと入れ替える
+ModUi/&TableTop2014=<b><color=#D89555>2014 ルールを有効にする</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>2024 ルールを有効にする</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>テーブルトップコンテンツを選択</color></b>
 ModUi/&TableTopHelp1=• 以下のセクションでは、利便性のために、mod 全体に散らばっている <color=#D89555>5e 2014 および 2024</color> 設定を再グループ化して複製します。
-ModUi/&TableTopHelp2=• ボタンを押してキャラクタータブのテーブルトップコンテンツのみを選択し、以下のすべてのオプションを選択して真のTT体験を味わってください。
+ModUi/&TableTopHelp2=• ボタンを押して、<b>キャラクタータブでテーブルトップコンテンツのみを選択</b>し、<b>2014 ルールと/または 2024 ルールを有効に</b>して、真の TT 体験を実現します。
 ModUi/&Tabletop=<color=#F0DAA0>テーブルトップ <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=対象言語
 ModUi/&TotalCraftingTimeModifier=<color=white>クラフト時間を短縮</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=<color=#D89555>小型種族</col
 ModUi/&UseWeaponMasterySystem=<color=#D89555>武器の熟練度</color>ルールを有効にする
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ 斬撃マスタリーは 2 回目の攻撃ダメージに属性スコア修正値を追加します</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ ゲームのすべての武器にマスタリータグを追加</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ デュアル フラリーの追加攻撃で別のマスタリーを発動できる</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ ニック マスタリーの追加攻撃で別のマスタリーを発動できる</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ プッシュ マスタリーでは、クリーチャーは筋力セーヴィング スロー (DC 8 + 攻撃ロール能力修正値 + 熟練度ボーナス) を実行する必要があります</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white><color=#D89555>ソーサラー ワイルド マジック</color> の確率ダイスしきい値を設定します:</color>\n<i><color=#F0DAA0>[ロールがしきい値以下であればワイルド サージが発動します]</color></i>

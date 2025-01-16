@@ -841,10 +841,14 @@ public static class GameLocationCharacterExtensions
         instance.MyExecuteActionSpendPower(usablePower, instance);
     }
 
-    internal static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    private static int GetAllowedMainAttacks(this GameLocationCharacter instance)
+    {
+        return instance.GetAllowedMainAttacksForRank(instance.currentActionRankByType[ActionType.Main]);
+    }
+
+    internal static int GetAllowedMainAttacksForRank(this GameLocationCharacter instance, int index)
     {
         var performanceFilters = instance.actionPerformancesByType[ActionType.Main];
-        var index = instance.currentActionRankByType[ActionType.Main];
 
         var maxAttacks = instance.RulesetCharacter.AttackModes
             .Where(mode => mode.ActionType == ActionType.Main)

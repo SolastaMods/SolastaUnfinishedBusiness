@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -80,10 +81,10 @@ internal static class Tabletop2014Context
 
     internal static void LateLoad()
     {
+        LoadConditionInvisibleShouldNotAllowOpportunityAttack();
         LoadGravitySlam();
         SwitchBardHealingBalladOnLongRest();
         SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         SwitchEldritchBlastRange();
         SwitchFullyControlConjurations();
         SwitchGrappleAction();
@@ -271,19 +272,15 @@ internal static class Tabletop2014Context
         }
     }
 
-    internal static void SwitchConditionBlindedShouldNotAllowOpportunityAttack()
+    private static void LoadConditionInvisibleShouldNotAllowOpportunityAttack()
     {
-        if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
+        // shadow murder must be removed whenever invisible is
+        ConditionDefinitions.ConditionShadowMurder.parentCondition = ConditionDefinitions.ConditionInvisibleBase;
+
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
+                     .Where(x => x.IsSubtypeOf(ConditionInvisible)))
         {
-            ConditionDefinitions.ConditionInvisibleBase.Features.TryAdd(ActionAffinityConditionBlind);
-            ConditionDefinitions.ConditionBlinded.Features.TryAdd(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.TryAdd(ActionAffinityConditionBlind);
-        }
-        else
-        {
-            ConditionDefinitions.ConditionInvisibleBase.Features.Remove(ActionAffinityConditionBlind);
-            ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
+            condition.AddCustomSubFeatures(new IgnoreAoOOnMeConditionInvisible());
         }
     }
 
@@ -334,6 +331,14 @@ internal static class Tabletop2014Context
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
+        }
+    }
+
+    private sealed class IgnoreAoOOnMeConditionInvisible : IIgnoreAoOOnMe
+    {
+        public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
+        {
+            return Main.Settings.BlindedConditionDontAllowAttackOfOpportunity && !attacker.CanSenseTarget(defender);
         }
     }
 

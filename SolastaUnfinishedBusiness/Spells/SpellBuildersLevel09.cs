@@ -212,7 +212,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Sphere, 6)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,

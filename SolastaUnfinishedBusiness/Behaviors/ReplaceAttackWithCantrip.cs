@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static ActionDefinitions;
 
@@ -56,7 +57,9 @@ internal static class ReplaceAttackWithCantrip
         character.UsedMainAttacks++;
         rulesetCharacter.ExecutedAttacks++;
 
-        var maxAttacks = character.GetAllowedMainAttacks();
+        //how many attacks last action allowed?
+        var rank = character.currentActionRankByType[ActionType.Main] - 1;
+        var maxAttacks = character.GetAllowedMainAttacksForRank(rank);
 
         if (character.UsedMainAttacks < maxAttacks)
         {

@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Hintergründe und Rassen
 ModUi/&Basic=<color=#F0DAA0>Grundlegend:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Verfluchen</color> erfordert keine Konzentration, wenn es mit einem Zauberplatz L5+ gewirkt wird.
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Aktivieren Sie keine Gelegenheitsangriffe, wenn Sie <color=#D89555>geblendet</color> oder <color=#D89555>unsichtbar</color> sind.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Aktiviere keine Gelegenheitsangriffe, wenn du <color=#D89555>geblendet</color> bist oder das Ziel <color=#D89555>unsichtbar</color> ist.
 ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=Kampagnen
 ModUi/&Category=Kategorie
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Aktivieren Sie die Aktion <color=#D89555>Greifen</col
 ModUi/&EnableHelpAction=Aktiviere die Aktion <color=#D89555>Hilfe</color> <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur innerhalb von 1 Zelle von dir anzugreifen]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit der besten Fertigkeit, Dialogoptionen zu würfeln <i><color=#F0DAA0>[es funktioniert, aber die Erzählungen sehen bei offiziellen Kampagnen seltsam aus]</color></i>
 ModUi/&EnableHigherGroundRules=Regeln für <color=#D89555>höheres Gelände</color> aktivieren <i><color=#F0DAA0>[+1 zum Treffen bei Angriffen von höherem Gelände]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Aktiviere <color=#D89555>Initiativwürfe</color> zu Beginn jeder Runde.
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Inventarfilterung und -sortierung
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Färben Sie alle Gegenstände rot, mit denen der Held nicht vertraut ist
 ModUi/&EnableInventoryTintKnownRecipesRed=Bekannte Rezepte zum Rotfärben
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Aktiviere <color=#D89555>True Strike</color
 ModUi/&EnablePaladinAbjureFoes2024=Aktiviere <color=#D89555>Feinde abschwören</color> auf Level 9.
 ModUi/&EnablePaladinChannelDivinity2024=Tauschen Sie <color=#D89555>Channel Divinity</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[verschiedene Verwendungen]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Tauschen Sie <color=#D89555>Handauflegen</color> gegen die 5e 2024-Version <i><color=#F0DAA0>[Bonusaktion]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Aktiviere <color=#D89555>Level 20</color>-Subklassenkräfte, um sie mit einem Level 5-Slot wieder aufzuladen.
 ModUi/&EnablePaladinRestoringTouch2024=Aktiviere <color=#D89555>Restoring Touch</color>, um <color=#D89555>Cleansing Touch</color> auf Level 14 zu ersetzen.
 ModUi/&EnablePaladinSmite2024=Tauschen Sie <color=#D89555>Divine Smite</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[Bonusaktion]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Aktiviere <color=#D89555>Zauberwirken</color> auf Stufe 1 statt 2.
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie auch die Position u
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
+ModUi/&ModQoL=<b><color=#D89555>QoL-Einstellungen aktivieren</color></b>
 ModUi/&ModifyGravitySlam=Ändern Sie den Zauber <color=#D89555>Gravitationsschlag</color>, um betroffene Ziele nach unten zu ziehen und einen Zylinder statt einer Kugel darzustellen\n<i><color=#F0DAA0>[erfordert <color=#D89555>Push- und Pull-Bewegungseffekte, damit sie auf der Auf-/Ab-Achse funktionieren</color> aktiviert]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Ein <color=#1E81B0>SHIFT</color>-Klick auf einen Zauber kehrt den Typ des verbrauchten Repertoireplatzes um\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> verbraucht weiße Zauberplätze und andere verbrauchen grüne Paktplätze]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Herstellungsrezept in ausführlichen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&ShowMotionFormPreview=Vorschau der <b>Push</b>- und <b>Pull</b>-Effekte anzeigen
 ModUi/&SpeechScale=<color=white>Erzählgeschwindigkeitsmodifikator</color> <i><color=#F0DAA0>[niedriger ist schneller]</color></i>
+ModUi/&SpeechVolume=<color=white>Erzählvolumen</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie den Verlust der Tarnung, wenn ein Waffen- oder Zauberangriff trifft
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=Tauschen Sie <b>Abjurer</b> <color=#D89555>Abjuratio
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Tauschen Sie <b>Evoker</b> <color=#D89555>Sculpt Spells</color> und <color=#D89555>Potent Cantrip</color> beim Fortschreiten aus
 ModUi/&SwapEvocationSavant=Tauschen Sie <b>Evoker</b> <color=#D89555>Evocation Savant</color> gegen die 5e 2024-Version aus <i><color=#F0DAA0>[lernen Sie 2 Schulzauber, wenn Sie sie erhalten, lernen Sie 1 weiteren jedes Mal, wenn Sie ein Slot-Level erreichen]</color></i>
+ModUi/&SwapMartialChampion=Tauschen Sie <b>Martial Champion</b> gegen die 5e 2024-Version aus
+ModUi/&TableTop2014=<b><color=#D89555>2014-Regeln aktivieren</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>2024-Regeln aktivieren</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Tabletop-Inhalt auswählen</color></b>
 ModUi/&TableTopHelp1=• In den folgenden Abschnitten werden die im Mod verstreuten Einstellungen für <color=#D89555>5e 2014 und 2024</color> neu gruppiert und dupliziert, damit Sie es einfacher haben.
-ModUi/&TableTopHelp2=• Drücken Sie die Taste, um unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen, und wählen Sie alle Optionen darunter für ein echtes TT-Erlebnis aus
+ModUi/&TableTopHelp2=• Drücken Sie die Tasten, um <b>unter der Registerkarte „Charakter“ nur Tabletop-Inhalte auszuwählen</b> und <b>die Regeln für 2014 und/oder 2024 zu aktivieren</b>, für ein echtes TT-Erlebnis
 ModUi/&Tabletop=<color=#F0DAA0>Tabletop <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Zielsprache
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduzieren Sie die Herstellungszeit um</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Aktivieren <color=#D89555>Kleine
 ModUi/&UseWeaponMasterySystem=Aktivieren Sie die Regeln für <color=#D89555>Waffenbeherrschung</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Cleave-Meisterung fügt Attributwertmodifikator zum Schaden des zweiten Angriffs hinzu</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Meisterschafts-Tag zu allen Spielwaffen hinzufügen</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ Dual Flurry-Zusatzangriff kann eine weitere Meisterung auslösen</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ Nick-Meisterung – zusätzlicher Angriff kann eine weitere Meisterung auslösen</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ Push-Meisterung erfordert, dass die Kreatur einen Stärkerettungswurf macht (DC 8 + Angriffswurf-Fähigkeitsmodifikator + Proficiency-Bonus)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Setze den Schwellenwert für die Chance des <color=#D89555>Sorcerer Wild Magic</color>-Würfels:</color>\n<i><color=#F0DAA0>[Wild Surge wird ausgelöst, wenn der Würfel kleiner oder gleich dem Schwellenwert ist]</color></i>

@@ -74,7 +74,7 @@ internal static class ValidatorsWeapon
             attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon();
         var finalRulesetItemOff =
             attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetOffhandWeapon();
-        
+
         return IsMelee(finalRulesetItemMain?.ItemDefinition) ||
                IsMelee(finalRulesetItemOff?.ItemDefinition) ||
                InnovationArmor.InGuardianMode(rulesetCharacter);

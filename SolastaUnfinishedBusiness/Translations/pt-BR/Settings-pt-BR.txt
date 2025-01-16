@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Origens e Raças
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiário
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conceder Maldição</color> não requer concentração quando conjurado com um espaço de magia L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Não habilite ataques de oportunidade quando <color=#D89555>Cego</color> ou <color=#D89555>Invisível</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Não habilite ataques de oportunidade quando <color=#D89555>Cego</color> ou se o alvo estiver <color=#D89555>Invisível</color>
 ModUi/&Blueprints=Projetos
 ModUi/&Campaigns=Campanhas
 ModUi/&Category=Categoria
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Habilitar a ação <color=#D89555>Grapple</color>
 ModUi/&EnableHelpAction=Habilite a ação <color=#D89555>Ajudar</color> <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura dentro de 1 célula de você]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência role escolhas de diálogo <i><color=#F0DAA0>[funciona, mas as narrações parecem estranhas em campanhas oficiais]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar regras de <color=#D89555>terreno mais alto</color> <i><color=#F0DAA0>[+1 para acertar se estiver atacando de um terreno mais alto]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Habilitar <color=#D89555>Rolagens de Iniciativa</color> em cada início de turno
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tingir de vermelho qualquer item com o qual o herói não seja proficiente
 ModUi/&EnableInventoryTintKnownRecipesRed=Tingir receitas conhecidas de vermelho
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>True Strike</color
 ModUi/&EnablePaladinAbjureFoes2024=Habilitar <color=#D89555>Abjure Foes</color> no nível 9
 ModUi/&EnablePaladinChannelDivinity2024=Troque <color=#D89555>Channel Divinity</color> pela versão 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Troque <color=#D89555>Lay on Hands</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Habilitar poderes de subclasse <color=#D89555>Nível 20</color> para recarregar com um slot de nível 5
 ModUi/&EnablePaladinRestoringTouch2024=Habilite <color=#D89555>Restaurando o Toque</color> para substituir <color=#D89555>Toque de Limpeza</color> no nível 14
 ModUi/&EnablePaladinSmite2024=Troque <color=#D89555>Divine Smite</color> pela versão 5e 2024 <i><color=#F0DAA0>[ação bônus]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar <color=#D89555>conjuração de feitiços</color> no nível 1 em vez de 2
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização do
 ModUi/&MaxAllowedClasses=<color=white>Máximo de classes permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
+ModUi/&ModQoL=<b><color=#D89555>Habilitar configurações de qualidade de vida</color></b>
 ModUi/&ModifyGravitySlam=Modifique o feitiço <color=#D89555>Gravity Slam</color> para puxar os alvos afetados para baixo e torná-los um cilindro em vez de uma esfera\n<i><color=#F0DAA0>[requer <color=#D89555>efeitos de movimento de empurrar e puxar para funcionar nos eixos para cima/baixo</color> habilitados]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em uma magia inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de magia brancos e outros gastam slots de pacto verdes]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dica
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&ShowMotionFormPreview=Mostrar pré-visualização dos efeitos <b>Push</b> e <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificador de velocidade de narração</color> <i><color=#F0DAA0>[menor é mais rápido]</color></i>
+ModUi/&SpeechVolume=<color=white>Volume da narração</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de magia</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Habilitar perda de furtividade quando ataque de arma ou magia acerta
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=Troque <b>Abjurador</b> <color=#D89555>Sábio da Abj
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Troque <b>Evocador</b> <color=#D89555>Magias de Esculpir</color> e <color=#D89555>Truque Potente</color> na progressão
 ModUi/&SwapEvocationSavant=Troque <b>Evocador</b> <color=#D89555>Sábio da Evocação</color> pela versão 5e 2024 <i><color=#F0DAA0>[aprenda 2 magias da escola quando adquiridas, aprenda mais 1 sempre que ganhar um nível de slot]</color></i>
+ModUi/&SwapMartialChampion=Troque <b>Campeão Marcial</b> pela versão 5e 2024
+ModUi/&TableTop2014=<b><color=#D89555>Habilitar regras de 2014</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>Habilitar regras 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Selecionar conteúdo de mesa</color></b>
 ModUi/&TableTopHelp1=• As seções a seguir reagrupam e duplicam as configurações <color=#D89555>5e 2014 e 2024</color> espalhadas pelo mod para sua conveniência
-ModUi/&TableTopHelp2=• Pressione o botão para selecionar apenas o conteúdo da mesa na aba Personagem e selecione todas as opções abaixo para uma verdadeira experiência TT
+ModUi/&TableTopHelp2=• Pressione os botões para <b>selecionar apenas o conteúdo da mesa na aba Personagem</b> e <b>habilitar as regras de 2014 e/ou 2024</b>, para uma verdadeira experiência TT
 ModUi/&Tabletop=<color=#F0DAA0>Mesa <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Língua alvo
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de criação em</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Habilitar <color=#D89555>pequena
 ModUi/&UseWeaponMasterySystem=Habilitar regras de <color=#D89555>Maestria em Armas</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Domínio de Fenda adiciona modificador de pontuação de atributo ao dano do segundo ataque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Adicionar tag de maestria a todas as armas do jogo</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ Ataque extra de Dual Flurry pode desencadear outra maestria</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ Ataque extra de maestria de Nick pode desencadear outra maestria</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ A maestria em empurrar requer que a criatura faça um teste de resistência de Força (CD 8 + modificador de habilidade de ataque + Bônus de Proficiência)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Definir limite de dado de chance de <color=#D89555>Magia Selvagem do Feiticeiro</color>:</color>\n<i><color=#F0DAA0>[onda selvagem é acionada se a rolagem for menor ou igual ao limite]</color></i>

@@ -52,6 +52,7 @@ internal static class GrappleContext
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .ExcludeCaster()
                 .SetImpactEffectParameters(Knock)
                 .Build())
         .AddCustomSubFeatures(new CustomBehaviorGrapple())
@@ -360,7 +361,7 @@ internal static class GrappleContext
             ConditionGrappleSourceWithGrapplerLargerName);
     }
 
-    private static bool GetGrappledActor(
+    internal static bool GetGrappledActor(
         RulesetCharacter rulesetSource,
         out RulesetCharacter rulesetTarget,
         out RulesetCondition rulesetTargetCondition)
@@ -481,9 +482,10 @@ internal static class GrappleContext
             if (!isHeightenedFocus)
             {
                 var abilityCheckData = new AbilityCheckData();
+                var opponentAbilityCheckData = new AbilityCheckData();
 
                 yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData);
+                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData, opponentAbilityCheckData);
 
                 success =
                     abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;

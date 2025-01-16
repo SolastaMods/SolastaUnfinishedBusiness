@@ -317,8 +317,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            var repertoire = hero.SpellRepertoires.FirstOrDefault(x =>
-                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+            var repertoire = hero.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger);
 
             repertoire?.knownCantrips.Add(Light);
         }
@@ -332,8 +331,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var rulesetRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
-                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger);
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, rulesetRepertoire, Light, 0, false);
 

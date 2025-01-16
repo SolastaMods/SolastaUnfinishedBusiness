@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportunity when <color=#D89555>Blinded</color> or <color=#D89555>Invisible</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Enable no attacks of opportunity when <color=#D89555>Blinded</color> or if target is <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=Campaigns
 ModUi/&Category=Category
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Enable the <color=#D89555>Grapple</color> action
 ModUi/&EnableHelpAction=Enable the <color=#D89555>Help</color> action <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Enable the hero with best proficiency to roll dialogue choices <i><color=#F0DAA0>[it works but narrations look odd on official campaigns]</color></i>
 ModUi/&EnableHigherGroundRules=Enable <color=#D89555>higher ground</color> rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Enable <color=#D89555>initiative rolls</color> on every turn start
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
 ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Enable <color=#D89555>True Strike</color> 5
 ModUi/&EnablePaladinAbjureFoes2024=Enable <color=#D89555>Abjure Foes</color> at level 9
 ModUi/&EnablePaladinChannelDivinity2024=Swap <color=#D89555>Channel Divinity</color> with 5e 2024 version <i><color=#F0DAA0>[different usages]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Swap <color=#D89555>Lay on Hands</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Enable <color=#D89555>Level 20</color> subclass powers to recharge with a level 5 slot
 ModUi/&EnablePaladinRestoringTouch2024=Enable <color=#D89555>Restoring Touch</color> to replace <color=#D89555>Cleansing Touch</color> at level 14
 ModUi/&EnablePaladinSmite2024=Swap <color=#D89555>Divine Smite</color> with 5e 2024 version <i><color=#F0DAA0>[bonus action]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Enable <color=#D89555>spellcasting</color> at level 1 instead of 2
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisib
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>
+ModUi/&ModQoL=<b><color=#D89555>Enable QoL settings</color></b>
 ModUi/&ModifyGravitySlam=Modify <color=#D89555>Gravity Slam</color> spell to pull affected targets down and be a cylinder instead of a sphere\n<i><color=#F0DAA0>[requires <color=#D89555>push and pull motion effects to work on up/down axis</color> enabled]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&ShowMotionFormPreview=Show preview of <b>Push</b> and <b>Pull</b> effects
 ModUi/&SpeechScale=<color=white>Narration speed modifier</color>  <i><color=#F0DAA0>[lower is faster]</color></i>
+ModUi/&SpeechVolume=<color=white>Narration volume</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
 ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when weapon or spell attack hits
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=Swap <b>Abjurer</b> <color=#D89555>Abjuration Savant
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Swap <b>Evoker</b> <color=#D89555>Sculpt Spells</color> and <color=#D89555>Potent Cantrip</color> on progression
 ModUi/&SwapEvocationSavant=Swap <b>Evoker</b> <color=#D89555>Evocation Savant</color> with 5e 2024 version <i><color=#F0DAA0>[learn 2 school spells when acquired, learn 1 more every time you gain a slot level]</color></i>
-ModUi/&TableTopButton=<b><color=#D89555>Select Tabletop content</color></b>
+ModUi/&SwapMartialChampion=Swap <b>Martial Champion</b> with 5e 2024 version
+ModUi/&TableTop2014=<b><color=#D89555>Enable 2014 rules</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>Enable 2024 rules</color></b>
+ModUi/&TableTopButton=<b><color=#D89555>Enable Tabletop content</color></b>
 ModUi/&TableTopHelp1=• Following sections re-group and duplicate <color=#D89555>5e 2014 and 2024</color> settings scattered across the mod for your convenience
-ModUi/&TableTopHelp2=• Press the button to select only tabletop content under Character tab, and select all options below for a true TT experience
+ModUi/&TableTopHelp2=• Press the buttons to <b>select only tabletop content under Character tab</b>, and <b>enable 2014 and/or 2024 rules</b>, for a true TT experience
 ModUi/&Tabletop=<color=#F0DAA0>Tabletop <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Target Language
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Enable <color=#D89555>small race
 ModUi/&UseWeaponMasterySystem=Enable <color=#D89555>Weapon Mastery</color> rules
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Cleave mastery add attribute score modifier to second attack damage</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Add mastery tag to all game weapons</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ Dual Flurry extra attack can trigger another mastery</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ Nick mastery extra attack can trigger another mastery</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ Push mastery requires the creature to make a Strength saving throw (DC 8 + attack roll ability modifier + Proficiency Bonus)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Set <color=#D89555>Sorcerer Wild Magic</color> chance die threshold:</color>\n<i><color=#F0DAA0>[wild surge triggers if rolls less or equal threshold]</color></i>

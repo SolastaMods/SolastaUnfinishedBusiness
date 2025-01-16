@@ -34,7 +34,7 @@ ModUi/&BackgroundsAndRaces=Antecedentes y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo L5+
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilites ataques de oportunidad cuando estés <color=#D89555>Cegado</color> o <color=#D89555>Invisible</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=No habilite ataques de oportunidad cuando esté <color=#D89555>Cegado</color> o si el objetivo es <color=#D89555>Invisible</color>
 ModUi/&Blueprints=Planos
 ModUi/&Campaigns=Campañas
 ModUi/&Category=Categoría
@@ -149,6 +149,7 @@ ModUi/&EnableGrappleAction=Habilitar la acción <color=#D89555>Garra</color>
 ModUi/&EnableHelpAction=Habilita la acción <color=#D89555>Ayuda</color> <i><color=#F0DAA0>[puedes ayudar a una criatura amistosa a atacar a una criatura a 1 celda de ti]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permite que el héroe con mayor habilidad realice elecciones de diálogo. <i><color=#F0DAA0>[funciona, pero las narraciones se ven extrañas en las campañas oficiales]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar las reglas de <color=#D89555>terreno más alto</color> <i><color=#F0DAA0>[+1 para golpear si ataca desde un terreno más alto]</color></i>
+ModUi/&EnableInitiativeRollOnEveryRoundStart=Habilitar <color=#D89555>Tiradas de iniciativa</color> en cada inicio de turno
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar el filtrado y la clasificación del inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tiñe de rojo cualquier objeto con el que el héroe no sea competente.
 ModUi/&EnableInventoryTintKnownRecipesRed=Recetas conocidas para teñir de rojo
@@ -188,6 +189,7 @@ ModUi/&EnableOneDndTrueStrikeCantrip=Habilitar <color=#D89555>Golpe verdadero</c
 ModUi/&EnablePaladinAbjureFoes2024=Habilita <color=#D89555>Abjurar enemigos</color> en el nivel 9
 ModUi/&EnablePaladinChannelDivinity2024=Intercambia <color=#D89555>Divinidad canalizada</color> con la versión 5e 2024 <i><color=#F0DAA0>[usos diferentes]</color></i>
 ModUi/&EnablePaladinLayOnHands2024=Intercambia <color=#D89555>Imposición de manos</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
+ModUi/&EnablePaladinRestoreLevel20Feature=Habilite los poderes de la subclase de <color=#D89555>Nivel 20</color> para recargarse con una ranura de nivel 5
 ModUi/&EnablePaladinRestoringTouch2024=Habilita <color=#D89555>Toque restaurador</color> para reemplazar <color=#D89555>Toque purificador</color> en el nivel 14
 ModUi/&EnablePaladinSmite2024=Intercambia <color=#D89555>Divine Smite</color> con la versión 5e 2024 <i><color=#F0DAA0>[acción adicional]</color></i>
 ModUi/&EnablePaladinSpellCastingAtLevel1=Habilitar el <color=#D89555>lanzamiento de hechizos</color> en el nivel 1 en lugar del 2
@@ -303,6 +305,7 @@ ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marca la ubicación de l
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamágica</color>
+ModUi/&ModQoL=<b><color=#D89555>Habilitar configuración de calidad de vida</color></b>
 ModUi/&ModifyGravitySlam=Modificar el hechizo <color=#D89555>Golpe de gravedad</color> para que tire hacia abajo a los objetivos afectados y se convierta en un cilindro en lugar de una esfera\n<i><color=#F0DAA0>[requiere que los <color=#D89555>efectos de movimiento de empujar y tirar funcionen en el eje arriba/abajo</color> estén habilitados]</color></i>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hacer clic en un hechizo invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y los demás gastan espacios verdes del pacto]</color></i>
@@ -368,6 +371,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar la receta de elaboración en
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&ShowMotionFormPreview=Mostrar vista previa de los efectos <b>Push</b> y <b>Pull</b>
 ModUi/&SpeechScale=<color=white>Modificador de velocidad de narración</color> <i><color=#F0DAA0>[cuanto más bajo, más rápido]</color></i>
+ModUi/&SpeechVolume=<color=white>Volumen de narración</color>
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todos]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
 ModUi/&StealthBreaksWhenAttackHits=Habilitar la pérdida de sigilo cuando un arma o un ataque de hechizo impacta
@@ -385,9 +389,12 @@ ModUi/&SwapAbjurationSavant=Intercambia <b>Abjurador</b> <color=#D89555>Sabio de
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y objetos elaborados en la tienda</i>
 ModUi/&SwapEvocationPotentCantripAndSculptSpell=Intercambia <b>Evocador</b>, <color=#D89555>hechizos de escultura</color> y <color=#D89555>truco potente</color> al progresar.
 ModUi/&SwapEvocationSavant=Intercambia <b>Evocador</b> <color=#D89555>Sabio de la evocación</color> con la versión 5e 2024 <i><color=#F0DAA0>[aprende 2 hechizos de la escuela cuando los adquieres, aprende 1 más cada vez que ganas un nivel de ranura]</color></i>
+ModUi/&SwapMartialChampion=Intercambio de <b>Campeón marcial</b> con la versión 5e 2024
+ModUi/&TableTop2014=<b><color=#D89555>Habilitar reglas de 2014</color></b>
+ModUi/&TableTop2024=<b><color=#D89555>Habilitar reglas 2024</color></b>
 ModUi/&TableTopButton=<b><color=#D89555>Seleccionar contenido de Tabletop</color></b>
 ModUi/&TableTopHelp1=• Las siguientes secciones reagrupan y duplican las configuraciones de <color=#D89555>5e 2014 y 2024</color> esparcidas por el mod para tu conveniencia.
-ModUi/&TableTopHelp2=• Presiona el botón para seleccionar solo contenido de mesa en la pestaña Personaje y selecciona todas las opciones a continuación para una verdadera experiencia TT
+ModUi/&TableTopHelp2=• Presiona los botones para <b>seleccionar solo contenido de mesa en la pestaña Personaje</b> y <b>habilitar las reglas 2014 y/o 2024</b>, para una verdadera experiencia TT
 ModUi/&Tabletop=<color=#F0DAA0>Mesa de trabajo <i>[5e 2014]</i>:</color>
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&TotalCraftingTimeModifier=<color=white>Reducir el tiempo de elaboración</color>
@@ -416,5 +423,7 @@ ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Permitir que las <color=#D89555>
 ModUi/&UseWeaponMasterySystem=Habilitar las reglas de <color=#D89555>Maestría en armas</color>
 ModUi/&UseWeaponMasterySystemAddCleaveDamage=<i>+ Maestría en hendidura: añade un modificador de puntuación de atributo al daño del segundo ataque</i>
 ModUi/&UseWeaponMasterySystemAddWeaponTag=<i>+ Añadir etiqueta de maestría a todas las armas del juego</i>
+ModUi/&UseWeaponMasterySystemFlurryTriggersMastery=<i>+ El ataque adicional de Doble Ráfaga puede activar otra maestría</i>
+ModUi/&UseWeaponMasterySystemNickExtraAttackTriggersMastery=<i>+ El ataque adicional de maestría de Nick puede activar otra maestría</i>
 ModUi/&UseWeaponMasterySystemPushSave=<i>+ La maestría de empuje requiere que la criatura realice una tirada de salvación de Fuerza (CD 8 + modificador de característica de tirada de ataque + Bonificación por Competencia)</i>
 ModUi/&WildSurgeDieRollThreshold=<color=white>Establecer umbral de dados de probabilidad de <color=#D89555>Magia salvaje de hechicero</color>:</color><99}<i><color=#F0DAA0>[la oleada salvaje se activa si los resultados son menores o iguales al umbral]</color></i>

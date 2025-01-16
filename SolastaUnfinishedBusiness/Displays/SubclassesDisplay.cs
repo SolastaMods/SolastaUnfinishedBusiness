@@ -81,6 +81,13 @@ internal static class SubclassesDisplay
             WizardEvocation.SwapEvocationPotentCantripAndSculptSpell();
         }
 
+        toggle = Main.Settings.EnableMartialChampion2024;
+        if (UI.Toggle(Gui.Localize("ModUi/&SwapMartialChampion"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMartialChampion2024 = toggle;
+            Tabletop2024Context.SwitchMartialChampion();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;

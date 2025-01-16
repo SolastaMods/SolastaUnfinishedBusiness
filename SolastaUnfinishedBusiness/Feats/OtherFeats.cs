@@ -1212,7 +1212,10 @@ internal static class OtherFeats
             var abilityCheckData =
                 new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = action };
 
-            yield return ResolveContest(attacker, defender, abilityCheckData);
+            var opponentAbilityCheckData =
+                new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = action };
+
+            yield return ResolveContest(attacker, defender, abilityCheckData, opponentAbilityCheckData);
 
             // cannot be Frightened anymore
             if (abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
@@ -1250,7 +1253,8 @@ internal static class OtherFeats
         }
 
         private static IEnumerator ResolveContest(
-            GameLocationCharacter actor, GameLocationCharacter opponent, AbilityCheckData abilityCheckData)
+            GameLocationCharacter actor, GameLocationCharacter opponent, AbilityCheckData abilityCheckData,
+            AbilityCheckData opponentAbilityCheckData)
         {
             var actionModifierActor = new ActionModifier();
             var actionModifierOpponent = new ActionModifier();
@@ -1303,7 +1307,8 @@ internal static class OtherFeats
                 SkillDefinitions.Insight,
                 actionModifierOpponent.AbilityCheckAdvantageTrends,
                 actionModifierOpponent.AbilityCheckModifierTrends,
-                abilityCheckData);
+                abilityCheckData,
+                opponentAbilityCheckData);
         }
     }
 
