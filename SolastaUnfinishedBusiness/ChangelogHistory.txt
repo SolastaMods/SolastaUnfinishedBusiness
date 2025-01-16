@@ -14,6 +14,7 @@
 - fixed Circle of Cosmos chalice healing not working off combat
 - fixed Command: Approach spell not ending turn if target within 5 ft
 - fixed Faery Fire, and Starry Wisp integration with Lighting rules
+- fixed Grapple interaction with Step of Wind: Grapple when used on same turn
 - fixed Haste interaction with multi-attack when replace with cantrip is used
 - fixed Mirror Image 2024 AC calculation
 - fixed Monk deflect attacks 2024 not losing return attacks condition
