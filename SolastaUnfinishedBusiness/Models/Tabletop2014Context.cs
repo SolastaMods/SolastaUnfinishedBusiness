@@ -274,6 +274,9 @@ internal static class Tabletop2014Context
 
     private static void LoadConditionInvisibleShouldNotAllowOpportunityAttack()
     {
+        // shadow murder must be removed whenever invisible is
+        ConditionDefinitions.ConditionShadowMurder.parentCondition = ConditionDefinitions.ConditionInvisibleBase;
+
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
                      .Where(x => x.IsSubtypeOf(ConditionInvisible)))
         {
