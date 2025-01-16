@@ -361,7 +361,7 @@ internal static class GrappleContext
             ConditionGrappleSourceWithGrapplerLargerName);
     }
 
-    private static bool GetGrappledActor(
+    internal static bool GetGrappledActor(
         RulesetCharacter rulesetSource,
         out RulesetCharacter rulesetTarget,
         out RulesetCondition rulesetTargetCondition)

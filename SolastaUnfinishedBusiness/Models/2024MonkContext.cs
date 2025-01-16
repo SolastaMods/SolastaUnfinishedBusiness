@@ -782,7 +782,11 @@ internal static partial class Tabletop2024Context
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            GameLocationCharacter.GetFromActor(target).BreakGrapple();
+            if (GrappleContext.GetGrappledActor(target, out var grappledActor, out _) &&
+                grappledActor.Side == target.Side)
+            {
+                GameLocationCharacter.GetFromActor(target).BreakGrapple();
+            }
         }
     }
 
@@ -959,8 +963,7 @@ internal static partial class Tabletop2024Context
 
             void ReactionValidated()
             {
-                var classLevel = rulesetCharacter.GetClassLevel(Monk);
-                var healing = classLevel + rulesetCharacter.RollDiceAndSum(
+                var healing = rulesetCharacter.GetClassLevel(Monk) + rulesetCharacter.RollDiceAndSum(
                     rulesetCharacter.GetMonkDieType(), RollContext.HealValueRoll, 1, []);
 
                 // be silent on combat log
