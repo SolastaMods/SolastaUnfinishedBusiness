@@ -1217,15 +1217,19 @@ internal static partial class SpellBuilders
                         .Create()
                         .SetTargetingData(Side.All, RangeType.Self, 1, TargetType.Cone, 3)
                         .SetEffectAdvancement(EffectIncrementMethod.None)
-                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D6))
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetDamageForm(damageType, 3, DieType.D6)
+                                .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                                .Build())
                         .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                            EffectDifficultyClassComputation.FixedValue, fixedSavingThrowDifficultyClass: 10)
+                            EffectDifficultyClassComputation.FixedValue)
                         .SetCasterEffectParameters(dragonbornBreathPower)
                         .SetImpactEffectParameters(dragonbornBreathPower)
                         .SetParticleEffectParameters(dragonbornBreathPower)
                         .SetAnimationMagicEffect(dragonbornBreathPower.EffectDescription.AnimationMagicEffect)
                         .Build())
-                .AddCustomSubFeatures()
                 .AddToDB();
 
             description = Gui.Format($"Condition/&Condition{NAME}Description", dmgStr);
@@ -1236,7 +1240,7 @@ internal static partial class SpellBuilders
                     ConditionSorcererDraconicElementalResistance.GuiPresentation.SpriteReference)
                 .SetPossessive()
                 .SetConditionType(ConditionType.Beneficial)
-                .SetFeatures(powerBreathAttack)
+                .AddFeatures(powerBreathAttack)
                 .SetConditionParticleReference(dragonbornBreathPower)
                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                 .AddToDB();
@@ -1325,8 +1329,6 @@ internal static partial class SpellBuilders
                 // store info from spell Level
                 activeCondition.effectLevel = actionCastSpell.ActiveSpell.SlotLevel;
                 // store info for caster Spell Save DC
-                rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                    rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
                 activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
             }
         }
@@ -1351,7 +1353,11 @@ internal static partial class SpellBuilders
             //set upcast damage dice: 3 + ( slot Lv - base spell Lv(2) )
             effectDescription.FindFirstDamageForm().diceNumber = 1 + activeCondition.effectLevel;
             //set Spell Save DC
-            effectDescription.fixedSavingThrowDifficultyClass = activeCondition.Amount;
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                rulesetEffectPower.usablePower.saveDC = activeCondition.Amount;
+            }
+
             return effectDescription;
         }
 
