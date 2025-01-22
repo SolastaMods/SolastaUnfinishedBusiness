@@ -323,15 +323,7 @@ internal static partial class SpellBuilders
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                DatabaseRepository.GetDatabase<DamageDefinition>()
-                    .Select(damageDefinition =>
-                        FeatureDefinitionDamageAffinityBuilder
-                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
-                            .SetDamageType(damageDefinition.Name)
-                            .AddToDB()))
+            .SetFeatures() // remove eyebite features
             .AddCustomSubFeatures(new CustomBehaviorCorruptingBolt())
             .AddToDB();
 
@@ -369,9 +361,47 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorCorruptingBolt : IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
+    private sealed class CustomBehaviorCorruptingBolt :
+        ITryAlterOutcomeAttack,
+        IPhysicalAttackFinishedOnMe,
+        IMagicEffectFinishedOnMe
     {
-        private const string ConditionCorruptingBoltName = "ConditionCorruptingBolt";
+        private const string Name = "CorruptingBolt";
+        private const string ConditionCorruptingBoltName = $"Condition{Name}";
+
+        private static FeatureDefinitionDamageAffinity[] VulnerabilityFeatures =
+            DatabaseRepository.GetDatabase<DamageDefinition>()
+                    .Select(damageDefinition =>
+                        FeatureDefinitionDamageAffinityBuilder
+                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                            .SetDamageType(damageDefinition.Name)
+                            .AddToDB()
+                    ).ToArray();
+
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if ((attackMode is not null || rulesetEffect.EffectDescription.NeedsToRollDie()) &&
+                rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
+            {
+                activeCondition.ConditionDefinition.features.SetRange(VulnerabilityFeatures);
+            }
+            yield break;
+        }
 
         public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterAction action,
@@ -380,22 +410,26 @@ internal static partial class SpellBuilders
             List<GameLocationCharacter> targets)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
-
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition) &&
-                !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
+            if (rulesetEffect.EffectDescription.NeedsToRollDie() &&
+                rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
             {
-                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+                if (action.AttackRollOutcome is (RollOutcome.Success or RollOutcome.CriticalSuccess) &&
+                    !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
+                {
+                    rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+                }
+                else
+                {
+                    activeCondition.ConditionDefinition.features.Clear();
+                }
             }
+
+            yield break;
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -409,8 +443,19 @@ internal static partial class SpellBuilders
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
+            {
+                if (action.AttackRollOutcome is (RollOutcome.Success or RollOutcome.CriticalSuccess))
+                {
+                    rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+                }
+                else
+                {
+                    activeCondition.ConditionDefinition.features.Clear();
+                }
+            }
 
             yield break;
         }
