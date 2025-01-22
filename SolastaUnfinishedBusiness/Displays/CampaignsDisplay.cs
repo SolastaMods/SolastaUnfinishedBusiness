@@ -320,6 +320,12 @@ internal static class CampaignsDisplay
                 Main.Settings.NeverMoveCameraOnEnemyTurn = toggle;
             }
 
+            toggle = Main.Settings.EnableForceAllyMovementAllowsFlight;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableAllyMovementAllowsFlight"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableForceAllyMovementAllowsFlight = toggle;
+            }
+
             UI.Label();
         }
 

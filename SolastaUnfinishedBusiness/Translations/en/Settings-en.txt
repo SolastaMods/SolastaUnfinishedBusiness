@@ -21,6 +21,7 @@ ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each 
 ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect Wild Shape or flying races]</color></i>
+ModUi/&EnableAllyMovementAllowsFlight=Allow features that move self or allies to include mid-air positions if that creature is flying (eg. <color=#D89555>Maneuvering Strike</color>, <color=#D89555>Instinctive Pounce</color>)
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
 ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Hasted <i><color=#F0DAA0>[you are still limited to 1 main action spell per round]</color></i>
 ModUi/&AllowHornsOnAllRaces=Allow horns on all races <i><color=#F0DAA0>[results might look terrible depending on race, head and horn]</color></i>
