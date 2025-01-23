@@ -66,6 +66,7 @@ internal static class ModUi
         "DissonantWhispers",
         "DivineWrath",
         "DomainNature",
+        "DomainOrder",
         "DomainTempest",
         "DomainSmith",
         "DraconicTransformation",

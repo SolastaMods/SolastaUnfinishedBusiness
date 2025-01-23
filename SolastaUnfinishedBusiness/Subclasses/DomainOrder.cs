@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
-using UnityEngine;
+using SolastaUnfinishedBusiness.Validators;
 
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -23,10 +25,22 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class DomainOrder : AbstractSubclass
 {
+    private static string NAME = "DomainOrder";
+    private static FeatureDefinitionAdditionalDamage DivineStrike = 
+        FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}DivineStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("DivineStrike")
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetAttackModeOnly()
+            .SetImpactParticleReference(ViciousMockery)
+            .AddToDB();
+
     public DomainOrder()
     {
-        const string NAME = "DomainOrder";
-
         // LEVEL 01
 
         // Auto Prepared Spells
@@ -40,7 +54,7 @@ public sealed class DomainOrder : AbstractSubclass
                 BuildSpellGroup(5, MassHealingWord, Slow),
                 BuildSpellGroup(7, Confusion, SpellsContext.PsychicLance),
                 BuildSpellGroup(9, HoldMonster, DominatePerson))
-            .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
+            .SetSpellcastingClass(Cleric)
             .AddToDB();
 
         // Heavy Armor Proficiency
@@ -84,11 +98,9 @@ public sealed class DomainOrder : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round)
-                .SetTargetingData(Side.All, RangeType.Distance, 48, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
                 .SetNoSavingThrow()
                 .SetIgnoreCover()
-                .SetCasterEffectParameters(SpellsContext.DissonantWhispers)
-                .SetEffectEffectParameters(SpellsContext.DissonantWhispers)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(conditionVoiceOfAuthority))
                 .Build())
             .AddToDB();
@@ -109,7 +121,7 @@ public sealed class DomainOrder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 48, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique, 2)
                     .Build())
             .AddToDB();
 
@@ -122,7 +134,8 @@ public sealed class DomainOrder : AbstractSubclass
 
         var powerOrdersDemand = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}OrdersDemand")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -161,22 +174,61 @@ public sealed class DomainOrder : AbstractSubclass
 
         // LEVEL 08 Divine Strike
         // LEVEL 14 Divine Strike +1d8
-        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike")
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("DivineStrike")
-            .SetDamageDice(DieType.D8, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
-            .SetSpecificDamageType(DamageTypePsychic)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackModeOnly()
-            .SetImpactParticleReference(ViciousMockery)
-            .AddToDB();
-
 
         // LEVEL 17 Order's Wrath
         // if Divine Strike a creature, can curse until start of your next turn
         // first time it's hurt before then, +2d8 psychic damage
+        var conditionCursedByOrdersWrath = ConditionDefinitionBuilder
+            .Create("ConditionCursedByOrdersWrath")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightened)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+            .SetSilent(Silent.None)
+            .SetPossessive()
+            .SetConditionParticleReference(BestowCurse)
+            .AddToDB();
+
+        var additionalDamasgeOrdersWrath = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}OrdersWrath")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag($"{NAME}OrdersWrath")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+            .SetDamageDice(DieType.D8, 2)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetTargetCondition(
+                conditionCursedByOrdersWrath, AdditionalDamageTriggerCondition.TargetHasCondition)
+            .AddConditionOperation(
+                ConditionOperationDescription.ConditionOperation.Remove, conditionCursedByOrdersWrath)
+            .SetAttackOnly()
+            .AddToDB();
+
+        var conditionApplyAdditionalDamage = ConditionDefinitionBuilder
+            .Create("conditionApplyAdditionalDamageOrdersWrath")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddFeatures(additionalDamasgeOrdersWrath)
+            .AddToDB();
+
+        conditionCursedByOrdersWrath.AddCustomSubFeatures(
+            new OrdersWrathAdditionalDamageHandler(conditionCursedByOrdersWrath, conditionApplyAdditionalDamage));
+
+        
+        var description = Gui.Format($"Feature/&Power{NAME}Description",
+            Main.Settings.EnableClericBlessedStrikes2024 ? "Blessed Strikes" : "Divine Strike");
+        var powerOrdersWrath = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}OrdersWrath")
+            .SetGuiPresentation(Category.Feature, "Power{NAME}OrdersWrath")
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .AddToDB();
+
+        powerOrdersWrath.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
+            new OrdersWrathApplyOnDivineStrike(
+                conditionCursedByOrdersWrath, powerOrdersWrath));
 
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -191,8 +243,8 @@ public sealed class DomainOrder : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 featureSetOrdersDemand)
             //.AddFeaturesAtLevel(6, null)
-            .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
-            //.AddFeaturesAtLevel(17, null)
+            .AddFeaturesAtLevel(8, DivineStrike)
+            .AddFeaturesAtLevel(17, powerOrdersWrath)
             .AddFeaturesAtLevel(20, Level20SubclassesContext.PowerClericDivineInterventionImprovementPaladin)
             .AddToDB();
     }
@@ -238,15 +290,6 @@ public sealed class DomainOrder : AbstractSubclass
             }
 
             attacker.MyExecuteActionPowerNoCost(usablePower, [.. targets]);
-            /*
-            yield return attacker.MyReactToUsePower(
-                ActionDefinitions.Id.PowerNoCost,
-                usablePower,
-                targets,
-                attacker,
-                "PowerVoiceOfAuthority",
-                battleManager: battleManager);
-            */
         }
     }
 
@@ -335,7 +378,8 @@ public sealed class DomainOrder : AbstractSubclass
             return __instance.BattleService.CanAttack(attackParams2);
         }
 
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(
+            CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
             var attacker = targetCharacters[0];
@@ -351,6 +395,143 @@ public sealed class DomainOrder : AbstractSubclass
                 defender,
                 attackMode,
                 new ActionModifier());
+
+            yield break;
+        }
+    }
+
+    private sealed class OrdersWrathApplyOnDivineStrike(
+        ConditionDefinition conditionOrdersWrath,
+        FeatureDefinitionPower powerOrdersWrath)
+        : IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
+    {
+        // Allow a character that took the "Blessed Strikes: Potent Spellcasting" option to curse, too
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetTarget = targets.Find(t => t.RulesetCharacter is not null && t.Side != rulesetAttacker.Side)?
+                                       .RulesetCharacter; // First enemy target
+
+            if (action is CharacterActionCastSpell castSpell &&
+                castSpell.ActiveSpell.SlotLevel == 0 &&
+                rulesetTarget is not null &&
+                rulesetAttacker.CanUsePower(powerOrdersWrath) &&
+                rulesetAttacker.HasAnyFeature(
+                    GetDefinition<FeatureDefinition>("FeatureClericBlessedStrikesPotentSpellcasting")))
+            {
+                var activeCondition = RulesetCondition.CreateCondition(
+                    rulesetTarget.Guid,
+                    conditionOrdersWrath);
+                activeCondition.sourceGuid = attacker.Guid; // So we can track when to end the condition
+
+                rulesetTarget.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
+
+                rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
+            }
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker is null || rulesetDefender is null) { yield break; }
+
+            // If the character has used their Divine Strike or "Blessed Strike: Primal Strike" on this hit
+            bool canCurse = attacker.UsedSpecialFeatures.ContainsKey(DivineStrike.Name) ||
+                            attacker.UsedSpecialFeatures.ContainsKey(Tabletop2024Context.BlessedStrikes);
+
+            // If attack was with a weapon, we haven't used this power yet this turn, and meet the criteria above
+            if (attackMode.SourceObject is RulesetItem &&
+                rulesetAttacker.CanUsePower(powerOrdersWrath) &&
+                canCurse)
+            {
+                var activeCondition = RulesetCondition.CreateCondition(defender.Guid, conditionOrdersWrath);
+                activeCondition.sourceGuid = attacker.Guid; // So we can track when to end the condition
+
+                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
+
+                rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
+            }
+
+            yield break;
+        }
+    }
+
+    private sealed class OrdersWrathAdditionalDamageHandler(
+        ConditionDefinition conditionOrdersWrath,
+        ConditionDefinition conditionForAttacker)
+        : IMagicEffectBeforeHitConfirmedOnMe,IPhysicalAttackBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            
+            if (rulesetAttacker is null ||
+                rulesetDefender is null ||
+                !rulesetEffect.EffectDescription.NeedsToRollDie() || // Only triggered on attacks
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionOrdersWrath.Name, out var activeCondition) ||
+                rulesetAttacker.Guid == activeCondition.SourceGuid || // Only triggered by allies
+                rulesetAttacker.Side != EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid).Side)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagEffect,
+                RulesetCondition.CreateCondition(rulesetDefender.Guid, conditionForAttacker));
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker is null ||
+                rulesetDefender is null ||
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionOrdersWrath.Name, out var activeCondition) ||
+                rulesetAttacker.Guid == activeCondition.SourceGuid || // Only triggered by allies
+                rulesetAttacker.Side != EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid).Side)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagEffect,
+                RulesetCondition.CreateCondition(rulesetDefender.Guid, conditionForAttacker));
 
             yield break;
         }
