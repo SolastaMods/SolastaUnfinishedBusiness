@@ -54,7 +54,7 @@ public static class RuleDefinitionsPatcher
     public static class IsPositionImmuneToSpell_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(out bool __result, int spellLevel, int totalSpellLevel)
+        public static void Postfix(out bool __result, int spellLevel, ref int totalSpellLevel)
         {
             __result = totalSpellLevel != 0 && spellLevel <= totalSpellLevel;
         }
