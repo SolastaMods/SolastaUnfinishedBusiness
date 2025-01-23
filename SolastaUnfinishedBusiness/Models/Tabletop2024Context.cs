@@ -17,7 +17,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatu
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -529,11 +528,13 @@ internal static partial class Tabletop2024Context
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if ((double)int3.Distance(cursorLocationSelectPosition.centerPosition, position) > (double)halfMaxTacticalMoves || 
+                if (int3.Distance(cursorLocationSelectPosition.centerPosition, position) >
+                    (double)halfMaxTacticalMoves ||
                     !positioningService.CanPlaceCharacter(
                         actingCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
+                        actingCharacter, position,
+                        onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
                 {
                     continue;
                 }

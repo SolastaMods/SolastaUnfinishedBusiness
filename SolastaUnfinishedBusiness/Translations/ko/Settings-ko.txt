@@ -92,6 +92,7 @@ ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[�
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘 활성화
 ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
+ModUi/&EnableAllyMovementAllowsFlight=비행 중인 생물이 있는 경우 공중 위치를 포함하여 자신이나 아군을 움직이는 기능을 허용합니다(예: <color=#D89555>기동 타격</color>, <color=#D89555>본능적 습격</color>)
 ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 특기 / +2 속성 선택 / +1 기술]</color></i>을 활성화합니다.
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 수 * 영웅 카리스마 수정치]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> <color=#D89555>Arcane Ward</color> 구현을 BG3처럼 동작하도록 활성화합니다.

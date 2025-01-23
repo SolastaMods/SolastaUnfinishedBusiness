@@ -369,16 +369,73 @@ internal static partial class SpellBuilders
         private const string Name = "CorruptingBolt";
         private const string ConditionCorruptingBoltName = $"Condition{Name}";
 
-        private static FeatureDefinitionDamageAffinity[] VulnerabilityFeatures =
+        private static readonly FeatureDefinitionDamageAffinity[] VulnerabilityFeatures =
             DatabaseRepository.GetDatabase<DamageDefinition>()
-                    .Select(damageDefinition =>
-                        FeatureDefinitionDamageAffinityBuilder
-                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
-                            .SetDamageType(damageDefinition.Name)
-                            .AddToDB()
-                    ).ToArray();
+                .Select(damageDefinition =>
+                    FeatureDefinitionDamageAffinityBuilder
+                        .Create($"DamageAffinity{Name}{damageDefinition.Name}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                        .SetDamageType(damageDefinition.Name)
+                        .AddToDB()
+                ).ToArray();
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetEffect.EffectDescription.NeedsToRollDie() ||
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
+            {
+                yield break;
+            }
+
+            if (action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
+            {
+                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+            }
+            else
+            {
+                activeCondition.ConditionDefinition.features.Clear();
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
+            {
+                yield break;
+            }
+
+            if (action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
+            }
+            else
+            {
+                activeCondition.ConditionDefinition.features.Clear();
+            }
+        }
 
         public int HandlerPriority => 10;
 
@@ -394,67 +451,19 @@ internal static partial class SpellBuilders
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if ((attackMode is not null || rulesetEffect.EffectDescription.NeedsToRollDie()) &&
-                rulesetDefender.TryGetConditionOfCategoryAndType(
+            if ((attackMode is null &&
+                 !rulesetEffect.EffectDescription.NeedsToRollDie()) ||
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
             {
-                activeCondition.ConditionDefinition.features.SetRange(VulnerabilityFeatures);
-            }
-            yield break;
-        }
-
-        public IEnumerator OnMagicEffectFinishedOnMe(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            List<GameLocationCharacter> targets)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetEffect.EffectDescription.NeedsToRollDie() &&
-                rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
-            {
-                if (action.AttackRollOutcome is (RollOutcome.Success or RollOutcome.CriticalSuccess) &&
-                    !rulesetAttacker.SpellsCastByMe.Any(x => x.TrackedConditionGuids.Contains(activeCondition.Guid)))
-                {
-                    rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
-                }
-                else
-                {
-                    activeCondition.ConditionDefinition.features.Clear();
-                }
+                yield break;
             }
 
-            yield break;
-        }
+            activeCondition.ConditionDefinition.Features.Clear();
 
-        public IEnumerator OnPhysicalAttackFinishedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionCorruptingBoltName, out var activeCondition))
+            foreach (var feature in VulnerabilityFeatures)
             {
-                if (action.AttackRollOutcome is (RollOutcome.Success or RollOutcome.CriticalSuccess))
-                {
-                    rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, ConditionCorruptingBoltName);
-                }
-                else
-                {
-                    activeCondition.ConditionDefinition.features.Clear();
-                }
+                activeCondition.ConditionDefinition.Features.Add(feature);
             }
 
             yield break;

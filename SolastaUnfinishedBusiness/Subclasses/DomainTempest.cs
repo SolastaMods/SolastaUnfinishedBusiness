@@ -335,7 +335,7 @@ public sealed class DomainTempest : AbstractSubclass
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (!rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 yield break;
             }

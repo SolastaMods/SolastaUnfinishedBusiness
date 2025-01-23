@@ -527,7 +527,7 @@ internal static partial class Tabletop2024Context
             List<EffectForm> actualEffectForms,
             bool firstTarget, bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
+            if (rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 yield return HandleReaction(attacker, battleManager);
             }

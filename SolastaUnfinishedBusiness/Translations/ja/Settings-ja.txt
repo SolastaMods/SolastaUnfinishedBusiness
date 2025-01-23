@@ -92,6 +92,7 @@ ModUi/&EnableActionSwitching=アクション切り替えバーを有効にしま
 ModUi/&EnableAdditionalBackstoryDisplay=背景調査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
 ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
+ModUi/&EnableAllyMovementAllowsFlight=クリーチャーが飛行している場合、自分または仲間を移動する機能に空中位置を含めることを許可する (例: <color=#D89555>機動攻撃</color>、<color=#D89555>本能的な飛びかかり</color>)
 ModUi/&EnableAlternateHuman=代替の <color=#D89555>人間</color> を有効にする <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i>
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ性補正値]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=<b>Abjurer</b> の <color=#D89555>Arcane Ward</color> 実装を有効にして、BG3 のように動作させます。

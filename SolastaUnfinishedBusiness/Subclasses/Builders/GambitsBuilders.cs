@@ -1857,8 +1857,6 @@ internal static class GambitsBuilders
 
             var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
@@ -1867,20 +1865,22 @@ internal static class GambitsBuilders
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if ((double)int3.Distance(cursorLocationSelectPosition.centerPosition, position) > (double)halfMaxTacticalMoves ||
+                if (int3.Distance(cursorLocationSelectPosition.centerPosition, position) >
+                    (double)halfMaxTacticalMoves ||
                     !positioningService.CanPlaceCharacter(
                         targetCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
-                        targetCharacter, position, onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
+                        targetCharacter, position,
+                        onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
                 {
                     continue;
                 }
 
                 cursorLocationSelectPosition.validPositionsCache.Add(position);
-                
+
                 if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
                 {
-                    yield return (object) null;
+                    yield return null;
                 }
             }
         }

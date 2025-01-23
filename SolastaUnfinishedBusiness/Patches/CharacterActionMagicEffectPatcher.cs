@@ -772,7 +772,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 // BEGIN PATCH
 
-                if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+                if (!rulesetEffect.EffectDescription.NeedsToRollDie())
                 {
                     continue;
                 }
@@ -1241,7 +1241,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
+            if (rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 ProcessExtraAfterAttackConditionsMatchingInterruption(actingCharacter, rulesetTarget);
             }
