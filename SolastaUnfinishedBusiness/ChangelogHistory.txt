@@ -1,7 +1,8 @@
 1.5.97.45:
 
+- fixed Baleful Scion feat once per turn logic
 - fixed Corrupting Bolt, and Dragon's Breath spells
-- fixed Druid wildshape duration when circles are acquired at 3rd
+- fixed Druid wildshape interaction with circles at 3rd
 - fixed narration voices volume slider on mod UI
 
 1.5.97.44:

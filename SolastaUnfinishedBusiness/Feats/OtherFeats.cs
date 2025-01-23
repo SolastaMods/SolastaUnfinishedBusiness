@@ -1466,7 +1466,8 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            if (!firstTarget ||
+                !attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
