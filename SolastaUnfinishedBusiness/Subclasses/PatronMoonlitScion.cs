@@ -538,7 +538,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (!rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
             }

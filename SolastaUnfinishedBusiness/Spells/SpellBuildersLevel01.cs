@@ -1648,7 +1648,7 @@ internal static partial class SpellBuilders
             else
             {
                 var commandService = ServiceRepository.GetService<ICommandService>();
-                
+
                 commandService.EndTurn();
             }
         }

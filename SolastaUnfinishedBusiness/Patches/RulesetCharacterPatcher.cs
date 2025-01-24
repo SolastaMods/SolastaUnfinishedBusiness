@@ -1772,8 +1772,6 @@ public static class RulesetCharacterPatcher
                     {
                         usablePower.remainingUses++; // cannot call RepayUse() here as a dynamic pool
                     }
-
-                    __instance.recoveredFeatures.Add(PowerFighterSecondWind);
                 }
 
                 __instance.recoveredFeatures.Add(PowerDruidWildShape);

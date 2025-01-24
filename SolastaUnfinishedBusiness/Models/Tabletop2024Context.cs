@@ -523,14 +523,18 @@ internal static partial class Tabletop2024Context
             var halfMaxTacticalMoves = (actingCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(actingCharacter.LocationPosition, int3.zero, int3.zero);
 
-            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+            if (Main.Settings.EnableForceAllyMovementAllowsFlight) { boxInt.Inflate(halfMaxTacticalMoves); }
+            else { boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves); }
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (!positioningService.CanPlaceCharacter(
+                if (int3.Distance(cursorLocationSelectPosition.centerPosition, position) >
+                    (double)halfMaxTacticalMoves ||
+                    !positioningService.CanPlaceCharacter(
                         actingCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                        actingCharacter, position,
+                        onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
                 {
                     continue;
                 }

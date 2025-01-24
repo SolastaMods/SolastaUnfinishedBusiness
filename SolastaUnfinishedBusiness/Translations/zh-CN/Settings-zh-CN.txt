@@ -92,6 +92,7 @@ ModUi/&EnableActionSwitching=启用操作切换栏<i><color=#F0DAA0>[有助于�
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上启用营地、出口和传送器的附加图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器
+ModUi/&EnableAllyMovementAllowsFlight=如果该生物正在飞行，则允许移动自身或盟友的功能包括空中位置（例如<color=#D89555>机动打击</color>、<color=#D89555>本能猛扑</color>）
 ModUi/&EnableAlternateHuman=启用替代<color=#D89555>人类</color> <i><color=#F0DAA0>[+1 专长 / +2 属性选择 / +1 技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[选择权重 = 投票数 * 英雄魅力调整值]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=启用 <b>Abjurer</b> <color=#D89555>Arcane Ward</color> 实现，使其行为类似于 BG3

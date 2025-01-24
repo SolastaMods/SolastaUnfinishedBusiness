@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static ActionDefinitions;
 

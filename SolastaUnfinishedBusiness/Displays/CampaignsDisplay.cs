@@ -176,22 +176,22 @@ internal static class CampaignsDisplay
             UI.Label(Gui.Localize("ModUi/&EnableSpeechVoiceHelp"));
             UI.Label();
 
-            (var voice, floatValue) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
+            var (voice, speed) = Main.Settings.SpeechVoices[Main.Settings.SpeechChoice];
 
             intValue = Array.IndexOf(SpeechContext.VoiceNames, voice);
 
-            if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref floatValue,
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechScale"), ref speed,
                     0.5f, 2f, 0.8f, 1, string.Empty, UI.AutoWidth()))
             {
                 voice = SpeechContext.VoiceNames[intValue];
-                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, speed);
             }
 
-            floatValue = Main.Settings.SpeechVolume;
-            if (UI.Slider(Gui.Localize("ModUi/&SpeechVolume"), ref floatValue,
-                    0.0f, 1.2f, 1, 1, string.Empty, UI.AutoWidth()))
+            var volume = Main.Settings.SpeechVolume;
+            if (UI.Slider(Gui.Localize("ModUi/&SpeechVolume"), ref volume,
+                    0.0f, 1f, 0.8f, 1, string.Empty, UI.AutoWidth()))
             {
-                Main.Settings.SpeechVolume = floatValue;
+                Main.Settings.SpeechVolume = volume;
             }
 
             UI.Label();
@@ -200,7 +200,7 @@ internal static class CampaignsDisplay
                     ref intValue, SpeechContext.VoiceNames, SpeechContext.VoiceNames.Length, 3, UI.Width(800f)))
             {
                 voice = SpeechContext.VoiceNames[intValue];
-                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, floatValue);
+                Main.Settings.SpeechVoices[Main.Settings.SpeechChoice] = (voice, speed);
                 SpeechContext.SpeakQuote();
                 SpeechContext.UpdateAvailableVoices();
             }
@@ -318,6 +318,12 @@ internal static class CampaignsDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&NeverMoveCameraOnEnemyTurn"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NeverMoveCameraOnEnemyTurn = toggle;
+            }
+
+            toggle = Main.Settings.EnableForceAllyMovementAllowsFlight;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableAllyMovementAllowsFlight"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableForceAllyMovementAllowsFlight = toggle;
             }
 
             UI.Label();

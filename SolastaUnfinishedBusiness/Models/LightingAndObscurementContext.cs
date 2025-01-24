@@ -753,7 +753,7 @@ internal static class LightingAndObscurementContext
         ProxyStinkingCloud
     ];
 
-    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
         .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)

@@ -1466,7 +1466,8 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            if (!firstTarget ||
+                !attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
@@ -2223,7 +2224,7 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (!rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
             }

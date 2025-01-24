@@ -573,7 +573,8 @@ public static class CharacterBuildingManagerPatcher
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: avoid Domain Nature to break level up with the cantrip pool it gets
-            ResetCantripsPool(hero, $"{AttributeDefinitions.TagSubclass}Cleric1DomainNatureDomainNature");
+            ResetCantripsPool(hero, $"{AttributeDefinitions.TagSubclass}Cleric"
+                + (Main.Settings.EnableClericToLearnDomainAtLevel3 ? 3 : 1) +"DomainNatureDomainNature");
 
             //PATCH: un-captures the desired subclass
             LevelUpHelper.SetSelectedSubclass(hero, null);

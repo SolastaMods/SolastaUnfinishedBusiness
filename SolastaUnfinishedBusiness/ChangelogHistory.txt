@@ -1,3 +1,10 @@
+1.5.97.45:
+
+- fixed Baleful Scion feat once per turn logic
+- fixed Corrupting Bolt, and Dragon's Breath spells
+- fixed Druid wildshape interaction with circles at 3rd
+- fixed narration voices volume slider on mod UI
+
 1.5.97.44:
 
 - added Martial Champion 2024 setting
@@ -23,11 +30,6 @@
 - fixed apply damage form crash scenario from race features
 - fixed context checks calculations
 - fixed enable no AoO if Blinded or Invisible setting to consider sense modes
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon won't force disadvantage if defender is within 5 ft
-- Chaos Bolt spell damage won't deal the correct damage type if under multiplayer, twinned, and one bolt misses
 
 1.5.97.43:
 

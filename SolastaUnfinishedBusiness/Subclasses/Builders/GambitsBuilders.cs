@@ -1855,23 +1855,23 @@ internal static class GambitsBuilders
         {
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
-            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+            if (Main.Settings.EnableForceAllyMovementAllowsFlight) { boxInt.Inflate(halfMaxTacticalMoves); }
+            else { boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves); }
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                if (int3.Distance(cursorLocationSelectPosition.centerPosition, position) >
+                    (double)halfMaxTacticalMoves ||
                     !positioningService.CanPlaceCharacter(
-                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                        targetCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                        targetCharacter, position,
+                        onlyCheckCellsWithRealGround: Main.Settings.EnableForceAllyMovementAllowsFlight))
                 {
                     continue;
                 }

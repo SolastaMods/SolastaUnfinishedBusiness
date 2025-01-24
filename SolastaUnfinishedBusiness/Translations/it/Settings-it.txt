@@ -92,6 +92,7 @@ ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva della storia di fondo durante l'ispezione dello sfondo
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per campi, uscite e teletrasporti sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=Aggiungi elementi modificati all'editor
+ModUi/&EnableAllyMovementAllowsFlight=Consenti alle caratteristiche che muovono se stessi o gli alleati di includere posizioni a mezz'aria se la creatura sta volando (ad esempio <color=#D89555>Colpo di manovra</color>, <color=#D89555>Balzo istintivo</color>)
 ModUi/&EnableAlternateHuman=Abilita l'alternativa <color=#D89555>Umano</color> <i><color=#F0DAA0>[+1 talento / +2 scelte attributo / +1 abilità]</color></i>
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[peso della scelta = voti * modificatore Carisma dell'eroe]</color></i>
 ModUi/&EnableBG3AbjurationArcaneWard=Abilita l'implementazione di <b>Abjurer</b> <color=#D89555>Arcane Ward</color> per comportarsi come BG3
