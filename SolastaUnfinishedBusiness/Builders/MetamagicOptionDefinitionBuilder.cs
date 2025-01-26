@@ -15,6 +15,12 @@ internal class
             (MetamagicType)9000; // use a dummy value to avoid conflicts with vanilla
     }
 
+    internal MetamagicOptionDefinitionBuilder SetType(MetamagicType type)
+    {
+        Definition.metamagicType = type;
+        return this;
+    }
+
     internal MetamagicOptionDefinitionBuilder SetCost(
         MetamagicCostMethod costMethod = MetamagicCostMethod.FixedValue,
         int sorceryPointsCost = 1)
