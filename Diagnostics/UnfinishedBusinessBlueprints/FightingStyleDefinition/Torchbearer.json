@@ -6,7 +6,7 @@
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&TorchbearerTitle",
     "description": "FightingStyle/&TorchbearerDescription",
     "spriteReference": {
