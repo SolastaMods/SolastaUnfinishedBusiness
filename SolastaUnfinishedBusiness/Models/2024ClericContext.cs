@@ -136,7 +136,8 @@ internal static partial class Tabletop2024Context
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage) &&
+            if (!rulesetAttacker.HasPower(PowerBlessedStrikes) &&
+                actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage) &&
                 rulesetEffect.SourceDefinition is SpellDefinition { SpellLevel: 0 } &&
                 !rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionClericImprovedBlessedStrikes.Name))
@@ -174,15 +175,27 @@ internal static partial class Tabletop2024Context
         { "DomainTempest", ["PowerClericBlessedStrikesDamageThunder"] }
     };
 
+    private static readonly FeatureDefinition FeaturePotentSpellcasting = FeatureDefinitionBuilder
+        .Create("FeatureClericBlessedStrikesPotentSpellcasting")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerBlessedStrikes = FeatureDefinitionPowerBuilder
+        .Create("PowerClericBlessedStrikes")
+        .SetGuiPresentation(Category.Feature, hidden: true)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Round)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .Build())
+        .AddToDB();
+
     private static void LoadClericBlessedStrikes()
     {
-        var featurePotentSpellcasting = FeatureDefinitionBuilder
-            .Create("FeatureClericBlessedStrikesPotentSpellcasting")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featurePotentSpellcasting.AddCustomSubFeatures(
-            new ClassFeats.CustomBehaviorFeatPotentSpellcaster(featurePotentSpellcasting, Cleric));
+        FeaturePotentSpellcasting.AddCustomSubFeatures(
+            new ClassFeats.CustomBehaviorFeatPotentSpellcaster(FeaturePotentSpellcasting, Cleric));
 
         var damageTypes = new (string, IMagicEffect)[]
         {
@@ -196,19 +209,8 @@ internal static partial class Tabletop2024Context
         };
 
         var powers = new List<FeatureDefinitionPower>();
-        var powerBlessedStrikes = FeatureDefinitionPowerBuilder
-            .Create("PowerClericBlessedStrikes")
-            .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .Build())
-            .AddToDB();
 
-        powerBlessedStrikes.AddCustomSubFeatures(new CustomBehaviorBlessedStrikes(powerBlessedStrikes));
+        PowerBlessedStrikes.AddCustomSubFeatures(new CustomBehaviorBlessedStrikes(PowerBlessedStrikes));
 
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var (damageType, effect) in damageTypes)
@@ -242,7 +244,7 @@ internal static partial class Tabletop2024Context
                     $"Tooltip/&Tag{damageType}Title",
                     Gui.Format("Feature/&PowerClericBlessedStrikesSubPowerDescription", damageTitle))
                 .SetShowCasting(false)
-                .SetSharedPool(ActivationTime.NoCost, powerBlessedStrikes)
+                .SetSharedPool(ActivationTime.NoCost, PowerBlessedStrikes)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -272,12 +274,12 @@ internal static partial class Tabletop2024Context
 
         var featureSetPrimalStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetClericBlessedStrikesPrimalStrike")
-            .SetGuiPresentation(powerBlessedStrikes.GuiPresentation)
-            .SetFeatureSet(powerBlessedStrikes, actionAffinityToggle, powers[0], powers[1])
+            .SetGuiPresentation(PowerBlessedStrikes.GuiPresentation)
+            .SetFeatureSet(PowerBlessedStrikes, actionAffinityToggle, powers[0], powers[1])
             .AddToDB();
 
-        PowerBundle.RegisterPowerBundle(powerBlessedStrikes, false, powers);
-        FeatureSetClericBlessedStrikes.FeatureSet.SetRange(featurePotentSpellcasting, featureSetPrimalStrike);
+        PowerBundle.RegisterPowerBundle(PowerBlessedStrikes, false, powers);
+        FeatureSetClericBlessedStrikes.FeatureSet.SetRange(FeaturePotentSpellcasting, featureSetPrimalStrike);
     }
 
     private static void LoadClericChannelDivinity()
@@ -695,20 +697,8 @@ internal static partial class Tabletop2024Context
     }
 
     private sealed class CustomBehaviorBlessedStrikes(FeatureDefinitionPower powerBlessedStrikes)
-        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget, bool criticalHit)
-        {
-            yield return HandleReaction(attacker, battleManager);
-        }
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
