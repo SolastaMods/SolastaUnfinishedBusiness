@@ -47,6 +47,9 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // kept for backward compatibility
+        _ = BuildWeaponMastery(feats);
+        
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featBrawler = BuildBrawler();
@@ -79,7 +82,6 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
-        var weaponMasteryGroup = BuildWeaponMastery(feats);
 
         var featMerciless = BuildMerciless();
         var featPolearmExpert = BuildPolearmExpert();
@@ -164,8 +166,7 @@ internal static class OtherFeats
             featRopeIpUp,
             featSentinel,
             giftOfTheGemDragonGroup,
-            weaponMasterGroup,
-            weaponMasteryGroup);
+            weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             FeatPoisonousSkin);
