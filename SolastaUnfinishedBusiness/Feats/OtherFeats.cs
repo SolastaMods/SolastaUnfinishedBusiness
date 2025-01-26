@@ -48,7 +48,7 @@ internal static class OtherFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // kept for backward compatibility
-        _ = BuildWeaponMastery(feats);
+        BuildWeaponMastery();
         
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
@@ -547,28 +547,19 @@ internal static class OtherFeats
 
     #region Weapon Mastery
 
-    private static FeatDefinition BuildWeaponMastery(List<FeatDefinition> feats)
+    private static void BuildWeaponMastery()
     {
         const string Name = "FeatWeaponMastery";
 
-        var weaponMasterStr = FeatDefinitionBuilder
+        _ = FeatDefinitionBuilder
             .Create($"{Name}Str")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
-            .SetFeatFamily(Name)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .AddToDB();
 
-        var weaponMasterDex = FeatDefinitionBuilder
+        _ = FeatDefinitionBuilder
             .Create($"{Name}Dex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
-            .SetFeatFamily(Name)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .AddToDB();
-
-        feats.AddRange(weaponMasterStr, weaponMasterDex);
-
-        return GroupFeats.MakeGroup(
-            "FeatGroupWeaponMastery", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion
@@ -1447,7 +1438,8 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            if (!firstTarget ||
+                !rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }

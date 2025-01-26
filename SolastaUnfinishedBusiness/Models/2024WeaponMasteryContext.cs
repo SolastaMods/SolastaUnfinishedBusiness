@@ -72,20 +72,6 @@ internal static partial class Tabletop2024Context
             new PowerOrSpellFinishedByMeRelearn())
         .AddToDB();
 
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetFeatWeaponMasteryLearn1 =
-        FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetFeatWeaponMasteryLearn1")
-            .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
-            .SetFeatureSet(
-                PowerWeaponMasteryRelearnPool,
-                PowerWeaponMasteryRelearn,
-                CustomInvocationPoolDefinitionBuilder
-                    .Create("InvocationPoolFeatWeaponMasteryLearn1")
-                    .SetGuiPresentation("InvocationPoolWeaponMasteryLearn", Category.Feature)
-                    .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterySpecialization)
-                    .AddToDB())
-            .AddToDB();
-
     private static readonly FeatureDefinitionFeatureSet FeatureSetWeaponMasteryLearn1 =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWeaponMasteryLearn1")
