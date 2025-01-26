@@ -1,7 +1,7 @@
 1.5.97.45:
 
-- fixed Baleful Scion feat
-- fixed Cleric blessed strikes
+- fixed Baleful Scion, and Fighting Initiate feats
+- fixed Cleric blessed strikes behaviors
 - fixed Corrupting Bolt, and Dragon's Breath spells
 - fixed Druid wildshape interaction with circles at 3rd
 - fixed narration voices volume slider on mod UI

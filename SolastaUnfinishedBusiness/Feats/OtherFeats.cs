@@ -49,7 +49,7 @@ internal static class OtherFeats
     {
         // kept for backward compatibility
         BuildWeaponMastery();
-        
+
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featBrawler = BuildBrawler();
@@ -2052,11 +2052,8 @@ internal static class OtherFeats
             DatabaseRepository
                 .GetDatabase<FightingStyleDefinition>()
                 .Where(x =>
-                    !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
                     // these should only be offered to Paladins or Rangers as FS
-                    // was also lazy to implement cantrips learning under this scenario ;-)
-                    x.Name != BlessedWarrior.Name &&
-                    x.Name != DruidicWarrior.Name)
+                    x.Name != BlessedWarrior.Name && x.Name != DruidicWarrior.Name)
                 .Select(BuildFightingStyleFeat)
                 .OfType<FeatDefinition>()
                 .ToArray());
@@ -2066,16 +2063,14 @@ internal static class OtherFeats
 
     private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
     {
-        // we need a brand new one to avoid issues with FS getting hidden
-        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create($"Feat{fightingStyle.Name}")
-            .SetGuiPresentation(guiPresentation)
+            .SetGuiPresentation(fightingStyle.GuiPresentation)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
                     .Create($"ProficiencyFeat{fightingStyle.Name}")
+                    .SetGuiPresentationNoContent(true)
                     .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
-                    .SetGuiPresentation(guiPresentation)
                     .AddToDB())
             .SetFeatFamily(GroupFeats.FightingStyle)
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
@@ -2083,11 +2078,6 @@ internal static class OtherFeats
 
         // supports custom pools [only superior technique now]
         feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
-
-        if (!Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
-        {
-            guiPresentation.hidden = true;
-        }
 
         return feat;
     }

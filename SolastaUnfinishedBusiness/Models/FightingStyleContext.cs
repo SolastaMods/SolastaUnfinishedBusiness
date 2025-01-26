@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
@@ -10,15 +8,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
-    internal static readonly List<string> DemotedFightingStyles =
-    [
-        "Merciless",
-        "PolearmExpert",
-        "RopeItUp",
-        "Sentinel",
-        "ShieldExpert"
-    ];
-
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
         FightingStylesChoiceList { get; } = [];
 
@@ -26,9 +15,6 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
-        // load FS
-        KeepDemotedFightingStylesBackwardCompatibility();
-
         LoadStyle(new AstralReach());
         LoadStyle(new BlessedWarrior());
         LoadStyle(new BlindFighting());
@@ -50,22 +36,6 @@ internal static class FightingStyleContext
                      .ToArray())
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
-        }
-    }
-
-    private static void KeepDemotedFightingStylesBackwardCompatibility()
-    {
-        foreach (var name in DemotedFightingStyles)
-        {
-            _ = FightingStyleBuilder
-                .Create(name)
-                .SetGuiPresentation(Category.FightingStyle, hidden: true)
-                .SetFeatures(FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeat{name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Feat, $"Feat{name}")
-                    .AddToDB())
-                .AddToDB();
         }
     }
 
