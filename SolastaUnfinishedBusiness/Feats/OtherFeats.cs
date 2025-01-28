@@ -1312,24 +1312,13 @@ internal static class OtherFeats
     {
         const string NAME = "FeatBalefulScion";
 
-        var additionalDamageBalefulScion = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("BalefulScion")
-            .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetImpactParticleReference(PowerWightLordRetaliate)
-            .AddToDB();
-
         var conditionBalefulScion = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalDamageBalefulScion)
             .AddToDB();
 
-        conditionBalefulScion.AddCustomSubFeatures(
-            new CustomBehaviorConditionBalefulScion(conditionBalefulScion, additionalDamageBalefulScion));
+        conditionBalefulScion.AddCustomSubFeatures(new CustomBehaviorConditionBalefulScion(conditionBalefulScion));
 
         var powerBalefulScion = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -1383,9 +1372,7 @@ internal static class OtherFeats
             [..groupFeats]);
     }
 
-    private class CustomBehaviorConditionBalefulScion(
-        ConditionDefinition conditionBalefulScion,
-        FeatureDefinitionAdditionalDamage additionalDamageBalefulScion) : IModifyAdditionalDamage, IActionFinishedByMe
+    private class CustomBehaviorConditionBalefulScion(ConditionDefinition conditionBalefulScion) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -1403,23 +1390,6 @@ internal static class OtherFeats
             var healAmount = roll + rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
-        }
-
-        public void ModifyAdditionalDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            List<EffectForm> actualEffectForms,
-            ref DamageForm damageForm)
-        {
-            if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
-            {
-                return;
-            }
-
-            damageForm.BonusDamage =
-                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         }
     }
 
@@ -1444,7 +1414,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return HandleBalefulScion(attacker, defender);
+            yield return HandleBalefulScion(attacker, defender, actualEffectForms);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -1459,16 +1429,16 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!firstTarget ||
-                !attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            yield return HandleBalefulScion(attacker, defender);
+            yield return HandleBalefulScion(attacker, defender, actualEffectForms);
         }
 
-        private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private IEnumerator HandleBalefulScion(
+            GameLocationCharacter attacker, GameLocationCharacter defender, List<EffectForm> actualEffectForms)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
@@ -1481,8 +1451,13 @@ internal static class OtherFeats
                 yield break;
             }
 
+            var pb = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var damageForm = EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D6, pb);
+
+            actualEffectForms.Add(damageForm);
             attacker.UsedSpecialFeatures.TryAdd(powerBalefulScion.Name, 0);
             usablePower.Consume();
+            rulesetAttacker.LogCharacterUsedPower(powerBalefulScion);
             rulesetAttacker.InflictCondition(
                 conditionBalefulScion.Name,
                 DurationType.Round,
