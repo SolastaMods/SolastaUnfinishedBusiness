@@ -352,7 +352,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 action.AttackRoll == 0 ||
                 action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 (rulesetEffect != null &&
-                 rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit)))
+                 !rulesetEffect.EffectDescription.NeedsToRollDie()))
             {
                 yield break;
             }

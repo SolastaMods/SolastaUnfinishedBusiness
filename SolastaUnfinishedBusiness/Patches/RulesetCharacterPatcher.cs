@@ -865,6 +865,16 @@ public static class RulesetCharacterPatcher
             //PATCH: allows custom exceptions for attack of opportunity triggering
             //Mostly for Sentinel feat
             __result = AttacksOfOpportunity.IsSubjectToAttackOfOpportunity(__instance, attacker, __result, distance);
+
+            var locationAttacker = GameLocationCharacter.GetFromActor(attacker);
+            var locationDefender = GameLocationCharacter.GetFromActor(__instance);
+
+            if (__result &&
+                Main.Settings.BlindedConditionDontAllowAttackOfOpportunity &&
+                !locationAttacker.CanPerceiveTarget(locationDefender))
+            {
+                __result = false;
+            }
         }
     }
 
@@ -1772,8 +1782,6 @@ public static class RulesetCharacterPatcher
                     {
                         usablePower.remainingUses++; // cannot call RepayUse() here as a dynamic pool
                     }
-
-                    __instance.recoveredFeatures.Add(PowerFighterSecondWind);
                 }
 
                 __instance.recoveredFeatures.Add(PowerDruidWildShape);

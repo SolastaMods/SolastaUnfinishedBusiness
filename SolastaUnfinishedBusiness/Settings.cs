@@ -186,6 +186,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DontFollowCharacterInBattle { get; set; }
     public bool EnableElevationCameraToStayAtPosition { get; set; }
     public bool NeverMoveCameraOnEnemyTurn { get; set; }
+    public bool EnableForceAllyMovementAllowsFlight { get; set; }
     public bool EnableCancelEditOnRightMouseClick { get; set; }
     public int DontFollowMargin { get; set; } = 5;
     public int GridSelectedColor { get; set; } = 1;

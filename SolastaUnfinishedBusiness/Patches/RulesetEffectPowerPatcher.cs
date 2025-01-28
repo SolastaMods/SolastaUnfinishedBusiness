@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -13,6 +15,53 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetEffectPowerPatcher
 {
+    [HarmonyPatch(typeof(RulesetEffectPower), ".ctor", MethodType.Constructor)]
+    [HarmonyPatch([
+        typeof(RulesetCharacter), // user
+        typeof(RulesetUsablePower), // usablePower
+        typeof(RulesetItemDevice), // originItem = null
+        typeof(RulesetDeviceFunction) // usableDeviceFunction = null
+    ])]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
+    public static class RulesetEffectPower_Ctor_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var method = typeof(EffectDescription).GetMethod(nameof(EffectDescription.ComputeRoundsDuration));
+            var custom = new Func<EffectDescription, int, int, RulesetCharacter, RulesetUsablePower, int>(Custom)
+                .Method;
+            //BUGFIX: replace classLevel calculations for HalfClassLevelHours durations - native one assumes power comes
+            //from class that already has subclass picked, so it breaks if such power is granted on a class before subclass pick
+            return instructions.ReplaceCalls(method,
+                "RulesetEffectPower.ctor",
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Call, custom));
+        }
+
+        private static int Custom(EffectDescription effect, int slotLevel, int classLevel, RulesetCharacter user,
+            RulesetUsablePower usablePower)
+        {
+            var power = usablePower.PowerDefinition;
+
+            if (classLevel > 1 || power.EffectDescription.DurationType != DurationType.HalfClassLevelHours)
+            {
+                return effect.ComputeRoundsDuration(slotLevel, classLevel);
+            }
+
+            var holdingClass = user.FindClassHoldingFeature(power);
+            if (holdingClass != null)
+            {
+                classLevel = user.GetClassLevel(holdingClass);
+            }
+
+            return effect.ComputeRoundsDuration(slotLevel, classLevel);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.SaveDC), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

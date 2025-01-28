@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -444,23 +443,22 @@ public sealed class MartialWarlord : AbstractSubclass
         {
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
-            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
+            if (Main.Settings.EnableForceAllyMovementAllowsFlight) { boxInt.Inflate(halfMaxTacticalMoves); }
+            else { boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves); }
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
-                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                if (!positioningService.CanPlaceCharacter(
+                        targetCharacter, position, CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                        targetCharacter, position,
+                        onlyCheckCellsWithRealGround: cursorLocationSelectPosition.isTeleportingSpell))
                 {
                     continue;
                 }

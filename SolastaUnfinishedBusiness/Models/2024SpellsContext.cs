@@ -382,7 +382,10 @@ internal static partial class Tabletop2024Context
             return;
         }
 
-        TrueStrike.AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerAnyWeaponAttack);
+        TrueStrike.AddCustomSubFeatures(
+            FixesContext.NoDistanced.Mark,
+            FixesContext.NoTwinned.Mark,
+            AttackAfterMagicEffect.MarkerAnyWeaponAttack);
         TrueStrike.GuiPresentation.description = "Spell/&TrueStrike2024Description";
         TrueStrike.requiresConcentration = false;
         TrueStrike.effectDescription = EffectDescriptionBuilder

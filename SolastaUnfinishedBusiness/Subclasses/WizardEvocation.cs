@@ -321,7 +321,7 @@ public sealed class WizardEvocation : AbstractSubclass
             var isCantrip = rulesetEffect.SourceDefinition is SpellDefinition { SpellLevel: 0 };
 
             if (!isCantrip ||
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
+                !rulesetEffect.EffectDescription.NeedsToRollDie() ||
                 (!firstTarget &&
                  rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique))
             {

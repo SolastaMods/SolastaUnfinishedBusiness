@@ -47,6 +47,9 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // kept for backward compatibility
+        BuildWeaponMastery();
+
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featBrawler = BuildBrawler();
@@ -79,7 +82,6 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var giftOfTheGemDragonGroup = BuildGiftOfTheGemDragon(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
-        var weaponMasteryGroup = BuildWeaponMastery(feats);
 
         var featMerciless = BuildMerciless();
         var featPolearmExpert = BuildPolearmExpert();
@@ -164,8 +166,7 @@ internal static class OtherFeats
             featRopeIpUp,
             featSentinel,
             giftOfTheGemDragonGroup,
-            weaponMasterGroup,
-            weaponMasteryGroup);
+            weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             FeatPoisonousSkin);
@@ -546,28 +547,19 @@ internal static class OtherFeats
 
     #region Weapon Mastery
 
-    private static FeatDefinition BuildWeaponMastery(List<FeatDefinition> feats)
+    private static void BuildWeaponMastery()
     {
         const string Name = "FeatWeaponMastery";
 
-        var weaponMasterStr = FeatDefinitionBuilder
+        _ = FeatDefinitionBuilder
             .Create($"{Name}Str")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
-            .SetFeatFamily(Name)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .AddToDB();
 
-        var weaponMasterDex = FeatDefinitionBuilder
+        _ = FeatDefinitionBuilder
             .Create($"{Name}Dex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, Tabletop2024Context.FeatureSetFeatWeaponMasteryLearn1)
-            .SetFeatFamily(Name)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .AddToDB();
-
-        feats.AddRange(weaponMasterStr, weaponMasterDex);
-
-        return GroupFeats.MakeGroup(
-            "FeatGroupWeaponMastery", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion
@@ -1320,24 +1312,13 @@ internal static class OtherFeats
     {
         const string NAME = "FeatBalefulScion";
 
-        var additionalDamageBalefulScion = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("BalefulScion")
-            .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetImpactParticleReference(PowerWightLordRetaliate)
-            .AddToDB();
-
         var conditionBalefulScion = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalDamageBalefulScion)
             .AddToDB();
 
-        conditionBalefulScion.AddCustomSubFeatures(
-            new CustomBehaviorConditionBalefulScion(conditionBalefulScion, additionalDamageBalefulScion));
+        conditionBalefulScion.AddCustomSubFeatures(new CustomBehaviorConditionBalefulScion(conditionBalefulScion));
 
         var powerBalefulScion = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -1391,9 +1372,7 @@ internal static class OtherFeats
             [..groupFeats]);
     }
 
-    private class CustomBehaviorConditionBalefulScion(
-        ConditionDefinition conditionBalefulScion,
-        FeatureDefinitionAdditionalDamage additionalDamageBalefulScion) : IModifyAdditionalDamage, IActionFinishedByMe
+    private class CustomBehaviorConditionBalefulScion(ConditionDefinition conditionBalefulScion) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -1412,23 +1391,6 @@ internal static class OtherFeats
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
         }
-
-        public void ModifyAdditionalDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            List<EffectForm> actualEffectForms,
-            ref DamageForm damageForm)
-        {
-            if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
-            {
-                return;
-            }
-
-            damageForm.BonusDamage =
-                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-        }
     }
 
     private class CustomBehaviorBalefulScion(
@@ -1446,12 +1408,13 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            if (!firstTarget ||
+                !rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            yield return HandleBalefulScion(attacker, defender);
+            yield return HandleBalefulScion(attacker, defender, actualEffectForms);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -1471,10 +1434,11 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return HandleBalefulScion(attacker, defender);
+            yield return HandleBalefulScion(attacker, defender, actualEffectForms);
         }
 
-        private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private IEnumerator HandleBalefulScion(
+            GameLocationCharacter attacker, GameLocationCharacter defender, List<EffectForm> actualEffectForms)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
@@ -1487,8 +1451,13 @@ internal static class OtherFeats
                 yield break;
             }
 
+            var pb = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var damageForm = EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D6, pb);
+
+            actualEffectForms.Add(damageForm);
             attacker.UsedSpecialFeatures.TryAdd(powerBalefulScion.Name, 0);
             usablePower.Consume();
+            rulesetAttacker.LogCharacterUsedPower(powerBalefulScion);
             rulesetAttacker.InflictCondition(
                 conditionBalefulScion.Name,
                 DurationType.Round,
@@ -2058,11 +2027,8 @@ internal static class OtherFeats
             DatabaseRepository
                 .GetDatabase<FightingStyleDefinition>()
                 .Where(x =>
-                    !FightingStyleContext.DemotedFightingStyles.Contains(x.Name) &&
                     // these should only be offered to Paladins or Rangers as FS
-                    // was also lazy to implement cantrips learning under this scenario ;-)
-                    x.Name != BlessedWarrior.Name &&
-                    x.Name != DruidicWarrior.Name)
+                    x.Name != BlessedWarrior.Name && x.Name != DruidicWarrior.Name)
                 .Select(BuildFightingStyleFeat)
                 .OfType<FeatDefinition>()
                 .ToArray());
@@ -2072,16 +2038,14 @@ internal static class OtherFeats
 
     private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
     {
-        // we need a brand new one to avoid issues with FS getting hidden
-        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create($"Feat{fightingStyle.Name}")
-            .SetGuiPresentation(guiPresentation)
+            .SetGuiPresentation(fightingStyle.GuiPresentation)
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
                     .Create($"ProficiencyFeat{fightingStyle.Name}")
+                    .SetGuiPresentationNoContent(true)
                     .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
-                    .SetGuiPresentation(guiPresentation)
                     .AddToDB())
             .SetFeatFamily(GroupFeats.FightingStyle)
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
@@ -2089,11 +2053,6 @@ internal static class OtherFeats
 
         // supports custom pools [only superior technique now]
         feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
-
-        if (!Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
-        {
-            guiPresentation.hidden = true;
-        }
 
         return feat;
     }
@@ -2223,7 +2182,7 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (!rulesetEffect.EffectDescription.NeedsToRollDie())
             {
                 yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
             }
