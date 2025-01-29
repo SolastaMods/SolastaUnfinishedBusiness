@@ -188,6 +188,7 @@ internal static class ItemRecipeGenerationHelper
             { Primed_Plate, Plate },
             { Primed_Rapier, Rapier },
             { Primed_ScaleMail, ScaleMail },
+            { Primed_Shield, Shield },
             { Primed_Scimitar, Scimitar },
             { Primed_Shortbow, Shortbow },
             { Primed_Shortsword, Shortsword },
