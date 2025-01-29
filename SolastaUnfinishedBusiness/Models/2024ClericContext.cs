@@ -165,7 +165,7 @@ internal static partial class Tabletop2024Context
     {
         { "DomainMischief", ["PowerClericBlessedStrikesDamagePsychic"] },
         {
-          "DomainNature", [
+            "DomainNature", [
                 "PowerClericBlessedStrikesDamageCold" //, //
                 //"PowerClericBlessedStrikesDamageFire", //
                 //"PowerClericBlessedStrikesDamageLighting" //
