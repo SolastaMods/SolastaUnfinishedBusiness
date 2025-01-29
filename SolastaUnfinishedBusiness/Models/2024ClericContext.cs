@@ -28,7 +28,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static partial class Tabletop2024Context
 {
-    private const string BlessedStrikes = "BlessedStrikes";
+    internal const string BlessedStrikes = "BlessedStrikes";
 
     private static readonly FeatureDefinitionPointPool PointPoolClericThaumaturgeCantrip =
         FeatureDefinitionPointPoolBuilder
@@ -165,12 +165,13 @@ internal static partial class Tabletop2024Context
     {
         { "DomainMischief", ["PowerClericBlessedStrikesDamagePsychic"] },
         {
-            "DomainNature", [
+          "DomainNature", [
                 "PowerClericBlessedStrikesDamageCold" //, //
                 //"PowerClericBlessedStrikesDamageFire", //
                 //"PowerClericBlessedStrikesDamageLighting" //
             ]
         },
+        { "DomainOrder", ["PowerClericBlessedStrikesDamagePsychic"] },
         { "DomainSmith", ["PowerClericBlessedStrikesDamageFire"] },
         { "DomainTempest", ["PowerClericBlessedStrikesDamageThunder"] }
     };
@@ -205,7 +206,7 @@ internal static partial class Tabletop2024Context
             (DamageTypeLightning, LightningBolt), // DomainNature
             (DamageTypeFire, FireBolt), // DomainNature and DomainSmith
             (DamageTypeThunder, Shatter), // DomainTempest
-            (DamageTypePsychic, PowerMagebaneWarcry) // DomainMischief
+            (DamageTypePsychic, PowerMagebaneWarcry) // DomainMischief, DomainOrder
         };
 
         var powers = new List<FeatureDefinitionPower>();
@@ -376,6 +377,7 @@ internal static partial class Tabletop2024Context
             ("DomainLife", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainMischief", "AdditionalDamageDomainMischiefDivineStrike", DamageTypePsychic),
             ("DomainNature", "FeatureSetDomainNatureNatureStrikes", DamageTypeCold),
+            ("DomainOrder", "AdditionalDamageDomainOrderDivineStrike", DamageTypePsychic),
             ("DomainSmith", "AdditionalDamageDomainSmithDivineStrike", DamageTypeFire),
             ("DomainSun", "AdditionalDamageDomainLifeDivineStrike", string.Empty),
             ("DomainTempest", "AdditionalDamageDomainTempestDivineStrike", DamageTypeThunder)
