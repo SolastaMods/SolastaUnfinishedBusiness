@@ -53,7 +53,6 @@ internal static class SpellsContext
     internal static readonly SpellDefinition CorruptingBolt = BuildCorruptingBolt();
     internal static readonly SpellDefinition CausticZap = BuildCausticZap();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
-    internal static readonly SpellDefinition DissonantWhispers = BuildDissonantWhispers();
     internal static readonly SpellDefinition DivineWrath = BuildDivineWrath();
     internal static readonly SpellDefinition ElementalInfusion = BuildElementalInfusion();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
@@ -291,7 +290,7 @@ internal static class SpellsContext
         RegisterSpell(Command, 0, SpellListBard, SpellListPaladin, SpellListCleric);
         RegisterSpell(BuildChaosBolt(), 0, SpellListSorcerer);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(DissonantWhispers, 0, SpellListBard);
+        RegisterSpell(BuildDissonantWhispers(), 0, SpellListBard);
         RegisterSpell(EarthTremor, 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(ElementalInfusion, 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard);

@@ -465,8 +465,6 @@ internal static partial class SpellBuilders
             {
                 activeCondition.ConditionDefinition.Features.Add(feature);
             }
-
-            yield break;
         }
     }
 

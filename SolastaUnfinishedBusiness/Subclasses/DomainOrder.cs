@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -12,8 +12,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -25,10 +25,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class DomainOrder : AbstractSubclass
 {
-    private static string NAME = "DomainOrder";
+    private static readonly string Name = "DomainOrder";
 
-    private static FeatureDefinitionAdditionalDamage DivineStrike = FeatureDefinitionAdditionalDamageBuilder
-        .Create($"AdditionalDamage{NAME}DivineStrike")
+    private static readonly FeatureDefinitionAdditionalDamage DivineStrike = FeatureDefinitionAdditionalDamageBuilder
+        .Create($"AdditionalDamage{Name}DivineStrike")
         .SetGuiPresentation(Category.Feature)
         .SetNotificationTag("DivineStrike")
         .SetDamageDice(DieType.D8, 1)
@@ -39,15 +39,15 @@ public sealed class DomainOrder : AbstractSubclass
         .SetImpactParticleReference(ViciousMockery)
         .AddToDB();
 
-    private static FeatureDefinitionPower EmbodimentOfLaw = FeatureDefinitionPowerBuilder
-        .Create($"Power{NAME}EmbodimentOfLaw")
+    private static readonly FeatureDefinitionPower EmbodimentOfLaw = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}EmbodimentOfLaw")
         .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawWordOfLaw)
         .SetUsesAbilityBonus(
             ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
         .SetShowCasting(false)
         .AddToDB();
 
-    private static MetamagicOptionDefinition EmbodimentMetamagic = MetamagicOptionDefinitionBuilder
+    private static readonly MetamagicOptionDefinition EmbodimentMetamagic = MetamagicOptionDefinitionBuilder
         .Create(MetamagicOptionDefinitions.MetamagicQuickenedSpell, "MetamagicEmbodimentOfTheLaw")
         .SetGuiPresentation(Category.Feature)
         .SetType(MetamagicType.QuickenedSpell)
@@ -61,15 +61,15 @@ public sealed class DomainOrder : AbstractSubclass
                     ref string failure) =>
                 {
                     if (spell.ActionType == ActionDefinitions.ActionType.Main &&
-                    spell.SchoolOfMagic == SchoolOfMagicDefinitions.SchoolEnchantment.Name &&
-                    rulesetCharacter.CanUsePower(EmbodimentOfLaw))
+                        spell.SchoolOfMagic == SchoolOfMagicDefinitions.SchoolEnchantment.Name &&
+                        rulesetCharacter.CanUsePower(EmbodimentOfLaw))
                     {
                         return;
                     }
 
-                    failure = spell.SchoolOfMagic == SchoolOfMagicDefinitions.SchoolEnchantment.Name ?
-                    "Failure/&FailureFlagNoPowerUses" :
-                        Gui.Format("Failure/&FailureFlagInvalidSpellSchool", spell.SchoolOfMagic.Remove(0,6));
+                    failure = spell.SchoolOfMagic == SchoolOfMagicDefinitions.SchoolEnchantment.Name
+                        ? "Failure/&FailureFlagNoPowerUses"
+                        : Gui.Format("Failure/&FailureFlagInvalidSpellSchool", spell.SchoolOfMagic.Remove(0, 6));
                     result = false;
                 }))
         .AddToDB();
@@ -80,7 +80,7 @@ public sealed class DomainOrder : AbstractSubclass
 
         // Auto Prepared Spells
         var autoPreparedSpellsDomainOrder = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create($"AutoPreparedSpells{NAME}")
+            .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
@@ -94,13 +94,13 @@ public sealed class DomainOrder : AbstractSubclass
 
         // Heavy Armor Proficiency
         var bonusProficiencyArmorDomainOrder = FeatureDefinitionProficiencyBuilder
-            .Create($"BonusProficiency{NAME}")
+            .Create($"BonusProficiency{Name}")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
         var pointPoolSkills = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{NAME}Skills")
+            .Create($"PointPool{Name}Skills")
             .SetGuiPresentationNoContent(true)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(
@@ -109,7 +109,7 @@ public sealed class DomainOrder : AbstractSubclass
             .AddToDB();
 
         var featureSetBonusProficiencies = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}BonusProficiencies")
+            .Create($"FeatureSet{Name}BonusProficiencies")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(bonusProficiencyArmorDomainOrder, pointPoolSkills)
             .AddToDB();
@@ -118,15 +118,15 @@ public sealed class DomainOrder : AbstractSubclass
         // mark ally targets of your spells that use spell slots until the end of your turn
         // then add a NoCost power to cause a marked creature to make a weapon attack vs a target it can see
         var conditionVoiceOfAuthority = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}VoiceOfAuthority")
+            .Create($"Condition{Name}VoiceOfAuthority")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFeatTakeAim)
             .SetConditionType(ConditionType.Beneficial)
-            .SetSpecialDuration(DurationType.Round)
+            .SetSpecialDuration()
             .SetSilent(Silent.WhenRemoved)
             .AddToDB();
 
         var powerVoiceOfAuthority = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}VoiceOfAuthority")
+            .Create($"Power{Name}VoiceOfAuthority")
             .SetGuiPresentation(Category.Feature)
             .SetShowCasting(false)
             .SetUsesFixed(ActivationTime.OnPowerActivatedAuto)
@@ -144,11 +144,11 @@ public sealed class DomainOrder : AbstractSubclass
             new VoiceOfAuthorityHandler(powerVoiceOfAuthority));
 
         var powerVoiceOfAuthorityCompelAttack = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}VoiceOfAuthorityCompelAttack")
+            .Create($"Power{Name}VoiceOfAuthorityCompelAttack")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite(
                     "PowerInfectiousFuryCompelledStrike",
-                    Properties.Resources.PowerInfectiousFuryCompelledStrike,
+                    Resources.PowerInfectiousFuryCompelledStrike,
                     256,
                     128))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
@@ -169,7 +169,7 @@ public sealed class DomainOrder : AbstractSubclass
         var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
 
         var powerOrdersDemand = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}OrdersDemand")
+            .Create($"Power{Name}OrdersDemand")
             .SetGuiPresentation(Category.Feature,
                 FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
@@ -196,7 +196,7 @@ public sealed class DomainOrder : AbstractSubclass
             .AddToDB();
 
         var featureSetOrdersDemand = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}OrdersDemand")
+            .Create($"FeatureSet{Name}OrdersDemand")
             .SetGuiPresentation(
                 divinePowerPrefix + powerOrdersDemand.FormatTitle(), powerOrdersDemand.FormatDescription())
             .AddFeatureSet(powerOrdersDemand)
@@ -212,13 +212,13 @@ public sealed class DomainOrder : AbstractSubclass
 
         // Feature required to get the Metamagic panel to show up for EmbodimentMetamagic
         var sorceryPoints = FeatureDefinitionAttributeModifierBuilder
-                    .Create(FeatureDefinitionAttributeModifiers.AttributeModifierSorcererSorceryPointsBase,
-                        $"AttributeModifier{NAME}SorceryPointsMinimum")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
-                        AttributeDefinitions.SorceryPoints, 1)
-                    .AddToDB();
+            .Create(FeatureDefinitionAttributeModifiers.AttributeModifierSorcererSorceryPointsBase,
+                $"AttributeModifier{Name}SorceryPointsMinimum")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeDefinitions.SorceryPoints, 1)
+            .AddToDB();
 
         // LEVEL 08 Divine Strike
         // LEVEL 14 Divine Strike +1d8
@@ -237,9 +237,9 @@ public sealed class DomainOrder : AbstractSubclass
             .AddToDB();
 
         var additionalDamageOrdersWrath = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}OrdersWrath")
+            .Create($"AdditionalDamage{Name}OrdersWrath")
             .SetGuiPresentationNoContent(true)
-            .SetNotificationTag($"{NAME}OrdersWrath")
+            .SetNotificationTag($"{Name}OrdersWrath")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
             .SetDamageDice(DieType.D8, 2)
@@ -255,7 +255,7 @@ public sealed class DomainOrder : AbstractSubclass
             .Create("conditionApplyAdditionalDamageOrdersWrath")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfTurn)
+            .SetSpecialDuration()
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddFeatures(additionalDamageOrdersWrath)
             .AddToDB();
@@ -263,11 +263,11 @@ public sealed class DomainOrder : AbstractSubclass
         conditionCursedByOrdersWrath.AddCustomSubFeatures(
             new OrdersWrathAdditionalDamageHandler(conditionCursedByOrdersWrath, conditionApplyAdditionalDamage));
 
-        
-        var description = Gui.Format($"Feature/&Power{NAME}OrdersWrathDescription",
+
+        var description = Gui.Format($"Feature/&Power{Name}OrdersWrathDescription",
             Main.Settings.EnableClericBlessedStrikes2024 ? "Blessed Strikes" : "Divine Strike");
         var powerOrdersWrath = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}OrdersWrath")
+            .Create($"Power{Name}OrdersWrath")
             .SetGuiPresentation(Category.Feature, description)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .AddToDB();
@@ -280,9 +280,9 @@ public sealed class DomainOrder : AbstractSubclass
 
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(NAME)
+            .Create(Name)
             //TODO: Get an image for the Order
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Properties.Resources.DomainSmith, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.DomainSmith, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainOrder,
                 featureSetBonusProficiencies,
@@ -308,7 +308,6 @@ public sealed class DomainOrder : AbstractSubclass
     private sealed class VoiceOfAuthorityHandler(FeatureDefinitionPower powerVoiceOfAuthority)
         : IMagicEffectFinishedByMe
     {
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterAction action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -324,7 +323,7 @@ public sealed class DomainOrder : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var allies = targets.FindAll(t => t.Side == Side.Ally && t != attacker &&
-                    t.RulesetCharacter is { isDeadOrDyingOrUnconscious: false });
+                                              t.RulesetCharacter is { isDeadOrDyingOrUnconscious: false });
 
             if (allies.Empty()) { yield break; }
 
@@ -344,21 +343,6 @@ public sealed class DomainOrder : AbstractSubclass
         : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public bool EnforceFullSelection => true;
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var glcService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            if (!battleManager)
-            {
-                return false;
-            }
-
-            return PowerProvider.Get(power, character).RemainingUses > 0 &&
-                battleManager.IsBattleInProgress &&
-                glcService.PartyCharacters.Any(c =>
-                    c.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name));
-        }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
@@ -399,6 +383,43 @@ public sealed class DomainOrder : AbstractSubclass
             return true;
         }
 
+        public IEnumerator OnPowerOrSpellFinishedByMe(
+            CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var targetCharacters = action.ActionParams.TargetCharacters;
+            var attacker = targetCharacters[0];
+            var defender = targetCharacters[1];
+
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, condition.name);
+
+            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            attacker.MyExecuteActionAttack(
+                ActionDefinitions.Id.AttackOpportunity,
+                defender,
+                attackMode,
+                new ActionModifier());
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var glcService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            if (!battleManager)
+            {
+                return false;
+            }
+
+            return PowerProvider.Get(power, character).RemainingUses > 0 &&
+                   battleManager.IsBattleInProgress &&
+                   glcService.PartyCharacters.Any(c =>
+                       c.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                           condition.Name));
+        }
+
         private static bool IsValidAttack(
             CursorLocationSelectTarget __instance,
             RulesetAttackMode attackMode,
@@ -424,47 +445,27 @@ public sealed class DomainOrder : AbstractSubclass
 
             return __instance.BattleService.CanAttack(attackParams2);
         }
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(
-            CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var targetCharacters = action.ActionParams.TargetCharacters;
-            var attacker = targetCharacters[0];
-            var defender = targetCharacters[1];
-
-            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect, condition.name);
-
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            attacker.MyExecuteActionAttack(
-                ActionDefinitions.Id.AttackOpportunity,
-                defender,
-                attackMode,
-                new ActionModifier());
-
-            yield break;
-        }
     }
 
     private sealed class EmbodimentOfLawCustomBehaviour(
         FeatureDefinitionPower power,
         MetamagicOptionDefinition metamagic
-        ) : ICustomLevelUpLogic, IMagicEffectInitiatedByMe, IPowerOrSpellFinishedByMe
+    ) : ICustomLevelUpLogic, IMagicEffectInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
         {
-            if (!hero.trainedMetamagicOptions.Contains(metamagic))
+            if (hero.trainedMetamagicOptions.Contains(metamagic))
             {
-                hero.trainedMetamagicOptions.Add(metamagic);
-                hero.trainedMetamagicOptions.Sort((x, y) => x.Name.CompareTo(y.Name));
+                return;
             }
-            return;
+
+            hero.trainedMetamagicOptions.Add(metamagic);
+            hero.trainedMetamagicOptions.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.Ordinal));
         }
+
         public void RemoveFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
         {
             hero.trainedMetamagicOptions.Remove(metamagic);
-            return;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(
@@ -509,28 +510,26 @@ public sealed class DomainOrder : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetTarget = targets.Find(t => t.RulesetCharacter is not null && t.Side != rulesetAttacker.Side)?
-                                       .RulesetCharacter; // First enemy target
+                .RulesetCharacter; // First enemy target
 
-            if (action is CharacterActionCastSpell castSpell &&
-                castSpell.ActiveSpell.SlotLevel == 0 &&
-                castSpell.ActiveSpell.spellRepertoire?.SpellCastingClass == Cleric &&
-                rulesetTarget is not null &&
-                action is { SaveOutcome: RollOutcome.Failure or RollOutcome.CriticalFailure } &&
-                rulesetAttacker.CanUsePower(powerOrdersWrath) &&
-                rulesetAttacker.HasAnyFeature(
+            if (action is not CharacterActionCastSpell castSpell ||
+                castSpell.ActiveSpell.SlotLevel != 0 ||
+                castSpell.ActiveSpell.spellRepertoire?.SpellCastingClass != Cleric ||
+                rulesetTarget is null ||
+                action is not { SaveOutcome: RollOutcome.Failure or RollOutcome.CriticalFailure } ||
+                !rulesetAttacker.CanUsePower(powerOrdersWrath) ||
+                !rulesetAttacker.HasAnyFeature(
                     GetDefinition<FeatureDefinition>("FeatureClericBlessedStrikesPotentSpellcasting")))
             {
-                var activeCondition = RulesetCondition.CreateCondition(
-                    rulesetTarget.Guid,
-                    conditionOrdersWrath);
-                activeCondition.sourceGuid = attacker.Guid; // to track turns for ending the condition
-
-                rulesetTarget.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
-
-                rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
+                yield break;
             }
 
-            yield break;
+            var activeCondition = RulesetCondition.CreateCondition(rulesetTarget.Guid, conditionOrdersWrath);
+
+            activeCondition.sourceGuid = attacker.Guid; // to track turns for ending the condition
+
+            rulesetTarget.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
+            rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -551,30 +550,30 @@ public sealed class DomainOrder : AbstractSubclass
             }
 
             // If the character has used their Divine Strike or "Blessed Strike: Primal Strike" on this hit
-            bool canCurse = attacker.UsedSpecialFeatures.ContainsKey(DivineStrike.Name) ||
-                            attacker.UsedSpecialFeatures.ContainsKey(Tabletop2024Context.BlessedStrikes);
+            var canCurse = attacker.UsedSpecialFeatures.ContainsKey(DivineStrike.Name) ||
+                           attacker.UsedSpecialFeatures.ContainsKey(Tabletop2024Context.BlessedStrikes);
 
             // If attack was with a weapon, we haven't used this power yet this turn, and meet the criteria above
-            if (attackMode.SourceObject is RulesetItem &&
-                rulesetAttacker.CanUsePower(powerOrdersWrath) &&
-                canCurse)
+            if (attackMode.SourceObject is not RulesetItem ||
+                !rulesetAttacker.CanUsePower(powerOrdersWrath) ||
+                !canCurse)
             {
-                var activeCondition = RulesetCondition.CreateCondition(defender.Guid, conditionOrdersWrath);
-                activeCondition.sourceGuid = attacker.Guid; // to track turns for ending the condition
-
-                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
-
-                rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
+                yield break;
             }
 
-            yield break;
+            var activeCondition = RulesetCondition.CreateCondition(defender.Guid, conditionOrdersWrath);
+            activeCondition.sourceGuid = attacker.Guid; // to track turns for ending the condition
+
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition);
+
+            rulesetAttacker.UpdateUsageForPower(powerOrdersWrath, 1); // Expend our use for this turn
         }
     }
 
     private sealed class OrdersWrathAdditionalDamageHandler(
         ConditionDefinition conditionOrdersWrath,
         ConditionDefinition conditionForAttacker)
-        : IMagicEffectBeforeHitConfirmedOnMe,IPhysicalAttackBeforeHitConfirmedOnMe
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -588,7 +587,7 @@ public sealed class DomainOrder : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
-            
+
             if (rulesetAttacker is null ||
                 rulesetDefender is null ||
                 !rulesetEffect.EffectDescription.NeedsToRollDie() || // Only triggered on attacks
@@ -602,8 +601,6 @@ public sealed class DomainOrder : AbstractSubclass
 
             rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagEffect,
                 RulesetCondition.CreateCondition(rulesetDefender.Guid, conditionForAttacker));
-
-            yield break;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
@@ -633,8 +630,6 @@ public sealed class DomainOrder : AbstractSubclass
 
             rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagEffect,
                 RulesetCondition.CreateCondition(rulesetDefender.Guid, conditionForAttacker));
-
-            yield break;
         }
     }
 }
