@@ -86,6 +86,7 @@ public sealed class WayOfShadow : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(Darkness)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
+                    .ExcludeCaster()
                     .SetEffectForms()
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness(SpellDarkness))
