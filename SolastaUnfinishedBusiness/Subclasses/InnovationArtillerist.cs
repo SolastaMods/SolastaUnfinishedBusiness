@@ -234,24 +234,21 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create($"Condition{Name}{Flamethrower}Tiny")
             .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
             .SetPossessive()
-            .SetFeatures(actionAffinityFlamethrowerTiny, powerFlamethrower)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetFeatures(actionAffinityFlamethrowerTiny)
             .AddToDB();
 
         var conditionForceBallistaTiny = ConditionDefinitionBuilder
             .Create($"Condition{Name}{ForceBallista}Tiny")
             .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
             .SetPossessive()
-            .SetFeatures(actionAffinityForceBallistaTiny, powerForceBallista)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetFeatures(actionAffinityForceBallistaTiny)
             .AddToDB();
 
         var conditionProtectorTiny = ConditionDefinitionBuilder
             .Create($"Condition{Name}{Protector}Tiny")
             .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
             .SetPossessive()
-            .SetFeatures(actionAffinityProtectorTiny, powerProtector)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetFeatures(actionAffinityProtectorTiny)
             .AddToDB();
 
         // Medium Cannon Actions
@@ -492,7 +489,10 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 powerProtector03,
                 powerTinyFlamethrower03,
                 powerTinyForceBallista03,
-                powerTinyProtector03)
+                powerTinyProtector03,
+                powerFlamethrower,
+                powerForceBallista,
+                powerProtector)
             .AddToDB();
 
         #endregion
