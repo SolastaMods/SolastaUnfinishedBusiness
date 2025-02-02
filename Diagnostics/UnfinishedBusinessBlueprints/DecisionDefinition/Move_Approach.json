@@ -94,7 +94,7 @@
               },
               "name": "IsCloseFromMe"
             },
-            "weight": 0.95
+            "weight": 1.0
           }
         ]
       },
