@@ -38,9 +38,14 @@ internal static class TryAlterOutcomeAttributeCheck
         ActionDefinitions.Id actionId,
         AbilityCheckData abilityCheckData,
         AbilityCheckData opponentAbilityCheckData,
-        string opponentAbilityScoreName = "")
+        string opponentAbilityScoreName = "",
+        bool actorCanUseDexterity = false)
     {
+        var actionModifierActorDexterity = new ActionModifier();
         var actionModifierActorStrength = new ActionModifier();
+        var abilityCheckBonusActorDexterity = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+            AttributeDefinitions.Dexterity, actionModifierActorStrength.AbilityCheckModifierTrends,
+            SkillDefinitions.Acrobatics);
         var abilityCheckBonusActorStrength = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
             AttributeDefinitions.Strength, actionModifierActorStrength.AbilityCheckModifierTrends,
             SkillDefinitions.Athletics);
@@ -52,6 +57,9 @@ internal static class TryAlterOutcomeAttributeCheck
             contextFieldActor |= 64;
         }
 
+        actor.ComputeAbilityCheckActionModifier(
+            AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifierActorDexterity,
+            contextFieldActor);
         actor.ComputeAbilityCheckActionModifier(
             AttributeDefinitions.Strength, SkillDefinitions.Athletics, actionModifierActorStrength, contextFieldActor);
 
@@ -72,8 +80,30 @@ internal static class TryAlterOutcomeAttributeCheck
                 var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
                 var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
 
+                actionModifierActorDexterity.AbilityCheckAdvantageTrends.Add(new TrendInfo(
+                    num, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
                 actionModifierActorStrength.AbilityCheckAdvantageTrends.Add(new TrendInfo(
                     num, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
+            }
+        }
+
+        var actionModifierActor = actionModifierActorStrength;
+        var actorBaseBonus = abilityCheckBonusActorStrength;
+        var actorProficiencyName = SkillDefinitions.Athletics;
+        var actorAbilityScoreName = AttributeDefinitions.Strength;
+
+        if (actorCanUseDexterity)
+        {
+            if (abilityCheckBonusActorDexterity + actionModifierActorDexterity.AbilityCheckModifier +
+                (actionModifierActorDexterity.AbilityCheckAdvantageTrend * 5) >
+                abilityCheckBonusActorStrength +
+                actionModifierActorStrength.AbilityCheckModifier +
+                (actionModifierActorStrength.AbilityCheckAdvantageTrend * 5))
+            {
+                actorAbilityScoreName = AttributeDefinitions.Dexterity;
+                actorProficiencyName = SkillDefinitions.Acrobatics;
+                actionModifierActor = actionModifierActorDexterity;
+                actorBaseBonus = abilityCheckBonusActorDexterity;
             }
         }
 
@@ -136,12 +166,12 @@ internal static class TryAlterOutcomeAttributeCheck
 
         yield return ResolveContestCheck(
             actor.RulesetCharacter,
-            abilityCheckBonusActorStrength,
-            actionModifierActorStrength.AbilityCheckModifier,
-            AttributeDefinitions.Strength,
-            SkillDefinitions.Athletics,
-            actionModifierActorStrength.AbilityCheckAdvantageTrends,
-            actionModifierActorStrength.AbilityCheckModifierTrends,
+            actorBaseBonus,
+            actionModifierActor.AbilityCheckModifier,
+            actorAbilityScoreName,
+            actorProficiencyName,
+            actionModifierActor.AbilityCheckAdvantageTrends,
+            actionModifierActor.AbilityCheckModifierTrends,
             opponent.RulesetCharacter,
             opponentBaseBonus,
             actionModifierOpponent.AbilityCheckModifier,

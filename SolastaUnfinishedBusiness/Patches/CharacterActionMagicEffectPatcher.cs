@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
@@ -1267,7 +1268,8 @@ public static class CharacterActionMagicEffectPatcher
                 new AbilityCheckData { AbilityCheckActionModifier = new ActionModifier(), Action = __instance };
 
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData, opponentAbilityCheckData);
+                actingCharacter, target, ActionDefinitions.Id.Shove, abilityCheckData, opponentAbilityCheckData,
+                actorCanUseDexterity: Tabletop2024Context.CanUseDexterityOnGrappleOrShove(actingCharacter));
 
             __instance.successfulShove =
                 abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;

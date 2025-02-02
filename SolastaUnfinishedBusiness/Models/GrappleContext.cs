@@ -485,7 +485,8 @@ internal static class GrappleContext
                 var opponentAbilityCheckData = new AbilityCheckData();
 
                 yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData, opponentAbilityCheckData);
+                    attacker, defender, ActionDefinitions.Id.NoAction, abilityCheckData, opponentAbilityCheckData,
+                    actorCanUseDexterity: Tabletop2024Context.CanUseDexterityOnGrappleOrShove(attacker));
 
                 success =
                     abilityCheckData.AbilityCheckRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;

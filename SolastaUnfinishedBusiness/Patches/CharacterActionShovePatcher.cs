@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -48,7 +49,8 @@ public static class CharacterActionShovePatcher
  isSameSide || isIncapacitated || CharacterActionShove.ResolveRolls(characterActionShove.ActingCharacter, target, characterActionShove.ActionId);
 #endif
             yield return TryAlterOutcomeAttributeCheck.ResolveRolls(
-                actingCharacter, target, characterActionShove.ActionId, abilityCheckData, opponentAbilityCheckData);
+                actingCharacter, target, characterActionShove.ActionId, abilityCheckData, opponentAbilityCheckData,
+                actorCanUseDexterity: Tabletop2024Context.CanUseDexterityOnGrappleOrShove(actingCharacter));
 
             var success =
                 isSameSide ||
