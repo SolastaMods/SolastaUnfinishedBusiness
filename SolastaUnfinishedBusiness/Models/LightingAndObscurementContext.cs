@@ -431,9 +431,16 @@ internal static class LightingAndObscurementContext
             }
         }
 
+        var senseModes = new List<SenseMode>(sensorCharacter.SenseModes);
+
+        foreach (var modifier in sensorCharacter.GetSubFeaturesByType<IAddAttackerSenseMode>())
+        {
+            senseModes.AddRange(modifier.AddedSenseModes(finalSensor, target?.RulesetCharacter));
+        }
+
         // try to find any sense mode that is valid for the current lighting state and constraints
         // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var senseMode in sensorCharacter.SenseModes
+        foreach (var senseMode in senseModes
                      .Where(x => !senseModesToPrevent.Contains(x.SenseType)))
         {
             if (distance > senseMode.SenseRange)
@@ -753,7 +760,7 @@ internal static class LightingAndObscurementContext
         ProxyStinkingCloud
     ];
 
-    private static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
+    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
         .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)

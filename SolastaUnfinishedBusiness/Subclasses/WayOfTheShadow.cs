@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -7,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
@@ -51,7 +53,7 @@ public sealed class WayOfShadow : AbstractSubclass
             .Create($"Condition{Name}DarknessMoveTracker")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeProxyDarkness())
+            .AddCustomSubFeatures(new CustomBehaviorProxyDarkness())
             .AddToDB();
 
         var conditionDarknessMoveProhibit = ConditionDefinitionBuilder
@@ -233,7 +235,7 @@ public sealed class WayOfShadow : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedByMeProxyDarkness : IActionFinishedByMe
+    private sealed class CustomBehaviorProxyDarkness : IActionFinishedByMe, IAddAttackerSenseMode
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -259,6 +261,29 @@ public sealed class WayOfShadow : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+
+        public List<SenseMode> AddedSenseModes(GameLocationCharacter attacker, RulesetCharacter defender)
+        {
+            var isSelfDarkness = false;
+
+            foreach (var activeCondition in attacker.RulesetCharacter.ConditionsByCategory
+                         .SelectMany(x => x.Value)
+                         .Where(x => x.ConditionDefinition == LightingAndObscurementContext.ConditionBlindedByDarkness))
+            {
+                if (activeCondition.SourceGuid == attacker.Guid)
+                {
+                    isSelfDarkness = true;
+                }
+                else
+                {
+                    isSelfDarkness = false;
+
+                    break;
+                }
+            }
+
+            return isSelfDarkness ? [new SenseMode(SenseMode.Type.Truesight, 6, 0)] : [];
         }
     }
 

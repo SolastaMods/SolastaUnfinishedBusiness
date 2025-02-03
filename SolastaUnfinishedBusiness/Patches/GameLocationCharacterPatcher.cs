@@ -135,7 +135,14 @@ public static class GameLocationCharacterPatcher
             }
             // END PATCH
 
-            foreach (var senseMode in __instance.RulesetCharacter.SenseModes
+            var senseModes = new List<SenseMode>(__instance.RulesetCharacter.SenseModes);
+
+            foreach (var modifier in __instance.RulesetCharacter.GetSubFeaturesByType<IAddAttackerSenseMode>())
+            {
+                senseModes.AddRange(modifier.AddedSenseModes(__instance, source as RulesetCharacter));
+            }
+
+            foreach (var senseMode in senseModes
                          .Where(x => !senseModesToPrevent.Contains(x.SenseType)))
             {
                 if (distance > (double)senseMode.SenseRange)
