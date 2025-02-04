@@ -1,3 +1,10 @@
+1.5.97.46:
+
+- added Domain Order subclass / Primed Shield to vendors
+- fixed Artillerist cannons save DC determination
+- fixed Martial Arts 2024 interaction with grapple, and shove
+- fixed Way of Shadow interaction with its own darkness
+
 1.5.97.45:
 
 - fixed Baleful Scion, and Fighting Initiate feats

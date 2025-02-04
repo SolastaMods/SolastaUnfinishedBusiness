@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -8,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
@@ -53,6 +51,12 @@ public sealed class WayOfShadow : AbstractSubclass
             .Create($"Condition{Name}DarknessMoveTracker")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionSenseBuilder
+                    .Create($"Sense{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSense(SenseMode.Type.Truesight, 6, 6)
+                    .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorProxyDarkness())
             .AddToDB();
 
@@ -235,7 +239,7 @@ public sealed class WayOfShadow : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorProxyDarkness : IActionFinishedByMe, IAddAttackerSenseMode
+    private sealed class CustomBehaviorProxyDarkness : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -263,28 +267,17 @@ public sealed class WayOfShadow : AbstractSubclass
                 0);
         }
 
-        public List<SenseMode> AddedSenseModes(GameLocationCharacter attacker, RulesetCharacter defender)
+#if false
+        public List<SenseMode.Type> PreventedSenseModes(GameLocationCharacter attacker, RulesetCharacter defender)
         {
-            var isSelfDarkness = false;
+            var preventTrueSight = attacker.RulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Any(x => x.ConditionDefinition == LightingAndObscurementContext.ConditionBlindedByDarkness &&
+                          x.SourceGuid != attacker.Guid);
 
-            foreach (var activeCondition in attacker.RulesetCharacter.ConditionsByCategory
-                         .SelectMany(x => x.Value)
-                         .Where(x => x.ConditionDefinition == LightingAndObscurementContext.ConditionBlindedByDarkness))
-            {
-                if (activeCondition.SourceGuid == attacker.Guid)
-                {
-                    isSelfDarkness = true;
-                }
-                else
-                {
-                    isSelfDarkness = false;
-
-                    break;
-                }
-            }
-
-            return isSelfDarkness ? [new SenseMode(SenseMode.Type.Truesight, 6, 0)] : [];
+            return preventTrueSight ? [SenseMode.Type.Truesight] : [];
         }
+#endif
     }
 
     //

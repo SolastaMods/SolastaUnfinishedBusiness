@@ -167,7 +167,7 @@ ModUi/&EnableMonkHandwrapsOnGauntletSlot=Enable <color=#D89555>Handwraps</color>
 ModUi/&EnableMonkHeightenedFocus2024=Enable <color=#D89555>Heightened Focus</color>, and <color=#D89555>Perfect Focus</color> to replace <color=#D89555>Purity of Body</color>, and <color=#D89555>Timeless Body</color> at levels 10 and 15\n<i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional effects at 10th, and Ki points regain at 15th]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovement=Enable <color=#D89555>Improved Unarmored Movement</color> to move along vertical surfaces without falling
 ModUi/&EnableMonkKatanaSpecialization=Grant Katana <color=#D89555>Weapon Specialization</color>
-ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version <i><color=#F0DAA0>[improved unarmed die progression, and no requirements on unarmed strike bonus action]</color></i>
+ModUi/&EnableMonkMartialArts2024=Swap <color=#D89555>Martial Arts</color> with 5e 2024 version\n<i><color=#F0DAA0>[improved unarmed die progression, Dex or Str on Grapple/Shove, and no requirements on unarmed strike bonus action]</color></i>
 ModUi/&EnableMonkSelfRestoration2024=Enable <color=#D89555>Self Restoration</color> at level 10 to replace <color=#D89555>Stillness of Mind</color> at level 7
 ModUi/&EnableMonkStunningStrike2024=Swap <color=#D89555>Stunning Strike</color> with 5e 2024 version <i><color=#F0DAA0>[additional effects when target succeeds on save]</color></i>
 ModUi/&EnableMonkSuperiorDefense2024=Enable <color=#D89555>Superior Defense</color> to replace <color=#D89555>Empty Body</color> at level 18 <i><color=#F0DAA0>[resistance to damage]</color></i>
