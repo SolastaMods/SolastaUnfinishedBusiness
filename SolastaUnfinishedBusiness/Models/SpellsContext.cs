@@ -80,6 +80,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
+    internal static readonly SpellDefinition Command = BuildCommand();
+    internal static readonly SpellDefinition PsychicLance = BuildPsychicLance();
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
     internal static List<SpellDefinition> Spells { get; private set; } = [];
@@ -285,7 +287,7 @@ internal static class SpellsContext
 
         // 1st level
         RegisterSpell(CausticZap, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
-        RegisterSpell(BuildCommand(), 0, SpellListBard, SpellListPaladin, SpellListCleric);
+        RegisterSpell(Command, 0, SpellListBard, SpellListPaladin, SpellListCleric);
         RegisterSpell(BuildChaosBolt(), 0, SpellListSorcerer);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildDissonantWhispers(), 0, SpellListBard);
@@ -364,7 +366,7 @@ internal static class SpellsContext
         RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
         RegisterSpell(BuildIrresistiblePerformance(), 0, SpellListBard);
-        RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(PsychicLance, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsionicBlast(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildSickeningRadiance(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);

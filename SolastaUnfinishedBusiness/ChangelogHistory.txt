@@ -1,7 +1,16 @@
+1.5.97.46:
+
+- added Domain Order subclass / Primed Shield to vendors
+- fixed Artillerist cannons save DC determination
+- fixed Martial Arts 2024 interaction with grapple, and shove
+- fixed Way of Shadow interaction with its own darkness
+
 1.5.97.45:
 
-- fixed Baleful Scion feat once per turn logic
+- fixed Baleful Scion, and Fighting Initiate feats
+- fixed Cleric blessed strikes bleeding behaviors
 - fixed Corrupting Bolt, and Dragon's Breath spells
+- fixed Distant metamagic interaction with blade cantrips
 - fixed Druid wildshape interaction with circles at 3rd
 - fixed narration voices volume slider on mod UI
 

@@ -562,6 +562,12 @@ internal static partial class Tabletop2024Context
         Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
+    internal static bool CanUseDexterityOnGrappleOrShove(GameLocationCharacter actingCharacter)
+    {
+        return Main.Settings.EnableMonkMartialArts2024 &&
+               actingCharacter.RulesetCharacter.GetClassLevel(Monk) > 0;
+    }
+
     private sealed class CustomBehaviorMonkDeflectAttacks
         : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe,
             IModifyEffectDescription, IMagicEffectFinishedByMe

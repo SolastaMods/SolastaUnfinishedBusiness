@@ -148,10 +148,11 @@ internal static class FixesContext
 
     private static void NoTwinnedBladeCantripsOrSpellsWithRetargeting()
     {
-        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
-
         HuntersMark.AddCustomSubFeatures(NoTwinned.Mark);
         Malediction.AddCustomSubFeatures(NoTwinned.Mark);
+
+        MetamagicOptionDefinitions.MetamagicDistantSpell.AddCustomSubFeatures(NoDistanced.Validator);
+        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(NoTwinned.Validator);
     }
 
     private static void FixStaffOfFireToGetFireResistance()
@@ -820,6 +821,24 @@ internal static class FixesContext
         AdditionalActionHasted.GuiPresentation.Title = Haste.GuiPresentation.Title;
         AdditionalActionSurgedMain.GuiPresentation.Title =
             DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+    }
+
+    internal sealed class NoDistanced
+    {
+        public static readonly ValidateMetamagicApplication Validator =
+            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
+                ref string failure) =>
+            {
+                if (!spell.SpellDefinition.HasSubFeatureOfType<NoDistanced>())
+                {
+                    return;
+                }
+
+                result = false;
+                failure = "Failure/&FailureFlagSpellRangeCannotBeSelf";
+            };
+
+        public static NoDistanced Mark { get; } = new();
     }
 
     internal sealed class NoTwinned

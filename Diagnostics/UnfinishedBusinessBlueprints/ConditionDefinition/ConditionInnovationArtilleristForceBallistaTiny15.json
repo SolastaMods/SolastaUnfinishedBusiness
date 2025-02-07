@@ -5,7 +5,6 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:ActionAffinityInnovationArtilleristForceBallistaTiny:ec29c583-1d60-5f90-b33a-84cc7b3148da",
-    "Definition:PowerInnovationArtilleristForceBallista:1c3bfcab-e5d0-5904-ac99-391d24888799",
     "Definition:PowerInnovationArtilleristFortifiedPositionAuraTiny:c865879f-e8e7-59e3-a612-6fa319fe7fb1"
   ],
   "allowMultipleInstances": false,

@@ -51,7 +51,13 @@ public sealed class WayOfShadow : AbstractSubclass
             .Create($"Condition{Name}DarknessMoveTracker")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeProxyDarkness())
+            .SetFeatures(
+                FeatureDefinitionSenseBuilder
+                    .Create($"Sense{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSense(SenseMode.Type.Truesight, 6, 6)
+                    .AddToDB())
+            .AddCustomSubFeatures(new CustomBehaviorProxyDarkness())
             .AddToDB();
 
         var conditionDarknessMoveProhibit = ConditionDefinitionBuilder
@@ -233,7 +239,7 @@ public sealed class WayOfShadow : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedByMeProxyDarkness : IActionFinishedByMe
+    private sealed class CustomBehaviorProxyDarkness : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -260,6 +266,18 @@ public sealed class WayOfShadow : AbstractSubclass
                 0,
                 0);
         }
+
+#if false
+        public List<SenseMode.Type> PreventedSenseModes(GameLocationCharacter attacker, RulesetCharacter defender)
+        {
+            var preventTrueSight = attacker.RulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Any(x => x.ConditionDefinition == LightingAndObscurementContext.ConditionBlindedByDarkness &&
+                          x.SourceGuid != attacker.Guid);
+
+            return preventTrueSight ? [SenseMode.Type.Truesight] : [];
+        }
+#endif
     }
 
     //

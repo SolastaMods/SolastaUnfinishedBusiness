@@ -1,15 +1,16 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Feat",
-  "proficiencies": [
-    "FeatPolearmExpert"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 0,
+  "metamagicType": "QuickenedSpell",
+  "parameterMethod": "None",
+  "parameterValue": 1,
+  "boundFeature": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&MetamagicEmbodimentOfTheLawTitle",
+    "description": "Feature/&MetamagicEmbodimentOfTheLawDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1c75c89c-a39e-5546-8bba-022b6b9b1271",
+  "guid": "97f45b68-ab6f-5431-90fe-b3d71fa561f5",
   "contentPack": 9999,
-  "name": "ProficiencyFeatPolearmExpert"
+  "name": "MetamagicEmbodimentOfTheLaw"
 }

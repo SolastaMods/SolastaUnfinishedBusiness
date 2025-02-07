@@ -3430,6 +3430,9 @@ internal static partial class DatabaseHelper
 
     internal static class MetamagicOptionDefinitions
     {
+        internal static MetamagicOptionDefinition MetamagicDistantSpell { get; } =
+            GetDefinition<MetamagicOptionDefinition>("MetamagicDistantSpell");
+
         internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
 

@@ -1,14 +1,17 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
-  "features": [
-    "Definition:ProficiencyFeatShieldExpert:6fd6a6d7-783e-52d3-8122-7d906ebcb8cd"
-  ],
-  "condition": "RangedWeaponAttack",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "SorceryPoints",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&ShieldExpertTitle",
-    "description": "FightingStyle/&ShieldExpertDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "51d8b57b-ad17-5f32-a593-2a5a72bd584f",
+  "guid": "8fbcf8f5-ecee-5cc8-a8ad-f0e887522ecb",
   "contentPack": 9999,
-  "name": "ShieldExpert"
+  "name": "AttributeModifierDomainOrderSorceryPointsMinimum"
 }

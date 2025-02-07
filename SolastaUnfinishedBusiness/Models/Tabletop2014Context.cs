@@ -338,7 +338,11 @@ internal static class Tabletop2014Context
     {
         public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
         {
-            return Main.Settings.BlindedConditionDontAllowAttackOfOpportunity && !attacker.CanSenseTarget(defender);
+            var locationAttacker = GameLocationCharacter.GetFromActor(attacker);
+            var locationDefender = GameLocationCharacter.GetFromActor(defender);
+
+            return Main.Settings.BlindedConditionDontAllowAttackOfOpportunity &&
+                   !locationAttacker.CanPerceiveTarget(locationDefender);
         }
     }
 

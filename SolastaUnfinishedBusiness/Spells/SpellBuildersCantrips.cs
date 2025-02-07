@@ -696,7 +696,10 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
+            .AddCustomSubFeatures(
+                FixesContext.NoDistanced.Mark,
+                FixesContext.NoTwinned.Mark,
+                AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();
 
         return spell;
@@ -962,7 +965,10 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddCustomSubFeatures(FixesContext.NoTwinned.Mark, AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
+            .AddCustomSubFeatures(
+                FixesContext.NoDistanced.Mark,
+                FixesContext.NoTwinned.Mark,
+                AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();
 
         // need to use same spell reference so power texts update properly on AllowBladeCantripsToUseReach setting
@@ -1077,6 +1083,7 @@ internal static partial class SpellBuilders
                 // order matters here as CustomBehaviorResonatingStrike.IFilterTargetingCharacter
                 // should trigger before AttackAfterMagicEffect.IFilterTargetingCharacter
                 new CustomBehaviorResonatingStrike(),
+                FixesContext.NoDistanced.Mark,
                 FixesContext.NoTwinned.Mark,
                 AttackAfterMagicEffect.MarkerMeleeWeaponAttack)
             .AddToDB();

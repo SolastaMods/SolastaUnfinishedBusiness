@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityInnovationArtilleristProtectorTiny:dac0c604-e77a-53f1-99b5-00bdef6e8984",
-    "Definition:PowerInnovationArtilleristProtector:9612e15b-7358-5f6f-9593-491445548138"
+    "Definition:ActionAffinityInnovationArtilleristProtectorTiny:dac0c604-e77a-53f1-99b5-00bdef6e8984"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

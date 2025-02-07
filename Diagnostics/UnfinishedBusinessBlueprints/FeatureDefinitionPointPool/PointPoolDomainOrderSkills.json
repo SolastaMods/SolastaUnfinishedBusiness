@@ -1,14 +1,22 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
-  "features": [
-    "Definition:ProficiencyFeatPolearmExpert:1c75c89c-a39e-5546-8bba-022b6b9b1271"
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Skill",
+  "poolAmount": 1,
+  "restrictedChoices": [
+    "Intimidation",
+    "Persuasion"
   ],
-  "condition": "RangedWeaponAttack",
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&PolearmExpertTitle",
-    "description": "FightingStyle/&PolearmExpertDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f595a71b-7902-5950-87d4-86abd4b656e9",
+  "guid": "81ed9675-7b42-5132-9461-26cd93962c6a",
   "contentPack": 9999,
-  "name": "PolearmExpert"
+  "name": "PointPoolDomainOrderSkills"
 }

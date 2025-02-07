@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "BalefulScion",
-  "limitedUsage": "None",
+  "notificationTag": "DomainOrderOrdersWrath",
+  "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "AlwaysActive",
+  "triggerCondition": "TargetHasCondition",
   "requiredProperty": "None",
   "attackModeOnly": false,
-  "attackOnly": false,
-  "requiredTargetCondition": null,
+  "attackOnly": true,
+  "requiredTargetCondition": "Definition:ConditionCursedByOrdersWrath:c8d2168d-bdcc-5f8e-9be9-236f6a1c784d",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -17,10 +17,10 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D6",
-  "damageDiceNumber": 1,
+  "damageDieType": "D8",
+  "damageDiceNumber": 2,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageNecrotic",
+  "specificDamageType": "DamagePsychic",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [],
@@ -33,15 +33,21 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Remove",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionCursedByOrdersWrath:c8d2168d-bdcc-5f8e-9be9-236f6a1c784d",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "5a9933a2c5cf40a4f9d2cc6906a0b9f6",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
@@ -74,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3d0e1aa3-2e86-59ea-a2fa-866313231851",
+  "guid": "71285442-edc3-5d59-ae84-155d2221e5ef",
   "contentPack": 9999,
-  "name": "AdditionalDamageFeatBalefulScion"
+  "name": "AdditionalDamageDomainOrderOrdersWrath"
 }

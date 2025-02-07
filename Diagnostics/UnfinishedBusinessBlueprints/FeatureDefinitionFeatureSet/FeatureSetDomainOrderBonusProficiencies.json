@@ -1,9 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerWeaponMasteryRelearnPool:99086dd1-09e2-50f1-9cb0-bbe127240aa8",
-    "Definition:InvocationPoolFeatWeaponMasteryLearn1:d73e2ebf-f3bd-52e2-8c0e-0291a1edee14",
-    "Definition:PowerWeaponMasteryRelearn:bd625c07-d389-5761-8284-77e656f67f65"
+    "Definition:BonusProficiencyDomainOrder:6aa63a2d-ec8a-59f2-9a68-461af91fd09f",
+    "Definition:PointPoolDomainOrderSkills:81ed9675-7b42-5132-9461-26cd93962c6a"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -15,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolWeaponMasteryLearnTitle",
-    "description": "Feature/&InvocationPoolWeaponMasteryLearnDescription",
+    "title": "Feature/&FeatureSetDomainOrderBonusProficienciesTitle",
+    "description": "Feature/&FeatureSetDomainOrderBonusProficienciesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cf0a5651-6b9d-5096-b338-a63aa5998168",
+  "guid": "1da4f404-778c-54ef-8fae-e7e4b80c7003",
   "contentPack": 9999,
-  "name": "FeatureSetFeatWeaponMasteryLearn1"
+  "name": "FeatureSetDomainOrderBonusProficiencies"
 }

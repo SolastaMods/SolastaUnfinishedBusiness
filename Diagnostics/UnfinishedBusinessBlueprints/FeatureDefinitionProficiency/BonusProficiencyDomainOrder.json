@@ -1,14 +1,15 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
-  "features": [
-    "Definition:ProficiencyFeatRopeItUp:a85c3f98-b265-5c63-b11f-0e2299e0935c"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "HeavyArmorCategory"
   ],
-  "condition": "RangedWeaponAttack",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&RopeItUpTitle",
-    "description": "FightingStyle/&RopeItUpDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ee8beac-d159-5b23-87d0-77a989d37ce6",
+  "guid": "6aa63a2d-ec8a-59f2-9a68-461af91fd09f",
   "contentPack": 9999,
-  "name": "RopeItUp"
+  "name": "BonusProficiencyDomainOrder"
 }
