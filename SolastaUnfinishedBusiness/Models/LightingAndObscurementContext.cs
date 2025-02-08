@@ -300,7 +300,8 @@ internal static class LightingAndObscurementContext
             if (attackerActor is RulesetCharacter attackerCharacter)
             {
                 var senseModeTrueSightAttacker =
-                    attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == Type.Truesight);
+                    attackerCharacter.SenseModes.FirstOrDefault(x =>
+                        x.SenseType is Type.Truesight or WayOfShadow.SenseModeDarkness);
 
                 if (senseModeTrueSightAttacker != null &&
                     attacker.IsWithinRange(defender, senseModeTrueSightAttacker.SenseRange))
@@ -313,7 +314,8 @@ internal static class LightingAndObscurementContext
             if (defenderActor is RulesetCharacter defenderCharacter)
             {
                 var senseModeTrueSightDefender =
-                    defenderCharacter.SenseModes.FirstOrDefault(x => x.SenseType == Type.Truesight);
+                    defenderCharacter.SenseModes.FirstOrDefault(x =>
+                        x.SenseType is Type.Truesight or WayOfShadow.SenseModeDarkness);
 
                 if (senseModeTrueSightDefender != null &&
                     defender.IsWithinRange(attacker, senseModeTrueSightDefender.SenseRange))
@@ -753,7 +755,7 @@ internal static class LightingAndObscurementContext
         ProxyStinkingCloud
     ];
 
-    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
         .SetGuiPresentation(Gui.Format(BlindTitle, Darkness.FormatTitle()), BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
