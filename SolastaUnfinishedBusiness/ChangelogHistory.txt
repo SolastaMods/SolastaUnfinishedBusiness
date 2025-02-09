@@ -1,6 +1,7 @@
 1.5.97.46:
 
 - added Domain Order subclass / Primed Shield to vendors
+- fixed Artificer magical tinkering to only grant one cantrip
 - fixed Artillerist cannons save DC determination
 - fixed Domain Nature strikes triggering with spells
 - fixed Martial Arts 2024 interaction with grapple, and shove
