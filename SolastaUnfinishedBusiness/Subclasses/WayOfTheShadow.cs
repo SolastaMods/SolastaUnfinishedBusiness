@@ -25,6 +25,8 @@ public sealed class WayOfShadow : AbstractSubclass
 {
     private const string Name = "WayOfTheShadow";
 
+    internal const string SpellDarknessName = $"Spell{Name}Darkness";
+
     internal const string ConditionCloakOfShadowsName = $"Condition{Name}CloakOfShadows";
 
     private const string ConditionDarknessMoveProhibit = $"Condition{Name}DarknessMoveProhibit";
@@ -40,7 +42,7 @@ public sealed class WayOfShadow : AbstractSubclass
         .AddToDB();
 
     internal static readonly SpellDefinition SpellDarkness = SpellDefinitionBuilder
-        .Create(Darkness, $"Spell{Name}Darkness")
+        .Create(Darkness, SpellDarknessName)
         .SetMaterialComponent(MaterialComponentType.None)
         .AddToDB();
 
