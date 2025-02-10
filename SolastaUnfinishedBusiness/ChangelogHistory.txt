@@ -4,6 +4,7 @@
 - fixed Artificer magical tinkering to only grant one cantrip
 - fixed Artillerist cannons save DC determination
 - fixed Domain Nature strikes triggering with spells
+- fixed Lighting and Obscurement rules against huge targets
 - fixed Martial Arts 2024 interaction with grapple, and shove
 - fixed Way of Shadow interaction with its own darkness
 

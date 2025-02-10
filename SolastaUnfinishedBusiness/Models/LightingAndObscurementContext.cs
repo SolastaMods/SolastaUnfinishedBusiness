@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
@@ -424,8 +425,9 @@ internal static class LightingAndObscurementContext
         }
 
         // determine constraints
+        var finalCellPosition = target != null ? DistanceCalculation.GetPositionCenter(target) : cellPosition;
         // must use vanilla distance calculation here
-        var distance = int3.Distance(finalSensor.LocationPosition, cellPosition);
+        var distance = int3.Distance(finalSensor.LocationPosition, finalCellPosition);
         var sensorCharacter = finalSensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);
