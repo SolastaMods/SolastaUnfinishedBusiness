@@ -95,7 +95,7 @@ internal static class DistanceCalculation
         return closestCharacter1Position;
     }
 
-    private static int3 GetPositionCenter(GameLocationCharacter gameLocationCharacter)
+    internal static int3 GetPositionCenter(GameLocationCharacter gameLocationCharacter)
     {
         return new int3((int)gameLocationCharacter.LocationBattleBoundingBox.Center.x,
             (int)gameLocationCharacter.LocationBattleBoundingBox.Center.y,

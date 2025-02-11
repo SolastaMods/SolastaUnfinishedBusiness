@@ -465,20 +465,8 @@ public sealed class DomainNature : AbstractSubclass
     }
 
     private sealed class CustomBehaviorNatureStrikes(FeatureDefinitionPower powerNatureStrikes)
-        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget, bool criticalHit)
-        {
-            yield return HandleReaction(attacker, battleManager);
-        }
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -491,14 +479,11 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (ValidatorsWeapon.IsMelee(attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode))
             {
-                yield return HandleReaction(attacker, battleManager);
+                yield break;
             }
-        }
 
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationBattleManager battleManager)
-        {
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.IsToggleEnabled((Id)ExtraActionId.NatureStrikesToggle) ||

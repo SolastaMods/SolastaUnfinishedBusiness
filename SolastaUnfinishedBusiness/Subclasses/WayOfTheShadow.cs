@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static ActionDefinitions;
 using static RuleDefinitions;
+using static SenseMode;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -24,9 +25,13 @@ public sealed class WayOfShadow : AbstractSubclass
 {
     private const string Name = "WayOfTheShadow";
 
+    internal const string SpellDarknessName = $"Spell{Name}Darkness";
+
     internal const string ConditionCloakOfShadowsName = $"Condition{Name}CloakOfShadows";
 
     private const string ConditionDarknessMoveProhibit = $"Condition{Name}DarknessMoveProhibit";
+
+    internal const Type SenseModeDarkness = (Type)128;
 
     internal static readonly EffectProxyDefinition EffectProxyDarkness = EffectProxyDefinitionBuilder
         .Create(EffectProxyDefinitions.ProxyDarkness, $"Proxy{Name}Darkness")
@@ -37,7 +42,7 @@ public sealed class WayOfShadow : AbstractSubclass
         .AddToDB();
 
     internal static readonly SpellDefinition SpellDarkness = SpellDefinitionBuilder
-        .Create(Darkness, $"Spell{Name}Darkness")
+        .Create(Darkness, SpellDarknessName)
         .SetMaterialComponent(MaterialComponentType.None)
         .AddToDB();
 
@@ -55,7 +60,7 @@ public sealed class WayOfShadow : AbstractSubclass
                 FeatureDefinitionSenseBuilder
                     .Create($"Sense{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetSense(SenseMode.Type.Truesight, 6, 6)
+                    .SetSense(SenseModeDarkness, 6, 6)
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorProxyDarkness())
             .AddToDB();

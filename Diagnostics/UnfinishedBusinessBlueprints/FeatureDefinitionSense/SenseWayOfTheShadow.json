@@ -1,13 +1,14 @@
 {
-  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
-  "bonusCantrips": [
-    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c"
-  ],
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": 128,
+  "senseRange": 6,
+  "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&BonusCantripsInventorMagicalTinkeringTitle",
-    "description": "Feature/&BonusCantripsInventorMagicalTinkeringDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3f966b30-e932-5b50-85b6-aeece2a07cb2",
+  "guid": "559cd3f5-effb-5891-80f2-c132c1e63551",
   "contentPack": 9999,
-  "name": "BonusCantripsInventorMagicalTinkering"
+  "name": "SenseWayOfTheShadow"
 }

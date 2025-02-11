@@ -602,11 +602,7 @@ internal static class InventorClass
         return FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripsInventorMagicalTinkering")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(
-                SpellDefinitions.Dazzle,
-                SpellDefinitions.Light,
-                SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle)
+            .SetBonusCantrips(SpellDefinitions.Light)
             .AddToDB();
     }
 

@@ -697,6 +697,8 @@ internal static class ToolsDisplay
             Tabletop2024Context.SwitchMonkMartialArts();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableMonkStunningStrike2024;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkStunningStrike2024"), ref toggle, UI.AutoWidth()))
         {
