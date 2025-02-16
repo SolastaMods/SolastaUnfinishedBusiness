@@ -443,10 +443,12 @@ internal static class InventorClass
             .SetProficiencies(ProficiencyType.ToolOrExpertise,
                 // don't use ToolDefinitions.ArtisanToolType as that constant has an incorrect name
                 "ArtisanToolSmithToolsType",
+                ToolTypeDefinitions.AbyssalAgitatorToolType.Name,
                 ToolTypeDefinitions.EnchantingToolType.Name,
                 ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name,
-                ToolTypeDefinitions.ScrollKitType.Name)
+                ToolTypeDefinitions.ScrollKitType.Name,
+                ToolTypeDefinitions.ThievesToolsType.Name)
             .AddToDB();
     }
 
