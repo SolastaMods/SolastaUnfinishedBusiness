@@ -289,7 +289,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             return Main.Settings.AllowAlliesToPerceiveRangerGloomStalkerInNaturalDarkness &&
                    attacker.Side == defender.Side
                 ? []
-                : [SenseMode.Type.Darkvision];
+                : [SenseMode.Type.Darkvision, SenseMode.Type.SuperiorDarkvision];
         }
     }
 
