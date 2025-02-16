@@ -4262,6 +4262,8 @@ internal static partial class DatabaseHelper
 
     internal static class ToolTypeDefinitions
     {
+        internal static ToolTypeDefinition AbyssalAgitatorToolType { get; } =
+            GetDefinition<ToolTypeDefinition>("AbyssalAgitatorToolType");
         internal static ToolTypeDefinition ArtisanToolSmithToolsType { get; } =
             GetDefinition<ToolTypeDefinition>("ArtisanToolSmithToolsType");
 
