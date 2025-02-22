@@ -318,7 +318,7 @@ internal static class MeleeCombatFeats
     {
         const string Name = "FeatLongswordFinesse";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType, CustomWeaponsContext.KatanaWeaponType);
 
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ArmorClass")
@@ -954,7 +954,11 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatBladeMastery";
 
-        var weaponTypes = new[] { DaggerType, ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
+        var weaponTypes = new[]
+        {
+            DaggerType, ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType,
+            CustomWeaponsContext.KatanaWeaponType
+        };
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)
