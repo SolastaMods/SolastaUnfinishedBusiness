@@ -1,12 +1,13 @@
 1.5.97.46:
 
-- added Domain Order subclass / Primed Shield to vendors
+- added Domain Order subclass
+- added Katana to Blade Mastery, and Longsword Finesse
+- added Primed Shield to vendors
 - fixed Artificer magical tinkering to only grant one cantrip
 - fixed Artillerist cannons save DC determination
 - fixed Domain Nature strikes triggering with spells
 - fixed Lighting and Obscurement rules against huge targets
 - fixed Martial Arts 2024 interaction with grapple, and shove
-- fixed Way of Shadow interaction with its own darkness
 
 1.5.97.45:
 
