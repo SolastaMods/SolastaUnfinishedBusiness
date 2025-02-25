@@ -233,13 +233,16 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         var canWeaponBeEmpowered = CanWeaponBeEnchanted(mode, item, character);
 
-        // give one last chance if a pact blade wielding a two handed
         if (!canWeaponBeEmpowered)
         {
+            //if weapon is 2h ranged and has improved pact weapon
+            //if weapon is 2h melee and has pact of the blade
             canWeaponBeEmpowered =
-                ValidatorsWeapon.IsTwoHanded(mode) &&
+                (ValidatorsWeapon.IsTwoHandedRanged(mode) &&
+                 hero.TrainedInvocations.Any(p => p == Builders.InvocationsBuilders.ImprovedPactWeapon)) ||
+                (ValidatorsWeapon.IsTwoHanded(mode) &&
                 (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)) ||
-                 hero.HasActiveInvocation(Tabletop2024Context.InvocationPactBlade));
+                 hero.HasActiveInvocation(Tabletop2024Context.InvocationPactBlade)));
         }
 
         return canWeaponBeEmpowered;

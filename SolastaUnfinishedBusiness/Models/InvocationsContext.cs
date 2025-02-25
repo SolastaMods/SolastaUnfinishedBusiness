@@ -45,7 +45,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildGiftOfTheProtectors());
         LoadInvocation(GraspingBlast);
         LoadInvocation(BuildHinderingBlast());
-        LoadInvocation(BuildImprovedPactWeapon());
+        LoadInvocation(ImprovedPactWeapon);
         LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildPerniciousCloak());
