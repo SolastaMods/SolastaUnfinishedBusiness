@@ -36,10 +36,11 @@ internal static partial class Tabletop2024Context
         .SetGrantedFeature(FeatureSetPactBlade)
         .AddCustomSubFeatures(
             new CanUseAttribute(
-                CanUseAttribute.SpellCastingAbilityTag, (mode, _, _) =>
+                CanUseAttribute.SpellCastingAbilityTag, (mode, _, character) =>
                     mode.ActionType != ActionDefinitions.ActionType.Bonus &&
-                    ValidatorsWeapon.IsMelee(mode) &&
-                    !ValidatorsWeapon.IsTwoHanded(mode)))
+                    ValidatorsWeapon.IsMelee(mode) ||
+                    (ValidatorsWeapon.IsTwoHandedRanged(mode) &&
+                     character.HasActiveInvocation(InvocationsBuilders.ImprovedPactWeapon))))
         .AddToDB();
 
     private static readonly InvocationDefinition InvocationPactChain = InvocationDefinitionBuilder

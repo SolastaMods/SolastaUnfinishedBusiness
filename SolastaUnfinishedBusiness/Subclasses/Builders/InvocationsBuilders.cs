@@ -32,6 +32,7 @@ internal static class InvocationsBuilders
     internal const string EldritchSmiteTag = "EldritchSmite";
 
     private static InvocationDefinition _graspingBlast;
+    private static InvocationDefinition _improvedPactWeapon;
 
     internal static readonly InvocationDefinition EldritchMind = InvocationDefinitionBuilder
         .Create("InvocationEldritchMind")
@@ -45,6 +46,8 @@ internal static class InvocationsBuilders
         .AddToDB();
 
     internal static InvocationDefinition GraspingBlast => _graspingBlast ??= BuildGraspingBlast();
+
+    internal static InvocationDefinition ImprovedPactWeapon => _improvedPactWeapon ??= BuildImprovedPactWeapon();
 
     internal static InvocationDefinition BuildEldritchSmite()
     {
