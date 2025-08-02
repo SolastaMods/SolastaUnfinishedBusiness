@@ -1,3 +1,140 @@
+1.5.97.70:
+- fixed multiplayer crash related to powers with sub-powers
+
+1.5.97.69:
+- re-fixed crash in cases when enemy with multi-attack loses ability to attack between chained attacks
+
+1.5.97.68:
+- fixed crash in cases when enemy with multi-attack loses ability to attack between chained attacks
+
+1.5.97.67:
+- Flexible Backgrounds: generate suggested skills description instead of relying on manually defined texts
+- tweaked skills for Militia background
+- tweaked how some of the weapon masteries are reported
+
+1.5.97.66:
+- fixed perception of large and bigger creatures when Light and Obscurement rules are enabled
+- merged PR from Hierot with tweaks for Eldritch Versatilities
+
+1.5.97.65:
+- removed `Deadly` weapon mastery as it was severely bugged
+- removed `alternative weapon masteries` setting
+- added ability to customize weapon masteries
+- fixed feature unlock sorting for classes with enabled weapon mastery choices
+- fixed known Arcane Shots not shown when `Enable extended proficiencies panel display` is turned on
+- show known Weapon Mastery when `Enable extended proficiencies panel display` is turned on
+- ModUI: generate list of stuff enabled by `Enable extended proficiencies panel display` dynamically
+
+1.5.97.64:
+- added `Show Logs` button to `Mod Error Warning` popup
+- show full path to Player.log file in `Mod Error Warning` popup
+- fixed `Starry Form` from `Circle of Stars` not restoring 1 charge on short rest when 2024 Wild Shape changes are enabled
+- fixed Cast Bonus Spell button that shows no spells present if non-caster selects Fey Teleportation feat 
+
+1.5.97.63:
+- fixed crash with 'Apply throwing penalties to range for lack of strength' setting enabled if creature had no main attack available
+- fixed Circle of Stars Starry Form having wrong amount of charges with 2024 Wild Shape changes
+- fixed 2024 Druid's Primal Strike triggers:
+  - no longer trigger on magic effects
+  - triggers on all attacks except non-beast unarmed
+- reworked Archer form from `Circle of Stars` to use custom actions instead of powers
+- fixed custom actions that use powers not showing proper targeting cursor
+- added option to show weapon type in tooltip (Game Settings -> GUI, enabled by default)
+- added DC to tooltips of poisons and poisoned ammunition
+- Mod UI: added folding to general item settings
+- added option to change weapon type of legendary weapons from Palace of Ice (ModUI -> Gameplay -> Crafting and Items)
+
+1.5.97.62:
+- fixed Way of Storm's `Tempest Fury` AoE attack using wrong attack mode
+- fixed crash when using Scroll of Wither and Bloom
+- fixed formatting of UB scroll usage in the game log
+- show tooltip for used item and resulting spell in game log
+
+1.5.97.61:
+- added option to show spell icon with spell tooltip on that scrolls (Game Settings->GUI, enabled by default)
+- added option to add scrolls for all UB spells to appropriate shops (ModUI->General->Items&Crafting and also ModUI->Character->Spells) 
+- added option to add scrolls for all UB spells to appropriate treasure packs (ModUI->General->Items&Crafting and also ModUI->Character->Spells)
+- fixed Martial Spellblade not having access to Enchantment spells 
+
+1.5.97.60:
+- preview push from Tempest Domain's Thunderous Strike if motion preview is enabled
+- Grappling: do not allow to grapple immune creatures - prevents Grappling status from being stuck on the grappler
+
+1.5.97.59:
+- merged PR from BShennette: `Change cast time from Action -> Bonus Action as per TT version of the "Guardian of Nature" spell.`
+- merged updated Russian localization from Kranay
+
+1.5.97.58:
+- added space to comma list separator for better look
+- slightly improved check for target size for push mastery
+- preview push from weapon mastery if motion preview is enabled
+- with motion preview on show line down to where creature will fall after push/pull creature
+- tweaked how Aasimar's `Angelic Flight` condition is reported for better looking log
+- reworked `Burst of Radiance` cantrip to be AoE in stead of 8 targets
+- several improvements to Spell Points optional rule:
+ - Arcane Surge now works with it - gives 2 points per spell slot recovered
+ - properly report Spell points recovery on rest
+- fixed crash if character with replace attack by cantrip has no attack modes
+- fixed improper copying of usable device description in item builder 
+- hide Deadeye toggle if no appropriate weapon is equipped
+- reworked 2024 poison and potion used as Bonus Action:
+ - when right-clicking in inventory it shows separate buttons for Main and Bonus action use
+ - properly consumes Main action if Main action option is chosen
+- Mod UI: added ability to search items by name
+- fixed interaction between Darkness and Daylight and Windwall and clouds
+- lighting, obscurement, and vision rules toggle: fixed Darkvision and Superior Darkvision being ignored for regular darkness and made Truesight allow seeing through invisibility
+
+1.5.97.57:
+- improvements to auto-update
+
+1.5.97.56:
+- work in progress on GitHub actions build 
+
+1.5.97.55:
+- added feedback tooltip for shot in the dark
+- fixed nasty bug with "chance to perceive at close range" option
+
+1.5.97.54:
+- added optional jump check fail 1d4 damage. 
+- added optional disadvantaged jump check roll for wearing armor
+- removed the armor wearing jump distance modification (bad idea)
+
+1.5.97.53:
+- moved roleplay options in to its own display
+- updated the version control updater to point to the new repository
+
+1.5.97.52:
+- added option to modify jumping rules for encumberance and armor category
+- added option to modify throwing rules for range vs strength
+
+1.5.97.51:
+- added Deadly weapon mastery (From Pathfinder)
+- updated Longbow and LongMace types with deadly for alternate weapon mastery properties
+- added option for critical hits and misses to happen when attack result is 10 under or over the AC
+- fixed the cleave on ranged weapons to have a maximum effectiveness of 16
+
+1.5.97.50:
+- fixed bad bug with shot in the dark
+
+1.5.97.49:
+- changed Shine to be effective (DC 15 fixed save)
+- added Sorr-Akkath to have darkvision 
+- added a chance to perceive characters that are < 11 distance
+- added ranged and throw for non-perceived targets to be literally a shot in the dark, especially > 10 distance
+- added zipping the mod on realease install build.
+- fixed monsters to have the right vision when it comes to UB light and obscurement rules
+
+1.5.97.46:
+
+- added Domain Order subclass
+- added Katana to Blade Mastery, and Longsword Finesse
+- added Primed Shield to vendors
+- fixed Artificer magical tinkering to only grant one cantrip
+- fixed Artillerist cannons save DC determination
+- fixed Domain Nature strikes triggering with spells
+- fixed Lighting and Obscurement rules against huge targets
+- fixed Martial Arts 2024 interaction with grapple, and shove
+
 1.5.97.45:
 
 - fixed Baleful Scion, and Fighting Initiate feats
