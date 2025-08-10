@@ -1,3 +1,21 @@
+1.5.97.74:
+- fixed Sanctuary rolling saving throw for each projectile in a spell, not once per target per spell
+- updated description of Sanctuary to better reflect recent changes
+- fixed Seeking Spell metamagic triggering for missed attacks
+- fixed Command: Grovel and Command: Approach not properly ending target's turn
+
+1.5.97.73:
+- fixed crash when using some custom spell scrolls (like Sanctuary)
+- reworked how Sanctuary works - now it aborts attack action or makes target immune to magic effect in case of failed throw
+
+1.5.97.72:
+- fixed and improved mod update
+
+1.5.97.71:
+- fixed Moon Druid's primal Strike not working on unarmed beast attacks
+- fixed potential crash related to `Lighting and Obscurement` rules and effect proxies like Flaming Sphere
+- reworked Topple mastery to try and fix enemies continuing movement after being toppled
+
 1.5.97.70:
 - fixed multiplayer crash related to powers with sub-powers
 
